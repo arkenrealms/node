@@ -1,3 +1,4 @@
+import crypto from 'crypto'
 import { exec } from 'child_process'
 import jetpack from 'fs-jetpack'
 import * as ethers from 'ethers'
@@ -165,6 +166,55 @@ export function binaryAgent(str) {
   }
 
   return output
+}
+
+export function decodePayload(msg) {
+  // @ts-ignore
+  let json = binaryAgent(msg) //String.fromCharCode.apply(null, new Uint8Array(msg));
+
+  try {
+    // explicitly decode the String as UTF-8 for Unicode
+    //   https://github.com/mathiasbynens/utf8.js
+    // json = utf8.decode(json)
+    // const buffer = Buffer.from(json, "binary");
+    const data = JSON.parse(json)
+
+    return data
+  }
+  catch (err) {
+    // ...
+    console.log(err)
+  }
+}
+
+export function isNumeric(str) {
+  if (typeof str != "string") return false // we only process strings!  
+  // @ts-ignore
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
+export function sha256(str) {
+  return crypto.createHash("sha256").update(str, "utf8").digest("base64")
+}
+
+export function randomPosition(min, max) {
+  return Math.random() * (max - min) + min
+}
+
+export function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array
+}
+
+export const getAddress = (address) => {
+  const mainNetChainId = 56
+  const chainId = process.env.CHAIN_ID
+  return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 
 export function random(min, max) {
