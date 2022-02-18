@@ -1,9 +1,13 @@
 import { itemData, ItemAttributes, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
 
-const average = (arr) => arr.reduce((p, c) => p + c, 0) / arr.length
+const average = (arr: any) => arr.reduce((p: any, c: any) => p + c, 0) / arr.length
 
-export function decodeItem(tokenId) {
+export function decodeItem(tokenId: any) {
+  return normalizeItem(getItemFromTokenId(tokenId))
+}
+
+export function getItemFromTokenId(tokenId: any) {
   const defaultItem = {
     tokenId,
     details: {},
@@ -74,20 +78,32 @@ export function decodeItem(tokenId) {
       }
     }
 
-    const item = {
+    const item: any = {
       ...defaultItem,
       id,
-      ...(itemData[ItemsMainCategoriesType.OTHER] as any).find((i) => i.id === id), // TODO: fix
+      ...JSON.parse(JSON.stringify(itemData[ItemsMainCategoriesType.OTHER].find((i: any) => i.id === id))),
       type,
       version,
       mods,
+      tokenId,
       shortTokenId: `${tokenId.slice(0, 23)}...${tokenId.slice(-3)}`,
     }
 
+    return item
+  } catch (e) {
+    // console.log('Token is invalid', tokenId)
+    console.log(e)
+  }
+
+  return defaultItem
+}
+
+export function normalizeItem(item: any) {
+  try {
     const branch = item.branches[1]
     const branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : {}
 
-    const actionMetadata = {
+    const actionMetadata: any = {
       harvestYield: 0,
       pending: 0,
       bonus: 0,
@@ -96,7 +112,6 @@ export function decodeItem(tokenId) {
       chanceToLoseHarvest: 0,
       guildId: null,
       characterId: null,
-      tokenId: null,
       itemIndex: 0,
       itemLength: 0,
       modIndex: 0,
@@ -140,6 +155,10 @@ export function decodeItem(tokenId) {
       item.mods[0].attributeId = ItemAttributes.HarvestYield.id
       item.mods[1].attributeId = ItemAttributes.HarvestBurn.id
       item.mods[2].attributeId = ItemAttributes.FindShard.id
+      delete item.mods[3]
+      delete item.mods[4]
+      delete item.mods[5]
+      delete item.mods[6]
 
       if (item.mods[2].value === 0) item.mods[2].value = 100
     } else if (item.id === 4) {
@@ -252,6 +271,7 @@ export function decodeItem(tokenId) {
         }
       } else if (mod.attributeId === ItemAttributes.Rarity.id) {
         item.rarity = ItemRarity[ItemRarityNameById[mod.value]]
+
         item.attributes[i] = {
           ...(item.attributes[i] || {}),
           ...ItemAttributesById[mod.attributeId],
@@ -316,22 +336,22 @@ export function decodeItem(tokenId) {
         item.shorthand = []
 
         for (let i = 0; i < perfection.length; i++) {
-          if (perfection[i] === undefined || perfection[i] === null || !item.attributes[i] || !branch.attributes[i]) {
+          if (perfection[i] === undefined || perfection[i] === null || !item.attributes[i]) {
             perfection[i] = undefined
             continue
           }
 
           perfection[i] =
-            perfection[i] === branch.attributes[i].max
-              ? perfection[i] - branch.attributes[i].min === 0
+            perfection[i] === item.attributes[i].max
+              ? perfection[i] - item.attributes[i].min === 0
                 ? 1
-                : (item.attributes[i].value - branch.attributes[i].min) / (perfection[i] - branch.attributes[i].min)
-              : branch.attributes[i].max - perfection[i] === 0
+                : (item.attributes[i].value - item.attributes[i].min) / (perfection[i] - item.attributes[i].min)
+              : item.attributes[i].max - perfection[i] === 0
               ? 1
-              : 1 - (item.attributes[i].value - perfection[i]) / (branch.attributes[i].max - perfection[i])
+              : 1 - (item.attributes[i].value - perfection[i]) / (item.attributes[i].max - perfection[i])
 
           item.shorthand.push(
-            branch.attributes[i].map ? branch.attributes[i].map[item.attributes[i].value] : item.attributes[i].value,
+            (item.attributes[i].map ? item.attributes[i].map[item.attributes[i].value] : item.attributes[i].value) + '',
           )
         }
 
@@ -343,7 +363,7 @@ export function decodeItem(tokenId) {
         //   console.log(perfection, branch.attributes[0].max, perfection[0], 1)
         // }
 
-        if (Number.isFinite(item.perfection)) {
+        if (Number.isFinite(item.perfection) && item.perfection <= 1) {
           item.perfection = parseFloat((Math.floor(item.perfection * 100) / 100).toFixed(2))
         } else {
           item.perfection = null
@@ -352,10 +372,6 @@ export function decodeItem(tokenId) {
         item.perfection = null
       }
     }
-
-    if (tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875') item.perfection = -13
-    if (tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
-      item.branches[1].description[1] = '"So long, I barely knew thee."'
 
     // item.meta = {
     //   harvestYield: 0,
@@ -366,28 +382,124 @@ export function decodeItem(tokenId) {
     //   chanceToLoseHarvest: 0,
     //   harvestBurn: 0,
     // }a
-    if (!item.rarity) {
-      if (item.attributes.find((a) => a.id === 40)?.value) {
-        item.rarity = ItemRarityNameById[item.attributes.find((a) => a.id === 40)?.value || 5]
-      } else if (item.perfection === 1) {
-        item.rarity = ItemRarity.Mythic
-      } else if (item.perfection >= 0.9) {
-        item.rarity = ItemRarity.Epic
-      } else if (item.perfection >= 0.7) {
-        item.rarity = ItemRarity.Rare
-      } else if (item.perfection >= 0) {
-        item.rarity = ItemRarity.Magical
+    if (item.rarity && item.branches[1]?.presets) {
+      for (const attributeIndex in item.attributes) {
+        item.attributes[attributeIndex].value = item.branches[1].presets[item.rarity.id][attributeIndex]
       }
     }
 
-    return {
-      ...item,
-      tokenId,
+    for (const bIndex of Object.keys(item.branches)) {
+      const branchIndex = Number(bIndex)
+      if (branchIndex === 1) {
+        continue
+      }
+      if (!item.branches[branchIndex].attributes) continue
+
+      for (const attributeIndex in item.attributes) {
+        if (
+          !item.branches[1] ||
+          !item.branches[1].perfection ||
+          !item.branches[1].attributes ||
+          !item.branches[branchIndex] ||
+          !item.branches[branchIndex].attributes[attributeIndex]
+        ) {
+          break
+        }
+
+        if (item.branches[branchIndex].attributes[attributeIndex].value) {
+          continue
+        }
+
+        const originalAttributePerfection = item.branches[1].perfection[attributeIndex]
+          ? item.branches[1].perfection[attributeIndex]
+          : item.perfection
+
+        const attributePerfection =
+          originalAttributePerfection === item.attributes[attributeIndex].max
+            ? originalAttributePerfection - item.attributes[attributeIndex].min === 0
+              ? 1
+              : (item.attributes[attributeIndex].value - item.attributes[attributeIndex].min) /
+                (originalAttributePerfection - item.attributes[attributeIndex].min)
+            : item.attributes[attributeIndex].max - originalAttributePerfection === 0
+            ? 1
+            : 1 -
+              (item.attributes[attributeIndex].value - originalAttributePerfection) /
+                (item.attributes[attributeIndex].max - originalAttributePerfection)
+
+        if (item.branches[branchIndex].attributes[attributeIndex].map) {
+          const kindofClose = Math.round(
+            (item.branches[branchIndex].attributes[attributeIndex].max -
+              item.branches[branchIndex].attributes[attributeIndex].min) *
+              attributePerfection,
+          )
+          const closestKey = Object.keys(item.branches[branchIndex].attributes[attributeIndex].map).sort((a, b) => {
+            return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
+          })[0]
+
+          item.branches[branchIndex].attributes[attributeIndex].value = closestKey
+        } else {
+          const alignedValue = Math.round(
+            (item.branches[branchIndex].attributes[attributeIndex].max -
+              item.branches[branchIndex].attributes[attributeIndex].min) *
+              attributePerfection,
+          )
+          item.branches[branchIndex].attributes[attributeIndex].value =
+            item.branches[branchIndex].attributes[attributeIndex].min + alignedValue
+        }
+      }
+
+      if (!item.rarity) {
+        if (item.attributes.find((a) => a.id === 40)?.value) {
+          item.rarity = ItemRarityNameById[item.attributes.find((a) => a.id === 40)?.value || 5]
+        } else if (item.perfection === 1) {
+          item.rarity = ItemRarity.Mythic
+        } else if (item.perfection >= 0.9) {
+          item.rarity = ItemRarity.Epic
+        } else if (item.perfection >= 0.7) {
+          item.rarity = ItemRarity.Rare
+        } else if (item.perfection >= 0) {
+          item.rarity = ItemRarity.Magical
+        }
+      }
     }
+
+    if (!item.tokenId) {
+      item.tokenId = getTokenIdFromItem(item)
+    }
+
+    if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
+      item.perfection = -13
+    if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
+      item.branches[1].description[1] = '"So long, I barely knew thee."'
   } catch (e) {
     // console.log('Token is invalid', tokenId)
-    // console.warn(e)
+    console.log(e)
   }
 
-  return defaultItem
+  return item
+}
+
+function pad(n, width, z = '0') {
+  const nn = n + ''
+  return nn.length >= width ? nn : new Array(width - nn.length + 1).join(z) + nn
+}
+
+export function getTokenIdFromItem(data, rand = 1) {
+  const version = 3
+
+  let attrs = ''
+
+  for (let i = 0; i < 8; i++) {
+    const attribute = data.attributes[i]
+
+    if (attribute && attribute?.id) {
+      attrs += '2' + pad(attribute?.id || 0, 3) + pad(attribute?.value || 0, 3)
+    } else {
+      attrs += '0' + pad(attribute?.id || 0, 3) + pad(attribute?.value || 0, 3)
+    }
+  }
+
+  attrs += pad(rand, 3)
+
+  return `1${pad(version, 3)}${pad(data.id, 5)}${pad(data.type, 2)}${attrs}`
 }
