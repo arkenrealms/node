@@ -1,9 +1,7 @@
-import date from './date'
-import now from './now'
-import fancyTimeFormat from './fancyTimeFormat'
+import _date from './date'
+import _now from './now'
+import _fancyTimeFormat from './fancyTimeFormat'
 
-export default {
-  date,
-  now,
-  fancyTimeFormat
-}
+export const date = _date
+export const now = _now
+export const fancyTimeFormat = _fancyTimeFormat
