@@ -76,10 +76,10 @@ export interface FarmConfig {
   }
 }
 
-const MAINNET = 56
-const TESTNET = 97
+export const MAINNET = 56
+export const TESTNET = 97
 
-const farms: FarmConfig[] = [
+export const farms: FarmConfig[] = [
   {
     fid: 0,
     pid: 0,
