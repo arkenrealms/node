@@ -17,7 +17,7 @@ export function catchExceptions() {
     .on("uncaughtException", (err) => {
       console.log(err, "Uncaught Exception thrown")
       // logError(err + ". Uncaught Exception thrown" + err.stack)
-      // process.exit(1)
+      process.exit(1)
     })
 }
 

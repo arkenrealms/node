@@ -7,11 +7,12 @@ import time from './time'
 
 const path = require('path')
 const writeLogs = false
+const logPrefix = process.env.LOG_PREFIX || "[APP]"
 
-export const isDebug = process.env.HOME === '/Users/dev' || process.env.HOME === '/home/dev' || process.env.HOME === '/root'
+export const isDebug = process.env.HOME === '/Users/dev' || process.env.HOME === '/home/dev' || process.env.HOME === '/root' || process.env.LOG === '1'
 
 export function logError(...msgs) {
-  console.log('[DB]', nowReadable(), ...msgs)
+  console.log(logPrefix, nowReadable(), ...msgs)
 
   if (!writeLogs) return
 
@@ -26,7 +27,7 @@ export function logError(...msgs) {
 
 export function log(...msgs) {
   if (isDebug) {
-    console.log('[DB]', nowReadable(), ...msgs)
+    console.log(logPrefix, nowReadable(), ...msgs)
   }
 
   if (!writeLogs) return
@@ -51,6 +52,10 @@ export function wait(ms) {
 export function round(num, precision) {
   const _precision = 10 ** precision
   return Math.ceil(num * _precision) / _precision
+}
+
+export function pad(n, num) {
+  return n < num ? '0' + n : n
 }
 
 export function removeDupes(list) {
@@ -130,6 +135,14 @@ export function getHighestId(arr) {
 export function average(arr) { return arr.reduce((p, c) => p + c, 0) / arr.length }
 export function ordinalise(n) { return n+(n%10==1&&n%100!=11?'st':n%10==2&&n%100!=12?'nd':n%10==3&&n%100!=13?'rd':'th') }
 export function commarise(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }
+
+export function getTime() {
+  return new Date().getTime()
+}
+
+export function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default {
   db,

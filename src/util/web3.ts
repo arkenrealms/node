@@ -1,5 +1,5 @@
 import md5 from 'js-md5'
-import Web3 from 'web3'
+import _Web3 from 'web3'
 import HDWalletProvider from "@truffle/hdwallet-provider"
 import { log, logError } from '.'
 
@@ -13,17 +13,20 @@ import { log, logError } from '.'
   // prices = (await response.json())
 // }
 
-let secret = {
-  mnemonic: '',
-  address: '',
-  key: ''
-}
+// let secret = {
+//   mnemonic: '',
+//   address: '',
+//   key: ''
+// }
 
-export const setSecret = (_secret) => {
-  secret = _secret
-}
+// export const setSecret = (_secret) => {
+//   console.log('secret')
+//   secret = _secret
+// }
 
-export const getRandomProvider = () => {
+export const Web3 = _Web3
+
+export const getRandomProvider = (secret) => {
   return new HDWalletProvider(
     secret.mnemonic,
     "wss://thrumming-still-leaf.bsc.quiknode.pro/b2f8a5b1bd0809dbf061112e1786b4a8e53c9a83/" //"https://bsc.getblock.io/mainnet/?api_key=3f594a5f-d0ed-48ca-b0e7-a57d04f76332" //networks[Math.floor(Math.random() * networks.length)]
@@ -81,12 +84,7 @@ export const getAddress = (address) => {
   return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 
-let provider = getRandomProvider()
-
-// @ts-ignore
-export const web3 = new Web3(provider)
-
-export function isValidRequest(req) {
+export function isValidRequest(web3, req) {
   log('Verifying', req)
   try {
     const hashedData = md5(JSON.stringify(req.data))
@@ -97,7 +95,7 @@ export function isValidRequest(req) {
   }
 }
 
-export async function getSignedRequest(data) {
+export async function getSignedRequest(web3, secret, data) {
   log('Signing', data)
   try {
     const hashedData = md5(JSON.stringify(data))
