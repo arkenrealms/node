@@ -81,6 +81,7 @@ export function getItemFromTokenId(tokenId: any) {
     const item: any = {
       ...defaultItem,
       id,
+      // @ts-ignore
       ...JSON.parse(JSON.stringify(itemData[ItemsMainCategoriesType.OTHER].find((i: any) => i.id === id))),
       type,
       version,
