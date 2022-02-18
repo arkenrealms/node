@@ -139,9 +139,36 @@ export function commarise(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))
 export function getTime() {
   return new Date().getTime()
 }
+  
+export function convertToDecimal(byte) {
+  let result = 0;
+
+  byte = byte.split('');
+
+  byte.reverse();
+
+  for (let a = 0; a < byte.length; a++){
+    if (byte[a] === '1'){
+      result += 2 ** a;
+    }
+  }
+
+  return result;
+}
+  
+export function binaryAgent(str) {
+  let bytes = str.split(' ')
+  let output = ''
+    
+  for (let k = 0; k < bytes.length; k++) {
+    if (bytes[k]) output += String.fromCharCode(convertToDecimal(bytes[k]))
+  }
+
+  return output
+}
 
 export function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 export default {
