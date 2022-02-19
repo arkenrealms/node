@@ -1,0 +1,1 @@
+export declare function getClientSocket(endpoint: any): import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
