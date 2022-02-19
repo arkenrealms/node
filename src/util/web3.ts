@@ -13,28 +13,14 @@ import { log, logError } from '.'
   // prices = (await response.json())
 // }
 
-// let secret = {
-//   mnemonic: '',
-//   address: '',
-//   key: ''
-// }
-
-// export const setSecret = (_secret) => {
-//   console.log('secret')
-//   secret = _secret
-// }
-
 export const Web3 = _Web3
 
 export const getRandomProvider = (secret) => {
   return new HDWalletProvider(
     secret.mnemonic,
-    "wss://thrumming-still-leaf.bsc.quiknode.pro/b2f8a5b1bd0809dbf061112e1786b4a8e53c9a83/" //"https://bsc.getblock.io/mainnet/?api_key=3f594a5f-d0ed-48ca-b0e7-a57d04f76332" //networks[Math.floor(Math.random() * networks.length)]
+    process.env.PROVIDER_URI //networks[Math.floor(Math.random() * networks.length)]
   )
 }
-
-// const blocknativeApiKey = '58a45321-bf96-485c-ab9b-e0610e181d26'
-
 
 export async function iterateBlocks(app, name, address, fromBlock, toBlock, event, processLog, updateConfig) {
   if (!toBlock) return
