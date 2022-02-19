@@ -1,0 +1,64 @@
+{
+  "name": "rune-backend-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "@typechain/ethers-v4": "^1.0.0",
+    "@types/common-tags": "^1.8.0",
+    "@types/cors": "^2.8.5",
+    "@types/ethereum-protocol": "^1.0.0",
+    "@types/express": "^4.16.1",
+    "@types/express-rate-limit": "^3.3.0",
+    "@types/helmet": "^0.0.43",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.1",
+    "cors": "^2.8.5",
+    "ethereum-protocol": "^1.0.1",
+    "ethers": "^5.3.1",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
+    "fast-safe-stringify": "^2.0.7",
+    "fs-jetpack": "^4.1.0",
+    "google-spreadsheet": "^3.2.0",
+    "helmet": "^4.6.0",
+    "js-md5": "^0.7.3",
+    "json-beautify": "^1.1.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "shortid": "^2.2.2",
+    "socket.io": "^4.1.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.4",
+    "utf8": "^3.0.0",
+    "web3": "^1.3.6"
+  },
+  "peerDependencies": {
+    "@ethersproject/address": "^5.0.2",
+    "@ethersproject/contracts": "^5.0.2",
+    "@ethersproject/networks": "^5.0.2",
+    "@ethersproject/providers": "^5.0.5",
+    "@ethersproject/solidity": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/web3": "1.0.20",
+    "eslint": "^6.8.0",
+    "eslint-config-marine": "^3.0.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0"
+  },
+  "engines": {
+    "node": "14.*.*"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production tsc"
+  }
+}
