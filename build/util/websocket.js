@@ -21,10 +21,10 @@ function emitAll(io) {
     io.emit.apply(io, args);
 }
 exports.emitAll = emitAll;
-function emitDirect(io, socket) {
+function emitDirect(socket) {
     var args = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-        args[_i - 2] = arguments[_i];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        args[_i - 1] = arguments[_i];
     }
     _1.log.apply(void 0, __spreadArray(['Emit Direct'], args, false));
     if (!socket || !socket.emit)

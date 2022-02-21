@@ -4237,6 +4237,53 @@ export const itemData = {
       },
     },
     {
+      id: 1211,
+      name: 'Rune Royale Ticket',
+      category: ItemCategoriesType.ACCESSORY,
+      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/01211.png',
+      value: '0',
+      rarity: ItemRarity.Normal,
+      type: ItemType.Misc,
+      slots: [],
+      isNew: true,
+      isEquipable: false,
+      isUnequipable: false,
+      isTradeable: false,
+      isTransferable: true,
+      isUpgradable: false,
+      isCraftable: false,
+      isDisabled: false,
+      isRuneword: true,
+      createdDate: 0,
+      hotness: 1,
+      attributes: [],
+      details: {
+        Type: 'Scroll',
+        Subtype: 'Ticket',
+        Distribution: 'Crafted',
+        Date: 'Feb 21, 2022 - Now',
+        'Max Supply': 'Unknown',
+      },
+      branches: {
+        [Games.Raid.id]: {
+          description: ['Used for entry to a Rune Royale tournament.'],
+          attributes: [{ ...ItemAttributes.RandomPerfection1, min: 1, max: 999, description: "Access to Rune Royale #{Value}" }],
+        },
+        [Games.Evolution.id]: {
+          attributes: [],
+        },
+        [Games.Infinite.id]: {
+          attributes: [],
+        },
+        [Games.Guardians.id]: {
+          attributes: [],
+        },
+        [Games.Sanctuary.id]: {
+          attributes: [],
+        },
+      },
+    },
+    {
       id: 2000,
       name: 'Windforce',
       category: ItemCategoriesType.WEAPON,
@@ -7185,12 +7232,9 @@ export const itemData = {
       },
     },
   ],
-  [ItemsMainCategoriesType.WEAPONS]: [
-  ],
-  [ItemsMainCategoriesType.SHIELDS]: [
-  ],
-  [ItemsMainCategoriesType.ARMORS]: [
-  ],
+  [ItemsMainCategoriesType.WEAPONS]: [],
+  [ItemsMainCategoriesType.SHIELDS]: [],
+  [ItemsMainCategoriesType.ARMORS]: [],
 }
 
 export default itemData

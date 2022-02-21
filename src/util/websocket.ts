@@ -7,7 +7,7 @@ export function emitAll(io, ...args) {
   io.emit(...args)
 }
 
-export function emitDirect(io, socket, ...args) {
+export function emitDirect(socket, ...args) {
   log('Emit Direct', ...args)
 
   if (!socket || !socket.emit) return
