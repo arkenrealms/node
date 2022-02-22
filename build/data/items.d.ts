@@ -941,6 +941,30 @@ export declare const ItemAttributes: {
         max: number;
         description: string;
     };
+    IncreaseEnergy: {
+        id: number;
+        min: number;
+        max: number;
+        description: string;
+    };
+    IncreaseOnKill: {
+        id: number;
+        min: number;
+        max: number;
+        description: string;
+    };
+    IncreaseResist: {
+        id: number;
+        min: number;
+        max: number;
+        description: string;
+    };
+    WinRewardsIncrease: {
+        id: number;
+        min: number;
+        max: number;
+        description: string;
+    };
 };
 export declare const SkillNames: {
     0: string;
@@ -964,6 +988,9 @@ export declare const SkillNames: {
     18: string;
     19: string;
     20: string;
+    21: string;
+    22: string;
+    23: string;
     24: string;
     512: string;
     499: string;
@@ -1137,6 +1164,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1217,6 +1245,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1299,6 +1328,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -1366,6 +1396,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1422,6 +1453,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -1481,6 +1513,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1561,6 +1594,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1642,6 +1676,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1715,6 +1750,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1795,6 +1831,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1866,6 +1903,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -1938,6 +1976,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         description: string[];
         branches: {
@@ -1999,6 +2038,7 @@ export declare const itemData: {
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -2046,6 +2086,9 @@ export declare const itemData: {
                         18: string;
                         19: string;
                         20: string;
+                        21: string;
+                        22: string;
+                        23: string;
                         24: string;
                         512: string;
                         499: string;
@@ -2092,6 +2135,9 @@ export declare const itemData: {
                         18: string;
                         19: string;
                         20: string;
+                        21: string;
+                        22: string;
+                        23: string;
                         24: string;
                         512: string;
                         499: string;
@@ -2136,6 +2182,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -2240,10 +2287,154 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
+            'Rune Word': string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            Recipe?: undefined;
+        };
+        recipe: {
+            requirement: {
+                id: number;
+                quantity: number;
+            }[];
+        };
+        description: string[];
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    value: number;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: any;
+                    max: any;
+                    value: any;
+                    map: {
+                        0: string;
+                        1: string;
+                        2: string;
+                        3: string;
+                        4: string;
+                        5: string;
+                        6: string;
+                        7: string;
+                        8: string;
+                    };
+                    id: number;
+                    description: string;
+                })[];
+                perfection: number[];
+            } | {
+                attributes?: undefined;
+                perfection?: undefined;
+            };
+            2?: undefined;
+            3?: undefined;
+            4?: undefined;
+        };
+        isRetired?: undefined;
+        isLimited?: undefined;
+        rarity?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
             Distribution: string;
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
+        };
+        recipe: {
+            requirement: {
+                id: number;
+                quantity: number;
+            }[];
+        };
+        description: string[];
+        branches: {
+            [x: number]: {
+                attributes: {
+                    min: number;
+                    max: number;
+                    id: number;
+                    description: string;
+                }[];
+                perfection: number[];
+            } | {
+                attributes?: undefined;
+                perfection?: undefined;
+            };
+            2?: undefined;
+            3?: undefined;
+            4?: undefined;
+        };
+        isRetired?: undefined;
+        isLimited?: undefined;
+        rarity?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         recipe: {
             requirement: {
@@ -2311,6 +2502,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -2375,6 +2567,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -2431,6 +2624,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         description: string[];
         branches: {
@@ -2518,6 +2712,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         description: string[];
         branches: {
@@ -2579,6 +2774,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         description: string[];
         branches: {
@@ -2639,10 +2835,17 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
+            Recipe: string;
             Distribution: string;
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+        };
+        recipe: {
+            requirement: {
+                id: number;
+                quantity: number;
+            }[];
         };
         branches: {
             [x: number]: {
@@ -2662,7 +2865,6 @@ export declare const itemData: {
             4?: undefined;
         };
         isRetired?: undefined;
-        recipe?: undefined;
         isLimited?: undefined;
         description?: undefined;
         video?: undefined;
@@ -2693,6 +2895,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -2768,6 +2971,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -2831,6 +3035,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -2945,6 +3150,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -3005,6 +3211,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -3063,6 +3270,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {
@@ -3151,6 +3359,7 @@ export declare const itemData: {
             Date: string;
             'Max Supply': string;
             'Rune Word'?: undefined;
+            Recipe?: undefined;
         };
         branches: {
             [x: number]: {

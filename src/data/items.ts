@@ -724,7 +724,7 @@ export const ItemAttributes = {
     id: 119,
     min: 0,
     max: 100,
-    description: ``,
+    description: `{Value}% Yield Bonus From Hidden Pool`,
   },
   AttributeDebuffToBuffWhenHiddenPoolStake: {
     id: 120,
@@ -982,16 +982,28 @@ export const SkillNames = {
   9: 'Phase',
   10: 'Deep Impact',
   11: 'Mystic Insight',
-  12: 'Battle Rage',
-  13: 'White Lightning',
-  14: 'Inferno Fire Blast',
-  15: 'Cosmic Flare',
-  16: 'Veil of Night',
-  17: 'Sky Swarm',
-  18: 'Flurry Assault',
-  19: 'Destructive Impact',
-  20: 'Nova Breath',
+  12: 'Rending Blade',
+  13: 'Piercing Shot',
+  14: 'Preemptive Strike',
+  15: 'Conversion',
+  16: 'Bone Divination',
+  17: 'Tranquil State',
+  18: 'Arcane Augmentation',
+  19: 'Soul Reaver',
+  20: 'Animal Bond',
+  21: 'Incendiary Trap',
+  22: 'Jester\'s Folly',
+  23: 'Inspiring Presence',
   24: 'Shadow Strike',
+  // 12: 'Battle Rage',
+  // 13: 'White Lightning',
+  // 14: 'Inferno Fire Blast',
+  // 15: 'Cosmic Flare',
+  // 16: 'Veil of Night',
+  // 17: 'Sky Swarm',
+  // 18: 'Flurry Assault',
+  // 19: 'Destructive Impact',
+  // 20: 'Nova Breath',
   512: 'Evasion',
   499: 'Arcane Orbs',
 }
@@ -3596,12 +3608,11 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            // 11 * 21 * 5 * 6 * 6 = 41580
-            { ...ItemAttributes.HarvestYield, min: 15, max: 25 },
-            { ...ItemAttributes.SendHarvestHiddenPool, min: 20, max: 40 },
-            { ...ItemAttributes.YieldBonusFromHiddenPool, min: 5, max: 10 },
-            { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
-            { ...ItemAttributes.HarvestFee, min: 5, max: 10 },
+            { ...ItemAttributes.HarvestYield, min: 0, max: 30 },
+            { ...ItemAttributes.SendHarvestHiddenPool, min: 40, max: 40, value: 40 },
+            { ...ItemAttributes.YieldBonusFromHiddenPool, min: 0, max: 10 },
+            { ...ItemAttributes.HarvestBurn, min: 0, max: 30 },
+            { ...ItemAttributes.HarvestFee, min: 20, max: 20, value: 20 },
             { ...ItemAttributes.HarvestFeeToken, min: RuneId.EL, max: RuneId.TIR, map: RuneNames },
             {
               ...ItemAttributes.AddSkill,
@@ -3618,7 +3629,7 @@ export const itemData = {
               map: ClassNames,
             },
           ],
-          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+          perfection: [30, undefined, 10, 30, undefined, undefined, undefined, undefined],
         },
         [Games.Evolution.id]: {
         },
@@ -3628,7 +3639,7 @@ export const itemData = {
             { ...ItemAttributes.IncreaseEnergy, min: 8, max: 15, description: '{Value}% Maximum Energy' },
             { ...ItemAttributes.IncreaseOnKill, min: 20, max: 25, description: '{Value}% Health On Kill' },
             { ...ItemAttributes.IncreaseStat, min: 13, max: 18, description: '{Value}% Energy Regeneration' },
-            { ...ItemAttributes.MagicFind, min: 5, max: 25 },
+            { ...ItemAttributes.MagicFind, min: 20, max: 20 },
             { ...ItemAttributes.UnlockSkills, min: 493, max: 493, description: 'Unlock Skills: Haunting Spirit, Grim Harvest Aura' }, // 493 + 468
             // { ...ItemAttributes.IncreaseRankRewardBonus, min: 5, max: 15 },
           ],
@@ -4501,9 +4512,15 @@ export const itemData = {
       details: {
         Type: 'Scroll',
         Subtype: 'Ticket',
+        Recipe: 'ZOD',
         Distribution: 'Crafted',
         Date: 'Feb 21, 2022 - Now',
         'Max Supply': 'Unknown',
+      },
+      recipe: {
+        requirement: [
+          { id: RuneId.ZOD, quantity: 1 },
+        ],
       },
       branches: {
         [Games.Raid.id]: {
