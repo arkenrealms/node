@@ -1,3 +1,4 @@
+import { ItemCategoriesType } from './items.type';
 export declare const Games: {
     Raid: {
         id: number;
@@ -1108,10 +1109,10 @@ export declare const RuneId: {
 };
 export declare const RuneNames: any;
 export declare const itemData: {
-    [x: string]: ({
+    runeword: ({
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1191,7 +1192,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1277,7 +1278,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1339,7 +1340,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1397,7 +1398,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1456,7 +1457,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1536,7 +1537,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1616,7 +1617,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1690,7 +1691,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1770,7 +1771,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1841,7 +1842,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1913,7 +1914,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -1974,7 +1975,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2111,7 +2112,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2219,7 +2220,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2286,7 +2287,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2349,7 +2350,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         rarity: ItemRarityValueType;
@@ -2405,7 +2406,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2493,7 +2494,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2554,7 +2555,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2617,7 +2618,58 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        rarity: ItemRarityValueType;
+        type: number;
+        slots: any[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            'Rune Word'?: undefined;
+        };
+        branches: {
+            [x: number]: {
+                description: string[];
+                attributes: {
+                    min: number;
+                    max: number;
+                    description: string;
+                    id: number;
+                }[];
+            } | {
+                attributes: any[];
+                description?: undefined;
+            };
+            2?: undefined;
+            3?: undefined;
+            4?: undefined;
+        };
+        isRetired?: undefined;
+        recipe?: undefined;
+        isLimited?: undefined;
+        description?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2692,7 +2744,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2755,7 +2807,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2868,7 +2920,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -2927,7 +2979,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         video: string;
         value: string;
@@ -2986,7 +3038,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -3074,7 +3126,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         type: number;
@@ -3164,10 +3216,11 @@ export declare const itemData: {
         description?: undefined;
         rarity?: undefined;
         video?: undefined;
-    })[] | ({
+    })[];
+    rune: ({
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         isNew: boolean;
@@ -3203,7 +3256,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         isNew: boolean;
@@ -3245,7 +3298,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         isNew: boolean;
@@ -3281,7 +3334,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         isNew: boolean;
@@ -3323,7 +3376,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
-        category: string;
+        category: ItemCategoriesType;
         icon: string;
         value: string;
         isNew: boolean;
@@ -3357,5 +3410,8 @@ export declare const itemData: {
             4?: undefined;
         };
     })[];
+    weapon: any[];
+    shield: any[];
+    armor: any[];
 };
 export default itemData;

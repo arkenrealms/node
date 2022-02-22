@@ -1,22 +1,23 @@
-export declare const ItemsBonusType: {
-    SWIMMING: string;
-    CLIMBING: string;
-    JUMPING: string;
-};
-export declare const ItemsMainCategoriesType: {
-    WEAPONS: string;
-    SHIELDS: string;
-    ARMORS: string;
-    ACCESSORIES: string;
-    RUNES: string;
-    OTHER: string;
-};
-export declare const ItemCategoriesType: {
-    WEAPON: string;
-    SHIELD: string;
-    ARMOR: string;
-    GREAVE: string;
-    HELM: string;
-    RUNE: string;
-    ACCESSORY: string;
-};
+export declare enum ItemsBonusType {
+    FIRE = "fire",
+    SWIMMING = "swimming",
+    CLIMBING = "climbing",
+    JUMPING = "jumping"
+}
+export declare enum ItemsMainCategoriesType {
+    WEAPONS = "weapon",
+    SHIELDS = "shield",
+    ARMORS = "armor",
+    ACCESSORIES = "accessory",
+    RUNES = "rune",
+    OTHER = "runeword"
+}
+export declare enum ItemCategoriesType {
+    WEAPON = "weapon",
+    SHIELD = "shield",
+    ARMOR = "armor",
+    GREAVE = "greave",
+    HELM = "helm",
+    RUNE = "rune",
+    ACCESSORY = "accessory"
+}
