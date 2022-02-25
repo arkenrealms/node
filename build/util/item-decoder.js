@@ -517,6 +517,7 @@ function normalizeItem(item) {
                 item.shorthand = shorthand.join('-');
             }
         }
+        // Normalize odds
         if (item.meta && item.branches[1]) {
             var odds = 1;
             for (var attributeIndex in item.branches[1].attributes) {
@@ -532,6 +533,10 @@ function normalizeItem(item) {
             if (odds > 1) {
                 item.meta.odds = odds;
             }
+        }
+        // Normalize perfection
+        if (!item.perfection) {
+            item.perfection = 1;
         }
         if (!item.tokenId) {
             item.tokenId = getTokenIdFromItem(item);

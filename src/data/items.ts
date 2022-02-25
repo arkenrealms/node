@@ -1116,8 +1116,8 @@ export const ItemType = {
   Mount: 21,
   Key: 22,
   Container: 23,
-  Misc: 24,
   WristArmor: 24,
+  Misc: 25,
 }
 
 export const ItemTypeToText = {
@@ -3652,10 +3652,10 @@ export const itemData = {
       },
     },
     {
-      id: 38,
+      id: 46,
       name: 'Ignition',
-      category: ItemCategoriesType.WEAPON,
-      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00038.png',
+      category: ItemCategoriesType.GREAVE,
+      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00046.png',
       value: '0',
       type: ItemType.Boot,
       slots: [ItemSlot.Feet],
@@ -3674,18 +3674,16 @@ export const itemData = {
       details: {
         Type: 'Boots',
         Subtype: 'Kona Sage Footwraps',
-        // 'Rune Word': 'Hel Thul Tal Ko Lo',Thul Tal Sol Hel Lo     El Tir Thul Hel Sol  Thul El Sol Hel Tir
+        // 'Rune Word': 'Zod Ist Mal',
         Distribution: 'Crafted',
         Date: 'Feb 21, 2022 - Now',
         'Max Supply': 'Unknown',
       },
       recipe: {
         requirement: [
-          { id: RuneId.THUL, quantity: 1 },
-          { id: RuneId.EL, quantity: 1 },
-          { id: RuneId.SOL, quantity: 1 },
-          { id: RuneId.HEL, quantity: 1 },
-          { id: RuneId.TIR, quantity: 1 },
+          { id: RuneId.ZOD, quantity: 1 },
+          { id: RuneId.IST, quantity: 1 },
+          { id: RuneId.MAL, quantity: 1 },
         ],
       },
       description: [
@@ -3743,22 +3741,142 @@ export const itemData = {
       details: {
         Type: 'Hammer',
         Subtype: 'Fist of Eledon',
-        // 'Rune Word': 'Hel Thul Tal Ko Lo',Thul Tal Sol Hel Lo     El Tir Thul Hel Sol  Thul El Sol Hel Tir
+        'Rune Word': 'Shael Ist Zod Mal Um',
         Distribution: 'Crafted',
         Date: 'Feb 21, 2022 - Now',
         'Max Supply': 'Unknown',
       },
       recipe: {
         requirement: [
-          { id: RuneId.THUL, quantity: 1 },
-          { id: RuneId.EL, quantity: 1 },
-          { id: RuneId.SOL, quantity: 1 },
-          { id: RuneId.HEL, quantity: 1 },
-          { id: RuneId.TIR, quantity: 1 },
+          { id: RuneId.SHAEL, quantity: 1 },
+          { id: RuneId.IST, quantity: 1 },
+          { id: RuneId.ZOD, quantity: 1 },
+          { id: RuneId.MAL, quantity: 1 },
+          { id: RuneId.UM, quantity: 1 },
         ],
       },
       description: [
-        `These silken footwraps are favored by the Newerth Sages, as they are well-suited to a desert environment. Saturated red dye and an infusion of Kona mark these as belonging to a disciple of Relia.`,
+        `Runic inscriptions have transformed this stone hammer into an unbreakable, brutal conduit of Eledon's divine will.`,
+      ],
+      branches: {
+        [Games.Raid.id]: {
+          attributes: [
+            { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
+            { ...ItemAttributes.MagicFind, min: 0, max: 10 },
+            { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
+            // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+          ],
+          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+        },
+        [Games.Evolution.id]: {
+        },
+        [Games.Infinite.id]: {},
+        [Games.Guardians.id]: {
+        },
+        [Games.Sanctuary.id]: {
+        },
+      },
+    },
+    {
+      id: 44,
+      name: 'Hellreaver',
+      category: ItemCategoriesType.WEAPON,
+      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00044.png',
+      value: '0',
+      type: ItemType.TwoHandedWeapon,
+      slots: [ItemSlot.LeftHand],
+      isNew: true,
+      isEquipable: true,
+      isUnequipable: false,
+      isTradeable: true,
+      isTransferable: true,
+      isUpgradable: true,
+      isCraftable: true,
+      isDisabled: true,
+      isRuneword: true,
+      createdDate: 0,
+      hotness: 9,
+      attributes: [],
+      details: {
+        Type: 'Greataxe',
+        Subtype: 'Ancestral Axe',
+        'Rune Word': 'Ral Ist Zod Mal Um',
+        Distribution: 'Crafted',
+        Date: 'Feb 21, 2022 - Now',
+        'Max Supply': 'Unknown',
+      },
+      recipe: {
+        requirement: [
+          { id: RuneId.RAL, quantity: 1 },
+          { id: RuneId.IST, quantity: 1 },
+          { id: RuneId.ZOD, quantity: 1 },
+          { id: RuneId.MAL, quantity: 1 },
+          { id: RuneId.UM, quantity: 1 },
+        ],
+      },
+      description: [
+        `Runic symbols etched across the blade describe its long, bloody history. Despite its extensive use, the metal gleams as if anxious to open the next violent chapter.`,
+      ],
+      branches: {
+        [Games.Raid.id]: {
+          attributes: [
+            { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
+            { ...ItemAttributes.MagicFind, min: 0, max: 10 },
+            { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
+            // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+          ],
+          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+        },
+        [Games.Evolution.id]: {
+        },
+        [Games.Infinite.id]: {},
+        [Games.Guardians.id]: {
+        },
+        [Games.Sanctuary.id]: {
+        },
+      },
+    },
+    {
+      id: 45,
+      name: 'Phoenix',
+      category: ItemCategoriesType.WEAPON,
+      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00045.png',
+      value: '0',
+      type: ItemType.TwoHandedWeapon,
+      slots: [ItemSlot.LeftHand],
+      isNew: true,
+      isEquipable: true,
+      isUnequipable: false,
+      isTradeable: true,
+      isTransferable: true,
+      isUpgradable: true,
+      isCraftable: true,
+      isDisabled: true,
+      isRuneword: true,
+      createdDate: 0,
+      hotness: 9,
+      attributes: [],
+      details: {
+        Type: 'Staff',
+        Subtype: 'Beacon of Relia',
+        'Rune Word': 'Pul Ist Zod Mal Um',
+        Distribution: 'Crafted',
+        Date: 'Feb 21, 2022 - Now',
+        'Max Supply': 'Unknown',
+      },
+      recipe: {
+        requirement: [
+          { id: RuneId.PUL, quantity: 1 },
+          { id: RuneId.IST, quantity: 1 },
+          { id: RuneId.ZOD, quantity: 1 },
+          { id: RuneId.MAL, quantity: 1 },
+          { id: RuneId.UM, quantity: 1 },
+        ],
+      },
+      description: [
+        `A symbol of Relia favored by the Newerth Sages sits atop this staff, a brilliant representation of the Kona energy infused within it.`,
       ],
       branches: {
         [Games.Raid.id]: {
@@ -4525,7 +4643,7 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           description: ['Used for entry to a Rune Royale tournament.'],
-          attributes: [{ ...ItemAttributes.RandomPerfection1, min: 1, max: 999, description: "Access to Rune Royale #{Value}" }],
+          attributes: [{ ...ItemAttributes.RandomPerfection1, min: 3, max: 3, value: 3, description: "Access to Rune Royale #{Value}" }],
         },
         [Games.Evolution.id]: {
           attributes: [],

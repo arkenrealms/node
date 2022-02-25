@@ -35,3 +35,29 @@ export default class Achievement extends BaseModel {
     }
   }
 }
+
+
+// {
+//   "id": 1,
+//   "key": "CRAFT_1",
+//   "name": "New Beginnings",
+//   "category": "Basic",
+//   "icon": "https://rune.game/images/achievements/blue/s_030.PNG",
+//   "points": 1,
+//   "type": "Crafting",
+//   "isCompleted": false,
+//   "details": {
+//     "Date": "Anytime",
+//     "Total": 0
+//   },
+//   "branches": {
+//     "1": {
+//       "description": [
+//         "Craft 1 Runeword"
+//       ]
+//     },
+//     "2": {
+//       "description": "Craft 1 Runeword"
+//     }
+//   }
+// },

@@ -1047,8 +1047,8 @@ export declare const ItemType: {
     Mount: number;
     Key: number;
     Container: number;
-    Misc: number;
     WristArmor: number;
+    Misc: number;
 };
 export declare const ItemTypeToText: {
     [x: number]: string;
@@ -2853,6 +2853,7 @@ export declare const itemData: {
                 attributes: {
                     min: number;
                     max: number;
+                    value: number;
                     description: string;
                     id: number;
                 }[];

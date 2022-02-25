@@ -4,7 +4,7 @@ import Product from './product'
 import Tag from './tag'
 import BaseModel from './base'
 
-export default class Server extends BaseModel {
+export default class GameRealm extends BaseModel {
   public parentId!: number
   public score!: number
 

@@ -360,3 +360,470 @@ export default class Profile extends BaseModel {
     }
   }
 }
+
+// {
+//   "address": "0xf9386Ef8B669Fb37feB7F1AFF9cd64bb4a86b6ac",
+//   "inventoryItemCount": 0,
+//   "equippedItemCount": 0,
+//   "marketTradeListedCount": 0,
+//   "marketTradeSoldCount": 0,
+//   "transferredOutCount": 27,
+//   "holdings": {},
+//   "points": 8,
+//   "username": "The New Normal",
+//   "guildId": 4,
+//   "joinedGuildAt": 1629050011601,
+//   "isGuildMembershipActive": true,
+//   "guildMembershipTokenId": 4265,
+//   "rewardHistory": [],
+//   "rewards": {
+//     "runes": {
+//       "sol": 0.89,
+//       "zod": 19.488999999999997,
+//       "shael": 0.99,
+//       "dol": 1.41,
+//       "tal": 9.496,
+//       "thul": 0.77,
+//       "amn": 9.171999999999999,
+//       "ort": 9.118,
+//       "ith": 9.117999999999999,
+//       "nef": 8.963,
+//       "tir": 0.97,
+//       "ral": 8.219,
+//       "hel": 8.161999999999999
+//     },
+//     "items": {
+//       "8xhw23c0h": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "kGKq9eQble": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "6WjdDCBBJW": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "NtxgvF_TC": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "p9vq2jjNBX": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "UB8cq2u9g": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "6WdEHgh4jo": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "jBekknchrn": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "6kchofzpyZ": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "y9ruaFCyJ": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Aa1aCisevb": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Nz_eq-pmUs": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "xKly8u-Of": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "amOBY_P4ks": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "RxTVLJ4cmG": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "_23VLL2op": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "iictuThErF": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Ai_Ui9Rtj": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "QNJYw1d1P": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "5wLCwjy6ux": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "YPXbZKMmY_": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "r2MuF7idj0": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "-j_s8su_e9": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "jXr-3ER3jK": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "FIkRBt2LVw": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "iGxuZvX1d": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "vIpr3JL0k": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "5IxK7oHPr8": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "83clUcXsII": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "_Yc_bCijBC": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "h20QfcP4y": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "-r6cepCGSi": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "5wjfAJEhp": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "VeuT73Y9Dk": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "XLCV2he7YG": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "QyZhNsZupI": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Jx52PDYh4e": {
+//         "name": "Guardian Egg",
+//         "rarity": "Magical",
+//         "quantity": 1
+//       },
+//       "VspR6z610f": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "mEoZLFv5n2": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "emecNKpG09": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "XZCISfjcQz": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       }
+//     }
+//   },
+//   "lifetimeRewards": {
+//     "runes": {
+//       "zod": 19.488999999999997,
+//       "hel": 8.161999999999999,
+//       "ith": 9.117999999999999,
+//       "amn": 9.171999999999999,
+//       "sol": 0.89,
+//       "shael": 0.99,
+//       "dol": 1.41,
+//       "tal": 9.496,
+//       "thul": 0.77,
+//       "ort": 9.118,
+//       "nef": 8.963,
+//       "tir": 0.97,
+//       "ral": 8.219
+//     },
+//     "items": {
+//       "8xhw23c0h": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "kGKq9eQble": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "6WjdDCBBJW": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "NtxgvF_TC": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "p9vq2jjNBX": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "UB8cq2u9g": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "6WdEHgh4jo": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "jBekknchrn": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "6kchofzpyZ": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "y9ruaFCyJ": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Aa1aCisevb": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Nz_eq-pmUs": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "xKly8u-Of": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "amOBY_P4ks": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "RxTVLJ4cmG": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "_23VLL2op": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "iictuThErF": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Ai_Ui9Rtj": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "QNJYw1d1P": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "5wLCwjy6ux": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "YPXbZKMmY_": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "r2MuF7idj0": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "-j_s8su_e9": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "jXr-3ER3jK": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "FIkRBt2LVw": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "iGxuZvX1d": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "vIpr3JL0k": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "5IxK7oHPr8": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "83clUcXsII": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "_Yc_bCijBC": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "h20QfcP4y": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "-r6cepCGSi": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "5wjfAJEhp": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "VeuT73Y9Dk": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "XLCV2he7YG": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "QyZhNsZupI": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "Jx52PDYh4e": {
+//         "name": "Guardian Egg",
+//         "rarity": "Magical",
+//         "quantity": 1
+//       },
+//       "VspR6z610f": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "mEoZLFv5n2": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "emecNKpG09": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       },
+//       "XZCISfjcQz": {
+//         "name": "Santa Christmas 2021 Ticket",
+//         "rarity": "Normal",
+//         "quantity": 1
+//       }
+//     }
+//   },
+//   "craftedItemCount": 10,
+//   "transferredInCount": 0
+// }

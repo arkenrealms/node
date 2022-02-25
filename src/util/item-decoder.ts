@@ -613,6 +613,7 @@ export function normalizeItem(item: any) {
       }
     }
 
+    // Normalize odds
     if (item.meta && item.branches[1]) {
       let odds = 1
 
@@ -629,6 +630,11 @@ export function normalizeItem(item: any) {
       if (odds > 1) {
         item.meta.odds = odds
       }
+    }
+
+    // Normalize perfection
+    if (!item.perfection) {
+      item.perfection = 1
     }
 
     if (!item.tokenId) {
