@@ -4643,7 +4643,10 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           description: ['Used for entry to a Rune Royale tournament.'],
-          attributes: [{ ...ItemAttributes.RandomPerfection1, min: 3, max: 3, value: 3, description: "Access to Rune Royale #{Value}" }],
+          attributes: [
+            { ...ItemAttributes.RandomPerfection1, min: 3, max: 3, value: 3, description: "Access to Rune Royale #{Value}" },
+            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+          ],
         },
         [Games.Evolution.id]: {
           attributes: [],
