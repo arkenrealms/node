@@ -20,27 +20,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var objection_1 = require("objection");
 var node_1 = __importDefault(require("./node"));
+var tag_1 = __importDefault(require("./tag"));
 var base_1 = __importDefault(require("./base"));
-var Achievement = /** @class */ (function (_super) {
-    __extends(Achievement, _super);
-    function Achievement() {
+var GameServer = /** @class */ (function (_super) {
+    __extends(GameServer, _super);
+    function GameServer() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(Achievement, "tableName", {
+    Object.defineProperty(GameServer, "tableName", {
         get: function () {
-            return 'achievements';
+            return 'servers';
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Achievement, "timestamps", {
+    Object.defineProperty(GameServer, "timestamps", {
         get: function () {
             return true;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Achievement, "jsonSchema", {
+    Object.defineProperty(GameServer, "jsonSchema", {
         get: function () {
             return {
                 type: 'object',
@@ -51,15 +52,34 @@ var Achievement = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Achievement, "relationMappings", {
+    Object.defineProperty(GameServer, "relationMappings", {
         get: function () {
             return {
                 parent: {
                     relation: objection_1.Model.HasOneRelation,
                     modelClass: node_1.default,
                     join: {
-                        from: 'achievements.parentId',
+                        from: 'servers.parentId',
                         to: 'nodes.id'
+                    }
+                },
+                tags: {
+                    relation: objection_1.Model.ManyToManyRelation,
+                    modelClass: tag_1.default,
+                    join: {
+                        from: 'servers.id',
+                        to: 'tags.id',
+                        through: {
+                            from: 'nodes.fromServerId',
+                            to: 'nodes.toTagId',
+                            extra: ['relationKey']
+                        }
+                    },
+                    filter: {
+                        relationKey: 'tags'
+                    },
+                    beforeInsert: function (model) {
+                        model.relationKey = 'tags';
                     }
                 }
             };
@@ -67,30 +87,10 @@ var Achievement = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    return Achievement;
+    return GameServer;
 }(base_1.default));
-exports.default = Achievement;
-// {
-//   "id": 1,
-//   "key": "CRAFT_1",
-//   "name": "New Beginnings",
-//   "category": "Basic",
-//   "icon": "https://rune.game/images/achievements/blue/s_030.PNG",
-//   "points": 1,
-//   "type": "Crafting",
-//   "isCompleted": false,
-//   "details": {
-//     "Date": "Anytime",
-//     "Total": 0
-//   },
-//   "branches": {
-//     "1": {
-//       "description": [
-//         "Craft 1 Runeword"
-//       ]
-//     },
-//     "2": {
-//       "description": "Craft 1 Runeword"
-//     }
-//   }
-// },
+exports.default = GameServer;
+// has many profiles
+// has many tags
+// has many events
+// score

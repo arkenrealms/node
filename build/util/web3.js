@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSignedRequest = exports.isValidRequest = exports.getAddress = exports.iterateBlocks = exports.getRandomProvider = exports.Web3 = void 0;
+exports.getTopicSignatureHex = exports.getSignedRequest = exports.isValidRequest = exports.getAddress = exports.iterateBlocks = exports.getRandomProvider = exports.Web3 = void 0;
 var js_md5_1 = __importDefault(require("js-md5"));
 var web3_1 = __importDefault(require("web3"));
 var hdwallet_provider_1 = __importDefault(require("@truffle/hdwallet-provider"));
@@ -161,3 +161,7 @@ function getSignedRequest(web3, secret, data) {
     });
 }
 exports.getSignedRequest = getSignedRequest;
+function getTopicSignatureHex(web3, topicSignature) {
+    return web3.eth.abi.encodeFunctionSignature(topicSignature);
+}
+exports.getTopicSignatureHex = getTopicSignatureHex;

@@ -26,7 +26,7 @@ var community_1 = __importDefault(require("./community"));
 var idea_1 = __importDefault(require("./idea"));
 var project_1 = __importDefault(require("./project"));
 var discussion_1 = __importDefault(require("./discussion"));
-var server_1 = __importDefault(require("./server"));
+var game_server_1 = __importDefault(require("./game-server"));
 var file_1 = __importDefault(require("./file"));
 var base_1 = __importDefault(require("./base"));
 var vote_1 = __importDefault(require("./vote"));
@@ -140,7 +140,7 @@ var Product = /** @class */ (function (_super) {
                 },
                 servers: {
                     relation: objection_1.Model.HasManyRelation,
-                    modelClass: server_1.default,
+                    modelClass: game_server_1.default,
                     join: {
                         from: 'products.id',
                         to: 'servers.productId'

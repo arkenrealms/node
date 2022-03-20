@@ -95,3 +95,7 @@ export async function getSignedRequest(web3, secret, data) {
     return null
   }
 }
+
+export function getTopicSignatureHex(web3, topicSignature) {
+  return web3.eth.abi.encodeFunctionSignature(topicSignature)
+}

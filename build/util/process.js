@@ -12,7 +12,8 @@ function addSubProcess(subProcess) {
     exports.subProcesses.push(subProcess);
 }
 exports.addSubProcess = addSubProcess;
-function catchExceptions() {
+function catchExceptions(kill) {
+    if (kill === void 0) { kill = false; }
     process
         .on("unhandledRejection", function (reason, p) {
         console.log(reason, "Unhandled Rejection at Promise", p);
@@ -21,7 +22,9 @@ function catchExceptions() {
         .on("uncaughtException", function (err) {
         console.log(err, "Uncaught Exception thrown");
         // logError(err + ". Uncaught Exception thrown" + err.stack)
-        process.exit(1);
+        if (kill) {
+            process.exit(1);
+        }
     });
 }
 exports.catchExceptions = catchExceptions;

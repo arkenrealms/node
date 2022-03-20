@@ -8,7 +8,7 @@ export function addSubProcess(subProcess) {
     subProcesses.push(subProcess)
 }
 
-export function catchExceptions() {
+export function catchExceptions(kill = false) {
   process
     .on("unhandledRejection", (reason, p) => {
       console.log(reason, "Unhandled Rejection at Promise", p)
@@ -17,7 +17,9 @@ export function catchExceptions() {
     .on("uncaughtException", (err) => {
       console.log(err, "Uncaught Exception thrown")
       // logError(err + ". Uncaught Exception thrown" + err.stack)
-      process.exit(1)
+      if (kill) {
+        process.exit(1)
+      }
     })
 }
 

@@ -75,6 +75,8 @@ export type ItemType = {
   isTransferable?: boolean
   isUpgradable?: boolean
   isRuneword?: boolean
+  isSecret?: boolean
+  isTransmutable?: boolean
   shorthand?: string
   slotId?: number
   perfection?: number

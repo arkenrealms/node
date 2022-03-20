@@ -19,16 +19,192 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTokenIdFromItem = exports.normalizeItem = exports.getItemFromTokenId = exports.decodeItem = void 0;
+exports.getTokenIdFromItem = exports.normalizeItem = exports.getItemFromTokenId = exports.decodeItem = exports.setTokenCache = exports.getTokenCache = void 0;
+var lokijs_1 = __importDefault(require("lokijs"));
+var incremental_indexeddb_adapter_1 = __importDefault(require("lokijs/src/incremental-indexeddb-adapter"));
 var items_1 = require("../data/items");
 var items_type_1 = require("../data/items.type");
 var average = function (arr) { return arr.reduce(function (p, c) { return p + c; }, 0) / arr.length; };
+var useLocalStorage = false;
+var useIndexedDb = false;
+var useLoki = true;
+var tokenCache = {};
+var dbCon = new lokijs_1.default('rune.db', {
+    adapter: new incremental_indexeddb_adapter_1.default(),
+    autoload: true,
+    autoloadCallback: databaseInitialize,
+    autosave: true,
+    autosaveInterval: 4000
+});
+var db = {
+    items: undefined
+};
+function databaseInitialize() {
+    db.items = dbCon.getCollection('items');
+    if (db.items === null) {
+        // Add a collection to the database
+        db.items = dbCon.addCollection('items', {
+            // clone: true,
+            unique: 'tokenId'
+        });
+    }
+}
+function getTokenCache() {
+    // if (useLoki) {
+    //   var db = new loki('rune.db')
+    //   // Add a collection to the database
+    //   var items = db.addCollection('items')
+    // }
+    // if (useIndexedDb) {
+    //   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+    //   // @ts-ignore
+    //   var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+    //   // Open (or create) the database
+    //   var open = indexedDB.open("RuneItems", 1);
+    //   // Create the schema
+    //   open.onupgradeneeded = function() {
+    //     var db = open.result;
+    //     var store = db.createObjectStore("TokenData", {keyPath: "tokenId"});
+    //     // var index = store.createIndex("NameIndex", ["name.last", "name.first"]);
+    //   };
+    //   open.onsuccess = function() {
+    //     // Start a new transaction
+    //     var db = open.result;
+    //     var tx = db.transaction("TokenData", "readwrite");
+    //     var store = tx.objectStore("TokenData");
+    //     var index = store.index("NameIndex");
+    //     // Query the data
+    //     var getJohn = store.get(12345);
+    //     // var getBob = index.get(["Smith", "Bob"]);
+    //     getJohn.onsuccess = function() {
+    //         console.log(getJohn.result.name.first);  // => "John"
+    //     };
+    //     // Close the db when the transaction is done
+    //     tx.oncomplete = function() {
+    //         db.close();
+    //     };
+    //   }
+    // }
+    return tokenCache;
+}
+exports.getTokenCache = getTokenCache;
+function setTokenCache(_tokenCache) {
+    tokenCache = tokenCache;
+    // if (useLoki) {
+    //   const db = new loki('rune.db')
+    //   // Add a collection to the database
+    //   const items = db.addCollection('items')
+    // }
+    // if (useIndexedDb) {
+    //   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+    //   // @ts-ignore
+    //   var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
+    //   // Open (or create) the database
+    //   var open = indexedDB.open("RuneItems", 1);
+    //   // Create the schema
+    //   open.onupgradeneeded = function() {
+    //     var db = open.result;
+    //     var store = db.createObjectStore("TokenData", {keyPath: "tokenId"});
+    //     // var index = store.createIndex("NameIndex", ["name.last", "name.first"]);
+    //   };
+    //   open.onsuccess = function() {
+    //     // Start a new transaction
+    //     var db = open.result;
+    //     var tx = db.transaction("TokenData", "readwrite");
+    //     var store = tx.objectStore("TokenData");
+    //     var index = store.index("NameIndex");
+    //     // Add some data
+    //     for (const item of _tokenCache) {
+    //       store.put(item);
+    //     }
+    //     // Close the db when the transaction is done
+    //     tx.oncomplete = function() {
+    //         db.close();
+    //     };
+    //   }
+    // }
+}
+exports.setTokenCache = setTokenCache;
+function getItemTokenCache(tokenId) {
+    var _a;
+    try {
+        if (tokenCache[tokenId])
+            return tokenCache[tokenId];
+        if (useLoki) {
+            var result = (_a = db.items) === null || _a === void 0 ? void 0 : _a.findOne({ 'tokenId': tokenId });
+            if (result) {
+                // console.log('Token found in cache', result)
+                return result;
+            }
+            else {
+                // console.log('Token NOT found in cache', tokenId)
+            }
+        }
+        if (useLocalStorage && window.localStorage) {
+            var tokenCacheText = window.localStorage.getItem("zzz_tokenCache_".concat(tokenId));
+            if (tokenCacheText) {
+                var tokenCache_1 = JSON.parse(tokenCacheText);
+                var now = new Date();
+                if (now.getTime() > tokenCache_1.expiry) {
+                    window.localStorage.removeItem("zzz_tokenCache_".concat(tokenId));
+                    return;
+                }
+                return tokenCache_1.value;
+            }
+        }
+    }
+    catch (e) {
+        console.log(e, tokenId);
+    }
+}
+function setItemTokenCache(item) {
+    var _a, _b, _c;
+    try {
+        tokenCache[item.tokenId] = item;
+        if (useLoki) {
+            // Find and update an existing document
+            var result = (_a = db.items) === null || _a === void 0 ? void 0 : _a.findOne({ 'tokenId': item.tokenId });
+            if (result) {
+                for (var _i = 0, _d = Object.keys(item); _i < _d.length; _i++) {
+                    var key = _d[_i];
+                    result[key] = item[key];
+                }
+                // console.log('Updating item', item)
+                (_b = db.items) === null || _b === void 0 ? void 0 : _b.update(result);
+            }
+            else {
+                // console.log('Inserting item', item)
+                (_c = db.items) === null || _c === void 0 ? void 0 : _c.insert(item);
+            }
+            // db.saveDatabase()
+        }
+        if (useLocalStorage && window.localStorage) {
+            var ttl = 3 * 24 * 60 * 60 * 1000;
+            localStorage.setItem("zzz_tokenCache_".concat(item.tokenId), JSON.stringify({
+                expiry: (new Date()).getTime() + ttl,
+                value: item
+            }));
+        }
+    }
+    catch (e) {
+        console.log(e, item);
+    }
+}
 function decodeItem(tokenId) {
+    var tokenCacheItem = getItemTokenCache(tokenId);
+    if (tokenCacheItem)
+        return tokenCacheItem;
     return normalizeItem(getItemFromTokenId(tokenId));
 }
 exports.decodeItem = decodeItem;
 function getItemFromTokenId(tokenId) {
+    var tokenCacheItem = getItemTokenCache(tokenId);
+    if (tokenCacheItem)
+        return tokenCacheItem;
     var defaultItem = {
         tokenId: tokenId,
         details: {},
@@ -102,8 +278,11 @@ function getItemFromTokenId(tokenId) {
 exports.getItemFromTokenId = getItemFromTokenId;
 function normalizeItem(item) {
     var _a;
-    var _b, _c, _d;
+    var _b, _c, _d, _e;
     try {
+        var tokenCacheItem = getItemTokenCache(item.tokenId);
+        if (tokenCacheItem)
+            return tokenCacheItem;
         var branch = item.branches[1];
         var branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : [];
         var actionMetadata = {
@@ -172,7 +351,9 @@ function normalizeItem(item) {
         for (var i in item.mods) {
             var mod = item.mods[i];
             var branchAttribute = branchAttributes[i];
-            if (branchAttribute !== undefined && branchAttribute.value === undefined) {
+            if (!branchAttribute)
+                continue;
+            if (branchAttribute.value === undefined) {
                 if (branchAttribute.min === branchAttribute.max) {
                     branchAttribute.value = branchAttribute.min;
                 }
@@ -266,7 +447,7 @@ function normalizeItem(item) {
         if (actionMetadata.classRequired) {
             item.meta.classRequired = actionMetadata.classRequired;
         }
-        if (branch && branch.perfection) {
+        if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
             var perfection = __spreadArray([], branch.perfection, true);
             var attributes = branch.attributes;
             // if (item.tokenId === '1001000041000100015647') {
@@ -360,75 +541,77 @@ function normalizeItem(item) {
                 item.perfection = 1;
             }
         }
-        // Set .value if .min and .max are same
-        for (var _i = 0, _e = Object.keys(item.branches); _i < _e.length; _i++) {
-            var bIndex = _e[_i];
-            var branchIndex = Number(bIndex);
-            for (var attributeIndex in item.branches[branchIndex].attributes) {
-                if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
-                    if (item.branches[branchIndex].attributes[attributeIndex].min === item.branches[branchIndex].attributes[attributeIndex].max) {
-                        item.branches[branchIndex].attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min;
-                        if (branchIndex === 1) {
-                            item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min;
+        if (item.branches) {
+            // Set .value if .min and .max are same
+            for (var _i = 0, _f = Object.keys(item.branches); _i < _f.length; _i++) {
+                var bIndex = _f[_i];
+                var branchIndex = Number(bIndex);
+                for (var attributeIndex in item.branches[branchIndex].attributes) {
+                    if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
+                        if (item.branches[branchIndex].attributes[attributeIndex].min === item.branches[branchIndex].attributes[attributeIndex].max) {
+                            item.branches[branchIndex].attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min;
+                            if (branchIndex === 1) {
+                                item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min;
+                            }
                         }
                     }
                 }
             }
-        }
-        // Set preset and attribute values based on rarity
-        for (var _f = 0, _g = Object.keys(item.branches); _f < _g.length; _f++) {
-            var bIndex = _g[_f];
-            var branchIndex = Number(bIndex);
-            if (!item.branches[branchIndex].attributes)
-                continue;
-            var presents = item.branches[branchIndex].presents;
-            if (!presents) {
-                var perf = item.branches[branchIndex].perfection;
-                var attrs = item.branches[branchIndex].attributes;
-                // TODO: figure out if attribute min or max is best and push that into array of perfs (requires spec)
-                // if (!perf) {
-                //   perf = []
-                //   for (const pp in item.branches[branchIndex].attributes) {
-                //     perf.push(item.perfection)
-                //   }
-                // }
-                item.branches[branchIndex].presents = (_a = {},
-                    _a[items_1.ItemRarity.Magical.id] = [],
-                    _a[items_1.ItemRarity.Rare.id] = [],
-                    _a[items_1.ItemRarity.Epic.id] = [],
-                    _a[items_1.ItemRarity.Mythic.id] = [],
-                    _a[items_1.ItemRarity.Unique.id] = [],
-                    _a);
-                for (var pIndex in perf) {
-                    if (perf[pIndex] === undefined || perf[pIndex] === null)
-                        continue;
-                    item.branches[branchIndex].presents[items_1.ItemRarity.Magical.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.2 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.2));
-                    item.branches[branchIndex].presents[items_1.ItemRarity.Rare.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.7 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.7));
-                    item.branches[branchIndex].presents[items_1.ItemRarity.Epic.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.95 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.95));
-                    item.branches[branchIndex].presents[items_1.ItemRarity.Mythic.id][pIndex] = perf[pIndex];
-                    item.branches[branchIndex].presents[items_1.ItemRarity.Unique.id][pIndex] = perf[pIndex];
-                }
-            }
-            if (item.rarity) {
-                for (var _h = 0, _j = Object.keys(item.branches); _h < _j.length; _h++) {
-                    var b2Index = _j[_h];
-                    var branch2Index = Number(b2Index);
-                    if (!((_d = item.branches[branch2Index].presents) === null || _d === void 0 ? void 0 : _d[item.rarity.id]))
-                        continue;
-                    for (var presetIndex in item.branches[branch2Index].presents[item.rarity.id]) {
-                        var preset = item.branches[branch2Index].presents[item.rarity.id][presetIndex];
-                        if (item.branches[branch2Index].attributes[presetIndex].value !== undefined)
+            // Set preset and attribute values based on rarity
+            for (var _g = 0, _h = Object.keys(item.branches); _g < _h.length; _g++) {
+                var bIndex = _h[_g];
+                var branchIndex = Number(bIndex);
+                if (!item.branches[branchIndex].attributes)
+                    continue;
+                var presets = item.branches[branchIndex].presets;
+                if (!presets) {
+                    var perf = item.branches[branchIndex].perfection;
+                    var attrs = item.branches[branchIndex].attributes;
+                    // TODO: figure out if attribute min or max is best and push that into array of perfs (requires spec)
+                    // if (!perf) {
+                    //   perf = []
+                    //   for (const pp in item.branches[branchIndex].attributes) {
+                    //     perf.push(item.perfection)
+                    //   }
+                    // }
+                    item.branches[branchIndex].presets = (_a = {},
+                        _a[items_1.ItemRarity.Magical.id] = [],
+                        _a[items_1.ItemRarity.Rare.id] = [],
+                        _a[items_1.ItemRarity.Epic.id] = [],
+                        _a[items_1.ItemRarity.Mythic.id] = [],
+                        _a[items_1.ItemRarity.Unique.id] = [],
+                        _a);
+                    for (var pIndex in perf) {
+                        if (perf[pIndex] === undefined || perf[pIndex] === null)
                             continue;
-                        item.branches[branch2Index].attributes[presetIndex].value = preset;
-                        if (branch2Index === 1) {
-                            item.attributes[presetIndex].value = preset;
+                        item.branches[branchIndex].presets[items_1.ItemRarity.Magical.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.2 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.2));
+                        item.branches[branchIndex].presets[items_1.ItemRarity.Rare.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.7 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.7));
+                        item.branches[branchIndex].presets[items_1.ItemRarity.Epic.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.95 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.95));
+                        item.branches[branchIndex].presets[items_1.ItemRarity.Mythic.id][pIndex] = perf[pIndex];
+                        item.branches[branchIndex].presets[items_1.ItemRarity.Unique.id][pIndex] = perf[pIndex];
+                    }
+                }
+                if (item.rarity) {
+                    for (var _j = 0, _k = Object.keys(item.branches); _j < _k.length; _j++) {
+                        var b2Index = _k[_j];
+                        var branch2Index = Number(b2Index);
+                        if (!((_d = item.branches[branch2Index].presets) === null || _d === void 0 ? void 0 : _d[item.rarity.id]))
+                            continue;
+                        for (var presetIndex in item.branches[branch2Index].presets[item.rarity.id]) {
+                            var preset = item.branches[branch2Index].presets[item.rarity.id][presetIndex];
+                            if (item.branches[branch2Index].attributes[presetIndex].value !== undefined)
+                                continue;
+                            item.branches[branch2Index].attributes[presetIndex].value = preset;
+                            if (branch2Index === 1) {
+                                item.attributes[presetIndex].value = preset;
+                            }
                         }
                     }
                 }
             }
         }
         // Normalize main branch map attribute values
-        if (branch.perfection) {
+        if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
             for (var attributeIndex in branch.attributes) {
                 var attribute = branch.attributes[attributeIndex];
                 var perfection = branch.perfection[attributeIndex];
@@ -440,70 +623,74 @@ function normalizeItem(item) {
                 }
             }
         }
-        // Normalize branch values and perfection
-        for (var _k = 0, _l = Object.keys(item.branches); _k < _l.length; _k++) {
-            var bIndex = _l[_k];
-            var branchIndex = Number(bIndex);
-            if (branchIndex === 1) {
-                continue;
-            }
-            if (!item.branches[branchIndex].attributes)
-                continue;
-            var _loop_1 = function (attributeIndex) {
-                if (!item.branches[1] ||
-                    !item.branches[1].perfection ||
-                    !item.branches[1].attributes ||
-                    !item.branches[branchIndex] ||
-                    !item.branches[branchIndex].attributes[attributeIndex]) {
-                    return "break";
+        if (item.branches) {
+            // Normalize branch values and perfection
+            for (var _l = 0, _m = Object.keys(item.branches); _l < _m.length; _l++) {
+                var bIndex = _m[_l];
+                var branchIndex = Number(bIndex);
+                if (branchIndex === 1) {
+                    continue;
                 }
-                if (item.branches[branchIndex].attributes[attributeIndex].value !== undefined) {
-                    return "continue";
+                if (!item.branches[branchIndex].attributes)
+                    continue;
+                var _loop_1 = function (attributeIndex) {
+                    if (!item.branches[1] ||
+                        !item.branches[1].perfection ||
+                        !item.branches[1].attributes ||
+                        !item.branches[branchIndex] ||
+                        !item.branches[branchIndex].attributes[attributeIndex]) {
+                        return "break";
+                    }
+                    if (item.branches[branchIndex].attributes[attributeIndex].value !== undefined) {
+                        return "continue";
+                    }
+                    var originalAttributePerfection = item.branches[1].perfection[attributeIndex]
+                        ? item.branches[1].perfection[attributeIndex]
+                        : item.perfection;
+                    var attributePerfection = originalAttributePerfection === item.attributes[attributeIndex].max
+                        ? originalAttributePerfection - item.attributes[attributeIndex].min === 0
+                            ? 1
+                            : (item.attributes[attributeIndex].value - item.attributes[attributeIndex].min) /
+                                (originalAttributePerfection - item.attributes[attributeIndex].min)
+                        : item.attributes[attributeIndex].max - originalAttributePerfection === 0
+                            ? 1
+                            : 1 -
+                                (item.attributes[attributeIndex].value - originalAttributePerfection) /
+                                    (item.attributes[attributeIndex].max - originalAttributePerfection);
+                    if (!item.branches[branchIndex].perfection) {
+                        item.branches[branchIndex].perfection = [];
+                    }
+                    if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
+                        item.branches[branchIndex].perfection[attributeIndex] = attributePerfection;
+                    }
+                    if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
+                        if (item.branches[branchIndex].attributes[attributeIndex].map) {
+                            var kindofClose_1 = Math.floor((item.branches[branchIndex].attributes[attributeIndex].max -
+                                item.branches[branchIndex].attributes[attributeIndex].min) *
+                                attributePerfection);
+                            var closestKey = Object.keys(item.branches[branchIndex].attributes[attributeIndex].map).sort(function (a, b) {
+                                return Math.abs(kindofClose_1 - Number(a)) - Math.abs(kindofClose_1 - Number(b));
+                            })[0];
+                            item.branches[branchIndex].attributes[attributeIndex].value = closestKey;
+                        }
+                        else {
+                            var alignedValue = Math.floor((item.branches[branchIndex].attributes[attributeIndex].max -
+                                item.branches[branchIndex].attributes[attributeIndex].min) *
+                                attributePerfection);
+                            item.branches[branchIndex].attributes[attributeIndex].value =
+                                item.branches[branchIndex].attributes[attributeIndex].min + alignedValue;
+                        }
+                    }
+                };
+                for (var attributeIndex in item.attributes) {
+                    var state_1 = _loop_1(attributeIndex);
+                    if (state_1 === "break")
+                        break;
                 }
-                var originalAttributePerfection = item.branches[1].perfection[attributeIndex]
-                    ? item.branches[1].perfection[attributeIndex]
-                    : item.perfection;
-                var attributePerfection = originalAttributePerfection === item.attributes[attributeIndex].max
-                    ? originalAttributePerfection - item.attributes[attributeIndex].min === 0
-                        ? 1
-                        : (item.attributes[attributeIndex].value - item.attributes[attributeIndex].min) /
-                            (originalAttributePerfection - item.attributes[attributeIndex].min)
-                    : item.attributes[attributeIndex].max - originalAttributePerfection === 0
-                        ? 1
-                        : 1 -
-                            (item.attributes[attributeIndex].value - originalAttributePerfection) /
-                                (item.attributes[attributeIndex].max - originalAttributePerfection);
-                if (!item.branches[branchIndex].perfection) {
-                    item.branches[branchIndex].perfection = [];
-                }
-                if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
-                    item.branches[branchIndex].perfection[attributeIndex] = attributePerfection;
-                }
-                if (item.branches[branchIndex].attributes[attributeIndex].map) {
-                    var kindofClose_1 = Math.floor((item.branches[branchIndex].attributes[attributeIndex].max -
-                        item.branches[branchIndex].attributes[attributeIndex].min) *
-                        attributePerfection);
-                    var closestKey = Object.keys(item.branches[branchIndex].attributes[attributeIndex].map).sort(function (a, b) {
-                        return Math.abs(kindofClose_1 - Number(a)) - Math.abs(kindofClose_1 - Number(b));
-                    })[0];
-                    item.branches[branchIndex].attributes[attributeIndex].value = closestKey;
-                }
-                else {
-                    var alignedValue = Math.floor((item.branches[branchIndex].attributes[attributeIndex].max -
-                        item.branches[branchIndex].attributes[attributeIndex].min) *
-                        attributePerfection);
-                    item.branches[branchIndex].attributes[attributeIndex].value =
-                        item.branches[branchIndex].attributes[attributeIndex].min + alignedValue;
-                }
-            };
-            for (var attributeIndex in item.attributes) {
-                var state_1 = _loop_1(attributeIndex);
-                if (state_1 === "break")
-                    break;
             }
         }
         // Normalize shorthand
-        if (branch && branch.perfection) {
+        if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
             var perfection = __spreadArray([], branch.perfection, true);
             var attributes = branch.attributes;
             if (perfection.length) {
@@ -518,7 +705,7 @@ function normalizeItem(item) {
             }
         }
         // Normalize odds
-        if (item.meta && item.branches[1]) {
+        if (item.meta && ((_e = item.branches) === null || _e === void 0 ? void 0 : _e[1])) {
             var odds = 1;
             for (var attributeIndex in item.branches[1].attributes) {
                 var attribute = item.branches[1].attributes[attributeIndex];
@@ -528,6 +715,8 @@ function normalizeItem(item) {
                     continue;
                 if (attribute.map)
                     continue;
+                if (attribute.id === items_1.ItemAttributes.RandomPerfection1.id || attribute.id === items_1.ItemAttributes.RandomPerfection2.id || attribute.id === items_1.ItemAttributes.RandomPerfection3.id || attribute.id === items_1.ItemAttributes.RandomPerfection4.id || attribute.id === items_1.ItemAttributes.RandomPerfection5.id)
+                    continue;
                 odds *= (attribute.max - attribute.min + 1);
             }
             if (odds > 1) {
@@ -535,7 +724,7 @@ function normalizeItem(item) {
             }
         }
         // Normalize perfection
-        if (!item.perfection) {
+        if (item.perfection === undefined || item.perfection === null) {
             item.perfection = 1;
         }
         if (!item.tokenId) {
@@ -550,6 +739,7 @@ function normalizeItem(item) {
         // console.log('Token is invalid', tokenId)
         console.log(e);
     }
+    setItemTokenCache(item);
     return item;
 }
 exports.normalizeItem = normalizeItem;

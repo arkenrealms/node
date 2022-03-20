@@ -10,3 +10,4 @@ export declare function getSignedRequest(web3: any, secret: any, data: any): Pro
     hash: any;
     data: any;
 }>;
+export declare function getTopicSignatureHex(web3: any, topicSignature: any): any;
