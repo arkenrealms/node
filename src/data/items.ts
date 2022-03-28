@@ -4344,7 +4344,7 @@ export const itemData = {
       attributes: [],
       details: {
         Type: 'Cube',
-        Subtype: 'Cube',
+        // Subtype: 'Cube',
         Distribution: 'Fundraiser',
         Date: 'September 12, 2021 - TBD',
         'Max Supply': '1000',
@@ -4745,7 +4745,7 @@ export const itemData = {
         [Games.Raid.id]: {
           description: ['Used for entry to a Rune Royale tournament.'],
           attributes: [
-            { ...ItemAttributes.RandomPerfection1, min: 3, max: 3, value: 3, description: "Access to Rune Royale #{Value}" },
+            { ...ItemAttributes.RandomPerfection1, min: 3, max: 4, value: 4, description: "Access to Rune Royale #{Value}" },
             { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
           ],
         },
@@ -4821,7 +4821,6 @@ export const itemData = {
       category: ItemCategoriesType.WEAPON,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/02000.png',
       value: '0',
-      isSecret: false,
       type: ItemType.TwoHandedWeapon,
       slots: [ItemSlot.LeftHand],
       isNew: true,
@@ -4833,6 +4832,7 @@ export const itemData = {
       isCraftable: false,
       isDisabled: false,
       isRuneword: false,
+      isSecret: true,
       createdDate: 0,
       hotness: 1,
       attributes: [],
@@ -4911,7 +4911,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [
@@ -4996,7 +4996,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [
@@ -5060,7 +5060,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -5106,7 +5106,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -5152,7 +5152,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -5198,7 +5198,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -5244,7 +5244,7 @@ export const itemData = {
         Date: 'TBD',
         'Max Supply': 'Mythic: 1, Epic: 1, Rare: 1, Magical: 1',
       },
-      description: "It appears you've been through Hell and back. - In Honor of Diablo 2",
+      description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],

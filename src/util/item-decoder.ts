@@ -1,5 +1,6 @@
 import loki from 'lokijs'
 import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
+import FsStructuredAdapter from 'lokijs/src/loki-fs-structured-adapter'
 import { itemData, ItemAttributes, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
 
@@ -12,7 +13,7 @@ const useLoki = true
 let tokenCache = {}
 
 const dbCon = new loki('rune.db', {
-  adapter: new IncrementalIndexedDBAdapter(),
+  adapter: typeof window !== 'undefined' ? new IncrementalIndexedDBAdapter() : new FsStructuredAdapter(), // typeof indexedDB !== 'undefined'
   autoload: true,
   autoloadCallback : databaseInitialize,
   autosave: true, 

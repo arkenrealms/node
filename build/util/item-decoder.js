@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTokenIdFromItem = exports.normalizeItem = exports.getItemFromTokenId = exports.decodeItem = exports.setTokenCache = exports.getTokenCache = void 0;
 var lokijs_1 = __importDefault(require("lokijs"));
 var incremental_indexeddb_adapter_1 = __importDefault(require("lokijs/src/incremental-indexeddb-adapter"));
+var loki_fs_structured_adapter_1 = __importDefault(require("lokijs/src/loki-fs-structured-adapter"));
 var items_1 = require("../data/items");
 var items_type_1 = require("../data/items.type");
 var average = function (arr) { return arr.reduce(function (p, c) { return p + c; }, 0) / arr.length; };
@@ -34,7 +35,7 @@ var useIndexedDb = false;
 var useLoki = true;
 var tokenCache = {};
 var dbCon = new lokijs_1.default('rune.db', {
-    adapter: new incremental_indexeddb_adapter_1.default(),
+    adapter: typeof window !== 'undefined' ? new incremental_indexeddb_adapter_1.default() : new loki_fs_structured_adapter_1.default(),
     autoload: true,
     autoloadCallback: databaseInitialize,
     autosave: true,

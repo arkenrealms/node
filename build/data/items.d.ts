@@ -2912,10 +2912,10 @@ export declare const itemData: {
         attributes: any[];
         details: {
             Type: string;
-            Subtype: string;
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            Subtype?: undefined;
             'Rune Word'?: undefined;
         };
         description: string[];
@@ -3226,7 +3226,6 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
-        isSecret: boolean;
         type: number;
         slots: number[];
         isNew: boolean;
@@ -3238,6 +3237,7 @@ export declare const itemData: {
         isCraftable: boolean;
         isDisabled: boolean;
         isRuneword: boolean;
+        isSecret: boolean;
         createdDate: number;
         hotness: number;
         attributes: any[];
