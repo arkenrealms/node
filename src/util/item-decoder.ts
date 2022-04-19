@@ -1,6 +1,5 @@
 import loki from 'lokijs'
 import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
-import FsStructuredAdapter from 'lokijs/src/loki-fs-structured-adapter'
 import { itemData, ItemAttributes, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
 
@@ -13,7 +12,7 @@ const useLoki = true
 let tokenCache = {}
 
 const dbCon = new loki('rune.db', {
-  adapter: typeof window !== 'undefined' ? new IncrementalIndexedDBAdapter() : new FsStructuredAdapter(), // typeof indexedDB !== 'undefined'
+  adapter: typeof window !== 'undefined' ? new IncrementalIndexedDBAdapter() : new (require('lokijs/src/loki-fs-structured-adapter'))(), // typeof indexedDB !== 'undefined'
   autoload: true,
   autoloadCallback : databaseInitialize,
   autosave: true, 
@@ -203,14 +202,14 @@ function setItemTokenCache(item: any) {
 }
 export function decodeItem(tokenId: string) {
   const tokenCacheItem = getItemTokenCache(tokenId)
-  if (tokenCacheItem) return tokenCacheItem
+  if (tokenId && tokenCacheItem) return tokenCacheItem
 
   return normalizeItem(getItemFromTokenId(tokenId))
 }
 
 export function getItemFromTokenId(tokenId: string) {
   const tokenCacheItem = getItemTokenCache(tokenId)
-  if (tokenCacheItem) return tokenCacheItem
+  if (tokenId && tokenCacheItem) return tokenCacheItem
 
   const defaultItem = {
     tokenId,
@@ -306,7 +305,7 @@ export function getItemFromTokenId(tokenId: string) {
 export function normalizeItem(item: any) {
   try {
     const tokenCacheItem = getItemTokenCache(item.tokenId)
-    if (tokenCacheItem) return tokenCacheItem
+    if (item.tokenId && tokenCacheItem) return tokenCacheItem
 
     const branch = item.branches[1]
     const branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : []

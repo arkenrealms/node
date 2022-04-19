@@ -1,4 +1,30 @@
 import { ItemCategoriesType } from './items.type';
+export declare const rewardTokenIdMap: {
+    'Guardian Egg': {
+        Magical: string;
+        Rare: string;
+        Epic: string;
+        Mythic: string;
+    };
+    "Early Access Founder's Cube": {
+        Unique: string;
+    };
+    'Santa Christmas 2021 Ticket': {
+        Normal: string;
+    };
+    "Zavox's Fortune": {
+        Normal: string;
+    };
+    Trinket: {
+        Magical: string;
+        Rare: string;
+        Epic: string;
+        Mythic: string;
+    };
+    RUNE: {
+        Normal: string;
+    };
+};
 export declare const Games: {
     Raid: {
         id: number;

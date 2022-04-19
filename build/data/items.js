@@ -12,8 +12,34 @@ var __assign = (this && this.__assign) || function () {
 };
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _70, _71, _72, _73, _74, _75, _76, _77, _78, _79, _80, _81, _82, _83, _84, _85, _86, _87;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.Games = void 0;
+exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
+exports.rewardTokenIdMap = {
+    'Guardian Egg': {
+        Magical: '1003030101820400062000000200000020000002000000200000020000002000000001',
+        Rare: '1003030101820400052000000200000020000002000000200000020000002000000001',
+        Epic: '1003030101820400042000000200000020000002000000200000020000002000000001',
+        Mythic: '1003030101820400032000000200000020000002000000200000020000002000000001',
+    },
+    "Early Access Founder's Cube": {
+        Unique: '1003030111820400022000000200000020000002000000200000020000002000000001',
+    },
+    'Santa Christmas 2021 Ticket': {
+        Normal: '1003012102400000000000000000000000000000000000000000000000000000000001',
+    },
+    "Zavox's Fortune": {
+        Normal: '1003012122529991232999456000000000000000000000000000000000000000000001',
+    },
+    Trinket: {
+        Magical: '1003030121820400062000000200000020000002000000200000020000002000000001',
+        Rare: '1003030121820400052000000200000020000002000000200000020000002000000001',
+        Epic: '1003030121820400042000000200000020000002000000200000020000002000000001',
+        Mythic: '1003030121820400032000000200000020000002000000200000020000002000000001',
+    },
+    RUNE: {
+        Normal: '1003030131820400022000000200000020000002000000200000020000002000000001',
+    },
+};
 exports.Games = {
     Raid: {
         id: 1,
@@ -4468,7 +4494,7 @@ exports.itemData = (_c = {},
             isTradeable: true,
             isTransferable: true,
             isUpgradable: false,
-            isCraftable: false,
+            isCraftable: true,
             isDisabled: false,
             isRuneword: false,
             createdDate: 0,
@@ -4491,7 +4517,7 @@ exports.itemData = (_c = {},
                 _30[exports.Games.Raid.id] = {
                     description: ['Used for entry to a Rune Royale tournament.'],
                     attributes: [
-                        __assign(__assign({}, exports.ItemAttributes.RandomPerfection1), { min: 3, max: 3, value: 3, description: "Access to Rune Royale #{Value}" }),
+                        __assign(__assign({}, exports.ItemAttributes.RandomPerfection1), { min: 3, max: 4, value: 4, description: "Access to Rune Royale #{Value}" }),
                         __assign(__assign({}, exports.ItemAttributes.RandomPerfection2), { min: 0, max: 999, description: "" }),
                     ],
                 },

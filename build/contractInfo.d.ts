@@ -100,6 +100,10 @@ declare const _default: {
         56: string;
         97: string;
     };
+    market: {
+        56: string;
+        97: string;
+    };
     ralMasterChef: {
         56: string;
         97: string;
