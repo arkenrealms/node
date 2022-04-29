@@ -4517,7 +4517,7 @@ exports.itemData = (_c = {},
                 _30[exports.Games.Raid.id] = {
                     description: ['Used for entry to a Rune Royale tournament.'],
                     attributes: [
-                        __assign(__assign({}, exports.ItemAttributes.RandomPerfection1), { min: 3, max: 4, value: 4, description: "Access to Rune Royale #{Value}" }),
+                        __assign(__assign({}, exports.ItemAttributes.RandomPerfection1), { min: 3, max: 5, value: 5, description: "Access to Rune Royale #{Value}" }),
                         __assign(__assign({}, exports.ItemAttributes.RandomPerfection2), { min: 0, max: 999, description: "" }),
                     ],
                 },

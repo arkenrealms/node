@@ -5,7 +5,7 @@ import { logError } from '.'
 export const subProcesses = []
 
 export function addSubProcess(subProcess) {
-    subProcesses.push(subProcess)
+  subProcesses.push(subProcess)
 }
 
 export function catchExceptions(kill = false) {
@@ -24,7 +24,7 @@ export function catchExceptions(kill = false) {
 }
 
 export function killSubProcesses() {
-  console.log('killing', subProcesses.length, 'child processes')
+  console.log('Killing', subProcesses.length, 'child processes')
   
   for (const i in subProcesses) {
     if (!subProcesses[i]) continue

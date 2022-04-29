@@ -29,7 +29,7 @@ function catchExceptions(kill) {
 }
 exports.catchExceptions = catchExceptions;
 function killSubProcesses() {
-    console.log('killing', exports.subProcesses.length, 'child processes');
+    console.log('Killing', exports.subProcesses.length, 'child processes');
     for (var i in exports.subProcesses) {
         if (!exports.subProcesses[i])
             continue;

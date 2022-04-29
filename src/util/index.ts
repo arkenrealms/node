@@ -8,22 +8,24 @@ import time from './time'
 
 const path = require('path')
 const writeLogs = false
-const logPrefix = process.env.LOG_PREFIX || "[APP]"
+const logPrefix = process.env.LOG_PREFIX || '[APP]'
 
 export const isDebug = process.env.HOME === '/Users/dev' || process.env.HOME === '/home/dev' || process.env.HOME === '/root' || process.env.LOG === '1'
 
 export function logError(...msgs) {
   console.log(logPrefix, nowReadable(), ...msgs)
 
-  if (!writeLogs) return
-
   const errorLog = jetpack.read(path.resolve('./public/data/errors.json'), 'json') || []
 
   for (const msg of msgs) {
     errorLog.push(JSON.stringify(msg))
   }
-  
-  jetpack.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true })
+
+  if (writeLogs) {
+    jetpack.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true })
+  }
+
+  throw new Error(errorLog.join('; '))
 }
 
 export function log(...msgs) {
@@ -31,15 +33,15 @@ export function log(...msgs) {
     console.log(logPrefix, nowReadable(), ...msgs)
   }
 
-  if (!writeLogs) return
+  if (writeLogs) {
+    const logData = jetpack.read(path.resolve('../public/data/log.json'), 'json') || []
+    
+    for (const msg of msgs) {
+      logData.push(JSON.stringify(msg))
+    }
 
-  const logData = jetpack.read(path.resolve('../public/data/log.json'), 'json') || []
-  
-  for (const msg of msgs) {
-    logData.push(JSON.stringify(msg))
+    jetpack.write(path.resolve('./public/data/log.json'), JSON.stringify(logData, null, 2))
   }
-
-  jetpack.write(path.resolve('./public/data/log.json'), JSON.stringify(logData, null, 2))
 }
 
 export function nowReadable() {
@@ -62,16 +64,16 @@ export function pad(n, num) {
 export function removeDupes(list) {
   const seen = {};
   return list.filter(function(item) {
-      const k1 = item.seller + item.tokenId + item.blockNumber;
-      const k2 = item.id;
-      const exists = seen.hasOwnProperty(k1) || seen.hasOwnProperty(k2)
+    const k1 = item.seller + item.tokenId + item.blockNumber;
+    const k2 = item.id;
+    const exists = seen.hasOwnProperty(k1) || seen.hasOwnProperty(k2)
 
-      if (!exists) {
-        seen[k1] = true
-        seen[k2] = true
-      }
+    if (!exists) {
+      seen[k1] = true
+      seen[k2] = true
+    }
 
-      return !exists
+    return !exists
   })
 }
 
@@ -101,22 +103,23 @@ export async function updateGit() {
   } catch(e) {
     console.log(e)
   }
+
   updatingGit = false
 }
 
 export function groupBySub(xs, key, subkey) {
   return xs.reduce(function(rv, x) {
-      if (!x[key][subkey]) return rv;
-      (rv[x[key][subkey]] = rv[x[key][subkey]] || []).push(x);
-      return rv;
+    if (!x[key][subkey]) return rv;
+    (rv[x[key][subkey]] = rv[x[key][subkey]] || []).push(x);
+    return rv;
   }, {}) || null
 }
 
 export function groupBy(xs, key) {
   return xs.reduce(function(rv, x) {
-      if (!x[key]) return rv;
-      (rv[x[key]] = rv[x[key]] || []).push(x);
-      return rv;
+    if (!x[key]) return rv;
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
   }, {}) || null
 }
 
@@ -204,8 +207,8 @@ export function randomPosition(min, max) {
 
 export function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 
   return array

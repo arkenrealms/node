@@ -77,7 +77,7 @@ var db_1 = __importDefault(require("./db"));
 var time_1 = __importDefault(require("./time"));
 var path = require('path');
 var writeLogs = false;
-var logPrefix = process.env.LOG_PREFIX || "[APP]";
+var logPrefix = process.env.LOG_PREFIX || '[APP]';
 exports.isDebug = process.env.HOME === '/Users/dev' || process.env.HOME === '/home/dev' || process.env.HOME === '/root' || process.env.LOG === '1';
 function logError() {
     var msgs = [];
@@ -85,14 +85,15 @@ function logError() {
         msgs[_i] = arguments[_i];
     }
     console.log.apply(console, __spreadArray([logPrefix, nowReadable()], msgs, false));
-    if (!writeLogs)
-        return;
     var errorLog = fs_jetpack_1.default.read(path.resolve('./public/data/errors.json'), 'json') || [];
     for (var _a = 0, msgs_1 = msgs; _a < msgs_1.length; _a++) {
         var msg = msgs_1[_a];
         errorLog.push(JSON.stringify(msg));
     }
-    fs_jetpack_1.default.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true });
+    if (writeLogs) {
+        fs_jetpack_1.default.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true });
+    }
+    throw new Error(errorLog.join('; '));
 }
 exports.logError = logError;
 function log() {
@@ -103,14 +104,14 @@ function log() {
     if (exports.isDebug) {
         console.log.apply(console, __spreadArray([logPrefix, nowReadable()], msgs, false));
     }
-    if (!writeLogs)
-        return;
-    var logData = fs_jetpack_1.default.read(path.resolve('../public/data/log.json'), 'json') || [];
-    for (var _a = 0, msgs_2 = msgs; _a < msgs_2.length; _a++) {
-        var msg = msgs_2[_a];
-        logData.push(JSON.stringify(msg));
+    if (writeLogs) {
+        var logData = fs_jetpack_1.default.read(path.resolve('../public/data/log.json'), 'json') || [];
+        for (var _a = 0, msgs_2 = msgs; _a < msgs_2.length; _a++) {
+            var msg = msgs_2[_a];
+            logData.push(JSON.stringify(msg));
+        }
+        fs_jetpack_1.default.write(path.resolve('./public/data/log.json'), JSON.stringify(logData, null, 2));
     }
-    fs_jetpack_1.default.write(path.resolve('./public/data/log.json'), JSON.stringify(logData, null, 2));
 }
 exports.log = log;
 function nowReadable() {

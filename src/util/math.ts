@@ -13,6 +13,3 @@ export function median(values) {
 
   return (values[half - 1] + values[half]) / 2.0;
 }
-
-
-  
