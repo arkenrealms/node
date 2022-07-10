@@ -1,3 +1,4 @@
+export declare const CURRENT_FARM_SYMBOL = "IST";
 export interface Address {
     97?: string;
     56: string;
