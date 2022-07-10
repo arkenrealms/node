@@ -42,6 +42,12 @@ export declare const Games: {
         id: number;
     };
 };
+export declare const ConditionNames: any;
+export declare const ConditionParamNames: any;
+export declare const TypeNames: any;
+export declare const EffectNames: any;
+export declare const StatNames: any;
+export declare const ModNames: any;
 export declare const ItemAttributes: {
     HarvestYield: {
         id: number;
@@ -1570,6 +1576,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "4"?: undefined;
+                            ""?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -1595,10 +1603,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            "109"?: undefined;
+                            ""?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -1623,10 +1635,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: number;
-                        max: number;
+                        min: any[];
+                        max: any[];
+                        map: {
+                            "": any[];
+                            "109"?: undefined;
+                            "4"?: undefined;
+                        };
                         value?: undefined;
-                        map?: undefined;
                     };
                     paramValue2?: undefined;
                 } | {
@@ -2453,10 +2469,15 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "3": string[];
+                            "109"?: undefined;
+                            "2"?: undefined;
+                            "476"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -2486,6 +2507,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "3"?: undefined;
                             "2"?: undefined;
                             "476"?: undefined;
                         };
@@ -2518,6 +2540,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "2": string;
+                            "3"?: undefined;
                             "109"?: undefined;
                             "476"?: undefined;
                         };
@@ -2549,6 +2572,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "476": string;
+                            "3"?: undefined;
                             "109"?: undefined;
                             "2"?: undefined;
                         };
@@ -3492,7 +3516,9 @@ export declare const itemData: {
                     param2: {
                         spec: string;
                         map: {
+                            ""?: undefined;
                             "1"?: undefined;
+                            "4"?: undefined;
                         };
                         min?: undefined;
                         max?: undefined;
@@ -3521,10 +3547,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        map?: undefined;
-                        value?: undefined;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                            "1"?: undefined;
+                            "4"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -3580,6 +3610,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "1": string;
+                            ""?: undefined;
+                            "4"?: undefined;
                         };
                     };
                     paramValue1?: undefined;
@@ -3587,6 +3619,38 @@ export declare const itemData: {
                     nature?: undefined;
                     influences?: undefined;
                     description?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            ""?: undefined;
+                            "1"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -3632,10 +3696,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
-                        map?: undefined;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                            "1"?: undefined;
+                            "4"?: undefined;
+                        };
                     };
                     paramValue1?: undefined;
                     paramValue2?: undefined;
@@ -3990,6 +4058,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            "4"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -4015,10 +4084,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            "9"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -4473,6 +4545,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            ""?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -4520,10 +4593,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: number;
-                        max: number;
+                        min: any[];
+                        max: any[];
+                        map: {
+                            "": any[];
+                            "9"?: undefined;
+                        };
                         value?: undefined;
-                        map?: undefined;
                     };
                     paramValue2?: undefined;
                 } | {
@@ -4971,6 +5047,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "1": string;
+                            "6"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -4999,6 +5076,7 @@ export declare const itemData: {
                         max: any;
                         map: {
                             "1"?: undefined;
+                            "6"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -5031,6 +5109,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "1": string;
+                            "6"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -5078,10 +5157,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "6": string[];
+                            "1"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -6368,6 +6450,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "2": string;
+                            "1"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -6417,6 +6500,7 @@ export declare const itemData: {
                         max: any;
                         map: {
                             "2"?: undefined;
+                            "1"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -6493,10 +6577,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "2"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 })[];
@@ -6680,6 +6767,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "5"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -6758,10 +6846,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "5": string[];
+                            "109"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -7004,6 +7095,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "3"?: undefined;
+                            "5"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -7029,10 +7122,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "3": string[];
+                            "109"?: undefined;
+                            "5"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -7110,6 +7207,8 @@ export declare const itemData: {
                         spec: string;
                         map: {
                             "109"?: undefined;
+                            "3"?: undefined;
+                            "5"?: undefined;
                         };
                         min?: undefined;
                         max?: undefined;
@@ -7117,6 +7216,38 @@ export declare const itemData: {
                     };
                     paramValue2?: undefined;
                     paramType3?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "5": string[];
+                            "109"?: undefined;
+                            "3"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
                 })[];
                 perfection: any[];
             };
@@ -7471,10 +7602,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "9"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -7846,6 +7980,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            ""?: undefined;
+                            "7"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -7899,10 +8035,46 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                            "9"?: undefined;
+                            "7"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         value?: undefined;
                         map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "7": string[];
+                            "9"?: undefined;
+                            ""?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -8223,6 +8395,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "5"?: undefined;
+                            "4"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -8248,10 +8422,46 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "5": string[];
+                            "109"?: undefined;
+                            "4"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         value?: undefined;
                         map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            "109"?: undefined;
+                            "5"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -8496,6 +8706,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "5"?: undefined;
+                            ""?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -8552,10 +8764,46 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "5": string[];
+                            "109"?: undefined;
+                            ""?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         map?: undefined;
+                        value?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                            "109"?: undefined;
+                            "5"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -8816,6 +9064,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "7"?: undefined;
+                            "2"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -8841,10 +9091,46 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "7": string[];
+                            "109"?: undefined;
+                            "2"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         value?: undefined;
                         map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "2": string[];
+                            "109"?: undefined;
+                            "7"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -9191,8 +9477,12 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "6": string[];
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -9466,10 +9756,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            "9"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -9521,6 +9814,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            "4"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -10362,6 +10656,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "2"?: undefined;
+                            "1"?: undefined;
                             "16"?: undefined;
                             "17"?: undefined;
                             "18"?: undefined;
@@ -10410,10 +10706,51 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "2": string[];
+                            "109"?: undefined;
+                            "1"?: undefined;
+                            "16"?: undefined;
+                            "17"?: undefined;
+                            "18"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         value?: undefined;
-                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "109"?: undefined;
+                            "2"?: undefined;
+                            "16"?: undefined;
+                            "17"?: undefined;
+                            "18"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -10465,6 +10802,8 @@ export declare const itemData: {
                             "17": string;
                             "18": string;
                             "109"?: undefined;
+                            "2"?: undefined;
+                            "1"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -11035,13 +11374,17 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
                     };
                     param2: {
                         spec: string;
-                        min: number;
-                        max: number;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                        };
                     };
                 } | {
                     id: number;
@@ -11570,6 +11913,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "4"?: undefined;
+                            "2"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -11617,10 +11962,46 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            "109"?: undefined;
+                            "2"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         value?: undefined;
                         map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "2": string[];
+                            "109"?: undefined;
+                            "4"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -12763,6 +13144,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            "7"?: undefined;
+                            "1"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -12808,10 +13191,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "7": string[];
+                            "9"?: undefined;
+                            "1"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                     influences?: undefined;
@@ -12838,10 +13225,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "9"?: undefined;
+                            "7"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -13529,6 +13920,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "1"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -13558,6 +13950,7 @@ export declare const itemData: {
                         max: any;
                         map: {
                             "109"?: undefined;
+                            "1"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -13590,6 +13983,7 @@ export declare const itemData: {
                         max: any;
                         map: {
                             "109"?: undefined;
+                            "1"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -13620,10 +14014,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "109"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -13874,6 +14271,8 @@ export declare const itemData: {
                         max: any;
                         map: {
                             "9"?: undefined;
+                            "1"?: undefined;
+                            ""?: undefined;
                             "16"?: undefined;
                             "17"?: undefined;
                             "18"?: undefined;
@@ -13915,6 +14314,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            "1"?: undefined;
+                            ""?: undefined;
                             "16"?: undefined;
                             "17"?: undefined;
                             "18"?: undefined;
@@ -13946,10 +14347,20 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        map?: undefined;
-                        value?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "9"?: undefined;
+                            ""?: undefined;
+                            "16"?: undefined;
+                            "17"?: undefined;
+                            "18"?: undefined;
+                            "19"?: undefined;
+                            "20"?: undefined;
+                            "21"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -13974,10 +14385,20 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        map?: undefined;
-                        value?: undefined;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                            "9"?: undefined;
+                            "1"?: undefined;
+                            "16"?: undefined;
+                            "17"?: undefined;
+                            "18"?: undefined;
+                            "19"?: undefined;
+                            "20"?: undefined;
+                            "21"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -14012,6 +14433,8 @@ export declare const itemData: {
                             "20": string;
                             "21": string;
                             "9"?: undefined;
+                            "1"?: undefined;
+                            ""?: undefined;
                         };
                         value?: undefined;
                     };
@@ -14489,6 +14912,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "3"?: undefined;
                             "1"?: undefined;
                         };
                     };
@@ -14515,10 +14939,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "3": string[];
+                            "109"?: undefined;
+                            "1"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -14573,6 +15001,7 @@ export declare const itemData: {
                         map: {
                             "1": string;
                             "109"?: undefined;
+                            "3"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -15356,6 +15785,7 @@ export declare const itemData: {
                         map: {
                             "109": string;
                             "9"?: undefined;
+                            "3"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -15387,6 +15817,7 @@ export declare const itemData: {
                         map: {
                             "9": string;
                             "109"?: undefined;
+                            "3"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -15412,10 +15843,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "3": string[];
+                            "109"?: undefined;
+                            "9"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -15744,10 +16179,13 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "109"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -16138,6 +16576,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "9": string;
+                            "1"?: undefined;
+                            ""?: undefined;
                             "109"?: undefined;
                         };
                     };
@@ -16164,10 +16604,15 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "9"?: undefined;
+                            ""?: undefined;
+                            "109"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -16192,10 +16637,15 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: number;
-                        max: number;
+                        min: any[];
+                        max: any[];
+                        map: {
+                            "": any[];
+                            "9"?: undefined;
+                            "1"?: undefined;
+                            "109"?: undefined;
+                        };
                         value?: undefined;
-                        map?: undefined;
                     };
                     paramValue2?: undefined;
                 } | {
@@ -16272,6 +16722,8 @@ export declare const itemData: {
                         map: {
                             "109": string;
                             "9"?: undefined;
+                            "1"?: undefined;
+                            ""?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -16945,6 +17397,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "2"?: undefined;
+                            "4"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -16970,10 +17424,46 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "2": string[];
+                            "109"?: undefined;
+                            "4"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
                         value?: undefined;
                         map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "4": string[];
+                            "109"?: undefined;
+                            "2"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -17151,6 +17641,7 @@ export declare const itemData: {
                         map: {
                             "9": string;
                             "6"?: undefined;
+                            "5"?: undefined;
                             "1"?: undefined;
                         };
                     };
@@ -17183,6 +17674,7 @@ export declare const itemData: {
                         map: {
                             "6": string;
                             "9"?: undefined;
+                            "5"?: undefined;
                             "1"?: undefined;
                         };
                     };
@@ -17209,10 +17701,15 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "5": string[];
+                            "9"?: undefined;
+                            "6"?: undefined;
+                            "1"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -17266,6 +17763,7 @@ export declare const itemData: {
                             "1": string;
                             "9"?: undefined;
                             "6"?: undefined;
+                            "5"?: undefined;
                         };
                     };
                     paramValue1?: undefined;
@@ -17700,6 +18198,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "1"?: undefined;
                             "7"?: undefined;
                         };
                     };
@@ -17726,10 +18225,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "109"?: undefined;
+                            "7"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -17760,6 +18263,7 @@ export declare const itemData: {
                         map: {
                             "7": string;
                             "109"?: undefined;
+                            "1"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -17925,6 +18429,8 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "109": string;
+                            "3"?: undefined;
+                            "1"?: undefined;
                         };
                     };
                     paramType3?: undefined;
@@ -17950,10 +18456,14 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
-                        map?: undefined;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "3": string[];
+                            "109"?: undefined;
+                            "1"?: undefined;
+                        };
                     };
                     paramValue2?: undefined;
                 } | {
@@ -17980,6 +18490,38 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                     paramType3?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: number[];
+                        max: number[];
+                        value: number[];
+                        map: {
+                            "1": string[];
+                            "109"?: undefined;
+                            "3"?: undefined;
+                        };
+                    };
+                    paramValue2?: undefined;
                 } | {
                     id: number;
                     name: string;

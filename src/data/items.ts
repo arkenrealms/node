@@ -46,6 +46,200 @@ export const Games = {
   },
 }
 
+
+const ConditionIdByName = {
+  WaitForTime: 1,
+  InAura: 2,
+  SkillHits: 3,
+  IsNight: 4,
+  Ailment: 5,
+  Buff: 6,
+  AlliesNearby: 7,
+  NPCsNearby: 8,
+  MapModActive: 9,
+  StepsTaken: 10,
+  UniqueEnemiesKilled: 11,
+  ConsecutiveWins: 12,
+  KillStreak: 13,
+  PerfectHealth: 14,
+  HealthBelow: 15,
+  HealthAbove: 16,
+  EnemyWithAilmentNearby: 17,
+  SkillTypeNearby: 18,
+  CriticalHitWithSkill: 19,
+  AppliedAilment: 20,
+  EnemyWithDoTNearby: 21,
+  PerfectDodge: 22,
+  SkillTypeUsed: 23,
+  AttackDefended: 24,
+  TimeWithoutDamageTaken: 25,
+  TimeWithoutCriticalHit: 26,
+  DualWielding: 27,
+  EnemyHealthAbove: 28,
+  EnemyHealthBelow: 29,
+  EmptyOffHand: 30,
+  RankAchieved: 31,
+  TimeWithoutHits: 32,
+}
+
+export const ConditionNames: any = {}
+
+for (const key of Object.keys(ConditionIdByName)) {
+  // @ts-ignore
+  ConditionNames[ConditionIdByName[key]] = key
+}
+
+const ConditionParamIdByName = {
+  Attack: 1,
+}
+
+export const ConditionParamNames: any = {}
+
+for (const key of Object.keys(ConditionParamIdByName)) {
+  // @ts-ignore
+  ConditionParamNames[ConditionParamIdByName[key]] = key
+}
+
+const TypeIdByName = {
+  Fire: 1,
+  Lightning: 2,
+  Ice: 4,
+  Water: 8,
+  Arcane: 6,
+  Wind: 3,
+  Earth: 5,
+  Physical: 9,
+  Poison: 7,
+  Light: 10,
+  Dark: 11,
+  AoE: 12,
+  Beam: 13,
+  Projectile: 14,
+  Totem: 15,
+  Aura: 16,
+  Mage: 101,
+  Necromancer: 102,
+  Paladin: 103,
+  Barbarian: 104,
+  Ranger: 105,
+  Druid: 106,
+  Rogue: 107,
+  Buff: 22,
+  Melee: 18,
+  Spell: 19,
+  Ranged: 20,
+  Utility: 21,
+  Attack: 23,
+  Healing: 24,
+  Debuff: 25,
+  DamageOverTime: 26,
+  Bard: 108,
+  All: 109,
+  Ultimate: 27,
+}
+
+export const TypeNames: any = {}
+
+for (const key of Object.keys(TypeIdByName)) {
+  // @ts-ignore
+  TypeNames[TypeIdByName[key]] = key
+}
+
+const EffectIdByName = {
+  'Poison': 0,
+  'Bleed': 1,
+  'Freeze': 2,
+  'Stun': 3,
+  'Burn': 4,
+  'BloodDrunk': 5,
+  'Sacrifice': 6,
+  'Silence': 7,
+  'Blind': 8,
+  'Sick': 9,
+  'Slow': 10,
+  'EvolveLock': 11,
+  'Complacent': 12,
+  'Rooted': 13,
+  'Airborne': 14,
+  'Sleep': 15,
+  'Shatter': 16,
+  'Polymorph': 17,
+  'Armor Weakened': 50,
+  'AttackSpeedReduce': 51,
+  'Healing Prevention': 52,
+  'Ethereal': 53,
+  'Haste': 100,
+  'Regeneration': 101,
+  'Shield': 102,
+  'GuildLeadership': 103,
+  'Damage': 104,
+  'AttackSpeedIncrease': 105,
+  'CritChance': 106,
+  'CritMultiplier': 107,
+  'AilmentChance': 108,
+  'BurstOfSpeed': 109,
+  'Disarm': 110,
+  'Petrify': 111,
+  'Fear': 112,
+  'Confuse': 113,
+  'Parry': 114,
+  'Block': 115,
+  'Reflect': 116,
+  'Oil': 117,
+  'Wet ': 118,
+  'HP Critical': 119,
+  'FreezingDamage': 201,
+  'FireDamage': 202,
+  'LightningDamage': 203,
+  'ArcaneDamage': 204,
+  'RendingDamage': 205,
+  'PoisonDamage': 206,
+  'HolyDamage': 207,
+  'DarkDamage': 208,
+  'Magnetism': 209,
+  'MovementDamage': 210,
+}
+
+export const EffectNames: any = {}
+
+for (const key of Object.keys(EffectIdByName)) {
+  // @ts-ignore
+  EffectNames[EffectIdByName[key]] = key
+}
+
+const StatIdByName = {
+  EnergyRegen: 1,
+  CriticalHitChance: 2,
+  MovementSpeed: 3,
+  AttackSpeed: 4,
+  CriticalHitMultiplier: 5,
+  CastSpeed: 6,
+  Health: 7,
+  Strength: 8,
+  Dexterity: 9,
+  Vitality: 10,
+}
+
+export const StatNames: any = {}
+
+for (const key of Object.keys(StatIdByName)) {
+  // @ts-ignore
+  StatNames[StatIdByName[key]] = key
+}
+
+const ModIdByName = {
+  'Wild Swings': 1,
+  'Scorching Light': 2,
+  'Bloodseekers': 3,
+}
+
+export const ModNames: any = {}
+
+for (const key of Object.keys(ModIdByName)) {
+  // @ts-ignore
+  ModNames[ModIdByName[key]] = key
+}
+
 export const ItemAttributes = {
   HarvestYield: {
     id: 1,

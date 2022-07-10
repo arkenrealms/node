@@ -3,7 +3,7 @@ export default [
     "id": 1,
     "name": "Steel",
     "icon": "https://rune.game/images/items/00001.png",
-    "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657461025&userId=usrf0GZYc5zCl9Cv7&cs=eac728b4b9ea7d30",
+    "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657468499&userId=usrf0GZYc5zCl9Cv7&cs=24bc6cd160c60d93",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -222,7 +222,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "12-21",
               "min": 12,
@@ -258,8 +258,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -282,8 +294,17 @@ export default [
             },
             "param2": {
               "spec": "5-8",
-              "min": 5,
-              "max": 8
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -343,7 +364,7 @@ export default [
     "id": 2,
     "name": "Fury",
     "icon": "https://rune.game/images/items/00002.png",
-    "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657461031&userId=usrf0GZYc5zCl9Cv7&cs=b52c4384d0b29210",
+    "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657468505&userId=usrf0GZYc5zCl9Cv7&cs=2c5af5b0500d8327",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -625,7 +646,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "14-18",
               "min": 14,
@@ -770,7 +791,7 @@ export default [
     "id": 3,
     "name": "Lorekeeper",
     "icon": "https://rune.game/images/items/00003.png",
-    "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657461036&userId=usrf0GZYc5zCl9Cv7&cs=9f336db2b47fe662",
+    "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657468511&userId=usrf0GZYc5zCl9Cv7&cs=814ec7ad66801e35",
     "value": "0",
     "type": 5,
     "subType": 10,
@@ -1004,7 +1025,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "5-7",
               "min": 5,
@@ -1127,7 +1148,7 @@ export default [
     "id": 4,
     "name": "Worldstone Shard",
     "icon": "https://rune.game/images/items/00004.png",
-    "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657461041&userId=usrf0GZYc5zCl9Cv7&cs=dd6f8330309deb6a",
+    "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657468516&userId=usrf0GZYc5zCl9Cv7&cs=bd9a146e843db901",
     "value": "0",
     "type": 18,
     "subType": 11,
@@ -1196,7 +1217,7 @@ export default [
     "id": 5,
     "name": "Flash",
     "icon": "https://rune.game/images/items/00005.png",
-    "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657461043&userId=usrf0GZYc5zCl9Cv7&cs=618f0610100ac71f",
+    "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657468517&userId=usrf0GZYc5zCl9Cv7&cs=983871579483756e",
     "value": "0",
     "type": 11,
     "subType": 12,
@@ -1432,8 +1453,20 @@ export default [
             },
             "param2": {
               "spec": "MovementSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                3
+              ],
+              "max": [
+                3
+              ],
+              "value": [
+                3
+              ],
+              "map": {
+                "3": [
+                  "MovementSpeed"
+                ]
+              }
             }
           },
           {
@@ -1448,7 +1481,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "2-5",
               "min": 2,
@@ -1578,7 +1611,7 @@ export default [
     "id": 6,
     "name": "Titan",
     "icon": "https://rune.game/images/items/00006.png",
-    "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657461048&userId=usrf0GZYc5zCl9Cv7&cs=17397127835e2e5e",
+    "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657468522&userId=usrf0GZYc5zCl9Cv7&cs=be5e694f2467e629",
     "value": "0",
     "type": 7,
     "subType": 13,
@@ -1830,7 +1863,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "10-20",
               "min": 10,
@@ -1957,7 +1990,7 @@ export default [
     "id": 7,
     "name": "Smoke",
     "icon": "https://rune.game/images/items/00007.png",
-    "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657461052&userId=usrf0GZYc5zCl9Cv7&cs=426e3ae469afa25f",
+    "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657468527&userId=usrf0GZYc5zCl9Cv7&cs=277d6cdf828294b7",
     "value": "0",
     "type": 9,
     "subType": 15,
@@ -2186,7 +2219,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "7-10",
               "min": 7,
@@ -2318,7 +2351,7 @@ export default [
     "id": 10,
     "name": "Glory",
     "icon": "https://rune.game/images/items/00010.png",
-    "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657461056&userId=usrf0GZYc5zCl9Cv7&cs=92a21f2a0b7a96d7",
+    "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657468531&userId=usrf0GZYc5zCl9Cv7&cs=4c9d971d5e29449e",
     "value": "0",
     "type": 2,
     "subType": 19,
@@ -2719,7 +2752,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "15-30",
               "min": 15,
@@ -2750,8 +2783,20 @@ export default [
             },
             "param2": {
               "spec": "StaggerChance",
-              "min": null,
-              "max": null
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -2822,8 +2867,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -2875,9 +2932,20 @@ export default [
             },
             "param2": {
               "spec": "1",
-              "min": 1,
-              "max": 1,
-              "value": 1
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -2926,7 +2994,7 @@ export default [
     "id": 11,
     "name": "Grace",
     "icon": "https://rune.game/images/items/00011.png",
-    "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657461061&userId=usrf0GZYc5zCl9Cv7&cs=f5bd2b53fea62a2f",
+    "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657468535&userId=usrf0GZYc5zCl9Cv7&cs=2f36135ae9d86334",
     "value": "0",
     "type": 2,
     "subType": 8,
@@ -3304,7 +3372,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "10-25",
               "min": 10,
@@ -3341,8 +3409,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -3531,7 +3611,7 @@ export default [
     "id": 12,
     "name": "Genesis",
     "icon": "https://rune.game/images/items/00012.png",
-    "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657461064&userId=usrf0GZYc5zCl9Cv7&cs=d3b24b35f8fde088",
+    "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657468539&userId=usrf0GZYc5zCl9Cv7&cs=ba1d019d4e01f6a9",
     "value": "0",
     "type": 1,
     "subType": 5,
@@ -3876,7 +3956,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "10-14",
               "min": 10,
@@ -3929,8 +4009,17 @@ export default [
             },
             "param2": {
               "spec": "7-10",
-              "min": 7,
-              "max": 10
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -4068,7 +4157,7 @@ export default [
     "id": 13,
     "name": "Destiny",
     "icon": "https://rune.game/images/items/00013.png",
-    "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657461068&userId=usrf0GZYc5zCl9Cv7&cs=173745db654e6e5c",
+    "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657468543&userId=usrf0GZYc5zCl9Cv7&cs=a9be4c97ba8d4da7",
     "value": "0",
     "type": 2,
     "subType": 7,
@@ -4482,7 +4571,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "5-20",
               "min": 5,
@@ -4589,8 +4678,20 @@ export default [
             },
             "param2": {
               "spec": "CastSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                6
+              ],
+              "max": [
+                6
+              ],
+              "value": [
+                6
+              ],
+              "map": {
+                "6": [
+                  "CastSpeed"
+                ]
+              }
             }
           },
           {
@@ -4656,7 +4757,7 @@ export default [
     "id": 14,
     "name": "Wrath",
     "icon": "https://rune.game/images/items/00014.png",
-    "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657461072&userId=usrf0GZYc5zCl9Cv7&cs=ba3b5106ab068f3e",
+    "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657468547&userId=usrf0GZYc5zCl9Cv7&cs=0e42396ce1db169f",
     "value": "0",
     "type": 1,
     "subType": 6,
@@ -5012,7 +5113,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "13-18",
               "min": 13,
@@ -5227,7 +5328,7 @@ export default [
     "id": 15,
     "name": "Fortress",
     "icon": "https://rune.game/images/items/00015.png",
-    "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657461076&userId=usrf0GZYc5zCl9Cv7&cs=3d2fcc3718cacc71",
+    "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657468551&userId=usrf0GZYc5zCl9Cv7&cs=df2db0c99ee9b325",
     "value": "0",
     "type": 3,
     "subType": 9,
@@ -5582,7 +5683,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "11-19",
               "min": 11,
@@ -5765,7 +5866,7 @@ export default [
     "id": 16,
     "name": "Elder",
     "icon": "https://rune.game/images/items/00016.png",
-    "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657461079&userId=usrf0GZYc5zCl9Cv7&cs=c07be79672966d88",
+    "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657468554&userId=usrf0GZYc5zCl9Cv7&cs=bdf7410f9806a4de",
     "value": "0",
     "type": 1,
     "subType": 2,
@@ -6036,7 +6137,7 @@ export default [
             "paramValue1": "0-120",
             "nature": "Mechanic",
             "influences": "Offense",
-            "description": "{Type} damage",
+            "description": "{parameter1} damage",
             "param1": {
               "spec": "1-4",
               "map": {}
@@ -6171,7 +6272,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "12-15",
               "min": 12,
@@ -6289,8 +6390,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -6339,7 +6452,7 @@ export default [
     "id": 19,
     "name": "Pledge",
     "icon": "https://rune.game/images/items/00019.png",
-    "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657461082&userId=usrf0GZYc5zCl9Cv7&cs=fd02f3db1dfb202f",
+    "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657468557&userId=usrf0GZYc5zCl9Cv7&cs=2fa60c2a4f5a2075",
     "value": "0",
     "type": 5,
     "subType": 10,
@@ -6580,7 +6693,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "0-6",
               "min": 0,
@@ -6673,8 +6786,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitMultiplier",
-              "min": null,
-              "max": null
+              "min": [
+                5
+              ],
+              "max": [
+                5
+              ],
+              "value": [
+                5
+              ],
+              "map": {
+                "5": [
+                  "CriticalHitMultiplier"
+                ]
+              }
             }
           },
           {
@@ -6733,7 +6858,7 @@ export default [
     "id": 20,
     "name": "Flow",
     "icon": "https://rune.game/images/items/00020.png",
-    "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657461084&userId=usrf0GZYc5zCl9Cv7&cs=431a2d57f36f35dc",
+    "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657468559&userId=usrf0GZYc5zCl9Cv7&cs=ce7302f731cb5223",
     "value": "0",
     "type": 8,
     "subType": 16,
@@ -7029,7 +7154,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "1-10",
               "min": 1,
@@ -7065,8 +7190,20 @@ export default [
             },
             "param2": {
               "spec": "MovementSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                3
+              ],
+              "max": [
+                3
+              ],
+              "value": [
+                3
+              ],
+              "map": {
+                "3": [
+                  "MovementSpeed"
+                ]
+              }
             }
           },
           {
@@ -7164,8 +7301,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitMultiplier",
-              "min": null,
-              "max": null
+              "min": [
+                5
+              ],
+              "max": [
+                5
+              ],
+              "value": [
+                5
+              ],
+              "map": {
+                "5": [
+                  "CriticalHitMultiplier"
+                ]
+              }
             }
           }
         ],
@@ -7195,7 +7344,7 @@ export default [
     "id": 21,
     "name": "Guiding Light",
     "icon": "https://rune.game/images/items/00021.png",
-    "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657461087&userId=usrf0GZYc5zCl9Cv7&cs=9ad685f03bc10a34",
+    "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657468562&userId=usrf0GZYc5zCl9Cv7&cs=3a5d6fb37811baf6",
     "value": "0",
     "type": 2,
     "subType": 19,
@@ -7628,7 +7777,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "0-20",
               "min": 0,
@@ -7656,7 +7805,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "0-20",
               "min": 0,
@@ -7714,8 +7863,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -7874,7 +8035,7 @@ export default [
     "id": 22,
     "name": "Lionheart",
     "icon": "https://rune.game/images/items/00022.png",
-    "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657461091&userId=usrf0GZYc5zCl9Cv7&cs=704558621efc455e",
+    "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657468566&userId=usrf0GZYc5zCl9Cv7&cs=0ccf2945c4f2bc06",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -8224,7 +8385,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "12-21",
               "min": 12,
@@ -8284,8 +8445,20 @@ export default [
             },
             "param2": {
               "spec": "StaggerChance",
-              "min": null,
-              "max": null
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -8308,8 +8481,20 @@ export default [
             },
             "param2": {
               "spec": "Health",
-              "min": null,
-              "max": null
+              "min": [
+                7
+              ],
+              "max": [
+                7
+              ],
+              "value": [
+                7
+              ],
+              "map": {
+                "7": [
+                  "Health"
+                ]
+              }
             }
           },
           {
@@ -8332,8 +8517,20 @@ export default [
             },
             "param2": {
               "spec": "Duration",
-              "min": null,
-              "max": null
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -8450,7 +8647,7 @@ export default [
     "id": 23,
     "name": "Pressure",
     "icon": "https://rune.game/images/items/00023.png",
-    "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657461093&userId=usrf0GZYc5zCl9Cv7&cs=36fa82d51bf948f5",
+    "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657468568&userId=usrf0GZYc5zCl9Cv7&cs=7786b1ca7b97291f",
     "value": "0",
     "type": 9,
     "subType": 15,
@@ -8747,7 +8944,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "1-5",
               "min": 1,
@@ -8783,8 +8980,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitMultiplier",
-              "min": null,
-              "max": null
+              "min": [
+                5
+              ],
+              "max": [
+                5
+              ],
+              "value": [
+                5
+              ],
+              "map": {
+                "5": [
+                  "CriticalHitMultiplier"
+                ]
+              }
             }
           },
           {
@@ -8807,8 +9016,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -8877,7 +9098,7 @@ export default [
     "id": 24,
     "name": "Zeal",
     "icon": "https://rune.game/images/items/00024.png",
-    "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657461095&userId=usrf0GZYc5zCl9Cv7&cs=7b868d6912db9005",
+    "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657468570&userId=usrf0GZYc5zCl9Cv7&cs=e706375bb2673c79",
     "value": "0",
     "type": 24,
     "subType": 25,
@@ -9150,7 +9371,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "5-10",
               "min": 5,
@@ -9214,8 +9435,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitMultiplier",
-              "min": null,
-              "max": null
+              "min": [
+                5
+              ],
+              "max": [
+                5
+              ],
+              "value": [
+                5
+              ],
+              "map": {
+                "5": [
+                  "CriticalHitMultiplier"
+                ]
+              }
             }
           },
           {
@@ -9238,8 +9471,20 @@ export default [
             },
             "param2": {
               "spec": "StaggerChance",
-              "min": null,
-              "max": null
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -9313,7 +9558,7 @@ export default [
     "id": 25,
     "name": "Balance",
     "icon": "https://rune.game/images/items/00025.png",
-    "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657461097&userId=usrf0GZYc5zCl9Cv7&cs=1ae833803cfb23b8",
+    "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657468572&userId=usrf0GZYc5zCl9Cv7&cs=d1a452632e7f7043",
     "value": "0",
     "type": 10,
     "subType": 26,
@@ -9585,7 +9830,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "1-3",
               "min": 1,
@@ -9621,8 +9866,20 @@ export default [
             },
             "param2": {
               "spec": "Health",
-              "min": null,
-              "max": null
+              "min": [
+                7
+              ],
+              "max": [
+                7
+              ],
+              "value": [
+                7
+              ],
+              "map": {
+                "7": [
+                  "Health"
+                ]
+              }
             }
           },
           {
@@ -9645,8 +9902,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitChance",
-              "min": null,
-              "max": null
+              "min": [
+                2
+              ],
+              "max": [
+                2
+              ],
+              "value": [
+                2
+              ],
+              "map": {
+                "2": [
+                  "CriticalHitChance"
+                ]
+              }
             }
           },
           {
@@ -9743,7 +10012,7 @@ export default [
     "id": 26,
     "name": "Eternity",
     "icon": "https://rune.game/images/items/00026.png",
-    "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657461101&userId=usrf0GZYc5zCl9Cv7&cs=2af6f939039176c2",
+    "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657468576&userId=usrf0GZYc5zCl9Cv7&cs=e5be303f321f08dd",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -9882,7 +10151,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "1-5",
               "min": 1,
@@ -10137,8 +10406,20 @@ export default [
             },
             "param2": {
               "spec": "CastSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                6
+              ],
+              "max": [
+                6
+              ],
+              "value": [
+                6
+              ],
+              "map": {
+                "6": [
+                  "CastSpeed"
+                ]
+              }
             }
           },
           {
@@ -10303,7 +10584,7 @@ export default [
     "id": 27,
     "name": "Instinct",
     "icon": "https://rune.game/images/items/00027.png",
-    "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657461104&userId=usrf0GZYc5zCl9Cv7&cs=4d6c7e69d11c8ed7",
+    "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657468580&userId=usrf0GZYc5zCl9Cv7&cs=e615f9c7f5ad7f4a",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -10610,8 +10891,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -10643,7 +10936,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "0-3",
               "min": 0,
@@ -10751,7 +11044,7 @@ export default [
     "id": 28,
     "name": "Beacon",
     "icon": "https://rune.game/images/items/00028.png",
-    "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657461107&userId=usrf0GZYc5zCl9Cv7&cs=7d20a77a92fae17d",
+    "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657468582&userId=usrf0GZYc5zCl9Cv7&cs=1403436d9e9a005b",
     "value": "0",
     "type": 13,
     "subType": 17,
@@ -11084,7 +11377,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "1-3",
               "min": 1,
@@ -11224,7 +11517,7 @@ export default [
     "id": 29,
     "name": "Dragonlight",
     "icon": "https://rune.game/images/items/00029.png",
-    "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657461109&userId=usrf0GZYc5zCl9Cv7&cs=20113f46e7baa51e",
+    "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657468585&userId=usrf0GZYc5zCl9Cv7&cs=491d9619755915e3",
     "value": "0",
     "type": 13,
     "subType": 17,
@@ -11455,7 +11748,7 @@ export default [
     "id": 30,
     "name": "Haze",
     "icon": "https://rune.game/images/items/00030.png",
-    "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657461110&userId=usrf0GZYc5zCl9Cv7&cs=c9ae634563c89291",
+    "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657468586&userId=usrf0GZYc5zCl9Cv7&cs=86b32f1899ef946f",
     "value": "0",
     "type": 5,
     "subType": 10,
@@ -11558,7 +11851,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "0-3",
               "min": 0,
@@ -11709,7 +12002,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "0-3",
               "min": 0,
@@ -11836,7 +12129,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "0-10",
               "min": 0,
@@ -11891,8 +12184,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitChance",
-              "min": null,
-              "max": null
+              "min": [
+                2
+              ],
+              "max": [
+                2
+              ],
+              "value": [
+                2
+              ],
+              "map": {
+                "2": [
+                  "CriticalHitChance"
+                ]
+              }
             }
           },
           {
@@ -11915,8 +12220,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -11995,7 +12312,7 @@ export default [
     "id": 31,
     "name": "Hellfire",
     "icon": "https://rune.game/images/items/00031.png",
-    "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657461113&userId=usrf0GZYc5zCl9Cv7&cs=027a2862b6d99b29",
+    "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657468588&userId=usrf0GZYc5zCl9Cv7&cs=e318b4e17f11405b",
     "value": "0",
     "type": 7,
     "subType": 13,
@@ -12303,7 +12620,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "10-20",
               "min": 10,
@@ -12426,7 +12743,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "12-15",
               "min": 12,
@@ -12486,7 +12803,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "Fire",
               "min": null,
@@ -12544,7 +12861,7 @@ export default [
     "id": 32,
     "name": "Luminous Flywings",
     "icon": "https://rune.game/images/items/00032.png",
-    "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657461117&userId=usrf0GZYc5zCl9Cv7&cs=ebb49e65e550cb9e",
+    "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657468593&userId=usrf0GZYc5zCl9Cv7&cs=d4c9f2b89c62bf23",
     "value": "0",
     "type": 14,
     "subType": 32,
@@ -12779,14 +13096,26 @@ export default [
             "influences": "General",
             "description": "{parameter1} {parameter2} {parameter3}",
             "param1": {
-              "spec": "Movement Speed",
-              "min": null,
-              "max": null
-            },
-            "param2": {
               "spec": "0-2",
               "min": 0,
               "max": 2
+            },
+            "param2": {
+              "spec": "Movement Speed",
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -13168,7 +13497,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "4-10",
               "min": 4,
@@ -13313,7 +13642,7 @@ export default [
     "id": 34,
     "name": "Blur",
     "icon": "https://rune.game/images/items/00034.png",
-    "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657461120&userId=usrf0GZYc5zCl9Cv7&cs=a3860c175d0902c7",
+    "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657468596&userId=usrf0GZYc5zCl9Cv7&cs=12f0004febc769fb",
     "value": "0",
     "type": 7,
     "subType": 13,
@@ -13632,7 +13961,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "10-20",
               "min": 10,
@@ -13684,8 +14013,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -13708,8 +14049,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitChance",
-              "min": null,
-              "max": null
+              "min": [
+                2
+              ],
+              "max": [
+                2
+              ],
+              "value": [
+                2
+              ],
+              "map": {
+                "2": [
+                  "CriticalHitChance"
+                ]
+              }
             }
           },
           {
@@ -13786,7 +14139,7 @@ export default [
     "id": 35,
     "name": "Mercy",
     "icon": "https://rune.game/images/items/00035.png",
-    "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657461122&userId=usrf0GZYc5zCl9Cv7&cs=83e87e8ef8b3d4e8",
+    "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657468597&userId=usrf0GZYc5zCl9Cv7&cs=b19b67ba81279649",
     "value": "0",
     "type": 1,
     "subType": 5,
@@ -14160,7 +14513,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "10-15",
               "min": 10,
@@ -14416,7 +14769,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "2-2",
               "min": 2,
@@ -14698,7 +15051,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "2-5",
               "min": 2,
@@ -14834,7 +15187,7 @@ export default [
     "id": 37,
     "name": "Burial",
     "icon": "https://rune.game/images/items/00037.png",
-    "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657461125&userId=usrf0GZYc5zCl9Cv7&cs=dff6cd6216b12d36",
+    "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657468600&userId=usrf0GZYc5zCl9Cv7&cs=6e3ab756a5c0574b",
     "value": "0",
     "type": 2,
     "subType": 21,
@@ -15065,7 +15418,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "10-25",
               "min": 10,
@@ -15116,8 +15469,20 @@ export default [
             },
             "param2": {
               "spec": "Health",
-              "min": null,
-              "max": null
+              "min": [
+                7
+              ],
+              "max": [
+                7
+              ],
+              "value": [
+                7
+              ],
+              "map": {
+                "7": [
+                  "Health"
+                ]
+              }
             }
           },
           {
@@ -15140,8 +15505,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -15321,7 +15698,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "0-3",
               "min": 0,
@@ -15502,7 +15879,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "20-20",
               "min": 20,
@@ -16218,7 +16595,7 @@ export default [
     "id": 43,
     "name": "Thunderchild",
     "icon": "https://rune.game/images/items/00043.png",
-    "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657461132&userId=usrf0GZYc5zCl9Cv7&cs=e477d9f3c2874cd0",
+    "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657468608&userId=usrf0GZYc5zCl9Cv7&cs=c1b6c9ec50df24fc",
     "value": "0",
     "type": 2,
     "subType": 38,
@@ -16426,7 +16803,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "20-30",
               "min": 20,
@@ -16508,8 +16885,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -16609,7 +16998,7 @@ export default [
     "id": 44,
     "name": "Hellreaver",
     "icon": "https://rune.game/images/items/00044.png",
-    "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657461135&userId=usrf0GZYc5zCl9Cv7&cs=a3c8f3199fdbb184",
+    "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657468611&userId=usrf0GZYc5zCl9Cv7&cs=dd87e5b1ebd89e9f",
     "value": "0",
     "type": 2,
     "subType": 39,
@@ -16821,7 +17210,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "20-35",
               "min": 20,
@@ -16901,8 +17290,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -16926,8 +17327,20 @@ export default [
             },
             "param2": {
               "spec": "Knockback",
-              "min": null,
-              "max": null
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "value": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -17041,7 +17454,7 @@ export default [
     "id": 45,
     "name": "Phoenix",
     "icon": "https://rune.game/images/items/00045.png",
-    "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657461137&userId=usrf0GZYc5zCl9Cv7&cs=6439078a9e96071a",
+    "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657468612&userId=usrf0GZYc5zCl9Cv7&cs=8c7486e742de56e0",
     "value": "0",
     "type": 2,
     "subType": 7,
@@ -17240,7 +17653,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "15-20",
               "min": 15,
@@ -17388,7 +17801,7 @@ export default [
     "id": 46,
     "name": "Ignition",
     "icon": "https://rune.game/images/items/00046.png",
-    "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657461138&userId=usrf0GZYc5zCl9Cv7&cs=17115fe88dc43c3d",
+    "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657468613&userId=usrf0GZYc5zCl9Cv7&cs=4dfd49a6f7089b07",
     "value": "0",
     "type": 11,
     "subType": 12,
@@ -17540,7 +17953,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "3-5",
               "min": 3,
@@ -17576,8 +17989,20 @@ export default [
             },
             "param2": {
               "spec": "MovementSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                3
+              ],
+              "max": [
+                3
+              ],
+              "value": [
+                3
+              ],
+              "map": {
+                "3": [
+                  "MovementSpeed"
+                ]
+              }
             }
           },
           {
@@ -17833,7 +18258,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "10-13",
               "min": 10,
@@ -18032,7 +18457,7 @@ export default [
     "id": 49,
     "name": "Purity",
     "icon": "https://rune.game/images/items/00049.png",
-    "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657461141&userId=usrf0GZYc5zCl9Cv7&cs=dc90a553f88b8441",
+    "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657468616&userId=usrf0GZYc5zCl9Cv7&cs=6a63602136867f3e",
     "value": "0",
     "type": 2,
     "subType": 4,
@@ -18232,7 +18657,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "15-25",
               "min": 15,
@@ -19057,7 +19482,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "14-20",
               "min": 14,
@@ -19095,7 +19520,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "20-20",
               "min": 20,
@@ -19134,7 +19559,7 @@ export default [
     "id": 55,
     "name": "Reave",
     "icon": "https://rune.game/images/items/00055.png",
-    "image": "https://dl.airtable.com/.attachments/2ac48bac7517ce3e492571892f035477/2da3c0e0/boots_A_01.png?ts=1657461149&userId=usrf0GZYc5zCl9Cv7&cs=c10702eec985f835",
+    "image": "https://dl.airtable.com/.attachments/2ac48bac7517ce3e492571892f035477/2da3c0e0/boots_A_01.png?ts=1657468624&userId=usrf0GZYc5zCl9Cv7&cs=28df50bafc48c814",
     "value": "0",
     "type": 11,
     "subType": 12,
@@ -19333,7 +19758,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "2-5",
               "min": 2,
@@ -19397,8 +19822,20 @@ export default [
             },
             "param2": {
               "spec": "MovementSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                3
+              ],
+              "max": [
+                3
+              ],
+              "value": [
+                3
+              ],
+              "map": {
+                "3": [
+                  "MovementSpeed"
+                ]
+              }
             }
           },
           {
@@ -19486,7 +19923,7 @@ export default [
     "id": 56,
     "name": "Flare",
     "icon": "https://rune.game/images/items/00056.png",
-    "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657461150&userId=usrf0GZYc5zCl9Cv7&cs=2a7eb948abb7f3cd",
+    "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657468625&userId=usrf0GZYc5zCl9Cv7&cs=c95bfdbb782a78b5",
     "value": "0",
     "type": 8,
     "subType": 16,
@@ -19634,7 +20071,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "1-10",
               "min": 1,
@@ -19762,8 +20199,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -19822,7 +20271,7 @@ export default [
     "id": 109,
     "name": "Voidmaw",
     "icon": "https://rune.game/images/items/00109.png",
-    "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657461150&userId=usrf0GZYc5zCl9Cv7&cs=5ecee9e080990386",
+    "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657468626&userId=usrf0GZYc5zCl9Cv7&cs=15a4e7e6f95b4ec2",
     "value": "0",
     "type": 13,
     "subType": 17,
@@ -20078,7 +20527,7 @@ export default [
     "id": 110,
     "name": "Hoarfrost",
     "icon": "https://rune.game/images/items/00110.png",
-    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657461151&userId=usrf0GZYc5zCl9Cv7&cs=98c2fe2fa676cadf",
+    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657468626&userId=usrf0GZYc5zCl9Cv7&cs=bdcd78740131f929",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -20277,7 +20726,7 @@ export default [
     "id": 112,
     "name": "Animus",
     "icon": "https://rune.game/images/items/00112.png",
-    "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657461152&userId=usrf0GZYc5zCl9Cv7&cs=1da281f594a4ad9b",
+    "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657468628&userId=usrf0GZYc5zCl9Cv7&cs=9b5e13c61392c4f4",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -20470,7 +20919,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "0-4",
               "min": 0,
@@ -20506,8 +20955,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -20530,8 +20991,17 @@ export default [
             },
             "param2": {
               "spec": "1-5",
-              "min": 1,
-              "max": 5
+              "min": [
+                null
+              ],
+              "max": [
+                null
+              ],
+              "map": {
+                "": [
+                  null
+                ]
+              }
             }
           },
           {
@@ -21313,7 +21783,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "24-36",
               "min": 24,
@@ -21379,7 +21849,7 @@ export default [
     "id": 209,
     "name": "Icebrand",
     "icon": "https://rune.game/images/items/00209.png",
-    "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657461158&userId=usrf0GZYc5zCl9Cv7&cs=168cca382a9e0cf8",
+    "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657468634&userId=usrf0GZYc5zCl9Cv7&cs=e6668ff5eb2f8a33",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -21585,7 +22055,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "9-18",
               "min": 9,
@@ -21608,7 +22078,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "9-18",
               "min": 9,
@@ -21879,7 +22349,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "0-2",
               "min": 0,
@@ -21929,7 +22399,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "1-5",
               "min": 1,
@@ -21965,8 +22435,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitChance",
-              "min": null,
-              "max": null
+              "min": [
+                2
+              ],
+              "max": [
+                2
+              ],
+              "value": [
+                2
+              ],
+              "map": {
+                "2": [
+                  "CriticalHitChance"
+                ]
+              }
             }
           },
           {
@@ -21989,8 +22471,20 @@ export default [
             },
             "param2": {
               "spec": "AttackSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                4
+              ],
+              "max": [
+                4
+              ],
+              "value": [
+                4
+              ],
+              "map": {
+                "4": [
+                  "AttackSpeed"
+                ]
+              }
             }
           },
           {
@@ -22063,7 +22557,7 @@ export default [
     "id": 241,
     "name": "Pulsar",
     "icon": "https://rune.game/images/items/00241.png",
-    "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657461161&userId=usrf0GZYc5zCl9Cv7&cs=a568072057e7b3d9",
+    "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657468636&userId=usrf0GZYc5zCl9Cv7&cs=19bf055411784871",
     "value": "0",
     "type": 2,
     "subType": 8,
@@ -22144,7 +22638,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-10",
             "nature": "Mechanic",
-            "description": "{parameter1} increased chance to critically harvest yield",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
             "param1": {
               "spec": "5-10",
               "min": 5,
@@ -22209,7 +22703,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "10-20",
               "min": 10,
@@ -22237,7 +22731,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "5-10",
               "min": 5,
@@ -22273,8 +22767,20 @@ export default [
             },
             "param2": {
               "spec": "CriticalHitMultiplier",
-              "min": null,
-              "max": null
+              "min": [
+                5
+              ],
+              "max": [
+                5
+              ],
+              "value": [
+                5
+              ],
+              "map": {
+                "5": [
+                  "CriticalHitMultiplier"
+                ]
+              }
             }
           },
           {
@@ -22513,7 +23019,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage"
+            "description": "{parameter1} Increased {parameter2} Damage"
           }
         ],
         "perfection": [
@@ -22974,7 +23480,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Offense",
-            "description": "{parameter1} {parameter2} damage",
+            "description": "{parameter1} Increased {parameter2} Damage",
             "param1": {
               "spec": "10-20",
               "min": 10,
@@ -23010,8 +23516,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -23253,7 +23771,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "5-7",
               "min": 5,
@@ -23289,8 +23807,20 @@ export default [
             },
             "param2": {
               "spec": "MovementSpeed",
-              "min": null,
-              "max": null
+              "min": [
+                3
+              ],
+              "max": [
+                3
+              ],
+              "value": [
+                3
+              ],
+              "map": {
+                "3": [
+                  "MovementSpeed"
+                ]
+              }
             }
           },
           {
@@ -23341,8 +23871,20 @@ export default [
             },
             "param2": {
               "spec": "EnergyRegen",
-              "min": null,
-              "max": null
+              "min": [
+                1
+              ],
+              "max": [
+                1
+              ],
+              "value": [
+                1
+              ],
+              "map": {
+                "1": [
+                  "EnergyRegen"
+                ]
+              }
             }
           },
           {
@@ -23522,7 +24064,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "5-7",
               "min": 5,
@@ -24203,7 +24745,7 @@ export default [
             "paramValue2": "0-120",
             "nature": "Buff",
             "influences": "Defense",
-            "description": "{parameter1} {parameter2} damage reduction",
+            "description": "{parameter1} {parameter2} Damage Reduction",
             "param1": {
               "spec": "15-20",
               "min": 15,
@@ -25493,7 +26035,7 @@ export default [
     "id": 1200,
     "name": "Scholar's Codex",
     "icon": "https://rune.game/images/items/01200.png",
-    "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657461179&userId=usrf0GZYc5zCl9Cv7&cs=a82e5277420633aa",
+    "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657468653&userId=usrf0GZYc5zCl9Cv7&cs=3ddaa0af13e387b1",
     "value": "0",
     "specificType": 58,
     "isNew": false,
@@ -25635,7 +26177,7 @@ export default [
     "id": 1201,
     "name": "General's Medallion",
     "icon": "https://rune.game/images/items/01201.png",
-    "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657461179&userId=usrf0GZYc5zCl9Cv7&cs=aed291325b43d7f6",
+    "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657468654&userId=usrf0GZYc5zCl9Cv7&cs=f53ed2c7ca5bdbf7",
     "value": "0",
     "specificType": 58,
     "isNew": false,
@@ -25775,7 +26317,7 @@ export default [
     "id": 1202,
     "name": "Crafting Competition Winner",
     "icon": "https://rune.game/images/items/01202.png",
-    "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657461179&userId=usrf0GZYc5zCl9Cv7&cs=a51dc0fd072fa5e4",
+    "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657468654&userId=usrf0GZYc5zCl9Cv7&cs=82f521a82da4431f",
     "value": "0",
     "isNew": false,
     "isSecret": false,
@@ -25957,7 +26499,7 @@ export default [
     "id": 1205,
     "name": "Founder's Cube",
     "icon": "https://rune.game/images/items/01205.png",
-    "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657461180&userId=usrf0GZYc5zCl9Cv7&cs=46e226916ad140a5",
+    "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657468655&userId=usrf0GZYc5zCl9Cv7&cs=e6c48a03d2206330",
     "value": "0",
     "isNew": false,
     "isSecret": false,
@@ -26019,7 +26561,7 @@ export default [
     "id": 1207,
     "name": "Black Drake Scale",
     "icon": "https://rune.game/images/items/01207.png",
-    "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657461181&userId=usrf0GZYc5zCl9Cv7&cs=7a10b6448dede04c",
+    "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657468655&userId=usrf0GZYc5zCl9Cv7&cs=d4038354bc93152a",
     "value": "0",
     "specificType": 195,
     "isNew": false,

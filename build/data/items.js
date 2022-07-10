@@ -15,7 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _70, _71, _72, _73, _74, _75, _76, _77, _78, _79, _80, _81, _82, _83;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.Games = exports.rewardTokenIdMap = void 0;
+exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.StatNames = exports.EffectNames = exports.TypeNames = exports.ConditionParamNames = exports.ConditionNames = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
 var generatedItems_1 = __importDefault(require("./generatedItems"));
 exports.rewardTokenIdMap = {
@@ -61,6 +61,187 @@ exports.Games = {
         id: 5,
     },
 };
+var ConditionIdByName = {
+    WaitForTime: 1,
+    InAura: 2,
+    SkillHits: 3,
+    IsNight: 4,
+    Ailment: 5,
+    Buff: 6,
+    AlliesNearby: 7,
+    NPCsNearby: 8,
+    MapModActive: 9,
+    StepsTaken: 10,
+    UniqueEnemiesKilled: 11,
+    ConsecutiveWins: 12,
+    KillStreak: 13,
+    PerfectHealth: 14,
+    HealthBelow: 15,
+    HealthAbove: 16,
+    EnemyWithAilmentNearby: 17,
+    SkillTypeNearby: 18,
+    CriticalHitWithSkill: 19,
+    AppliedAilment: 20,
+    EnemyWithDoTNearby: 21,
+    PerfectDodge: 22,
+    SkillTypeUsed: 23,
+    AttackDefended: 24,
+    TimeWithoutDamageTaken: 25,
+    TimeWithoutCriticalHit: 26,
+    DualWielding: 27,
+    EnemyHealthAbove: 28,
+    EnemyHealthBelow: 29,
+    EmptyOffHand: 30,
+    RankAchieved: 31,
+    TimeWithoutHits: 32,
+};
+exports.ConditionNames = {};
+for (var _i = 0, _84 = Object.keys(ConditionIdByName); _i < _84.length; _i++) {
+    var key = _84[_i];
+    // @ts-ignore
+    exports.ConditionNames[ConditionIdByName[key]] = key;
+}
+var ConditionParamIdByName = {
+    Attack: 1,
+};
+exports.ConditionParamNames = {};
+for (var _85 = 0, _86 = Object.keys(ConditionParamIdByName); _85 < _86.length; _85++) {
+    var key = _86[_85];
+    // @ts-ignore
+    exports.ConditionParamNames[ConditionParamIdByName[key]] = key;
+}
+var TypeIdByName = {
+    Fire: 1,
+    Lightning: 2,
+    Ice: 4,
+    Water: 8,
+    Arcane: 6,
+    Wind: 3,
+    Earth: 5,
+    Physical: 9,
+    Poison: 7,
+    Light: 10,
+    Dark: 11,
+    AoE: 12,
+    Beam: 13,
+    Projectile: 14,
+    Totem: 15,
+    Aura: 16,
+    Mage: 101,
+    Necromancer: 102,
+    Paladin: 103,
+    Barbarian: 104,
+    Ranger: 105,
+    Druid: 106,
+    Rogue: 107,
+    Buff: 22,
+    Melee: 18,
+    Spell: 19,
+    Ranged: 20,
+    Utility: 21,
+    Attack: 23,
+    Healing: 24,
+    Debuff: 25,
+    DamageOverTime: 26,
+    Bard: 108,
+    All: 109,
+    Ultimate: 27,
+};
+exports.TypeNames = {};
+for (var _87 = 0, _88 = Object.keys(TypeIdByName); _87 < _88.length; _87++) {
+    var key = _88[_87];
+    // @ts-ignore
+    exports.TypeNames[TypeIdByName[key]] = key;
+}
+var EffectIdByName = {
+    'Poison': 0,
+    'Bleed': 1,
+    'Freeze': 2,
+    'Stun': 3,
+    'Burn': 4,
+    'BloodDrunk': 5,
+    'Sacrifice': 6,
+    'Silence': 7,
+    'Blind': 8,
+    'Sick': 9,
+    'Slow': 10,
+    'EvolveLock': 11,
+    'Complacent': 12,
+    'Rooted': 13,
+    'Airborne': 14,
+    'Sleep': 15,
+    'Shatter': 16,
+    'Polymorph': 17,
+    'Armor Weakened': 50,
+    'AttackSpeedReduce': 51,
+    'Healing Prevention': 52,
+    'Ethereal': 53,
+    'Haste': 100,
+    'Regeneration': 101,
+    'Shield': 102,
+    'GuildLeadership': 103,
+    'Damage': 104,
+    'AttackSpeedIncrease': 105,
+    'CritChance': 106,
+    'CritMultiplier': 107,
+    'AilmentChance': 108,
+    'BurstOfSpeed': 109,
+    'Disarm': 110,
+    'Petrify': 111,
+    'Fear': 112,
+    'Confuse': 113,
+    'Parry': 114,
+    'Block': 115,
+    'Reflect': 116,
+    'Oil': 117,
+    'Wet ': 118,
+    'HP Critical': 119,
+    'FreezingDamage': 201,
+    'FireDamage': 202,
+    'LightningDamage': 203,
+    'ArcaneDamage': 204,
+    'RendingDamage': 205,
+    'PoisonDamage': 206,
+    'HolyDamage': 207,
+    'DarkDamage': 208,
+    'Magnetism': 209,
+    'MovementDamage': 210,
+};
+exports.EffectNames = {};
+for (var _89 = 0, _90 = Object.keys(EffectIdByName); _89 < _90.length; _89++) {
+    var key = _90[_89];
+    // @ts-ignore
+    exports.EffectNames[EffectIdByName[key]] = key;
+}
+var StatIdByName = {
+    EnergyRegen: 1,
+    CriticalHitChance: 2,
+    MovementSpeed: 3,
+    AttackSpeed: 4,
+    CriticalHitMultiplier: 5,
+    CastSpeed: 6,
+    Health: 7,
+    Strength: 8,
+    Dexterity: 9,
+    Vitality: 10,
+};
+exports.StatNames = {};
+for (var _91 = 0, _92 = Object.keys(StatIdByName); _91 < _92.length; _91++) {
+    var key = _92[_91];
+    // @ts-ignore
+    exports.StatNames[StatIdByName[key]] = key;
+}
+var ModIdByName = {
+    'Wild Swings': 1,
+    'Scorching Light': 2,
+    'Bloodseekers': 3,
+};
+exports.ModNames = {};
+for (var _93 = 0, _94 = Object.keys(ModIdByName); _93 < _94.length; _93++) {
+    var key = _94[_93];
+    // @ts-ignore
+    exports.ModNames[ModIdByName[key]] = key;
+}
 exports.ItemAttributes = {
     HarvestYield: {
         id: 1,
@@ -1322,8 +1503,8 @@ for (var i = 0; i < 1000; i++) {
     }
 }
 exports.SkillIdByName = {};
-for (var _i = 0, _84 = Object.keys(exports.SkillNames); _i < _84.length; _i++) {
-    var key = _84[_i];
+for (var _95 = 0, _96 = Object.keys(exports.SkillNames); _95 < _96.length; _95++) {
+    var key = _96[_95];
     // @ts-ignore
     exports.SkillIdByName[exports.SkillNames[key]] = parseInt(key);
 }
@@ -1339,8 +1520,8 @@ exports.ClassNames = {
     8: 'Bard',
 };
 exports.ClassIdByName = {};
-for (var _85 = 0, _86 = Object.keys(exports.ClassNames); _85 < _86.length; _85++) {
-    var key = _86[_85];
+for (var _97 = 0, _98 = Object.keys(exports.ClassNames); _97 < _98.length; _97++) {
+    var key = _98[_97];
     // @ts-ignore
     exports.ClassIdByName[exports.ClassNames[key]] = parseInt(key);
 }
@@ -1362,14 +1543,14 @@ exports.ItemRarity = {
     Trash: { id: 10, name: 'Trash' },
 };
 exports.ItemRarityNameById = {};
-for (var _87 = 0, _88 = Object.keys(exports.ItemRarity); _87 < _88.length; _87++) {
-    var key = _88[_87];
+for (var _99 = 0, _100 = Object.keys(exports.ItemRarity); _99 < _100.length; _99++) {
+    var key = _100[_99];
     // @ts-ignore
     exports.ItemRarityNameById[exports.ItemRarity[key].id] = exports.ItemRarity[key].name;
 }
 exports.ItemAttributesById = {};
-for (var _89 = 0, _90 = Object.keys(exports.ItemAttributes); _89 < _90.length; _89++) {
-    var key = _90[_89];
+for (var _101 = 0, _102 = Object.keys(exports.ItemAttributes); _101 < _102.length; _101++) {
+    var key = _102[_101];
     // @ts-ignore
     exports.ItemAttributesById[exports.ItemAttributes[key].id] = exports.ItemAttributes[key];
 }
@@ -1532,8 +1713,8 @@ exports.RuneId = {
     ZOD: 32,
 };
 exports.RuneNames = {};
-for (var _91 = 0, _92 = Object.keys(exports.RuneId); _91 < _92.length; _91++) {
-    var key = _92[_91];
+for (var _103 = 0, _104 = Object.keys(exports.RuneId); _103 < _104.length; _103++) {
+    var key = _104[_103];
     // @ts-ignore
     exports.RuneNames[parseInt(exports.RuneId[key])] = key;
 }
