@@ -4847,7 +4847,7 @@ export const itemData = {
       isTradeable: true,
       isTransferable: true,
       isUpgradable: false,
-      isCraftable: true,
+      isCraftable: false,
       isDisabled: false,
       isRuneword: false,
       createdDate: 0,
