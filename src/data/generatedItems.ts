@@ -3,7 +3,7 @@ export default [
     "id": 1,
     "name": "Steel",
     "icon": "https://rune.game/images/items/00001.png",
-    "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657468499&userId=usrf0GZYc5zCl9Cv7&cs=24bc6cd160c60d93",
+    "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657473257&userId=usrf0GZYc5zCl9Cv7&cs=e357651391a3d73a",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -106,8 +106,8 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
+          15,
+          0,
           null
         ]
       },
@@ -201,11 +201,11 @@ export default [
           }
         ],
         "perfection": [
+          3,
+          5,
           null,
-          null,
-          null,
-          null,
-          null
+          10,
+          5
         ]
       },
       "3": {
@@ -337,8 +337,8 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
+          21,
+          9,
           null,
           null
         ]
@@ -364,7 +364,7 @@ export default [
     "id": 2,
     "name": "Fury",
     "icon": "https://rune.game/images/items/00002.png",
-    "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657468505&userId=usrf0GZYc5zCl9Cv7&cs=2c5af5b0500d8327",
+    "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657473263&userId=usrf0GZYc5zCl9Cv7&cs=d194f57dabecf699",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -475,9 +475,9 @@ export default [
           }
         ],
         "perfection": [
+          7,
           null,
-          null,
-          null
+          20
         ]
       },
       "2": {
@@ -622,14 +622,14 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          8,
+          30,
+          10,
+          10,
+          10,
+          20,
+          3,
+          1
         ]
       },
       "3": {
@@ -764,9 +764,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          18,
+          20,
+          25,
           null,
           null,
           null
@@ -791,7 +791,7 @@ export default [
     "id": 3,
     "name": "Lorekeeper",
     "icon": "https://rune.game/images/items/00003.png",
-    "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657468511&userId=usrf0GZYc5zCl9Cv7&cs=814ec7ad66801e35",
+    "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657473268&userId=usrf0GZYc5zCl9Cv7&cs=5040c42525bcfc72",
     "value": "0",
     "type": 5,
     "subType": 10,
@@ -894,9 +894,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null
+          3,
+          1,
+          100
         ]
       },
       "2": {
@@ -1003,11 +1003,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          5,
           null,
           null,
-          null,
-          null,
-          null,
+          5,
           null
         ]
       },
@@ -1122,11 +1122,11 @@ export default [
           }
         ],
         "perfection": [
+          7,
+          10,
+          15,
           null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "4": {
@@ -1148,7 +1148,7 @@ export default [
     "id": 4,
     "name": "Worldstone Shard",
     "icon": "https://rune.game/images/items/00004.png",
-    "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657468516&userId=usrf0GZYc5zCl9Cv7&cs=bd9a146e843db901",
+    "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657473274&userId=usrf0GZYc5zCl9Cv7&cs=fbd83f72c9fc6f28",
     "value": "0",
     "type": 18,
     "subType": 11,
@@ -1217,7 +1217,7 @@ export default [
     "id": 5,
     "name": "Flash",
     "icon": "https://rune.game/images/items/00005.png",
-    "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657468517&userId=usrf0GZYc5zCl9Cv7&cs=983871579483756e",
+    "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657473275&userId=usrf0GZYc5zCl9Cv7&cs=9ec31b62ab6bcac4",
     "value": "0",
     "type": 11,
     "subType": 12,
@@ -1327,8 +1327,8 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
+          10,
+          1,
           null
         ]
       },
@@ -1424,10 +1424,10 @@ export default [
           }
         ],
         "perfection": [
+          1,
+          5,
           null,
-          null,
-          null,
-          null,
+          2,
           null
         ]
       },
@@ -1582,10 +1582,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          10,
+          5,
+          5,
+          10,
           null
         ]
       },
@@ -1611,7 +1611,7 @@ export default [
     "id": 6,
     "name": "Titan",
     "icon": "https://rune.game/images/items/00006.png",
-    "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657468522&userId=usrf0GZYc5zCl9Cv7&cs=be5e694f2467e629",
+    "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657473280&userId=usrf0GZYc5zCl9Cv7&cs=c9272a47d3687cb9",
     "value": "0",
     "type": 7,
     "subType": 13,
@@ -1725,8 +1725,8 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
+          5,
+          20,
           null
         ]
       },
@@ -1820,11 +1820,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          20,
           null,
-          null,
-          null,
-          null,
-          null
+          3,
+          5
         ]
       },
       "3": {
@@ -1964,10 +1964,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          8,
+          20,
+          10,
+          4,
           null
         ]
       },
@@ -1990,7 +1990,7 @@ export default [
     "id": 7,
     "name": "Smoke",
     "icon": "https://rune.game/images/items/00007.png",
-    "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657468527&userId=usrf0GZYc5zCl9Cv7&cs=277d6cdf828294b7",
+    "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657473284&userId=usrf0GZYc5zCl9Cv7&cs=a787e36257488327",
     "value": "0",
     "type": 9,
     "subType": 15,
@@ -2101,9 +2101,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null
+          5,
+          100,
+          100
         ]
       },
       "2": {
@@ -2198,11 +2198,11 @@ export default [
           }
         ],
         "perfection": [
+          1,
+          25,
           null,
           null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "3": {
@@ -2323,11 +2323,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          25,
           null,
-          null,
-          null,
-          null,
-          null
+          35,
+          8
         ]
       },
       "4": {
@@ -2351,7 +2351,7 @@ export default [
     "id": 10,
     "name": "Glory",
     "icon": "https://rune.game/images/items/00010.png",
-    "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657468531&userId=usrf0GZYc5zCl9Cv7&cs=4c9d971d5e29449e",
+    "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657473288&userId=usrf0GZYc5zCl9Cv7&cs=7fafab9c3c6056e3",
     "value": "0",
     "type": 2,
     "subType": 19,
@@ -2560,11 +2560,11 @@ export default [
           }
         ],
         "perfection": [
+          40,
           null,
-          null,
-          null,
-          null,
-          null,
+          15,
+          10,
+          5,
           null,
           null,
           null
@@ -2727,15 +2727,15 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          15,
           null,
+          0,
+          15,
           null,
+          3,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          3
         ]
       },
       "3": {
@@ -2965,13 +2965,13 @@ export default [
           }
         ],
         "perfection": [
+          30,
+          15,
           null,
           null,
+          15,
           null,
-          null,
-          null,
-          null,
-          null,
+          409,
           null
         ]
       },
@@ -2994,7 +2994,7 @@ export default [
     "id": 11,
     "name": "Grace",
     "icon": "https://rune.game/images/items/00011.png",
-    "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657468535&userId=usrf0GZYc5zCl9Cv7&cs=2f36135ae9d86334",
+    "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657473293&userId=usrf0GZYc5zCl9Cv7&cs=19318b15dfa74e4a",
     "value": "0",
     "type": 2,
     "subType": 8,
@@ -3203,11 +3203,11 @@ export default [
           }
         ],
         "perfection": [
+          40,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          10,
+          5,
           null,
           null,
           null
@@ -3348,12 +3348,12 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          15,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          15,
+          3,
           null,
           null
         ]
@@ -3578,14 +3578,14 @@ export default [
           }
         ],
         "perfection": [
+          25,
+          7,
+          2,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null
+          2,
+          20
         ]
       },
       "4": {
@@ -3611,7 +3611,7 @@ export default [
     "id": 12,
     "name": "Genesis",
     "icon": "https://rune.game/images/items/00012.png",
-    "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657468539&userId=usrf0GZYc5zCl9Cv7&cs=ba1d019d4e01f6a9",
+    "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657473296&userId=usrf0GZYc5zCl9Cv7&cs=8a901f195cccaed4",
     "value": "0",
     "type": 1,
     "subType": 5,
@@ -3791,10 +3791,10 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
           null,
-          null,
-          null,
+          2,
           null,
           null,
           null
@@ -3932,14 +3932,14 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          30,
           null,
           null,
+          3,
           null,
           null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "3": {
@@ -4124,14 +4124,14 @@ export default [
           }
         ],
         "perfection": [
+          14,
+          20,
+          null,
+          10,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "4": {
@@ -4157,7 +4157,7 @@ export default [
     "id": 13,
     "name": "Destiny",
     "icon": "https://rune.game/images/items/00013.png",
-    "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657468543&userId=usrf0GZYc5zCl9Cv7&cs=a9be4c97ba8d4da7",
+    "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657473300&userId=usrf0GZYc5zCl9Cv7&cs=50aacbc1ec016c8f",
     "value": "0",
     "type": 2,
     "subType": 7,
@@ -4366,11 +4366,11 @@ export default [
           }
         ],
         "perfection": [
+          40,
           null,
-          null,
-          null,
-          null,
-          null,
+          15,
+          10,
+          5,
           null,
           null,
           null
@@ -4545,12 +4545,12 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          15,
+          15,
+          15,
+          5,
+          3,
           null,
           null,
           null,
@@ -4725,11 +4725,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
+          20,
+          5,
+          10,
+          25,
+          12,
           null,
           null
         ]
@@ -4757,7 +4757,7 @@ export default [
     "id": 14,
     "name": "Wrath",
     "icon": "https://rune.game/images/items/00014.png",
-    "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657468547&userId=usrf0GZYc5zCl9Cv7&cs=0e42396ce1db169f",
+    "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657473304&userId=usrf0GZYc5zCl9Cv7&cs=ce3525cb8fb984aa",
     "value": "0",
     "type": 1,
     "subType": 6,
@@ -4941,10 +4941,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          7,
+          2,
+          15,
+          2,
           null,
           null,
           null
@@ -5089,12 +5089,12 @@ export default [
           }
         ],
         "perfection": [
+          4,
           null,
+          15,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          4,
           null,
           null
         ]
@@ -5295,14 +5295,14 @@ export default [
           }
         ],
         "perfection": [
+          18,
+          2,
+          15,
           null,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null
+          20
         ]
       },
       "4": {
@@ -5328,7 +5328,7 @@ export default [
     "id": 15,
     "name": "Fortress",
     "icon": "https://rune.game/images/items/00015.png",
-    "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657468551&userId=usrf0GZYc5zCl9Cv7&cs=df2db0c99ee9b325",
+    "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657473308&userId=usrf0GZYc5zCl9Cv7&cs=9582cccd67852b75",
     "value": "0",
     "type": 3,
     "subType": 9,
@@ -5510,11 +5510,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          4,
+          10,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
           null,
           null
         ]
@@ -5659,14 +5659,14 @@ export default [
           }
         ],
         "perfection": [
+          0,
+          5,
+          10,
+          4,
+          10,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "3": {
@@ -5835,11 +5835,11 @@ export default [
           }
         ],
         "perfection": [
+          19,
+          8,
+          10,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
           null,
           null
         ]
@@ -5866,7 +5866,7 @@ export default [
     "id": 16,
     "name": "Elder",
     "icon": "https://rune.game/images/items/00016.png",
-    "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657468554&userId=usrf0GZYc5zCl9Cv7&cs=bdf7410f9806a4de",
+    "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657473311&userId=usrf0GZYc5zCl9Cv7&cs=cee8f77dbb111a6e",
     "value": "0",
     "type": 1,
     "subType": 2,
@@ -6068,11 +6068,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          40,
+          2,
           null,
-          null,
-          null,
-          null,
-          null,
+          2,
           null,
           null,
           null
@@ -6246,12 +6246,12 @@ export default [
           }
         ],
         "perfection": [
+          7,
+          20,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          4,
           null,
           null,
           null,
@@ -6424,12 +6424,12 @@ export default [
           }
         ],
         "perfection": [
+          15,
+          20,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          8,
           null
         ]
       },
@@ -6452,7 +6452,7 @@ export default [
     "id": 19,
     "name": "Pledge",
     "icon": "https://rune.game/images/items/00019.png",
-    "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657468557&userId=usrf0GZYc5zCl9Cv7&cs=2fa60c2a4f5a2075",
+    "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657473314&userId=usrf0GZYc5zCl9Cv7&cs=927f74c43b3619c5",
     "value": "0",
     "type": 5,
     "subType": 10,
@@ -6578,10 +6578,10 @@ export default [
           }
         ],
         "perfection": [
+          15,
+          1,
           null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "2": {
@@ -6672,11 +6672,11 @@ export default [
           }
         ],
         "perfection": [
+          0,
+          3,
           null,
-          null,
-          null,
-          null,
-          null
+          5,
+          3
         ]
       },
       "3": {
@@ -6832,10 +6832,10 @@ export default [
           }
         ],
         "perfection": [
+          6,
+          3,
           null,
-          null,
-          null,
-          null,
+          10,
           null
         ]
       },
@@ -6858,7 +6858,7 @@ export default [
     "id": 20,
     "name": "Flow",
     "icon": "https://rune.game/images/items/00020.png",
-    "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657468559&userId=usrf0GZYc5zCl9Cv7&cs=ce7302f731cb5223",
+    "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657473316&userId=usrf0GZYc5zCl9Cv7&cs=d592d474c68e6774",
     "value": "0",
     "type": 8,
     "subType": 16,
@@ -7017,12 +7017,12 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          10,
+          4,
           null,
-          null,
-          null,
-          null,
-          null,
-          null
+          1,
+          0
         ]
       },
       "2": {
@@ -7132,12 +7132,12 @@ export default [
           }
         ],
         "perfection": [
+          1,
+          10,
+          4,
           null,
-          null,
-          null,
-          null,
-          null,
-          null
+          2,
+          3
         ]
       },
       "3": {
@@ -7319,12 +7319,12 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          6,
           null,
           null,
-          null,
-          null,
-          null,
-          null
+          1,
+          6
         ]
       },
       "4": {
@@ -7344,7 +7344,7 @@ export default [
     "id": 21,
     "name": "Guiding Light",
     "icon": "https://rune.game/images/items/00021.png",
-    "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657468562&userId=usrf0GZYc5zCl9Cv7&cs=3a5d6fb37811baf6",
+    "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657473319&userId=usrf0GZYc5zCl9Cv7&cs=d07a9b6cfe0a06e0",
     "value": "0",
     "type": 2,
     "subType": 19,
@@ -7537,13 +7537,13 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          100,
+          100,
+          10,
+          50,
+          1,
+          0,
+          0,
           null
         ]
       },
@@ -7749,16 +7749,16 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          100,
+          10,
+          null,
+          0,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          0,
+          15,
+          5,
           null,
           null
         ]
@@ -8002,13 +8002,13 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          20,
+          20,
+          10,
+          15,
+          5,
+          25,
+          25,
           null,
           null,
           null
@@ -8035,7 +8035,7 @@ export default [
     "id": 22,
     "name": "Lionheart",
     "icon": "https://rune.game/images/items/00022.png",
-    "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657468566&userId=usrf0GZYc5zCl9Cv7&cs=0ccf2945c4f2bc06",
+    "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657473323&userId=usrf0GZYc5zCl9Cv7&cs=0629e3a62a992c07",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -8220,11 +8220,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
+          12,
+          10,
+          4,
+          5,
+          0,
           null,
           null
         ]
@@ -8361,11 +8361,11 @@ export default [
           }
         ],
         "perfection": [
+          3,
+          10,
           null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          -10,
           null,
           null,
           null
@@ -8618,11 +8618,11 @@ export default [
           }
         ],
         "perfection": [
+          21,
           null,
-          null,
-          null,
-          null,
-          null,
+          8,
+          10,
+          15,
           null,
           null,
           null
@@ -8647,7 +8647,7 @@ export default [
     "id": 23,
     "name": "Pressure",
     "icon": "https://rune.game/images/items/00023.png",
-    "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657468568&userId=usrf0GZYc5zCl9Cv7&cs=7786b1ca7b97291f",
+    "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657473326&userId=usrf0GZYc5zCl9Cv7&cs=72e54d93245d8424",
     "value": "0",
     "type": 9,
     "subType": 15,
@@ -8790,11 +8790,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
-          null,
-          null,
-          null,
-          null
+          10,
+          5,
+          1
         ]
       },
       "2": {
@@ -8921,12 +8921,12 @@ export default [
           }
         ],
         "perfection": [
+          1,
+          10,
+          10,
+          5,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          3,
           null
         ]
       },
@@ -9070,10 +9070,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          5,
+          15,
+          10,
+          10,
           null
         ]
       },
@@ -9098,7 +9098,7 @@ export default [
     "id": 24,
     "name": "Zeal",
     "icon": "https://rune.game/images/items/00024.png",
-    "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657468570&userId=usrf0GZYc5zCl9Cv7&cs=e706375bb2673c79",
+    "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657473328&userId=usrf0GZYc5zCl9Cv7&cs=2d6140962a3a1dcc",
     "value": "0",
     "type": 24,
     "subType": 25,
@@ -9236,10 +9236,10 @@ export default [
           }
         ],
         "perfection": [
+          10,
           null,
-          null,
-          null,
-          null,
+          15,
+          3,
           null
         ]
       },
@@ -9349,12 +9349,12 @@ export default [
           }
         ],
         "perfection": [
+          1,
           null,
+          15,
+          3,
           null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "3": {
@@ -9533,12 +9533,12 @@ export default [
           }
         ],
         "perfection": [
+          10,
           null,
+          15,
+          3,
           null,
-          null,
-          null,
-          null,
-          null
+          8
         ]
       },
       "4": {
@@ -9558,7 +9558,7 @@ export default [
     "id": 25,
     "name": "Balance",
     "icon": "https://rune.game/images/items/00025.png",
-    "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657468572&userId=usrf0GZYc5zCl9Cv7&cs=d1a452632e7f7043",
+    "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657473330&userId=usrf0GZYc5zCl9Cv7&cs=55587a55c83ff0ec",
     "value": "0",
     "type": 10,
     "subType": 26,
@@ -9712,9 +9712,9 @@ export default [
           }
         ],
         "perfection": [
+          3,
           null,
-          null,
-          null,
+          0,
           null,
           null
         ]
@@ -9809,10 +9809,10 @@ export default [
           }
         ],
         "perfection": [
+          1,
+          5,
           null,
-          null,
-          null,
-          null,
+          2,
           null
         ]
       },
@@ -9983,11 +9983,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
+          3,
+          5,
+          2,
+          7,
+          5,
           null
         ]
       },
@@ -10012,7 +10012,7 @@ export default [
     "id": 26,
     "name": "Eternity",
     "icon": "https://rune.game/images/items/00026.png",
-    "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657468576&userId=usrf0GZYc5zCl9Cv7&cs=e5be303f321f08dd",
+    "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657473333&userId=usrf0GZYc5zCl9Cv7&cs=6433f28a276a152d",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -10214,13 +10214,13 @@ export default [
           }
         ],
         "perfection": [
+          4,
           null,
+          5,
+          1,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          20,
+          0,
           null
         ]
       },
@@ -10373,13 +10373,13 @@ export default [
           }
         ],
         "perfection": [
+          2,
           null,
+          5,
           null,
+          5,
           null,
-          null,
-          null,
-          null,
-          null,
+          0,
           null,
           null
         ]
@@ -10555,13 +10555,13 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          9,
+          5,
+          1,
+          5,
+          10,
+          10,
           null
         ]
       },
@@ -10584,7 +10584,7 @@ export default [
     "id": 27,
     "name": "Instinct",
     "icon": "https://rune.game/images/items/00027.png",
-    "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657468580&userId=usrf0GZYc5zCl9Cv7&cs=e615f9c7f5ad7f4a",
+    "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657473337&userId=usrf0GZYc5zCl9Cv7&cs=e35b4f5e39ad1834",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -10748,12 +10748,12 @@ export default [
           }
         ],
         "perfection": [
+          3,
+          3,
           null,
-          null,
-          null,
-          null,
-          null,
-          null
+          4,
+          5,
+          0
         ]
       },
       "2": {
@@ -10861,12 +10861,12 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          3,
+          3,
+          3,
+          4,
+          5,
+          5
         ]
       },
       "3": {
@@ -11014,11 +11014,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          4,
+          3,
+          4,
+          5,
           null
         ]
       },
@@ -11044,7 +11044,7 @@ export default [
     "id": 28,
     "name": "Beacon",
     "icon": "https://rune.game/images/items/00028.png",
-    "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657468582&userId=usrf0GZYc5zCl9Cv7&cs=1403436d9e9a005b",
+    "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657473339&userId=usrf0GZYc5zCl9Cv7&cs=99c55ba8ea4a9e87",
     "value": "0",
     "type": 13,
     "subType": 17,
@@ -11186,11 +11186,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null
+          3,
+          3,
+          3,
+          4,
+          0
         ]
       },
       "2": {
@@ -11336,13 +11336,13 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          3,
+          5,
+          5,
+          0,
+          5,
+          5,
           null
         ]
       },
@@ -11489,11 +11489,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
+          8,
+          3,
+          5,
+          7,
+          5,
           null,
           null
         ]
@@ -11517,7 +11517,7 @@ export default [
     "id": 29,
     "name": "Dragonlight",
     "icon": "https://rune.game/images/items/00029.png",
-    "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657468585&userId=usrf0GZYc5zCl9Cv7&cs=491d9619755915e3",
+    "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657473342&userId=usrf0GZYc5zCl9Cv7&cs=7d7fe7b6edf8e3c2",
     "value": "0",
     "type": 13,
     "subType": 17,
@@ -11648,10 +11648,10 @@ export default [
         ],
         "perfection": [
           null,
-          null,
-          null,
-          null,
-          null
+          5,
+          50,
+          20,
+          10
         ]
       },
       "2": {
@@ -11726,9 +11726,9 @@ export default [
         ],
         "perfection": [
           null,
-          null,
-          null,
-          null
+          10,
+          10,
+          5
         ]
       },
       "4": {
@@ -11748,7 +11748,7 @@ export default [
     "id": 30,
     "name": "Haze",
     "icon": "https://rune.game/images/items/00030.png",
-    "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657468586&userId=usrf0GZYc5zCl9Cv7&cs=86b32f1899ef946f",
+    "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657473342&userId=usrf0GZYc5zCl9Cv7&cs=0e0e7b7d09330e6a",
     "value": "0",
     "type": 5,
     "subType": 10,
@@ -11946,11 +11946,11 @@ export default [
           }
         ],
         "perfection": [
+          15,
+          2,
           null,
-          null,
-          null,
-          null,
-          null,
+          2,
+          30,
           null,
           null,
           null
@@ -12105,11 +12105,11 @@ export default [
           }
         ],
         "perfection": [
+          0,
+          2,
           null,
-          null,
-          null,
-          null,
-          null,
+          2,
+          30,
           null,
           null,
           null
@@ -12285,12 +12285,12 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          10,
+          2,
+          6,
+          10,
+          10,
+          5
         ]
       },
       "4": {
@@ -12312,7 +12312,7 @@ export default [
     "id": 31,
     "name": "Hellfire",
     "icon": "https://rune.game/images/items/00031.png",
-    "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657468588&userId=usrf0GZYc5zCl9Cv7&cs=e318b4e17f11405b",
+    "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657473345&userId=usrf0GZYc5zCl9Cv7&cs=8228ef2c75f76b78",
     "value": "0",
     "type": 7,
     "subType": 13,
@@ -12456,11 +12456,11 @@ export default [
           }
         ],
         "perfection": [
+          15,
           null,
           null,
-          null,
-          null,
-          null
+          4,
+          0
         ]
       },
       "2": {
@@ -12596,11 +12596,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          15,
           null,
-          null,
-          null,
-          null,
-          null,
+          3,
+          5,
           null,
           null,
           null
@@ -12829,14 +12829,14 @@ export default [
           }
         ],
         "perfection": [
+          20,
+          10,
+          null,
+          8,
+          15,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          10
         ]
       },
       "4": {
@@ -12861,7 +12861,7 @@ export default [
     "id": 32,
     "name": "Luminous Flywings",
     "icon": "https://rune.game/images/items/00032.png",
-    "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657468593&userId=usrf0GZYc5zCl9Cv7&cs=d4c9f2b89c62bf23",
+    "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657473349&userId=usrf0GZYc5zCl9Cv7&cs=8be8914e6c8afea7",
     "value": "0",
     "type": 14,
     "subType": 32,
@@ -12979,9 +12979,9 @@ export default [
         ],
         "perfection": [
           null,
+          2,
           null,
-          null,
-          null
+          20
         ]
       },
       "2": {
@@ -13061,9 +13061,9 @@ export default [
         ],
         "perfection": [
           null,
-          null,
-          null,
-          null
+          2,
+          3,
+          20
         ]
       },
       "3": {
@@ -13137,8 +13137,8 @@ export default [
         ],
         "perfection": [
           null,
-          null,
-          null
+          2,
+          20
         ]
       },
       "4": {
@@ -13333,11 +13333,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          8,
+          8,
           null,
-          null,
-          null,
-          null,
-          null,
+          3,
           null,
           null,
           null
@@ -13473,11 +13473,11 @@ export default [
           }
         ],
         "perfection": [
+          4,
+          8,
+          8,
           null,
-          null,
-          null,
-          null,
-          null,
+          3,
           null,
           null,
           null
@@ -13613,11 +13613,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          8,
+          8,
           null,
-          null,
-          null,
-          null,
-          null,
+          3,
           null,
           null,
           null
@@ -13642,7 +13642,7 @@ export default [
     "id": 34,
     "name": "Blur",
     "icon": "https://rune.game/images/items/00034.png",
-    "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657468596&userId=usrf0GZYc5zCl9Cv7&cs=12f0004febc769fb",
+    "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657473353&userId=usrf0GZYc5zCl9Cv7&cs=33af7152ce1f2548",
     "value": "0",
     "type": 7,
     "subType": 13,
@@ -13810,11 +13810,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          1,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          10,
           null
         ]
       },
@@ -13938,11 +13938,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          1,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          2,
           null,
           null
         ]
@@ -14112,11 +14112,11 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
-          null,
+          20,
+          1,
+          5,
+          10,
+          10,
           null
         ]
       },
@@ -14139,7 +14139,7 @@ export default [
     "id": 35,
     "name": "Mercy",
     "icon": "https://rune.game/images/items/00035.png",
-    "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657468597&userId=usrf0GZYc5zCl9Cv7&cs=b19b67ba81279649",
+    "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657473354&userId=usrf0GZYc5zCl9Cv7&cs=047c57bbbba833b3",
     "value": "0",
     "type": 1,
     "subType": 5,
@@ -14342,11 +14342,11 @@ export default [
           }
         ],
         "perfection": [
+          7,
           null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          2,
+          10,
           null,
           null,
           null
@@ -14489,11 +14489,11 @@ export default [
           }
         ],
         "perfection": [
+          2,
           null,
-          null,
-          null,
-          null,
-          null,
+          2,
+          1,
+          10,
           null,
           null,
           null
@@ -14677,12 +14677,12 @@ export default [
           }
         ],
         "perfection": [
+          15,
+          15,
+          2,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          15,
+          5,
           null
         ]
       },
@@ -14880,13 +14880,13 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          4005,
+          0,
+          5,
           null
         ]
       },
@@ -15027,12 +15027,12 @@ export default [
           }
         ],
         "perfection": [
+          2,
           null,
           null,
+          5,
           null,
-          null,
-          null,
-          null,
+          5,
           null,
           null
         ]
@@ -15161,11 +15161,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
+          5,
           null,
-          null,
-          null,
-          null,
+          5,
           null,
           null
         ]
@@ -15187,7 +15187,7 @@ export default [
     "id": 37,
     "name": "Burial",
     "icon": "https://rune.game/images/items/00037.png",
-    "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657468600&userId=usrf0GZYc5zCl9Cv7&cs=6e3ab756a5c0574b",
+    "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657473356&userId=usrf0GZYc5zCl9Cv7&cs=682492e25b5deb29",
     "value": "0",
     "type": 2,
     "subType": 21,
@@ -15390,11 +15390,11 @@ export default [
           }
         ],
         "perfection": [
+          30,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          0,
+          20,
           null,
           null,
           null
@@ -15587,13 +15587,13 @@ export default [
           }
         ],
         "perfection": [
+          25,
+          15,
+          25,
+          18,
+          25,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          15
         ]
       },
       "4": {
@@ -15765,11 +15765,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          4,
           null,
           null,
-          null,
-          null,
-          null,
+          5,
           null
         ]
       },
@@ -15858,9 +15858,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          20,
+          10,
+          10,
           null,
           null
         ]
@@ -15940,9 +15940,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          20,
+          10,
+          10,
           null
         ]
       },
@@ -16092,9 +16092,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          35,
+          10,
+          10,
           null,
           null
         ]
@@ -16314,9 +16314,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          4,
+          15,
+          4015,
           null,
           null,
           null,
@@ -16520,11 +16520,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          25,
+          5,
           null,
-          null,
-          null,
-          null,
-          null,
+          0,
           null,
           null,
           null
@@ -16595,7 +16595,7 @@ export default [
     "id": 43,
     "name": "Thunderchild",
     "icon": "https://rune.game/images/items/00043.png",
-    "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657468608&userId=usrf0GZYc5zCl9Cv7&cs=c1b6c9ec50df24fc",
+    "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657473365&userId=usrf0GZYc5zCl9Cv7&cs=adc27f2a8b8a4c38",
     "value": "0",
     "type": 2,
     "subType": 38,
@@ -16776,11 +16776,11 @@ export default [
           }
         ],
         "perfection": [
+          30,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          10,
+          5,
           null,
           null
         ]
@@ -16967,12 +16967,12 @@ export default [
           }
         ],
         "perfection": [
+          30,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
+          15,
+          10,
+          20,
           null
         ]
       },
@@ -16998,7 +16998,7 @@ export default [
     "id": 44,
     "name": "Hellreaver",
     "icon": "https://rune.game/images/items/00044.png",
-    "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657468611&userId=usrf0GZYc5zCl9Cv7&cs=dd87e5b1ebd89e9f",
+    "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657473368&userId=usrf0GZYc5zCl9Cv7&cs=1de87fbe200399c9",
     "value": "0",
     "type": 2,
     "subType": 39,
@@ -17183,11 +17183,11 @@ export default [
           }
         ],
         "perfection": [
+          35,
           null,
           null,
-          null,
-          null,
-          null,
+          10,
+          10,
           null,
           null
         ]
@@ -17427,13 +17427,13 @@ export default [
           }
         ],
         "perfection": [
+          35,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          15,
+          10,
+          5,
+          10,
           null
         ]
       },
@@ -17454,7 +17454,7 @@ export default [
     "id": 45,
     "name": "Phoenix",
     "icon": "https://rune.game/images/items/00045.png",
-    "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657468612&userId=usrf0GZYc5zCl9Cv7&cs=8c7486e742de56e0",
+    "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657473369&userId=usrf0GZYc5zCl9Cv7&cs=1a984296f570bafc",
     "value": "0",
     "type": 2,
     "subType": 7,
@@ -17625,12 +17625,12 @@ export default [
           }
         ],
         "perfection": [
+          50,
+          20,
           null,
+          10,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
           null,
           null
         ]
@@ -17777,10 +17777,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          20,
+          10,
+          15,
+          10,
           null
         ]
       },
@@ -17801,7 +17801,7 @@ export default [
     "id": 46,
     "name": "Ignition",
     "icon": "https://rune.game/images/items/00046.png",
-    "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657468613&userId=usrf0GZYc5zCl9Cv7&cs=4dfd49a6f7089b07",
+    "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657473370&userId=usrf0GZYc5zCl9Cv7&cs=2f4ba77232af4fef",
     "value": "0",
     "type": 11,
     "subType": 12,
@@ -17928,9 +17928,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          10,
+          10,
+          0,
           null,
           null
         ]
@@ -18086,11 +18086,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
+          10,
           null,
-          null,
-          null,
-          null,
-          null
+          5,
+          5
         ]
       },
       "4": {
@@ -18233,11 +18233,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          25,
           null,
-          null,
-          null,
-          null,
-          null
+          1,
+          0
         ]
       },
       "2": {
@@ -18365,11 +18365,11 @@ export default [
           }
         ],
         "perfection": [
+          13,
+          10,
           null,
-          null,
-          null,
-          null,
-          null
+          15,
+          10
         ]
       },
       "4": {
@@ -18457,7 +18457,7 @@ export default [
     "id": 49,
     "name": "Purity",
     "icon": "https://rune.game/images/items/00049.png",
-    "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657468616&userId=usrf0GZYc5zCl9Cv7&cs=6a63602136867f3e",
+    "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657473373&userId=usrf0GZYc5zCl9Cv7&cs=22cb6a9539eae44f",
     "value": "0",
     "type": 2,
     "subType": 4,
@@ -18629,11 +18629,11 @@ export default [
           }
         ],
         "perfection": [
+          40,
+          20,
           null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          5,
           null,
           null,
           null
@@ -18747,9 +18747,9 @@ export default [
           }
         ],
         "perfection": [
+          25,
           null,
-          null,
-          null,
+          20,
           null
         ]
       },
@@ -19063,9 +19063,9 @@ export default [
           }
         ],
         "perfection": [
+          15,
           null,
-          null,
-          null,
+          5,
           null
         ]
       },
@@ -19180,7 +19180,7 @@ export default [
           null,
           null,
           null,
-          null
+          1
         ]
       },
       "4": {
@@ -19358,13 +19358,13 @@ export default [
           }
         ],
         "perfection": [
+          3,
+          0,
+          3,
+          4,
+          2,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "2": {
@@ -19533,11 +19533,11 @@ export default [
           null,
           null,
           null,
+          8,
           null,
-          null,
-          null,
-          null,
-          null
+          20,
+          5,
+          20
         ]
       },
       "4": {
@@ -19559,7 +19559,7 @@ export default [
     "id": 55,
     "name": "Reave",
     "icon": "https://rune.game/images/items/00055.png",
-    "image": "https://dl.airtable.com/.attachments/2ac48bac7517ce3e492571892f035477/2da3c0e0/boots_A_01.png?ts=1657468624&userId=usrf0GZYc5zCl9Cv7&cs=28df50bafc48c814",
+    "image": "https://dl.airtable.com/.attachments/2ac48bac7517ce3e492571892f035477/2da3c0e0/boots_A_01.png?ts=1657473381&userId=usrf0GZYc5zCl9Cv7&cs=e454206e05539663",
     "value": "0",
     "type": 11,
     "subType": 12,
@@ -19718,9 +19718,9 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
-          null,
-          null,
+          5,
           null,
           null,
           null
@@ -19898,10 +19898,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          5,
+          5,
+          7,
+          5,
           null,
           null
         ]
@@ -19923,7 +19923,7 @@ export default [
     "id": 56,
     "name": "Flare",
     "icon": "https://rune.game/images/items/00056.png",
-    "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657468625&userId=usrf0GZYc5zCl9Cv7&cs=c95bfdbb782a78b5",
+    "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657473382&userId=usrf0GZYc5zCl9Cv7&cs=9cd98835d6f2287b",
     "value": "0",
     "type": 8,
     "subType": 16,
@@ -20046,11 +20046,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          5,
           null,
           null,
-          null,
-          null,
-          null
+          0
         ]
       },
       "2": {
@@ -20245,13 +20245,13 @@ export default [
           }
         ],
         "perfection": [
+          10,
+          10,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          5,
+          1,
+          6,
+          5
         ]
       },
       "4": {
@@ -20271,7 +20271,7 @@ export default [
     "id": 109,
     "name": "Voidmaw",
     "icon": "https://rune.game/images/items/00109.png",
-    "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657468626&userId=usrf0GZYc5zCl9Cv7&cs=15a4e7e6f95b4ec2",
+    "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657473382&userId=usrf0GZYc5zCl9Cv7&cs=daf3b6b1aba3897b",
     "value": "0",
     "type": 13,
     "subType": 17,
@@ -20361,9 +20361,9 @@ export default [
           }
         ],
         "perfection": [
+          4,
           null,
-          null,
-          null
+          0
         ]
       },
       "2": {
@@ -20503,11 +20503,11 @@ export default [
           }
         ],
         "perfection": [
+          7,
+          4,
+          5,
           null,
-          null,
-          null,
-          null,
-          null
+          10
         ]
       },
       "4": {
@@ -20527,7 +20527,7 @@ export default [
     "id": 110,
     "name": "Hoarfrost",
     "icon": "https://rune.game/images/items/00110.png",
-    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657468626&userId=usrf0GZYc5zCl9Cv7&cs=bdcd78740131f929",
+    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657473383&userId=usrf0GZYc5zCl9Cv7&cs=82da92c755005eec",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -20635,10 +20635,10 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
-          null,
-          null,
-          null
+          20,
+          20
         ]
       },
       "2": {
@@ -20726,7 +20726,7 @@ export default [
     "id": 112,
     "name": "Animus",
     "icon": "https://rune.game/images/items/00112.png",
-    "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657468628&userId=usrf0GZYc5zCl9Cv7&cs=9b5e13c61392c4f4",
+    "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657473384&userId=usrf0GZYc5zCl9Cv7&cs=9340c56529d6c7f7",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -20893,11 +20893,11 @@ export default [
           }
         ],
         "perfection": [
+          4,
           null,
-          null,
-          null,
-          null,
-          null,
+          2,
+          0,
+          10,
           null
         ]
       },
@@ -21078,12 +21078,12 @@ export default [
           }
         ],
         "perfection": [
+          4,
+          5,
           null,
           null,
-          null,
-          null,
-          null,
-          null
+          5,
+          5
         ]
       },
       "4": {
@@ -21756,12 +21756,12 @@ export default [
           }
         ],
         "perfection": [
+          30,
+          5,
+          20,
+          15,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          0,
           null
         ]
       },
@@ -21826,7 +21826,7 @@ export default [
           }
         ],
         "perfection": [
-          null,
+          36,
           null
         ]
       },
@@ -21849,7 +21849,7 @@ export default [
     "id": 209,
     "name": "Icebrand",
     "icon": "https://rune.game/images/items/00209.png",
-    "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657468634&userId=usrf0GZYc5zCl9Cv7&cs=e6668ff5eb2f8a33",
+    "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657473390&userId=usrf0GZYc5zCl9Cv7&cs=aee7797186afab6d",
     "value": "0",
     "type": 1,
     "subType": 1,
@@ -22027,12 +22027,12 @@ export default [
           }
         ],
         "perfection": [
+          15,
           null,
+          1,
+          15,
           null,
-          null,
-          null,
-          null,
-          null,
+          5,
           null,
           null
         ]
@@ -22158,11 +22158,11 @@ export default [
           }
         ],
         "perfection": [
+          18,
+          18,
           null,
           null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "4": {
@@ -22374,11 +22374,11 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
+          5,
           null,
-          null,
-          null,
-          null
+          0
         ]
       },
       "2": {
@@ -22533,10 +22533,10 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
-          null,
+          5,
+          10,
+          10,
+          10,
           null
         ]
       },
@@ -22557,7 +22557,7 @@ export default [
     "id": 241,
     "name": "Pulsar",
     "icon": "https://rune.game/images/items/00241.png",
-    "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657468636&userId=usrf0GZYc5zCl9Cv7&cs=19bf055411784871",
+    "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657473393&userId=usrf0GZYc5zCl9Cv7&cs=bedd2df6ea4e617e",
     "value": "0",
     "type": 2,
     "subType": 8,
@@ -22678,10 +22678,10 @@ export default [
           }
         ],
         "perfection": [
+          30,
           null,
           null,
-          null,
-          null,
+          5,
           null
         ]
       },
@@ -22840,9 +22840,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          20,
+          10,
+          15,
           null,
           null
         ]
@@ -22994,10 +22994,10 @@ export default [
           }
         ],
         "perfection": [
+          50,
+          10,
           null,
-          null,
-          null,
-          null,
+          15,
           null
         ]
       },
@@ -23453,11 +23453,11 @@ export default [
           }
         ],
         "perfection": [
+          30,
+          40,
           null,
-          null,
-          null,
-          null,
-          null,
+          10,
+          5,
           null,
           null
         ]
@@ -23618,11 +23618,11 @@ export default [
           }
         ],
         "perfection": [
+          20,
+          15,
+          10,
           null,
-          null,
-          null,
-          null,
-          null
+          15
         ]
       },
       "4": {
@@ -23747,9 +23747,9 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
-          null,
+          10,
+          10,
+          0,
           null
         ]
       },
@@ -23912,11 +23912,11 @@ export default [
           }
         ],
         "perfection": [
+          7,
+          10,
           null,
-          null,
-          null,
-          null,
-          null
+          5,
+          5
         ]
       },
       "4": {
@@ -24040,10 +24040,10 @@ export default [
           }
         ],
         "perfection": [
+          10,
           null,
-          null,
-          null,
-          null
+          5,
+          0
         ]
       },
       "2": {
@@ -24166,11 +24166,11 @@ export default [
           }
         ],
         "perfection": [
+          7,
+          5,
+          15,
           null,
-          null,
-          null,
-          null,
-          null
+          5
         ]
       },
       "4": {
@@ -24362,10 +24362,10 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
           null,
-          null,
-          null
+          5
         ]
       },
       "2": {
@@ -24532,11 +24532,11 @@ export default [
           }
         ],
         "perfection": [
+          30,
+          0,
           null,
-          null,
-          null,
-          null,
-          null,
+          5,
+          0,
           null
         ]
       },
@@ -24719,11 +24719,11 @@ export default [
           }
         ],
         "perfection": [
+          15,
           null,
           null,
           null,
-          null,
-          null,
+          0,
           null
         ]
       },
@@ -24820,8 +24820,8 @@ export default [
           }
         ],
         "perfection": [
-          null,
-          null,
+          20,
+          5,
           null
         ]
       },
@@ -24963,11 +24963,11 @@ export default [
           }
         ],
         "perfection": [
+          10,
           null,
+          5,
           null,
-          null,
-          null,
-          null
+          1
         ]
       },
       "2": {
@@ -25160,9 +25160,9 @@ export default [
           }
         ],
         "perfection": [
+          15,
           null,
-          null,
-          null,
+          5,
           null
         ]
       },
@@ -25295,9 +25295,9 @@ export default [
           }
         ],
         "perfection": [
+          5,
           null,
-          null,
-          null,
+          5,
           null
         ]
       },
@@ -25452,10 +25452,10 @@ export default [
           }
         ],
         "perfection": [
+          40,
           null,
-          null,
-          null,
-          null,
+          25,
+          20,
           null
         ]
       },
@@ -25668,7 +25668,7 @@ export default [
           }
         ],
         "perfection": [
-          null
+          20
         ]
       },
       "2": {
@@ -26035,7 +26035,7 @@ export default [
     "id": 1200,
     "name": "Scholar's Codex",
     "icon": "https://rune.game/images/items/01200.png",
-    "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657468653&userId=usrf0GZYc5zCl9Cv7&cs=3ddaa0af13e387b1",
+    "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657473409&userId=usrf0GZYc5zCl9Cv7&cs=fb9c0c5566ec43dd",
     "value": "0",
     "specificType": 58,
     "isNew": false,
@@ -26177,7 +26177,7 @@ export default [
     "id": 1201,
     "name": "General's Medallion",
     "icon": "https://rune.game/images/items/01201.png",
-    "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657468654&userId=usrf0GZYc5zCl9Cv7&cs=f53ed2c7ca5bdbf7",
+    "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657473410&userId=usrf0GZYc5zCl9Cv7&cs=a314d020e2a70499",
     "value": "0",
     "specificType": 58,
     "isNew": false,
@@ -26317,7 +26317,7 @@ export default [
     "id": 1202,
     "name": "Crafting Competition Winner",
     "icon": "https://rune.game/images/items/01202.png",
-    "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657468654&userId=usrf0GZYc5zCl9Cv7&cs=82f521a82da4431f",
+    "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657473410&userId=usrf0GZYc5zCl9Cv7&cs=7f798ef1ec38bc5e",
     "value": "0",
     "isNew": false,
     "isSecret": false,
@@ -26499,7 +26499,7 @@ export default [
     "id": 1205,
     "name": "Founder's Cube",
     "icon": "https://rune.game/images/items/01205.png",
-    "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657468655&userId=usrf0GZYc5zCl9Cv7&cs=e6c48a03d2206330",
+    "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657473411&userId=usrf0GZYc5zCl9Cv7&cs=1acbdde73b580be4",
     "value": "0",
     "isNew": false,
     "isSecret": false,
@@ -26561,7 +26561,7 @@ export default [
     "id": 1207,
     "name": "Black Drake Scale",
     "icon": "https://rune.game/images/items/01207.png",
-    "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657468655&userId=usrf0GZYc5zCl9Cv7&cs=d4038354bc93152a",
+    "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657473411&userId=usrf0GZYc5zCl9Cv7&cs=e75484aef2100786",
     "value": "0",
     "specificType": 195,
     "isNew": false,
@@ -26640,7 +26640,7 @@ export default [
         ],
         "perfection": [
           null,
-          null
+          3
         ]
       },
       "2": {
@@ -26698,7 +26698,7 @@ export default [
         ],
         "perfection": [
           null,
-          null
+          5
         ]
       },
       "4": {

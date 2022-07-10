@@ -15,7 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _70, _71, _72, _73, _74, _75, _76, _77, _78, _79, _80, _81, _82, _83;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.StatNames = exports.EffectNames = exports.TypeNames = exports.ConditionParamNames = exports.ConditionNames = exports.Games = exports.rewardTokenIdMap = void 0;
+exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
 var generatedItems_1 = __importDefault(require("./generatedItems"));
 exports.rewardTokenIdMap = {
@@ -61,7 +61,7 @@ exports.Games = {
         id: 5,
     },
 };
-var ConditionIdByName = {
+exports.ConditionIdByName = {
     WaitForTime: 1,
     InAura: 2,
     SkillHits: 3,
@@ -96,21 +96,21 @@ var ConditionIdByName = {
     TimeWithoutHits: 32,
 };
 exports.ConditionNames = {};
-for (var _i = 0, _84 = Object.keys(ConditionIdByName); _i < _84.length; _i++) {
+for (var _i = 0, _84 = Object.keys(exports.ConditionIdByName); _i < _84.length; _i++) {
     var key = _84[_i];
     // @ts-ignore
-    exports.ConditionNames[ConditionIdByName[key]] = key;
+    exports.ConditionNames[exports.ConditionIdByName[key]] = key;
 }
-var ConditionParamIdByName = {
+exports.ConditionParamIdByName = {
     Attack: 1,
 };
 exports.ConditionParamNames = {};
-for (var _85 = 0, _86 = Object.keys(ConditionParamIdByName); _85 < _86.length; _85++) {
+for (var _85 = 0, _86 = Object.keys(exports.ConditionParamIdByName); _85 < _86.length; _85++) {
     var key = _86[_85];
     // @ts-ignore
-    exports.ConditionParamNames[ConditionParamIdByName[key]] = key;
+    exports.ConditionParamNames[exports.ConditionParamIdByName[key]] = key;
 }
-var TypeIdByName = {
+exports.TypeIdByName = {
     Fire: 1,
     Lightning: 2,
     Ice: 4,
@@ -148,12 +148,12 @@ var TypeIdByName = {
     Ultimate: 27,
 };
 exports.TypeNames = {};
-for (var _87 = 0, _88 = Object.keys(TypeIdByName); _87 < _88.length; _87++) {
+for (var _87 = 0, _88 = Object.keys(exports.TypeIdByName); _87 < _88.length; _87++) {
     var key = _88[_87];
     // @ts-ignore
-    exports.TypeNames[TypeIdByName[key]] = key;
+    exports.TypeNames[exports.TypeIdByName[key]] = key;
 }
-var EffectIdByName = {
+exports.EffectIdByName = {
     'Poison': 0,
     'Bleed': 1,
     'Freeze': 2,
@@ -208,12 +208,12 @@ var EffectIdByName = {
     'MovementDamage': 210,
 };
 exports.EffectNames = {};
-for (var _89 = 0, _90 = Object.keys(EffectIdByName); _89 < _90.length; _89++) {
+for (var _89 = 0, _90 = Object.keys(exports.EffectIdByName); _89 < _90.length; _89++) {
     var key = _90[_89];
     // @ts-ignore
-    exports.EffectNames[EffectIdByName[key]] = key;
+    exports.EffectNames[exports.EffectIdByName[key]] = key;
 }
-var StatIdByName = {
+exports.StatIdByName = {
     EnergyRegen: 1,
     CriticalHitChance: 2,
     MovementSpeed: 3,
@@ -226,21 +226,21 @@ var StatIdByName = {
     Vitality: 10,
 };
 exports.StatNames = {};
-for (var _91 = 0, _92 = Object.keys(StatIdByName); _91 < _92.length; _91++) {
+for (var _91 = 0, _92 = Object.keys(exports.StatIdByName); _91 < _92.length; _91++) {
     var key = _92[_91];
     // @ts-ignore
-    exports.StatNames[StatIdByName[key]] = key;
+    exports.StatNames[exports.StatIdByName[key]] = key;
 }
-var ModIdByName = {
+exports.ModIdByName = {
     'Wild Swings': 1,
     'Scorching Light': 2,
     'Bloodseekers': 3,
 };
 exports.ModNames = {};
-for (var _93 = 0, _94 = Object.keys(ModIdByName); _93 < _94.length; _93++) {
+for (var _93 = 0, _94 = Object.keys(exports.ModIdByName); _93 < _94.length; _93++) {
     var key = _94[_93];
     // @ts-ignore
-    exports.ModNames[ModIdByName[key]] = key;
+    exports.ModNames[exports.ModIdByName[key]] = key;
 }
 exports.ItemAttributes = {
     HarvestYield: {
