@@ -47,7 +47,7 @@ export const Games = {
 }
 
 
-const ConditionIdByName = {
+export const ConditionIdByName = {
   WaitForTime: 1,
   InAura: 2,
   SkillHits: 3,
@@ -89,7 +89,7 @@ for (const key of Object.keys(ConditionIdByName)) {
   ConditionNames[ConditionIdByName[key]] = key
 }
 
-const ConditionParamIdByName = {
+export const ConditionParamIdByName = {
   Attack: 1,
 }
 
@@ -100,7 +100,7 @@ for (const key of Object.keys(ConditionParamIdByName)) {
   ConditionParamNames[ConditionParamIdByName[key]] = key
 }
 
-const TypeIdByName = {
+export const TypeIdByName = {
   Fire: 1,
   Lightning: 2,
   Ice: 4,
@@ -145,7 +145,7 @@ for (const key of Object.keys(TypeIdByName)) {
   TypeNames[TypeIdByName[key]] = key
 }
 
-const EffectIdByName = {
+export const EffectIdByName = {
   'Poison': 0,
   'Bleed': 1,
   'Freeze': 2,
@@ -207,7 +207,7 @@ for (const key of Object.keys(EffectIdByName)) {
   EffectNames[EffectIdByName[key]] = key
 }
 
-const StatIdByName = {
+export const StatIdByName = {
   EnergyRegen: 1,
   CriticalHitChance: 2,
   MovementSpeed: 3,
@@ -227,7 +227,7 @@ for (const key of Object.keys(StatIdByName)) {
   StatNames[StatIdByName[key]] = key
 }
 
-const ModIdByName = {
+export const ModIdByName = {
   'Wild Swings': 1,
   'Scorching Light': 2,
   'Bloodseekers': 3,
