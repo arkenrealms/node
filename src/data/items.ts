@@ -1,5 +1,5 @@
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type'
-
+import generatedItems from './generatedItems'
 
 export const rewardTokenIdMap = {
   'Guardian Egg': {
@@ -1148,7 +1148,7 @@ export const ItemType = {
   Ring: 12,
   Amulet: 13,
   Trinket: 14,
-  Potion: 15,
+  Consumable: 15,
   Gem: 16,
   Rune: 17,
   Ingredient: 18,
@@ -1177,7 +1177,7 @@ export const ItemTypeToText = {
   [ItemType.Ring]: 'Ring',
   [ItemType.Amulet]: 'Amulet',
   [ItemType.Trinket]: 'Trinket',
-  [ItemType.Potion]: 'Potion',
+  [ItemType.Consumable]: 'Consumable',
   [ItemType.Gem]: 'Gem',
   [ItemType.Rune]: 'Rune',
   [ItemType.Ingredient]: 'Ingredient',
@@ -1202,7 +1202,7 @@ export const ItemSlot = {
   Waist: 8,
   Hands: 9,
   Wrists: 10,
-  // Legs: 11,
+  Shoulders: 11,
   Feet: 12,
   Finger1: 13,
   Finger2: 14,
@@ -3749,354 +3749,450 @@ export const itemData = {
         },
       },
     },
-    {
-      id: 46,
-      name: 'Ignition',
-      category: ItemCategoriesType.GREAVE,
-      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00046.png',
-      value: '0',
-      isSecret: false,
-      type: ItemType.Boot,
-      slots: [ItemSlot.Feet],
-      isNew: true,
-      isEquipable: true,
-      isUnequipable: false,
-      isTradeable: true,
-      isTransferable: true,
-      isUpgradable: true,
-      isCraftable: false,
-      isDisabled: true,
-      isRuneword: true,
-      createdDate: 0,
-      hotness: 9,
-      attributes: [],
-      details: {
-        Type: 'Boots',
-        Subtype: 'Kona Sage Footwraps',
-        // 'Rune Word': 'Zod Ist Mal',
-        Distribution: 'Crafted',
-        Date: 'Feb 21, 2022 - Now',
-        'Max Supply': 'Unknown',
-      },
-      recipe: {
-        requirement: [
-          { id: RuneId.ZOD, quantity: 1 },
-          { id: RuneId.IST, quantity: 1 },
-          { id: RuneId.MAL, quantity: 1 },
-        ],
-      },
-      description: [
-        `Runic inscriptions have transformed this stone hammer into an unbreakable, brutal conduit of Eledon's divine will.`,
-      ],
-      branches: {
-        [Games.Raid.id]: {
-          attributes: [
-            { ...ItemAttributes.HarvestYield, min: 10, max: 30 },
-            { ...ItemAttributes.FindGuildToken, min: 0, max: 8 },
-            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-            // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
-          ],
-          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
-        },
-        [Games.Evolution.id]: {
-          attributes: [],
-        },
-        [Games.Infinite.id]: {
-          attributes: [
-            { ...ItemAttributes.DamageReduce, min: 3, max: 5, description: '{Value}% Increased Physical Damage' }, // All
-            { ...ItemAttributes.IncreaseStat, min: 5, max: 10, description: '{Value}% Energy Regeneration' }, // MovementSpeed
-            { ...ItemAttributes.UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Flaming Dash' },
-            { ...ItemAttributes.IncreaseResist, min: 0, max: 5, description: '{Value}% Fire Resistance' }, // Fire
-            { ...ItemAttributes.WinRewardsIncrease, min: 1, max: 5, description: '{Value}% Rewards On Win' }, // Runes
-          ],
-          perfection: [25, 15, 25, 18, 25, undefined, undefined, undefined],
-        },
-        [Games.Guardians.id]: {
-          attributes: [],
-        },
-        [Games.Sanctuary.id]: {
-          attributes: [],
-        },
-      },
-    },
-    {
-      id: 43,
-      name: 'Thunderchild',
-      category: ItemCategoriesType.WEAPON,
-      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00043.png',
-      value: '0',
-      isSecret: false,
-      type: ItemType.TwoHandedWeapon,
-      slots: [ItemSlot.LeftHand],
-      isNew: true,
-      isEquipable: true,
-      isUnequipable: false,
-      isTradeable: true,
-      isTransferable: true,
-      isUpgradable: true,
-      isCraftable: false,
-      isDisabled: true,
-      isRuneword: true,
-      createdDate: 0,
-      hotness: 9,
-      attributes: [],
-      details: {
-        Type: 'Hammer',
-        Subtype: 'Fist of Eledon',
-        'Rune Word': 'Shael Ist Zod Mal Um',
-        Distribution: 'Crafted',
-        Date: 'Feb 21, 2022 - Now',
-        'Max Supply': 'Unknown',
-      },
-      recipe: {
-        requirement: [
-          { id: RuneId.SHAEL, quantity: 1 },
-          { id: RuneId.IST, quantity: 1 },
-          { id: RuneId.ZOD, quantity: 1 },
-          { id: RuneId.MAL, quantity: 1 },
-          { id: RuneId.UM, quantity: 1 },
-        ],
-      },
-      description: [
-        `Runic inscriptions have transformed this stone hammer into an unbreakable, brutal conduit of Eledon's divine will.`,
-      ],
-      branches: {
-        [Games.Raid.id]: {
-          attributes: [
-            { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-            { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
-            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-            // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
-          ],
-          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
-        },
-        [Games.Evolution.id]: {
-          attributes: [],
-        },
-        [Games.Infinite.id]: {
-          attributes: []
-        },
-        [Games.Guardians.id]: {
-          attributes: [],
-        },
-        [Games.Sanctuary.id]: {
-          attributes: [],
-        },
-      },
-    },
-    {
-      id: 44,
-      name: 'Hellreaver',
-      category: ItemCategoriesType.WEAPON,
-      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00044.png',
-      value: '0',
-      isSecret: false,
-      type: ItemType.TwoHandedWeapon,
-      slots: [ItemSlot.LeftHand],
-      isNew: true,
-      isEquipable: true,
-      isUnequipable: false,
-      isTradeable: true,
-      isTransferable: true,
-      isUpgradable: true,
-      isCraftable: false,
-      isDisabled: true,
-      isRuneword: true,
-      createdDate: 0,
-      hotness: 9,
-      attributes: [],
-      details: {
-        Type: 'Greataxe',
-        Subtype: 'Ancestral Axe',
-        'Rune Word': 'Ral Ist Zod Mal Um',
-        Distribution: 'Crafted',
-        Date: 'Feb 21, 2022 - Now',
-        'Max Supply': 'Unknown',
-      },
-      recipe: {
-        requirement: [
-          { id: RuneId.RAL, quantity: 1 },
-          { id: RuneId.IST, quantity: 1 },
-          { id: RuneId.ZOD, quantity: 1 },
-          { id: RuneId.MAL, quantity: 1 },
-          { id: RuneId.UM, quantity: 1 },
-        ],
-      },
-      description: [
-        `Runic symbols etched across the blade describe its long, bloody history. Despite its extensive use, the metal gleams as if anxious to open the next violent chapter.`,
-      ],
-      branches: {
-        [Games.Raid.id]: {
-          attributes: [
-            { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-            { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
-            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-            // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
-          ],
-          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
-        },
-        [Games.Evolution.id]: {
-          attributes: [],
-        },
-        [Games.Infinite.id]: {
-          attributes: [],
-        },
-        [Games.Guardians.id]: {
-          attributes: [],
-        },
-        [Games.Sanctuary.id]: {
-          attributes: [],
-        },
-      },
-    },
-    {
-      id: 45,
-      name: 'Phoenix',
-      category: ItemCategoriesType.WEAPON,
-      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00045.png',
-      value: '0',
-      isSecret: false,
-      type: ItemType.TwoHandedWeapon,
-      slots: [ItemSlot.LeftHand],
-      isNew: true,
-      isEquipable: true,
-      isUnequipable: false,
-      isTradeable: true,
-      isTransferable: true,
-      isUpgradable: true,
-      isCraftable: false,
-      isDisabled: true,
-      isRuneword: true,
-      createdDate: 0,
-      hotness: 9,
-      attributes: [],
-      details: {
-        Type: 'Staff',
-        Subtype: 'Beacon of Relia',
-        'Rune Word': 'Pul Ist Zod Mal Um',
-        Distribution: 'Crafted',
-        Date: 'Feb 21, 2022 - Now',
-        'Max Supply': 'Unknown',
-      },
-      recipe: {
-        requirement: [
-          { id: RuneId.PUL, quantity: 1 },
-          { id: RuneId.IST, quantity: 1 },
-          { id: RuneId.ZOD, quantity: 1 },
-          { id: RuneId.MAL, quantity: 1 },
-          { id: RuneId.UM, quantity: 1 },
-        ],
-      },
-      description: [
-        `A symbol of Relia favored by the Newerth Sages sits atop this staff, a brilliant representation of the Kona energy infused within it.`,
-      ],
-      branches: {
-        [Games.Raid.id]: {
-          attributes: [
-            { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-            { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
-            // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-            // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
-          ],
-          perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
-        },
-        [Games.Evolution.id]: {
-          attributes: [],
-        },
-        [Games.Infinite.id]: {
-          attributes: [],
-        },
-        [Games.Guardians.id]: {
-          attributes: [],
-        },
-        [Games.Sanctuary.id]: {
-          attributes: [],
-        },
-      },
-    },
-    {
-      id: 112,
-      name: 'Animus',
-      category: ItemCategoriesType.ACCESSORY,
-      icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00112.png',
-      value: '0',
-      isSecret: false,
-      type: ItemType.Ring,
-      slots: [ItemSlot.Finger1, ItemSlot.Finger2],
-      isNew: true,
-      isEquipable: true,
-      isUnequipable: false,
-      isTradeable: true,
-      isTransferable: true,
-      isUpgradable: true,
-      isCraftable: true,
-      isDisabled: true,
-      isRuneword: true,
-      createdDate: 0,
-      hotness: 9,
-      attributes: [],
-      details: {
-        Type: 'Ring',
-        Subtype: 'Overwrought Iron Ring',
-        // 'Rune Word': 'Pul Ith Mal Um Zod',
-        Distribution: 'Crafted',
-        Date: 'Jan 16, 2022 - Now',
-        'Max Supply': 'Unknown',
-      },
-      recipe: {
-        requirement: [
-          { id: RuneId.PUL, quantity: 1 },
-          { id: RuneId.ITH, quantity: 1 },
-          { id: RuneId.MAL, quantity: 1 },
-          { id: RuneId.UM, quantity: 1 },
-          { id: RuneId.ZOD, quantity: 1 },
-        ],
-      },
-      description: [
-        `A blackened, abrasive circle of metal said to be the product of an ancient barbarian blacksmith. In addition to being brutal to look upon, its wearer becomes imbued with boundless aggression in battle, becoming heedless of danger or pain.`,
-      ],
-      branches: {
-        [Games.Raid.id]: {
-          attributes: [
-            { ...ItemAttributes.HarvestYield, min: 0, max: 4 },
-            { ...ItemAttributes.RandomRuneExchange, min: 0, max: 2 },
-            { ...ItemAttributes.RandomRuneBonus, min: 0, max: 2 },
-            { ...ItemAttributes.HarvestBurn, min: 0, max: 4 },
-            { ...ItemAttributes.HarvestFee, min: 10, max: 20 },
-            { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, map: RuneNames },
-          ],
-          perfection: [4, 2, 2, 0, 10, undefined],
-        },
-        [Games.Evolution.id]: {
-          attributes: [],
-        },
-        [Games.Infinite.id]: {
-          attributes: [
-            { ...ItemAttributes.IncreaseDamage, min: 0, max: 4, description: '{Value}% Increased Physical Damage' },
-            { ...ItemAttributes.IncreaseStat, min: 1, max: 5, description: '{Value}% Energy Regeneration' },
-            { ...ItemAttributes.IncreaseStat, min: 1, max: 5, description: '{Value}% Attack Speed' },
-            { ...ItemAttributes.IncreaseRankRewardBonus, min: 1, max: 5 },
-            {
-              ...ItemAttributes.IncreaseDamageTaken,
-              min: 0,
-              max: 5,
-              description: '{Value}% Additional Damage Taken (While Idle)',
-            },
-            { ...ItemAttributes.UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Berserker Soul' },
-          ],
-        },
-        [Games.Guardians.id]: {
-          attributes: [],
-        },
-        [Games.Sanctuary.id]: {
-          attributes: [],
-        },
-      },
-    },
+    generatedItems.find(i => i.name === 'Ignition'),
+    // {
+    //   id: 46,
+    //   name: 'Ignition',
+    //   category: ItemCategoriesType.ARMOR,
+    //   icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00046.png',
+    //   value: '0',
+    //   isSecret: false,
+    //   type: ItemType.Boot,
+    //   slots: [ItemSlot.Feet],
+    //   isNew: true,
+    //   isEquipable: true,
+    //   isUnequipable: false,
+    //   isTradeable: true,
+    //   isTransferable: true,
+    //   isUpgradable: true,
+    //   isCraftable: false,
+    //   isDisabled: true,
+    //   isRuneword: true,
+    //   createdDate: 0,
+    //   hotness: 9,
+    //   attributes: [],
+    //   details: {
+    //     Type: 'Boots',
+    //     Subtype: 'Sol Battlemage Footwraps',
+    //     // 'Rune Word': 'Zod Ist Mal',
+    //     Distribution: 'Crafted',
+    //     Date: 'Feb 21, 2022 - Now',
+    //     'Max Supply': 'Unknown',
+    //   },
+    //   recipe: {
+    //     requirement: [
+    //       { id: RuneId.ZOD, quantity: 1 },
+    //       { id: RuneId.IST, quantity: 1 },
+    //       { id: RuneId.MAL, quantity: 1 },
+    //     ],
+    //   },
+    //   description: [
+    //     `Silken footwraps of deep crimson, this footwear allows its bearer to streak across the battlefield like a blazing firebolt.`,
+    //   ],
+    //   branches: {
+    //     [Games.Raid.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
+    //         { ...ItemAttributes.MagicFind, min: 0, max: 10 },
+    //         { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+    //         { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
+    //         { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+    //       ],
+    //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+    //     },
+    //     [Games.Evolution.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Infinite.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.DamageReduce, min: 3, max: 5, description: '{Value}% Reduced Damage' }, // All
+    //         { ...ItemAttributes.IncreaseStat, min: 5, max: 10, description: '{Value}% Movement Speed' }, // MovementSpeed
+    //         { ...ItemAttributes.UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Flaming Dash' },
+    //         { ...ItemAttributes.IncreaseResist, min: 0, max: 5, description: '{Value}% Fire Resistance' }, // Fire
+    //         { ...ItemAttributes.WinRewardsIncrease, min: 1, max: 5, description: '{Value}% Increased Rune Rewards On Win' }, // Runes
+    //       ],
+    //       perfection: [25, 15, 25, 18, 25, undefined, undefined, undefined],
+    //     },
+    //     [Games.Guardians.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Sanctuary.id]: {
+    //       attributes: [],
+    //     },
+    //   },
+    // },
+    generatedItems.find(i => i.name === 'Thunderchild'),
+    // {
+    //   id: 43,
+    //   name: 'Thunderchild',
+    //   category: ItemCategoriesType.WEAPON,
+    //   icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00043.png',
+    //   value: '0',
+    //   isSecret: false,
+    //   type: ItemType.TwoHandedWeapon,
+    //   slots: [ItemSlot.LeftHand],
+    //   isNew: true,
+    //   isEquipable: true,
+    //   isUnequipable: false,
+    //   isTradeable: true,
+    //   isTransferable: true,
+    //   isUpgradable: true,
+    //   isCraftable: false,
+    //   isDisabled: true,
+    //   isRuneword: true,
+    //   createdDate: 0,
+    //   hotness: 9,
+    //   attributes: [],
+    //   details: {
+    //     Type: 'Hammer',
+    //     Subtype: 'Fist of Eledon',
+    //     'Rune Word': 'Shael Ist Zod Mal Um',
+    //     Distribution: 'Crafted',
+    //     Date: 'Feb 21, 2022 - Now',
+    //     'Max Supply': 'Unknown',
+    //   },
+    //   recipe: {
+    //     requirement: [
+    //       { id: RuneId.SHAEL, quantity: 1 },
+    //       { id: RuneId.IST, quantity: 1 },
+    //       { id: RuneId.ZOD, quantity: 1 },
+    //       { id: RuneId.MAL, quantity: 1 },
+    //       { id: RuneId.UM, quantity: 1 },
+    //     ],
+    //   },
+    //   description: [
+    //     `Runic inscriptions have transformed this stone hammer into a brutal conduit of Eledon's divine will.`,
+    //   ],
+    //   branches: {
+    //     [Games.Raid.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.HarvestYield, min: 15, max: 30 },
+    //         { ...ItemAttributes.RaidTwoAttribute, min: 2, max: 4 },
+    //         { ...ItemAttributes.RandomRuneBonus, min: 5, max: 10 },
+    //         { ...ItemAttributes.HarvestBurn, min: 10, max: 10 },
+    //         { ...ItemAttributes.HarvestFee, min: 5, max: 10 },
+    //         { ...ItemAttributes.HarvestFeeToken, min: RuneId.SOL, max: RuneId.FAL },
+    //         {
+    //           ...ItemAttributes.AddSkill,
+    //           min: SkillIdByName['Hidden'],
+    //           max: SkillIdByName['Hidden'],
+    //           map: SkillNames,
+    //         },
+    //       ],
+    //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+    //     },
+    //     [Games.Evolution.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Infinite.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.IncreaseDamage, min: 20, max: 30, description: '{Value}% Increased Damage' }, // All
+    //         { ...ItemAttributes.EffectChanceOnCondition, min: 1, max: 1, description: '{Value}% Stun Chance On Hit' }, // MovementSpeed
+    //         { ...ItemAttributes.CastOnCondition, min: 1, max: 1, description: '{Value}% Cast Leap On Applying Stun' },
+    //         { ...ItemAttributes.IncreaseStat, min: 10, max: 15, description: '{Value}% Increased Energy Regeneration' }, // Fire
+    //         { ...ItemAttributes.IncreaseRankRewardBonus, min: 5, max: 10, description: '{Value}% Increased Rank Reward Bonus' }, // Runes
+    //         { ...ItemAttributes.IncreaseGuildPrestigeGain, min: 10, max: 20, description: '{Value}% Increased Guild Prestige' }, // Runes
+    //         { ...ItemAttributes.UnlockSkills, min: 493, max: 493, description: 'Unlock Skills: Storm Call, Leap' }, // 493 + 468
+    //       ],
+    //       perfection: [25, 15, 25, 18, 25, undefined, undefined, undefined],
+    //     },
+    //     [Games.Guardians.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Sanctuary.id]: {
+    //       attributes: [],
+    //     },
+    //   },
+    // },
+    generatedItems.find(i => i.name === 'Hellreaver'),
+    // {
+    //   id: 44,
+    //   name: 'Hellreaver',
+    //   category: ItemCategoriesType.WEAPON,
+    //   icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00044.png',
+    //   value: '0',
+    //   isSecret: false,
+    //   type: ItemType.TwoHandedWeapon,
+    //   slots: [ItemSlot.LeftHand],
+    //   isNew: true,
+    //   isEquipable: true,
+    //   isUnequipable: false,
+    //   isTradeable: true,
+    //   isTransferable: true,
+    //   isUpgradable: true,
+    //   isCraftable: false,
+    //   isDisabled: true,
+    //   isRuneword: true,
+    //   createdDate: 0,
+    //   hotness: 9,
+    //   attributes: [],
+    //   details: {
+    //     Type: 'Greataxe',
+    //     Subtype: 'Ancestral Axe',
+    //     'Rune Word': 'Ral Ist Zod Mal Um',
+    //     Distribution: 'Crafted',
+    //     Date: 'Feb 21, 2022 - Now',
+    //     'Max Supply': 'Unknown',
+    //   },
+    //   recipe: {
+    //     requirement: [
+    //       { id: RuneId.RAL, quantity: 1 },
+    //       { id: RuneId.IST, quantity: 1 },
+    //       { id: RuneId.ZOD, quantity: 1 },
+    //       { id: RuneId.MAL, quantity: 1 },
+    //       { id: RuneId.UM, quantity: 1 },
+    //     ],
+    //   },
+    //   description: [
+    //     `Runic symbols etched across the blade describe its long, bloody history. Despite its extensive use, the metal gleams as if anxious to open the next violent chapter.`,
+    //   ],
+    //   branches: {
+    //     [Games.Raid.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.HarvestYield, min: 20, max: 40 },
+    //         { ...ItemAttributes.RandomRuneExchange, min: 0, max: 5 },
+    //         { ...ItemAttributes.RaidTwoAttribute, min: 5, max: 5 },
+    //         { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 10 },
+    //         { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
+    //         { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
+    //         { ...ItemAttributes.HarvestFeeToken, min: 17, max: 21 },
+    //         {
+    //           ...ItemAttributes.AddSkill,
+    //           min: SkillIdByName['Hidden'],
+    //           max: SkillIdByName['Hidden'],
+    //           map: SkillNames,
+    //         },
+    //       ],
+    //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+    //     },
+    //     [Games.Evolution.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Infinite.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Guardians.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Sanctuary.id]: {
+    //       attributes: [],
+    //     },
+    //   },
+    // },
+    generatedItems.find(i => i.name === 'Phoenix'),
+    // {
+    //   id: 45,
+    //   name: 'Phoenix',
+    //   category: ItemCategoriesType.WEAPON,
+    //   icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00045.png',
+    //   value: '0',
+    //   isSecret: false,
+    //   type: ItemType.TwoHandedWeapon,
+    //   slots: [ItemSlot.LeftHand],
+    //   isNew: true,
+    //   isEquipable: true,
+    //   isUnequipable: false,
+    //   isTradeable: true,
+    //   isTransferable: true,
+    //   isUpgradable: true,
+    //   isCraftable: false,
+    //   isDisabled: true,
+    //   isRuneword: true,
+    //   createdDate: 0,
+    //   hotness: 9,
+    //   attributes: [],
+    //   details: {
+    //     Type: 'Staff',
+    //     Subtype: 'Beacon of Relia',
+    //     'Rune Word': 'Pul Ist Zod Mal Um',
+    //     Distribution: 'Crafted',
+    //     Date: 'Feb 21, 2022 - Now',
+    //     'Max Supply': 'Unknown',
+    //   },
+    //   recipe: {
+    //     requirement: [
+    //       { id: RuneId.PUL, quantity: 1 },
+    //       { id: RuneId.IST, quantity: 1 },
+    //       { id: RuneId.ZOD, quantity: 1 },
+    //       { id: RuneId.MAL, quantity: 1 },
+    //       { id: RuneId.UM, quantity: 1 },
+    //     ],
+    //   },
+    //   description: [
+    //     `A symbol of Relia favored by the Newerth Sages sits atop this staff, a brilliant representation of the Kona energy infused within it.`,
+    //   ],
+    //   branches: {
+    //     [Games.Raid.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
+    //         { ...ItemAttributes.MagicFind, min: 0, max: 10 },
+    //         { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+    //         // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
+    //         // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+    //       ],
+    //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+    //     },
+    //     [Games.Evolution.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Infinite.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Guardians.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Sanctuary.id]: {
+    //       attributes: [],
+    //     },
+    //   },
+    // },
+    generatedItems.find(i => i.name === 'Animus'),
+    // {
+    //   id: 112,
+    //   name: 'Animus',
+    //   category: ItemCategoriesType.ACCESSORY,
+    //   icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00112.png',
+    //   value: '0',
+    //   isSecret: false,
+    //   type: ItemType.Ring,
+    //   slots: [ItemSlot.Finger1, ItemSlot.Finger2],
+    //   isNew: true,
+    //   isEquipable: true,
+    //   isUnequipable: false,
+    //   isTradeable: true,
+    //   isTransferable: true,
+    //   isUpgradable: true,
+    //   isCraftable: true,
+    //   isDisabled: true,
+    //   isRuneword: true,
+    //   createdDate: 0,
+    //   hotness: 9,
+    //   attributes: [],
+    //   details: {
+    //     Type: 'Ring',
+    //     Subtype: 'Overwrought Iron Ring',
+    //     // 'Rune Word': 'Pul Ith Mal Um Zod',
+    //     Distribution: 'Crafted',
+    //     Date: 'Jan 16, 2022 - Now',
+    //     'Max Supply': 'Unknown',
+    //   },
+    //   recipe: {
+    //     requirement: [
+    //       { id: RuneId.PUL, quantity: 1 },
+    //       { id: RuneId.ITH, quantity: 1 },
+    //       { id: RuneId.MAL, quantity: 1 },
+    //       { id: RuneId.UM, quantity: 1 },
+    //       { id: RuneId.ZOD, quantity: 1 },
+    //     ],
+    //   },
+    //   description: [
+    //     `A blackened, abrasive circle of metal said to be the product of an ancient barbarian blacksmith. In addition to being brutal to look upon, its wearer becomes imbued with boundless aggression in battle, becoming heedless of danger or pain.`,
+    //   ],
+    //   branches: {
+    //     [Games.Raid.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.HarvestYield, min: 0, max: 4 },
+    //         { ...ItemAttributes.RandomRuneExchange, min: 0, max: 2 },
+    //         { ...ItemAttributes.RandomRuneBonus, min: 0, max: 2 },
+    //         { ...ItemAttributes.HarvestBurn, min: 0, max: 4 },
+    //         { ...ItemAttributes.HarvestFee, min: 10, max: 20 },
+    //         { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, map: RuneNames },
+    //       ],
+    //       perfection: [4, 2, 2, 0, 10, undefined],
+    //     },
+    //     [Games.Evolution.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Infinite.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.IncreaseDamage, min: 0, max: 4, description: '{Value}% Increased Physical Damage' },
+    //         { ...ItemAttributes.IncreaseStat, min: 1, max: 5, description: '{Value}% Energy Regeneration' },
+    //         { ...ItemAttributes.IncreaseStat, min: 1, max: 5, description: '{Value}% Attack Speed' },
+    //         { ...ItemAttributes.IncreaseRankRewardBonus, min: 1, max: 5 },
+    //         {
+    //           ...ItemAttributes.IncreaseDamageTaken,
+    //           min: 0,
+    //           max: 5,
+    //           description: '{Value}% Additional Damage Taken (While Idle)',
+    //         },
+    //         { ...ItemAttributes.UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Berserker Soul' },
+    //       ],
+    //     },
+    //     [Games.Guardians.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Sanctuary.id]: {
+    //       attributes: [],
+    //     },
+    //   },
+    // },
+    generatedItems.find(i => i.name === 'Exile'),
+    // {
+    //   id: 182,
+    //   name: 'Exile',
+    //   category: ItemCategoriesType.WEAPON,
+    //   icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/00182.png',
+    //   value: '0',
+    //   isSecret: false,
+    //   type: ItemType.OneHandedWeapon,
+    //   slots: [ItemSlot.LeftHand, ItemSlot.RightHand],
+    //   isNew: true,
+    //   isEquipable: true,
+    //   isUnequipable: false,
+    //   isTradeable: true,
+    //   isTransferable: true,
+    //   isUpgradable: true,
+    //   isCraftable: true,
+    //   isDisabled: true,
+    //   isRuneword: true,
+    //   createdDate: 0,
+    //   hotness: 9,
+    //   attributes: [],
+    //   details: {
+    //     Type: 'Sword',
+    //     Subtype: 'Thirsting Edge',
+    //     'Rune Word': 'Pul Ist Zod Mal Um',
+    //     Distribution: 'Crafted',
+    //     Date: 'Feb 21, 2022 - Now',
+    //     'Max Supply': 'Unknown',
+    //   },
+    //   recipe: {
+    //     requirement: [
+    //       { id: RuneId.PUL, quantity: 1 },
+    //       { id: RuneId.IST, quantity: 1 },
+    //       { id: RuneId.ZOD, quantity: 1 },
+    //       { id: RuneId.MAL, quantity: 1 },
+    //       { id: RuneId.UM, quantity: 1 },
+    //     ],
+    //   },
+    //   description: [
+    //     `This chaos-imbued blade thirsts for life to such an extent that even the wielder's is consumed once it is drawn.`,
+    //   ],
+    //   branches: {
+    //     [Games.Raid.id]: {
+    //       attributes: [
+    //         { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
+    //         { ...ItemAttributes.MagicFind, min: 0, max: 10 },
+    //         { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+    //         // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
+    //         // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+    //       ],
+    //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
+    //     },
+    //     [Games.Evolution.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Infinite.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Guardians.id]: {
+    //       attributes: [],
+    //     },
+    //     [Games.Sanctuary.id]: {
+    //       attributes: [],
+    //     },
+    //   },
+    // },
     {
       id: 1200,
       name: "Scholar's Codex",
@@ -5000,7 +5096,7 @@ export const itemData = {
     {
       id: 2002,
       name: 'Vampire Gaze',
-      category: ItemCategoriesType.HELM,
+      category: ItemCategoriesType.ARMOR,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/02002.png',
       value: '0',
       type: ItemType.Helm,
@@ -5064,7 +5160,7 @@ export const itemData = {
     {
       id: 2003,
       name: 'Harlequin Crest',
-      category: ItemCategoriesType.HELM,
+      category: ItemCategoriesType.ARMOR,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/02003.png',
       value: '0',
       type: ItemType.Helm,
@@ -5110,7 +5206,7 @@ export const itemData = {
     {
       id: 2004,
       name: 'The Oculus',
-      category: ItemCategoriesType.HELM,
+      category: ItemCategoriesType.ARMOR,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/items/02004.png',
       value: '0',
       type: ItemType.Helm,

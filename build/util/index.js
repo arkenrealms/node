@@ -127,8 +127,10 @@ function round(num, precision) {
     return Math.ceil(num * _precision) / _precision;
 }
 exports.round = round;
-function pad(n, num) {
-    return n < num ? '0' + n : n;
+function pad(n, width, z) {
+    if (z === void 0) { z = '0'; }
+    var nn = n + '';
+    return nn.length >= width ? nn : new Array(width - nn.length + 1).join(z) + nn;
 }
 exports.pad = pad;
 function removeDupes(list) {

@@ -57,8 +57,9 @@ export function round(num, precision) {
   return Math.ceil(num * _precision) / _precision
 }
 
-export function pad(n, num) {
-  return n < num ? '0' + n : n
+export function pad(n, width, z = '0') {
+  const nn = n + ''
+  return nn.length >= width ? nn : new Array(width - nn.length + 1).join(z) + nn
 }
 
 export function removeDupes(list) {

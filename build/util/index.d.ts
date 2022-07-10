@@ -5,7 +5,7 @@ export declare function log(...msgs: any[]): void;
 export declare function nowReadable(): string;
 export declare function wait(ms: any): Promise<unknown>;
 export declare function round(num: any, precision: any): number;
-export declare function pad(n: any, num: any): any;
+export declare function pad(n: any, width: any, z?: string): string;
 export declare function removeDupes(list: any): any;
 export declare const toLong: (x: any) => ethers.ethers.BigNumber;
 export declare const toShort: (x: any) => number;
