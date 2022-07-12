@@ -1262,6 +1262,8 @@ export declare const SkillNames: {
     33: string;
     34: string;
     35: string;
+    36: string;
+    37: string;
     201: string;
     202: string;
     203: string;
@@ -1388,6 +1390,7 @@ export declare const SkillNames: {
     510: string;
     511: string;
     512: string;
+    537: string;
     513: string;
     514: string;
     515: string;
@@ -1409,9 +1412,7 @@ export declare const SkillNames: {
     524: string;
     525: string;
     526: string;
-    527: string;
     528: string;
-    537: string;
 };
 export declare const SkillIdByName: any;
 export declare const ClassNames: {
@@ -1565,6 +1566,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -1636,7 +1638,7 @@ export declare const itemData: {
                         max?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -1691,7 +1693,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -1815,7 +1817,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -1839,6 +1841,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -1893,7 +1896,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -1982,7 +1985,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -2136,7 +2139,7 @@ export declare const itemData: {
                     description?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -2160,6 +2163,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -2231,7 +2235,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -2303,7 +2307,7 @@ export declare const itemData: {
                     description?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -2422,7 +2426,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -2446,6 +2450,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -2500,7 +2505,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -2589,7 +2594,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -2749,7 +2754,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -2773,6 +2778,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -2827,7 +2833,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -2899,7 +2905,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -3046,7 +3052,7 @@ export declare const itemData: {
                     paramType2?: undefined;
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -3070,6 +3076,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -3141,7 +3148,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -3230,7 +3237,7 @@ export declare const itemData: {
                     };
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -3355,7 +3362,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -3379,6 +3386,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -3521,7 +3529,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -3635,7 +3643,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -3877,7 +3885,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -3901,6 +3909,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -4043,7 +4052,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -4173,7 +4182,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -4373,7 +4382,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -4397,6 +4406,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -4512,7 +4522,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -4660,7 +4670,7 @@ export declare const itemData: {
                     };
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -4844,7 +4854,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -4868,6 +4878,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -5010,7 +5021,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -5162,7 +5173,7 @@ export declare const itemData: {
                     description?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -5356,7 +5367,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -5380,6 +5391,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -5493,7 +5505,7 @@ export declare const itemData: {
                     description: string;
                     param1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -5607,7 +5619,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -5799,7 +5811,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -5823,6 +5835,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -5917,7 +5930,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -6049,7 +6062,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -6209,7 +6222,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -6233,6 +6246,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -6372,7 +6386,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -6565,7 +6579,7 @@ export declare const itemData: {
                     description?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -6732,7 +6746,7 @@ export declare const itemData: {
                     };
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -6756,6 +6770,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -6810,7 +6825,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -6882,7 +6897,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -7026,7 +7041,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -7050,6 +7065,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -7121,7 +7137,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -7210,7 +7226,7 @@ export declare const itemData: {
                     };
                     game?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -7394,7 +7410,7 @@ export declare const itemData: {
                     };
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -7418,6 +7434,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -7434,7 +7451,7 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
-        hotness: number;
+        hotness: string;
         numPerfectionRolls: number;
         attributes: any[];
         details: {
@@ -7489,7 +7506,7 @@ export declare const itemData: {
                         max?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -7602,7 +7619,7 @@ export declare const itemData: {
                     nexusLink: string;
                     paramType1: string;
                     param1: {
-                        spec: string;
+                        spec: string[];
                         min: number;
                         max: number;
                         value: number;
@@ -7629,7 +7646,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     description?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -7872,7 +7889,7 @@ export declare const itemData: {
                     influences?: undefined;
                     description?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -7896,6 +7913,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -8011,7 +8029,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -8095,7 +8113,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -8301,7 +8319,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -8325,6 +8343,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -8396,7 +8415,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -8510,7 +8529,7 @@ export declare const itemData: {
                     influences?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -8656,7 +8675,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -8680,6 +8699,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: any[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -8749,7 +8769,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -8821,7 +8841,7 @@ export declare const itemData: {
                     };
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -8999,7 +9019,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -9023,6 +9043,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -9124,7 +9145,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -9179,7 +9200,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -9347,7 +9368,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -9371,6 +9392,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -9465,7 +9487,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -9597,7 +9619,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -9743,7 +9765,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -9767,6 +9789,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -9821,7 +9844,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -9876,7 +9899,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -10010,7 +10033,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -10034,6 +10057,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -10056,9 +10080,9 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word": string;
             Distribution: string;
             Date: string;
+            "Rune Word"?: undefined;
             "Max Supply"?: undefined;
         };
         recipe: {
@@ -10088,7 +10112,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -10220,7 +10244,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -10339,7 +10363,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -10363,6 +10387,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -10455,7 +10480,7 @@ export declare const itemData: {
                         map?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -10531,7 +10556,7 @@ export declare const itemData: {
                     };
                     paramType2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -10555,6 +10580,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -10666,7 +10692,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -10772,7 +10798,7 @@ export declare const itemData: {
                     influences?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -10954,7 +10980,7 @@ export declare const itemData: {
                     };
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -10978,6 +11004,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -11032,7 +11059,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -11138,7 +11165,7 @@ export declare const itemData: {
                     description?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -11325,7 +11352,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -11349,6 +11376,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -11422,7 +11450,7 @@ export declare const itemData: {
                         map?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -11482,7 +11510,7 @@ export declare const itemData: {
                     };
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -11551,7 +11579,7 @@ export declare const itemData: {
                     influences?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -11574,6 +11602,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -11596,7 +11625,7 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word": string;
+            "Rune Word"?: undefined;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -11661,7 +11690,7 @@ export declare const itemData: {
                         map: {};
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -11755,7 +11784,7 @@ export declare const itemData: {
                     };
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -11854,7 +11883,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -11879,6 +11908,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -11951,12 +11981,12 @@ export declare const itemData: {
                         max: number[];
                         value: number[];
                         map: {
-                            "527": string[];
+                            "512": string[];
                         };
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -12028,7 +12058,7 @@ export declare const itemData: {
                     influences?: undefined;
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -12196,7 +12226,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -12220,6 +12250,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -12242,7 +12273,7 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word": string;
+            "Rune Word"?: undefined;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -12342,7 +12373,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -12439,7 +12470,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -12651,7 +12682,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -12674,6 +12705,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -12784,7 +12816,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: ({
@@ -12915,7 +12947,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "3": {
                 attributes: ({
@@ -13074,7 +13106,7 @@ export declare const itemData: {
                     influences?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -13099,6 +13131,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -13255,7 +13288,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -13427,7 +13460,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -13450,6 +13483,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -13573,6 +13607,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -13696,7 +13731,7 @@ export declare const itemData: {
                         map?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -13728,6 +13763,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -13844,7 +13880,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: {
@@ -13897,6 +13933,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -13919,7 +13956,7 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word": string;
+            "Rune Word"?: undefined;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -14031,7 +14068,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -14238,7 +14275,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -14262,6 +14299,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -14314,8 +14352,25 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
-                        map?: undefined;
                         value?: undefined;
+                        map?: undefined;
+                    };
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
                     };
                 } | {
                     id: number;
@@ -14362,7 +14417,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -14632,7 +14687,7 @@ export declare const itemData: {
                     paramType3?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -14656,6 +14711,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -14770,7 +14826,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -14912,7 +14968,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -14936,6 +14992,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -14958,7 +15015,7 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word": string;
+            "Rune Word"?: undefined;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -15023,7 +15080,7 @@ export declare const itemData: {
                     nature?: undefined;
                     description?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -15179,7 +15236,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -15202,6 +15259,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -15253,7 +15311,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -15363,7 +15421,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -15388,6 +15446,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -15519,7 +15578,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -15631,7 +15690,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -15650,6 +15709,7 @@ export declare const itemData: {
         name: string;
         icon: string;
         value: string;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -15673,74 +15733,6 @@ export declare const itemData: {
             Type?: undefined;
             Subtype?: undefined;
             "Rune Word"?: undefined;
-            Distribution?: undefined;
-            Date?: undefined;
-            "Max Supply"?: undefined;
-        };
-        recipe: {
-            requirement: any[];
-        };
-        description: string;
-        shortDescription: string;
-        visualDescription: string;
-        branches: {
-            "1": {
-                attributes: any[];
-                perfection: any[];
-            };
-            "2": {
-                attributes: any[];
-                perfection: any[];
-            };
-            "3": {
-                attributes: any[];
-                perfection: any[];
-            };
-            "4": {
-                attributes: any[];
-                perfection: any[];
-            };
-            "5": {
-                attributes: any[];
-                perfection: any[];
-            };
-        };
-        skills: any[];
-        materials: any[];
-        category: string;
-        image?: undefined;
-        type?: undefined;
-        subType?: undefined;
-        specificType?: undefined;
-        slots?: undefined;
-    } | {
-        id: number;
-        name: string;
-        icon: string;
-        value: string;
-        isNew: boolean;
-        isSecret: boolean;
-        isUltraSecret: boolean;
-        isPaused: boolean;
-        isRetired: boolean;
-        isDisabled: boolean;
-        isCraftable: boolean;
-        isEnabled: boolean;
-        isEquipable: boolean;
-        isUnequipable: boolean;
-        isTradeable: boolean;
-        isTransferable: boolean;
-        isUpgradable: boolean;
-        isPublishable: boolean;
-        isRuneword: boolean;
-        createdDate: number;
-        hotness: number;
-        numPerfectionRolls: number;
-        attributes: any[];
-        details: {
-            "Rune Word": string;
-            Type?: undefined;
-            Subtype?: undefined;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -15794,6 +15786,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -15885,7 +15878,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: {
@@ -15898,6 +15891,12 @@ export declare const itemData: {
                     nature: string;
                     influences: string;
                     description: string;
+                    param1: {
+                        spec: string[];
+                        min: number;
+                        max: number;
+                        value: number;
+                    };
                 }[];
                 perfection: any[];
             };
@@ -16067,7 +16066,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -16091,6 +16090,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -16159,7 +16159,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -16365,7 +16365,7 @@ export declare const itemData: {
                     };
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -16389,6 +16389,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -16440,7 +16441,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -16588,7 +16589,7 @@ export declare const itemData: {
                     };
                     paramValue2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -16612,6 +16613,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -16687,7 +16689,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -16873,7 +16875,7 @@ export declare const itemData: {
                     };
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -16893,6 +16895,7 @@ export declare const itemData: {
         icon: string;
         value: string;
         specificType: number;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -16959,11 +16962,13 @@ export declare const itemData: {
         id: number;
         name: string;
         icon: string;
+        image: string;
         value: string;
         type: number;
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -16986,7 +16991,7 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word": string;
+            "Rune Word"?: undefined;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -17051,10 +17056,10 @@ export declare const itemData: {
                         min: number;
                         max: number;
                         map: {
-                            "6": string;
-                            "7": string;
-                            "8": string;
-                            "537"?: undefined;
+                            "0": string;
+                            "1": string;
+                            "2": string;
+                            "36"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -17074,14 +17079,14 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "537": string;
-                            "6"?: undefined;
-                            "7"?: undefined;
-                            "8"?: undefined;
+                            "36": string;
+                            "0"?: undefined;
+                            "1"?: undefined;
+                            "2"?: undefined;
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -17134,6 +17139,7 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "23": string;
+                            ""?: undefined;
                         };
                     };
                     param2: {
@@ -17150,8 +17156,61 @@ export declare const itemData: {
                     nature?: undefined;
                     influences?: undefined;
                     description?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramType2: string;
+                    paramType3: string;
+                    paramValue1: string;
+                    paramValue2: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                    nature?: undefined;
+                    influences?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: any[];
+                        max: any[];
+                        value: any[];
+                        map: {
+                            "": any[];
+                            "23"?: undefined;
+                        };
+                    };
+                    paramType2?: undefined;
+                    paramValue1?: undefined;
+                    paramValue2?: undefined;
+                    param2?: undefined;
+                    paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -17165,7 +17224,6 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
-        image?: undefined;
     } | {
         id: number;
         name: string;
@@ -17176,6 +17234,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -17307,7 +17366,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -17417,7 +17476,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -17440,6 +17499,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -17508,7 +17568,7 @@ export declare const itemData: {
                         value: number;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -17658,7 +17718,7 @@ export declare const itemData: {
                     param2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -17683,6 +17743,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -17732,6 +17793,7 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
+                        value?: undefined;
                         map?: undefined;
                     };
                 } | {
@@ -17746,12 +17808,32 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        map: {};
-                        min?: undefined;
-                        max?: undefined;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map: {
+                            "37": string;
+                        };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -17917,7 +17999,7 @@ export declare const itemData: {
                     influences?: undefined;
                     description?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -17940,6 +18022,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -18014,7 +18097,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -18055,6 +18138,7 @@ export declare const itemData: {
         name: string;
         icon: string;
         value: string;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -18123,6 +18207,7 @@ export declare const itemData: {
         name: string;
         icon: string;
         value: string;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -18195,6 +18280,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -18309,7 +18395,7 @@ export declare const itemData: {
                         };
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -18465,7 +18551,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -18489,6 +18575,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -18540,7 +18627,7 @@ export declare const itemData: {
                         max: number;
                     };
                 }[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -18696,7 +18783,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     paramType3?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -18720,6 +18807,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -18786,7 +18874,7 @@ export declare const itemData: {
                     };
                     paramValue1?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -18896,7 +18984,7 @@ export declare const itemData: {
                     };
                     influences?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -18920,6 +19008,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19058,7 +19147,7 @@ export declare const itemData: {
                         max?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -19149,7 +19238,7 @@ export declare const itemData: {
                     paramValue2?: undefined;
                     param2?: undefined;
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -19171,6 +19260,7 @@ export declare const itemData: {
         value: string;
         subType: number;
         specificType: number;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19241,6 +19331,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: number[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19349,7 +19440,7 @@ export declare const itemData: {
                         value?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -19381,6 +19472,7 @@ export declare const itemData: {
         subType: number;
         specificType: number;
         slots: any[];
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19467,6 +19559,7 @@ export declare const itemData: {
         image: string;
         value: string;
         specificType: number;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19565,6 +19658,7 @@ export declare const itemData: {
         image: string;
         value: string;
         specificType: number;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19662,6 +19756,7 @@ export declare const itemData: {
         icon: string;
         image: string;
         value: string;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19729,6 +19824,7 @@ export declare const itemData: {
         name: string;
         icon: string;
         value: string;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19799,6 +19895,7 @@ export declare const itemData: {
         image: string;
         value: string;
         specificType: number;
+        isPolled: boolean;
         isNew: boolean;
         isSecret: boolean;
         isUltraSecret: boolean;
@@ -19874,7 +19971,7 @@ export declare const itemData: {
                         map?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "2": {
                 attributes: any[];
@@ -19922,7 +20019,7 @@ export declare const itemData: {
                         map?: undefined;
                     };
                 })[];
-                perfection: any[];
+                perfection: number[];
             };
             "4": {
                 attributes: any[];
@@ -19945,6 +20042,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20028,6 +20126,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20118,6 +20217,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: any[];
@@ -20183,6 +20283,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20249,6 +20350,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: number[];
         isNew: boolean;
@@ -20310,6 +20412,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20393,6 +20496,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20476,6 +20580,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20559,6 +20664,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20634,6 +20740,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20715,6 +20822,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20787,6 +20895,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20868,6 +20977,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -20935,6 +21045,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21000,6 +21111,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21081,6 +21193,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21158,6 +21271,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21239,6 +21353,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21303,6 +21418,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21389,6 +21505,8 @@ export declare const itemData: {
                         33: string;
                         34: string;
                         35: string;
+                        36: string;
+                        37: string;
                         201: string;
                         202: string;
                         203: string;
@@ -21515,6 +21633,7 @@ export declare const itemData: {
                         510: string;
                         511: string;
                         512: string;
+                        537: string;
                         513: string;
                         514: string;
                         515: string;
@@ -21536,9 +21655,7 @@ export declare const itemData: {
                         524: string;
                         525: string;
                         526: string;
-                        527: string;
                         528: string;
-                        537: string;
                     };
                     id: number;
                     description: string;
@@ -21599,6 +21716,8 @@ export declare const itemData: {
                         33: string;
                         34: string;
                         35: string;
+                        36: string;
+                        37: string;
                         201: string;
                         202: string;
                         203: string;
@@ -21725,6 +21844,7 @@ export declare const itemData: {
                         510: string;
                         511: string;
                         512: string;
+                        537: string;
                         513: string;
                         514: string;
                         515: string;
@@ -21746,9 +21866,7 @@ export declare const itemData: {
                         524: string;
                         525: string;
                         526: string;
-                        527: string;
                         528: string;
-                        537: string;
                     };
                     id: number;
                     description: string;
@@ -21770,6 +21888,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21882,6 +22001,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -21900,10 +22020,10 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            'Rune Word': string;
             Distribution: string;
             Date: string;
             'Max Supply': string;
+            "Rune Word"?: undefined;
         };
         recipe: {
             requirement: {
@@ -21985,6 +22105,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         rarity: ItemRarityValueType;
         type: number;
         slots: any[];
@@ -22043,6 +22164,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: any[];
@@ -22130,6 +22252,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -22194,6 +22317,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -22265,6 +22389,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         rarity: ItemRarityValueType;
         type: number;
@@ -22329,6 +22454,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         rarity: ItemRarityValueType;
         type: number;
@@ -22382,6 +22508,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: number[];
         isNew: boolean;
@@ -22460,6 +22587,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: number[];
         isNew: boolean;
@@ -22529,6 +22657,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: number[];
         isNew: boolean;
@@ -22642,6 +22771,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -22721,6 +22851,8 @@ export declare const itemData: {
                         33: string;
                         34: string;
                         35: string;
+                        36: string;
+                        37: string;
                         201: string;
                         202: string;
                         203: string;
@@ -22847,6 +22979,7 @@ export declare const itemData: {
                         510: string;
                         511: string;
                         512: string;
+                        537: string;
                         513: string;
                         514: string;
                         515: string;
@@ -22868,9 +23001,7 @@ export declare const itemData: {
                         524: string;
                         525: string;
                         526: string;
-                        527: string;
                         528: string;
-                        537: string;
                     };
                     id: number;
                     description: string;
@@ -22898,6 +23029,7 @@ export declare const itemData: {
         icon: string;
         video: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         type: number;
         slots: number[];
@@ -22977,6 +23109,8 @@ export declare const itemData: {
                         33: string;
                         34: string;
                         35: string;
+                        36: string;
+                        37: string;
                         201: string;
                         202: string;
                         203: string;
@@ -23103,6 +23237,7 @@ export declare const itemData: {
                         510: string;
                         511: string;
                         512: string;
+                        537: string;
                         513: string;
                         514: string;
                         515: string;
@@ -23124,9 +23259,7 @@ export declare const itemData: {
                         524: string;
                         525: string;
                         526: string;
-                        527: string;
                         528: string;
-                        537: string;
                     };
                     id: number;
                     description: string;
@@ -23152,6 +23285,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: any[];
         isNew: boolean;
@@ -23237,6 +23371,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: any[];
         isNew: boolean;
@@ -23327,6 +23462,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         type: number;
         slots: any[];
         isNew: boolean;
@@ -23418,6 +23554,7 @@ export declare const itemData: {
         category: ItemCategoriesType;
         icon: string;
         value: string;
+        isPublishable: boolean;
         isSecret: boolean;
         isNew: boolean;
         isEquipable: boolean;
@@ -23492,6 +23629,7 @@ export declare const itemData: {
                 attributes: any[];
             };
         };
+        isPublishable?: undefined;
     } | {
         id: number;
         name: string;
@@ -23529,6 +23667,7 @@ export declare const itemData: {
             "3"?: undefined;
             "4"?: undefined;
         };
+        isPublishable?: undefined;
     } | {
         id: number;
         name: string;
@@ -23572,6 +23711,7 @@ export declare const itemData: {
                 attributes: any[];
             };
         };
+        isPublishable?: undefined;
     } | {
         id: number;
         name: string;
@@ -23609,6 +23749,7 @@ export declare const itemData: {
             "3"?: undefined;
             "4"?: undefined;
         };
+        isPublishable?: undefined;
     })[];
     weapon: any[];
     shield: any[];

@@ -5,7 +5,7 @@ exports.default = [
         "id": 1,
         "name": "Steel",
         "icon": "https://rune.game/images/items/00001.png",
-        "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657468499&userId=usrf0GZYc5zCl9Cv7&cs=24bc6cd160c60d93",
+        "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657593137&userId=usrf0GZYc5zCl9Cv7&cs=2166b61e8d519c14",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -14,6 +14,7 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -31,7 +32,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 198,
+        "numPerfectionRolls": 66,
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
@@ -44,11 +45,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 3,
+                    "id": 2,
                     "quantity": 1
                 },
                 {
-                    "id": 1,
+                    "id": 0,
                     "quantity": 1
                 }
             ]
@@ -108,8 +109,8 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
+                    15,
+                    0,
                     null
                 ]
             },
@@ -204,7 +205,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
+                    5,
                     null,
                     null,
                     null
@@ -339,8 +340,8 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
+                    21,
+                    9,
                     null,
                     null
                 ]
@@ -355,9 +356,11 @@ exports.default = [
             }
         },
         "skills": [
+            490,
             490
         ],
         "materials": [
+            1,
             1
         ],
         "category": "accessory"
@@ -366,7 +369,7 @@ exports.default = [
         "id": 2,
         "name": "Fury",
         "icon": "https://rune.game/images/items/00002.png",
-        "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657468505&userId=usrf0GZYc5zCl9Cv7&cs=2c5af5b0500d8327",
+        "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657593144&userId=usrf0GZYc5zCl9Cv7&cs=eef167a8f894a401",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -375,6 +378,7 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -404,7 +408,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 4,
+                    "id": 3,
+                    "quantity": 1
+                },
+                {
+                    "id": 1,
                     "quantity": 1
                 },
                 {
@@ -412,11 +420,7 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 3,
-                    "quantity": 1
-                },
-                {
-                    "id": 1,
+                    "id": 0,
                     "quantity": 1
                 }
             ]
@@ -451,7 +455,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "20-40",
@@ -477,9 +481,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null
+                    7,
+                    40,
+                    20
                 ]
             },
             "2": {
@@ -625,8 +629,8 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
+                    30,
+                    10,
                     null,
                     null,
                     null,
@@ -766,9 +770,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    18,
+                    20,
+                    25,
                     null,
                     null,
                     null
@@ -784,6 +788,7 @@ exports.default = [
             }
         },
         "skills": [
+            412,
             412
         ],
         "materials": [],
@@ -793,7 +798,7 @@ exports.default = [
         "id": 3,
         "name": "Lorekeeper",
         "icon": "https://rune.game/images/items/00003.png",
-        "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657468511&userId=usrf0GZYc5zCl9Cv7&cs=814ec7ad66801e35",
+        "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657593149&userId=usrf0GZYc5zCl9Cv7&cs=8bc4bb2eb4f9edf5",
         "value": "0",
         "type": 5,
         "subType": 10,
@@ -801,6 +806,7 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -830,11 +836,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 4,
+                    "id": 3,
                     "quantity": 1
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "quantity": 1
                 }
             ]
@@ -896,8 +902,8 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
+                    3,
+                    1,
                     null
                 ]
             },
@@ -1006,7 +1012,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
+                    5,
                     null,
                     null,
                     null,
@@ -1124,11 +1130,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    7,
+                    10,
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    5
                 ]
             },
             "4": {
@@ -1141,6 +1147,7 @@ exports.default = [
             }
         },
         "skills": [
+            494,
             494
         ],
         "materials": [],
@@ -1150,17 +1157,18 @@ exports.default = [
         "id": 4,
         "name": "Worldstone Shard",
         "icon": "https://rune.game/images/items/00004.png",
-        "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657468516&userId=usrf0GZYc5zCl9Cv7&cs=bd9a146e843db901",
+        "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657593154&userId=usrf0GZYc5zCl9Cv7&cs=49bcdec9a8aa6757",
         "value": "0",
         "type": 18,
         "subType": 11,
         "specificType": 4,
         "slots": [],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": true,
+        "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -1211,6 +1219,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            6,
             6
         ],
         "category": "accessory"
@@ -1219,7 +1228,7 @@ exports.default = [
         "id": 5,
         "name": "Flash",
         "icon": "https://rune.game/images/items/00005.png",
-        "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657468517&userId=usrf0GZYc5zCl9Cv7&cs=983871579483756e",
+        "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657593156&userId=usrf0GZYc5zCl9Cv7&cs=d933836c6e67707a",
         "value": "0",
         "type": 11,
         "subType": 12,
@@ -1227,6 +1236,7 @@ exports.default = [
         "slots": [
             12
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -1256,19 +1266,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 6,
+                    "id": 5,
                     "quantity": 1
                 },
                 {
-                    "id": 2,
-                    "quantity": 1
-                },
-                {
-                    "id": 8,
+                    "id": 1,
                     "quantity": 1
                 },
                 {
                     "id": 7,
+                    "quantity": 1
+                },
+                {
+                    "id": 6,
                     "quantity": 1
                 }
             ]
@@ -1319,7 +1329,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "10-20",
@@ -1329,9 +1339,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null
+                    10,
+                    1,
+                    20
                 ]
             },
             "2": {
@@ -1427,7 +1437,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
+                    5,
                     null,
                     null,
                     null
@@ -1584,10 +1594,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    5,
+                    5,
+                    10,
                     null
                 ]
             },
@@ -1601,9 +1611,12 @@ exports.default = [
             }
         },
         "skills": [
+            480,
             480
         ],
         "materials": [
+            18,
+            34,
             18,
             34
         ],
@@ -1613,7 +1626,7 @@ exports.default = [
         "id": 6,
         "name": "Titan",
         "icon": "https://rune.game/images/items/00006.png",
-        "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657468522&userId=usrf0GZYc5zCl9Cv7&cs=be5e694f2467e629",
+        "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657593162&userId=usrf0GZYc5zCl9Cv7&cs=8f195fae2555829b",
         "value": "0",
         "type": 7,
         "subType": 13,
@@ -1621,6 +1634,7 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -1638,7 +1652,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 88,
+        "numPerfectionRolls": 44,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -1650,7 +1664,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 7,
+                    "id": 6,
+                    "quantity": 1
+                },
+                {
+                    "id": 8,
                     "quantity": 1
                 },
                 {
@@ -1658,15 +1676,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 10,
+                    "id": 1,
                     "quantity": 1
                 },
                 {
-                    "id": 2,
-                    "quantity": 1
-                },
-                {
-                    "id": 4,
+                    "id": 3,
                     "quantity": 1
                 }
             ]
@@ -1727,8 +1741,8 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
+                    5,
+                    20,
                     null
                 ]
             },
@@ -1823,7 +1837,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
+                    20,
                     null,
                     null,
                     null
@@ -1966,10 +1980,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    8,
+                    20,
+                    10,
+                    4,
                     null
                 ]
             },
@@ -1983,6 +1997,7 @@ exports.default = [
             }
         },
         "skills": [
+            465,
             465
         ],
         "materials": [],
@@ -1992,7 +2007,7 @@ exports.default = [
         "id": 7,
         "name": "Smoke",
         "icon": "https://rune.game/images/items/00007.png",
-        "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657468527&userId=usrf0GZYc5zCl9Cv7&cs=277d6cdf828294b7",
+        "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657593166&userId=usrf0GZYc5zCl9Cv7&cs=2646a5e446adb1a3",
         "value": "0",
         "type": 9,
         "subType": 15,
@@ -2000,6 +2015,7 @@ exports.default = [
         "slots": [
             9
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -2029,19 +2045,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 10,
-                    "quantity": 1
-                },
-                {
-                    "id": 6,
-                    "quantity": 1
-                },
-                {
                     "id": 9,
                     "quantity": 1
                 },
                 {
+                    "id": 5,
+                    "quantity": 1
+                },
+                {
                     "id": 8,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
                     "quantity": 1
                 }
             ]
@@ -2103,8 +2119,8 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
+                    5,
+                    100,
                     null
                 ]
             },
@@ -2201,7 +2217,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
+                    25,
                     null,
                     null,
                     null
@@ -2325,11 +2341,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    25,
                     null,
                     null,
-                    null,
-                    null,
-                    null
+                    8
                 ]
             },
             "4": {
@@ -2342,9 +2358,11 @@ exports.default = [
             }
         },
         "skills": [
+            475,
             475
         ],
         "materials": [
+            32,
             32
         ],
         "category": "accessory"
@@ -2353,7 +2371,7 @@ exports.default = [
         "id": 10,
         "name": "Glory",
         "icon": "https://rune.game/images/items/00010.png",
-        "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657468531&userId=usrf0GZYc5zCl9Cv7&cs=4c9d971d5e29449e",
+        "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657593170&userId=usrf0GZYc5zCl9Cv7&cs=a0910653b915b157",
         "value": "0",
         "type": 2,
         "subType": 19,
@@ -2361,13 +2379,14 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -2390,23 +2409,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 12,
+                    "id": 11,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
+                    "quantity": 1
+                },
+                {
+                    "id": 5,
+                    "quantity": 1
+                },
+                {
+                    "id": 1,
                     "quantity": 1
                 },
                 {
                     "id": 8,
-                    "quantity": 1
-                },
-                {
-                    "id": 6,
-                    "quantity": 1
-                },
-                {
-                    "id": 2,
-                    "quantity": 1
-                },
-                {
-                    "id": 9,
                     "quantity": 1
                 }
             ]
@@ -2441,7 +2460,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "15-15",
@@ -2562,11 +2581,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    40,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    5,
                     null,
                     null,
                     null
@@ -2732,10 +2751,10 @@ exports.default = [
                     null,
                     null,
                     null,
+                    0,
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
+                    3,
                     null,
                     null
                 ]
@@ -2967,11 +2986,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    30,
+                    15,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    15,
                     null,
                     null,
                     null
@@ -2987,6 +3006,7 @@ exports.default = [
             }
         },
         "skills": [
+            409,
             409
         ],
         "materials": [],
@@ -2996,7 +3016,7 @@ exports.default = [
         "id": 11,
         "name": "Grace",
         "icon": "https://rune.game/images/items/00011.png",
-        "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657468535&userId=usrf0GZYc5zCl9Cv7&cs=2f36135ae9d86334",
+        "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657593175&userId=usrf0GZYc5zCl9Cv7&cs=9e791c93e6fd3af7",
         "value": "0",
         "type": 2,
         "subType": 8,
@@ -3004,11 +3024,12 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -3033,23 +3054,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 12,
+                    "id": 11,
                     "quantity": 1
                 },
                 {
-                    "id": 6,
+                    "id": 5,
                     "quantity": 1
                 },
                 {
-                    "id": 4,
+                    "id": 3,
                     "quantity": 1
                 },
                 {
-                    "id": 1,
+                    "id": 0,
                     "quantity": 1
                 },
                 {
-                    "id": 9,
+                    "id": 8,
                     "quantity": 1
                 }
             ]
@@ -3084,7 +3105,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "25-25",
@@ -3205,11 +3226,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    40,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    5,
                     null,
                     null,
                     null
@@ -3353,9 +3374,9 @@ exports.default = [
                     null,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    15,
+                    3,
                     null,
                     null
                 ]
@@ -3580,14 +3601,14 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    25,
                     null,
                     null,
                     null,
                     null,
                     null,
-                    null,
-                    null,
-                    null
+                    2,
+                    20
                 ]
             },
             "4": {
@@ -3602,9 +3623,13 @@ exports.default = [
         "skills": [
             457,
             410,
+            456,
+            457,
+            410,
             456
         ],
         "materials": [
+            9,
             9
         ],
         "category": "accessory"
@@ -3613,7 +3638,7 @@ exports.default = [
         "id": 12,
         "name": "Genesis",
         "icon": "https://rune.game/images/items/00012.png",
-        "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657468539&userId=usrf0GZYc5zCl9Cv7&cs=ba1d019d4e01f6a9",
+        "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657593179&userId=usrf0GZYc5zCl9Cv7&cs=8cd3323bfaa1cc18",
         "value": "0",
         "type": 1,
         "subType": 5,
@@ -3622,11 +3647,12 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -3639,7 +3665,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2232,
+        "numPerfectionRolls": 1116,
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
@@ -3651,7 +3677,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 12,
+                    "id": 11,
+                    "quantity": 1
+                },
+                {
+                    "id": 9,
                     "quantity": 1
                 },
                 {
@@ -3659,11 +3689,7 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 11,
-                    "quantity": 1
-                },
-                {
-                    "id": 9,
+                    "id": 8,
                     "quantity": 1
                 }
             ]
@@ -3698,7 +3724,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "10-40",
@@ -3793,10 +3819,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    40,
                     null,
-                    null,
-                    null,
-                    null,
+                    2,
                     null,
                     null,
                     null
@@ -3935,10 +3961,10 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    30,
                     null,
                     null,
-                    null,
-                    null,
+                    3,
                     null,
                     null,
                     null
@@ -4126,10 +4152,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    14,
+                    20,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null,
                     null,
                     null,
@@ -4147,9 +4173,13 @@ exports.default = [
         },
         "skills": [
             411,
+            455,
+            411,
             455
         ],
         "materials": [
+            3,
+            7,
             3,
             7
         ],
@@ -4159,7 +4189,7 @@ exports.default = [
         "id": 13,
         "name": "Destiny",
         "icon": "https://rune.game/images/items/00013.png",
-        "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657468543&userId=usrf0GZYc5zCl9Cv7&cs=a9be4c97ba8d4da7",
+        "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657593184&userId=usrf0GZYc5zCl9Cv7&cs=b27afaa5775fa3f8",
         "value": "0",
         "type": 2,
         "subType": 7,
@@ -4167,13 +4197,14 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -4196,15 +4227,7 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 12,
-                    "quantity": 1
-                },
-                {
                     "id": 11,
-                    "quantity": 1
-                },
-                {
-                    "id": 9,
                     "quantity": 1
                 },
                 {
@@ -4213,6 +4236,14 @@ exports.default = [
                 },
                 {
                     "id": 8,
+                    "quantity": 1
+                },
+                {
+                    "id": 9,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
                     "quantity": 1
                 }
             ]
@@ -4247,7 +4278,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "15-15",
@@ -4368,11 +4399,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    40,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    5,
                     null,
                     null,
                     null
@@ -4550,9 +4581,9 @@ exports.default = [
                     null,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    15,
+                    5,
+                    3,
                     null,
                     null,
                     null,
@@ -4727,11 +4758,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    20,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    25,
+                    12,
                     null,
                     null
                 ]
@@ -4748,9 +4779,13 @@ exports.default = [
         "skills": [
             429,
             447,
+            445,
+            429,
+            447,
             445
         ],
         "materials": [
+            7,
             7
         ],
         "category": "accessory"
@@ -4759,7 +4794,7 @@ exports.default = [
         "id": 14,
         "name": "Wrath",
         "icon": "https://rune.game/images/items/00014.png",
-        "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657468547&userId=usrf0GZYc5zCl9Cv7&cs=0e42396ce1db169f",
+        "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657593189&userId=usrf0GZYc5zCl9Cv7&cs=3688324a768dfed8",
         "value": "0",
         "type": 1,
         "subType": 6,
@@ -4768,11 +4803,12 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -4797,23 +4833,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
+                    "id": 12,
+                    "quantity": 1
+                },
+                {
+                    "id": 5,
+                    "quantity": 1
+                },
+                {
                     "id": 13,
                     "quantity": 1
                 },
                 {
-                    "id": 6,
+                    "id": 3,
                     "quantity": 1
                 },
                 {
-                    "id": 14,
-                    "quantity": 1
-                },
-                {
-                    "id": 4,
-                    "quantity": 1
-                },
-                {
-                    "id": 12,
+                    "id": 11,
                     "quantity": 1
                 }
             ]
@@ -4943,10 +4979,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    7,
+                    2,
+                    15,
+                    2,
                     null,
                     null,
                     null
@@ -5093,10 +5129,10 @@ exports.default = [
                 "perfection": [
                     null,
                     null,
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    4,
                     null,
                     null
                 ]
@@ -5297,14 +5333,14 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    18,
+                    2,
+                    15,
                     null,
                     null,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    20
                 ]
             },
             "4": {
@@ -5319,9 +5355,13 @@ exports.default = [
         "skills": [
             430,
             474,
+            501,
+            430,
+            474,
             501
         ],
         "materials": [
+            19,
             19
         ],
         "category": "accessory"
@@ -5330,7 +5370,7 @@ exports.default = [
         "id": 15,
         "name": "Fortress",
         "icon": "https://rune.game/images/items/00015.png",
-        "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657468551&userId=usrf0GZYc5zCl9Cv7&cs=df2db0c99ee9b325",
+        "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657593193&userId=usrf0GZYc5zCl9Cv7&cs=5c5a6b1854c938af",
         "value": "0",
         "type": 3,
         "subType": 9,
@@ -5338,6 +5378,7 @@ exports.default = [
         "slots": [
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": true,
@@ -5355,7 +5396,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 7776,
+        "numPerfectionRolls": 1944,
         "attributes": [],
         "details": {
             "Type": "Shield",
@@ -5366,23 +5407,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
+                    "id": 12,
+                    "quantity": 1
+                },
+                {
+                    "id": 2,
+                    "quantity": 1
+                },
+                {
                     "id": 13,
                     "quantity": 1
                 },
                 {
+                    "id": 9,
+                    "quantity": 1
+                },
+                {
                     "id": 3,
-                    "quantity": 1
-                },
-                {
-                    "id": 14,
-                    "quantity": 1
-                },
-                {
-                    "id": 10,
-                    "quantity": 1
-                },
-                {
-                    "id": 4,
                     "quantity": 1
                 }
             ]
@@ -5512,11 +5553,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    4,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null,
                     null
                 ]
@@ -5662,10 +5703,10 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    10,
+                    4,
+                    10,
                     null,
                     null,
                     null
@@ -5837,11 +5878,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    19,
+                    8,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null,
                     null
                 ]
@@ -5857,9 +5898,12 @@ exports.default = [
         },
         "skills": [
             471,
+            414,
+            471,
             414
         ],
         "materials": [
+            3,
             3
         ],
         "category": "accessory"
@@ -5868,7 +5912,7 @@ exports.default = [
         "id": 16,
         "name": "Elder",
         "icon": "https://rune.game/images/items/00016.png",
-        "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657468554&userId=usrf0GZYc5zCl9Cv7&cs=bdf7410f9806a4de",
+        "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657593197&userId=usrf0GZYc5zCl9Cv7&cs=940ca27c7a810ec6",
         "value": "0",
         "type": 1,
         "subType": 2,
@@ -5877,13 +5921,14 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -5894,7 +5939,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 5760,
+        "numPerfectionRolls": 1440,
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
@@ -5906,11 +5951,7 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 14,
-                    "quantity": 1
-                },
-                {
-                    "id": 11,
+                    "id": 13,
                     "quantity": 1
                 },
                 {
@@ -5918,11 +5959,15 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 8,
+                    "id": 9,
                     "quantity": 1
                 },
                 {
                     "id": 7,
+                    "quantity": 1
+                },
+                {
+                    "id": 6,
                     "quantity": 1
                 }
             ]
@@ -6070,11 +6115,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    40,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    2,
                     null,
                     null,
                     null
@@ -6249,11 +6294,11 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    20,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    4,
                     null,
                     null,
                     null,
@@ -6426,11 +6471,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    15,
+                    20,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null,
                     null
                 ]
@@ -6446,6 +6491,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            6,
             6
         ],
         "category": "accessory"
@@ -6454,7 +6500,7 @@ exports.default = [
         "id": 19,
         "name": "Pledge",
         "icon": "https://rune.game/images/items/00019.png",
-        "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657468557&userId=usrf0GZYc5zCl9Cv7&cs=2fa60c2a4f5a2075",
+        "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657593200&userId=usrf0GZYc5zCl9Cv7&cs=52a0180501a48db3",
         "value": "0",
         "type": 5,
         "subType": 10,
@@ -6462,13 +6508,14 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -6479,7 +6526,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 900,
+        "numPerfectionRolls": 225,
         "attributes": [],
         "details": {
             "Type": "Helm",
@@ -6491,19 +6538,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 4,
-                    "quantity": 1
-                },
-                {
                     "id": 3,
                     "quantity": 1
                 },
                 {
-                    "id": 12,
+                    "id": 2,
                     "quantity": 1
                 },
                 {
-                    "id": 9,
+                    "id": 11,
+                    "quantity": 1
+                },
+                {
+                    "id": 8,
                     "quantity": 1
                 }
             ]
@@ -6580,10 +6627,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    15,
+                    1,
                     null,
-                    null,
-                    null,
-                    null
+                    5
                 ]
             },
             "2": {
@@ -6675,9 +6722,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    3,
                     null,
-                    null,
-                    null,
+                    5,
                     null
                 ]
             },
@@ -6834,10 +6881,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    6,
+                    3,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null
                 ]
             },
@@ -6851,6 +6898,7 @@ exports.default = [
             }
         },
         "skills": [
+            460,
             460
         ],
         "materials": [],
@@ -6860,7 +6908,7 @@ exports.default = [
         "id": 20,
         "name": "Flow",
         "icon": "https://rune.game/images/items/00020.png",
-        "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657468559&userId=usrf0GZYc5zCl9Cv7&cs=ce7302f731cb5223",
+        "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657593202&userId=usrf0GZYc5zCl9Cv7&cs=2067e17c18150989",
         "value": "0",
         "type": 8,
         "subType": 16,
@@ -6868,11 +6916,12 @@ exports.default = [
         "slots": [
             6
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -6885,7 +6934,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 3200,
+        "numPerfectionRolls": 800,
         "attributes": [],
         "details": {
             "Type": "Leg Armor",
@@ -6897,11 +6946,7 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 14,
-                    "quantity": 1
-                },
-                {
-                    "id": 16,
+                    "id": 13,
                     "quantity": 1
                 },
                 {
@@ -6909,7 +6954,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 17,
+                    "id": 14,
+                    "quantity": 1
+                },
+                {
+                    "id": 16,
                     "quantity": 1
                 }
             ]
@@ -7019,12 +7068,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    10,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    1,
+                    0
                 ]
             },
             "2": {
@@ -7135,11 +7184,11 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    10,
                     null,
                     null,
-                    null,
-                    null,
-                    null
+                    2,
+                    3
                 ]
             },
             "3": {
@@ -7321,12 +7370,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    6,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    1,
+                    6
                 ]
             },
             "4": {
@@ -7346,7 +7395,7 @@ exports.default = [
         "id": 21,
         "name": "Guiding Light",
         "icon": "https://rune.game/images/items/00021.png",
-        "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657468562&userId=usrf0GZYc5zCl9Cv7&cs=3a5d6fb37811baf6",
+        "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657593205&userId=usrf0GZYc5zCl9Cv7&cs=638286f9312d9a49",
         "value": "0",
         "type": 2,
         "subType": 19,
@@ -7354,6 +7403,7 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -7370,8 +7420,8 @@ exports.default = [
         "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
-        "hotness": 0,
-        "numPerfectionRolls": 1155997722,
+        "hotness": "9",
+        "numPerfectionRolls": 116755769922,
         "attributes": [],
         "details": {
             "Type": "Two-Handed Weapon",
@@ -7383,23 +7433,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 }
             ]
@@ -7539,13 +7589,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    100,
+                    100,
+                    10,
+                    50,
+                    1,
+                    0,
+                    0,
                     null
                 ]
             },
@@ -7729,7 +7779,9 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/unlockonwins",
                         "paramType1": "value",
                         "param1": {
-                            "spec": "200-200",
+                            "spec": [
+                                "200-200"
+                            ],
                             "min": 200,
                             "max": 200,
                             "value": 200
@@ -7752,13 +7804,13 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    100,
+                    10,
+                    null,
+                    0,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    0,
                     null,
                     null,
                     null,
@@ -8004,13 +8056,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    20,
+                    20,
+                    10,
+                    15,
+                    5,
+                    25,
+                    25,
                     null,
                     null,
                     null
@@ -8028,6 +8080,9 @@ exports.default = [
         "skills": [
             419,
             462,
+            481,
+            419,
+            462,
             481
         ],
         "materials": [],
@@ -8037,7 +8092,7 @@ exports.default = [
         "id": 22,
         "name": "Lionheart",
         "icon": "https://rune.game/images/items/00022.png",
-        "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657468566&userId=usrf0GZYc5zCl9Cv7&cs=0ccf2945c4f2bc06",
+        "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657593210&userId=usrf0GZYc5zCl9Cv7&cs=4906f0ceee0e53a7",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -8046,13 +8101,14 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": true,
         "isPaused": true,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -8060,7 +8116,7 @@ exports.default = [
         "isTransferable": true,
         "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 2200,
@@ -8074,7 +8130,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 14,
+                    "id": 13,
+                    "quantity": 1
+                },
+                {
+                    "id": 15,
                     "quantity": 1
                 },
                 {
@@ -8082,15 +8142,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
+                    "id": 12,
+                    "quantity": 1
+                },
+                {
                     "id": 17,
-                    "quantity": 1
-                },
-                {
-                    "id": 13,
-                    "quantity": 1
-                },
-                {
-                    "id": 18,
                     "quantity": 1
                 }
             ]
@@ -8222,11 +8278,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    12,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    4,
+                    5,
+                    0,
                     null,
                     null
                 ]
@@ -8366,7 +8422,7 @@ exports.default = [
                     null,
                     null,
                     null,
-                    null,
+                    1,
                     null,
                     null,
                     null,
@@ -8620,11 +8676,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    21,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    8,
+                    10,
+                    15,
                     null,
                     null,
                     null
@@ -8640,6 +8696,7 @@ exports.default = [
             }
         },
         "skills": [
+            472,
             472
         ],
         "materials": [],
@@ -8649,7 +8706,7 @@ exports.default = [
         "id": 23,
         "name": "Pressure",
         "icon": "https://rune.game/images/items/00023.png",
-        "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657468568&userId=usrf0GZYc5zCl9Cv7&cs=7786b1ca7b97291f",
+        "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657593212&userId=usrf0GZYc5zCl9Cv7&cs=1e3a9239be70cbd3",
         "value": "0",
         "type": 9,
         "subType": 15,
@@ -8657,6 +8714,7 @@ exports.default = [
         "slots": [
             9
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -8686,19 +8744,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 6,
+                    "id": 5,
                     "quantity": 1
                 },
                 {
-                    "id": 14,
+                    "id": 13,
                     "quantity": 1
                 },
                 {
-                    "id": 8,
+                    "id": 7,
                     "quantity": 1
                 },
                 {
-                    "id": 18,
+                    "id": 17,
                     "quantity": 1
                 }
             ]
@@ -8733,7 +8791,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-5",
@@ -8792,11 +8850,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    5,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    1
                 ]
             },
             "2": {
@@ -8924,8 +8982,8 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
+                    10,
+                    10,
                     null,
                     null,
                     null,
@@ -9072,9 +9130,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    5,
+                    15,
+                    10,
                     null,
                     null
                 ]
@@ -9089,9 +9147,11 @@ exports.default = [
             }
         },
         "skills": [
+            495,
             495
         ],
         "materials": [
+            18,
             18
         ],
         "category": "accessory"
@@ -9100,12 +9160,13 @@ exports.default = [
         "id": 24,
         "name": "Zeal",
         "icon": "https://rune.game/images/items/00024.png",
-        "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657468570&userId=usrf0GZYc5zCl9Cv7&cs=e706375bb2673c79",
+        "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657593215&userId=usrf0GZYc5zCl9Cv7&cs=505224f94208d9ed",
         "value": "0",
         "type": 24,
         "subType": 25,
         "specificType": 20,
         "slots": [],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": true,
@@ -9123,7 +9184,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1920,
+        "numPerfectionRolls": 480,
         "attributes": [],
         "details": {
             "Type": "WristArmor",
@@ -9134,19 +9195,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 1,
+                    "id": 0,
                     "quantity": 1
                 },
                 {
-                    "id": 7,
+                    "id": 6,
                     "quantity": 1
                 },
                 {
-                    "id": 13,
+                    "id": 12,
                     "quantity": 1
                 },
                 {
-                    "id": 15,
+                    "id": 14,
                     "quantity": 1
                 }
             ]
@@ -9238,10 +9299,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
+                    15,
+                    3,
                     null
                 ]
             },
@@ -9353,8 +9414,8 @@ exports.default = [
                 "perfection": [
                     null,
                     null,
-                    null,
-                    null,
+                    15,
+                    3,
                     null,
                     null
                 ]
@@ -9535,12 +9596,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
                     null,
+                    15,
+                    3,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    8
                 ]
             },
             "4": {
@@ -9560,7 +9621,7 @@ exports.default = [
         "id": 25,
         "name": "Balance",
         "icon": "https://rune.game/images/items/00025.png",
-        "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657468572&userId=usrf0GZYc5zCl9Cv7&cs=d1a452632e7f7043",
+        "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657593217&userId=usrf0GZYc5zCl9Cv7&cs=7857dfd5576c40f8",
         "value": "0",
         "type": 10,
         "subType": 26,
@@ -9568,11 +9629,12 @@ exports.default = [
         "slots": [
             8
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": true,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -9596,11 +9658,7 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 1,
-                    "quantity": 1
-                },
-                {
-                    "id": 16,
+                    "id": 0,
                     "quantity": 1
                 },
                 {
@@ -9608,7 +9666,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 8,
+                    "id": 14,
+                    "quantity": 1
+                },
+                {
+                    "id": 7,
                     "quantity": 1
                 }
             ]
@@ -9643,7 +9705,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-5",
@@ -9674,7 +9736,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomruneexchangespecific",
                         "paramType1": "percent",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune (Not Implemented)",
                         "param1": {
                             "spec": "10-20",
@@ -9714,10 +9776,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    3,
+                    5,
+                    0,
+                    20,
                     null
                 ]
             },
@@ -9812,9 +9874,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    5,
                     null,
-                    null,
-                    null,
+                    2,
                     null
                 ]
             },
@@ -9985,10 +10047,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    3,
+                    5,
+                    2,
+                    7,
                     null,
                     null
                 ]
@@ -10003,9 +10065,11 @@ exports.default = [
             }
         },
         "skills": [
+            450,
             450
         ],
         "materials": [
+            8,
             8
         ],
         "category": "accessory"
@@ -10014,7 +10078,7 @@ exports.default = [
         "id": 26,
         "name": "Eternity",
         "icon": "https://rune.game/images/items/00026.png",
-        "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657468576&userId=usrf0GZYc5zCl9Cv7&cs=e5be303f321f08dd",
+        "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657593220&userId=usrf0GZYc5zCl9Cv7&cs=411345bd575e3b07",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -10024,6 +10088,7 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": true,
         "isUltraSecret": false,
@@ -10041,7 +10106,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 120,
+        "numPerfectionRolls": 1320,
         "attributes": [],
         "details": {
             "Type": "Ring",
@@ -10052,23 +10117,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 2,
+                    "id": 1,
                     "quantity": 1
                 },
                 {
-                    "id": 11,
+                    "id": 10,
                     "quantity": 1
                 },
                 {
-                    "id": 13,
+                    "id": 12,
                     "quantity": 1
                 },
                 {
-                    "id": 16,
+                    "id": 15,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 }
             ]
@@ -10103,7 +10168,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-3",
@@ -10152,7 +10217,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
                             "spec": "1-5",
@@ -10216,13 +10281,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    4,
+                    3,
                     null,
+                    1,
+                    5,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    0,
                     null
                 ]
             },
@@ -10379,9 +10444,9 @@ exports.default = [
                     null,
                     null,
                     null,
+                    5,
                     null,
-                    null,
-                    null,
+                    0,
                     null,
                     null
                 ]
@@ -10557,13 +10622,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    9,
                     null,
+                    1,
+                    5,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null
                 ]
             },
@@ -10577,6 +10642,7 @@ exports.default = [
             }
         },
         "skills": [
+            454,
             454
         ],
         "materials": [],
@@ -10586,7 +10652,7 @@ exports.default = [
         "id": 27,
         "name": "Instinct",
         "icon": "https://rune.game/images/items/00027.png",
-        "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657468580&userId=usrf0GZYc5zCl9Cv7&cs=e615f9c7f5ad7f4a",
+        "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657593224&userId=usrf0GZYc5zCl9Cv7&cs=987a7d54badf223a",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -10596,11 +10662,12 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -10625,23 +10692,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 17,
-                    "quantity": 1
-                },
-                {
-                    "id": 14,
-                    "quantity": 1
-                },
-                {
                     "id": 16,
                     "quantity": 1
                 },
                 {
-                    "id": 14,
+                    "id": 13,
                     "quantity": 1
                 },
                 {
-                    "id": 17,
+                    "id": 15,
+                    "quantity": 1
+                },
+                {
+                    "id": 13,
+                    "quantity": 1
+                },
+                {
+                    "id": 16,
                     "quantity": 1
                 }
             ]
@@ -10692,7 +10759,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-3",
@@ -10750,12 +10817,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    3,
+                    3,
+                    3,
+                    4,
+                    5,
+                    0
                 ]
             },
             "2": {
@@ -10864,11 +10931,11 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    3,
+                    3,
+                    4,
+                    5,
+                    5
                 ]
             },
             "3": {
@@ -11016,11 +11083,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    4,
+                    3,
+                    4,
+                    5,
                     null
                 ]
             },
@@ -11034,9 +11101,12 @@ exports.default = [
             }
         },
         "skills": [
+            476,
             476
         ],
         "materials": [
+            9,
+            34,
             9,
             34
         ],
@@ -11046,7 +11116,7 @@ exports.default = [
         "id": 28,
         "name": "Beacon",
         "icon": "https://rune.game/images/items/00028.png",
-        "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657468582&userId=usrf0GZYc5zCl9Cv7&cs=1403436d9e9a005b",
+        "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657593227&userId=usrf0GZYc5zCl9Cv7&cs=984753cfdd32d955",
         "value": "0",
         "type": 13,
         "subType": 17,
@@ -11054,13 +11124,14 @@ exports.default = [
         "slots": [
             5
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -11076,18 +11147,13 @@ exports.default = [
         "details": {
             "Type": "Amulet",
             "Subtype": "Lodestar Amulet",
-            "Rune Word": "Eld Lum Io Shael",
             "Distribution": "Crafted",
             "Date": "August 27, 2021 - Now"
         },
         "recipe": {
             "requirement": [
                 {
-                    "id": 2,
-                    "quantity": 1
-                },
-                {
-                    "id": 17,
+                    "id": 1,
                     "quantity": 1
                 },
                 {
@@ -11095,7 +11161,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 13,
+                    "id": 15,
+                    "quantity": 1
+                },
+                {
+                    "id": 12,
                     "quantity": 1
                 }
             ]
@@ -11188,11 +11258,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    3,
+                    3,
+                    3,
+                    4,
+                    0
                 ]
             },
             "2": {
@@ -11339,10 +11409,10 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    3,
+                    5,
+                    5,
+                    0,
                     null,
                     null,
                     null
@@ -11491,11 +11561,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    8,
+                    3,
+                    5,
+                    7,
+                    5,
                     null,
                     null
                 ]
@@ -11510,6 +11580,7 @@ exports.default = [
             }
         },
         "skills": [
+            448,
             448
         ],
         "materials": [],
@@ -11519,7 +11590,7 @@ exports.default = [
         "id": 29,
         "name": "Dragonlight",
         "icon": "https://rune.game/images/items/00029.png",
-        "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657468585&userId=usrf0GZYc5zCl9Cv7&cs=491d9619755915e3",
+        "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657593230&userId=usrf0GZYc5zCl9Cv7&cs=023dc9ef5979095b",
         "value": "0",
         "type": 13,
         "subType": 17,
@@ -11527,6 +11598,7 @@ exports.default = [
         "slots": [
             5
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -11544,7 +11616,7 @@ exports.default = [
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 3472,
+        "numPerfectionRolls": 868,
         "attributes": [],
         "details": {
             "Type": "Amulet",
@@ -11650,9 +11722,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    50,
+                    20,
                     null
                 ]
             },
@@ -11728,9 +11800,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null
+                    10,
+                    10,
+                    5
                 ]
             },
             "4": {
@@ -11750,7 +11822,7 @@ exports.default = [
         "id": 30,
         "name": "Haze",
         "icon": "https://rune.game/images/items/00030.png",
-        "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657468586&userId=usrf0GZYc5zCl9Cv7&cs=86b32f1899ef946f",
+        "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657593231&userId=usrf0GZYc5zCl9Cv7&cs=d7519d58a97177c6",
         "value": "0",
         "type": 5,
         "subType": 10,
@@ -11758,6 +11830,7 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": true,
@@ -11785,23 +11858,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 19,
+                    "id": 18,
                     "quantity": 1
                 },
                 {
-                    "id": 17,
+                    "id": 16,
                     "quantity": 1
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "quantity": 1
                 },
                 {
-                    "id": 28,
+                    "id": 27,
                     "quantity": 1
                 }
             ]
@@ -11852,7 +11925,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
                             "spec": "0-3",
@@ -11867,7 +11940,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomrunebonus",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
+                        "paramValue1": "0-100",
                         "nature": "Buff",
                         "description": "{parameter1} Bonus Yield Given as a Random Rune (Not Implemented)",
                         "param1": {
@@ -11948,10 +12021,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    15,
+                    2,
+                    3,
+                    2,
                     null,
                     null,
                     null,
@@ -12003,7 +12076,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
                             "spec": "0-3",
@@ -12018,7 +12091,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomrunebonus",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
+                        "paramValue1": "0-100",
                         "nature": "Buff",
                         "description": "{parameter1} Bonus Yield Given as a Random Rune (Not Implemented)",
                         "param1": {
@@ -12108,9 +12181,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
+                    2,
+                    3,
+                    2,
                     null,
                     null,
                     null,
@@ -12287,10 +12360,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    2,
+                    6,
+                    10,
                     null,
                     null
                 ]
@@ -12306,6 +12379,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            32,
             32
         ],
         "category": "accessory"
@@ -12314,7 +12388,7 @@ exports.default = [
         "id": 31,
         "name": "Hellfire",
         "icon": "https://rune.game/images/items/00031.png",
-        "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657468588&userId=usrf0GZYc5zCl9Cv7&cs=e318b4e17f11405b",
+        "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657593234&userId=usrf0GZYc5zCl9Cv7&cs=1b2494fab69e99d2",
         "value": "0",
         "type": 7,
         "subType": 13,
@@ -12322,13 +12396,14 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -12339,7 +12414,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2640,
+        "numPerfectionRolls": 880,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -12349,15 +12424,7 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 19,
-                    "quantity": 1
-                },
-                {
-                    "id": 23,
-                    "quantity": 1
-                },
-                {
-                    "id": 21,
+                    "id": 18,
                     "quantity": 1
                 },
                 {
@@ -12365,7 +12432,15 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 20,
+                    "quantity": 1
+                },
+                {
+                    "id": 21,
+                    "quantity": 1
+                },
+                {
+                    "id": 32,
                     "quantity": 1
                 }
             ]
@@ -12416,7 +12491,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestovertime",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "Add {parameter1} To Harvest, Vested Over Time (Not Implemented)",
                         "param1": {
                             "spec": "0-3",
@@ -12458,11 +12533,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    3,
+                    4,
+                    0
                 ]
             },
             "2": {
@@ -12599,10 +12674,10 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
+                    3,
+                    5,
                     null,
                     null,
                     null
@@ -12831,11 +12906,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    20,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    8,
+                    15,
                     null,
                     null,
                     null
@@ -12852,9 +12927,12 @@ exports.default = [
         },
         "skills": [
             451,
+            516,
+            451,
             516
         ],
         "materials": [
+            21,
             21
         ],
         "category": "accessory"
@@ -12863,7 +12941,7 @@ exports.default = [
         "id": 32,
         "name": "Luminous Flywings",
         "icon": "https://rune.game/images/items/00032.png",
-        "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657468593&userId=usrf0GZYc5zCl9Cv7&cs=d4c9f2b89c62bf23",
+        "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657593239&userId=usrf0GZYc5zCl9Cv7&cs=6a764920e55f00f1",
         "value": "0",
         "type": 14,
         "subType": 32,
@@ -12873,6 +12951,7 @@ exports.default = [
             16,
             17
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -12890,7 +12969,7 @@ exports.default = [
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 252,
+        "numPerfectionRolls": 21,
         "attributes": [],
         "details": {
             "Type": "Trinket",
@@ -12981,9 +13060,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    2,
                     null,
-                    null,
-                    null
+                    20
                 ]
             },
             "2": {
@@ -13063,9 +13142,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null
+                    2,
+                    3,
+                    20
                 ]
             },
             "3": {
@@ -13139,8 +13218,8 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null
+                    2,
+                    20
                 ]
             },
             "4": {
@@ -13167,9 +13246,10 @@ exports.default = [
         "slots": [
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -13184,17 +13264,16 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 49500,
+        "numPerfectionRolls": 1980,
         "attributes": [],
         "details": {
             "Type": "Shield",
-            "Subtype": "Ironwood Aegis",
-            "Rune Word": "Lo"
+            "Subtype": "Ironwood Aegis"
         },
         "recipe": {
             "requirement": [
                 {
-                    "id": 28,
+                    "id": 27,
                     "quantity": 1
                 }
             ]
@@ -13335,11 +13414,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    8,
+                    8,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    3,
                     null,
                     null,
                     null
@@ -13476,10 +13555,10 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
+                    8,
+                    8,
                     null,
-                    null,
-                    null,
-                    null,
+                    3,
                     null,
                     null,
                     null
@@ -13615,11 +13694,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    8,
+                    8,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    3,
                     null,
                     null,
                     null
@@ -13635,6 +13714,7 @@ exports.default = [
             }
         },
         "skills": [
+            466,
             466
         ],
         "materials": [],
@@ -13644,7 +13724,7 @@ exports.default = [
         "id": 34,
         "name": "Blur",
         "icon": "https://rune.game/images/items/00034.png",
-        "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657468596&userId=usrf0GZYc5zCl9Cv7&cs=12f0004febc769fb",
+        "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657593243&userId=usrf0GZYc5zCl9Cv7&cs=e99276c3afeccfdc",
         "value": "0",
         "type": 7,
         "subType": 13,
@@ -13652,13 +13732,14 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -13679,19 +13760,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
+                    "id": 20,
+                    "quantity": 1
+                },
+                {
+                    "id": 27,
+                    "quantity": 1
+                },
+                {
                     "id": 21,
                     "quantity": 1
                 },
                 {
-                    "id": 28,
-                    "quantity": 1
-                },
-                {
-                    "id": 22,
-                    "quantity": 1
-                },
-                {
-                    "id": 33,
+                    "id": 32,
                     "quantity": 1
                 }
             ]
@@ -13742,7 +13823,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-5",
@@ -13795,16 +13876,16 @@ exports.default = [
                         "param1": {
                             "spec": "Evasion",
                             "min": [
-                                527
+                                512
                             ],
                             "max": [
-                                527
+                                512
                             ],
                             "value": [
-                                527
+                                512
                             ],
                             "map": {
-                                "527": [
+                                "512": [
                                     "Evasion"
                                 ]
                             }
@@ -13812,11 +13893,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    1,
+                    5,
+                    10,
+                    10,
                     null
                 ]
             },
@@ -13865,7 +13946,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-5",
@@ -13941,9 +14022,9 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
+                    1,
+                    5,
+                    10,
                     null,
                     null,
                     null
@@ -14114,10 +14195,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    20,
+                    1,
+                    5,
+                    10,
                     null,
                     null
                 ]
@@ -14132,6 +14213,7 @@ exports.default = [
             }
         },
         "skills": [
+            499,
             499
         ],
         "materials": [],
@@ -14141,7 +14223,7 @@ exports.default = [
         "id": 35,
         "name": "Mercy",
         "icon": "https://rune.game/images/items/00035.png",
-        "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657468597&userId=usrf0GZYc5zCl9Cv7&cs=b19b67ba81279649",
+        "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657593245&userId=usrf0GZYc5zCl9Cv7&cs=756db2ae0e878228",
         "value": "0",
         "type": 1,
         "subType": 5,
@@ -14150,9 +14232,10 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -14171,29 +14254,28 @@ exports.default = [
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
-            "Subtype": "Fanged Dagger",
-            "Rune Word": "Thul El Sol Hel Tir"
+            "Subtype": "Fanged Dagger"
         },
         "recipe": {
             "requirement": [
                 {
-                    "id": 10,
+                    "id": 9,
                     "quantity": 1
                 },
                 {
-                    "id": 1,
+                    "id": 0,
                     "quantity": 1
                 },
                 {
-                    "id": 12,
+                    "id": 11,
                     "quantity": 1
                 },
                 {
-                    "id": 15,
+                    "id": 14,
                     "quantity": 1
                 },
                 {
-                    "id": 3,
+                    "id": 2,
                     "quantity": 1
                 }
             ]
@@ -14228,7 +14310,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "10-15",
@@ -14344,11 +14426,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    7,
+                    15,
+                    1,
+                    2,
+                    10,
                     null,
                     null,
                     null
@@ -14383,7 +14465,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "10-15",
@@ -14492,10 +14574,10 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    15,
+                    2,
+                    1,
+                    10,
                     null,
                     null,
                     null
@@ -14679,11 +14761,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    15,
+                    15,
+                    2,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    15,
                     null,
                     null
                 ]
@@ -14698,6 +14780,7 @@ exports.default = [
             }
         },
         "skills": [
+            526,
             526
         ],
         "materials": [],
@@ -14714,9 +14797,10 @@ exports.default = [
         "slots": [
             2
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -14731,7 +14815,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1320,
+        "numPerfectionRolls": 7920,
         "attributes": [],
         "details": {
             "Type": "Shield",
@@ -14770,7 +14854,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
                             "spec": "2-2",
@@ -14787,7 +14871,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "25-30",
@@ -14806,7 +14890,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -14882,13 +14966,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
                     null,
+                    30,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    4005,
+                    0,
+                    5,
                     null
                 ]
             },
@@ -14936,7 +15020,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "15-30",
@@ -15031,10 +15115,10 @@ exports.default = [
                 "perfection": [
                     null,
                     null,
+                    30,
                     null,
                     null,
-                    null,
-                    null,
+                    5,
                     null,
                     null
                 ]
@@ -15163,11 +15247,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
                     null,
                     null,
                     null,
-                    null,
-                    null,
+                    5,
                     null,
                     null
                 ]
@@ -15189,7 +15273,7 @@ exports.default = [
         "id": 37,
         "name": "Burial",
         "icon": "https://rune.game/images/items/00037.png",
-        "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657468600&userId=usrf0GZYc5zCl9Cv7&cs=6e3ab756a5c0574b",
+        "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657593247&userId=usrf0GZYc5zCl9Cv7&cs=6cf8a84e9567cd1c",
         "value": "0",
         "type": 2,
         "subType": 21,
@@ -15197,11 +15281,12 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -15224,23 +15309,23 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
+                    "id": 22,
+                    "quantity": 1
+                },
+                {
                     "id": 23,
                     "quantity": 1
                 },
                 {
-                    "id": 24,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 6,
                     "quantity": 1
                 },
                 {
-                    "id": 7,
-                    "quantity": 1
-                },
-                {
-                    "id": 2,
+                    "id": 1,
                     "quantity": 1
                 }
             ]
@@ -15275,7 +15360,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "40",
@@ -15392,10 +15477,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    30,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    0,
                     null,
                     null,
                     null,
@@ -15589,13 +15674,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    25,
+                    15,
+                    25,
+                    18,
+                    25,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    15
                 ]
             },
             "4": {
@@ -15609,9 +15694,12 @@ exports.default = [
         },
         "skills": [
             535,
+            493,
+            535,
             493
         ],
         "materials": [
+            37,
             37
         ],
         "category": "accessory"
@@ -15627,9 +15715,10 @@ exports.default = [
         "slots": [
             12
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -15640,7 +15729,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -15699,7 +15788,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
                             "spec": "0-3",
@@ -15714,8 +15803,8 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvesttheft",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "paramValue1": "0-100",
+                        "nature": "Buff",
                         "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
                         "param1": {
                             "spec": "0-3",
@@ -15767,11 +15856,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    4,
+                    3,
+                    3,
+                    5,
                     null
                 ]
             },
@@ -15972,9 +16061,10 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -15985,7 +16075,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -16015,7 +16105,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Fashion Find",
                         "param1": {
-                            "spec": "35-35",
+                            "spec": "35",
                             "min": 35,
                             "max": 35,
                             "value": 35
@@ -16049,7 +16139,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -16158,9 +16248,10 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -16171,11 +16262,11 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 6000,
+        "numPerfectionRolls": 400,
         "attributes": [],
         "details": {
             "Type": "Ring",
@@ -16316,9 +16407,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    4,
+                    15,
+                    4015,
                     null,
                     null,
                     null,
@@ -16345,6 +16436,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            38,
             38
         ],
         "category": "accessory"
@@ -16362,9 +16454,10 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -16375,11 +16468,11 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 6480,
+        "numPerfectionRolls": 108,
         "attributes": [],
         "details": {
             "Type": "Ring",
@@ -16522,11 +16615,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    25,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    0,
                     null,
                     null,
                     null
@@ -16597,7 +16690,7 @@ exports.default = [
         "id": 43,
         "name": "Thunderchild",
         "icon": "https://rune.game/images/items/00043.png",
-        "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657468608&userId=usrf0GZYc5zCl9Cv7&cs=c1b6c9ec50df24fc",
+        "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657593256&userId=usrf0GZYc5zCl9Cv7&cs=6f2ce295077b1535",
         "value": "0",
         "type": 2,
         "subType": 38,
@@ -16605,42 +16698,34 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1728,
+        "numPerfectionRolls": 576,
         "attributes": [],
         "details": {
             "Type": "Two-Handed Weapon",
-            "Subtype": "Fist of Eledon",
-            "Rune Word": "Shael Ist Zod Mal Um"
+            "Subtype": "Fist of Eledon"
         },
         "recipe": {
             "requirement": [
                 {
-                    "id": 13,
-                    "quantity": 1
-                },
-                {
-                    "id": 24,
-                    "quantity": 1
-                },
-                {
-                    "id": 33,
+                    "id": 12,
                     "quantity": 1
                 },
                 {
@@ -16648,7 +16733,15 @@ exports.default = [
                     "quantity": 1
                 },
                 {
+                    "id": 32,
+                    "quantity": 1
+                },
+                {
                     "id": 22,
+                    "quantity": 1
+                },
+                {
+                    "id": 21,
                     "quantity": 1
                 }
             ]
@@ -16693,7 +16786,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomrunebonus",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
+                        "paramValue1": "0-100",
                         "nature": "Buff",
                         "description": "{parameter1} Bonus Yield Given as a Random Rune (Not Implemented)",
                         "param1": {
@@ -16778,11 +16871,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    30,
                     null,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
+                    5,
                     null,
                     null
                 ]
@@ -16969,12 +17062,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    30,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    15,
+                    10,
+                    20,
                     null
                 ]
             },
@@ -16991,6 +17084,10 @@ exports.default = [
             463,
             482,
             483,
+            491,
+            463,
+            482,
+            483,
             491
         ],
         "materials": [],
@@ -17000,7 +17097,7 @@ exports.default = [
         "id": 44,
         "name": "Hellreaver",
         "icon": "https://rune.game/images/items/00044.png",
-        "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657468611&userId=usrf0GZYc5zCl9Cv7&cs=dd87e5b1ebd89e9f",
+        "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657593260&userId=usrf0GZYc5zCl9Cv7&cs=39a6fc4923358fb0",
         "value": "0",
         "type": 2,
         "subType": 39,
@@ -17008,6 +17105,7 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -17016,16 +17114,16 @@ exports.default = [
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 14256,
+        "numPerfectionRolls": 8316,
         "attributes": [],
         "details": {
             "Type": "Two-Handed Weapon",
@@ -17035,15 +17133,7 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 8,
-                    "quantity": 1
-                },
-                {
-                    "id": 24,
-                    "quantity": 1
-                },
-                {
-                    "id": 33,
+                    "id": 7,
                     "quantity": 1
                 },
                 {
@@ -17051,7 +17141,15 @@ exports.default = [
                     "quantity": 1
                 },
                 {
+                    "id": 32,
+                    "quantity": 1
+                },
+                {
                     "id": 22,
+                    "quantity": 1
+                },
+                {
+                    "id": 21,
                     "quantity": 1
                 }
             ]
@@ -17073,8 +17171,8 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Increased Harvest Yield",
                         "param1": {
-                            "spec": "30-35",
-                            "min": 30,
+                            "spec": "0-35",
+                            "min": 0,
                             "max": 35
                         }
                     },
@@ -17089,9 +17187,10 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "{parameter1} Random Rune Exchange",
                         "param1": {
-                            "spec": "0-5",
-                            "min": 0,
-                            "max": 5
+                            "spec": "5",
+                            "min": 5,
+                            "max": 5,
+                            "value": 5
                         }
                     },
                     {
@@ -17101,13 +17200,13 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvesttheft",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "paramValue1": "0-100",
+                        "nature": "Buff",
                         "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
                         "param1": {
-                            "spec": "0-10",
+                            "spec": "0-20",
                             "min": 0,
-                            "max": 10
+                            "max": 20
                         }
                     },
                     {
@@ -17121,9 +17220,9 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Burn",
                         "param1": {
-                            "spec": "10-15",
+                            "spec": "10-20",
                             "min": 10,
-                            "max": 15
+                            "max": 20
                         }
                     },
                     {
@@ -17137,9 +17236,10 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Fee",
                         "param1": {
-                            "spec": "10-15",
-                            "min": 10,
-                            "max": 15
+                            "spec": "30",
+                            "min": 30,
+                            "max": 30,
+                            "value": 30
                         }
                     },
                     {
@@ -17185,10 +17285,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    35,
                     null,
-                    null,
-                    null,
-                    null,
+                    20,
+                    10,
                     null,
                     null,
                     null
@@ -17429,10 +17529,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    35,
                     null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    15,
                     null,
                     null,
                     null,
@@ -17456,7 +17556,7 @@ exports.default = [
         "id": 45,
         "name": "Phoenix",
         "icon": "https://rune.game/images/items/00045.png",
-        "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657468612&userId=usrf0GZYc5zCl9Cv7&cs=8c7486e742de56e0",
+        "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657593261&userId=usrf0GZYc5zCl9Cv7&cs=3e2f8e0b7c1ae215",
         "value": "0",
         "type": 2,
         "subType": 7,
@@ -17464,21 +17564,22 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 6696,
@@ -17627,12 +17728,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    50,
+                    20,
                     null,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    10,
                     null,
                     null
                 ]
@@ -17779,10 +17880,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    20,
                     null,
-                    null,
-                    null,
-                    null,
+                    15,
+                    10,
                     null
                 ]
             },
@@ -17803,7 +17904,7 @@ exports.default = [
         "id": 46,
         "name": "Ignition",
         "icon": "https://rune.game/images/items/00046.png",
-        "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657468613&userId=usrf0GZYc5zCl9Cv7&cs=4dfd49a6f7089b07",
+        "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657593262&userId=usrf0GZYc5zCl9Cv7&cs=2510832864d663e3",
         "value": "0",
         "type": 11,
         "subType": 12,
@@ -17811,42 +17912,42 @@ exports.default = [
         "slots": [
             12
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2640,
+        "numPerfectionRolls": 1331,
         "attributes": [],
         "details": {
             "Type": "Boot",
-            "Subtype": "Sol Battlemage Footwraps",
-            "Rune Word": "Zod Ist Mal"
+            "Subtype": "Sol Battlemage Footwraps"
         },
         "recipe": {
             "requirement": [
                 {
-                    "id": 33,
-                    "quantity": 1
-                },
-                {
-                    "id": 24,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
                     "id": 23,
+                    "quantity": 1
+                },
+                {
+                    "id": 22,
                     "quantity": 1
                 }
             ]
@@ -17868,8 +17969,8 @@ exports.default = [
                         "nature": "Buff",
                         "description": "Remove {parameter1} Fees",
                         "param1": {
-                            "spec": "1-10",
-                            "min": 1,
+                            "spec": "0-10",
+                            "min": 0,
                             "max": 10
                         }
                     },
@@ -17900,9 +18001,9 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Burn",
                         "param1": {
-                            "spec": "0-3",
+                            "spec": "0-10",
                             "min": 0,
-                            "max": 3
+                            "max": 10
                         }
                     },
                     {
@@ -17922,7 +18023,7 @@ exports.default = [
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending3",
                         "param1": {
-                            "spec": "1-1",
+                            "spec": "1",
                             "min": 1,
                             "max": 1,
                             "value": 1
@@ -17930,9 +18031,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    10,
+                    10,
+                    0,
                     null,
                     null
                 ]
@@ -18088,11 +18189,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    5,
+                    5
                 ]
             },
             "4": {
@@ -18106,6 +18207,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            20,
             20
         ],
         "category": "accessory"
@@ -18121,24 +18223,25 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2160,
+        "numPerfectionRolls": 360,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -18235,11 +18338,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    25,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    1,
+                    0
                 ]
             },
             "2": {
@@ -18367,11 +18470,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    13,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    15,
+                    10
                 ]
             },
             "4": {
@@ -18385,6 +18488,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            20,
             20
         ],
         "category": "accessory"
@@ -18400,9 +18504,10 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -18413,7 +18518,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -18459,7 +18564,7 @@ exports.default = [
         "id": 49,
         "name": "Purity",
         "icon": "https://rune.game/images/items/00049.png",
-        "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657468616&userId=usrf0GZYc5zCl9Cv7&cs=6a63602136867f3e",
+        "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657593266&userId=usrf0GZYc5zCl9Cv7&cs=cea2e6a99d402164",
         "value": "0",
         "type": 2,
         "subType": 4,
@@ -18467,9 +18572,10 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -18631,10 +18737,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    40,
+                    20,
                     null,
-                    null,
-                    null,
-                    null,
+                    5,
                     null,
                     null,
                     null,
@@ -18749,7 +18855,7 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
+                    25,
                     null,
                     null,
                     null
@@ -18766,6 +18872,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            23,
             23
         ],
         "category": "accessory"
@@ -18775,9 +18882,10 @@ exports.default = [
         "name": "Greed",
         "icon": "https://rune.game/images/items/00050.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -18788,7 +18896,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -18832,9 +18940,10 @@ exports.default = [
         "name": "Riptide",
         "icon": "https://rune.game/images/items/00051.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -18845,7 +18954,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -18889,9 +18998,10 @@ exports.default = [
         "name": "Origin",
         "icon": "https://rune.game/images/items/00052.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -18902,27 +19012,25 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
         "attributes": [],
-        "details": {
-            "Rune Word": "Eth Ohm Ber"
-        },
+        "details": {},
         "recipe": {
             "requirement": [
                 {
-                    "id": 5,
+                    "id": 4,
                     "quantity": 1
                 },
                 {
-                    "id": 27,
+                    "id": 26,
                     "quantity": 1
                 },
                 {
-                    "id": 30,
+                    "id": 29,
                     "quantity": 1
                 }
             ]
@@ -18967,24 +19075,25 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1584,
+        "numPerfectionRolls": 66,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -19065,9 +19174,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    15,
                     null,
-                    null,
-                    null,
+                    5,
                     null
                 ]
             },
@@ -19209,21 +19318,22 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 960,
@@ -19360,11 +19470,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    3,
+                    0,
+                    3,
+                    4,
+                    2,
                     null,
                     null
                 ]
@@ -19535,10 +19645,10 @@ exports.default = [
                     null,
                     null,
                     null,
+                    8,
                     null,
-                    null,
-                    null,
-                    null,
+                    20,
+                    5,
                     null
                 ]
             },
@@ -19553,6 +19663,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [
+            23,
             23
         ],
         "category": "accessory"
@@ -19561,7 +19672,7 @@ exports.default = [
         "id": 55,
         "name": "Reave",
         "icon": "https://rune.game/images/items/00055.png",
-        "image": "https://dl.airtable.com/.attachments/2ac48bac7517ce3e492571892f035477/2da3c0e0/boots_A_01.png?ts=1657468624&userId=usrf0GZYc5zCl9Cv7&cs=28df50bafc48c814",
+        "image": "https://dl.airtable.com/.attachments/81fe6356a27477cf4c357c4638e197aa/1f3e076d/Reave.jpeg?ts=1657593274&userId=usrf0GZYc5zCl9Cv7&cs=31c0d3b10f2861de",
         "value": "0",
         "type": 11,
         "subType": 12,
@@ -19569,13 +19680,14 @@ exports.default = [
         "slots": [
             12
         ],
-        "isNew": false,
+        "isPolled": true,
+        "isNew": true,
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -19586,7 +19698,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 3456,
+        "numPerfectionRolls": 3024,
         "attributes": [],
         "details": {
             "Type": "Boot",
@@ -19596,19 +19708,19 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 25,
-                    "quantity": 1
-                },
-                {
-                    "id": 28,
-                    "quantity": 1
-                },
-                {
-                    "id": 33,
-                    "quantity": 1
-                },
-                {
                     "id": 24,
+                    "quantity": 1
+                },
+                {
+                    "id": 27,
+                    "quantity": 1
+                },
+                {
+                    "id": 32,
+                    "quantity": 1
+                },
+                {
+                    "id": 23,
                     "quantity": 1
                 }
             ]
@@ -19643,7 +19755,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestovertime",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "Add {parameter1} To Harvest, Vested Over Time (Not Implemented)",
                         "param1": {
                             "spec": "0-3",
@@ -19690,12 +19802,12 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomruneexchangespecific",
                         "paramType1": "percent",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune (Not Implemented)",
                         "param1": {
-                            "spec": "0-5",
+                            "spec": "0-20",
                             "min": 0,
-                            "max": 5
+                            "max": 20
                         }
                     },
                     {
@@ -19720,11 +19832,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    3,
+                    5,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    20,
                     null
                 ]
             },
@@ -19739,7 +19851,15 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Defense",
-                        "description": "{parameter1} damage resist"
+                        "description": "{parameter1} damage resist",
+                        "param1": {
+                            "spec": [
+                                "2-5"
+                            ],
+                            "min": 2,
+                            "max": 2,
+                            "value": 2
+                        }
                     }
                 ],
                 "perfection": [
@@ -19900,10 +20020,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    5,
+                    7,
+                    5,
                     null,
                     null
                 ]
@@ -19925,7 +20045,7 @@ exports.default = [
         "id": 56,
         "name": "Flare",
         "icon": "https://rune.game/images/items/00056.png",
-        "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657468625&userId=usrf0GZYc5zCl9Cv7&cs=c95bfdbb782a78b5",
+        "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657593275&userId=usrf0GZYc5zCl9Cv7&cs=112808511d25bb18",
         "value": "0",
         "type": 8,
         "subType": 16,
@@ -19933,24 +20053,25 @@ exports.default = [
         "slots": [
             6
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1440,
+        "numPerfectionRolls": 1980,
         "attributes": [],
         "details": {
             "Type": "Leg Armor",
@@ -19976,8 +20097,8 @@ exports.default = [
                         "nature": "Buff",
                         "description": "Remove {parameter1} Fees",
                         "param1": {
-                            "spec": "1-10",
-                            "min": 1,
+                            "spec": "0-10",
+                            "min": 0,
                             "max": 10
                         }
                     },
@@ -20005,7 +20126,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestovertime",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "Add {parameter1} To Harvest, Vested Over Time (Not Implemented)",
                         "param1": {
                             "spec": "0-5",
@@ -20024,7 +20145,7 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
                         "param1": {
-                            "spec": "2-2",
+                            "spec": "2",
                             "min": 2,
                             "max": 2,
                             "value": 2
@@ -20041,18 +20162,18 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Burn",
                         "param1": {
-                            "spec": "0-3",
+                            "spec": "0-4",
                             "min": 0,
-                            "max": 3
+                            "max": 4
                         }
                     }
                 ],
                 "perfection": [
+                    10,
+                    5,
+                    5,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    0
                 ]
             },
             "2": {
@@ -20247,13 +20368,13 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
+                    10,
                     null,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    6,
+                    5
                 ]
             },
             "4": {
@@ -20273,7 +20394,7 @@ exports.default = [
         "id": 109,
         "name": "Voidmaw",
         "icon": "https://rune.game/images/items/00109.png",
-        "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657468626&userId=usrf0GZYc5zCl9Cv7&cs=15a4e7e6f95b4ec2",
+        "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657593275&userId=usrf0GZYc5zCl9Cv7&cs=90c7ba51dd0a8252",
         "value": "0",
         "type": 13,
         "subType": 17,
@@ -20281,21 +20402,22 @@ exports.default = [
         "slots": [
             5
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 275,
@@ -20337,7 +20459,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-10",
@@ -20363,9 +20485,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null
+                    4,
+                    10,
+                    0
                 ]
             },
             "2": {
@@ -20505,11 +20627,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    7,
+                    4,
+                    5,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    10
                 ]
             },
             "4": {
@@ -20529,7 +20651,7 @@ exports.default = [
         "id": 110,
         "name": "Hoarfrost",
         "icon": "https://rune.game/images/items/00110.png",
-        "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657468626&userId=usrf0GZYc5zCl9Cv7&cs=bdcd78740131f929",
+        "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657593276&userId=usrf0GZYc5zCl9Cv7&cs=396a0fd80a76897c",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -20539,24 +20661,25 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 4356,
+        "numPerfectionRolls": 726,
         "attributes": [],
         "details": {
             "Type": "Ring",
@@ -20637,10 +20760,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
                     null,
-                    null,
-                    null,
-                    null
+                    20,
+                    20
                 ]
             },
             "2": {
@@ -20662,6 +20785,8 @@ exports.default = [
         },
         "skills": [
             452,
+            514,
+            452,
             514
         ],
         "materials": [],
@@ -20672,21 +20797,22 @@ exports.default = [
         "name": "Verdant",
         "icon": "https://rune.game/images/items/00111.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -20728,7 +20854,7 @@ exports.default = [
         "id": 112,
         "name": "Animus",
         "icon": "https://rune.game/images/items/00112.png",
-        "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657468628&userId=usrf0GZYc5zCl9Cv7&cs=9b5e13c61392c4f4",
+        "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657593278&userId=usrf0GZYc5zCl9Cv7&cs=d2932bfe7bb0755b",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -20738,6 +20864,7 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -20755,7 +20882,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2475,
+        "numPerfectionRolls": 825,
         "attributes": [],
         "details": {
             "Type": "Ring",
@@ -20765,15 +20892,11 @@ exports.default = [
         "recipe": {
             "requirement": [
                 {
-                    "id": 21,
+                    "id": 20,
                     "quantity": 1
                 },
                 {
-                    "id": 6,
-                    "quantity": 1
-                },
-                {
-                    "id": 23,
+                    "id": 5,
                     "quantity": 1
                 },
                 {
@@ -20781,7 +20904,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 21,
+                    "quantity": 1
+                },
+                {
+                    "id": 32,
                     "quantity": 1
                 }
             ]
@@ -20831,7 +20958,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomrunebonus",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
+                        "paramValue1": "0-100",
                         "nature": "Buff",
                         "description": "{parameter1} Bonus Yield Given as a Random Rune (Not Implemented)",
                         "param1": {
@@ -20895,11 +21022,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    4,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    2,
+                    0,
+                    10,
                     null
                 ]
             },
@@ -21080,12 +21207,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    4,
+                    5,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    5,
+                    5
                 ]
             },
             "4": {
@@ -21098,6 +21225,7 @@ exports.default = [
             }
         },
         "skills": [
+            511,
             511
         ],
         "materials": [],
@@ -21109,21 +21237,22 @@ exports.default = [
         "icon": "https://rune.game/images/items/00116.png",
         "value": "0",
         "specificType": 49,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -21169,21 +21298,22 @@ exports.default = [
         "icon": "https://rune.game/images/items/00124.png",
         "value": "0",
         "specificType": 50,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -21228,21 +21358,22 @@ exports.default = [
         "name": "Breath of the Dying",
         "icon": "https://rune.game/images/items/00130.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -21285,9 +21416,10 @@ exports.default = [
         "name": "Seal of the {Guild Name}",
         "icon": "https://rune.game/images/items/00132.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -21298,7 +21430,7 @@ exports.default = [
         "isTradeable": false,
         "isTransferable": false,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -21342,9 +21474,10 @@ exports.default = [
         "name": "Guild Officer's Insignia",
         "icon": "https://rune.game/images/items/00133.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -21355,7 +21488,7 @@ exports.default = [
         "isTradeable": false,
         "isTransferable": false,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -21399,9 +21532,10 @@ exports.default = [
         "name": "Guild General's Insignia",
         "icon": "https://rune.game/images/items/00134.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -21412,7 +21546,7 @@ exports.default = [
         "isTradeable": false,
         "isTransferable": false,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -21457,9 +21591,10 @@ exports.default = [
         "icon": "https://rune.game/images/items/00135.png",
         "value": "0",
         "specificType": 54,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -21470,7 +21605,7 @@ exports.default = [
         "isTradeable": false,
         "isTransferable": false,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -21516,21 +21651,22 @@ exports.default = [
         "name": "Triumph",
         "icon": "https://rune.game/images/items/00138.png",
         "value": "0",
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -21572,6 +21708,7 @@ exports.default = [
         "id": 182,
         "name": "Exile",
         "icon": "https://rune.game/images/items/00182.png",
+        "image": "https://dl.airtable.com/.attachments/54d31e612a1f505befc44c2b308b6cab/461714fa/image.png?ts=1657593283&userId=usrf0GZYc5zCl9Cv7&cs=a369bc3b0b8586e9",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -21580,50 +21717,50 @@ exports.default = [
             1,
             2
         ],
-        "isNew": false,
+        "isPolled": true,
+        "isNew": true,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 5292,
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
-            "Subtype": "Thirsting Edge",
-            "Rune Word": "Mal Um Zod Ist El"
+            "Subtype": "Thirsting Edge"
         },
         "recipe": {
             "requirement": [
-                {
-                    "id": 23,
-                    "quantity": 1
-                },
                 {
                     "id": 22,
                     "quantity": 1
                 },
                 {
-                    "id": 33,
+                    "id": 21,
                     "quantity": 1
                 },
                 {
-                    "id": 24,
+                    "id": 32,
                     "quantity": 1
                 },
                 {
-                    "id": 1,
+                    "id": 23,
+                    "quantity": 1
+                },
+                {
+                    "id": 0,
                     "quantity": 1
                 }
             ]
@@ -21645,9 +21782,9 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Increased Harvest Yield",
                         "param1": {
-                            "spec": "10-30",
-                            "min": 10,
-                            "max": 30
+                            "spec": "0-20",
+                            "min": 0,
+                            "max": 20
                         }
                     },
                     {
@@ -21657,7 +21794,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomrunebonus",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
+                        "paramValue1": "0-100",
                         "nature": "Buff",
                         "description": "{parameter1} Bonus Yield Given as a Random Rune (Not Implemented)",
                         "param1": {
@@ -21693,7 +21830,7 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Fee",
                         "param1": {
-                            "spec": "15-15",
+                            "spec": "15",
                             "min": 15,
                             "max": 15,
                             "value": 15
@@ -21710,13 +21847,13 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "Harvest Fee Token: {parameter1}",
                         "param1": {
-                            "spec": "TAL-ORT",
-                            "min": 6,
-                            "max": 8,
+                            "spec": "EL-TIR",
+                            "min": 0,
+                            "max": 2,
                             "map": {
-                                "6": "TAL",
-                                "7": "RAL",
-                                "8": "ORT"
+                                "0": "EL",
+                                "1": "ELD",
+                                "2": "TIR"
                             }
                         }
                     },
@@ -21748,22 +21885,22 @@ exports.default = [
                         "description": "Use Skill: {parameter1} (SOON)",
                         "param1": {
                             "spec": "Sating Rend",
-                            "min": 537,
-                            "max": 537,
-                            "value": 537,
+                            "min": 36,
+                            "max": 36,
+                            "value": 36,
                             "map": {
-                                "537": "Sating Rend"
+                                "36": "Sating Rend"
                             }
                         }
                     }
                 ],
                 "perfection": [
+                    20,
+                    5,
+                    20,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null,
+                    0,
                     null
                 ]
             },
@@ -21825,9 +21962,63 @@ exports.default = [
                             "max": null,
                             "map": {}
                         }
+                    },
+                    {
+                        "id": 2949,
+                        "name": "IncreaseOnHit",
+                        "isEnabled": true,
+                        "game": "Infinite",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/increaseonhit",
+                        "paramType1": "percent",
+                        "paramType2": "percent",
+                        "paramType3": "stat",
+                        "paramValue1": "0-100",
+                        "paramValue2": "0-200",
+                        "description": "{parameter1} chance for {parameter2 {parameter3} on hit",
+                        "param1": {
+                            "spec": "50%",
+                            "min": 50,
+                            "max": 50,
+                            "value": 50
+                        },
+                        "param2": {
+                            "spec": "Health",
+                            "min": null,
+                            "max": null
+                        }
+                    },
+                    {
+                        "id": 3801,
+                        "name": "UnlockSkills",
+                        "isEnabled": true,
+                        "game": "Infinite",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/unlockskills",
+                        "paramType1": "skills",
+                        "nature": "Mechanic",
+                        "influences": "Skill",
+                        "description": "{parameter1} unlocked",
+                        "param1": {
+                            "spec": "Bloodlet",
+                            "min": [
+                                null
+                            ],
+                            "max": [
+                                null
+                            ],
+                            "value": [
+                                null
+                            ],
+                            "map": {
+                                "": [
+                                    null
+                                ]
+                            }
+                        }
                     }
                 ],
                 "perfection": [
+                    36,
+                    null,
                     null,
                     null
                 ]
@@ -21842,6 +22033,7 @@ exports.default = [
             }
         },
         "skills": [
+            null,
             null
         ],
         "materials": [],
@@ -21851,7 +22043,7 @@ exports.default = [
         "id": 209,
         "name": "Icebrand",
         "icon": "https://rune.game/images/items/00209.png",
-        "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657468634&userId=usrf0GZYc5zCl9Cv7&cs=e6668ff5eb2f8a33",
+        "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657593284&userId=usrf0GZYc5zCl9Cv7&cs=6c8f719e112056d9",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -21860,21 +22052,22 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 880,
@@ -21916,7 +22109,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "15-30",
@@ -21951,7 +22144,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "15-15",
+                            "spec": "15",
                             "min": 15,
                             "max": 15,
                             "value": 15
@@ -21963,7 +22156,7 @@ exports.default = [
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending6",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -21980,7 +22173,7 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Fee",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -22029,9 +22222,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    15,
+                    30,
+                    1,
                     null,
                     null,
                     null,
@@ -22160,8 +22353,8 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
+                    18,
+                    18,
                     null,
                     null,
                     null
@@ -22177,9 +22370,11 @@ exports.default = [
             }
         },
         "skills": [
+            489,
             489
         ],
         "materials": [
+            24,
             24
         ],
         "category": "accessory"
@@ -22195,21 +22390,22 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -22261,21 +22457,22 @@ exports.default = [
         "slots": [
             9
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 495,
@@ -22317,7 +22514,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-10",
@@ -22336,7 +22533,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -22350,7 +22547,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
                             "spec": "0-2",
@@ -22376,11 +22573,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    2,
+                    0
                 ]
             },
             "2": {
@@ -22535,10 +22732,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    5,
+                    10,
+                    10,
+                    10,
                     null
                 ]
             },
@@ -22559,7 +22756,7 @@ exports.default = [
         "id": 241,
         "name": "Pulsar",
         "icon": "https://rune.game/images/items/00241.png",
-        "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657468636&userId=usrf0GZYc5zCl9Cv7&cs=19bf055411784871",
+        "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657593287&userId=usrf0GZYc5zCl9Cv7&cs=ec454f7a9d2b61a1",
         "value": "0",
         "type": 2,
         "subType": 8,
@@ -22567,24 +22764,25 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 7986,
+        "numPerfectionRolls": 5456,
         "attributes": [],
         "details": {
             "Type": "Two-Handed Weapon",
@@ -22610,8 +22808,8 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Increased Harvest Yield",
                         "param1": {
-                            "spec": "20-30",
-                            "min": 20,
+                            "spec": "0-30",
+                            "min": 0,
                             "max": 30
                         }
                     },
@@ -22623,12 +22821,13 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
-                            "spec": "40-50",
-                            "min": 40,
-                            "max": 50
+                            "spec": "10",
+                            "min": 10,
+                            "max": 10,
+                            "value": 10
                         }
                     },
                     {
@@ -22639,11 +22838,11 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestcritchance",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Increased Chance To Critically Harvest Yield (Not Implemented)",
                         "param1": {
-                            "spec": "5-10",
-                            "min": 5,
+                            "spec": "0-10",
+                            "min": 0,
                             "max": 10
                         }
                     },
@@ -22658,8 +22857,8 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Burn",
                         "param1": {
-                            "spec": "5-15",
-                            "min": 5,
+                            "spec": "0-15",
+                            "min": 0,
                             "max": 15
                         }
                     },
@@ -22675,15 +22874,20 @@ exports.default = [
                         "description": "Use Skill: {parameter1} (SOON)",
                         "param1": {
                             "spec": "Holy Bolt",
-                            "map": {}
+                            "min": 37,
+                            "max": 37,
+                            "value": 37,
+                            "map": {
+                                "37": "Holy Bolt"
+                            }
                         }
                     }
                 ],
                 "perfection": [
+                    30,
                     null,
-                    null,
-                    null,
-                    null,
+                    10,
+                    0,
                     null
                 ]
             },
@@ -22842,9 +23046,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    20,
+                    10,
+                    15,
                     null,
                     null
                 ]
@@ -22859,6 +23063,7 @@ exports.default = [
             }
         },
         "skills": [
+            500,
             500
         ],
         "materials": [],
@@ -22875,9 +23080,10 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -22888,8 +23094,8 @@ exports.default = [
         "isTradeable": false,
         "isTransferable": false,
         "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 4536,
@@ -22946,8 +23152,8 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvesttheft",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "paramValue1": "0-100",
+                        "nature": "Buff",
                         "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
                         "param1": {
                             "spec": "0-5",
@@ -22996,10 +23202,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null,
+                    50,
+                    10,
+                    5,
+                    15,
                     null
                 ]
             },
@@ -23039,6 +23245,8 @@ exports.default = [
         },
         "skills": [
             510,
+            492,
+            510,
             492
         ],
         "materials": [],
@@ -23055,9 +23263,10 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -23068,8 +23277,8 @@ exports.default = [
         "isTradeable": false,
         "isTransferable": false,
         "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -23115,9 +23324,10 @@ exports.default = [
         "name": "Nexus",
         "icon": "https://rune.game/images/items/00342.png",
         "value": "0",
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -23128,7 +23338,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -23175,9 +23385,10 @@ exports.default = [
         "name": "Dragonheart",
         "icon": "https://rune.game/images/items/00562.png",
         "value": "0",
+        "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -23188,7 +23399,7 @@ exports.default = [
         "isTradeable": true,
         "isTransferable": true,
         "isUpgradable": true,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
@@ -23236,21 +23447,22 @@ exports.default = [
         "name": "Mimic",
         "icon": "https://rune.game/images/items/00610.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -23299,24 +23511,25 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
         "isPublishable": true,
-        "isRuneword": false,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 4356,
+        "numPerfectionRolls": 3906,
         "attributes": [],
         "details": {
             "Type": "Two-Handed Weapon",
@@ -23342,8 +23555,8 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Increased Harvest Yield",
                         "param1": {
-                            "spec": "20-30",
-                            "min": 20,
+                            "spec": "0-30",
+                            "min": 0,
                             "max": 30
                         }
                     },
@@ -23358,9 +23571,10 @@ exports.default = [
                         "nature": "Buff",
                         "description": "Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "30-40",
-                            "min": 30,
-                            "max": 40
+                            "spec": "20",
+                            "min": 20,
+                            "max": 20,
+                            "value": 20
                         }
                     },
                     {
@@ -23371,10 +23585,10 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvestovertime",
                         "paramType1": "percent",
                         "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "Add {parameter1} To Harvest, Vested Over Time (Not Implemented)",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -23391,9 +23605,9 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Burn",
                         "param1": {
-                            "spec": "10-15",
-                            "min": 10,
-                            "max": 15
+                            "spec": "0-20",
+                            "min": 0,
+                            "max": 20
                         }
                     },
                     {
@@ -23455,11 +23669,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    30,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
+                    0,
+                    5,
                     null,
                     null
                 ]
@@ -23620,11 +23834,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    20,
+                    15,
                     null,
                     null,
-                    null,
-                    null,
-                    null
+                    15
                 ]
             },
             "4": {
@@ -23651,24 +23865,25 @@ exports.default = [
         "slots": [
             12
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1760,
+        "numPerfectionRolls": 440,
         "attributes": [],
         "details": {
             "Type": "Boot",
@@ -23749,9 +23964,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    10,
+                    10,
+                    0,
                     null
                 ]
             },
@@ -23914,11 +24129,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    7,
+                    10,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    5,
+                    5
                 ]
             },
             "4": {
@@ -23945,21 +24160,22 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 2376,
@@ -24001,7 +24217,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "0-10",
@@ -24042,10 +24258,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
-                    null
+                    10,
+                    10,
+                    5,
+                    0
                 ]
             },
             "2": {
@@ -24168,11 +24384,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    7,
+                    5,
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    5
                 ]
             },
             "4": {
@@ -24201,21 +24417,22 @@ exports.default = [
             16,
             14
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -24267,24 +24484,25 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 864,
+        "numPerfectionRolls": 216,
         "attributes": [],
         "details": {
             "Type": "Helm",
@@ -24338,7 +24556,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomruneexchangespecific",
                         "paramType1": "percent",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune (Not Implemented)",
                         "param1": {
                             "spec": "0-5",
@@ -24364,10 +24582,10 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    5,
                     null,
-                    null,
-                    null,
-                    null
+                    5,
+                    5
                 ]
             },
             "2": {
@@ -24403,24 +24621,25 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 6912,
+        "numPerfectionRolls": 1152,
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
@@ -24523,8 +24742,8 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/harvesttheft",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
-                        "nature": "Mechanic",
+                        "paramValue1": "0-100",
+                        "nature": "Buff",
                         "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
                         "param1": {
                             "spec": "0-5",
@@ -24534,12 +24753,12 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    30,
+                    0,
                     null,
                     null,
-                    null,
-                    null,
-                    null,
-                    null
+                    0,
+                    5
                 ]
             },
             "2": {
@@ -24574,24 +24793,25 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2376,
+        "numPerfectionRolls": 396,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -24645,7 +24865,7 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/randomruneexchangespecific",
                         "paramType1": "percent",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune (Not Implemented)",
                         "param1": {
                             "spec": "5-15",
@@ -24721,11 +24941,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    15,
                     null,
+                    15,
                     null,
-                    null,
-                    null,
-                    null,
+                    0,
                     null
                 ]
             },
@@ -24822,7 +25042,7 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
+                    20,
                     null,
                     null
                 ]
@@ -24851,24 +25071,25 @@ exports.default = [
         "slots": [
             6
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 2970,
+        "numPerfectionRolls": 165,
         "attributes": [],
         "details": {
             "Type": "Leg Armor",
@@ -24965,11 +25186,11 @@ exports.default = [
                     }
                 ],
                 "perfection": [
+                    10,
                     null,
+                    5,
                     null,
-                    null,
-                    null,
-                    null
+                    1
                 ]
             },
             "2": {
@@ -25000,21 +25221,22 @@ exports.default = [
         "value": "0",
         "subType": 43,
         "specificType": 186,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -25065,24 +25287,25 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 792,
+        "numPerfectionRolls": 264,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -25121,7 +25344,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "10-20",
@@ -25162,9 +25385,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    15,
+                    20,
+                    5,
                     null
                 ]
             },
@@ -25200,24 +25423,25 @@ exports.default = [
         "slots": [
             9
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 1350,
+        "numPerfectionRolls": 450,
         "attributes": [],
         "details": {
             "Type": "Glove",
@@ -25256,7 +25480,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "1-15",
@@ -25297,9 +25521,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    5,
+                    15,
+                    5,
                     null
                 ]
             },
@@ -25335,21 +25559,22 @@ exports.default = [
         "slots": [
             1
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 2976,
@@ -25391,7 +25616,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/sendharvesthiddenpool",
                         "paramType1": "percent",
                         "paramValue1": "0-100",
-                        "nature": "Mechanic",
+                        "nature": "Buff",
                         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
                         "param1": {
                             "spec": "30-45",
@@ -25454,9 +25679,9 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null,
-                    null,
-                    null,
+                    40,
+                    45,
+                    25,
                     null,
                     null
                 ]
@@ -25489,21 +25714,22 @@ exports.default = [
         "value": "0",
         "subType": 44,
         "specificType": 190,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -25554,21 +25780,22 @@ exports.default = [
         "slots": [
             3
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -25620,21 +25847,22 @@ exports.default = [
         "slots": [
             18
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 11,
@@ -25670,7 +25898,7 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    null
+                    20
                 ]
             },
             "2": {
@@ -25706,21 +25934,22 @@ exports.default = [
             1,
             2
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -25772,21 +26001,22 @@ exports.default = [
         "slots": [
             12
         ],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
-        "isUpgradable": false,
-        "isPublishable": false,
-        "isRuneword": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
+        "isUpgradable": true,
+        "isPublishable": true,
+        "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1,
@@ -25832,9 +26062,10 @@ exports.default = [
         "name": "Guild Token",
         "icon": "https://rune.game/images/items/01000.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -25842,10 +26073,10 @@ exports.default = [
         "isEnabled": true,
         "isEquipable": false,
         "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -25889,9 +26120,10 @@ exports.default = [
         "name": "Guild Scroll",
         "icon": "https://rune.game/images/items/01001.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -25899,10 +26131,10 @@ exports.default = [
         "isEnabled": true,
         "isEquipable": false,
         "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -25950,9 +26182,10 @@ exports.default = [
         "subType": 40,
         "specificType": 55,
         "slots": [],
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -25960,10 +26193,10 @@ exports.default = [
         "isEnabled": true,
         "isEquipable": false,
         "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -26037,9 +26270,10 @@ exports.default = [
         "id": 1200,
         "name": "Scholar's Codex",
         "icon": "https://rune.game/images/items/01200.png",
-        "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657468653&userId=usrf0GZYc5zCl9Cv7&cs=3ddaa0af13e387b1",
+        "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657593306&userId=usrf0GZYc5zCl9Cv7&cs=5303b2970e55f53a",
         "value": "0",
         "specificType": 58,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -26179,9 +26413,10 @@ exports.default = [
         "id": 1201,
         "name": "General's Medallion",
         "icon": "https://rune.game/images/items/01201.png",
-        "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657468654&userId=usrf0GZYc5zCl9Cv7&cs=f53ed2c7ca5bdbf7",
+        "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657593306&userId=usrf0GZYc5zCl9Cv7&cs=958d005867423f55",
         "value": "0",
         "specificType": 58,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -26319,8 +26554,9 @@ exports.default = [
         "id": 1202,
         "name": "Crafting Competition Winner",
         "icon": "https://rune.game/images/items/01202.png",
-        "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657468654&userId=usrf0GZYc5zCl9Cv7&cs=82f521a82da4431f",
+        "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657593307&userId=usrf0GZYc5zCl9Cv7&cs=a71aa86aa8c3c86b",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -26331,8 +26567,8 @@ exports.default = [
         "isEnabled": true,
         "isEquipable": false,
         "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
         "isPublishable": true,
         "isRuneword": false,
@@ -26382,9 +26618,10 @@ exports.default = [
         "name": "Seed of Rebirth",
         "icon": "https://rune.game/images/items/01203.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -26392,10 +26629,10 @@ exports.default = [
         "isEnabled": true,
         "isEquipable": false,
         "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -26442,9 +26679,10 @@ exports.default = [
         "name": "Spire Seed",
         "icon": "https://rune.game/images/items/01204.png",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -26452,10 +26690,10 @@ exports.default = [
         "isEnabled": true,
         "isEquipable": false,
         "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
-        "isPublishable": false,
+        "isPublishable": true,
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
@@ -26501,8 +26739,9 @@ exports.default = [
         "id": 1205,
         "name": "Founder's Cube",
         "icon": "https://rune.game/images/items/01205.png",
-        "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657468655&userId=usrf0GZYc5zCl9Cv7&cs=e6c48a03d2206330",
+        "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657593307&userId=usrf0GZYc5zCl9Cv7&cs=37c861f3c2af31ec",
         "value": "0",
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
         "isUltraSecret": false,
@@ -26563,12 +26802,13 @@ exports.default = [
         "id": 1207,
         "name": "Black Drake Scale",
         "icon": "https://rune.game/images/items/01207.png",
-        "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657468655&userId=usrf0GZYc5zCl9Cv7&cs=d4038354bc93152a",
+        "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657593308&userId=usrf0GZYc5zCl9Cv7&cs=9e9e20abbd726991",
         "value": "0",
         "specificType": 195,
+        "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -26583,7 +26823,7 @@ exports.default = [
         "isRuneword": false,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 24,
+        "numPerfectionRolls": 4,
         "attributes": [],
         "details": {
             "Subtype": "Dragon Scale",
@@ -26642,7 +26882,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null
+                    3
                 ]
             },
             "2": {
@@ -26700,7 +26940,7 @@ exports.default = [
                 ],
                 "perfection": [
                     null,
-                    null
+                    5
                 ]
             },
             "4": {

@@ -20,11 +20,34 @@ const dbCon = new loki('rune.db', {
 })
 
 const db = {
+  config: undefined,
   items: undefined
 }
 
 function databaseInitialize() {
+  db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
+
+  const updatedAt = db.items?.data?.[0]?.meta?.created
+  if (!updatedAt || updatedAt < 1657563044000) {
+    dbCon.getCollection('items').chain().remove()
+  }
+
+  if (db.config === null) {
+    db.config = dbCon.addCollection('config', {
+      // clone: true,
+      unique: 'key'
+    })
+
+    db.config.insert({
+      key: 'updatedAt',
+      value: 1657563044000
+    })
+  }
+
+  db.config.find({
+    key: 'updatedAt'
+  }).value = 1657563044000
 
   if (db.items === null) {
     // Add a collection to the database
@@ -378,7 +401,10 @@ export function normalizeItem(item: any) {
       const mod = item.mods[i]
       const branchAttribute = branchAttributes[i]
 
-      if (!branchAttribute) continue
+      if (!branchAttribute) {
+        console.log(`Branch attribute doesn't exist on item definition`, item, branchAttribute)
+        continue
+      }
 
       if (branchAttribute.value === undefined) {
         if (branchAttribute.min === branchAttribute.max) {
@@ -403,7 +429,7 @@ export function normalizeItem(item: any) {
           ...mod,
         }
       } else if (mod.attributeId === ItemAttributes.HarvestFeeToken.id) {
-        actionMetadata.harvestFees[branchAttribute.map[mod.value]] = prevMod.value
+        actionMetadata.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value
 
         item.attributes[i] = {
           ...(item.attributes[i] || {}),
@@ -505,6 +531,19 @@ export function normalizeItem(item: any) {
 
       if (item.attributes[i]) {
         item.branches[1].attributes[i] = item.attributes[i]
+
+        if (!item.branches[1].attributes[i].param1) {
+          item.branches[1].attributes[i].param1 = {}
+          item.branches[1].attributes[i].param1.min = item.branches[1].attributes[i].min
+          item.branches[1].attributes[i].param1.max = item.branches[1].attributes[i].max
+          item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value
+          item.branches[1].attributes[i].param1.map = item.branches[1].attributes[i].map
+        } else {
+          item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value
+          item.branches[1].attributes[i].min = item.branches[1].attributes[i].param1.min
+          item.branches[1].attributes[i].max = item.branches[1].attributes[i].param1.max
+          item.branches[1].attributes[i].map = item.branches[1].attributes[i].param1.map
+        }
       }
 
       prevMod = mod

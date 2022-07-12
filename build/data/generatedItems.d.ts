@@ -8,6 +8,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -79,7 +80,7 @@ declare const _default: ({
                     max?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -134,7 +135,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -258,7 +259,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -282,6 +283,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -336,7 +338,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -425,7 +427,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -579,7 +581,7 @@ declare const _default: ({
                 description?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -603,6 +605,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -674,7 +677,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -746,7 +749,7 @@ declare const _default: ({
                 description?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -865,7 +868,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -889,6 +892,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -943,7 +947,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -1032,7 +1036,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -1192,7 +1196,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -1216,6 +1220,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -1270,7 +1275,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -1342,7 +1347,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -1489,7 +1494,7 @@ declare const _default: ({
                 paramType2?: undefined;
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -1513,6 +1518,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -1584,7 +1590,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -1673,7 +1679,7 @@ declare const _default: ({
                 };
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -1798,7 +1804,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -1822,6 +1828,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -1964,7 +1971,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -2078,7 +2085,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -2320,7 +2327,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -2344,6 +2351,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -2486,7 +2494,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -2616,7 +2624,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -2816,7 +2824,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -2840,6 +2848,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -2955,7 +2964,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -3103,7 +3112,7 @@ declare const _default: ({
                 };
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -3287,7 +3296,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -3311,6 +3320,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -3453,7 +3463,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -3605,7 +3615,7 @@ declare const _default: ({
                 description?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -3799,7 +3809,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -3823,6 +3833,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -3936,7 +3947,7 @@ declare const _default: ({
                 description: string;
                 param1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -4050,7 +4061,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -4242,7 +4253,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -4266,6 +4277,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -4360,7 +4372,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -4492,7 +4504,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -4652,7 +4664,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -4676,6 +4688,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -4815,7 +4828,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -5008,7 +5021,7 @@ declare const _default: ({
                 description?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -5175,7 +5188,7 @@ declare const _default: ({
                 };
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -5199,6 +5212,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -5253,7 +5267,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -5325,7 +5339,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -5469,7 +5483,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -5493,6 +5507,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -5564,7 +5579,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -5653,7 +5668,7 @@ declare const _default: ({
                 };
                 game?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -5837,7 +5852,7 @@ declare const _default: ({
                 };
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -5861,6 +5876,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -5877,7 +5893,7 @@ declare const _default: ({
     isPublishable: boolean;
     isRuneword: boolean;
     createdDate: number;
-    hotness: number;
+    hotness: string;
     numPerfectionRolls: number;
     attributes: any[];
     details: {
@@ -5932,7 +5948,7 @@ declare const _default: ({
                     max?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -6045,7 +6061,7 @@ declare const _default: ({
                 nexusLink: string;
                 paramType1: string;
                 param1: {
-                    spec: string;
+                    spec: string[];
                     min: number;
                     max: number;
                     value: number;
@@ -6072,7 +6088,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 description?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -6315,7 +6331,7 @@ declare const _default: ({
                 influences?: undefined;
                 description?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -6339,6 +6355,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -6454,7 +6471,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -6538,7 +6555,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -6744,7 +6761,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -6768,6 +6785,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -6839,7 +6857,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -6953,7 +6971,7 @@ declare const _default: ({
                 influences?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -7099,7 +7117,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -7123,6 +7141,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: any[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -7192,7 +7211,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -7264,7 +7283,7 @@ declare const _default: ({
                 };
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -7442,7 +7461,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -7466,6 +7485,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -7567,7 +7587,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -7622,7 +7642,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -7790,7 +7810,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -7814,6 +7834,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -7908,7 +7929,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -8040,7 +8061,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -8186,7 +8207,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -8210,6 +8231,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -8264,7 +8286,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -8319,7 +8341,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -8453,7 +8475,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -8477,6 +8499,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -8499,9 +8522,9 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word": string;
         Distribution: string;
         Date: string;
+        "Rune Word"?: undefined;
         "Max Supply"?: undefined;
     };
     recipe: {
@@ -8531,7 +8554,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -8663,7 +8686,7 @@ declare const _default: ({
                 paramValue1?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -8782,7 +8805,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -8806,6 +8829,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -8898,7 +8922,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -8974,7 +8998,7 @@ declare const _default: ({
                 };
                 paramType2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -8998,6 +9022,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -9109,7 +9134,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -9215,7 +9240,7 @@ declare const _default: ({
                 influences?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -9397,7 +9422,7 @@ declare const _default: ({
                 };
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -9421,6 +9446,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -9475,7 +9501,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -9581,7 +9607,7 @@ declare const _default: ({
                 description?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -9768,7 +9794,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -9792,6 +9818,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -9865,7 +9892,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -9925,7 +9952,7 @@ declare const _default: ({
                 };
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -9994,7 +10021,7 @@ declare const _default: ({
                 influences?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -10017,6 +10044,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -10039,7 +10067,7 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word": string;
+        "Rune Word"?: undefined;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;
@@ -10104,7 +10132,7 @@ declare const _default: ({
                     map: {};
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -10198,7 +10226,7 @@ declare const _default: ({
                 };
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -10297,7 +10325,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -10322,6 +10350,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -10394,12 +10423,12 @@ declare const _default: ({
                     max: number[];
                     value: number[];
                     map: {
-                        "527": string[];
+                        "512": string[];
                     };
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -10471,7 +10500,7 @@ declare const _default: ({
                 influences?: undefined;
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -10639,7 +10668,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -10663,6 +10692,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -10685,7 +10715,7 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word": string;
+        "Rune Word"?: undefined;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;
@@ -10785,7 +10815,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -10882,7 +10912,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -11094,7 +11124,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -11117,6 +11147,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -11227,7 +11258,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -11358,7 +11389,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "3": {
             attributes: ({
@@ -11517,7 +11548,7 @@ declare const _default: ({
                 influences?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -11542,6 +11573,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -11698,7 +11730,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -11870,7 +11902,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -11893,6 +11925,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -11970,7 +12003,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: ({
@@ -12083,6 +12116,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -12206,6 +12240,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -12329,7 +12364,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -12361,6 +12396,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -12477,7 +12513,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: {
@@ -12530,6 +12566,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -12552,7 +12589,7 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word": string;
+        "Rune Word"?: undefined;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;
@@ -12664,7 +12701,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -12871,7 +12908,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -12895,6 +12932,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -12947,8 +12985,25 @@ declare const _default: ({
                     spec: string;
                     min: number;
                     max: number;
-                    map?: undefined;
                     value?: undefined;
+                    map?: undefined;
+                };
+            } | {
+                id: number;
+                name: string;
+                isEnabled: boolean;
+                game: string;
+                nexusLink: string;
+                paramType1: string;
+                paramValue1: string;
+                nature: string;
+                description: string;
+                param1: {
+                    spec: string;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map?: undefined;
                 };
             } | {
                 id: number;
@@ -12995,7 +13050,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -13265,7 +13320,7 @@ declare const _default: ({
                 paramType3?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -13289,6 +13344,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -13403,7 +13459,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -13545,7 +13601,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -13569,6 +13625,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -13591,7 +13648,7 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word": string;
+        "Rune Word"?: undefined;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;
@@ -13656,7 +13713,7 @@ declare const _default: ({
                 nature?: undefined;
                 description?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -13812,7 +13869,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -13835,6 +13892,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -13886,7 +13944,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -13996,7 +14054,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -14021,6 +14079,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -14152,7 +14211,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -14264,7 +14323,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -14283,6 +14342,7 @@ declare const _default: ({
     name: string;
     icon: string;
     value: string;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -14306,74 +14366,6 @@ declare const _default: ({
         Type?: undefined;
         Subtype?: undefined;
         "Rune Word"?: undefined;
-        Distribution?: undefined;
-        Date?: undefined;
-        "Max Supply"?: undefined;
-    };
-    recipe: {
-        requirement: any[];
-    };
-    description: string;
-    shortDescription: string;
-    visualDescription: string;
-    branches: {
-        "1": {
-            attributes: any[];
-            perfection: any[];
-        };
-        "2": {
-            attributes: any[];
-            perfection: any[];
-        };
-        "3": {
-            attributes: any[];
-            perfection: any[];
-        };
-        "4": {
-            attributes: any[];
-            perfection: any[];
-        };
-        "5": {
-            attributes: any[];
-            perfection: any[];
-        };
-    };
-    skills: any[];
-    materials: any[];
-    category: string;
-    image?: undefined;
-    type?: undefined;
-    subType?: undefined;
-    specificType?: undefined;
-    slots?: undefined;
-} | {
-    id: number;
-    name: string;
-    icon: string;
-    value: string;
-    isNew: boolean;
-    isSecret: boolean;
-    isUltraSecret: boolean;
-    isPaused: boolean;
-    isRetired: boolean;
-    isDisabled: boolean;
-    isCraftable: boolean;
-    isEnabled: boolean;
-    isEquipable: boolean;
-    isUnequipable: boolean;
-    isTradeable: boolean;
-    isTransferable: boolean;
-    isUpgradable: boolean;
-    isPublishable: boolean;
-    isRuneword: boolean;
-    createdDate: number;
-    hotness: number;
-    numPerfectionRolls: number;
-    attributes: any[];
-    details: {
-        "Rune Word": string;
-        Type?: undefined;
-        Subtype?: undefined;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;
@@ -14426,6 +14418,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -14477,7 +14470,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: {
@@ -14605,6 +14598,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -14694,7 +14688,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: {
@@ -14826,7 +14820,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -14851,6 +14845,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -14942,7 +14937,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: {
@@ -14955,6 +14950,12 @@ declare const _default: ({
                 nature: string;
                 influences: string;
                 description: string;
+                param1: {
+                    spec: string[];
+                    min: number;
+                    max: number;
+                    value: number;
+                };
             }[];
             perfection: any[];
         };
@@ -15124,7 +15125,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -15148,6 +15149,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -15216,7 +15218,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -15422,7 +15424,7 @@ declare const _default: ({
                 };
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -15446,6 +15448,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -15497,7 +15500,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -15645,7 +15648,7 @@ declare const _default: ({
                 };
                 paramValue2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -15669,6 +15672,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -15744,7 +15748,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -15930,7 +15934,7 @@ declare const _default: ({
                 };
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -15950,6 +15954,7 @@ declare const _default: ({
     icon: string;
     value: string;
     specificType: number;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -16016,11 +16021,13 @@ declare const _default: ({
     id: number;
     name: string;
     icon: string;
+    image: string;
     value: string;
     type: number;
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -16043,7 +16050,7 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word": string;
+        "Rune Word"?: undefined;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;
@@ -16108,10 +16115,10 @@ declare const _default: ({
                     min: number;
                     max: number;
                     map: {
-                        "6": string;
-                        "7": string;
-                        "8": string;
-                        "537"?: undefined;
+                        "0": string;
+                        "1": string;
+                        "2": string;
+                        "36"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -16131,14 +16138,14 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "537": string;
-                        "6"?: undefined;
-                        "7"?: undefined;
-                        "8"?: undefined;
+                        "36": string;
+                        "0"?: undefined;
+                        "1"?: undefined;
+                        "2"?: undefined;
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -16191,6 +16198,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "23": string;
+                        ""?: undefined;
                     };
                 };
                 param2: {
@@ -16207,8 +16215,61 @@ declare const _default: ({
                 nature?: undefined;
                 influences?: undefined;
                 description?: undefined;
+            } | {
+                id: number;
+                name: string;
+                isEnabled: boolean;
+                game: string;
+                nexusLink: string;
+                paramType1: string;
+                paramType2: string;
+                paramType3: string;
+                paramValue1: string;
+                paramValue2: string;
+                description: string;
+                param1: {
+                    spec: string;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map?: undefined;
+                };
+                param2: {
+                    spec: string;
+                    min: any;
+                    max: any;
+                    value?: undefined;
+                    map?: undefined;
+                };
+                nature?: undefined;
+                influences?: undefined;
+            } | {
+                id: number;
+                name: string;
+                isEnabled: boolean;
+                game: string;
+                nexusLink: string;
+                paramType1: string;
+                nature: string;
+                influences: string;
+                description: string;
+                param1: {
+                    spec: string;
+                    min: any[];
+                    max: any[];
+                    value: any[];
+                    map: {
+                        "": any[];
+                        "23"?: undefined;
+                    };
+                };
+                paramType2?: undefined;
+                paramValue1?: undefined;
+                paramValue2?: undefined;
+                param2?: undefined;
+                paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -16222,7 +16283,6 @@ declare const _default: ({
     skills: any[];
     materials: any[];
     category: string;
-    image?: undefined;
 } | {
     id: number;
     name: string;
@@ -16233,6 +16293,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -16364,7 +16425,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -16474,7 +16535,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -16497,6 +16558,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -16565,7 +16627,7 @@ declare const _default: ({
                     value: number;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -16715,7 +16777,7 @@ declare const _default: ({
                 param2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -16740,6 +16802,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -16789,6 +16852,7 @@ declare const _default: ({
                     spec: string;
                     min: number;
                     max: number;
+                    value?: undefined;
                     map?: undefined;
                 };
             } | {
@@ -16803,12 +16867,32 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    map: {};
-                    min?: undefined;
-                    max?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map?: undefined;
+                };
+            } | {
+                id: number;
+                name: string;
+                isEnabled: boolean;
+                game: string;
+                nexusLink: string;
+                paramType1: string;
+                paramValue1: string;
+                nature: string;
+                description: string;
+                param1: {
+                    spec: string;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        "37": string;
+                    };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -16974,7 +17058,7 @@ declare const _default: ({
                 influences?: undefined;
                 description?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -16997,6 +17081,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -17071,7 +17156,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -17112,6 +17197,7 @@ declare const _default: ({
     name: string;
     icon: string;
     value: string;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -17180,6 +17266,7 @@ declare const _default: ({
     name: string;
     icon: string;
     value: string;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -17252,6 +17339,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -17366,7 +17454,7 @@ declare const _default: ({
                     };
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -17522,7 +17610,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -17546,6 +17634,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -17597,7 +17686,7 @@ declare const _default: ({
                     max: number;
                 };
             }[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -17753,7 +17842,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 paramType3?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -17777,6 +17866,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -17843,7 +17933,7 @@ declare const _default: ({
                 };
                 paramValue1?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -17953,7 +18043,7 @@ declare const _default: ({
                 };
                 influences?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -17977,6 +18067,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18115,7 +18206,7 @@ declare const _default: ({
                     max?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -18206,7 +18297,7 @@ declare const _default: ({
                 paramValue2?: undefined;
                 param2?: undefined;
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];
@@ -18228,6 +18319,7 @@ declare const _default: ({
     value: string;
     subType: number;
     specificType: number;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18298,6 +18390,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: number[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18406,7 +18499,7 @@ declare const _default: ({
                     value?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -18438,6 +18531,7 @@ declare const _default: ({
     subType: number;
     specificType: number;
     slots: any[];
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18524,6 +18618,7 @@ declare const _default: ({
     image: string;
     value: string;
     specificType: number;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18622,6 +18717,7 @@ declare const _default: ({
     image: string;
     value: string;
     specificType: number;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18719,6 +18815,7 @@ declare const _default: ({
     icon: string;
     image: string;
     value: string;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18786,6 +18883,7 @@ declare const _default: ({
     name: string;
     icon: string;
     value: string;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18856,6 +18954,7 @@ declare const _default: ({
     image: string;
     value: string;
     specificType: number;
+    isPolled: boolean;
     isNew: boolean;
     isSecret: boolean;
     isUltraSecret: boolean;
@@ -18931,7 +19030,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "2": {
             attributes: any[];
@@ -18979,7 +19078,7 @@ declare const _default: ({
                     map?: undefined;
                 };
             })[];
-            perfection: any[];
+            perfection: number[];
         };
         "4": {
             attributes: any[];

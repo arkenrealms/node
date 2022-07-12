@@ -41,10 +41,30 @@ var dbCon = new lokijs_1.default('rune.db', {
     autosaveInterval: 4000
 });
 var db = {
+    config: undefined,
     items: undefined
 };
 function databaseInitialize() {
+    var _a, _b, _c, _d;
+    db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
+    var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
+    if (!updatedAt || updatedAt < 1657563044000) {
+        dbCon.getCollection('items').chain().remove();
+    }
+    if (db.config === null) {
+        db.config = dbCon.addCollection('config', {
+            // clone: true,
+            unique: 'key'
+        });
+        db.config.insert({
+            key: 'updatedAt',
+            value: 1657563044000
+        });
+    }
+    db.config.find({
+        key: 'updatedAt'
+    }).value = 1657563044000;
     if (db.items === null) {
         // Add a collection to the database
         db.items = dbCon.addCollection('items', {
@@ -351,8 +371,10 @@ function normalizeItem(item) {
         for (var i in item.mods) {
             var mod = item.mods[i];
             var branchAttribute = branchAttributes[i];
-            if (!branchAttribute)
+            if (!branchAttribute) {
+                console.log("Branch attribute doesn't exist on item definition", item, branchAttribute);
                 continue;
+            }
             if (branchAttribute.value === undefined) {
                 if (branchAttribute.min === branchAttribute.max) {
                     branchAttribute.value = branchAttribute.min;
@@ -366,7 +388,7 @@ function normalizeItem(item) {
                 item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
             }
             else if (mod.attributeId === items_1.ItemAttributes.HarvestFeeToken.id) {
-                actionMetadata.harvestFees[branchAttribute.map[mod.value]] = prevMod.value;
+                actionMetadata.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value;
                 item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
             }
             else if (mod.attributeId === items_1.ItemAttributes.SendHarvestHiddenPool.id) {
@@ -412,6 +434,19 @@ function normalizeItem(item) {
             }
             if (item.attributes[i]) {
                 item.branches[1].attributes[i] = item.attributes[i];
+                if (!item.branches[1].attributes[i].param1) {
+                    item.branches[1].attributes[i].param1 = {};
+                    item.branches[1].attributes[i].param1.min = item.branches[1].attributes[i].min;
+                    item.branches[1].attributes[i].param1.max = item.branches[1].attributes[i].max;
+                    item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
+                    item.branches[1].attributes[i].param1.map = item.branches[1].attributes[i].map;
+                }
+                else {
+                    item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
+                    item.branches[1].attributes[i].min = item.branches[1].attributes[i].param1.min;
+                    item.branches[1].attributes[i].max = item.branches[1].attributes[i].param1.max;
+                    item.branches[1].attributes[i].map = item.branches[1].attributes[i].param1.map;
+                }
             }
             prevMod = mod;
         }
