@@ -6,7 +6,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.farms = exports.TESTNET = exports.MAINNET = exports.QuoteToken = exports.CURRENT_FARM_SYMBOL = void 0;
 var contractInfo_1 = __importDefault(require("./contractInfo"));
-exports.CURRENT_FARM_SYMBOL = 'IST';
+exports.CURRENT_FARM_SYMBOL = 'GUL';
 var QuoteToken;
 (function (QuoteToken) {
     QuoteToken["BNB"] = "BNB";

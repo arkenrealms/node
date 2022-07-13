@@ -5,7 +5,7 @@ exports.default = [
         "id": 1,
         "name": "Steel",
         "icon": "https://rune.game/images/items/00001.png",
-        "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657593137&userId=usrf0GZYc5zCl9Cv7&cs=2166b61e8d519c14",
+        "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657605311&userId=usrf0GZYc5zCl9Cv7&cs=b84bbde533b1a185",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -103,8 +103,14 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "Harvest Fee Token: {parameter1}",
                         "param1": {
-                            "spec": "0-2",
-                            "map": {}
+                            "spec": "EL-TIR",
+                            "min": 0,
+                            "max": 2,
+                            "map": {
+                                "0": "EL",
+                                "1": "ELD",
+                                "2": "TIR"
+                            }
                         }
                     }
                 ],
@@ -194,7 +200,7 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} critical hit chance",
+                        "description": "{parameter1} Critical Hit Chance",
                         "param1": {
                             "spec": "5-5",
                             "min": 5,
@@ -261,19 +267,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -297,17 +295,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "5-8",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -319,23 +307,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Heavy Strike",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -356,11 +331,9 @@ exports.default = [
             }
         },
         "skills": [
-            490,
             490
         ],
         "materials": [
-            1,
             1
         ],
         "category": "accessory"
@@ -369,7 +342,7 @@ exports.default = [
         "id": 2,
         "name": "Fury",
         "icon": "https://rune.game/images/items/00002.png",
-        "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657593144&userId=usrf0GZYc5zCl9Cv7&cs=eef167a8f894a401",
+        "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657605319&userId=usrf0GZYc5zCl9Cv7&cs=ca8f43d55494262a",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -472,7 +445,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Debuff",
-                        "description": "{parameter1} Chance To Burn Harvest",
+                        "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
                             "spec": "20-40",
                             "min": 20,
@@ -600,7 +573,7 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} critical hit chance",
+                        "description": "{parameter1} Critical Hit Chance",
                         "param1": {
                             "spec": "3-3",
                             "min": 3,
@@ -735,22 +708,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Breath of Fire",
-                            "min": [
-                                412
-                            ],
-                            "max": [
-                                412
-                            ],
-                            "value": [
-                                412
-                            ],
+                            "min": 412,
+                            "max": 412,
+                            "value": 412,
                             "map": {
-                                "412": [
-                                    "Breath of Fire"
-                                ]
+                                "412": "Breath of Fire"
                             }
                         }
                     },
@@ -788,7 +753,6 @@ exports.default = [
             }
         },
         "skills": [
-            412,
             412
         ],
         "materials": [],
@@ -798,7 +762,7 @@ exports.default = [
         "id": 3,
         "name": "Lorekeeper",
         "icon": "https://rune.game/images/items/00003.png",
-        "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657593149&userId=usrf0GZYc5zCl9Cv7&cs=8bc4bb2eb4f9edf5",
+        "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657605325&userId=usrf0GZYc5zCl9Cv7&cs=585fe80e5923cecd",
         "value": "0",
         "type": 5,
         "subType": 10,
@@ -892,7 +856,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "100-100",
                             "min": 100,
@@ -1091,22 +1055,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Weakness",
-                            "min": [
-                                494
-                            ],
-                            "max": [
-                                494
-                            ],
-                            "value": [
-                                494
-                            ],
+                            "min": 494,
+                            "max": 494,
+                            "value": 494,
                             "map": {
-                                "494": [
-                                    "Weakness"
-                                ]
+                                "494": "Weakness"
                             }
                         }
                     },
@@ -1147,7 +1103,6 @@ exports.default = [
             }
         },
         "skills": [
-            494,
             494
         ],
         "materials": [],
@@ -1157,7 +1112,7 @@ exports.default = [
         "id": 4,
         "name": "Worldstone Shard",
         "icon": "https://rune.game/images/items/00004.png",
-        "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657593154&userId=usrf0GZYc5zCl9Cv7&cs=49bcdec9a8aa6757",
+        "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657605331&userId=usrf0GZYc5zCl9Cv7&cs=ded2bc8e7cce5ca4",
         "value": "0",
         "type": 18,
         "subType": 11,
@@ -1197,8 +1152,28 @@ exports.default = [
         "visualDescription": "These multifaceted red crystals are found scattered across Haerra.",
         "branches": {
             "1": {
-                "attributes": [],
-                "perfection": []
+                "attributes": [
+                    {
+                        "id": 33,
+                        "name": "TransmuteItem",
+                        "isEnabled": true,
+                        "game": "Raid",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/transmuteitem",
+                        "paramType1": "percent",
+                        "paramValue1": "0-100",
+                        "nature": "Buff",
+                        "description": "{parameter1} Chance To Transmute Item (Not Implemented)",
+                        "param1": {
+                            "spec": "100",
+                            "min": 100,
+                            "max": 100,
+                            "value": 100
+                        }
+                    }
+                ],
+                "perfection": [
+                    null
+                ]
             },
             "2": {
                 "attributes": [],
@@ -1219,7 +1194,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            6,
             6
         ],
         "category": "accessory"
@@ -1228,7 +1202,7 @@ exports.default = [
         "id": 5,
         "name": "Flash",
         "icon": "https://rune.game/images/items/00005.png",
-        "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657593156&userId=usrf0GZYc5zCl9Cv7&cs=d933836c6e67707a",
+        "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657605333&userId=usrf0GZYc5zCl9Cv7&cs=ddad7fd5c2625480",
         "value": "0",
         "type": 11,
         "subType": 12,
@@ -1465,19 +1439,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "MovementSpeed",
-                            "min": [
-                                3
-                            ],
-                            "max": [
-                                3
-                            ],
-                            "value": [
-                                3
-                            ],
+                            "min": 3,
+                            "max": 3,
+                            "value": 3,
                             "map": {
-                                "3": [
-                                    "MovementSpeed"
-                                ]
+                                "3": "MovementSpeed"
                             }
                         }
                     },
@@ -1573,22 +1539,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Flash",
-                            "min": [
-                                480
-                            ],
-                            "max": [
-                                480
-                            ],
-                            "value": [
-                                480
-                            ],
+                            "min": 480,
+                            "max": 480,
+                            "value": 480,
                             "map": {
-                                "480": [
-                                    "Flash"
-                                ]
+                                "480": "Flash"
                             }
                         }
                     }
@@ -1611,12 +1569,9 @@ exports.default = [
             }
         },
         "skills": [
-            480,
             480
         ],
         "materials": [
-            18,
-            34,
             18,
             34
         ],
@@ -1626,7 +1581,7 @@ exports.default = [
         "id": 6,
         "name": "Titan",
         "icon": "https://rune.game/images/items/00006.png",
-        "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657593162&userId=usrf0GZYc5zCl9Cv7&cs=8f195fae2555829b",
+        "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657605340&userId=usrf0GZYc5zCl9Cv7&cs=9398b46055a7be3d",
         "value": "0",
         "type": 7,
         "subType": 13,
@@ -1716,7 +1671,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "10-20",
                             "min": 10,
@@ -1959,23 +1914,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Howl",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -1997,7 +1939,6 @@ exports.default = [
             }
         },
         "skills": [
-            465,
             465
         ],
         "materials": [],
@@ -2007,7 +1948,7 @@ exports.default = [
         "id": 7,
         "name": "Smoke",
         "icon": "https://rune.game/images/items/00007.png",
-        "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657593166&userId=usrf0GZYc5zCl9Cv7&cs=2646a5e446adb1a3",
+        "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657605345&userId=usrf0GZYc5zCl9Cv7&cs=8c16a9edf219c7c9",
         "value": "0",
         "type": 9,
         "subType": 15,
@@ -2093,7 +2034,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "25-100",
                             "min": 25,
@@ -2111,7 +2052,7 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "Unstake Locked Until Completion",
                         "param1": {
-                            "spec": "100-100",
+                            "spec": "100",
                             "min": 100,
                             "max": 100,
                             "value": 100
@@ -2278,22 +2219,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Shuriken Dance",
-                            "min": [
-                                474
-                            ],
-                            "max": [
-                                474
-                            ],
-                            "value": [
-                                474
-                            ],
+                            "min": 474,
+                            "max": 474,
+                            "value": 474,
                             "map": {
-                                "474": [
-                                    "Shuriken Dance"
-                                ]
+                                "474": "Shuriken Dance"
                             }
                         }
                     },
@@ -2308,7 +2241,7 @@ exports.default = [
                         "paramValue1": "0-100",
                         "nature": "Buff",
                         "influences": "General",
-                        "description": "{parameter1} chance of {parameter2} extra projectile(s)",
+                        "description": "{parameter1} Chance Of {parameter2} Extra Projectile(s)",
                         "param1": {
                             "spec": "35",
                             "min": 35,
@@ -2358,11 +2291,9 @@ exports.default = [
             }
         },
         "skills": [
-            475,
             475
         ],
         "materials": [
-            32,
             32
         ],
         "category": "accessory"
@@ -2371,7 +2302,7 @@ exports.default = [
         "id": 10,
         "name": "Glory",
         "icon": "https://rune.game/images/items/00010.png",
-        "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657593170&userId=usrf0GZYc5zCl9Cv7&cs=a0910653b915b157",
+        "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657605350&userId=usrf0GZYc5zCl9Cv7&cs=dae8227d92281c96",
         "value": "0",
         "type": 2,
         "subType": 19,
@@ -2478,9 +2409,9 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "15-15",
+                            "spec": "15",
                             "min": 15,
                             "max": 15,
                             "value": 15
@@ -2548,7 +2479,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Whirlwind",
                             "min": 409,
@@ -2568,15 +2499,12 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
-                            "spec": "1-1",
-                            "min": 1,
-                            "max": 1,
-                            "value": 1,
-                            "map": {
-                                "1": "Barbarian"
-                            }
+                            "spec": "Barbarian",
+                            "min": null,
+                            "max": null,
+                            "map": {}
                         }
                     }
                 ],
@@ -2687,7 +2615,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Furious Rush",
                             "min": 201,
@@ -2722,7 +2650,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Barbarian",
                             "min": null,
@@ -2796,7 +2724,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "General",
-                        "description": "{parameter1} to {parameter2} for {param3}",
+                        "description": "{parameter1} To {parameter2} For {param3}",
                         "param1": {
                             "spec": "12-15",
                             "min": 12,
@@ -2804,20 +2732,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "StaggerChance",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -2888,19 +2803,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -2913,22 +2820,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Whirlwind",
-                            "min": [
-                                409
-                            ],
-                            "max": [
-                                409
-                            ],
-                            "value": [
-                                409
-                            ],
+                            "min": 409,
+                            "max": 409,
+                            "value": 409,
                             "map": {
-                                "409": [
-                                    "Whirlwind"
-                                ]
+                                "409": "Whirlwind"
                             }
                         }
                     },
@@ -2953,20 +2852,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "1",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -2977,7 +2863,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Barbarian",
                             "min": null,
@@ -3006,7 +2892,6 @@ exports.default = [
             }
         },
         "skills": [
-            409,
             409
         ],
         "materials": [],
@@ -3016,7 +2901,7 @@ exports.default = [
         "id": 11,
         "name": "Grace",
         "icon": "https://rune.game/images/items/00011.png",
-        "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657593175&userId=usrf0GZYc5zCl9Cv7&cs=9e791c93e6fd3af7",
+        "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657605355&userId=usrf0GZYc5zCl9Cv7&cs=33be6216ae97d868",
         "value": "0",
         "type": 2,
         "subType": 8,
@@ -3123,9 +3008,9 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -3193,7 +3078,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Shot",
                             "min": 410,
@@ -3213,15 +3098,12 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
-                            "spec": "3-3",
-                            "min": 3,
-                            "max": 3,
-                            "value": 3,
-                            "map": {
-                                "3": "Amazon"
-                            }
+                            "spec": "Ranger",
+                            "min": null,
+                            "max": null,
+                            "map": {}
                         }
                     }
                 ],
@@ -3348,7 +3230,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "7-7",
                             "map": {}
@@ -3362,7 +3244,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Amazon",
                             "min": null,
@@ -3432,19 +3314,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -3459,7 +3333,7 @@ exports.default = [
                         "paramValue1": "0-100",
                         "nature": "Buff",
                         "influences": "General",
-                        "description": "{parameter1} chance of {parameter2} extra projectile(s)",
+                        "description": "{parameter1} Chance Of {parameter2} Extra Projectile(s)",
                         "param1": {
                             "spec": "2",
                             "min": 2,
@@ -3481,27 +3355,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Trueflight Arrow, Arrow Barrage",
-                            "min": [
-                                457,
-                                null
-                            ],
-                            "max": [
-                                457,
-                                null
-                            ],
-                            "value": [
-                                457,
-                                null
-                            ],
-                            "map": {
-                                "457,": [
-                                    "Trueflight Arrow",
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -3514,28 +3371,7 @@ exports.default = [
                         "paramType2": "percent",
                         "param1": {
                             "spec": "CooldownTime, MovementSpeed, MaxEnergy",
-                            "min": [
-                                null,
-                                3,
-                                null
-                            ],
-                            "max": [
-                                null,
-                                3,
-                                null
-                            ],
-                            "value": [
-                                null,
-                                3,
-                                null
-                            ],
-                            "map": {
-                                ",3,": [
-                                    null,
-                                    "MovementSpeed",
-                                    null
-                                ]
-                            }
+                            "map": {}
                         },
                         "param2": {
                             "spec": "-10, 7, 8",
@@ -3553,7 +3389,7 @@ exports.default = [
                         "paramType1": "class",
                         "nature": "Requirement",
                         "influences": "Skill",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Ranger",
                             "min": null,
@@ -3623,13 +3459,9 @@ exports.default = [
         "skills": [
             457,
             410,
-            456,
-            457,
-            410,
             456
         ],
         "materials": [
-            9,
             9
         ],
         "category": "accessory"
@@ -3638,7 +3470,7 @@ exports.default = [
         "id": 12,
         "name": "Genesis",
         "icon": "https://rune.game/images/items/00012.png",
-        "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657593179&userId=usrf0GZYc5zCl9Cv7&cs=8cd3323bfaa1cc18",
+        "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657605358&userId=usrf0GZYc5zCl9Cv7&cs=95bd88ed6cd48911",
         "value": "0",
         "type": 1,
         "subType": 5,
@@ -3794,10 +3626,15 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
-                            "spec": "6-6",
-                            "map": {}
+                            "spec": "Sacrifice",
+                            "min": 6,
+                            "max": 6,
+                            "value": 6,
+                            "map": {
+                                "6": "Sacrifice"
+                            }
                         }
                     },
                     {
@@ -3809,9 +3646,9 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
-                            "spec": "Sacrifice",
+                            "spec": "Necromancer",
                             "min": null,
                             "max": null,
                             "map": {}
@@ -3920,7 +3757,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "6-6",
                             "map": {}
@@ -3934,7 +3771,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
                             "min": null,
@@ -4037,17 +3874,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "7-10",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -4098,22 +3925,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Ethereal Spear",
-                            "min": [
-                                455
-                            ],
-                            "max": [
-                                455
-                            ],
-                            "value": [
-                                455
-                            ],
+                            "min": 455,
+                            "max": 455,
+                            "value": 455,
                             "map": {
-                                "455": [
-                                    "Ethereal Spear"
-                                ]
+                                "455": "Ethereal Spear"
                             }
                         }
                     },
@@ -4126,7 +3945,7 @@ exports.default = [
                         "paramType1": "class",
                         "nature": "Requirement",
                         "influences": "Skill",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
                             "min": null,
@@ -4173,13 +3992,9 @@ exports.default = [
         },
         "skills": [
             411,
-            455,
-            411,
             455
         ],
         "materials": [
-            3,
-            7,
             3,
             7
         ],
@@ -4189,7 +4004,7 @@ exports.default = [
         "id": 13,
         "name": "Destiny",
         "icon": "https://rune.game/images/items/00013.png",
-        "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657593184&userId=usrf0GZYc5zCl9Cv7&cs=b27afaa5775fa3f8",
+        "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657605362&userId=usrf0GZYc5zCl9Cv7&cs=8fb6691a7c5e3296",
         "value": "0",
         "type": 2,
         "subType": 7,
@@ -4296,7 +4111,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "15-15",
                             "min": 15,
@@ -4366,7 +4181,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Time Warp",
                             "min": 429,
@@ -4386,15 +4201,12 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
-                            "spec": "2-2",
-                            "min": 2,
-                            "max": 2,
-                            "value": 2,
-                            "map": {
-                                "2": "Mage"
-                            }
+                            "spec": "Mage",
+                            "min": null,
+                            "max": null,
+                            "map": {}
                         }
                     }
                 ],
@@ -4520,7 +4332,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "5-5",
                             "map": {}
@@ -4534,7 +4346,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Mage",
                             "min": null,
@@ -4657,7 +4469,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} increase to {parameter2} damage over time",
+                        "description": "{parameter1} Increase To {parameter2} Damage Over Time",
                         "param1": {
                             "spec": "10-10",
                             "min": 10,
@@ -4711,19 +4523,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CastSpeed",
-                            "min": [
-                                6
-                            ],
-                            "max": [
-                                6
-                            ],
-                            "value": [
-                                6
-                            ],
+                            "min": 6,
+                            "max": 6,
+                            "value": 6,
                             "map": {
-                                "6": [
-                                    "CastSpeed"
-                                ]
+                                "6": "CastSpeed"
                             }
                         }
                     },
@@ -4735,7 +4539,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Fireball, Meteor",
                             "map": {}
@@ -4749,7 +4553,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Mage",
                             "min": null,
@@ -4779,13 +4583,9 @@ exports.default = [
         "skills": [
             429,
             447,
-            445,
-            429,
-            447,
             445
         ],
         "materials": [
-            7,
             7
         ],
         "category": "accessory"
@@ -4794,7 +4594,7 @@ exports.default = [
         "id": 14,
         "name": "Wrath",
         "icon": "https://rune.game/images/items/00014.png",
-        "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657593189&userId=usrf0GZYc5zCl9Cv7&cs=3688324a768dfed8",
+        "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657605366&userId=usrf0GZYc5zCl9Cv7&cs=f13d40763d8c16a0",
         "value": "0",
         "type": 1,
         "subType": 6,
@@ -4925,6 +4725,22 @@ exports.default = [
                         }
                     },
                     {
+                        "id": 11,
+                        "name": "RandomRuneExchange",
+                        "isEnabled": true,
+                        "game": "Raid",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/randomruneexchange",
+                        "paramType1": "percent",
+                        "paramValue1": "0-100",
+                        "nature": "Mechanic",
+                        "description": "{parameter1} Random Rune Exchange",
+                        "param1": {
+                            "spec": "1-4",
+                            "min": 1,
+                            "max": 4
+                        }
+                    },
+                    {
                         "id": 3,
                         "name": "HarvestFeeToken",
                         "isEnabled": true,
@@ -4955,7 +4771,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Fade",
                             "min": 430,
@@ -4975,7 +4791,13 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})"
+                        "description": "{parameter1} Required",
+                        "param1": {
+                            "spec": "Assassin",
+                            "min": null,
+                            "max": null,
+                            "map": {}
+                        }
                     }
                 ],
                 "perfection": [
@@ -4983,6 +4805,7 @@ exports.default = [
                     2,
                     15,
                     2,
+                    null,
                     null,
                     null,
                     null
@@ -5035,7 +4858,7 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} critical hit chance",
+                        "description": "{parameter1} Critical Hit Chance",
                         "param1": {
                             "spec": "1-15",
                             "min": 1,
@@ -5099,7 +4922,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Fade",
                             "min": 430,
@@ -5118,7 +4941,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Assassin",
                             "min": null,
@@ -5177,7 +5000,7 @@ exports.default = [
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Skill",
-                        "description": "{parameter1} skill points",
+                        "description": "{parameter1} Skill Points",
                         "param1": {
                             "spec": "1-2",
                             "min": 1,
@@ -5193,7 +5016,7 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} critical hit chance",
+                        "description": "{parameter1} Critical Hit Chance",
                         "param1": {
                             "spec": "1-15",
                             "min": 1,
@@ -5210,32 +5033,7 @@ exports.default = [
                         "paramType2": "percent",
                         "param1": {
                             "spec": "AttackSpeed, CriticalHitMultiplier, MaxEnergy, AilmentChance",
-                            "min": [
-                                4,
-                                5,
-                                null,
-                                null
-                            ],
-                            "max": [
-                                4,
-                                5,
-                                null,
-                                null
-                            ],
-                            "value": [
-                                4,
-                                5,
-                                null,
-                                null
-                            ],
-                            "map": {
-                                "4,5,,": [
-                                    "AttackSpeed",
-                                    "CriticalHitMultiplier",
-                                    null,
-                                    null
-                                ]
-                            }
+                            "map": {}
                         },
                         "param2": {
                             "spec": "5, 7, 7, 5",
@@ -5278,22 +5076,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Shuriken Throw",
-                            "min": [
-                                475
-                            ],
-                            "max": [
-                                475
-                            ],
-                            "value": [
-                                475
-                            ],
+                            "min": 475,
+                            "max": 475,
+                            "value": 475,
                             "map": {
-                                "475": [
-                                    "Shuriken Throw"
-                                ]
+                                "475": "Shuriken Throw"
                             }
                         }
                     },
@@ -5306,7 +5096,7 @@ exports.default = [
                         "paramType1": "class",
                         "nature": "Requirement",
                         "influences": "Skill",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Rogue",
                             "min": null,
@@ -5355,13 +5145,9 @@ exports.default = [
         "skills": [
             430,
             474,
-            501,
-            430,
-            474,
             501
         ],
         "materials": [
-            19,
             19
         ],
         "category": "accessory"
@@ -5370,7 +5156,7 @@ exports.default = [
         "id": 15,
         "name": "Fortress",
         "icon": "https://rune.game/images/items/00015.png",
-        "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657593193&userId=usrf0GZYc5zCl9Cv7&cs=5c5a6b1854c938af",
+        "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657605369&userId=usrf0GZYc5zCl9Cv7&cs=adfb40ba11f2e0a0",
         "value": "0",
         "type": 3,
         "subType": 9,
@@ -5443,7 +5229,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "2-10",
                             "min": 2,
@@ -5523,7 +5309,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Sanctuary Aura",
                             "min": 467,
@@ -5543,7 +5329,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
                             "min": null,
@@ -5657,7 +5443,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Sanctuary Aura",
                             "min": 467,
@@ -5676,7 +5462,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
                             "min": null,
@@ -5842,22 +5628,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Charge",
-                            "min": [
-                                471
-                            ],
-                            "max": [
-                                471
-                            ],
-                            "value": [
-                                471
-                            ],
+                            "min": 471,
+                            "max": 471,
+                            "value": 471,
                             "map": {
-                                "471": [
-                                    "Charge"
-                                ]
+                                "471": "Charge"
                             }
                         }
                     },
@@ -5869,7 +5647,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
                             "min": null,
@@ -5898,12 +5676,9 @@ exports.default = [
         },
         "skills": [
             471,
-            414,
-            471,
             414
         ],
         "materials": [
-            3,
             3
         ],
         "category": "accessory"
@@ -5912,7 +5687,7 @@ exports.default = [
         "id": 16,
         "name": "Elder",
         "icon": "https://rune.game/images/items/00016.png",
-        "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657593197&userId=usrf0GZYc5zCl9Cv7&cs=940ca27c7a810ec6",
+        "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657605373&userId=usrf0GZYc5zCl9Cv7&cs=a880826bbf344c1f",
         "value": "0",
         "type": 1,
         "subType": 2,
@@ -6003,7 +5778,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "1-40",
                             "min": 1,
@@ -6090,10 +5865,15 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
-                            "spec": "Druid",
-                            "map": {}
+                            "spec": "Mystic Insight",
+                            "min": 11,
+                            "max": 11,
+                            "value": 11,
+                            "map": {
+                                "11": "Mystic Insight"
+                            }
                         }
                     },
                     {
@@ -6105,7 +5885,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
                             "min": null,
@@ -6230,7 +6010,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Mystic Insight",
                             "min": 11,
@@ -6249,7 +6029,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
                             "min": null,
@@ -6381,22 +6161,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Voltaic Orb",
-                            "min": [
-                                481
-                            ],
-                            "max": [
-                                481
-                            ],
-                            "value": [
-                                481
-                            ],
+                            "min": 481,
+                            "max": 481,
+                            "value": 481,
                             "map": {
-                                "481": [
-                                    "Voltaic Orb"
-                                ]
+                                "481": "Voltaic Orb"
                             }
                         }
                     },
@@ -6437,19 +6209,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -6462,7 +6226,7 @@ exports.default = [
                         "paramType1": "class",
                         "nature": "Requirement",
                         "influences": "Skill",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
                             "min": null,
@@ -6491,7 +6255,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            6,
             6
         ],
         "category": "accessory"
@@ -6500,7 +6263,7 @@ exports.default = [
         "id": 19,
         "name": "Pledge",
         "icon": "https://rune.game/images/items/00019.png",
-        "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657593200&userId=usrf0GZYc5zCl9Cv7&cs=52a0180501a48db3",
+        "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657605376&userId=usrf0GZYc5zCl9Cv7&cs=7596073d98aec055",
         "value": "0",
         "type": 5,
         "subType": 10,
@@ -6570,7 +6333,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "1-15",
                             "min": 1,
@@ -6618,7 +6381,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-5",
                             "min": 1,
@@ -6768,7 +6531,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1}  critical hit chance",
+                        "description": "{parameter1}  Critical Hit Chance",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -6785,28 +6548,7 @@ exports.default = [
                         "paramType2": "percent",
                         "param1": {
                             "spec": "AttackSpeed, Health, Energy",
-                            "min": [
-                                4,
-                                7,
-                                null
-                            ],
-                            "max": [
-                                4,
-                                7,
-                                null
-                            ],
-                            "value": [
-                                4,
-                                7,
-                                null
-                            ],
-                            "map": {
-                                "4,7,": [
-                                    "AttackSpeed",
-                                    "Health",
-                                    null
-                                ]
-                            }
+                            "map": {}
                         },
                         "param2": {
                             "spec": "6, 8, 11",
@@ -6835,19 +6577,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitMultiplier",
-                            "min": [
-                                5
-                            ],
-                            "max": [
-                                5
-                            ],
-                            "value": [
-                                5
-                            ],
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
                             "map": {
-                                "5": [
-                                    "CriticalHitMultiplier"
-                                ]
+                                "5": "CriticalHitMultiplier"
                             }
                         }
                     },
@@ -6860,22 +6594,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Hell Fire Trap",
-                            "min": [
-                                460
-                            ],
-                            "max": [
-                                460
-                            ],
-                            "value": [
-                                460
-                            ],
+                            "min": 460,
+                            "max": 460,
+                            "value": 460,
                             "map": {
-                                "460": [
-                                    "Hell Fire Trap"
-                                ]
+                                "460": "Hell Fire Trap"
                             }
                         }
                     }
@@ -6898,7 +6624,6 @@ exports.default = [
             }
         },
         "skills": [
-            460,
             460
         ],
         "materials": [],
@@ -6908,7 +6633,7 @@ exports.default = [
         "id": 20,
         "name": "Flow",
         "icon": "https://rune.game/images/items/00020.png",
-        "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657593202&userId=usrf0GZYc5zCl9Cv7&cs=2067e17c18150989",
+        "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657605377&userId=usrf0GZYc5zCl9Cv7&cs=5b1bbbcc39c30593",
         "value": "0",
         "type": 8,
         "subType": 16,
@@ -6978,7 +6703,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-10",
                             "min": 1,
@@ -6994,7 +6719,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "1-10",
                             "min": 1,
@@ -7012,7 +6737,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "4-4",
+                            "spec": "4",
                             "min": 4,
                             "max": 4,
                             "value": 4
@@ -7043,7 +6768,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -7241,19 +6966,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "MovementSpeed",
-                            "min": [
-                                3
-                            ],
-                            "max": [
-                                3
-                            ],
-                            "value": [
-                                3
-                            ],
+                            "min": 3,
+                            "max": 3,
+                            "value": 3,
                             "map": {
-                                "3": [
-                                    "MovementSpeed"
-                                ]
+                                "3": "MovementSpeed"
                             }
                         }
                     },
@@ -7266,23 +6983,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Burst of Speed",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -7321,7 +7025,7 @@ exports.default = [
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Skill",
-                        "description": "{parameter1} additional charges for {parameter 2} skill(s)",
+                        "description": "{parameter1} Additional Charges For {parameter2} Skill(s)",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -7352,19 +7056,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitMultiplier",
-                            "min": [
-                                5
-                            ],
-                            "max": [
-                                5
-                            ],
-                            "value": [
-                                5
-                            ],
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
                             "map": {
-                                "5": [
-                                    "CriticalHitMultiplier"
-                                ]
+                                "5": "CriticalHitMultiplier"
                             }
                         }
                     }
@@ -7395,7 +7091,7 @@ exports.default = [
         "id": 21,
         "name": "Guiding Light",
         "icon": "https://rune.game/images/items/00021.png",
-        "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657593205&userId=usrf0GZYc5zCl9Cv7&cs=638286f9312d9a49",
+        "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657605380&userId=usrf0GZYc5zCl9Cv7&cs=5e0fccab85978783",
         "value": "0",
         "type": 2,
         "subType": 19,
@@ -7517,7 +7213,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "0-50",
                             "min": 0,
@@ -7533,7 +7229,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Debuff",
-                        "description": "{parameter1} Chance To Burn Harvest",
+                        "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
                             "spec": "1-2",
                             "min": 1,
@@ -7583,8 +7279,14 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "Harvest Fee Token: {parameter1}",
                         "param1": {
-                            "spec": "9-11",
-                            "map": {}
+                            "spec": "THUL-SOL",
+                            "min": 9,
+                            "max": 11,
+                            "map": {
+                                "9": "THUL",
+                                "10": "AMN",
+                                "11": "SOL"
+                            }
                         }
                     }
                 ],
@@ -7917,19 +7619,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -7990,22 +7684,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Moonlight Wave",
-                            "min": [
-                                419
-                            ],
-                            "max": [
-                                419
-                            ],
-                            "value": [
-                                419
-                            ],
+                            "min": 419,
+                            "max": 419,
+                            "value": 419,
                             "map": {
-                                "419": [
-                                    "Moonlight Wave"
-                                ]
+                                "419": "Moonlight Wave"
                             }
                         }
                     },
@@ -8080,9 +7766,6 @@ exports.default = [
         "skills": [
             419,
             462,
-            481,
-            419,
-            462,
             481
         ],
         "materials": [],
@@ -8092,7 +7775,7 @@ exports.default = [
         "id": 22,
         "name": "Lionheart",
         "icon": "https://rune.game/images/items/00022.png",
-        "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657593210&userId=usrf0GZYc5zCl9Cv7&cs=4906f0ceee0e53a7",
+        "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657605385&userId=usrf0GZYc5zCl9Cv7&cs=0311d3f16c4f958d",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -8182,9 +7865,9 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -8215,7 +7898,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} yield bonus, sent to guild treasury.",
+                        "description": "{parameter1} Yield Bonus, Sent To Guild Treasury",
                         "param1": {
                             "spec": "1-5",
                             "min": 1,
@@ -8249,13 +7932,13 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "Harvest Fee Token: {parameter1}",
                         "param1": {
-                            "spec": "SHAEL-HEL",
-                            "min": 12,
-                            "max": 14,
+                            "spec": "THUL-SOL",
+                            "min": 9,
+                            "max": 11,
                             "map": {
-                                "12": "SHAEL",
-                                "13": "DOL",
-                                "14": "HEL"
+                                "9": "THUL",
+                                "10": "AMN",
+                                "11": "SOL"
                             }
                         }
                     },
@@ -8268,7 +7951,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
                             "min": null,
@@ -8410,7 +8093,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "j.Paladin-j.Paladin",
                             "min": null,
@@ -8503,20 +8186,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "StaggerChance",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -8539,19 +8209,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "Health",
-                            "min": [
-                                7
-                            ],
-                            "max": [
-                                7
-                            ],
-                            "value": [
-                                7
-                            ],
+                            "min": 7,
+                            "max": 7,
+                            "value": 7,
                             "map": {
-                                "7": [
-                                    "Health"
-                                ]
+                                "7": "Health"
                             }
                         }
                     },
@@ -8567,7 +8229,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "General",
-                        "description": "{parameter1} to {parameter2} for {param3}",
+                        "description": "{parameter1} To {parameter2} For {param3}",
                         "param1": {
                             "spec": "11-15",
                             "min": 11,
@@ -8575,20 +8237,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "Duration",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -8601,28 +8250,7 @@ exports.default = [
                         "paramType2": "percent",
                         "param1": {
                             "spec": "Health, Energy, CriticalHitChance",
-                            "min": [
-                                7,
-                                null,
-                                2
-                            ],
-                            "max": [
-                                7,
-                                null,
-                                2
-                            ],
-                            "value": [
-                                7,
-                                null,
-                                2
-                            ],
-                            "map": {
-                                "7,,2": [
-                                    "Health",
-                                    null,
-                                    "CriticalHitChance"
-                                ]
-                            }
+                            "map": {}
                         },
                         "param2": {
                             "spec": "8, 10, 7",
@@ -8640,22 +8268,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Leap",
-                            "min": [
-                                472
-                            ],
-                            "max": [
-                                472
-                            ],
-                            "value": [
-                                472
-                            ],
+                            "min": 472,
+                            "max": 472,
+                            "value": 472,
                             "map": {
-                                "472": [
-                                    "Leap"
-                                ]
+                                "472": "Leap"
                             }
                         }
                     },
@@ -8667,7 +8287,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
                         "paramType1": "class",
                         "nature": "Requirement",
-                        "description": "{parameter1} required",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
                             "min": null,
@@ -8696,7 +8316,6 @@ exports.default = [
             }
         },
         "skills": [
-            472,
             472
         ],
         "materials": [],
@@ -8706,7 +8325,7 @@ exports.default = [
         "id": 23,
         "name": "Pressure",
         "icon": "https://rune.game/images/items/00023.png",
-        "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657593212&userId=usrf0GZYc5zCl9Cv7&cs=1e3a9239be70cbd3",
+        "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657605387&userId=usrf0GZYc5zCl9Cv7&cs=b209fdb921323d68",
         "value": "0",
         "type": 9,
         "subType": 15,
@@ -8732,7 +8351,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 660,
+        "numPerfectionRolls": 3300,
         "attributes": [],
         "details": {
             "Type": "Glove",
@@ -8776,7 +8395,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-5",
                             "min": 1,
@@ -8808,11 +8427,11 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "0-10",
-                            "min": 0,
-                            "max": 10
+                            "spec": "1-5",
+                            "min": 1,
+                            "max": 5
                         }
                     },
                     {
@@ -8826,10 +8445,9 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "5-5",
-                            "min": 5,
-                            "max": 5,
-                            "value": 5
+                            "spec": "0-10",
+                            "min": 0,
+                            "max": 10
                         }
                     },
                     {
@@ -8852,8 +8470,8 @@ exports.default = [
                 "perfection": [
                     5,
                     5,
+                    5,
                     10,
-                    null,
                     1
                 ]
             },
@@ -8968,7 +8586,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Air Blast",
                             "min": 215,
@@ -9040,19 +8658,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitMultiplier",
-                            "min": [
-                                5
-                            ],
-                            "max": [
-                                5
-                            ],
-                            "value": [
-                                5
-                            ],
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
                             "map": {
-                                "5": [
-                                    "CriticalHitMultiplier"
-                                ]
+                                "5": "CriticalHitMultiplier"
                             }
                         }
                     },
@@ -9076,19 +8686,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -9117,7 +8719,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Blade Barrier",
                             "min": 495,
@@ -9147,11 +8749,9 @@ exports.default = [
             }
         },
         "skills": [
-            495,
             495
         ],
         "materials": [
-            18,
             18
         ],
         "category": "accessory"
@@ -9160,7 +8760,7 @@ exports.default = [
         "id": 24,
         "name": "Zeal",
         "icon": "https://rune.game/images/items/00024.png",
-        "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657593215&userId=usrf0GZYc5zCl9Cv7&cs=505224f94208d9ed",
+        "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657605389&userId=usrf0GZYc5zCl9Cv7&cs=32b5861dcdc03c82",
         "value": "0",
         "type": 24,
         "subType": 25,
@@ -9227,7 +8827,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-10",
                             "min": 1,
@@ -9275,7 +8875,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} increase to {weapon} yield bonus, given as a random rune",
+                        "description": "{parameter1} Increase To Yield Bonus, Given As A Random Rune",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -9290,7 +8890,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/specificweapontype",
                         "paramType1": "itemtype",
                         "nature": "Mechanic",
-                        "description": "Bonus Weapon: {parameter1}",
+                        "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "One-handed Sword",
                             "min": null,
@@ -9460,17 +9060,7 @@ exports.default = [
                         "paramType2": "percent",
                         "param1": {
                             "spec": "0-3",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         },
                         "param2": {
                             "spec": "CastSpeed, AttackSpeed, Health, Energy",
@@ -9498,19 +9088,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitMultiplier",
-                            "min": [
-                                5
-                            ],
-                            "max": [
-                                5
-                            ],
-                            "value": [
-                                5
-                            ],
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
                             "map": {
-                                "5": [
-                                    "CriticalHitMultiplier"
-                                ]
+                                "5": "CriticalHitMultiplier"
                             }
                         }
                     },
@@ -9534,20 +9116,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "StaggerChance",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -9559,22 +9128,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Deflect Sorcery",
-                            "min": [
-                                529
-                            ],
-                            "max": [
-                                529
-                            ],
-                            "value": [
-                                529
-                            ],
+                            "min": 529,
+                            "max": 529,
+                            "value": 529,
                             "map": {
-                                "529": [
-                                    "Deflect Sorcery"
-                                ]
+                                "529": "Deflect Sorcery"
                             }
                         }
                     },
@@ -9621,7 +9182,7 @@ exports.default = [
         "id": 25,
         "name": "Balance",
         "icon": "https://rune.game/images/items/00025.png",
-        "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657593217&userId=usrf0GZYc5zCl9Cv7&cs=7857dfd5576c40f8",
+        "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657605391&userId=usrf0GZYc5zCl9Cv7&cs=226358c862644bf4",
         "value": "0",
         "type": 10,
         "subType": 26,
@@ -9690,7 +9251,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -9930,19 +9491,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "Health",
-                            "min": [
-                                7
-                            ],
-                            "max": [
-                                7
-                            ],
-                            "value": [
-                                7
-                            ],
+                            "min": 7,
+                            "max": 7,
+                            "value": 7,
                             "map": {
-                                "7": [
-                                    "Health"
-                                ]
+                                "7": "Health"
                             }
                         }
                     },
@@ -9966,19 +9519,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitChance",
-                            "min": [
-                                2
-                            ],
-                            "max": [
-                                2
-                            ],
-                            "value": [
-                                2
-                            ],
+                            "min": 2,
+                            "max": 2,
+                            "value": 2,
                             "map": {
-                                "2": [
-                                    "CriticalHitChance"
-                                ]
+                                "2": "CriticalHitChance"
                             }
                         }
                     },
@@ -10026,23 +9571,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Flame Dash",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -10065,11 +9597,9 @@ exports.default = [
             }
         },
         "skills": [
-            450,
             450
         ],
         "materials": [
-            8,
             8
         ],
         "category": "accessory"
@@ -10078,7 +9608,7 @@ exports.default = [
         "id": 26,
         "name": "Eternity",
         "icon": "https://rune.game/images/items/00026.png",
-        "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657593220&userId=usrf0GZYc5zCl9Cv7&cs=411345bd575e3b07",
+        "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657605395&userId=usrf0GZYc5zCl9Cv7&cs=109207c82fe9f507",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -10187,7 +9717,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -10236,7 +9766,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "Early Rune Access: {parameter1} Minutes",
                         "param1": {
-                            "spec": "20-20",
+                            "spec": "20",
                             "min": 20,
                             "max": 20,
                             "value": 20
@@ -10269,13 +9799,13 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "Harvest Fee Token: {parameter1}",
                         "param1": {
-                            "spec": "HEL-LUM",
-                            "min": 14,
-                            "max": 16,
+                            "spec": "THUL-SOL",
+                            "min": 9,
+                            "max": 11,
                             "map": {
-                                "14": "HEL",
-                                "15": "IO",
-                                "16": "LUM"
+                                "9": "THUL",
+                                "10": "AMN",
+                                "11": "SOL"
                             }
                         }
                     }
@@ -10366,7 +9896,7 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} critical hit chance",
+                        "description": "{parameter1} Critical Hit Chance",
                         "param1": {
                             "spec": "1-5",
                             "min": 1,
@@ -10427,7 +9957,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Dragonlight",
                             "min": 213,
@@ -10473,19 +10003,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CastSpeed",
-                            "min": [
-                                6
-                            ],
-                            "max": [
-                                6
-                            ],
-                            "value": [
-                                6
-                            ],
+                            "min": 6,
+                            "max": 6,
+                            "value": 6,
                             "map": {
-                                "6": [
-                                    "CastSpeed"
-                                ]
+                                "6": "CastSpeed"
                             }
                         }
                     },
@@ -10550,7 +10072,7 @@ exports.default = [
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} critical hit chance",
+                        "description": "{parameter1} Critical Hit Chance",
                         "param1": {
                             "spec": "3-5",
                             "min": 3,
@@ -10601,22 +10123,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Bone Prison",
-                            "min": [
-                                454
-                            ],
-                            "max": [
-                                454
-                            ],
-                            "value": [
-                                454
-                            ],
+                            "min": 454,
+                            "max": 454,
+                            "value": 454,
                             "map": {
-                                "454": [
-                                    "Bone Prison"
-                                ]
+                                "454": "Bone Prison"
                             }
                         }
                     }
@@ -10642,7 +10156,6 @@ exports.default = [
             }
         },
         "skills": [
-            454,
             454
         ],
         "materials": [],
@@ -10652,7 +10165,7 @@ exports.default = [
         "id": 27,
         "name": "Instinct",
         "icon": "https://rune.game/images/items/00027.png",
-        "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657593224&userId=usrf0GZYc5zCl9Cv7&cs=987a7d54badf223a",
+        "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657605398&userId=usrf0GZYc5zCl9Cv7&cs=5c5fe23f8439d48f",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -10744,7 +10257,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -10960,19 +10473,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -11062,22 +10567,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Inspiration",
-                            "min": [
-                                476
-                            ],
-                            "max": [
-                                476
-                            ],
-                            "value": [
-                                476
-                            ],
+                            "min": 476,
+                            "max": 476,
+                            "value": 476,
                             "map": {
-                                "476": [
-                                    "Inspiration"
-                                ]
+                                "476": "Inspiration"
                             }
                         }
                     }
@@ -11101,12 +10598,9 @@ exports.default = [
             }
         },
         "skills": [
-            476,
             476
         ],
         "materials": [
-            9,
-            34,
             9,
             34
         ],
@@ -11116,7 +10610,7 @@ exports.default = [
         "id": 28,
         "name": "Beacon",
         "icon": "https://rune.game/images/items/00028.png",
-        "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657593227&userId=usrf0GZYc5zCl9Cv7&cs=984753cfdd32d955",
+        "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657605400&userId=usrf0GZYc5zCl9Cv7&cs=be7f16ea119705a9",
         "value": "0",
         "type": 13,
         "subType": 17,
@@ -11201,7 +10695,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -11233,7 +10727,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "1-4",
                             "min": 1,
@@ -11395,7 +10889,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
                         "paramType1": "skill",
                         "nature": "Mechanic",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Arcane Eye",
                             "min": 214,
@@ -11475,7 +10969,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1}  critical hit multiplier",
+                        "description": "{parameter1}  Critical Hit Multiplier",
                         "param1": {
                             "spec": "3-5",
                             "min": 3,
@@ -11525,7 +11019,7 @@ exports.default = [
                         "nature": "Mechanic",
                         "description": "{parameter1} light radius",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -11540,22 +11034,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
-                            "spec": "Hellfire Trap",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
+                            "spec": "Hell Fire Trap",
+                            "min": 460,
+                            "max": 460,
+                            "value": 460,
                             "map": {
-                                "": [
-                                    null
-                                ]
+                                "460": "Hell Fire Trap"
                             }
                         }
                     }
@@ -11580,7 +11066,6 @@ exports.default = [
             }
         },
         "skills": [
-            448,
             448
         ],
         "materials": [],
@@ -11590,7 +11075,7 @@ exports.default = [
         "id": 29,
         "name": "Dragonlight",
         "icon": "https://rune.game/images/items/00029.png",
-        "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657593230&userId=usrf0GZYc5zCl9Cv7&cs=023dc9ef5979095b",
+        "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657605403&userId=usrf0GZYc5zCl9Cv7&cs=7d7233f4acc14184",
         "value": "0",
         "type": 13,
         "subType": 17,
@@ -11679,7 +11164,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "20-50",
                             "min": 20,
@@ -11711,7 +11196,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "10",
                             "min": 10,
@@ -11729,21 +11214,57 @@ exports.default = [
                 ]
             },
             "2": {
-                "attributes": [],
-                "perfection": []
+                "attributes": [
+                    {
+                        "id": 40,
+                        "name": "Rarity",
+                        "isEnabled": true,
+                        "game": "Raid",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/rarity",
+                        "paramType1": "value",
+                        "paramValue1": "0-999",
+                        "nature": "Neutral",
+                        "description": "{parameter1}",
+                        "param1": {
+                            "spec": [
+                                "3-6"
+                            ],
+                            "min": 3,
+                            "max": 3,
+                            "value": 3,
+                            "map": {
+                                "3": "Mythic"
+                            }
+                        }
+                    }
+                ],
+                "perfection": [
+                    null
+                ]
             },
             "3": {
                 "attributes": [
                     {
-                        "id": 3801,
-                        "name": "UnlockSkills",
+                        "id": 40,
+                        "name": "Rarity",
                         "isEnabled": true,
-                        "game": "Infinite",
-                        "nexusLink": "https://nexus.rune.game/item-attribute/unlockskills",
-                        "paramType1": "skills",
-                        "nature": "Mechanic",
-                        "influences": "Skill",
-                        "description": "{parameter1} unlocked"
+                        "game": "Raid",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/rarity",
+                        "paramType1": "value",
+                        "paramValue1": "0-999",
+                        "nature": "Neutral",
+                        "description": "{parameter1}",
+                        "param1": {
+                            "spec": "3-6",
+                            "min": 3,
+                            "max": 6,
+                            "map": {
+                                "3": "Mythic",
+                                "4": "Epic",
+                                "5": "Rare",
+                                "6": "Magical"
+                            }
+                        }
                     },
                     {
                         "id": 2901,
@@ -11822,7 +11343,7 @@ exports.default = [
         "id": 30,
         "name": "Haze",
         "icon": "https://rune.game/images/items/00030.png",
-        "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657593231&userId=usrf0GZYc5zCl9Cv7&cs=d7519d58a97177c6",
+        "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657605404&userId=usrf0GZYc5zCl9Cv7&cs=0d77c01e9315c9f9",
         "value": "0",
         "type": 5,
         "subType": 10,
@@ -11910,7 +11431,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
@@ -11994,8 +11515,9 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
                         "paramType1": "hours",
+                        "paramType2": "attributes",
                         "nature": "Requirement",
-                        "description": "Must equip for {hours} consecutive hours to receive benefit of {TargetAttributeToUnlock}",
+                        "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
                         "param1": {
                             "spec": "336-336",
                             "min": 336,
@@ -12014,7 +11536,7 @@ exports.default = [
                         "nature": "Neutral",
                         "description": "{parameter1} To Unlock",
                         "param1": {
-                            "spec": "m1a-m1a",
+                            "spec": "Attribute 2",
                             "min": null,
                             "max": null
                         }
@@ -12061,7 +11583,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
@@ -12153,8 +11675,9 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
                         "paramType1": "hours",
+                        "paramType2": "attributes",
                         "nature": "Requirement",
-                        "description": "Must equip for {hours} consecutive hours to receive benefit of {TargetAttributeToUnlock}",
+                        "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
                         "param1": {
                             "spec": "336-336",
                             "min": 336,
@@ -12173,7 +11696,7 @@ exports.default = [
                         "nature": "Neutral",
                         "description": "{parameter1} To Unlock",
                         "param1": {
-                            "spec": "m1a-m1a",
+                            "spec": "Attribute 1",
                             "min": null,
                             "max": null
                         }
@@ -12259,19 +11782,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitChance",
-                            "min": [
-                                2
-                            ],
-                            "max": [
-                                2
-                            ],
-                            "value": [
-                                2
-                            ],
+                            "min": 2,
+                            "max": 2,
+                            "value": 2,
                             "map": {
-                                "2": [
-                                    "CriticalHitChance"
-                                ]
+                                "2": "CriticalHitChance"
                             }
                         }
                     },
@@ -12295,19 +11810,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -12340,7 +11847,7 @@ exports.default = [
                         "paramValue2": "EL-ZOD",
                         "nature": "Buff",
                         "influences": "Reward",
-                        "description": "{parameter1} chance of receiving {parameter2} upon winning a match",
+                        "description": "{parameter1} Chance of Receiving {parameter2} Upon Winning a Match",
                         "param1": {
                             "spec": "5",
                             "min": 5,
@@ -12379,7 +11886,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            32,
             32
         ],
         "category": "accessory"
@@ -12388,7 +11894,7 @@ exports.default = [
         "id": 31,
         "name": "Hellfire",
         "icon": "https://rune.game/images/items/00031.png",
-        "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657593234&userId=usrf0GZYc5zCl9Cv7&cs=1b2494fab69e99d2",
+        "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657605407&userId=usrf0GZYc5zCl9Cv7&cs=bdebd91036b62805",
         "value": "0",
         "type": 7,
         "subType": 13,
@@ -12414,7 +11920,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 880,
+        "numPerfectionRolls": 480,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -12460,11 +11966,11 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
-                            "spec": "5-15",
+                            "spec": "5-10",
                             "min": 5,
-                            "max": 15
+                            "max": 10
                         }
                     },
                     {
@@ -12533,7 +12039,7 @@ exports.default = [
                     }
                 ],
                 "perfection": [
-                    15,
+                    10,
                     null,
                     3,
                     4,
@@ -12635,7 +12141,7 @@ exports.default = [
                         "paramType1": "hours",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Requires {hours} hours to unlock full potential.",
+                        "description": "Requires {parameter1} hours to unlock full potential.",
                         "param1": {
                             "spec": "336-336",
                             "min": 336,
@@ -12751,32 +12257,7 @@ exports.default = [
                         "paramType2": "percent",
                         "param1": {
                             "spec": "Health, Energy, MagicFind, MovementSpeed",
-                            "min": [
-                                7,
-                                null,
-                                null,
-                                3
-                            ],
-                            "max": [
-                                7,
-                                null,
-                                null,
-                                3
-                            ],
-                            "value": [
-                                7,
-                                null,
-                                null,
-                                3
-                            ],
-                            "map": {
-                                "7,,,3": [
-                                    "Health",
-                                    null,
-                                    null,
-                                    "MovementSpeed"
-                                ]
-                            }
+                            "map": {}
                         },
                         "param2": {
                             "spec": "14, 10, 10, 5",
@@ -12845,27 +12326,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Fire Nova, Infernal Cascade",
-                            "min": [
-                                516,
-                                451
-                            ],
-                            "max": [
-                                516,
-                                451
-                            ],
-                            "value": [
-                                516,
-                                451
-                            ],
-                            "map": {
-                                "516,451": [
-                                    "Fire Nova",
-                                    "Infernal Cascade"
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -12927,12 +12391,9 @@ exports.default = [
         },
         "skills": [
             451,
-            516,
-            451,
             516
         ],
         "materials": [
-            21,
             21
         ],
         "category": "accessory"
@@ -12941,7 +12402,7 @@ exports.default = [
         "id": 32,
         "name": "Luminous Flywings",
         "icon": "https://rune.game/images/items/00032.png",
-        "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657593239&userId=usrf0GZYc5zCl9Cv7&cs=6a764920e55f00f1",
+        "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657605411&userId=usrf0GZYc5zCl9Cv7&cs=13582dec7b41ded0",
         "value": "0",
         "type": 14,
         "subType": 32,
@@ -13018,7 +12479,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
@@ -13034,7 +12495,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -13183,20 +12644,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "Movement Speed",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -13293,7 +12741,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-10",
                             "min": 0,
@@ -13388,7 +12836,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/specificweapontype",
                         "paramType1": "itemtype",
                         "nature": "Mechanic",
-                        "description": "Bonus Weapon: {parameter1}",
+                        "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "Mace-Axe",
                             "min": null,
@@ -13404,7 +12852,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
                             "min": null,
@@ -13528,7 +12976,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/specificweapontype",
                         "paramType1": "itemtype",
                         "nature": "Mechanic",
-                        "description": "Bonus Weapon: {parameter1}",
+                        "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "Mace-Axe",
                             "min": null,
@@ -13544,7 +12992,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
                             "min": null,
@@ -13668,7 +13116,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/specificweapontype",
                         "paramType1": "itemtype",
                         "nature": "Mechanic",
-                        "description": "Bonus Weapon: {parameter1}",
+                        "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "Mace-Axe",
                             "min": null,
@@ -13684,7 +13132,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid-",
                             "min": null,
@@ -13714,7 +13162,6 @@ exports.default = [
             }
         },
         "skills": [
-            466,
             466
         ],
         "materials": [],
@@ -13724,7 +13171,7 @@ exports.default = [
         "id": 34,
         "name": "Blur",
         "icon": "https://rune.game/images/items/00034.png",
-        "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657593243&userId=usrf0GZYc5zCl9Cv7&cs=e99276c3afeccfdc",
+        "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657605414&userId=usrf0GZYc5zCl9Cv7&cs=be461ff18814269f",
         "value": "0",
         "type": 7,
         "subType": 13,
@@ -13750,7 +13197,7 @@ exports.default = [
         "isRuneword": true,
         "createdDate": 0,
         "hotness": 0,
-        "numPerfectionRolls": 8712,
+        "numPerfectionRolls": 1452,
         "attributes": [],
         "details": {
             "Type": "Body Armor",
@@ -13792,7 +13239,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-10",
                             "min": 0,
@@ -13808,7 +13255,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -13858,9 +13305,10 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "5-10",
+                            "spec": "5",
                             "min": 5,
-                            "max": 10
+                            "max": 5,
+                            "value": 5
                         }
                     },
                     {
@@ -13872,22 +13320,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Evasion",
-                            "min": [
-                                512
-                            ],
-                            "max": [
-                                512
-                            ],
-                            "value": [
-                                512
-                            ],
+                            "min": 512,
+                            "max": 512,
+                            "value": 512,
                             "map": {
-                                "512": [
-                                    "Evasion"
-                                ]
+                                "512": "Evasion"
                             }
                         }
                     }
@@ -13897,7 +13337,7 @@ exports.default = [
                     1,
                     5,
                     10,
-                    10,
+                    null,
                     null
                 ]
             },
@@ -13931,7 +13371,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -13994,8 +13434,9 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
                         "paramType1": "hours",
+                        "paramType2": "attributes",
                         "nature": "Requirement",
-                        "description": "Must equip for {hours} consecutive hours to receive benefit of {TargetAttributeToUnlock}",
+                        "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
                         "param1": {
                             "spec": "168-168",
                             "min": 168,
@@ -14014,7 +13455,7 @@ exports.default = [
                         "nature": "Neutral",
                         "description": "{parameter1} To Unlock",
                         "param1": {
-                            "spec": "m3a-m3a",
+                            "spec": "Attribute 3",
                             "min": null,
                             "max": null
                         }
@@ -14096,19 +13537,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -14132,19 +13565,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitChance",
-                            "min": [
-                                2
-                            ],
-                            "max": [
-                                2
-                            ],
-                            "value": [
-                                2
-                            ],
+                            "min": 2,
+                            "max": 2,
+                            "value": 2,
                             "map": {
-                                "2": [
-                                    "CriticalHitChance"
-                                ]
+                                "2": "CriticalHitChance"
                             }
                         }
                     },
@@ -14174,22 +13599,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Arcane Orbs",
-                            "min": [
-                                499
-                            ],
-                            "max": [
-                                499
-                            ],
-                            "value": [
-                                499
-                            ],
+                            "min": 499,
+                            "max": 499,
+                            "value": 499,
                             "map": {
-                                "499": [
-                                    "Arcane Orbs"
-                                ]
+                                "499": "Arcane Orbs"
                             }
                         }
                     }
@@ -14213,7 +13630,6 @@ exports.default = [
             }
         },
         "skills": [
-            499,
             499
         ],
         "materials": [],
@@ -14223,7 +13639,7 @@ exports.default = [
         "id": 35,
         "name": "Mercy",
         "icon": "https://rune.game/images/items/00035.png",
-        "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657593245&userId=usrf0GZYc5zCl9Cv7&cs=756db2ae0e878228",
+        "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657605416&userId=usrf0GZYc5zCl9Cv7&cs=d4168461d85ec949",
         "value": "0",
         "type": 1,
         "subType": 5,
@@ -14327,7 +13743,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -14396,7 +13812,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Shadow Strike",
                             "min": 526,
@@ -14416,7 +13832,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Assassin",
                             "min": null,
@@ -14482,7 +13898,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Avoid All Burns",
+                        "description": "{parameter1} Avoid All Burns (Not Implemented)",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
@@ -14563,7 +13979,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Assassin",
                             "min": null,
@@ -14625,7 +14041,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} increase to {parameter2} damage over time",
+                        "description": "{parameter1} Increase To {parameter2} Damage Over Time",
                         "param1": {
                             "spec": "10-15",
                             "min": 10,
@@ -14694,7 +14110,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "General",
-                        "description": "{parameter1} to {parameter2} for {param3}",
+                        "description": "{parameter1} To {parameter2} For {param3}",
                         "param1": {
                             "spec": "10-15",
                             "min": 10,
@@ -14713,7 +14129,7 @@ exports.default = [
                         "paramValue2": "EL-ZOD",
                         "nature": "Buff",
                         "influences": "Reward",
-                        "description": "{parameter1} chance of receiving {parameter2} upon winning a match",
+                        "description": "{parameter1} Chance of Receiving {parameter2} Upon Winning a Match",
                         "param1": {
                             "spec": "5",
                             "min": 5,
@@ -14740,22 +14156,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Poison Nova",
-                            "min": [
-                                501
-                            ],
-                            "max": [
-                                501
-                            ],
-                            "value": [
-                                501
-                            ],
+                            "min": 501,
+                            "max": 501,
+                            "value": 501,
                             "map": {
-                                "501": [
-                                    "Poison Nova"
-                                ]
+                                "501": "Poison Nova"
                             }
                         }
                     }
@@ -14780,7 +14188,6 @@ exports.default = [
             }
         },
         "skills": [
-            526,
             526
         ],
         "materials": [],
@@ -15005,7 +14412,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/specificweapontype",
                         "paramType1": "itemtype",
                         "nature": "Mechanic",
-                        "description": "Bonus Weapon: {parameter1}",
+                        "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "Dagger",
                             "min": null,
@@ -15103,7 +14510,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
                             "min": null,
@@ -15161,7 +14568,7 @@ exports.default = [
                         "nexusLink": "https://nexus.rune.game/item-attribute/specificweapontype",
                         "paramType1": "itemtype",
                         "nature": "Mechanic",
-                        "description": "Bonus Weapon: {parameter1}",
+                        "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "Dagger",
                             "min": null,
@@ -15237,7 +14644,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
                             "min": null,
@@ -15273,7 +14680,7 @@ exports.default = [
         "id": 37,
         "name": "Burial",
         "icon": "https://rune.game/images/items/00037.png",
-        "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657593247&userId=usrf0GZYc5zCl9Cv7&cs=6cf8a84e9567cd1c",
+        "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657605418&userId=usrf0GZYc5zCl9Cv7&cs=2066e5710988670a",
         "value": "0",
         "type": 2,
         "subType": 21,
@@ -15447,7 +14854,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Soul Reaver",
                             "min": 19,
@@ -15467,7 +14874,7 @@ exports.default = [
                         "paramType1": "classId",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Class Only ({parameter1})",
+                        "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
                             "min": null,
@@ -15556,19 +14963,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "Health",
-                            "min": [
-                                7
-                            ],
-                            "max": [
-                                7
-                            ],
-                            "value": [
-                                7
-                            ],
+                            "min": 7,
+                            "max": 7,
+                            "value": 7,
                             "map": {
-                                "7": [
-                                    "Health"
-                                ]
+                                "7": "Health"
                             }
                         }
                     },
@@ -15592,19 +14991,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -15633,27 +15024,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Haunting Spirit, Summon Gargoyle",
-                            "min": [
-                                493,
-                                535
-                            ],
-                            "max": [
-                                493,
-                                535
-                            ],
-                            "value": [
-                                493,
-                                535
-                            ],
-                            "map": {
-                                "493,535": [
-                                    "Haunting Spirit",
-                                    "Summon Gargoyle"
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -15694,12 +15068,9 @@ exports.default = [
         },
         "skills": [
             535,
-            493,
-            535,
             493
         ],
         "materials": [
-            37,
             37
         ],
         "category": "accessory"
@@ -15894,7 +15265,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "10-10",
                             "min": 10,
@@ -15945,7 +15316,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)"
+                        "description": "Unlocked: {parameter1} (Not Implemented)"
                     }
                 ],
                 "perfection": [
@@ -15987,7 +15358,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "10-10",
                             "min": 10,
@@ -16120,9 +15491,9 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -16171,7 +15542,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Jester's Folly",
                             "min": 22,
@@ -16206,7 +15577,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Jester's Folly",
                             "min": 22,
@@ -16400,7 +15771,7 @@ exports.default = [
                         "nature": "Neutral",
                         "description": "{parameter1} To Unlock",
                         "param1": {
-                            "spec": "m2a",
+                            "spec": "Attribute 2",
                             "min": null,
                             "max": null
                         }
@@ -16436,7 +15807,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            38,
             38
         ],
         "category": "accessory"
@@ -16558,7 +15928,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Debuff",
-                        "description": "{parameter1} Chance To Burn Harvest",
+                        "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
@@ -16574,7 +15944,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
@@ -16588,8 +15958,9 @@ exports.default = [
                         "game": "Raid",
                         "nexusLink": "https://nexus.rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
                         "paramType1": "hours",
+                        "paramType2": "attributes",
                         "nature": "Requirement",
-                        "description": "Must equip for {hours} consecutive hours to receive benefit of {TargetAttributeToUnlock}",
+                        "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
                         "param1": {
                             "spec": "168-168",
                             "min": 168,
@@ -16608,7 +15979,7 @@ exports.default = [
                         "nature": "Neutral",
                         "description": "{parameter1} To Unlock",
                         "param1": {
-                            "spec": "m2a",
+                            "spec": "Attribute 2",
                             "min": null,
                             "max": null
                         }
@@ -16690,7 +16061,7 @@ exports.default = [
         "id": 43,
         "name": "Thunderchild",
         "icon": "https://rune.game/images/items/00043.png",
-        "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657593256&userId=usrf0GZYc5zCl9Cv7&cs=6f2ce295077b1535",
+        "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657605428&userId=usrf0GZYc5zCl9Cv7&cs=251d8a88366de99f",
         "value": "0",
         "type": 2,
         "subType": 38,
@@ -16806,7 +16177,7 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Burn",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -16858,7 +16229,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Skill 1",
                             "min": 26,
@@ -16980,19 +16351,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -17037,27 +16400,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Storm Call, Leap",
-                            "min": [
-                                463,
-                                472
-                            ],
-                            "max": [
-                                463,
-                                472
-                            ],
-                            "value": [
-                                463,
-                                472
-                            ],
-                            "map": {
-                                "463,472": [
-                                    "Storm Call",
-                                    "Leap"
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -17084,10 +16430,6 @@ exports.default = [
             463,
             482,
             483,
-            491,
-            463,
-            482,
-            483,
             491
         ],
         "materials": [],
@@ -17097,7 +16439,7 @@ exports.default = [
         "id": 44,
         "name": "Hellreaver",
         "icon": "https://rune.game/images/items/00044.png",
-        "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657593260&userId=usrf0GZYc5zCl9Cv7&cs=39a6fc4923358fb0",
+        "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657605432&userId=usrf0GZYc5zCl9Cv7&cs=32e9941101ab17e6",
         "value": "0",
         "type": 2,
         "subType": 39,
@@ -17108,7 +16450,7 @@ exports.default = [
         "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": false,
+        "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -17272,7 +16614,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Skill 2",
                             "min": 27,
@@ -17356,7 +16698,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} increase to {parameter2} damage over time",
+                        "description": "{parameter1} Increase To {parameter2} Damage Over Time",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -17392,19 +16734,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -17429,20 +16763,7 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "Knockback",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -17457,7 +16778,7 @@ exports.default = [
                         "paramValue2": "EL-ZOD",
                         "nature": "Buff",
                         "influences": "Reward",
-                        "description": "{parameter1} chance of receiving {parameter2} upon winning a match",
+                        "description": "{parameter1} Chance of Receiving {parameter2} Upon Winning a Match",
                         "param1": {
                             "spec": "5-5",
                             "min": 5,
@@ -17504,27 +16825,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Grappling Hook, Ice Wall",
-                            "min": [
-                                517,
-                                null
-                            ],
-                            "max": [
-                                517,
-                                null
-                            ],
-                            "value": [
-                                517,
-                                null
-                            ],
-                            "map": {
-                                "517,": [
-                                    "Grappling Hook",
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -17556,7 +16860,7 @@ exports.default = [
         "id": 45,
         "name": "Phoenix",
         "icon": "https://rune.game/images/items/00045.png",
-        "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657593261&userId=usrf0GZYc5zCl9Cv7&cs=3e2f8e0b7c1ae215",
+        "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657605434&userId=usrf0GZYc5zCl9Cv7&cs=85ed233f80944357",
         "value": "0",
         "type": 2,
         "subType": 7,
@@ -17635,7 +16939,7 @@ exports.default = [
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending4",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -17703,7 +17007,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Skill 3",
                             "min": 28,
@@ -17720,7 +17024,7 @@ exports.default = [
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending8",
                         "param1": {
-                            "spec": "1-1",
+                            "spec": "1",
                             "min": 1,
                             "max": 1,
                             "value": 1
@@ -17784,7 +17088,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} increase to {parameter2} damage over time",
+                        "description": "{parameter1} Increase To {parameter2} Damage Over Time",
                         "param1": {
                             "spec": "10",
                             "min": 10,
@@ -17830,7 +17134,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} longer {parameter2} damage over time effects",
+                        "description": "{parameter1} Longer {parameter2} Damage Over Time Effects",
                         "param1": {
                             "spec": "5-10",
                             "min": 5,
@@ -17855,27 +17159,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Fireball, Meteor",
-                            "min": [
-                                null,
-                                445
-                            ],
-                            "max": [
-                                null,
-                                445
-                            ],
-                            "value": [
-                                null,
-                                445
-                            ],
-                            "map": {
-                                ",445": [
-                                    null,
-                                    "Meteor"
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -17904,7 +17191,7 @@ exports.default = [
         "id": 46,
         "name": "Ignition",
         "icon": "https://rune.game/images/items/00046.png",
-        "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657593262&userId=usrf0GZYc5zCl9Cv7&cs=2510832864d663e3",
+        "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657605435&userId=usrf0GZYc5zCl9Cv7&cs=741d6786ad4b21ed",
         "value": "0",
         "type": 11,
         "subType": 12,
@@ -17967,7 +17254,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-10",
                             "min": 0,
@@ -18092,19 +17379,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "MovementSpeed",
-                            "min": [
-                                3
-                            ],
-                            "max": [
-                                3
-                            ],
-                            "value": [
-                                3
-                            ],
+                            "min": 3,
+                            "max": 3,
+                            "value": 3,
                             "map": {
-                                "3": [
-                                    "MovementSpeed"
-                                ]
+                                "3": "MovementSpeed"
                             }
                         }
                     },
@@ -18117,22 +17396,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Flaming Dash",
-                            "min": [
-                                450
-                            ],
-                            "max": [
-                                450
-                            ],
-                            "value": [
-                                450
-                            ],
+                            "min": 450,
+                            "max": 450,
+                            "value": 450,
                             "map": {
-                                "450": [
-                                    "Flaming Dash"
-                                ]
+                                "450": "Flaming Dash"
                             }
                         }
                     },
@@ -18207,7 +17478,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            20,
             20
         ],
         "category": "accessory"
@@ -18265,7 +17535,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "5-10",
                             "min": 5,
@@ -18329,7 +17599,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Debuff",
-                        "description": "{parameter1} Chance To Burn Harvest",
+                        "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -18400,27 +17670,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Fire Wall, Enkindle",
-                            "min": [
-                                448,
-                                427
-                            ],
-                            "max": [
-                                448,
-                                427
-                            ],
-                            "value": [
-                                448,
-                                427
-                            ],
-                            "map": {
-                                "448,427": [
-                                    "Fire Wall",
-                                    "Enkindle"
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -18488,7 +17741,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            20,
             20
         ],
         "category": "accessory"
@@ -18564,7 +17816,7 @@ exports.default = [
         "id": 49,
         "name": "Purity",
         "icon": "https://rune.game/images/items/00049.png",
-        "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657593266&userId=usrf0GZYc5zCl9Cv7&cs=cea2e6a99d402164",
+        "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657605438&userId=usrf0GZYc5zCl9Cv7&cs=cf9a58edec49dbf0",
         "value": "0",
         "type": 2,
         "subType": 4,
@@ -18643,7 +17895,7 @@ exports.default = [
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending7",
                         "param1": {
-                            "spec": "10-10",
+                            "spec": "10",
                             "min": 10,
                             "max": 10,
                             "value": 10
@@ -18676,7 +17928,7 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Harvest Fee",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -18712,7 +17964,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Skill 4",
                             "min": 29,
@@ -18729,7 +17981,7 @@ exports.default = [
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending8",
                         "param1": {
-                            "spec": "1-1",
+                            "spec": "1",
                             "min": 1,
                             "max": 1,
                             "value": 1
@@ -18834,23 +18086,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Heavenly Thrust",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -18872,7 +18111,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            23,
             23
         ],
         "category": "accessory"
@@ -19117,7 +18355,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "5-15",
                             "min": 5,
@@ -19133,7 +18371,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -19360,7 +18598,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-3",
                             "min": 0,
@@ -19392,7 +18630,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} yield bonus, sent to guild treasury.",
+                        "description": "{parameter1} Yield Bonus, Sent To Guild Treasury",
                         "param1": {
                             "spec": "0-3",
                             "min": 0,
@@ -19440,7 +18678,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Inspiring Presence",
                             "min": 23,
@@ -19462,7 +18700,7 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Critical Harvest Bonus (Not Implemented)",
                         "param1": {
-                            "spec": "5-5",
+                            "spec": "5",
                             "min": 5,
                             "max": 5,
                             "value": 5
@@ -19663,7 +18901,6 @@ exports.default = [
         },
         "skills": [],
         "materials": [
-            23,
             23
         ],
         "category": "accessory"
@@ -19672,7 +18909,7 @@ exports.default = [
         "id": 55,
         "name": "Reave",
         "icon": "https://rune.game/images/items/00055.png",
-        "image": "https://dl.airtable.com/.attachments/81fe6356a27477cf4c357c4638e197aa/1f3e076d/Reave.jpeg?ts=1657593274&userId=usrf0GZYc5zCl9Cv7&cs=31c0d3b10f2861de",
+        "image": "https://dl.airtable.com/.attachments/81fe6356a27477cf4c357c4638e197aa/1f3e076d/Reave.jpeg?ts=1657605446&userId=usrf0GZYc5zCl9Cv7&cs=cdeae287148af955",
         "value": "0",
         "type": 11,
         "subType": 12,
@@ -19740,7 +18977,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -19944,19 +19181,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "MovementSpeed",
-                            "min": [
-                                3
-                            ],
-                            "max": [
-                                3
-                            ],
-                            "value": [
-                                3
-                            ],
+                            "min": 3,
+                            "max": 3,
+                            "value": 3,
                             "map": {
-                                "3": [
-                                    "MovementSpeed"
-                                ]
+                                "3": "MovementSpeed"
                             }
                         }
                     },
@@ -19987,22 +19216,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Charge",
-                            "min": [
-                                471
-                            ],
-                            "max": [
-                                471
-                            ],
-                            "value": [
-                                471
-                            ],
+                            "min": 471,
+                            "max": 471,
+                            "value": 471,
                             "map": {
-                                "471": [
-                                    "Charge"
-                                ]
+                                "471": "Charge"
                             }
                         }
                     },
@@ -20039,13 +19260,13 @@ exports.default = [
         },
         "skills": [],
         "materials": [],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 56,
         "name": "Flare",
         "icon": "https://rune.game/images/items/00056.png",
-        "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657593275&userId=usrf0GZYc5zCl9Cv7&cs=112808511d25bb18",
+        "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657605447&userId=usrf0GZYc5zCl9Cv7&cs=68bb1e9dd36a31b1",
         "value": "0",
         "type": 8,
         "subType": 16,
@@ -20095,7 +19316,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-10",
                             "min": 0,
@@ -20143,7 +19364,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "2",
                             "min": 2,
@@ -20236,22 +19457,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Fire Wall",
-                            "min": [
-                                448
-                            ],
-                            "max": [
-                                448
-                            ],
-                            "value": [
-                                448
-                            ],
+                            "min": 448,
+                            "max": 448,
+                            "value": 448,
                             "map": {
-                                "448": [
-                                    "Fire Wall"
-                                ]
+                                "448": "Fire Wall"
                             }
                         }
                     },
@@ -20290,7 +19503,7 @@ exports.default = [
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Skill",
-                        "description": "{parameter1} additional charges for {parameter 2} skill(s)",
+                        "description": "{parameter1} Additional Charges For {parameter2} Skill(s)",
                         "param1": {
                             "spec": "1-1",
                             "min": 1,
@@ -20322,19 +19535,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -20394,7 +19599,7 @@ exports.default = [
         "id": 109,
         "name": "Voidmaw",
         "icon": "https://rune.game/images/items/00109.png",
-        "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657593275&userId=usrf0GZYc5zCl9Cv7&cs=90c7ba51dd0a8252",
+        "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657605448&userId=usrf0GZYc5zCl9Cv7&cs=11c82ca8fab38f9a",
         "value": "0",
         "type": 13,
         "subType": 17,
@@ -20583,23 +19788,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Gluttony",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -20651,7 +19843,7 @@ exports.default = [
         "id": 110,
         "name": "Hoarfrost",
         "icon": "https://rune.game/images/items/00110.png",
-        "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657593276&userId=usrf0GZYc5zCl9Cv7&cs=396a0fd80a76897c",
+        "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657605448&userId=usrf0GZYc5zCl9Cv7&cs=3187639478a8b8c9",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -20719,7 +19911,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -20735,7 +19927,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "10-20",
                             "min": 10,
@@ -20784,8 +19976,6 @@ exports.default = [
             }
         },
         "skills": [
-            452,
-            514,
             452,
             514
         ],
@@ -20854,7 +20044,7 @@ exports.default = [
         "id": 112,
         "name": "Animus",
         "icon": "https://rune.game/images/items/00112.png",
-        "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657593278&userId=usrf0GZYc5zCl9Cv7&cs=d2932bfe7bb0755b",
+        "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657605450&userId=usrf0GZYc5zCl9Cv7&cs=2314fa0abf72a2f2",
         "value": "0",
         "type": 12,
         "subType": 14,
@@ -21084,19 +20274,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -21114,22 +20296,17 @@ exports.default = [
                         "influences": "General",
                         "description": "{parameter1} {parameter2} {parameter3}",
                         "param1": {
-                            "spec": "AttackSpeed",
-                            "min": null,
-                            "max": null
+                            "spec": "1-5",
+                            "min": 1,
+                            "max": 5
                         },
                         "param2": {
-                            "spec": "1-5",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
+                            "spec": "AttackSpeed",
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "": [
-                                    null
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -21142,22 +20319,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Berserker Soul",
-                            "min": [
-                                511
-                            ],
-                            "max": [
-                                511
-                            ],
-                            "value": [
-                                511
-                            ],
+                            "min": 511,
+                            "max": 511,
+                            "value": 511,
                             "map": {
-                                "511": [
-                                    "Berserker Soul"
-                                ]
+                                "511": "Berserker Soul"
                             }
                         }
                     },
@@ -21189,7 +20358,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Debuff",
                         "influences": "Defense",
-                        "description": "{parameter1} additional damage taken ({parameter2})",
+                        "description": "{parameter1} Additional Damage Taken ({parameter2})",
                         "param1": {
                             "spec": "5-0",
                             "min": 5,
@@ -21209,7 +20378,7 @@ exports.default = [
                 "perfection": [
                     4,
                     5,
-                    null,
+                    5,
                     null,
                     5,
                     5
@@ -21225,7 +20394,6 @@ exports.default = [
             }
         },
         "skills": [
-            511,
             511
         ],
         "materials": [],
@@ -21708,7 +20876,7 @@ exports.default = [
         "id": 182,
         "name": "Exile",
         "icon": "https://rune.game/images/items/00182.png",
-        "image": "https://dl.airtable.com/.attachments/54d31e612a1f505befc44c2b308b6cab/461714fa/image.png?ts=1657593283&userId=usrf0GZYc5zCl9Cv7&cs=a369bc3b0b8586e9",
+        "image": "https://dl.airtable.com/.attachments/54d31e612a1f505befc44c2b308b6cab/461714fa/image.png?ts=1657605455&userId=usrf0GZYc5zCl9Cv7&cs=47f8757379937163",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -21720,7 +20888,7 @@ exports.default = [
         "isPolled": true,
         "isNew": true,
         "isSecret": false,
-        "isUltraSecret": true,
+        "isUltraSecret": false,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
@@ -21739,7 +20907,8 @@ exports.default = [
         "attributes": [],
         "details": {
             "Type": "One-Handed Weapon",
-            "Subtype": "Thirsting Edge"
+            "Subtype": "Thirsting Edge",
+            "Rune Word": "Mal Um Zod Ist El"
         },
         "recipe": {
             "requirement": [
@@ -21866,7 +21035,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Debuff",
-                        "description": "{parameter1} Chance To Burn Harvest",
+                        "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -21882,7 +21051,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Sating Rend",
                             "min": 36,
@@ -21974,7 +21143,7 @@ exports.default = [
                         "paramType3": "stat",
                         "paramValue1": "0-100",
                         "paramValue2": "0-200",
-                        "description": "{parameter1} chance for {parameter2 {parameter3} on hit",
+                        "description": "{parameter1} Chance For {parameter2} {parameter3} On Hit",
                         "param1": {
                             "spec": "50%",
                             "min": 50,
@@ -21982,9 +21151,19 @@ exports.default = [
                             "value": 50
                         },
                         "param2": {
+                            "spec": "4",
+                            "min": 4,
+                            "max": 4,
+                            "value": 4
+                        },
+                        "param3": {
                             "spec": "Health",
-                            "min": null,
-                            "max": null
+                            "min": 7,
+                            "max": 7,
+                            "value": 7,
+                            "map": {
+                                "7": "Health"
+                            }
                         }
                     },
                     {
@@ -21996,22 +21175,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Bloodlet",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
+                            "min": 479,
+                            "max": 479,
+                            "value": 479,
                             "map": {
-                                "": [
-                                    null
-                                ]
+                                "479": "Bloodlet"
                             }
                         }
                     }
@@ -22033,17 +21204,16 @@ exports.default = [
             }
         },
         "skills": [
-            null,
             null
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 209,
         "name": "Icebrand",
         "icon": "https://rune.game/images/items/00209.png",
-        "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657593284&userId=usrf0GZYc5zCl9Cv7&cs=6c8f719e112056d9",
+        "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657605456&userId=usrf0GZYc5zCl9Cv7&cs=c646fe9770dd0678",
         "value": "0",
         "type": 1,
         "subType": 1,
@@ -22142,7 +21312,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "15",
                             "min": 15,
@@ -22209,7 +21379,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Skill 7",
                             "min": 32,
@@ -22314,22 +21484,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
-                            "spec": "Ice Strike",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
+                            "spec": "Icestrike",
+                            "min": 489,
+                            "max": 489,
+                            "value": 489,
                             "map": {
-                                "": [
-                                    null
-                                ]
+                                "489": "Icestrike"
                             }
                         }
                     },
@@ -22343,7 +21505,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1}  critical hit chance",
+                        "description": "{parameter1}  Critical Hit Chance",
                         "param1": {
                             "spec": "5-5",
                             "min": 5,
@@ -22370,11 +21532,9 @@ exports.default = [
             }
         },
         "skills": [
-            489,
             489
         ],
         "materials": [
-            24,
             24
         ],
         "category": "accessory"
@@ -22499,7 +21659,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-5",
                             "min": 1,
@@ -22634,19 +21794,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitChance",
-                            "min": [
-                                2
-                            ],
-                            "max": [
-                                2
-                            ],
-                            "value": [
-                                2
-                            ],
+                            "min": 2,
+                            "max": 2,
+                            "value": 2,
                             "map": {
-                                "2": [
-                                    "CriticalHitChance"
-                                ]
+                                "2": "CriticalHitChance"
                             }
                         }
                     },
@@ -22670,19 +21822,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "AttackSpeed",
-                            "min": [
-                                4
-                            ],
-                            "max": [
-                                4
-                            ],
-                            "value": [
-                                4
-                            ],
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
                             "map": {
-                                "4": [
-                                    "AttackSpeed"
-                                ]
+                                "4": "AttackSpeed"
                             }
                         }
                     },
@@ -22711,23 +21855,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Gravity Tag",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     }
                 ],
@@ -22756,7 +21887,7 @@ exports.default = [
         "id": 241,
         "name": "Pulsar",
         "icon": "https://rune.game/images/items/00241.png",
-        "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657593287&userId=usrf0GZYc5zCl9Cv7&cs=ec454f7a9d2b61a1",
+        "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657605459&userId=usrf0GZYc5zCl9Cv7&cs=0e2341c72302910c",
         "value": "0",
         "type": 2,
         "subType": 8,
@@ -22871,7 +22002,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Holy Bolt",
                             "min": 37,
@@ -22973,19 +22104,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "CriticalHitMultiplier",
-                            "min": [
-                                5
-                            ],
-                            "max": [
-                                5
-                            ],
-                            "value": [
-                                5
-                            ],
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
                             "map": {
-                                "5": [
-                                    "CriticalHitMultiplier"
-                                ]
+                                "5": "CriticalHitMultiplier"
                             }
                         }
                     },
@@ -22998,27 +22121,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
-                            "spec": "Immolation Arrow, Power Shot",
-                            "min": [
-                                null,
-                                433
-                            ],
-                            "max": [
-                                null,
-                                433
-                            ],
-                            "value": [
-                                null,
-                                433
-                            ],
-                            "map": {
-                                ",433": [
-                                    null,
-                                    "Power Shot"
-                                ]
-                            }
+                            "spec": "Incineration Arrow, Power Shot",
+                            "map": {}
                         }
                     },
                     {
@@ -23063,7 +22169,6 @@ exports.default = [
             }
         },
         "skills": [
-            500,
             500
         ],
         "materials": [],
@@ -23244,8 +22349,6 @@ exports.default = [
             }
         },
         "skills": [
-            510,
-            492,
             510,
             492
         ],
@@ -23569,7 +22672,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Chance To Find Worldstone Shard (Per Raid)",
+                        "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
                             "spec": "20",
                             "min": 20,
@@ -23656,7 +22759,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Hidden Skill 6",
                             "min": 31,
@@ -23732,19 +22835,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -23760,7 +22855,7 @@ exports.default = [
                         "paramValue2": "0-120",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1} increase to {parameter2} damage over time",
+                        "description": "{parameter1} Increase To {parameter2} Damage Over Time",
                         "param1": {
                             "spec": "10",
                             "min": 10,
@@ -23786,27 +22881,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Poison Nova, Violent Growth",
-                            "min": [
-                                501,
-                                442
-                            ],
-                            "max": [
-                                501,
-                                442
-                            ],
-                            "value": [
-                                501,
-                                442
-                            ],
-                            "map": {
-                                "501,442": [
-                                    "Poison Nova",
-                                    "Violent Growth"
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -23907,7 +22985,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "1-10",
                             "min": 1,
@@ -23955,7 +23033,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "0-3",
                             "min": 0,
@@ -24024,19 +23102,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "MovementSpeed",
-                            "min": [
-                                3
-                            ],
-                            "max": [
-                                3
-                            ],
-                            "value": [
-                                3
-                            ],
+                            "min": 3,
+                            "max": 3,
+                            "value": 3,
                             "map": {
-                                "3": [
-                                    "MovementSpeed"
-                                ]
+                                "3": "MovementSpeed"
                             }
                         }
                     },
@@ -24049,23 +23119,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Starstride",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -24088,19 +23145,11 @@ exports.default = [
                         },
                         "param2": {
                             "spec": "EnergyRegen",
-                            "min": [
-                                1
-                            ],
-                            "max": [
-                                1
-                            ],
-                            "value": [
-                                1
-                            ],
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
                             "map": {
-                                "1": [
-                                    "EnergyRegen"
-                                ]
+                                "1": "EnergyRegen"
                             }
                         }
                     },
@@ -24202,7 +23251,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "5-10",
                             "min": 5,
@@ -24308,7 +23357,7 @@ exports.default = [
                         "paramValue1": "0-200",
                         "nature": "Buff",
                         "influences": "Offense",
-                        "description": "{parameter1}  critical hit chance",
+                        "description": "{parameter1}  Critical Hit Chance",
                         "param1": {
                             "spec": "3-5",
                             "min": 3,
@@ -24341,23 +23390,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Gravity Wave",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {
@@ -24526,7 +23562,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -24679,7 +23715,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Debuff",
-                        "description": "{parameter1} Chance To Burn Harvest",
+                        "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
                             "spec": "0-1",
                             "min": 0,
@@ -24835,7 +23871,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "10-15",
                             "min": 10,
@@ -24933,7 +23969,7 @@ exports.default = [
                         "paramType1": "skill",
                         "paramValue1": "0-999",
                         "nature": "Requirement",
-                        "description": "Use Skill: {parameter1} (SOON)",
+                        "description": "Unlocked: {parameter1} (Not Implemented)",
                         "param1": {
                             "spec": "Ancestral Bond",
                             "map": {}
@@ -25021,22 +24057,14 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Flurry",
-                            "min": [
-                                401
-                            ],
-                            "max": [
-                                401
-                            ],
-                            "value": [
-                                401
-                            ],
+                            "min": 401,
+                            "max": 401,
+                            "value": 401,
                             "map": {
-                                "401": [
-                                    "Flurry"
-                                ]
+                                "401": "Flurry"
                             }
                         }
                     }
@@ -25113,7 +24141,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-10",
                             "min": 0,
@@ -25161,7 +24189,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "2-4",
                             "min": 2,
@@ -25329,7 +24357,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "10-15",
                             "min": 10,
@@ -25376,7 +24404,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -25465,7 +24493,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -25512,7 +24540,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Mechanic",
-                        "description": "{parameter1} chance to defend harvest theft, taking the thief's runes instead",
+                        "description": "{parameter1} Theft Counter Chance",
                         "param1": {
                             "spec": "1-3",
                             "min": 1,
@@ -25889,7 +24917,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "Remove {parameter1} Fees",
+                        "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
                             "spec": "10-20",
                             "min": 10,
@@ -26270,7 +25298,7 @@ exports.default = [
         "id": 1200,
         "name": "Scholar's Codex",
         "icon": "https://rune.game/images/items/01200.png",
-        "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657593306&userId=usrf0GZYc5zCl9Cv7&cs=5303b2970e55f53a",
+        "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657605476&userId=usrf0GZYc5zCl9Cv7&cs=3b072933ad14db14",
         "value": "0",
         "specificType": 58,
         "isPolled": false,
@@ -26413,7 +25441,7 @@ exports.default = [
         "id": 1201,
         "name": "General's Medallion",
         "icon": "https://rune.game/images/items/01201.png",
-        "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657593306&userId=usrf0GZYc5zCl9Cv7&cs=958d005867423f55",
+        "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657605478&userId=usrf0GZYc5zCl9Cv7&cs=a1cd75ea1a5706f9",
         "value": "0",
         "specificType": 58,
         "isPolled": false,
@@ -26554,7 +25582,7 @@ exports.default = [
         "id": 1202,
         "name": "Crafting Competition Winner",
         "icon": "https://rune.game/images/items/01202.png",
-        "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657593307&userId=usrf0GZYc5zCl9Cv7&cs=a71aa86aa8c3c86b",
+        "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657605478&userId=usrf0GZYc5zCl9Cv7&cs=22a12fde70b78eca",
         "value": "0",
         "isPolled": false,
         "isNew": false,
@@ -26739,7 +25767,7 @@ exports.default = [
         "id": 1205,
         "name": "Founder's Cube",
         "icon": "https://rune.game/images/items/01205.png",
-        "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657593307&userId=usrf0GZYc5zCl9Cv7&cs=37c861f3c2af31ec",
+        "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657605479&userId=usrf0GZYc5zCl9Cv7&cs=08476409b09b5405",
         "value": "0",
         "isPolled": false,
         "isNew": false,
@@ -26802,7 +25830,7 @@ exports.default = [
         "id": 1207,
         "name": "Black Drake Scale",
         "icon": "https://rune.game/images/items/01207.png",
-        "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657593308&userId=usrf0GZYc5zCl9Cv7&cs=9e9e20abbd726991",
+        "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657605479&userId=usrf0GZYc5zCl9Cv7&cs=c5be3fba634c8b53",
         "value": "0",
         "specificType": 195,
         "isPolled": false,
@@ -26900,23 +25928,10 @@ exports.default = [
                         "paramType1": "skills",
                         "nature": "Mechanic",
                         "influences": "Skill",
-                        "description": "{parameter1} unlocked",
+                        "description": "Unlocked: {parameter1}",
                         "param1": {
                             "spec": "Drakeskin Blessing",
-                            "min": [
-                                null
-                            ],
-                            "max": [
-                                null
-                            ],
-                            "value": [
-                                null
-                            ],
-                            "map": {
-                                "": [
-                                    null
-                                ]
-                            }
+                            "map": {}
                         }
                     },
                     {

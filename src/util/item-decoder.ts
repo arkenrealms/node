@@ -28,8 +28,9 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
+  const cacheBreaker = 1657611113 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
-  if (!updatedAt || updatedAt < 1657563044000) {
+  if (!updatedAt || updatedAt < cacheBreaker) {
     dbCon.getCollection('items').chain().remove()
   }
 
@@ -41,13 +42,13 @@ function databaseInitialize() {
 
     db.config.insert({
       key: 'updatedAt',
-      value: 1657563044000
+      value: cacheBreaker
     })
   }
 
   db.config.find({
     key: 'updatedAt'
-  }).value = 1657563044000
+  }).value = cacheBreaker
 
   if (db.items === null) {
     // Add a collection to the database
@@ -694,6 +695,29 @@ export function normalizeItem(item: any) {
             }
           }
         }
+
+        // for (const attributeIndex in item.attributes) {
+        //   // item.branches[branchIndex].attributes[i] = item.attributes[i]
+
+        //   if (!item.branches[branchIndex].attributes[attributeIndex].param1) {
+        //     item.branches[branchIndex].attributes[attributeIndex].param1 = {}
+        //     item.branches[branchIndex].attributes[attributeIndex].param1.min = item.branches[branchIndex].attributes[attributeIndex].min
+        //     item.branches[branchIndex].attributes[attributeIndex].param1.max = item.branches[branchIndex].attributes[attributeIndex].max
+        //     item.branches[branchIndex].attributes[attributeIndex].param1.value = item.branches[branchIndex].attributes[attributeIndex].value
+        //     item.branches[branchIndex].attributes[attributeIndex].param1.map = item.branches[branchIndex].attributes[attributeIndex].map
+        //   } else {
+        //     item.branches[branchIndex].attributes[attributeIndex].param1.value = item.branches[branchIndex].attributes[attributeIndex].value
+        //     item.branches[branchIndex].attributes[attributeIndex].min = item.branches[branchIndex].attributes[attributeIndex].param1.min
+        //     item.branches[branchIndex].attributes[attributeIndex].max = item.branches[branchIndex].attributes[attributeIndex].param1.max
+        //     item.branches[branchIndex].attributes[attributeIndex].map = item.branches[branchIndex].attributes[attributeIndex].param1.map
+        //   }
+
+        //   if (branchIndex === 1) {
+        //     if (!item.attributes[attributeIndex].param1) {
+        //       item.attributes[attributeIndex].param1 = item.branches[branchIndex].attributes[attributeIndex].param1
+        //     }
+        //   }
+        // }
       }
 
       // Set preset and attribute values based on rarity

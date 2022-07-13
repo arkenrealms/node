@@ -1,6 +1,6 @@
 import contracts from './contractInfo'
 
-export const CURRENT_FARM_SYMBOL = 'IST'
+export const CURRENT_FARM_SYMBOL = 'GUL'
 
 export interface Address {
   97?: string
