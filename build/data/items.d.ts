@@ -3590,7 +3590,7 @@ export declare const itemData: {
                             "6": string;
                             "7": string;
                             "8": string;
-                            "409"?: undefined;
+                            "1"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -3610,33 +3610,11 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "409": string;
+                            "1": string;
                             "6"?: undefined;
                             "7"?: undefined;
                             "8"?: undefined;
                         };
-                    };
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    paramValue1: string;
-                    nature: string;
-                    description: string;
-                    param1: {
-                        spec: string;
-                        min: any;
-                        max: any;
-                        map: {
-                            "6"?: undefined;
-                            "7"?: undefined;
-                            "8"?: undefined;
-                            "409"?: undefined;
-                        };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -4105,7 +4083,8 @@ export declare const itemData: {
                             "8": string;
                             "9": string;
                             "10": string;
-                            "410"?: undefined;
+                            "7"?: undefined;
+                            "3"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -4125,10 +4104,11 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "410": string;
+                            "7": string;
                             "8"?: undefined;
                             "9"?: undefined;
                             "10"?: undefined;
+                            "3"?: undefined;
                         };
                     };
                 } | {
@@ -4143,15 +4123,16 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            3: string;
                             "8"?: undefined;
                             "9"?: undefined;
                             "10"?: undefined;
-                            "410"?: undefined;
+                            "7"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -4577,6 +4558,7 @@ export declare const itemData: {
                             "10": string;
                             "11": string;
                             "6"?: undefined;
+                            "4"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -4600,6 +4582,7 @@ export declare const itemData: {
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
+                            "4"?: undefined;
                         };
                     };
                 } | {
@@ -4614,15 +4597,16 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            4: string;
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
                             "6"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -5070,7 +5054,8 @@ export declare const itemData: {
                             "9": string;
                             "10": string;
                             "11": string;
-                            "429"?: undefined;
+                            "5"?: undefined;
+                            "2"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -5090,10 +5075,11 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "429": string;
+                            "5": string;
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
+                            "2"?: undefined;
                         };
                     };
                 } | {
@@ -5108,15 +5094,16 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            2: string;
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
-                            "429"?: undefined;
+                            "5"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -5564,7 +5551,8 @@ export declare const itemData: {
                             "12": string;
                             "13": string;
                             "14": string;
-                            "430"?: undefined;
+                            "8"?: undefined;
+                            "6"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -5584,11 +5572,12 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "430": string;
+                            "8": string;
                             "11"?: undefined;
                             "12"?: undefined;
                             "13"?: undefined;
                             "14"?: undefined;
+                            "6"?: undefined;
                         };
                     };
                 } | {
@@ -5603,16 +5592,17 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            6: string;
                             "11"?: undefined;
                             "12"?: undefined;
                             "13"?: undefined;
                             "14"?: undefined;
-                            "430"?: undefined;
+                            "8"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -6014,7 +6004,8 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "467": string;
+                            "3": string;
+                            "5"?: undefined;
                         };
                     };
                 } | {
@@ -6029,12 +6020,13 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
-                            "467"?: undefined;
+                            5: string;
+                            "3"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -6445,6 +6437,7 @@ export declare const itemData: {
                             "12": string;
                             "13": string;
                             "14": string;
+                            "7"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -6468,6 +6461,7 @@ export declare const itemData: {
                             "12"?: undefined;
                             "13"?: undefined;
                             "14"?: undefined;
+                            "7"?: undefined;
                         };
                     };
                 } | {
@@ -6482,15 +6476,16 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            7: string;
                             "11"?: undefined;
                             "12"?: undefined;
                             "13"?: undefined;
                             "14"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -12454,7 +12449,8 @@ export declare const itemData: {
                             "3": string;
                             "4": string;
                             "5": string;
-                            "526"?: undefined;
+                            "24"?: undefined;
+                            "6"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -12474,10 +12470,11 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            "526": string;
+                            "24": string;
                             "3"?: undefined;
                             "4"?: undefined;
                             "5"?: undefined;
+                            "6"?: undefined;
                         };
                     };
                 } | {
@@ -12492,15 +12489,16 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            6: string;
                             "3"?: undefined;
                             "4"?: undefined;
                             "5"?: undefined;
-                            "526"?: undefined;
+                            "24"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -13370,6 +13368,7 @@ export declare const itemData: {
                             "1": string;
                             "2": string;
                             "19"?: undefined;
+                            "4"?: undefined;
                         };
                         value?: undefined;
                     };
@@ -13393,6 +13392,7 @@ export declare const itemData: {
                             "0"?: undefined;
                             "1"?: undefined;
                             "2"?: undefined;
+                            "4"?: undefined;
                         };
                     };
                 } | {
@@ -13407,15 +13407,16 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
                         map: {
+                            4: string;
                             "0"?: undefined;
                             "1"?: undefined;
                             "2"?: undefined;
                             "19"?: undefined;
                         };
-                        value?: undefined;
                     };
                 })[];
                 perfection: number[];
@@ -20246,6 +20247,118 @@ export declare const itemData: {
         };
         isRetired?: undefined;
         description?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        isSecret: boolean;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        description: string[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+        };
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                })[];
+                perfection: any[];
+            } | {
+                attributes: any[];
+                perfection?: undefined;
+            };
+            "2"?: undefined;
+            "3"?: undefined;
+            "4"?: undefined;
+        };
+        isRetired?: undefined;
+        rarity?: undefined;
+        isTransmutable?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        rarity: ItemRarityValueType;
+        type: number;
+        slots: any[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        isSecret: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+        };
+        branches: {
+            [x: number]: {
+                description: string[];
+                attributes: {
+                    min: number;
+                    max: number;
+                    map: {
+                        1: string;
+                        2: string;
+                        3: string;
+                    };
+                    id: number;
+                    description: string;
+                }[];
+            } | {
+                attributes: any[];
+                description?: undefined;
+            };
+            "2"?: undefined;
+            "3"?: undefined;
+            "4"?: undefined;
+        };
+        isRetired?: undefined;
+        description?: undefined;
+        isTransmutable?: undefined;
     })[];
     rune: ({
         id: number;

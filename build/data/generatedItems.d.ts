@@ -1992,7 +1992,7 @@ declare const _default: ({
                         "6": string;
                         "7": string;
                         "8": string;
-                        "409"?: undefined;
+                        "1"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -2012,33 +2012,11 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "409": string;
+                        "1": string;
                         "6"?: undefined;
                         "7"?: undefined;
                         "8"?: undefined;
                     };
-                };
-            } | {
-                id: number;
-                name: string;
-                isEnabled: boolean;
-                game: string;
-                nexusLink: string;
-                paramType1: string;
-                paramValue1: string;
-                nature: string;
-                description: string;
-                param1: {
-                    spec: string;
-                    min: any;
-                    max: any;
-                    map: {
-                        "6"?: undefined;
-                        "7"?: undefined;
-                        "8"?: undefined;
-                        "409"?: undefined;
-                    };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -2507,7 +2485,8 @@ declare const _default: ({
                         "8": string;
                         "9": string;
                         "10": string;
-                        "410"?: undefined;
+                        "7"?: undefined;
+                        "3"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -2527,10 +2506,11 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "410": string;
+                        "7": string;
                         "8"?: undefined;
                         "9"?: undefined;
                         "10"?: undefined;
+                        "3"?: undefined;
                     };
                 };
             } | {
@@ -2545,15 +2525,16 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        3: string;
                         "8"?: undefined;
                         "9"?: undefined;
                         "10"?: undefined;
-                        "410"?: undefined;
+                        "7"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -2979,6 +2960,7 @@ declare const _default: ({
                         "10": string;
                         "11": string;
                         "6"?: undefined;
+                        "4"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -3002,6 +2984,7 @@ declare const _default: ({
                         "9"?: undefined;
                         "10"?: undefined;
                         "11"?: undefined;
+                        "4"?: undefined;
                     };
                 };
             } | {
@@ -3016,15 +2999,16 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        4: string;
                         "9"?: undefined;
                         "10"?: undefined;
                         "11"?: undefined;
                         "6"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -3472,7 +3456,8 @@ declare const _default: ({
                         "9": string;
                         "10": string;
                         "11": string;
-                        "429"?: undefined;
+                        "5"?: undefined;
+                        "2"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -3492,10 +3477,11 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "429": string;
+                        "5": string;
                         "9"?: undefined;
                         "10"?: undefined;
                         "11"?: undefined;
+                        "2"?: undefined;
                     };
                 };
             } | {
@@ -3510,15 +3496,16 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        2: string;
                         "9"?: undefined;
                         "10"?: undefined;
                         "11"?: undefined;
-                        "429"?: undefined;
+                        "5"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -3966,7 +3953,8 @@ declare const _default: ({
                         "12": string;
                         "13": string;
                         "14": string;
-                        "430"?: undefined;
+                        "8"?: undefined;
+                        "6"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -3986,11 +3974,12 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "430": string;
+                        "8": string;
                         "11"?: undefined;
                         "12"?: undefined;
                         "13"?: undefined;
                         "14"?: undefined;
+                        "6"?: undefined;
                     };
                 };
             } | {
@@ -4005,16 +3994,17 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        6: string;
                         "11"?: undefined;
                         "12"?: undefined;
                         "13"?: undefined;
                         "14"?: undefined;
-                        "430"?: undefined;
+                        "8"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -4416,7 +4406,8 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "467": string;
+                        "3": string;
+                        "5"?: undefined;
                     };
                 };
             } | {
@@ -4431,12 +4422,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
-                        "467"?: undefined;
+                        5: string;
+                        "3"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -4847,6 +4839,7 @@ declare const _default: ({
                         "12": string;
                         "13": string;
                         "14": string;
+                        "7"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -4870,6 +4863,7 @@ declare const _default: ({
                         "12"?: undefined;
                         "13"?: undefined;
                         "14"?: undefined;
+                        "7"?: undefined;
                     };
                 };
             } | {
@@ -4884,15 +4878,16 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        7: string;
                         "11"?: undefined;
                         "12"?: undefined;
                         "13"?: undefined;
                         "14"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -10856,7 +10851,8 @@ declare const _default: ({
                         "3": string;
                         "4": string;
                         "5": string;
-                        "526"?: undefined;
+                        "24"?: undefined;
+                        "6"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -10876,10 +10872,11 @@ declare const _default: ({
                     max: number;
                     value: number;
                     map: {
-                        "526": string;
+                        "24": string;
                         "3"?: undefined;
                         "4"?: undefined;
                         "5"?: undefined;
+                        "6"?: undefined;
                     };
                 };
             } | {
@@ -10894,15 +10891,16 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        6: string;
                         "3"?: undefined;
                         "4"?: undefined;
                         "5"?: undefined;
-                        "526"?: undefined;
+                        "24"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -11772,6 +11770,7 @@ declare const _default: ({
                         "1": string;
                         "2": string;
                         "19"?: undefined;
+                        "4"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -11795,6 +11794,7 @@ declare const _default: ({
                         "0"?: undefined;
                         "1"?: undefined;
                         "2"?: undefined;
+                        "4"?: undefined;
                     };
                 };
             } | {
@@ -11809,15 +11809,16 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        4: string;
                         "0"?: undefined;
                         "1"?: undefined;
                         "2"?: undefined;
                         "19"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
