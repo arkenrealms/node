@@ -18,6 +18,8 @@ export declare enum ProfileStatus {
 }
 export default class Profile extends BaseModel {
     parentId: number;
+    name: string;
+    status: string;
     address: string;
     privateKey: string;
     accountId: number;

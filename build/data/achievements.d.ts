@@ -3,6 +3,7 @@ export declare const achievementData: {
     key: string;
     name: string;
     category: string;
+    isEnabled: boolean;
     icon: string;
     points: number;
     type: string;

@@ -26,6 +26,8 @@ export enum ProfileStatus {
 export default class Profile extends BaseModel {
   public parentId!: number
 
+  public name!: string
+  public status!: string
   public address!: string
   public privateKey!: string
   public accountId!: number

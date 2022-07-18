@@ -43,11 +43,15 @@ export declare type ItemRarity = {
     id: number;
     name: string;
 };
+export declare type Recipe = {
+    requirement: number[];
+};
 export declare type ItemType = {
     id?: number;
     name: string;
     rarity?: ItemRarity;
     category: ItemCategoriesType;
+    recipe: Recipe;
     branches?: ItemBranch[];
     icon: string;
     video?: string;

@@ -2480,11 +2480,11 @@ export default [
             "description": "Unlocked: {parameter1} (Not Implemented)",
             "param1": {
               "spec": "Whirlwind",
-              "min": 409,
-              "max": 409,
-              "value": 409,
+              "min": 1,
+              "max": 1,
+              "value": 1,
               "map": {
-                "409": "Whirlwind"
+                "1": "Whirlwind"
               }
             }
           },
@@ -2500,9 +2500,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Barbarian",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 1,
+              "max": 1,
+              value: 1,
+              "map": {
+                1: "Barbarian"
+              }
             }
           }
         ],
@@ -3079,11 +3082,11 @@ export default [
             "description": "Unlocked: {parameter1} (Not Implemented)",
             "param1": {
               "spec": "Hidden Shot",
-              "min": 410,
-              "max": 410,
-              "value": 410,
+              "min": 7,
+              "max": 7,
+              "value": 7,
               "map": {
-                "410": "Hidden Shot"
+                "7": "Hidden Shot"
               }
             }
           },
@@ -3099,9 +3102,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Ranger",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 3,
+              "max": 3,
+              value: 3,
+              "map": {
+                3: "Ranger"
+              }
             }
           }
         ],
@@ -3647,9 +3653,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Necromancer",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 4,
+              "max": 4,
+              value: 4,
+              "map": {
+                4: "Necromancer"
+              }
             }
           }
         ],
@@ -4182,11 +4191,11 @@ export default [
             "description": "Unlocked: {parameter1} (Not Implemented)",
             "param1": {
               "spec": "Time Warp",
-              "min": 429,
-              "max": 429,
-              "value": 429,
+              "min": 5,
+              "max": 5,
+              "value": 5,
               "map": {
-                "429": "Time Warp"
+                "5": "Time Warp"
               }
             }
           },
@@ -4202,9 +4211,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Mage",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 2,
+              "max": 2,
+              value: 2,
+              "map": {
+                2: "Mage"
+              }
             }
           }
         ],
@@ -4772,11 +4784,11 @@ export default [
             "description": "Unlocked: {parameter1} (Not Implemented)",
             "param1": {
               "spec": "Fade",
-              "min": 430,
-              "max": 430,
-              "value": 430,
+              "min": 8,
+              "max": 8,
+              "value": 8,
               "map": {
-                "430": "Fade"
+                "8": "Fade"
               }
             }
           },
@@ -4792,9 +4804,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Assassin",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 6,
+              "max": 6,
+              "value": 6,
+              "map": {
+                6: "Assassin"
+              }
             }
           }
         ],
@@ -5310,11 +5325,11 @@ export default [
             "description": "Unlocked: {parameter1} (Not Implemented)",
             "param1": {
               "spec": "Sanctuary Aura",
-              "min": 467,
-              "max": 467,
-              "value": 467,
+              "min": 3,
+              "max": 3,
+              "value": 3,
               "map": {
-                "467": "Sanctuary Aura"
+                "3": "Sanctuary Aura"
               }
             }
           },
@@ -5330,9 +5345,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Paladin",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 5,
+              "max": 5,
+              "value": 5,
+              "map": {
+                5: "Paladin"
+              }
             }
           }
         ],
@@ -5886,9 +5904,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Druid",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 7,
+              "max": 7,
+              value: 7,
+              "map": {
+                7: "Druid"
+              }
             }
           }
         ],
@@ -13813,11 +13834,11 @@ export default [
             "description": "Unlocked: {parameter1} (Not Implemented)",
             "param1": {
               "spec": "Shadow Strike",
-              "min": 526,
-              "max": 526,
-              "value": 526,
+              "min": 24,
+              "max": 24,
+              "value": 24,
               "map": {
-                "526": "Shadow Strike"
+                "24": "Shadow Strike"
               }
             }
           },
@@ -13833,9 +13854,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Assassin",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 6,
+              "max": 6,
+              value: 6,
+              "map": {
+                6: "Assassin"
+              }
             }
           }
         ],
@@ -14875,9 +14899,12 @@ export default [
             "description": "{parameter1} Required",
             "param1": {
               "spec": "Necromancer",
-              "min": null,
-              "max": null,
-              "map": {}
+              "min": 4,
+              "max": 4,
+              "value": 4,
+              "map": {
+                4: "Necromancer"
+              }
             }
           }
         ],

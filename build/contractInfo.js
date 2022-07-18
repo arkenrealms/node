@@ -222,7 +222,7 @@ exports.default = {
         _28[exports.TESTNET] = '',
         _28),
     characters: (_29 = {},
-        _29[exports.MAINNET] = '0x4596e527eba13a27cd02576d023695eab0a6b210',
+        _29[exports.MAINNET] = '0x4596E527eBA13A27cd02576d023695eAB0A6b210',
         _29[exports.TESTNET] = '0x86ec1fDadcb050d669Bb07A6802619836c7e2d64',
         _29),
     characterMintingStation: (_30 = {},

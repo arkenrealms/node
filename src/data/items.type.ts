@@ -51,11 +51,16 @@ export type ItemRarity = {
   name: string
 }
 
+export type Recipe = {
+  requirement: number[]
+}
+
 export type ItemType = {
   id?: number
   name: string
   rarity?: ItemRarity
   category: ItemCategoriesType
+  recipe: Recipe
   branches?: ItemBranch[]
   icon: string
   video?: string

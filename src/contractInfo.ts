@@ -223,7 +223,7 @@ export default {
     [TESTNET]: '',
   },
   characters: {
-    [MAINNET]: '0x4596e527eba13a27cd02576d023695eab0a6b210',
+    [MAINNET]: '0x4596E527eBA13A27cd02576d023695eAB0A6b210',
     [TESTNET]: '0x86ec1fDadcb050d669Bb07A6802619836c7e2d64',
   },
   characterMintingStation: {
