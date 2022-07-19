@@ -336,7 +336,7 @@ exports.default = [
         "materials": [
             1
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 2,
@@ -756,7 +756,7 @@ exports.default = [
             412
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 3,
@@ -1106,7 +1106,7 @@ exports.default = [
             494
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 4,
@@ -1575,7 +1575,7 @@ exports.default = [
             18,
             34
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 6,
@@ -1942,7 +1942,7 @@ exports.default = [
             465
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 7,
@@ -2296,7 +2296,7 @@ exports.default = [
         "materials": [
             32
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 10,
@@ -2656,8 +2656,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Barbarian",
-                            "min": null,
-                            "max": null
+                            "min": 1,
+                            "max": 1,
+                            value: 1,
+                            "map": {
+                                1: "Barbarian"
+                            }
                         }
                     },
                     {
@@ -2869,8 +2873,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Barbarian",
-                            "min": null,
-                            "max": null
+                            "min": 1,
+                            "max": 1,
+                            value: 1,
+                            "map": {
+                                1: "Barbarian"
+                            }
                         }
                     }
                 ],
@@ -2898,7 +2906,7 @@ exports.default = [
             409
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 11,
@@ -3470,7 +3478,7 @@ exports.default = [
         "materials": [
             9
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 12,
@@ -3783,8 +3791,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
-                            "min": null,
-                            "max": null
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
+                            "map": {
+                                4: "Necromancer"
+                            }
                         }
                     },
                     {
@@ -3957,8 +3969,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
-                            "min": null,
-                            "max": null
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
+                            "map": {
+                                4: "Necromancer"
+                            }
                         }
                     },
                     {
@@ -4007,7 +4023,7 @@ exports.default = [
             3,
             7
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 13,
@@ -4361,8 +4377,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Mage",
-                            "min": null,
-                            "max": null
+                            "min": 2,
+                            "max": 2,
+                            value: 2,
+                            "map": {
+                                2: "Mage"
+                            }
                         }
                     },
                     {
@@ -4568,8 +4588,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Mage",
-                            "min": null,
-                            "max": null
+                            "min": 2,
+                            "max": 2,
+                            value: 2,
+                            "map": {
+                                2: "Mage"
+                            }
                         }
                     }
                 ],
@@ -4600,7 +4624,7 @@ exports.default = [
         "materials": [
             7
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 14,
@@ -4721,22 +4745,6 @@ exports.default = [
                         }
                     },
                     {
-                        "id": 2,
-                        "name": "HarvestFee",
-                        "isEnabled": true,
-                        "game": "Raid",
-                        "nexusLink": "https://nexus.rune.game/item-attribute/harvestfee",
-                        "paramType1": "percent",
-                        "paramValue1": "0-100",
-                        "nature": "Debuff",
-                        "description": "{parameter1} Harvest Fee",
-                        "param1": {
-                            "spec": "2-10",
-                            "min": 2,
-                            "max": 10
-                        }
-                    },
-                    {
                         "id": 11,
                         "name": "RandomRuneExchange",
                         "isEnabled": true,
@@ -4750,6 +4758,22 @@ exports.default = [
                             "spec": "1-4",
                             "min": 1,
                             "max": 4
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "name": "HarvestFee",
+                        "isEnabled": true,
+                        "game": "Raid",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/harvestfee",
+                        "paramType1": "percent",
+                        "paramValue1": "0-100",
+                        "nature": "Debuff",
+                        "description": "{parameter1} Harvest Fee",
+                        "param1": {
+                            "spec": "2-10",
+                            "min": 2,
+                            "max": 10
                         }
                     },
                     {
@@ -4819,8 +4843,8 @@ exports.default = [
                     7,
                     2,
                     15,
-                    2,
                     null,
+                    2,
                     null,
                     null,
                     null
@@ -4959,8 +4983,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Assassin",
-                            "min": null,
-                            "max": null
+                            "min": 6,
+                            "max": 6,
+                            value: 6,
+                            "map": {
+                                6: "Assassin"
+                            }
                         }
                     }
                 ],
@@ -5165,7 +5193,7 @@ exports.default = [
         "materials": [
             19
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 15,
@@ -5483,8 +5511,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
-                            "min": null,
-                            "max": null
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
+                            "map": {
+                                5: "Paladin"
+                            }
                         }
                     },
                     {
@@ -5668,8 +5700,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
-                            "min": null,
-                            "max": null
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
+                            "map": {
+                                5: "Paladin"
+                            }
                         }
                     }
                 ],
@@ -5699,7 +5735,7 @@ exports.default = [
         "materials": [
             3
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 16,
@@ -6053,8 +6089,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
-                            "min": null,
-                            "max": null
+                            "min": 7,
+                            "max": 7,
+                            value: 7,
+                            "map": {
+                                7: "Druid"
+                            }
                         }
                     },
                     {
@@ -6250,8 +6290,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
-                            "min": null,
-                            "max": null
+                            "min": 7,
+                            "max": 7,
+                            value: 7,
+                            "map": {
+                                7: "Druid"
+                            }
                         }
                     }
                 ],
@@ -6278,7 +6322,7 @@ exports.default = [
         "materials": [
             6
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 19,
@@ -6648,7 +6692,7 @@ exports.default = [
             460
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 20,
@@ -7106,7 +7150,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 21,
@@ -7790,7 +7834,7 @@ exports.default = [
             481
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 22,
@@ -7975,9 +8019,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
-                            "min": null,
-                            "max": null,
-                            "map": {}
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
+                            "map": {
+                                5: "Paladin"
+                            }
                         }
                     }
                 ],
@@ -8311,8 +8358,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Paladin",
-                            "min": null,
-                            "max": null
+                            "min": 5,
+                            "max": 5,
+                            "value": 5,
+                            "map": {
+                                5: "Paladin"
+                            }
                         }
                     }
                 ],
@@ -8340,7 +8391,7 @@ exports.default = [
             472
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 23,
@@ -8775,7 +8826,7 @@ exports.default = [
         "materials": [
             18
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 24,
@@ -9197,7 +9248,7 @@ exports.default = [
         },
         "skills": [],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 25,
@@ -9623,7 +9674,7 @@ exports.default = [
         "materials": [
             8
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 26,
@@ -11909,7 +11960,7 @@ exports.default = [
         "materials": [
             32
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 31,
@@ -12417,7 +12468,7 @@ exports.default = [
         "materials": [
             21
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 32,
@@ -12876,9 +12927,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
-                            "min": null,
-                            "max": null,
-                            "map": {}
+                            "min": 7,
+                            "max": 7,
+                            value: 7,
+                            "map": {
+                                7: "Druid"
+                            }
                         }
                     }
                 ],
@@ -13016,9 +13070,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Druid",
-                            "min": null,
-                            "max": null,
-                            "map": {}
+                            "min": 7,
+                            "max": 7,
+                            value: 7,
+                            "map": {
+                                7: "Druid"
+                            }
                         }
                     }
                 ],
@@ -13654,7 +13711,7 @@ exports.default = [
             499
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 35,
@@ -14006,9 +14063,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Assassin",
-                            "min": null,
-                            "max": null,
-                            "map": {}
+                            "min": 6,
+                            "max": 6,
+                            value: 6,
+                            "map": {
+                                6: "Assassin"
+                            }
                         }
                     }
                 ],
@@ -14215,7 +14275,7 @@ exports.default = [
             526
         ],
         "materials": [],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 36,
@@ -14537,9 +14597,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
-                            "min": null,
-                            "max": null,
-                            "map": {}
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
+                            "map": {
+                                4: "Necromancer"
+                            }
                         }
                     }
                 ],
@@ -14671,9 +14734,12 @@ exports.default = [
                         "description": "{parameter1} Required",
                         "param1": {
                             "spec": "Necromancer",
-                            "min": null,
-                            "max": null,
-                            "map": {}
+                            "min": 4,
+                            "max": 4,
+                            "value": 4,
+                            "map": {
+                                4: "Necromancer"
+                            }
                         }
                     }
                 ],
@@ -15100,7 +15166,7 @@ exports.default = [
         "materials": [
             37
         ],
-        "category": "accessory"
+        "category": "weapon"
     },
     {
         "id": 38,
@@ -19069,9 +19135,9 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune (Not Implemented)",
                         "param1": {
-                            "spec": "0-20",
+                            "spec": "0-5",
                             "min": 0,
-                            "max": 20
+                            "max": 5
                         }
                     },
                     {
@@ -19100,7 +19166,7 @@ exports.default = [
                     3,
                     5,
                     null,
-                    20,
+                    5,
                     null
                 ]
             },

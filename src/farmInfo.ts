@@ -1847,7 +1847,7 @@ export const farms: FarmConfig[] = [
     multiplier: '1X',
     poolWeight: 100, // 50
     isTokenOnly: true,
-    isHiddenPool: true,
+    isHiddenPool: false,
     depositFeeBP: 0,
     inactive: false,
     lpSymbol: 'IST',
@@ -1982,7 +1982,7 @@ export const farms: FarmConfig[] = [
     multiplier: '1X',
     poolWeight: 100, // 50
     isTokenOnly: true,
-    isHiddenPool: false,
+    isHiddenPool: true,
     depositFeeBP: 0,
     inactive: false,
     lpSymbol: 'GUL',

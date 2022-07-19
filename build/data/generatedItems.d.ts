@@ -2092,6 +2092,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "201": string;
+                        "1"?: undefined;
                     };
                 };
                 paramValue1?: undefined;
@@ -2125,10 +2126,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        1: string;
+                        "201"?: undefined;
+                    };
                 };
                 paramValue1?: undefined;
                 influences?: undefined;
@@ -2239,6 +2243,7 @@ declare const _default: ({
                     spec: string;
                     map: {
                         "409"?: undefined;
+                        "1"?: undefined;
                     };
                     min?: undefined;
                     max?: undefined;
@@ -2307,6 +2312,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "409": string;
+                        "1"?: undefined;
                     };
                 };
                 paramType2?: undefined;
@@ -2331,6 +2337,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "409": string;
+                        "1"?: undefined;
                     };
                 };
                 param2: {
@@ -2358,10 +2365,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        1: string;
+                        "409"?: undefined;
+                    };
                 };
                 paramType2?: undefined;
                 paramValue1?: undefined;
@@ -3115,7 +3125,9 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    map: {};
+                    map: {
+                        "4"?: undefined;
+                    };
                     min?: undefined;
                     max?: undefined;
                     value?: undefined;
@@ -3133,10 +3145,12 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        4: string;
+                    };
                 };
                 paramValue1?: undefined;
                 influences?: undefined;
@@ -3289,6 +3303,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "455": string;
+                        "4"?: undefined;
                     };
                 };
                 paramType2?: undefined;
@@ -3308,10 +3323,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        4: string;
+                        "455"?: undefined;
+                    };
                 };
                 paramType2?: undefined;
                 paramValue1?: undefined;
@@ -3595,6 +3613,7 @@ declare const _default: ({
                 param1: {
                     spec: string;
                     map: {
+                        "2"?: undefined;
                         "11"?: undefined;
                     };
                     min?: undefined;
@@ -3614,10 +3633,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        2: string;
+                        "11"?: undefined;
+                    };
                 };
                 influences?: undefined;
                 paramValue1?: undefined;
@@ -3655,6 +3677,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "11": string;
+                        "2"?: undefined;
                     };
                 };
                 description?: undefined;
@@ -3820,7 +3843,9 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    map: {};
+                    map: {
+                        "2"?: undefined;
+                    };
                     min?: undefined;
                     max?: undefined;
                     value?: undefined;
@@ -3842,10 +3867,12 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        2: string;
+                    };
                 };
                 paramType2?: undefined;
                 paramValue1?: undefined;
@@ -4098,6 +4125,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "430": string;
+                        "6"?: undefined;
                     };
                 };
                 paramValue1?: undefined;
@@ -4113,10 +4141,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        6: string;
+                        "430"?: undefined;
+                    };
                 };
                 paramValue1?: undefined;
                 influences?: undefined;
@@ -4522,6 +4553,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "467": string;
+                        "5"?: undefined;
                     };
                 };
                 influences?: undefined;
@@ -4537,10 +4569,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        5: string;
+                        "467"?: undefined;
+                    };
                 };
                 influences?: undefined;
                 paramValue1?: undefined;
@@ -4667,6 +4702,7 @@ declare const _default: ({
                     map: {
                         "24": string;
                         "471"?: undefined;
+                        "5"?: undefined;
                     };
                 };
                 paramValue1?: undefined;
@@ -4693,6 +4729,7 @@ declare const _default: ({
                     map: {
                         "471": string;
                         "24"?: undefined;
+                        "5"?: undefined;
                     };
                 };
                 paramType2?: undefined;
@@ -4711,10 +4748,14 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        5: string;
+                        "24"?: undefined;
+                        "471"?: undefined;
+                    };
                 };
                 paramType2?: undefined;
                 paramValue1?: undefined;
@@ -4962,6 +5003,7 @@ declare const _default: ({
                     spec: string;
                     map: {
                         "11"?: undefined;
+                        "7"?: undefined;
                         "101"?: undefined;
                     };
                     min?: undefined;
@@ -5020,6 +5062,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "11": string;
+                        "7"?: undefined;
                         "101"?: undefined;
                     };
                 };
@@ -5036,10 +5079,14 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    value?: undefined;
-                    map?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        7: string;
+                        "11"?: undefined;
+                        "101"?: undefined;
+                    };
                 };
                 influences?: undefined;
                 paramValue1?: undefined;
@@ -5078,6 +5125,7 @@ declare const _default: ({
                     map: {
                         "101": string;
                         "11"?: undefined;
+                        "7"?: undefined;
                     };
                 };
                 description?: undefined;
@@ -5152,6 +5200,7 @@ declare const _default: ({
                     spec: string;
                     map: {
                         "481"?: undefined;
+                        "7"?: undefined;
                     };
                     min?: undefined;
                     max?: undefined;
@@ -5189,6 +5238,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "481": string;
+                        "7"?: undefined;
                     };
                 };
                 paramType2?: undefined;
@@ -5249,6 +5299,31 @@ declare const _default: ({
                     };
                 };
                 paramValue2?: undefined;
+            } | {
+                id: number;
+                name: string;
+                isEnabled: boolean;
+                game: string;
+                nexusLink: string;
+                paramType1: string;
+                nature: string;
+                influences: string;
+                description: string;
+                param1: {
+                    spec: string;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        7: string;
+                        "481"?: undefined;
+                    };
+                };
+                paramType2?: undefined;
+                paramValue1?: undefined;
+                paramValue2?: undefined;
+                param2?: undefined;
+                paramType3?: undefined;
             })[];
             perfection: number[];
         };
@@ -6508,6 +6583,7 @@ declare const _default: ({
                         "9": string;
                         "10": string;
                         "11": string;
+                        "5"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -6523,14 +6599,15 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        5: string;
                         "9"?: undefined;
                         "10"?: undefined;
                         "11"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -6753,6 +6830,7 @@ declare const _default: ({
                     spec: string;
                     map: {
                         "472"?: undefined;
+                        "5"?: undefined;
                     };
                     min?: undefined;
                     max?: undefined;
@@ -6788,6 +6866,7 @@ declare const _default: ({
                     value: number;
                     map: {
                         "472": string;
+                        "5"?: undefined;
                     };
                 };
                 paramType2?: undefined;
@@ -6806,10 +6885,13 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    map?: undefined;
-                    value?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        5: string;
+                        "472"?: undefined;
+                    };
                 };
                 paramType2?: undefined;
                 paramValue1?: undefined;
@@ -10160,6 +10242,7 @@ declare const _default: ({
                     spec: string;
                     min: number;
                     max: number;
+                    value?: undefined;
                     map?: undefined;
                 };
             } | {
@@ -10175,6 +10258,7 @@ declare const _default: ({
                     spec: string;
                     min: any;
                     max: any;
+                    value?: undefined;
                     map?: undefined;
                 };
                 paramValue1?: undefined;
@@ -10190,9 +10274,12 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    map: {};
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        7: string;
+                    };
                 };
             })[];
             perfection: number[];
@@ -10282,10 +10369,12 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    map: {};
-                    value?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        7: string;
+                    };
                 };
                 influences?: undefined;
             })[];
@@ -10958,6 +11047,7 @@ declare const _default: ({
                         "3": string;
                         "4": string;
                         "5": string;
+                        "6"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -10990,14 +11080,15 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        6: string;
                         "3"?: undefined;
                         "4"?: undefined;
                         "5"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -11452,6 +11543,7 @@ declare const _default: ({
                         "13": string;
                         "14": string;
                         "15": string;
+                        "4"?: undefined;
                     };
                     value?: undefined;
                 };
@@ -11467,14 +11559,15 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
                     map: {
+                        4: string;
                         "13"?: undefined;
                         "14"?: undefined;
                         "15"?: undefined;
                     };
-                    value?: undefined;
                 };
             })[];
             perfection: number[];
@@ -11605,7 +11698,9 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    map: {};
+                    map: {
+                        "4"?: undefined;
+                    };
                     min?: undefined;
                     max?: undefined;
                     value?: undefined;
@@ -11626,10 +11721,12 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
-                    map: {};
-                    value?: undefined;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        4: string;
+                    };
                 };
                 paramType2?: undefined;
                 paramValue2?: undefined;

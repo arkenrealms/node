@@ -28,10 +28,12 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
-  const cacheBreaker = 1657611113 * 1000
+  const cacheBreaker = 1658245132 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
-    dbCon.getCollection('items').chain().remove()
+    if (dbCon.getCollection('items')) {
+      dbCon.getCollection('items').chain().remove()
+    }
   }
 
   if (db.config === null) {

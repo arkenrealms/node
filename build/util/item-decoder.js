@@ -48,10 +48,12 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1657611113 * 1000;
+    var cacheBreaker = 1658245132 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
-        dbCon.getCollection('items').chain().remove();
+        if (dbCon.getCollection('items')) {
+            dbCon.getCollection('items').chain().remove();
+        }
     }
     if (db.config === null) {
         db.config = dbCon.addCollection('config', {
