@@ -5735,7 +5735,7 @@ exports.default = [
         "materials": [
             3
         ],
-        "category": "armor"
+        "category": "shield"
     },
     {
         "id": 16,
