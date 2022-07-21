@@ -1,6 +1,7 @@
 declare const _default: ({
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -271,6 +272,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -593,6 +595,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -880,6 +883,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -965,6 +969,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -1293,6 +1298,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -1584,6 +1590,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -1894,6 +1901,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -2397,6 +2405,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -2888,6 +2897,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -3376,6 +3386,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -3898,6 +3909,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -4358,6 +4370,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -4781,6 +4794,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -5342,6 +5356,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -5635,6 +5650,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -6002,6 +6018,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -6485,6 +6502,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -6917,6 +6935,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -7256,6 +7275,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -7316,6 +7336,8 @@ declare const _default: ({
                     spec: string;
                     min: number;
                     max: number;
+                    value?: undefined;
+                    map?: undefined;
                 };
             } | {
                 id: number;
@@ -7328,8 +7350,12 @@ declare const _default: ({
                 description: string;
                 param1: {
                     spec: string;
-                    min: any;
-                    max: any;
+                    min: number;
+                    max: number;
+                    value: number;
+                    map: {
+                        1: string;
+                    };
                 };
                 paramValue1?: undefined;
             })[];
@@ -7595,6 +7621,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -7942,6 +7969,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -8339,6 +8367,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -8607,6 +8636,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -8937,6 +8967,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -9162,6 +9193,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -9595,6 +9627,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -9961,6 +9994,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -10183,6 +10217,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -10495,6 +10530,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -10859,6 +10895,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -11320,6 +11357,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -11751,6 +11789,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -12099,6 +12138,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -12290,6 +12330,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -12414,6 +12455,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -12570,6 +12612,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -12744,6 +12787,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -13107,6 +13151,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -13512,6 +13557,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -13791,6 +13837,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -13851,7 +13898,6 @@ declare const _default: ({
                     spec: string;
                     min: number;
                     max: number;
-                    value?: undefined;
                 };
             } | {
                 id: number;
@@ -13862,7 +13908,6 @@ declare const _default: ({
                     spec: string;
                     min: number;
                     max: number;
-                    value?: undefined;
                 };
                 game?: undefined;
                 paramType1?: undefined;
@@ -13874,17 +13919,16 @@ declare const _default: ({
                 name: string;
                 isEnabled: boolean;
                 nexusLink: string;
+                description: string;
                 param1: {
                     spec: string;
                     min: number;
                     max: number;
-                    value: number;
                 };
                 game?: undefined;
                 paramType1?: undefined;
                 paramValue1?: undefined;
                 nature?: undefined;
-                description?: undefined;
             })[];
             perfection: number[];
         };
@@ -14059,6 +14103,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -14239,6 +14284,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -14505,6 +14551,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     isPolled: boolean;
@@ -14577,6 +14624,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -14757,6 +14805,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -15003,6 +15052,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -15307,6 +15357,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -15606,6 +15657,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -15823,6 +15875,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -16109,6 +16162,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     specificType: number;
@@ -16178,6 +16232,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -16456,6 +16511,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -16722,6 +16778,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -16958,6 +17015,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -17229,6 +17287,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -17349,6 +17408,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     isPolled: boolean;
@@ -17418,6 +17478,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     isPolled: boolean;
@@ -17487,6 +17548,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -17780,6 +17842,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -18005,6 +18068,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -18200,6 +18264,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -18454,6 +18519,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     subType: number;
@@ -18523,6 +18589,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -18664,6 +18731,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     type: number;
@@ -18753,6 +18821,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -18852,6 +18921,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -18951,6 +19021,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;
@@ -19020,6 +19091,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     value: string;
     isPolled: boolean;
@@ -19089,6 +19161,7 @@ declare const _default: ({
 } | {
     id: number;
     name: string;
+    slug: string;
     icon: string;
     image: string;
     value: string;

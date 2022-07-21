@@ -28,7 +28,7 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
-  const cacheBreaker = 1658245132 * 1000
+  const cacheBreaker = 1658302913 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -920,6 +920,8 @@ export function normalizeItem(item: any) {
     if (!item.tokenId) {
       item.tokenId = getTokenIdFromItem(item)
     }
+
+    item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '')
 
     if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
       item.perfection = -13

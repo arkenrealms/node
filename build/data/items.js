@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeToText = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.SpecificTypeNames = exports.SpecificTypeIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.Games = exports.rewardTokenIdMap = void 0;
+exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeIdByName = exports.ItemTypeToText = exports.ItemTypeNames = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.SpecificTypeNames = exports.SpecificTypeIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
 var generatedItems_1 = __importDefault(require("./generatedItems"));
 exports.rewardTokenIdMap = {
@@ -1552,6 +1552,15 @@ exports.SkillNames = {
     526: "Shadow Strike",
     // 527: "Evasion",
     528: "Flywing Dust",
+    612: 'Battle Rage',
+    613: 'White Lightning',
+    614: 'Inferno Fire Blast',
+    615: 'Cosmic Flare',
+    616: 'Veil of Night',
+    617: 'Sky Swarm',
+    618: 'Flurry Assault',
+    619: 'Destructive Impact',
+    620: 'Nova Breath',
 };
 for (var i = 0; i < 1000; i++) {
     if (!exports.SkillNames[i]) {
@@ -1638,7 +1647,7 @@ exports.ItemType = {
     WristArmor: 24,
     Misc: 25,
 };
-exports.ItemTypeToText = (_a = {},
+exports.ItemTypeNames = (_a = {},
     _a[exports.ItemType.None] = 'None',
     _a[exports.ItemType.OneHandedWeapon] = 'One Handed Weapon',
     _a[exports.ItemType.TwoHandedWeapon] = 'Two Handed Weapon',
@@ -1666,6 +1675,13 @@ exports.ItemTypeToText = (_a = {},
     _a[exports.ItemType.Misc] = 'Misc',
     _a[exports.ItemType.WristArmor] = 'Wrist Armor',
     _a);
+exports.ItemTypeToText = exports.ItemTypeNames;
+exports.ItemTypeIdByName = {};
+for (var _53 = 0, _54 = Object.keys(exports.ItemTypeNames); _53 < _54.length; _53++) {
+    var key = _54[_53];
+    // @ts-ignore
+    exports.ItemTypeIdByName[exports.ItemTypeNames[key]] = parseInt(key);
+}
 exports.ItemSlot = {
     None: 0,
     LeftHand: 1,
@@ -1769,8 +1785,8 @@ exports.RuneId = {
     ZOD: 32,
 };
 exports.RuneNames = {};
-for (var _53 = 0, _54 = Object.keys(exports.RuneId); _53 < _54.length; _53++) {
-    var key = _54[_53];
+for (var _55 = 0, _56 = Object.keys(exports.RuneId); _55 < _56.length; _55++) {
+    var key = _56[_55];
     // @ts-ignore
     exports.RuneNames[parseInt(exports.RuneId[key])] = key;
 }
@@ -4478,7 +4494,7 @@ exports.itemData = (_c = {},
     //             ...ItemAttributes.SpecificWeaponType,
     //             min: ItemType.OneHandedWeapon,
     //             max: ItemType.OneHandedWeapon,
-    //             map: ItemTypeToText,
+    //             map: ItemTypeNames,
     //           },
     //         ],
     //         perfection: [10, 3, 15, 3],

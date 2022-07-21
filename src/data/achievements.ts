@@ -1,5 +1,5 @@
 
-process.env.REACT_APP_PUBLIC_URL = "https://rune.game/"
+// process.env.REACT_APP_PUBLIC_URL = "https://rune.game/"
 
 export const achievementData = [
   {

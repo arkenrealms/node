@@ -75,6 +75,7 @@ export type ItemType = {
   tokenIds?: string[]
   isCraftable?: boolean
   isTradeable?: boolean
+  isEquipped?: boolean
   isEquipable?: boolean
   isUnequipable?: boolean
   isTransferable?: boolean
@@ -85,6 +86,9 @@ export type ItemType = {
   shorthand?: string
   slotId?: number
   perfection?: number
+  ownerAddress?: string
+  ownerUsername?: string
+  slug?: string
 }
 
 export type ItemsPage = {

@@ -4,6 +4,7 @@ exports.default = [
     {
         "id": 1,
         "name": "Steel",
+        "slug": "Steel",
         "icon": "https://rune.game/images/items/00001.png",
         "image": "https://dl.airtable.com/.attachments/ebfbefa243ac1c41b270a4aec7babccf/95d518ee/00001.png?ts=1657605311&userId=usrf0GZYc5zCl9Cv7&cs=b84bbde533b1a185",
         "value": "0",
@@ -341,6 +342,7 @@ exports.default = [
     {
         "id": 2,
         "name": "Fury",
+        "slug": "fury",
         "icon": "https://rune.game/images/items/00002.png",
         "image": "https://dl.airtable.com/.attachments/c65b8688be512e02b41c66cda9a14441/b2011e75/00002.png?ts=1657605319&userId=usrf0GZYc5zCl9Cv7&cs=ca8f43d55494262a",
         "value": "0",
@@ -761,6 +763,7 @@ exports.default = [
     {
         "id": 3,
         "name": "Lorekeeper",
+        "slug": "Lorekeeper",
         "icon": "https://rune.game/images/items/00003.png",
         "image": "https://dl.airtable.com/.attachments/229540c9004fb883f73320a9a28c7173/f03020d1/00003.png?ts=1657605325&userId=usrf0GZYc5zCl9Cv7&cs=585fe80e5923cecd",
         "value": "0",
@@ -1111,6 +1114,7 @@ exports.default = [
     {
         "id": 4,
         "name": "Worldstone Shard",
+        "slug": "Worldstone Shard",
         "icon": "https://rune.game/images/items/00004.png",
         "image": "https://dl.airtable.com/.attachments/9eab66558b3617afacbd471ac140ccb3/f766e001/Untitled-3.png?ts=1657605331&userId=usrf0GZYc5zCl9Cv7&cs=ded2bc8e7cce5ca4",
         "value": "0",
@@ -1201,6 +1205,7 @@ exports.default = [
     {
         "id": 5,
         "name": "Flash",
+        "slug": "Flash",
         "icon": "https://rune.game/images/items/00005.png",
         "image": "https://dl.airtable.com/.attachments/693a7f417b9c82bd8392a542e9180744/90cd77d5/00005.png?ts=1657605333&userId=usrf0GZYc5zCl9Cv7&cs=ddad7fd5c2625480",
         "value": "0",
@@ -1580,6 +1585,7 @@ exports.default = [
     {
         "id": 6,
         "name": "Titan",
+        "slug": "Titan",
         "icon": "https://rune.game/images/items/00006.png",
         "image": "https://dl.airtable.com/.attachments/1d8fc14204bd0d3ea642017b9162d988/7501f4c1/00006.png?ts=1657605340&userId=usrf0GZYc5zCl9Cv7&cs=9398b46055a7be3d",
         "value": "0",
@@ -1947,6 +1953,7 @@ exports.default = [
     {
         "id": 7,
         "name": "Smoke",
+        "slug": "Smoke",
         "icon": "https://rune.game/images/items/00007.png",
         "image": "https://dl.airtable.com/.attachments/6402ec0b1b5fb7913ef336d62c0d38df/21df471d/00007.png?ts=1657605345&userId=usrf0GZYc5zCl9Cv7&cs=8c16a9edf219c7c9",
         "value": "0",
@@ -2301,6 +2308,7 @@ exports.default = [
     {
         "id": 10,
         "name": "Glory",
+        "slug": "Glory",
         "icon": "https://rune.game/images/items/00010.png",
         "image": "https://dl.airtable.com/.attachments/331c4d73d97137d13d6c97e8ec34611a/23d20f11/00010.png?ts=1657605350&userId=usrf0GZYc5zCl9Cv7&cs=dae8227d92281c96",
         "value": "0",
@@ -2911,6 +2919,7 @@ exports.default = [
     {
         "id": 11,
         "name": "Grace",
+        "slug": "Grace",
         "icon": "https://rune.game/images/items/00011.png",
         "image": "https://dl.airtable.com/.attachments/4d646c400b38f8929f90245afff71e52/94f0b650/00011.png?ts=1657605355&userId=usrf0GZYc5zCl9Cv7&cs=33be6216ae97d868",
         "value": "0",
@@ -3483,6 +3492,7 @@ exports.default = [
     {
         "id": 12,
         "name": "Genesis",
+        "slug": "Genesis",
         "icon": "https://rune.game/images/items/00012.png",
         "image": "https://dl.airtable.com/.attachments/3d0af73538086214f8e22ed706852ab6/33b7c4ac/00012.png?ts=1657605358&userId=usrf0GZYc5zCl9Cv7&cs=95bd88ed6cd48911",
         "value": "0",
@@ -4028,6 +4038,7 @@ exports.default = [
     {
         "id": 13,
         "name": "Destiny",
+        "slug": "Destiny",
         "icon": "https://rune.game/images/items/00013.png",
         "image": "https://dl.airtable.com/.attachments/354746ccb047c8be47634cb2776661fd/f21110e7/00013.png?ts=1657605362&userId=usrf0GZYc5zCl9Cv7&cs=8fb6691a7c5e3296",
         "value": "0",
@@ -4629,6 +4640,7 @@ exports.default = [
     {
         "id": 14,
         "name": "Wrath",
+        "slug": "Wrath",
         "icon": "https://rune.game/images/items/00014.png",
         "image": "https://dl.airtable.com/.attachments/08afb500bafad147b184b5f96cc595b4/bab4e37f/00014.png?ts=1657605366&userId=usrf0GZYc5zCl9Cv7&cs=f13d40763d8c16a0",
         "value": "0",
@@ -5198,6 +5210,7 @@ exports.default = [
     {
         "id": 15,
         "name": "Fortress",
+        "slug": "Fortress",
         "icon": "https://rune.game/images/items/00015.png",
         "image": "https://dl.airtable.com/.attachments/5ebbe53d6a9614c94a6dc2628d7f8883/589dc158/00015.png?ts=1657605369&userId=usrf0GZYc5zCl9Cv7&cs=adfb40ba11f2e0a0",
         "value": "0",
@@ -5210,7 +5223,7 @@ exports.default = [
         "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": true,
+        "isUltraSecret": false,
         "isPaused": false,
         "isRetired": true,
         "isDisabled": false,
@@ -5740,6 +5753,7 @@ exports.default = [
     {
         "id": 16,
         "name": "Elder",
+        "slug": "Elder",
         "icon": "https://rune.game/images/items/00016.png",
         "image": "https://dl.airtable.com/.attachments/a5f74e2d76feca6782e60291d719971e/d2033b37/00016.png?ts=1657605373&userId=usrf0GZYc5zCl9Cv7&cs=a880826bbf344c1f",
         "value": "0",
@@ -5834,9 +5848,9 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
                         "param1": {
-                            "spec": "1-40",
+                            "spec": "1-20",
                             "min": 1,
-                            "max": 40
+                            "max": 20
                         }
                     },
                     {
@@ -6327,6 +6341,7 @@ exports.default = [
     {
         "id": 19,
         "name": "Pledge",
+        "slug": "Pledge",
         "icon": "https://rune.game/images/items/00019.png",
         "image": "https://dl.airtable.com/.attachments/57a97c8952b5f5eb313ca3c294e8da1c/fe208e96/00019.png?ts=1657605376&userId=usrf0GZYc5zCl9Cv7&cs=7596073d98aec055",
         "value": "0",
@@ -6692,11 +6707,12 @@ exports.default = [
             460
         ],
         "materials": [],
-        "category": "weapon"
+        "category": "armor"
     },
     {
         "id": 20,
         "name": "Flow",
+        "slug": "Flow",
         "icon": "https://rune.game/images/items/00020.png",
         "image": "https://dl.airtable.com/.attachments/5bc174cde3bb4cc184cef3d4e02a9355/1171703f/Untitled-31.png?ts=1657605377&userId=usrf0GZYc5zCl9Cv7&cs=5b1bbbcc39c30593",
         "value": "0",
@@ -7150,11 +7166,12 @@ exports.default = [
         },
         "skills": [],
         "materials": [],
-        "category": "weapon"
+        "category": "armor"
     },
     {
         "id": 21,
         "name": "Guiding Light",
+        "slug": "Guiding Light",
         "icon": "https://rune.game/images/items/00021.png",
         "image": "https://dl.airtable.com/.attachments/428efb0bac63d7b5bd2bdfd42b11af3d/dfc0b709/00021.png?ts=1657605380&userId=usrf0GZYc5zCl9Cv7&cs=5e0fccab85978783",
         "value": "0",
@@ -7296,9 +7313,9 @@ exports.default = [
                         "nature": "Debuff",
                         "description": "{parameter1} Chance To Lose Entire Harvest",
                         "param1": {
-                            "spec": "1-2",
-                            "min": 1,
-                            "max": 2
+                            "spec": "0-1",
+                            "min": 0,
+                            "max": 1
                         }
                     },
                     {
@@ -7360,7 +7377,7 @@ exports.default = [
                     100,
                     10,
                     50,
-                    1,
+                    0,
                     0,
                     0,
                     null
@@ -7839,6 +7856,7 @@ exports.default = [
     {
         "id": 22,
         "name": "Lionheart",
+        "slug": "Lionheart",
         "icon": "https://rune.game/images/items/00022.png",
         "image": "https://dl.airtable.com/.attachments/6cd0552a55e8ada08f5026d72f485a32/096ff9d5/00022.png?ts=1657605385&userId=usrf0GZYc5zCl9Cv7&cs=0311d3f16c4f958d",
         "value": "0",
@@ -7852,11 +7870,11 @@ exports.default = [
         "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": true,
-        "isPaused": true,
-        "isRetired": false,
+        "isUltraSecret": false,
+        "isPaused": false,
+        "isRetired": true,
         "isDisabled": false,
-        "isCraftable": true,
+        "isCraftable": false,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -8396,6 +8414,7 @@ exports.default = [
     {
         "id": 23,
         "name": "Pressure",
+        "slug": "Pressure",
         "icon": "https://rune.game/images/items/00023.png",
         "image": "https://dl.airtable.com/.attachments/976171c280816e1f7c892827b1669a51/8cdc9af5/00023.png?ts=1657605387&userId=usrf0GZYc5zCl9Cv7&cs=b209fdb921323d68",
         "value": "0",
@@ -8410,7 +8429,7 @@ exports.default = [
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -8831,6 +8850,7 @@ exports.default = [
     {
         "id": 24,
         "name": "Zeal",
+        "slug": "Zeal",
         "icon": "https://rune.game/images/items/00024.png",
         "image": "https://dl.airtable.com/.attachments/f57724359f175a2ae8c8ded01f5fe893/8d76ad4f/00024.png?ts=1657605389&userId=usrf0GZYc5zCl9Cv7&cs=32b5861dcdc03c82",
         "value": "0",
@@ -8841,7 +8861,7 @@ exports.default = [
         "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": true,
+        "isUltraSecret": false,
         "isPaused": false,
         "isRetired": true,
         "isDisabled": false,
@@ -8965,8 +8985,12 @@ exports.default = [
                         "description": "Specific Weapon: {parameter1}",
                         "param1": {
                             "spec": "One-handed Sword",
-                            "min": null,
-                            "max": null
+                            "min": 1,
+                            "max": 1,
+                            "value": 1,
+                            "map": {
+                                1: "One-Handed Weapon"
+                            }
                         }
                     }
                 ],
@@ -9248,11 +9272,12 @@ exports.default = [
         },
         "skills": [],
         "materials": [],
-        "category": "weapon"
+        "category": "armor"
     },
     {
         "id": 25,
         "name": "Balance",
+        "slug": "Balance",
         "icon": "https://rune.game/images/items/00025.png",
         "image": "https://dl.airtable.com/.attachments/404b5a720df00dde2170d8992b5a3076/be437437/00025.png?ts=1657605391&userId=usrf0GZYc5zCl9Cv7&cs=226358c862644bf4",
         "value": "0",
@@ -9679,6 +9704,7 @@ exports.default = [
     {
         "id": 26,
         "name": "Eternity",
+        "slug": "Eternity",
         "icon": "https://rune.game/images/items/00026.png",
         "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1657605395&userId=usrf0GZYc5zCl9Cv7&cs=109207c82fe9f507",
         "value": "0",
@@ -9692,10 +9718,10 @@ exports.default = [
         ],
         "isPolled": true,
         "isNew": false,
-        "isSecret": true,
+        "isSecret": false,
         "isUltraSecret": false,
-        "isPaused": true,
-        "isRetired": false,
+        "isPaused": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -10236,6 +10262,7 @@ exports.default = [
     {
         "id": 27,
         "name": "Instinct",
+        "slug": "Instinct",
         "icon": "https://rune.game/images/items/00027.png",
         "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1657605398&userId=usrf0GZYc5zCl9Cv7&cs=5c5fe23f8439d48f",
         "value": "0",
@@ -10681,6 +10708,7 @@ exports.default = [
     {
         "id": 28,
         "name": "Beacon",
+        "slug": "Beacon",
         "icon": "https://rune.game/images/items/00028.png",
         "image": "https://dl.airtable.com/.attachments/d0dbd48e6930237498b9422f311b8863/8b410c9e/00028.png?ts=1657605400&userId=usrf0GZYc5zCl9Cv7&cs=be7f16ea119705a9",
         "value": "0",
@@ -11146,6 +11174,7 @@ exports.default = [
     {
         "id": 29,
         "name": "Dragonlight",
+        "slug": "Dragonlight",
         "icon": "https://rune.game/images/items/00029.png",
         "image": "https://dl.airtable.com/.attachments/d235f466e1e662558a3801db5be596c5/29e18b3b/00029.png?ts=1657605403&userId=usrf0GZYc5zCl9Cv7&cs=7d7233f4acc14184",
         "value": "0",
@@ -11414,6 +11443,7 @@ exports.default = [
     {
         "id": 30,
         "name": "Haze",
+        "slug": "Haze",
         "icon": "https://rune.game/images/items/00030.png",
         "image": "https://dl.airtable.com/.attachments/eed5c549dd22a7ab886eaedb0b957f01/73709995/00030.png?ts=1657605404&userId=usrf0GZYc5zCl9Cv7&cs=0d77c01e9315c9f9",
         "value": "0",
@@ -11426,9 +11456,9 @@ exports.default = [
         "isPolled": true,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": true,
+        "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -11965,6 +11995,7 @@ exports.default = [
     {
         "id": 31,
         "name": "Hellfire",
+        "slug": "Hellfire",
         "icon": "https://rune.game/images/items/00031.png",
         "image": "https://dl.airtable.com/.attachments/ef9ec698aa2ca75c4b23e1686274e7dd/6cd51a59/00031.png?ts=1657605407&userId=usrf0GZYc5zCl9Cv7&cs=bdebd91036b62805",
         "value": "0",
@@ -12473,6 +12504,7 @@ exports.default = [
     {
         "id": 32,
         "name": "Luminous Flywings",
+        "slug": "Luminous Flywings",
         "icon": "https://rune.game/images/items/00032.png",
         "image": "https://dl.airtable.com/.attachments/6db9f98edfe3161a2412c09af0e5f28a/6405cd46/00032.png?ts=1657605411&userId=usrf0GZYc5zCl9Cv7&cs=13582dec7b41ded0",
         "value": "0",
@@ -12758,6 +12790,7 @@ exports.default = [
     {
         "id": 33,
         "name": "Growth",
+        "slug": "Growth",
         "icon": "https://rune.game/images/items/00033.png",
         "value": "0",
         "type": 3,
@@ -13248,6 +13281,7 @@ exports.default = [
     {
         "id": 34,
         "name": "Blur",
+        "slug": "Blur",
         "icon": "https://rune.game/images/items/00034.png",
         "image": "https://dl.airtable.com/.attachments/01dc718ed88b8790d93a9a91c33060b0/baa39c08/00034.png?ts=1657605414&userId=usrf0GZYc5zCl9Cv7&cs=be461ff18814269f",
         "value": "0",
@@ -13716,6 +13750,7 @@ exports.default = [
     {
         "id": 35,
         "name": "Mercy",
+        "slug": "Mercy",
         "icon": "https://rune.game/images/items/00035.png",
         "image": "https://dl.airtable.com/.attachments/300b9ba0445fed63fce7666e93abfb1d/b291cb49/00035.png?ts=1657605416&userId=usrf0GZYc5zCl9Cv7&cs=d4168461d85ec949",
         "value": "0",
@@ -13729,9 +13764,9 @@ exports.default = [
         "isPolled": false,
         "isNew": false,
         "isSecret": false,
-        "isUltraSecret": true,
+        "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -14280,6 +14315,7 @@ exports.default = [
     {
         "id": 36,
         "name": "Edict",
+        "slug": "Edict",
         "icon": "https://rune.game/images/items/00036.png",
         "value": "0",
         "type": 3,
@@ -14769,6 +14805,7 @@ exports.default = [
     {
         "id": 37,
         "name": "Burial",
+        "slug": "Burial",
         "icon": "https://rune.game/images/items/00037.png",
         "image": "https://dl.airtable.com/.attachments/0de29c7c7e884f907019358f60e8d9de/57f294df/00037.png?ts=1657605418&userId=usrf0GZYc5zCl9Cv7&cs=2066e5710988670a",
         "value": "0",
@@ -15171,6 +15208,7 @@ exports.default = [
     {
         "id": 38,
         "name": "Shade",
+        "slug": "Shade",
         "icon": "https://rune.game/images/items/00038.png",
         "value": "0",
         "type": 11,
@@ -15517,6 +15555,7 @@ exports.default = [
     {
         "id": 39,
         "name": "Folly",
+        "slug": "Folly",
         "icon": "https://rune.game/images/items/00039.png",
         "value": "0",
         "type": 5,
@@ -15702,6 +15741,7 @@ exports.default = [
     {
         "id": 40,
         "name": "Soulcord",
+        "slug": "Soulcord",
         "icon": "https://rune.game/images/items/00040.png",
         "value": "0",
         "type": 12,
@@ -15907,6 +15947,7 @@ exports.default = [
     {
         "id": 41,
         "name": "Windfall",
+        "slug": "Windfall",
         "icon": "https://rune.game/images/items/00041.png",
         "value": "0",
         "type": 12,
@@ -16153,6 +16194,7 @@ exports.default = [
     {
         "id": 43,
         "name": "Thunderchild",
+        "slug": "Thunderchild",
         "icon": "https://rune.game/images/items/00043.png",
         "image": "https://dl.airtable.com/.attachments/1f66cfc1b91d6e2c7ed07436a79777a3/ce8da9de/00043.png?ts=1657605428&userId=usrf0GZYc5zCl9Cv7&cs=251d8a88366de99f",
         "value": "0",
@@ -16531,6 +16573,7 @@ exports.default = [
     {
         "id": 44,
         "name": "Hellreaver",
+        "slug": "Hellreaver",
         "icon": "https://rune.game/images/items/00044.png",
         "image": "https://dl.airtable.com/.attachments/05dc45bb336d198abed84cee6df55c6a/f745dddf/00044.png?ts=1657605432&userId=usrf0GZYc5zCl9Cv7&cs=32e9941101ab17e6",
         "value": "0",
@@ -16952,6 +16995,7 @@ exports.default = [
     {
         "id": 45,
         "name": "Phoenix",
+        "slug": "Phoenix",
         "icon": "https://rune.game/images/items/00045.png",
         "image": "https://dl.airtable.com/.attachments/a139169143fdf979277f00432227f0f6/d4eb2cf2/image.png?ts=1657605434&userId=usrf0GZYc5zCl9Cv7&cs=85ed233f80944357",
         "value": "0",
@@ -17283,6 +17327,7 @@ exports.default = [
     {
         "id": 46,
         "name": "Ignition",
+        "slug": "Ignition",
         "icon": "https://rune.game/images/items/00046.png",
         "image": "https://dl.airtable.com/.attachments/3a27ef8bdcef9580afcf61ce6d5d4f65/fea4088a/image.png?ts=1657605435&userId=usrf0GZYc5zCl9Cv7&cs=741d6786ad4b21ed",
         "value": "0",
@@ -17339,6 +17384,45 @@ exports.default = [
             "1": {
                 "attributes": [
                     {
+                        "id": 6,
+                        "name": "HarvestBurn",
+                        "isEnabled": true,
+                        "game": "Raid",
+                        "nexusLink": "https://nexus.rune.game/item-attribute/harvestburn",
+                        "paramType1": "percent",
+                        "paramValue1": "0-100",
+                        "nature": "Debuff",
+                        "description": "{parameter1} Harvest Burn",
+                        "param1": {
+                            "spec": "0-20",
+                            "min": 0,
+                            "max": 20
+                        }
+                    },
+                    {
+                        "id": 106,
+                        "name": "HarvestSpeed",
+                        "isEnabled": false,
+                        "nexusLink": "https://nexus.rune.game/item-attribute/raidpending5",
+                        "param1": {
+                            "spec": "0-5",
+                            "min": 0,
+                            "max": 5
+                        }
+                    },
+                    {
+                        "id": 142,
+                        "name": "StunRecovery",
+                        "isEnabled": false,
+                        "nexusLink": "https://nexus.rune.game/item-attribute/raidpending3",
+                        "description": "{parameter1} Faster Recovery From Stun Effects",
+                        "param1": {
+                            "spec": "0-10",
+                            "min": 0,
+                            "max": 10
+                        }
+                    },
+                    {
                         "id": 8,
                         "name": "RemoveFees",
                         "isEnabled": true,
@@ -17349,9 +17433,9 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Reduced Harvest Fees",
                         "param1": {
-                            "spec": "0-10",
-                            "min": 0,
-                            "max": 10
+                            "spec": "5-5",
+                            "min": 5,
+                            "max": 5
                         }
                     },
                     {
@@ -17365,50 +17449,11 @@ exports.default = [
                         "nature": "Buff",
                         "description": "{parameter1} Magic Find",
                         "param1": {
-                            "spec": "0-10",
-                            "min": 0,
+                            "spec": "10-10",
+                            "min": 10,
                             "max": 10
                         }
                     },
-                    {
-                        "id": 6,
-                        "name": "HarvestBurn",
-                        "isEnabled": true,
-                        "game": "Raid",
-                        "nexusLink": "https://nexus.rune.game/item-attribute/harvestburn",
-                        "paramType1": "percent",
-                        "paramValue1": "0-100",
-                        "nature": "Debuff",
-                        "description": "{parameter1} Harvest Burn",
-                        "param1": {
-                            "spec": "0-10",
-                            "min": 0,
-                            "max": 10
-                        }
-                    },
-                    {
-                        "id": 144,
-                        "name": "RaidPending5",
-                        "isEnabled": false,
-                        "nexusLink": "https://nexus.rune.game/item-attribute/raidpending5",
-                        "param1": {
-                            "spec": "0-5",
-                            "min": 0,
-                            "max": 5
-                        }
-                    },
-                    {
-                        "id": 142,
-                        "name": "RaidPending3",
-                        "isEnabled": false,
-                        "nexusLink": "https://nexus.rune.game/item-attribute/raidpending3",
-                        "param1": {
-                            "spec": "1",
-                            "min": 1,
-                            "max": 1,
-                            "value": 1
-                        }
-                    }
                 ],
                 "perfection": [
                     10,
@@ -17578,6 +17623,7 @@ exports.default = [
     {
         "id": 47,
         "name": "Corona",
+        "slug": "Corona",
         "icon": "https://rune.game/images/items/00047.png",
         "value": "0",
         "type": 7,
@@ -17841,6 +17887,7 @@ exports.default = [
     {
         "id": 48,
         "name": "Judgement",
+        "slug": "Judgement",
         "icon": "https://rune.game/images/items/00048.png",
         "value": "0",
         "type": 2,
@@ -17908,6 +17955,7 @@ exports.default = [
     {
         "id": 49,
         "name": "Purity",
+        "slug": "Purity",
         "icon": "https://rune.game/images/items/00049.png",
         "image": "https://dl.airtable.com/.attachments/f695da2c2131940349a2c693f6cd651a/a12a2e8f/image1.png?ts=1657605438&userId=usrf0GZYc5zCl9Cv7&cs=cf9a58edec49dbf0",
         "value": "0",
@@ -18211,6 +18259,7 @@ exports.default = [
     {
         "id": 50,
         "name": "Greed",
+        "slug": "Greed",
         "icon": "https://rune.game/images/items/00050.png",
         "value": "0",
         "isPolled": false,
@@ -18269,6 +18318,7 @@ exports.default = [
     {
         "id": 51,
         "name": "Riptide",
+        "slug": "Riptide",
         "icon": "https://rune.game/images/items/00051.png",
         "value": "0",
         "isPolled": false,
@@ -18327,6 +18377,7 @@ exports.default = [
     {
         "id": 52,
         "name": "Origin",
+        "slug": "Origin",
         "icon": "https://rune.game/images/items/00052.png",
         "value": "0",
         "isPolled": false,
@@ -18398,6 +18449,7 @@ exports.default = [
     {
         "id": 53,
         "name": "Fortitude",
+        "slug": "Fortitude",
         "icon": "https://rune.game/images/items/00053.png",
         "value": "0",
         "type": 7,
@@ -18641,6 +18693,7 @@ exports.default = [
     {
         "id": 54,
         "name": "Presence",
+        "slug": "Presence",
         "icon": "https://rune.game/images/items/00054.png",
         "value": "0",
         "type": 5,
@@ -19001,6 +19054,7 @@ exports.default = [
     {
         "id": 55,
         "name": "Reave",
+        "slug": "Reave",
         "icon": "https://rune.game/images/items/00055.png",
         "image": "https://dl.airtable.com/.attachments/81fe6356a27477cf4c357c4638e197aa/1f3e076d/Reave.jpeg?ts=1657605446&userId=usrf0GZYc5zCl9Cv7&cs=cdeae287148af955",
         "value": "0",
@@ -19015,9 +19069,9 @@ exports.default = [
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
-        "isCraftable": true,
+        "isCraftable": false,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -19358,6 +19412,7 @@ exports.default = [
     {
         "id": 56,
         "name": "Flare",
+        "slug": "Flare",
         "icon": "https://rune.game/images/items/00056.png",
         "image": "https://dl.airtable.com/.attachments/264b7064c7c2a7d51c55a5eb098f855c/10aa6323/image.png?ts=1657605447&userId=usrf0GZYc5zCl9Cv7&cs=68bb1e9dd36a31b1",
         "value": "0",
@@ -19691,6 +19746,7 @@ exports.default = [
     {
         "id": 109,
         "name": "Voidmaw",
+        "slug": "Voidmaw",
         "icon": "https://rune.game/images/items/00109.png",
         "image": "https://dl.airtable.com/.attachments/d868f6955899d37816e85b87461ec9f7/85bc92ae/necklace_A_24.png?ts=1657605448&userId=usrf0GZYc5zCl9Cv7&cs=11c82ca8fab38f9a",
         "value": "0",
@@ -19935,6 +19991,7 @@ exports.default = [
     {
         "id": 110,
         "name": "Hoarfrost",
+        "slug": "Hoarfrost",
         "icon": "https://rune.game/images/items/00110.png",
         "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657605448&userId=usrf0GZYc5zCl9Cv7&cs=3187639478a8b8c9",
         "value": "0",
@@ -20078,6 +20135,7 @@ exports.default = [
     {
         "id": 111,
         "name": "Verdant",
+        "slug": "Verdant",
         "icon": "https://rune.game/images/items/00111.png",
         "value": "0",
         "isPolled": false,
@@ -20136,6 +20194,7 @@ exports.default = [
     {
         "id": 112,
         "name": "Animus",
+        "slug": "Animus",
         "icon": "https://rune.game/images/items/00112.png",
         "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657605450&userId=usrf0GZYc5zCl9Cv7&cs=2314fa0abf72a2f2",
         "value": "0",
@@ -20152,7 +20211,7 @@ exports.default = [
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
@@ -20306,7 +20365,7 @@ exports.default = [
                 ],
                 "perfection": [
                     4,
-                    null,
+                    2,
                     2,
                     0,
                     10,
@@ -20495,6 +20554,7 @@ exports.default = [
     {
         "id": 116,
         "name": "Doom",
+        "slug": "Doom",
         "icon": "https://rune.game/images/items/00116.png",
         "value": "0",
         "specificType": 49,
@@ -20556,6 +20616,7 @@ exports.default = [
     {
         "id": 124,
         "name": "Cleave",
+        "slug": "Cleave",
         "icon": "https://rune.game/images/items/00124.png",
         "value": "0",
         "specificType": 50,
@@ -20617,6 +20678,7 @@ exports.default = [
     {
         "id": 130,
         "name": "Breath of the Dying",
+        "slug": "Breath of the Dying",
         "icon": "https://rune.game/images/items/00130.png",
         "value": "0",
         "isPolled": false,
@@ -20675,6 +20737,7 @@ exports.default = [
     {
         "id": 132,
         "name": "Seal of the {Guild Name}",
+        "slug": "Seal of the {Guild Name}",
         "icon": "https://rune.game/images/items/00132.png",
         "value": "0",
         "isPolled": false,
@@ -20733,6 +20796,7 @@ exports.default = [
     {
         "id": 133,
         "name": "Guild Officer's Insignia",
+        "slug": "Guild Officer's Insignia",
         "icon": "https://rune.game/images/items/00133.png",
         "value": "0",
         "isPolled": false,
@@ -20791,6 +20855,7 @@ exports.default = [
     {
         "id": 134,
         "name": "Guild General's Insignia",
+        "slug": "Guild General's Insignia",
         "icon": "https://rune.game/images/items/00134.png",
         "value": "0",
         "isPolled": false,
@@ -20849,6 +20914,7 @@ exports.default = [
     {
         "id": 135,
         "name": "Salt Charm",
+        "slug": "Salt Charm",
         "icon": "https://rune.game/images/items/00135.png",
         "value": "0",
         "specificType": 54,
@@ -20910,6 +20976,7 @@ exports.default = [
     {
         "id": 138,
         "name": "Triumph",
+        "slug": "Triumph",
         "icon": "https://rune.game/images/items/00138.png",
         "value": "0",
         "isPolled": true,
@@ -20968,6 +21035,7 @@ exports.default = [
     {
         "id": 182,
         "name": "Exile",
+        "slug": "Exile",
         "icon": "https://rune.game/images/items/00182.png",
         "image": "https://dl.airtable.com/.attachments/54d31e612a1f505befc44c2b308b6cab/461714fa/image.png?ts=1657605455&userId=usrf0GZYc5zCl9Cv7&cs=47f8757379937163",
         "value": "0",
@@ -21305,6 +21373,7 @@ exports.default = [
     {
         "id": 209,
         "name": "Icebrand",
+        "slug": "Icebrand",
         "icon": "https://rune.game/images/items/00209.png",
         "image": "https://dl.airtable.com/.attachments/9f3125cf2dd7e4a607e535c0f91adf61/ecd2c622/icebrand.png?ts=1657605456&userId=usrf0GZYc5zCl9Cv7&cs=c646fe9770dd0678",
         "value": "0",
@@ -21635,6 +21704,7 @@ exports.default = [
     {
         "id": 222,
         "name": "Capacity",
+        "slug": "Capacity",
         "icon": "https://rune.game/images/items/00222.png",
         "value": "0",
         "type": 7,
@@ -21702,6 +21772,7 @@ exports.default = [
     {
         "id": 240,
         "name": "Ecliptic",
+        "slug": "Ecliptic",
         "icon": "https://rune.game/images/items/00240.png",
         "value": "0",
         "type": 9,
@@ -21979,6 +22050,7 @@ exports.default = [
     {
         "id": 241,
         "name": "Pulsar",
+        "slug": "Pulsar",
         "icon": "https://rune.game/images/items/00241.png",
         "image": "https://dl.airtable.com/.attachments/1e38c4d58d046af1197b124912fde06f/27aed29e/ArcherBow_B_256_23.png?ts=1657605459&userId=usrf0GZYc5zCl9Cv7&cs=0e2341c72302910c",
         "value": "0",
@@ -22270,6 +22342,7 @@ exports.default = [
     {
         "id": 264,
         "name": "Torrent",
+        "slug": "Torrent",
         "icon": "https://rune.game/images/items/00264.png",
         "value": "0",
         "type": 2,
@@ -22451,6 +22524,7 @@ exports.default = [
     {
         "id": 303,
         "name": "Diligence",
+        "slug": "Diligence",
         "icon": "https://rune.game/images/items/00303.png",
         "value": "0",
         "type": 7,
@@ -22518,6 +22592,7 @@ exports.default = [
     {
         "id": 342,
         "name": "Nexus",
+        "slug": "Nexus",
         "icon": "https://rune.game/images/items/00342.png",
         "value": "0",
         "isPolled": true,
@@ -22579,6 +22654,7 @@ exports.default = [
     {
         "id": 562,
         "name": "Dragonheart",
+        "slug": "Dragonheart",
         "icon": "https://rune.game/images/items/00562.png",
         "value": "0",
         "isPolled": true,
@@ -22641,6 +22717,7 @@ exports.default = [
     {
         "id": 610,
         "name": "Mimic",
+        "slug": "Mimic",
         "icon": "https://rune.game/images/items/00610.png",
         "value": "0",
         "isPolled": false,
@@ -22699,6 +22776,7 @@ exports.default = [
     {
         "id": 615,
         "name": "Miasma",
+        "slug": "Miasma",
         "icon": "https://rune.game/images/items/00615.png",
         "value": "0",
         "type": 2,
@@ -23028,6 +23106,7 @@ exports.default = [
     {
         "id": 616,
         "name": "Horizon",
+        "slug": "Horizon",
         "icon": "https://rune.game/images/items/00616.png",
         "value": "0",
         "type": 11,
@@ -23294,6 +23373,7 @@ exports.default = [
     {
         "id": 617,
         "name": "Star",
+        "slug": "Star",
         "icon": "https://rune.game/images/items/00617.png",
         "value": "0",
         "type": 5,
@@ -23536,6 +23616,7 @@ exports.default = [
     {
         "id": 618,
         "name": "Unity",
+        "slug": "Unity",
         "icon": "https://rune.game/images/items/00618.png",
         "value": "0",
         "type": 12,
@@ -23605,6 +23686,7 @@ exports.default = [
     {
         "id": 627,
         "name": "Legacy",
+        "slug": "Legacy",
         "icon": "https://rune.game/images/items/00627.png",
         "value": "0",
         "type": 5,
@@ -23741,6 +23823,7 @@ exports.default = [
     {
         "id": 628,
         "name": "Pillage",
+        "slug": "Pillage",
         "icon": "https://rune.game/images/items/00628.png",
         "value": "0",
         "type": 1,
@@ -23914,6 +23997,7 @@ exports.default = [
     {
         "id": 629,
         "name": "Bloodline",
+        "slug": "Bloodline",
         "icon": "https://rune.game/images/items/00629.png",
         "value": "0",
         "type": 7,
@@ -24184,6 +24268,7 @@ exports.default = [
     {
         "id": 630,
         "name": "Frenzy",
+        "slug": "Frenzy",
         "icon": "https://rune.game/images/items/00630.png",
         "value": "0",
         "type": 8,
@@ -24338,6 +24423,7 @@ exports.default = [
     {
         "id": 631,
         "name": "Shroud",
+        "slug": "Shroud",
         "icon": "https://rune.game/images/items/00631.png",
         "value": "0",
         "subType": 43,
@@ -24400,6 +24486,7 @@ exports.default = [
     {
         "id": 632,
         "name": "Conclave",
+        "slug": "Conclave",
         "icon": "https://rune.game/images/items/00632.png",
         "value": "0",
         "type": 7,
@@ -24536,6 +24623,7 @@ exports.default = [
     {
         "id": 633,
         "name": "Celerity",
+        "slug": "Celerity",
         "icon": "https://rune.game/images/items/00633.png",
         "value": "0",
         "type": 9,
@@ -24672,6 +24760,7 @@ exports.default = [
     {
         "id": 634,
         "name": "Slipstream",
+        "slug": "Slipstream",
         "icon": "https://rune.game/images/items/00634.png",
         "value": "0",
         "type": 2,
@@ -24831,6 +24920,7 @@ exports.default = [
     {
         "id": 635,
         "name": "Myriad",
+        "slug": "Myriad",
         "icon": "https://rune.game/images/items/00635.png",
         "value": "0",
         "subType": 44,
@@ -24893,6 +24983,7 @@ exports.default = [
     {
         "id": 637,
         "name": "Void",
+        "slug": "Void",
         "icon": "https://rune.game/images/items/00637.png",
         "value": "0",
         "type": 5,
@@ -24960,6 +25051,7 @@ exports.default = [
     {
         "id": 638,
         "name": "Lawmaker",
+        "slug": "Lawmaker",
         "icon": "https://rune.game/images/items/00638.png",
         "value": "0",
         "type": 7,
@@ -25046,6 +25138,7 @@ exports.default = [
     {
         "id": 639,
         "name": "Flay",
+        "slug": "Flay",
         "icon": "https://rune.game/images/items/00639.png",
         "value": "0",
         "type": 1,
@@ -25114,6 +25207,7 @@ exports.default = [
     {
         "id": 640,
         "name": "Lawbreaker",
+        "slug": "Lawbreaker",
         "icon": "https://rune.game/images/items/00640.png",
         "value": "0",
         "type": 11,
@@ -25181,6 +25275,7 @@ exports.default = [
     {
         "id": 1000,
         "name": "Guild Token",
+        "slug": "Guild Token",
         "icon": "https://rune.game/images/items/01000.png",
         "value": "0",
         "isPolled": false,
@@ -25239,6 +25334,7 @@ exports.default = [
     {
         "id": 1001,
         "name": "Guild Scroll",
+        "slug": "Guild Scroll",
         "icon": "https://rune.game/images/items/01001.png",
         "value": "0",
         "isPolled": false,
@@ -25297,6 +25393,7 @@ exports.default = [
     {
         "id": 1100,
         "name": "Scroll of Reset",
+        "slug": "Scroll of Reset",
         "icon": "https://rune.game/images/items/01100.png",
         "value": "0",
         "type": 15,
@@ -25390,6 +25487,7 @@ exports.default = [
     {
         "id": 1200,
         "name": "Scholar's Codex",
+        "slug": "Scholar's Codex",
         "icon": "https://rune.game/images/items/01200.png",
         "image": "https://dl.airtable.com/.attachments/6c1c3d34f9e888e2a598a1c589c70c71/aa69080a/01200.png?ts=1657605476&userId=usrf0GZYc5zCl9Cv7&cs=3b072933ad14db14",
         "value": "0",
@@ -25533,6 +25631,7 @@ exports.default = [
     {
         "id": 1201,
         "name": "General's Medallion",
+        "slug": "General's Medallion",
         "icon": "https://rune.game/images/items/01201.png",
         "image": "https://dl.airtable.com/.attachments/0bf8fad8be2a36247308e7d3ac37821b/4a41bfa0/01201.png?ts=1657605478&userId=usrf0GZYc5zCl9Cv7&cs=a1cd75ea1a5706f9",
         "value": "0",
@@ -25674,6 +25773,7 @@ exports.default = [
     {
         "id": 1202,
         "name": "Crafting Competition Winner",
+        "slug": "Crafting Competition Winner",
         "icon": "https://rune.game/images/items/01202.png",
         "image": "https://dl.airtable.com/.attachments/5c87c5ade082437af456133529e895fa/2215384d/01202.png?ts=1657605478&userId=usrf0GZYc5zCl9Cv7&cs=22a12fde70b78eca",
         "value": "0",
@@ -25737,6 +25837,7 @@ exports.default = [
     {
         "id": 1203,
         "name": "Seed of Rebirth",
+        "slug": "Seed of Rebirth",
         "icon": "https://rune.game/images/items/01203.png",
         "value": "0",
         "isPolled": false,
@@ -25798,6 +25899,7 @@ exports.default = [
     {
         "id": 1204,
         "name": "Spire Seed",
+        "slug": "Spire Seed",
         "icon": "https://rune.game/images/items/01204.png",
         "value": "0",
         "isPolled": false,
@@ -25859,6 +25961,7 @@ exports.default = [
     {
         "id": 1205,
         "name": "Founder's Cube",
+        "slug": "Founder's Cube",
         "icon": "https://rune.game/images/items/01205.png",
         "image": "https://dl.airtable.com/.attachments/c5d9253c088ac3f19a25dac871228e03/6d5cad59/01205.png?ts=1657605479&userId=usrf0GZYc5zCl9Cv7&cs=08476409b09b5405",
         "value": "0",
@@ -25922,6 +26025,7 @@ exports.default = [
     {
         "id": 1207,
         "name": "Black Drake Scale",
+        "slug": "Black Drake Scale",
         "icon": "https://rune.game/images/items/01207.png",
         "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png?ts=1657605479&userId=usrf0GZYc5zCl9Cv7&cs=c5be3fba634c8b53",
         "value": "0",

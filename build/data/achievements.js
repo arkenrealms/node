@@ -1,7 +1,7 @@
 "use strict";
+// process.env.REACT_APP_PUBLIC_URL = "https://rune.game/"
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.achievementData = void 0;
-process.env.REACT_APP_PUBLIC_URL = "https://rune.game/";
 exports.achievementData = [
     {
         id: 1,

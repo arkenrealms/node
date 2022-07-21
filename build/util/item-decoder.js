@@ -48,7 +48,7 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1658245132 * 1000;
+    var cacheBreaker = 1658302913 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
@@ -301,7 +301,7 @@ function getItemFromTokenId(tokenId) {
 exports.getItemFromTokenId = getItemFromTokenId;
 function normalizeItem(item) {
     var _a;
-    var _b, _c, _d, _e;
+    var _b, _c, _d, _e, _f;
     try {
         var tokenCacheItem = getItemTokenCache(item.tokenId);
         if (item.tokenId && tokenCacheItem)
@@ -581,8 +581,8 @@ function normalizeItem(item) {
         }
         if (item.branches) {
             // Set .value if .min and .max are same
-            for (var _i = 0, _f = Object.keys(item.branches); _i < _f.length; _i++) {
-                var bIndex = _f[_i];
+            for (var _i = 0, _g = Object.keys(item.branches); _i < _g.length; _i++) {
+                var bIndex = _g[_i];
                 var branchIndex = Number(bIndex);
                 for (var attributeIndex in item.branches[branchIndex].attributes) {
                     if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
@@ -616,8 +616,8 @@ function normalizeItem(item) {
                 // }
             }
             // Set preset and attribute values based on rarity
-            for (var _g = 0, _h = Object.keys(item.branches); _g < _h.length; _g++) {
-                var bIndex = _h[_g];
+            for (var _h = 0, _j = Object.keys(item.branches); _h < _j.length; _h++) {
+                var bIndex = _j[_h];
                 var branchIndex = Number(bIndex);
                 if (!item.branches[branchIndex].attributes)
                     continue;
@@ -650,8 +650,8 @@ function normalizeItem(item) {
                     }
                 }
                 if (item.rarity) {
-                    for (var _j = 0, _k = Object.keys(item.branches); _j < _k.length; _j++) {
-                        var b2Index = _k[_j];
+                    for (var _k = 0, _l = Object.keys(item.branches); _k < _l.length; _k++) {
+                        var b2Index = _l[_k];
                         var branch2Index = Number(b2Index);
                         if (!((_d = item.branches[branch2Index].presets) === null || _d === void 0 ? void 0 : _d[item.rarity.id]))
                             continue;
@@ -683,8 +683,8 @@ function normalizeItem(item) {
         }
         if (item.branches) {
             // Normalize branch values and perfection
-            for (var _l = 0, _m = Object.keys(item.branches); _l < _m.length; _l++) {
-                var bIndex = _m[_l];
+            for (var _m = 0, _o = Object.keys(item.branches); _m < _o.length; _m++) {
+                var bIndex = _o[_m];
                 var branchIndex = Number(bIndex);
                 if (branchIndex === 1) {
                     continue;
@@ -788,6 +788,7 @@ function normalizeItem(item) {
         if (!item.tokenId) {
             item.tokenId = getTokenIdFromItem(item);
         }
+        item.slug = (_f = item.name) === null || _f === void 0 ? void 0 : _f.replace(/ /gi, '-').replace(/"/gi, '');
         if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
             item.perfection = -13;
         if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')

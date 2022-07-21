@@ -1453,6 +1453,15 @@ export declare const SkillNames: {
     525: string;
     526: string;
     528: string;
+    612: string;
+    613: string;
+    614: string;
+    615: string;
+    616: string;
+    617: string;
+    618: string;
+    619: string;
+    620: string;
 };
 export declare const SkillIdByName: any;
 export declare const ClassNames: {
@@ -1509,9 +1518,13 @@ export declare const ItemType: {
     WristArmor: number;
     Misc: number;
 };
+export declare const ItemTypeNames: {
+    [x: number]: string;
+};
 export declare const ItemTypeToText: {
     [x: number]: string;
 };
+export declare const ItemTypeIdByName: any;
 export declare const ItemSlot: {
     None: number;
     LeftHand: number;
@@ -1599,6 +1612,7 @@ export declare const itemData: {
     runeword: ({
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -1869,6 +1883,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -2191,6 +2206,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -2478,6 +2494,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -2563,6 +2580,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -2891,6 +2909,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -3182,6 +3201,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -3492,6 +3512,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -3995,6 +4016,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -4486,6 +4508,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -4974,6 +4997,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -5496,6 +5520,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -5956,6 +5981,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -6379,6 +6405,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -6940,6 +6967,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -7233,6 +7261,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -7600,6 +7629,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -8083,6 +8113,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -8515,6 +8546,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -8854,6 +8886,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -8914,6 +8947,8 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
+                        value?: undefined;
+                        map?: undefined;
                     };
                 } | {
                     id: number;
@@ -8926,8 +8961,12 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map: {
+                            1: string;
+                        };
                     };
                     paramValue1?: undefined;
                 })[];
@@ -9193,6 +9232,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -9540,6 +9580,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -9937,6 +9978,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -10205,6 +10247,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -10535,6 +10578,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -10760,6 +10804,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -11193,6 +11238,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -11559,6 +11605,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -11781,6 +11828,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -12093,6 +12141,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -12457,6 +12506,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -12918,6 +12968,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -13349,6 +13400,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -13697,6 +13749,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -13821,6 +13874,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -13977,6 +14031,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -14151,6 +14206,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -14514,6 +14570,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -14919,6 +14976,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -15198,6 +15256,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -15258,7 +15317,6 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
-                        value?: undefined;
                     };
                 } | {
                     id: number;
@@ -15269,7 +15327,6 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
-                        value?: undefined;
                     };
                     game?: undefined;
                     paramType1?: undefined;
@@ -15281,17 +15338,16 @@ export declare const itemData: {
                     name: string;
                     isEnabled: boolean;
                     nexusLink: string;
+                    description: string;
                     param1: {
                         spec: string;
                         min: number;
                         max: number;
-                        value: number;
                     };
                     game?: undefined;
                     paramType1?: undefined;
                     paramValue1?: undefined;
                     nature?: undefined;
-                    description?: undefined;
                 })[];
                 perfection: number[];
             };
@@ -15466,6 +15522,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -15646,6 +15703,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -15912,6 +15970,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         isPolled: boolean;
@@ -15984,6 +16043,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -16288,6 +16348,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -16587,6 +16648,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -16804,6 +16866,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -17090,6 +17153,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         specificType: number;
@@ -17159,6 +17223,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -17437,6 +17502,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -17703,6 +17769,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -17939,6 +18006,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -18210,6 +18278,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -18330,6 +18399,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         isPolled: boolean;
@@ -18399,6 +18469,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         isPolled: boolean;
@@ -18468,6 +18539,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -18761,6 +18833,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -18986,6 +19059,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -19181,6 +19255,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -19435,6 +19510,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         subType: number;
@@ -19504,6 +19580,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -19645,6 +19722,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         type: number;
@@ -19734,6 +19812,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -19833,6 +19912,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -19932,6 +20012,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -20001,6 +20082,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         value: string;
         isPolled: boolean;
@@ -20070,6 +20152,7 @@ export declare const itemData: {
     } | {
         id: number;
         name: string;
+        slug: string;
         icon: string;
         image: string;
         value: string;
@@ -20771,6 +20854,15 @@ export declare const itemData: {
                         525: string;
                         526: string;
                         528: string;
+                        612: string;
+                        613: string;
+                        614: string;
+                        615: string;
+                        616: string;
+                        617: string;
+                        618: string;
+                        619: string;
+                        620: string;
                     };
                     id: number;
                     description: string;
@@ -21030,6 +21122,15 @@ export declare const itemData: {
                         525: string;
                         526: string;
                         528: string;
+                        612: string;
+                        613: string;
+                        614: string;
+                        615: string;
+                        616: string;
+                        617: string;
+                        618: string;
+                        619: string;
+                        620: string;
                     };
                     id: number;
                     description: string;

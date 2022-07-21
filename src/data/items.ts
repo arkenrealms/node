@@ -1545,6 +1545,15 @@ export const SkillNames = {
 526: "Shadow Strike",
 // 527: "Evasion",
 528: "Flywing Dust",
+612: 'Battle Rage',
+613: 'White Lightning',
+614: 'Inferno Fire Blast',
+615: 'Cosmic Flare',
+616: 'Veil of Night',
+617: 'Sky Swarm',
+618: 'Flurry Assault',
+619: 'Destructive Impact',
+620: 'Nova Breath',
 }
 
 for (let i = 0; i < 1000; i++) {
@@ -1659,7 +1668,7 @@ export const ItemType = {
   Misc: 25,
 }
 
-export const ItemTypeToText = {
+export const ItemTypeNames = {
   [ItemType.None]: 'None',
   [ItemType.OneHandedWeapon]: 'One Handed Weapon',
   [ItemType.TwoHandedWeapon]: 'Two Handed Weapon',
@@ -1687,6 +1696,16 @@ export const ItemTypeToText = {
   [ItemType.Misc]: 'Misc',
   [ItemType.WristArmor]: 'Wrist Armor',
 }
+
+export const ItemTypeToText = ItemTypeNames
+
+export const ItemTypeIdByName: any = {}
+
+for (const key of Object.keys(ItemTypeNames)) {
+  // @ts-ignore
+  ItemTypeIdByName[ItemTypeNames[key]] = parseInt(key)
+}
+
 
 export const ItemSlot = {
   None: 0,
@@ -4552,7 +4571,7 @@ export const itemData = {
   //             ...ItemAttributes.SpecificWeaponType,
   //             min: ItemType.OneHandedWeapon,
   //             max: ItemType.OneHandedWeapon,
-  //             map: ItemTypeToText,
+  //             map: ItemTypeNames,
   //           },
   //         ],
   //         perfection: [10, 3, 15, 3],
