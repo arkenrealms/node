@@ -13904,29 +13904,14 @@ declare const _default: ({
                 name: string;
                 isEnabled: boolean;
                 nexusLink: string;
-                param1: {
-                    spec: string;
-                    min: number;
-                    max: number;
-                };
-                game?: undefined;
-                paramType1?: undefined;
-                paramValue1?: undefined;
-                nature?: undefined;
-                description?: undefined;
-            } | {
-                id: number;
-                name: string;
-                isEnabled: boolean;
-                nexusLink: string;
                 description: string;
+                paramType1: string;
                 param1: {
                     spec: string;
                     min: number;
                     max: number;
                 };
                 game?: undefined;
-                paramType1?: undefined;
                 paramValue1?: undefined;
                 nature?: undefined;
             })[];

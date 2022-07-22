@@ -957,6 +957,7 @@ export function getTokenIdFromItem(item, rand = 1) {
     }
   }
 
+  attrs += "00000"
   attrs += pad(rand, 3)
 
   return `1${pad(version, 3)}${pad(item.id, 5)}${pad(item.type, 2)}${attrs}`

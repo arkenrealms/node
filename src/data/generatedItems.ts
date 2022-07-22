@@ -1702,7 +1702,7 @@ export default [
         "perfection": [
           5,
           20,
-          null
+          2
         ]
       },
       "2": {
@@ -6470,7 +6470,7 @@ export default [
         "perfection": [
           15,
           1,
-          null,
+          4,
           5
         ]
       },
@@ -8994,7 +8994,7 @@ export default [
         ],
         "perfection": [
           10,
-          null,
+          3,
           15,
           3,
           null
@@ -12141,7 +12141,7 @@ export default [
         ],
         "perfection": [
           10,
-          null,
+          2,
           3,
           4,
           0

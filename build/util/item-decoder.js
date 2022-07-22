@@ -820,6 +820,7 @@ function getTokenIdFromItem(item, rand) {
             attrs += '0' + pad((attribute === null || attribute === void 0 ? void 0 : attribute.id) || 0, 3) + pad((attribute === null || attribute === void 0 ? void 0 : attribute.value) || 0, 3);
         }
     }
+    attrs += "00000";
     attrs += pad(rand, 3);
     return "1".concat(pad(version, 3)).concat(pad(item.id, 5)).concat(pad(item.type, 2)).concat(attrs);
 }
