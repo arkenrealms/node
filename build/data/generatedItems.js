@@ -1593,7 +1593,7 @@ exports.default = [
         "subType": 13,
         "specificType": 6,
         "slots": [
-            18
+            7
         ],
         "isPolled": true,
         "isNew": false,
@@ -8843,7 +8843,7 @@ exports.default = [
             495
         ],
         "materials": [
-            18
+            7
         ],
         "category": "armor"
     },
@@ -12003,7 +12003,7 @@ exports.default = [
         "subType": 13,
         "specificType": 26,
         "slots": [
-            18
+            7
         ],
         "isPolled": true,
         "isNew": false,
@@ -13289,7 +13289,7 @@ exports.default = [
         "subType": 13,
         "specificType": 29,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,
@@ -17633,7 +17633,7 @@ exports.default = [
         "subType": 13,
         "specificType": 160,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,
@@ -18459,7 +18459,7 @@ exports.default = [
         "subType": 13,
         "specificType": 39,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,
@@ -21714,7 +21714,7 @@ exports.default = [
         "subType": 13,
         "specificType": 150,
         "slots": [
-            18
+            7
         ],
         "isPolled": true,
         "isNew": false,
@@ -22534,7 +22534,7 @@ exports.default = [
         "subType": 13,
         "specificType": 170,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,
@@ -24007,7 +24007,7 @@ exports.default = [
         "subType": 13,
         "specificType": 184,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,
@@ -24496,7 +24496,7 @@ exports.default = [
         "subType": 13,
         "specificType": 187,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,
@@ -25061,7 +25061,7 @@ exports.default = [
         "subType": 13,
         "specificType": 192,
         "slots": [
-            18
+            7
         ],
         "isPolled": false,
         "isNew": false,

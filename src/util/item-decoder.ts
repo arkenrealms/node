@@ -28,7 +28,7 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
-  const cacheBreaker = 1658302913 * 1000
+  const cacheBreaker = 1658481980 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
