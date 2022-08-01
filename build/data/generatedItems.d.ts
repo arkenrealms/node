@@ -13868,7 +13868,7 @@ declare const _default: ({
     details: {
         Type: string;
         Subtype: string;
-        "Rune Word"?: undefined;
+        "Rune Word": string;
         Distribution?: undefined;
         Date?: undefined;
         "Max Supply"?: undefined;

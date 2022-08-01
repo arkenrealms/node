@@ -5347,7 +5347,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "2-10",
               "min": 2,
@@ -5965,7 +5965,7 @@ export default [
         ],
         "perfection": [
           5,
-          40,
+          20,
           null,
           null,
           2,
@@ -11187,14 +11187,14 @@ export default [
     "isSecret": false,
     "isUltraSecret": false,
     "isPaused": false,
-    "isRetired": false,
+    "isRetired": true,
     "isDisabled": false,
     "isCraftable": false,
     "isEnabled": true,
-    "isEquipable": false,
-    "isUnequipable": false,
-    "isTradeable": false,
-    "isTransferable": false,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
     "isUpgradable": false,
     "isPublishable": true,
     "isRuneword": false,
@@ -11515,7 +11515,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "0-15",
               "min": 0,
@@ -12860,7 +12860,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "0-8",
               "min": 0,
@@ -13008,7 +13008,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "2-8",
               "min": 2,
@@ -13151,7 +13151,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "2-8",
               "min": 2,
@@ -15257,7 +15257,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "0-5",
               "min": 0,
@@ -17337,12 +17337,12 @@ export default [
     ],
     "isPolled": false,
     "isNew": false,
-    "isSecret": false,
+    "isSecret": true,
     "isUltraSecret": true,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
-    "isCraftable": false,
+    "isCraftable": true,
     "isEnabled": true,
     "isEquipable": true,
     "isUnequipable": true,
@@ -17357,12 +17357,13 @@ export default [
     "attributes": [],
     "details": {
       "Type": "Boot",
-      "Subtype": "Sol Battlemage Footwraps"
+      "Subtype": "Sol Battlemage Footwraps",
+      "Rune Word": "Gul Ist Zod Um"
     },
     "recipe": {
       "requirement": [
         {
-          "id": 32,
+          "id": 24,
           "quantity": 1
         },
         {
@@ -17370,7 +17371,11 @@ export default [
           "quantity": 1
         },
         {
-          "id": 22,
+          "id": 32,
+          "quantity": 1
+        },
+        {
+          "id": 21,
           "quantity": 1
         }
       ]
@@ -17402,7 +17407,7 @@ export default [
             "name": "HarvestSpeed",
             "isEnabled": false,
             "nexusLink": "https://nexus.rune.game/item-attribute/raidpending5",
-            "description": "{parameter1} Reduction To Harvest Cooldown",
+            "description": "{parameter1} Reduction To Harvest Cooldown (Not Implemented)",
             "paramType1": "percent",
             "param1": {
               "spec": "0-5",
@@ -17411,11 +17416,11 @@ export default [
             }
           },
           {
-            "id": 142,
+            "id": 108,
             "name": "StunRecovery",
             "isEnabled": false,
             "nexusLink": "https://nexus.rune.game/item-attribute/raidpending3",
-            "description": "{parameter1} Faster Recovery From Stun Effects",
+            "description": "{parameter1} Faster Recovery From Stun Effects (Not Implemented)",
             "paramType1": "percent",
             "param1": {
               "spec": "0-10",
@@ -17457,9 +17462,9 @@ export default [
           },
         ],
         "perfection": [
-          10,
-          10,
           0,
+          5,
+          10,
           null,
           null
         ]
@@ -17619,7 +17624,7 @@ export default [
     "materials": [
       20
     ],
-    "category": "accessory"
+    "category": "armor"
   },
   {
     "id": 47,
@@ -20046,7 +20051,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "0-5",
               "min": 0,
@@ -26098,7 +26103,7 @@ export default [
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn",
+            "description": "{parameter1} Reduced Burn (Not Implemented)",
             "param1": {
               "spec": "0-3",
               "min": 0,

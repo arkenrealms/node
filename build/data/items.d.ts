@@ -15287,7 +15287,7 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word"?: undefined;
+            "Rune Word": string;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
@@ -20347,6 +20347,7 @@ export declare const itemData: {
                 } | {
                     description: string;
                 })[];
+                perfection?: undefined;
             };
             4: {
                 attributes: ({
@@ -20481,66 +20482,6 @@ export declare const itemData: {
         isRetired?: undefined;
         description?: undefined;
         recipe?: undefined;
-        video?: undefined;
-    } | {
-        id: number;
-        name: string;
-        category: ItemCategoriesType;
-        icon: string;
-        value: string;
-        isPublishable: boolean;
-        isSecret: boolean;
-        type: number;
-        slots: number[];
-        isNew: boolean;
-        isEquipable: boolean;
-        isUnequipable: boolean;
-        isTradeable: boolean;
-        isTransferable: boolean;
-        isUpgradable: boolean;
-        isCraftable: boolean;
-        isDisabled: boolean;
-        isRuneword: boolean;
-        createdDate: number;
-        hotness: number;
-        attributes: any[];
-        description: string[];
-        details: {
-            Type: string;
-            Subtype: string;
-            Distribution: string;
-            Date: string;
-            'Max Supply': string;
-            "Rune Word"?: undefined;
-        };
-        branches: {
-            [x: number]: {
-                attributes: ({
-                    min: number;
-                    max: number;
-                    map: any;
-                    id: number;
-                    description: string;
-                } | {
-                    min: number;
-                    max: number;
-                    id: number;
-                    paramType1: string;
-                    description: string;
-                })[];
-                perfection: any[];
-            } | {
-                attributes: any[];
-                perfection?: undefined;
-            };
-            "2"?: undefined;
-            "3"?: undefined;
-            "4"?: undefined;
-        };
-        isRetired?: undefined;
-        rarity?: undefined;
-        recipe?: undefined;
-        isTransmutable?: undefined;
         video?: undefined;
     } | {
         id: number;
@@ -20863,6 +20804,119 @@ export declare const itemData: {
             "4"?: undefined;
         };
         description?: undefined;
+        rarity?: undefined;
+        recipe?: undefined;
+        isTransmutable?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        isSecret: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            "Rune Word"?: undefined;
+        };
+        description: string;
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                } | {
+                    value: number;
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                })[];
+                perfection: any[];
+            } | {
+                attributes: any[];
+                perfection?: undefined;
+            } | {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                } | {
+                    value: number;
+                    min: number;
+                    max: number;
+                    id: number;
+                    description: string;
+                })[];
+                perfection: number[];
+            };
+            2: {
+                attributes: any[];
+            };
+            3: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                } | {
+                    value: number;
+                    min: number;
+                    max: number;
+                    id: number;
+                    description: string;
+                })[];
+                perfection: number[];
+            };
+            4: {
+                attributes: any[];
+            };
+        };
+        isRetired?: undefined;
         rarity?: undefined;
         recipe?: undefined;
         isTransmutable?: undefined;
@@ -21203,6 +21257,7 @@ export declare const itemData: {
                     id: number;
                     description: string;
                 }[];
+                perfection?: undefined;
             };
             4: {
                 attributes: {
@@ -21291,6 +21346,7 @@ export declare const itemData: {
                     id: number;
                     description: string;
                 }[];
+                perfection?: undefined;
             };
             4: {
                 attributes: {
@@ -21380,6 +21436,7 @@ export declare const itemData: {
                     id: number;
                     description: string;
                 }[];
+                perfection?: undefined;
             };
             4: {
                 attributes: {
@@ -21455,6 +21512,141 @@ export declare const itemData: {
                 attributes: any[];
                 perfection?: undefined;
                 presets?: undefined;
+            };
+            "2"?: undefined;
+            "3"?: undefined;
+            "4"?: undefined;
+        };
+        isRetired?: undefined;
+        rarity?: undefined;
+        recipe?: undefined;
+        isTransmutable?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        isSecret: boolean;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            "Rune Word"?: undefined;
+        };
+        description: string[];
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                })[];
+                perfection: number[];
+                presets: {
+                    [x: number]: number[];
+                };
+            } | {
+                attributes: any[];
+                perfection?: undefined;
+                presets?: undefined;
+            };
+            "2"?: undefined;
+            "3"?: undefined;
+            "4"?: undefined;
+        };
+        isRetired?: undefined;
+        rarity?: undefined;
+        recipe?: undefined;
+        isTransmutable?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        isSecret: boolean;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            "Rune Word"?: undefined;
+        };
+        description: string[];
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                } | {
+                    id: number;
+                    min: number;
+                    max: number;
+                    description: string;
+                })[];
+                perfection: number[];
+            } | {
+                attributes: {
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                }[];
+                perfection?: undefined;
             };
             "2"?: undefined;
             "3"?: undefined;

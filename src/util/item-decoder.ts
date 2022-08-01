@@ -28,7 +28,7 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
-  const cacheBreaker = 1658481980 * 1000
+  const cacheBreaker = 1658821631 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -207,8 +207,12 @@ function setItemTokenCache(item: any) {
         // console.log('Updating item', item)
         db.items?.update(result)
       } else {
-        // console.log('Inserting item', item)
-        db.items?.insert(item)
+        try {
+          // console.log('Inserting item', item)
+          db.items?.insert(item)
+        } catch(e) {
+          db.items?.update(item)
+        }
       }
 
       // db.saveDatabase()
@@ -393,11 +397,11 @@ export function normalizeItem(item: any) {
       delete item.mods[5]
       delete item.mods[6]
 
-      if (item.mods[2].value === 0) item.mods[2].value = 100
+      item.mods[2].value = 100
     } else if (item.id === 4) {
       item.mods[0].attributeId = ItemAttributes.FindShard.id
 
-      if (item.mods[0].value === 0) item.mods[0].value = 100
+      item.mods[0].value = 100
     }
 
     for (const i in item.mods) {
@@ -405,7 +409,7 @@ export function normalizeItem(item: any) {
       const branchAttribute = branchAttributes[i]
 
       if (!branchAttribute) {
-        console.log(`Branch attribute doesn't exist on item definition`, item, branchAttribute)
+        // console.log(`Branch attribute doesn't exist on item definition`, item, mod)
         continue
       }
 
@@ -551,6 +555,8 @@ export function normalizeItem(item: any) {
 
       prevMod = mod
     }
+
+    // if (item.tokenId === "100300016012001003200700120130022011003200201020030142039011202100700000115") debugger;
 
     if (actionMetadata.harvestYield) {
       item.meta.harvestYield = actionMetadata.harvestYield

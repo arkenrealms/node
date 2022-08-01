@@ -462,4 +462,8 @@ export default {
     [MAINNET]: '0x623703ABa694eC31Fc53CbC83A840e6cB4F97488',
     [TESTNET]: '',
   },
+  dead: {
+    [MAINNET]: '0x000000000000000000000000000000000000dead',
+    [TESTNET]: ''
+  }
 }

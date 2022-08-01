@@ -66,7 +66,7 @@ export async function iterateBlocks(app, name, address, fromBlock, toBlock, even
 
 export const getAddress = (address) => {
   const mainNetChainId = 56
-  const chainId = process.env.REACT_APP_CHAIN_ID
+  const chainId = typeof window !== 'undefined' && window?.location?.hostname === 'testnet.rune.game' ? 97 : process.env.REACT_APP_CHAIN_ID
   return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 
