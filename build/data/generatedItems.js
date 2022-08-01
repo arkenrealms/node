@@ -5967,7 +5967,7 @@ exports.default = [
                 ],
                 "perfection": [
                     5,
-                    40,
+                    20,
                     null,
                     null,
                     2,
@@ -11189,14 +11189,14 @@ exports.default = [
         "isSecret": false,
         "isUltraSecret": false,
         "isPaused": false,
-        "isRetired": false,
+        "isRetired": true,
         "isDisabled": false,
         "isCraftable": false,
         "isEnabled": true,
-        "isEquipable": false,
-        "isUnequipable": false,
-        "isTradeable": false,
-        "isTransferable": false,
+        "isEquipable": true,
+        "isUnequipable": true,
+        "isTradeable": true,
+        "isTransferable": true,
         "isUpgradable": false,
         "isPublishable": true,
         "isRuneword": false,
@@ -17339,12 +17339,12 @@ exports.default = [
         ],
         "isPolled": false,
         "isNew": false,
-        "isSecret": false,
+        "isSecret": true,
         "isUltraSecret": true,
         "isPaused": false,
         "isRetired": false,
         "isDisabled": false,
-        "isCraftable": false,
+        "isCraftable": true,
         "isEnabled": true,
         "isEquipable": true,
         "isUnequipable": true,
@@ -17359,12 +17359,13 @@ exports.default = [
         "attributes": [],
         "details": {
             "Type": "Boot",
-            "Subtype": "Sol Battlemage Footwraps"
+            "Subtype": "Sol Battlemage Footwraps",
+            "Rune Word": "Gul Ist Zod Um"
         },
         "recipe": {
             "requirement": [
                 {
-                    "id": 32,
+                    "id": 24,
                     "quantity": 1
                 },
                 {
@@ -17372,7 +17373,11 @@ exports.default = [
                     "quantity": 1
                 },
                 {
-                    "id": 22,
+                    "id": 32,
+                    "quantity": 1
+                },
+                {
+                    "id": 21,
                     "quantity": 1
                 }
             ]
@@ -17404,7 +17409,7 @@ exports.default = [
                         "name": "HarvestSpeed",
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending5",
-                        "description": "{parameter1} Reduction To Harvest Cooldown",
+                        "description": "{parameter1} Reduction To Harvest Cooldown (Not Implemented)",
                         "paramType1": "percent",
                         "param1": {
                             "spec": "0-5",
@@ -17413,11 +17418,11 @@ exports.default = [
                         }
                     },
                     {
-                        "id": 142,
+                        "id": 108,
                         "name": "StunRecovery",
                         "isEnabled": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/raidpending3",
-                        "description": "{parameter1} Faster Recovery From Stun Effects",
+                        "description": "{parameter1} Faster Recovery From Stun Effects (Not Implemented)",
                         "paramType1": "percent",
                         "param1": {
                             "spec": "0-10",
@@ -17459,9 +17464,9 @@ exports.default = [
                     },
                 ],
                 "perfection": [
-                    10,
-                    10,
                     0,
+                    5,
+                    10,
                     null,
                     null
                 ]
@@ -17621,7 +17626,7 @@ exports.default = [
         "materials": [
             20
         ],
-        "category": "accessory"
+        "category": "armor"
     },
     {
         "id": 47,

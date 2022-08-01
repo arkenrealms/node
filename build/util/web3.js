@@ -115,8 +115,9 @@ function iterateBlocks(app, name, address, fromBlock, toBlock, event, processLog
 }
 exports.iterateBlocks = iterateBlocks;
 var getAddress = function (address) {
+    var _a;
     var mainNetChainId = 56;
-    var chainId = process.env.REACT_APP_CHAIN_ID;
+    var chainId = typeof window !== 'undefined' && ((_a = window === null || window === void 0 ? void 0 : window.location) === null || _a === void 0 ? void 0 : _a.hostname) === 'testnet.rune.game' ? 97 : process.env.REACT_APP_CHAIN_ID;
     return address[chainId] ? address[chainId] : address[mainNetChainId];
 };
 exports.getAddress = getAddress;

@@ -48,7 +48,7 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1658481980 * 1000;
+    var cacheBreaker = 1658821631 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
@@ -363,19 +363,17 @@ function normalizeItem(item) {
             delete item.mods[4];
             delete item.mods[5];
             delete item.mods[6];
-            if (item.mods[2].value === 0)
-                item.mods[2].value = 100;
+            item.mods[2].value = 100;
         }
         else if (item.id === 4) {
             item.mods[0].attributeId = items_1.ItemAttributes.FindShard.id;
-            if (item.mods[0].value === 0)
-                item.mods[0].value = 100;
+            item.mods[0].value = 100;
         }
         for (var i in item.mods) {
             var mod = item.mods[i];
             var branchAttribute = branchAttributes[i];
             if (!branchAttribute) {
-                console.log("Branch attribute doesn't exist on item definition", item, branchAttribute);
+                // console.log(`Branch attribute doesn't exist on item definition`, item, mod)
                 continue;
             }
             if (branchAttribute.value === undefined) {
@@ -453,6 +451,7 @@ function normalizeItem(item) {
             }
             prevMod = mod;
         }
+        // if (item.tokenId === "100300016012001003200700120130022011003200201020030142039011202100700000115") debugger;
         if (actionMetadata.harvestYield) {
             item.meta.harvestYield = actionMetadata.harvestYield;
         }

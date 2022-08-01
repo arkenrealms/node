@@ -457,5 +457,9 @@ declare const _default: {
         56: string;
         97: string;
     };
+    dead: {
+        56: string;
+        97: string;
+    };
 };
 export default _default;
