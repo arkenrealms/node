@@ -178,7 +178,7 @@ exports.default = {
         _17[exports.TESTNET] = '0x1cC1E76777C7Ea50DC4700e91193b81cC62CedA2',
         _17),
     timelock: (_18 = {},
-        _18[exports.MAINNET] = '0x7128ec80f8ad3554f217d23497101120ab8c861f',
+        _18[exports.MAINNET] = '0x6246de258a6ed8e532b17417a884bbcb71c93f05',
         _18[exports.TESTNET] = '',
         _18),
     eldVoidAddress: (_19 = {},
