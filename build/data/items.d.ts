@@ -3749,7 +3749,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            1: string;
+                            "1": string;
                             "201"?: undefined;
                         };
                     };
@@ -3988,7 +3988,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            1: string;
+                            "1": string;
                             "409"?: undefined;
                         };
                     };
@@ -4159,7 +4159,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            3: string;
+                            "3": string;
                             "8"?: undefined;
                             "9"?: undefined;
                             "10"?: undefined;
@@ -4634,7 +4634,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            4: string;
+                            "4": string;
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
@@ -4770,7 +4770,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            4: string;
+                            "4": string;
                         };
                     };
                     paramValue1?: undefined;
@@ -4948,7 +4948,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            4: string;
+                            "4": string;
                             "455"?: undefined;
                         };
                     };
@@ -5140,7 +5140,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            2: string;
+                            "2": string;
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
@@ -5259,7 +5259,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            2: string;
+                            "2": string;
                             "11"?: undefined;
                         };
                     };
@@ -5493,7 +5493,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            2: string;
+                            "2": string;
                         };
                     };
                     paramType2?: undefined;
@@ -5648,7 +5648,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            6: string;
+                            "6": string;
                             "11"?: undefined;
                             "12"?: undefined;
                             "13"?: undefined;
@@ -5768,7 +5768,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            6: string;
+                            "6": string;
                             "430"?: undefined;
                         };
                     };
@@ -6081,7 +6081,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            5: string;
+                            "5": string;
                             "3"?: undefined;
                         };
                     };
@@ -6197,7 +6197,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            5: string;
+                            "5": string;
                             "467"?: undefined;
                         };
                     };
@@ -6376,7 +6376,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            5: string;
+                            "5": string;
                             "24"?: undefined;
                             "471"?: undefined;
                         };
@@ -6548,7 +6548,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            7: string;
+                            "7": string;
                             "11"?: undefined;
                             "12"?: undefined;
                             "13"?: undefined;
@@ -6708,7 +6708,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            7: string;
+                            "7": string;
                             "11"?: undefined;
                             "101"?: undefined;
                         };
@@ -6940,7 +6940,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            7: string;
+                            "7": string;
                             "481"?: undefined;
                         };
                     };
@@ -8232,7 +8232,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            5: string;
+                            "5": string;
                             "9"?: undefined;
                             "10"?: undefined;
                             "11"?: undefined;
@@ -8518,7 +8518,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            5: string;
+                            "5": string;
                             "472"?: undefined;
                         };
                     };
@@ -8965,7 +8965,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            1: string;
+                            "1": string;
                         };
                     };
                     paramValue1?: undefined;
@@ -11924,7 +11924,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            7: string;
+                            "7": string;
                         };
                     };
                 })[];
@@ -12019,7 +12019,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            7: string;
+                            "7": string;
                         };
                     };
                     influences?: undefined;
@@ -12632,7 +12632,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            6: string;
+                            "6": string;
                             "3"?: undefined;
                             "4"?: undefined;
                             "5"?: undefined;
@@ -12732,7 +12732,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            6: string;
+                            "6": string;
                             "3"?: undefined;
                             "4"?: undefined;
                             "5"?: undefined;
@@ -13212,7 +13212,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            4: string;
+                            "4": string;
                             "13"?: undefined;
                             "14"?: undefined;
                             "15"?: undefined;
@@ -13374,7 +13374,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            4: string;
+                            "4": string;
                         };
                     };
                     paramType2?: undefined;
@@ -13560,7 +13560,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         map: {
-                            4: string;
+                            "4": string;
                             "0"?: undefined;
                             "1"?: undefined;
                             "2"?: undefined;

@@ -26,7 +26,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeIdByName = exports.ItemTypeToText = exports.ItemTypeNames = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.SpecificTypeNames = exports.SpecificTypeIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
-var generatedItems_1 = __importDefault(require("./generatedItems"));
+var items_json_1 = __importDefault(require("./generated/items.json"));
 exports.rewardTokenIdMap = {
     'Guardian Egg': {
         Magical: '1003030101820400062000000200000020000002000000200000020000002000000001',
@@ -1798,7 +1798,7 @@ var ignoredItems = [
     'Crafting Competition Certificate'
 ];
 exports.itemData = (_c = {},
-    _c[items_type_1.ItemsMainCategoriesType.OTHER] = __spreadArray(__spreadArray([], generatedItems_1.default.filter(function (item) { return !ignoredItems.includes(item.name); }), true), [
+    _c[items_type_1.ItemsMainCategoriesType.OTHER] = __spreadArray(__spreadArray([], items_json_1.default.filter(function (item) { return !ignoredItems.includes(item.name); }), true), [
         {
             id: 1205,
             name: "Founder's Cube",

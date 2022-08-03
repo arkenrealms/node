@@ -48,6 +48,7 @@ export default class Profile extends BaseModel {
   public events!: Array<Event>
   public collections!: Array<Collection>
   public wishlists!: Array<Node>
+  public ownedProducts!: Array<Product>
 
   public static get tableName(): string {
     return 'profiles'

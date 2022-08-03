@@ -1,4 +1,4 @@
-export default [
+[
   {
     "id": 1,
     "name": "Steel",
@@ -2510,9 +2510,9 @@ export default [
               "spec": "Barbarian",
               "min": 1,
               "max": 1,
-              value: 1,
+              "value": 1,
               "map": {
-                1: "Barbarian"
+                "1": "Barbarian"
               }
             }
           }
@@ -2664,9 +2664,9 @@ export default [
               "spec": "Barbarian",
               "min": 1,
               "max": 1,
-              value: 1,
+              "value": 1,
               "map": {
-                1: "Barbarian"
+                "1": "Barbarian"
               }
             }
           },
@@ -2881,9 +2881,9 @@ export default [
               "spec": "Barbarian",
               "min": 1,
               "max": 1,
-              value: 1,
+              "value": 1,
               "map": {
-                1: "Barbarian"
+                "1": "Barbarian"
               }
             }
           }
@@ -3121,9 +3121,9 @@ export default [
               "spec": "Ranger",
               "min": 3,
               "max": 3,
-              value: 3,
+              "value": 3,
               "map": {
-                3: "Ranger"
+                "3": "Ranger"
               }
             }
           }
@@ -3673,9 +3673,9 @@ export default [
               "spec": "Necromancer",
               "min": 4,
               "max": 4,
-              value: 4,
+              "value": 4,
               "map": {
-                4: "Necromancer"
+                "4": "Necromancer"
               }
             }
           }
@@ -3803,7 +3803,7 @@ export default [
               "max": 4,
               "value": 4,
               "map": {
-                4: "Necromancer"
+                "4": "Necromancer"
               }
             }
           },
@@ -3981,7 +3981,7 @@ export default [
               "max": 4,
               "value": 4,
               "map": {
-                4: "Necromancer"
+                "4": "Necromancer"
               }
             }
           },
@@ -4240,9 +4240,9 @@ export default [
               "spec": "Mage",
               "min": 2,
               "max": 2,
-              value: 2,
+              "value": 2,
               "map": {
-                2: "Mage"
+                "2": "Mage"
               }
             }
           }
@@ -4388,9 +4388,9 @@ export default [
               "spec": "Mage",
               "min": 2,
               "max": 2,
-              value: 2,
+              "value": 2,
               "map": {
-                2: "Mage"
+                "2": "Mage"
               }
             }
           },
@@ -4599,9 +4599,9 @@ export default [
               "spec": "Mage",
               "min": 2,
               "max": 2,
-              value: 2,
+              "value": 2,
               "map": {
-                2: "Mage"
+                "2": "Mage"
               }
             }
           }
@@ -4844,7 +4844,7 @@ export default [
               "max": 6,
               "value": 6,
               "map": {
-                6: "Assassin"
+                "6": "Assassin"
               }
             }
           }
@@ -4995,9 +4995,9 @@ export default [
               "spec": "Assassin",
               "min": 6,
               "max": 6,
-              value: 6,
+              "value": 6,
               "map": {
-                6: "Assassin"
+                "6": "Assassin"
               }
             }
           }
@@ -5390,7 +5390,7 @@ export default [
               "max": 5,
               "value": 5,
               "map": {
-                5: "Paladin"
+                "5": "Paladin"
               }
             }
           }
@@ -5526,7 +5526,7 @@ export default [
               "max": 5,
               "value": 5,
               "map": {
-                5: "Paladin"
+                "5": "Paladin"
               }
             }
           },
@@ -5715,7 +5715,7 @@ export default [
               "max": 5,
               "value": 5,
               "map": {
-                5: "Paladin"
+                "5": "Paladin"
               }
             }
           }
@@ -5956,9 +5956,9 @@ export default [
               "spec": "Druid",
               "min": 7,
               "max": 7,
-              value: 7,
+              "value": 7,
               "map": {
-                7: "Druid"
+                "7": "Druid"
               }
             }
           }
@@ -6103,9 +6103,9 @@ export default [
               "spec": "Druid",
               "min": 7,
               "max": 7,
-              value: 7,
+              "value": 7,
               "map": {
-                7: "Druid"
+                "7": "Druid"
               }
             }
           },
@@ -6304,9 +6304,9 @@ export default [
               "spec": "Druid",
               "min": 7,
               "max": 7,
-              value: 7,
+              "value": 7,
               "map": {
-                7: "Druid"
+                "7": "Druid"
               }
             }
           }
@@ -8039,7 +8039,7 @@ export default [
               "max": 5,
               "value": 5,
               "map": {
-                5: "Paladin"
+                "5": "Paladin"
               }
             }
           }
@@ -8378,7 +8378,7 @@ export default [
               "max": 5,
               "value": 5,
               "map": {
-                5: "Paladin"
+                "5": "Paladin"
               }
             }
           }
@@ -8987,7 +8987,7 @@ export default [
               "max": 1,
               "value": 1,
               "map": {
-                1: "One-Handed Weapon"
+                "1": "One-Handed Weapon"
               }
             }
           }
@@ -12960,9 +12960,9 @@ export default [
               "spec": "Druid",
               "min": 7,
               "max": 7,
-              value: 7,
+              "value": 7,
               "map": {
-                7: "Druid"
+                "7": "Druid"
               }
             }
           }
@@ -13103,9 +13103,9 @@ export default [
               "spec": "Druid",
               "min": 7,
               "max": 7,
-              value: 7,
+              "value": 7,
               "map": {
-                7: "Druid"
+                "7": "Druid"
               }
             }
           }
@@ -13948,9 +13948,9 @@ export default [
               "spec": "Assassin",
               "min": 6,
               "max": 6,
-              value: 6,
+              "value": 6,
               "map": {
-                6: "Assassin"
+                "6": "Assassin"
               }
             }
           }
@@ -14098,9 +14098,9 @@ export default [
               "spec": "Assassin",
               "min": 6,
               "max": 6,
-              value: 6,
+              "value": 6,
               "map": {
-                6: "Assassin"
+                "6": "Assassin"
               }
             }
           }
@@ -14635,7 +14635,7 @@ export default [
               "max": 4,
               "value": 4,
               "map": {
-                4: "Necromancer"
+                "4": "Necromancer"
               }
             }
           }
@@ -14772,7 +14772,7 @@ export default [
               "max": 4,
               "value": 4,
               "map": {
-                4: "Necromancer"
+                "4": "Necromancer"
               }
             }
           }
@@ -15006,7 +15006,7 @@ export default [
               "max": 4,
               "value": 4,
               "map": {
-                4: "Necromancer"
+                "4": "Necromancer"
               }
             }
           }

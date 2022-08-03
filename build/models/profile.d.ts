@@ -39,6 +39,7 @@ export default class Profile extends BaseModel {
     events: Array<Event>;
     collections: Array<Collection>;
     wishlists: Array<Node>;
+    ownedProducts: Array<Product>;
     static get tableName(): string;
     static get timestamps(): boolean;
     static get jsonSchema(): JSONSchema;
