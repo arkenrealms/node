@@ -25,6 +25,8 @@ export default class Profile extends BaseModel {
     accountId: number;
     role: string;
     reputation: number;
+    signature: string;
+    chain: string;
     ideas: Array<Idea>;
     projects: Array<Project>;
     products: Array<Product>;

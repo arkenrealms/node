@@ -5349,7 +5349,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "2-10",
                             "min": 2,
@@ -11517,7 +11517,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "0-15",
                             "min": 0,
@@ -12862,7 +12862,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "0-8",
                             "min": 0,
@@ -13010,7 +13010,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "2-8",
                             "min": 2,
@@ -13153,7 +13153,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "2-8",
                             "min": 2,
@@ -15259,7 +15259,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -20053,7 +20053,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "0-5",
                             "min": 0,
@@ -26105,7 +26105,7 @@ exports.default = [
                         "paramType1": "percent",
                         "paramValue1": "0-100",
                         "nature": "Buff",
-                        "description": "{parameter1} Reduced Burn",
+                        "description": "{parameter1} Reduced Burn (Not Implemented)",
                         "param1": {
                             "spec": "0-3",
                             "min": 0,

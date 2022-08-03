@@ -185,23 +185,28 @@ function getItemTokenCache(tokenId) {
     }
 }
 function setItemTokenCache(item) {
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
     try {
         tokenCache[item.tokenId] = item;
         if (useLoki) {
             // Find and update an existing document
             var result = (_a = db.items) === null || _a === void 0 ? void 0 : _a.findOne({ 'tokenId': item.tokenId });
             if (result) {
-                for (var _i = 0, _d = Object.keys(item); _i < _d.length; _i++) {
-                    var key = _d[_i];
+                for (var _i = 0, _e = Object.keys(item); _i < _e.length; _i++) {
+                    var key = _e[_i];
                     result[key] = item[key];
                 }
                 // console.log('Updating item', item)
                 (_b = db.items) === null || _b === void 0 ? void 0 : _b.update(result);
             }
             else {
-                // console.log('Inserting item', item)
-                (_c = db.items) === null || _c === void 0 ? void 0 : _c.insert(item);
+                try {
+                    // console.log('Inserting item', item)
+                    (_c = db.items) === null || _c === void 0 ? void 0 : _c.insert(item);
+                }
+                catch (e) {
+                    (_d = db.items) === null || _d === void 0 ? void 0 : _d.update(item);
+                }
             }
             // db.saveDatabase()
         }

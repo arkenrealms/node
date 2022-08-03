@@ -33,6 +33,8 @@ export default class Profile extends BaseModel {
   public accountId!: number
   public role!: string // [user, developer, curator]
   public reputation!: number // based on events
+  public signature!: string
+  public chain!: string
 
   public ideas!: Array<Idea>
   public projects!: Array<Project>
