@@ -29,7 +29,7 @@ var GameRealm = /** @class */ (function (_super) {
     }
     Object.defineProperty(GameRealm, "tableName", {
         get: function () {
-            return 'servers';
+            return 'game_realms';
         },
         enumerable: false,
         configurable: true
@@ -59,7 +59,7 @@ var GameRealm = /** @class */ (function (_super) {
                     relation: objection_1.Model.HasOneRelation,
                     modelClass: node_1.default,
                     join: {
-                        from: 'servers.parentId',
+                        from: 'game_realms.parentId',
                         to: 'nodes.id'
                     }
                 },
@@ -67,10 +67,10 @@ var GameRealm = /** @class */ (function (_super) {
                     relation: objection_1.Model.ManyToManyRelation,
                     modelClass: tag_1.default,
                     join: {
-                        from: 'servers.id',
+                        from: 'game_realms.id',
                         to: 'tags.id',
                         through: {
-                            from: 'nodes.fromServerId',
+                            from: 'nodes.fromGameRealmId',
                             to: 'nodes.toTagId',
                             extra: ['relationKey']
                         }

@@ -16,7 +16,7 @@ export default class GameRealm extends BaseModel {
   public totalConnected!: number
 
   public static get tableName(): string {
-    return 'servers'
+    return 'game_realms'
   }
 
   public static get timestamps(): boolean {
@@ -38,7 +38,7 @@ export default class GameRealm extends BaseModel {
         relation: Model.HasOneRelation,
         modelClass: Node,
         join: {
-          from: 'servers.parentId',
+          from: 'game_realms.parentId',
           to: 'nodes.id'
         }
       },
@@ -46,10 +46,10 @@ export default class GameRealm extends BaseModel {
         relation: Model.ManyToManyRelation,
         modelClass: Tag,
         join: {
-          from: 'servers.id',
+          from: 'game_realms.id',
           to: 'tags.id',
           through: {
-            from: 'nodes.fromServerId',
+            from: 'nodes.fromGameRealmId',
             to: 'nodes.toTagId',
             extra: ['relationKey']
           }

@@ -20861,10 +20861,14 @@ export declare const itemData: {
                     paramType1: string;
                     description: string;
                 })[];
-                perfection: any[];
+                perfection: number[];
+                presets: {
+                    [x: number]: number[];
+                };
             } | {
                 attributes: any[];
                 perfection?: undefined;
+                presets?: undefined;
             } | {
                 attributes: ({
                     min: number;
@@ -20886,6 +20890,7 @@ export declare const itemData: {
                     description: string;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             2: {
                 attributes: any[];

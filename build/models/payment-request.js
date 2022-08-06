@@ -18,30 +18,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var objection_1 = require("objection");
-var node_1 = __importDefault(require("./node"));
-var tag_1 = __importDefault(require("./tag"));
 var base_1 = __importDefault(require("./base"));
-var GameServer = /** @class */ (function (_super) {
-    __extends(GameServer, _super);
-    function GameServer() {
+var PaymentRequest = /** @class */ (function (_super) {
+    __extends(PaymentRequest, _super);
+    function PaymentRequest() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(GameServer, "tableName", {
+    Object.defineProperty(PaymentRequest, "tableName", {
         get: function () {
-            return 'game_servers';
+            return 'payment_requests';
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(GameServer, "timestamps", {
+    Object.defineProperty(PaymentRequest, "timestamps", {
         get: function () {
             return true;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(GameServer, "jsonSchema", {
+    Object.defineProperty(PaymentRequest, "jsonSchema", {
         get: function () {
             return {
                 type: 'object',
@@ -52,45 +49,49 @@ var GameServer = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(GameServer, "relationMappings", {
+    Object.defineProperty(PaymentRequest, "relationMappings", {
         get: function () {
             return {
-                parent: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: node_1.default,
-                    join: {
-                        from: 'game_servers.parentId',
-                        to: 'nodes.id'
-                    }
-                },
-                tags: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: tag_1.default,
-                    join: {
-                        from: 'game_servers.id',
-                        to: 'tags.id',
-                        through: {
-                            from: 'nodes.fromGameServerId',
-                            to: 'nodes.toTagId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'tags'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'tags';
-                    }
-                }
+            //   parent: {
+            //     relation: Model.HasOneRelation,
+            //     modelClass: Node,
+            //     join: {
+            //       from: 'orders.parentId',
+            //       to: 'nodes.id'
+            //     }
+            //   },
+            //   profile: {
+            //     relation: Model.HasOneRelation,
+            //     modelClass: Node,
+            //     join: {
+            //       from: 'orders.profileId',
+            //       to: 'nodes.id'
+            //     }
+            //   },
+            //   items: {
+            //     relation: Model.HasManyRelation,
+            //     modelClass: Node,
+            //     join: {
+            //       from: 'orders.id',
+            //       through: {
+            //         from: 'nodes.fromOrderId',
+            //         to: 'nodes.id',
+            //         extra: ['relationKey']
+            //       },
+            //       to: 'nodes.id'
+            //     },
+            //     filter: {
+            //       relationKey: 'items'
+            //     },
+            //     beforeInsert (model) {
+            //       (model as Node).relationKey = 'items'
+            //     }
+            //   }
             };
         },
         enumerable: false,
         configurable: true
     });
-    return GameServer;
+    return PaymentRequest;
 }(base_1.default));
-exports.default = GameServer;
-// has many profiles
-// has many tags
-// has many events
-// score
+exports.default = PaymentRequest;
