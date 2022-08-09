@@ -17,7 +17,7 @@ function catchExceptions(kill) {
     process
         .on("unhandledRejection", function (reason, p) {
         console.log(reason, "Unhandled Rejection at Promise", p);
-        (0, _1.logError)(reason + ". Unhandled Rejection at Promise:" + p);
+        _1.logError(reason + ". Unhandled Rejection at Promise:" + p);
     })
         .on("uncaughtException", function (err) {
         console.log(err, "Uncaught Exception thrown");

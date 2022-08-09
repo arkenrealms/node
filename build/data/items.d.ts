@@ -279,6 +279,7 @@ export declare const ItemAttributes: {
         max: number;
         paramType1: string;
         description: string;
+        explanation: string;
     };
     RemoveFees: {
         id: number;
@@ -14634,6 +14635,8 @@ export declare const itemData: {
                         value?: undefined;
                         map?: undefined;
                     };
+                    explanation?: undefined;
+                    isImplemented?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -14649,6 +14652,27 @@ export declare const itemData: {
                         min: number;
                         max: number;
                         value: number;
+                        map?: undefined;
+                    };
+                    explanation?: undefined;
+                    isImplemented?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    isImplemented: boolean;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
                         map?: undefined;
                     };
                 } | {
@@ -14673,6 +14697,8 @@ export declare const itemData: {
                         };
                         value?: undefined;
                     };
+                    explanation?: undefined;
+                    isImplemented?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -14695,6 +14721,8 @@ export declare const itemData: {
                             "2"?: undefined;
                         };
                     };
+                    explanation?: undefined;
+                    isImplemented?: undefined;
                 })[];
                 perfection: number[];
             };
@@ -16364,13 +16392,16 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word"?: undefined;
+            "Rune Word": string;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
         };
         recipe: {
-            requirement: any[];
+            requirement: {
+                id: number;
+                quantity: number;
+            }[];
         };
         description: string;
         shortDescription: string;
@@ -16477,30 +16508,6 @@ export declare const itemData: {
                     game: string;
                     nexusLink: string;
                     paramType1: string;
-                    nature: string;
-                    influences: string;
-                    description: string;
-                    param1: {
-                        spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
-                        map: {
-                            "448": string;
-                        };
-                    };
-                    paramType2?: undefined;
-                    paramValue1?: undefined;
-                    paramValue2?: undefined;
-                    param2?: undefined;
-                    paramType3?: undefined;
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
                     paramType2: string;
                     paramValue1: string;
                     nature: string;
@@ -16515,8 +16522,8 @@ export declare const itemData: {
                     };
                     param2: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
                         value?: undefined;
                         map?: undefined;
                     };
@@ -16614,6 +16621,30 @@ export declare const itemData: {
                             "109"?: undefined;
                         };
                     };
+                    paramType3?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map: {
+                            "448": string;
+                        };
+                    };
+                    paramType2?: undefined;
+                    paramValue1?: undefined;
+                    paramValue2?: undefined;
+                    param2?: undefined;
                     paramType3?: undefined;
                 })[];
                 perfection: number[];
@@ -20490,6 +20521,59 @@ export declare const itemData: {
         icon: string;
         value: string;
         isPublishable: boolean;
+        isSecret: boolean;
+        rarity: ItemRarityValueType;
+        type: number;
+        slots: any[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        isTransmutable: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            'Rune Word': string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+        };
+        branches: {
+            [x: number]: {
+                description: string[];
+                attributes: {
+                    min: number;
+                    max: number;
+                    description: string;
+                    id: number;
+                }[];
+            } | {
+                attributes: any[];
+                description?: undefined;
+            };
+            "2"?: undefined;
+            "3"?: undefined;
+            "4"?: undefined;
+        };
+        isRetired?: undefined;
+        description?: undefined;
+        recipe?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
         rarity: ItemRarityValueType;
         type: number;
         slots: any[];
@@ -21572,6 +21656,13 @@ export declare const itemData: {
                     id: number;
                     paramType1: string;
                     description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                    explanation: string;
                 })[];
                 perfection: number[];
                 presets: {
@@ -21581,6 +21672,73 @@ export declare const itemData: {
                 attributes: any[];
                 perfection?: undefined;
                 presets?: undefined;
+            };
+            "2"?: undefined;
+            "3"?: undefined;
+            "4"?: undefined;
+        };
+        isRetired?: undefined;
+        rarity?: undefined;
+        recipe?: undefined;
+        isTransmutable?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        isSecret: boolean;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            "Rune Word"?: undefined;
+        };
+        description: string[];
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                    explanation: string;
+                })[];
+                perfection: number[];
+            } | {
+                attributes: any[];
+                perfection?: undefined;
             };
             "2"?: undefined;
             "3"?: undefined;
@@ -21656,6 +21814,313 @@ export declare const itemData: {
             "2"?: undefined;
             "3"?: undefined;
             "4"?: undefined;
+        };
+        isRetired?: undefined;
+        rarity?: undefined;
+        recipe?: undefined;
+        isTransmutable?: undefined;
+        video?: undefined;
+    } | {
+        id: number;
+        name: string;
+        category: ItemCategoriesType;
+        icon: string;
+        value: string;
+        isPublishable: boolean;
+        type: number;
+        slots: number[];
+        isNew: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isCraftable: boolean;
+        isDisabled: boolean;
+        isRuneword: boolean;
+        isSecret: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string;
+            Date: string;
+            'Max Supply': string;
+            "Rune Word"?: undefined;
+        };
+        description: string;
+        branches: {
+            [x: number]: {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                } | {
+                    min: number;
+                    max: number;
+                    id: number;
+                    paramType1: string;
+                    description: string;
+                    explanation: string;
+                } | {
+                    min: any;
+                    max: any;
+                    map: {
+                        0: string;
+                        1: string;
+                        2: string;
+                        3: string;
+                        4: string;
+                        5: string;
+                        6: string;
+                        7: string;
+                        8: string;
+                        9: string;
+                        10: string;
+                        11: string;
+                        12: string;
+                        13: string;
+                        14: string;
+                        15: string;
+                        16: string;
+                        17: string;
+                        18: string;
+                        19: string;
+                        20: string;
+                        21: string;
+                        22: string;
+                        23: string;
+                        24: string;
+                        25: string;
+                        26: string;
+                        27: string;
+                        28: string;
+                        29: string;
+                        30: string;
+                        31: string;
+                        32: string;
+                        33: string;
+                        34: string;
+                        35: string;
+                        36: string;
+                        37: string;
+                        201: string;
+                        202: string;
+                        203: string;
+                        204: string;
+                        205: string;
+                        206: string;
+                        207: string;
+                        208: string;
+                        209: string;
+                        210: string;
+                        211: string;
+                        212: string;
+                        213: string;
+                        214: string;
+                        215: string;
+                        401: string;
+                        402: string;
+                        403: string;
+                        404: string;
+                        405: string;
+                        406: string;
+                        407: string;
+                        408: string;
+                        409: string;
+                        410: string;
+                        411: string;
+                        412: string;
+                        413: string;
+                        414: string;
+                        415: string;
+                        416: string;
+                        417: string;
+                        418: string;
+                        419: string;
+                        420: string;
+                        421: string;
+                        422: string;
+                        423: string;
+                        424: string;
+                        425: string;
+                        426: string;
+                        427: string;
+                        428: string;
+                        429: string;
+                        430: string;
+                        431: string;
+                        432: string;
+                        433: string;
+                        434: string;
+                        435: string;
+                        436: string;
+                        437: string;
+                        438: string;
+                        439: string;
+                        440: string;
+                        441: string;
+                        442: string;
+                        443: string;
+                        444: string;
+                        445: string;
+                        446: string;
+                        447: string;
+                        448: string;
+                        449: string;
+                        450: string;
+                        451: string;
+                        452: string;
+                        453: string;
+                        454: string;
+                        455: string;
+                        456: string;
+                        457: string;
+                        458: string;
+                        459: string;
+                        460: string;
+                        461: string;
+                        462: string;
+                        463: string;
+                        464: string;
+                        465: string;
+                        466: string;
+                        467: string;
+                        468: string;
+                        469: string;
+                        470: string;
+                        471: string;
+                        472: string;
+                        473: string;
+                        474: string;
+                        475: string;
+                        476: string;
+                        477: string;
+                        478: string;
+                        479: string;
+                        480: string;
+                        481: string;
+                        482: string;
+                        483: string;
+                        484: string;
+                        485: string;
+                        486: string;
+                        487: string;
+                        488: string;
+                        489: string;
+                        490: string;
+                        491: string;
+                        492: string;
+                        493: string;
+                        494: string;
+                        495: string;
+                        496: string;
+                        497: string;
+                        529: string;
+                        498: string;
+                        499: string;
+                        500: string;
+                        501: string;
+                        502: string;
+                        503: string;
+                        504: string;
+                        505: string;
+                        506: string;
+                        507: string;
+                        508: string;
+                        509: string;
+                        510: string;
+                        511: string;
+                        512: string;
+                        537: string;
+                        513: string;
+                        514: string;
+                        515: string;
+                        530: string;
+                        516: string;
+                        531: string;
+                        517: string;
+                        532: string;
+                        518: string;
+                        533: string;
+                        519: string;
+                        534: string;
+                        520: string;
+                        535: string;
+                        521: string;
+                        536: string;
+                        522: string;
+                        523: string;
+                        524: string;
+                        525: string;
+                        526: string;
+                        528: string;
+                        612: string;
+                        613: string;
+                        614: string;
+                        615: string;
+                        616: string;
+                        617: string;
+                        618: string;
+                        619: string;
+                        620: string;
+                    };
+                    id: number;
+                    description: string;
+                })[];
+                perfection: number[];
+                presets: {
+                    [x: number]: any[];
+                };
+            } | {
+                attributes: {
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                }[];
+                perfection?: undefined;
+                presets?: undefined;
+            };
+            2: {
+                attributes: {
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                }[];
+            };
+            3: {
+                attributes: {
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                }[];
+                perfection?: undefined;
+            };
+            4: {
+                attributes: {
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                }[];
+            };
         };
         isRetired?: undefined;
         rarity?: undefined;

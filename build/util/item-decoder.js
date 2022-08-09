@@ -10,14 +10,10 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -168,12 +164,12 @@ function getItemTokenCache(tokenId) {
             }
         }
         if (useLocalStorage && window.localStorage) {
-            var tokenCacheText = window.localStorage.getItem("zzz_tokenCache_".concat(tokenId));
+            var tokenCacheText = window.localStorage.getItem("zzz_tokenCache_" + tokenId);
             if (tokenCacheText) {
                 var tokenCache_1 = JSON.parse(tokenCacheText);
                 var now = new Date();
                 if (now.getTime() > tokenCache_1.expiry) {
-                    window.localStorage.removeItem("zzz_tokenCache_".concat(tokenId));
+                    window.localStorage.removeItem("zzz_tokenCache_" + tokenId);
                     return;
                 }
                 return tokenCache_1.value;
@@ -212,7 +208,7 @@ function setItemTokenCache(item) {
         }
         if (useLocalStorage && window.localStorage) {
             var ttl = 3 * 24 * 60 * 60 * 1000;
-            localStorage.setItem("zzz_tokenCache_".concat(item.tokenId), JSON.stringify({
+            localStorage.setItem("zzz_tokenCache_" + item.tokenId, JSON.stringify({
                 expiry: (new Date()).getTime() + ttl,
                 value: item
             }));
@@ -294,7 +290,7 @@ function getItemFromTokenId(tokenId) {
                 modIndex += 4;
             }
         }
-        var item = __assign(__assign(__assign(__assign({}, defaultItem), { id: id_1 }), JSON.parse(JSON.stringify(items_1.itemData[items_type_1.ItemsMainCategoriesType.OTHER].find(function (i) { return i.id === id_1; })))), { type: type, version: version, mods: mods, tokenId: tokenId, shortTokenId: "".concat(tokenId.slice(0, 23), "...").concat(tokenId.slice(-3)) });
+        var item = __assign(__assign(__assign(__assign({}, defaultItem), { id: id_1 }), JSON.parse(JSON.stringify(items_1.itemData[items_type_1.ItemsMainCategoriesType.OTHER].find(function (i) { return i.id === id_1; })))), { type: type, version: version, mods: mods, tokenId: tokenId, shortTokenId: tokenId.slice(0, 23) + "..." + tokenId.slice(-3) });
         return item;
     }
     catch (e) {
@@ -490,7 +486,7 @@ function normalizeItem(item) {
             item.meta.classRequired = actionMetadata.classRequired;
         }
         if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            var perfection = __spreadArray([], branch.perfection, true);
+            var perfection = __spreadArray([], branch.perfection);
             var attributes = branch.attributes;
             // if (item.tokenId === '1001000041000100015647') {
             //   console.log(perfection)
@@ -753,7 +749,7 @@ function normalizeItem(item) {
         }
         // Normalize shorthand
         if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            var perfection = __spreadArray([], branch.perfection, true);
+            var perfection = __spreadArray([], branch.perfection);
             var attributes = branch.attributes;
             if (perfection.length) {
                 var shorthand = [];
@@ -792,7 +788,7 @@ function normalizeItem(item) {
         if (!item.tokenId) {
             item.tokenId = getTokenIdFromItem(item);
         }
-        item.slug = (_f = item.name) === null || _f === void 0 ? void 0 : _f.replace(/ /gi, '-').replace(/"/gi, '');
+        item.slug = (_f = item.name) === null || _f === void 0 ? void 0 : _f.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase();
         if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
             item.perfection = -13;
         if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
@@ -826,6 +822,6 @@ function getTokenIdFromItem(item, rand) {
     }
     attrs += "00000";
     attrs += pad(rand, 3);
-    return "1".concat(pad(version, 3)).concat(pad(item.id, 5)).concat(pad(item.type, 2)).concat(attrs);
+    return "1" + pad(version, 3) + pad(item.id, 5) + pad(item.type, 2) + attrs;
 }
 exports.getTokenIdFromItem = getTokenIdFromItem;

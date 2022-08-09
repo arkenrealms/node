@@ -78,7 +78,7 @@ function iterateBlocks(app, name, address, fromBlock, toBlock, event, processLog
                         toBlock: toBlock2,
                         topics: event.topics
                     };
-                    (0, _1.log)(name, 'Iterating block', fromBlock, 'to', toBlock2, 'eventually', toBlock, 'for', event.topics);
+                    _1.log(name, 'Iterating block', fromBlock, 'to', toBlock2, 'eventually', toBlock, 'for', event.topics);
                     return [4 /*yield*/, app.ethersProvider.getLogs(filter)];
                 case 2:
                     logs = _a.sent();
@@ -105,8 +105,8 @@ function iterateBlocks(app, name, address, fromBlock, toBlock, event, processLog
                     return [3 /*break*/, 11];
                 case 10:
                     e_1 = _a.sent();
-                    (0, _1.logError)('Iterate Blocks Error', e_1);
-                    (0, _1.logError)(name, address, fromBlock, toBlock, event);
+                    _1.logError('Iterate Blocks Error', e_1);
+                    _1.logError(name, address, fromBlock, toBlock, event);
                     return [3 /*break*/, 11];
                 case 11: return [2 /*return*/];
             }
@@ -122,13 +122,13 @@ var getAddress = function (address) {
 };
 exports.getAddress = getAddress;
 function isValidRequest(web3, req) {
-    (0, _1.log)('Verifying', req);
+    _1.log('Verifying', req);
     try {
-        var hashedData = (0, js_md5_1.default)(JSON.stringify(req.data));
+        var hashedData = js_md5_1.default(JSON.stringify(req.data));
         return web3.eth.accounts.recover(req.signature.data, req.signature.hash).toLowerCase() === req.signature.address.toLowerCase() && hashedData === req.signature.data;
     }
     catch (e) {
-        (0, _1.logError)(e);
+        _1.logError(e);
         return false;
     }
 }
@@ -140,11 +140,11 @@ function getSignedRequest(web3, secret, data) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    (0, _1.log)('Signing', data);
+                    _1.log('Signing', data);
                     _b.label = 1;
                 case 1:
                     _b.trys.push([1, 3, , 4]);
-                    hashedData = (0, js_md5_1.default)(JSON.stringify(data));
+                    hashedData = js_md5_1.default(JSON.stringify(data));
                     _a = {
                         address: secret.address
                     };
@@ -154,7 +154,7 @@ function getSignedRequest(web3, secret, data) {
                         _a)];
                 case 3:
                     e_2 = _b.sent();
-                    (0, _1.logError)(e_2);
+                    _1.logError(e_2);
                     return [2 /*return*/, null];
                 case 4: return [2 /*return*/];
             }

@@ -54,14 +54,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -84,7 +80,7 @@ function logError() {
     for (var _i = 0; _i < arguments.length; _i++) {
         msgs[_i] = arguments[_i];
     }
-    console.log.apply(console, __spreadArray([logPrefix, nowReadable()], msgs, false));
+    console.log.apply(console, __spreadArray([logPrefix, nowReadable()], msgs));
     var errorLog = fs_jetpack_1.default.read(path.resolve('./public/data/errors.json'), 'json') || [];
     for (var _a = 0, msgs_1 = msgs; _a < msgs_1.length; _a++) {
         var msg = msgs_1[_a];
@@ -102,7 +98,7 @@ function log() {
         msgs[_i] = arguments[_i];
     }
     if (exports.isDebug) {
-        console.log.apply(console, __spreadArray([logPrefix, nowReadable()], msgs, false));
+        console.log.apply(console, __spreadArray([logPrefix, nowReadable()], msgs));
     }
     if (writeLogs) {
         var logData = fs_jetpack_1.default.read(path.resolve('../public/data/log.json'), 'json') || [];

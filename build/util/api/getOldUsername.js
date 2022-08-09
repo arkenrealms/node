@@ -53,7 +53,7 @@ exports.default = (function (address) { return __awaiter(void 0, void 0, void 0,
                 _b.trys.push([0, 3, , 4]);
                 if (cache.getUsername[address])
                     return [2 /*return*/, cache.getUsername[address]];
-                return [4 /*yield*/, (0, node_fetch_1.default)("".concat(profileApi, "/users/").concat(address))];
+                return [4 /*yield*/, node_fetch_1.default(profileApi + "/users/" + address)];
             case 1:
                 response = _b.sent();
                 if (!response.ok) {

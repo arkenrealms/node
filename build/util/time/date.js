@@ -4,4 +4,4 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var moment_1 = __importDefault(require("moment"));
-exports.default = (function () { return (0, moment_1.default)().format('YYYY-MM-DD'); });
+exports.default = (function () { return moment_1.default().format('YYYY-MM-DD'); });

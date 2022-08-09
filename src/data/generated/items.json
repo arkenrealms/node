@@ -15305,7 +15305,7 @@
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
+            "description": "{parameter1} Enhanced Sacrifice & Steal",
             "param1": {
               "spec": "0-3",
               "min": 0,
@@ -16582,13 +16582,13 @@
       1
     ],
     "isPolled": false,
-    "isNew": false,
+    "isNew": true,
     "isSecret": false,
-    "isUltraSecret": true,
+    "isUltraSecret": false,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
-    "isCraftable": false,
+    "isCraftable": true,
     "isEnabled": true,
     "isEquipable": true,
     "isUnequipable": true,
@@ -16678,7 +16678,9 @@
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
+            "description": "{parameter1} Enhanced Sacrifice & Steal",
+            "explanation": "Enhances your Harvest Sacrifice abilities by up to {parameter1} of your harvest in order to steal double that amount from a random player's harvest in same raid",
+            "isImplemented": false,
             "param1": {
               "spec": "0-20",
               "min": 0,
@@ -19429,13 +19431,13 @@
       6
     ],
     "isPolled": false,
-    "isNew": false,
+    "isNew": true,
     "isSecret": false,
-    "isUltraSecret": true,
+    "isUltraSecret": false,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
-    "isCraftable": false,
+    "isCraftable": true,
     "isEnabled": true,
     "isEquipable": true,
     "isUnequipable": true,
@@ -19450,10 +19452,32 @@
     "attributes": [],
     "details": {
       "Type": "Leg Armor",
-      "Subtype": "Sol Battlemage Leggings"
+      "Subtype": "Sol Battlemage Leggings",
+      "Rune Word": "Tal Ith Zod Gul Ort"
     },
     "recipe": {
-      "requirement": []
+      "requirement": [
+        {
+          "id": 6,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "quantity": 1
+        },
+        {
+          "id": 32,
+          "quantity": 1
+        },
+        {
+          "id": 24,
+          "quantity": 1
+        },
+        {
+          "id": 8,
+          "quantity": 1
+        }
+      ]
     },
     "description": "A vibrant red skirt and leggings worn by advanced wielders of Kona in the league of Sol, matching their religious depictions of Relia and her closest followers. Compliments the use of fire-based magics.",
     "shortDescription": "",
@@ -19603,26 +19627,6 @@
             }
           },
           {
-            "id": 3801,
-            "name": "UnlockSkills",
-            "isEnabled": true,
-            "game": "Infinite",
-            "nexusLink": "https://nexus.rune.game/item-attribute/unlockskills",
-            "paramType1": "skills",
-            "nature": "Mechanic",
-            "influences": "Skill",
-            "description": "Unlocked: {parameter1}",
-            "param1": {
-              "spec": "Fire Wall",
-              "min": 448,
-              "max": 448,
-              "value": 448,
-              "map": {
-                "448": "Fire Wall"
-              }
-            }
-          },
-          {
             "id": 2014,
             "name": "IncreaseAilmentChance",
             "isEnabled": true,
@@ -19641,9 +19645,9 @@
               "value": 5
             },
             "param2": {
-              "spec": "Fire",
-              "min": null,
-              "max": null
+              "spec": "Fire Resistence",
+              "min": 0,
+              "max": 10
             }
           },
           {
@@ -19693,7 +19697,7 @@
               "max": 1,
               "value": 1,
               "map": {
-                "1": "EnergyRegen"
+                "1": "Energy Regeneration"
               }
             }
           },
@@ -19722,6 +19726,26 @@
               "value": 1,
               "map": {
                 "1": "Fire"
+              }
+            }
+          },
+          {
+            "id": 3801,
+            "name": "UnlockSkills",
+            "isEnabled": true,
+            "game": "Infinite",
+            "nexusLink": "https://nexus.rune.game/item-attribute/unlockskills",
+            "paramType1": "skills",
+            "nature": "Mechanic",
+            "influences": "Skill",
+            "description": "Unlocked: {parameter1}",
+            "param1": {
+              "spec": "Fire Wall",
+              "min": 448,
+              "max": 448,
+              "value": 448,
+              "map": {
+                "448": "Fire Wall"
               }
             }
           }
@@ -22431,7 +22455,7 @@
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
+            "description": "{parameter1} Enhanced Sacrifice & Steal",
             "param1": {
               "spec": "0-5",
               "min": 0,
@@ -23962,7 +23986,7 @@
             "paramType1": "percent",
             "paramValue1": "0-100",
             "nature": "Buff",
-            "description": "Enable The Option To Sacrifice Up To {parameter1} of Your Harvest In Order To Steal {parameter1} of The Next Raider's Harvest From the Same Pool",
+            "description": "{parameter1} Enhanced Sacrifice & Steal",
             "param1": {
               "spec": "0-5",
               "min": 0,

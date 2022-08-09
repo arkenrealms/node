@@ -927,7 +927,7 @@ export function normalizeItem(item: any) {
       item.tokenId = getTokenIdFromItem(item)
     }
 
-    item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '')
+    item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase()
 
     if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
       item.perfection = -13

@@ -50,7 +50,7 @@ exports.default = (function (address) { return __awaiter(void 0, void 0, void 0,
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                return [4 /*yield*/, (0, node_fetch_1.default)("".concat(api, "/user/").concat(address))];
+                return [4 /*yield*/, node_fetch_1.default(api + "/user/" + address)];
             case 1:
                 response = _a.sent();
                 if (!response.ok) {
