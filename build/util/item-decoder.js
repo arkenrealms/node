@@ -44,7 +44,7 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1658821631 * 1000;
+    var cacheBreaker = 1660132567 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
