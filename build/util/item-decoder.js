@@ -251,7 +251,7 @@ function getItemFromTokenId(tokenId) {
             chanceToSendHarvestToHiddenPool: 0,
             chanceToLoseHarvest: 0,
             harvestBurn: 0,
-            attributes: []
+            attributes: {}
         },
     };
     if (!tokenId || parseInt(tokenId) === 0 || Number.isNaN(parseInt(tokenId)))
@@ -349,7 +349,7 @@ function normalizeItem(item) {
                 worldstoneShardChance: 0,
                 randomRuneExchange: 0,
                 harvestFees: {},
-                attributes: [],
+                attributes: {},
             };
         }
         item.attributes = branchAttributes;
@@ -426,8 +426,8 @@ function normalizeItem(item) {
                 item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[mod.value]];
             }
             if (mod.attributeId > 0) {
-                if (!item.meta.attribubutes[mod.attributeId])
-                    item.meta[mod.attributeId] = 0;
+                if (!item.meta.attributes[mod.attributeId])
+                    item.meta.attributes[mod.attributeId] = 0;
                 item.meta.attributes[mod.attributeId] += mod.value;
                 item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), (items_1.ItemAttributesById[mod.attributeId] || {})), branchAttribute), mod);
             }
