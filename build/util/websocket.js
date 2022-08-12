@@ -1,8 +1,12 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getClientSocket = exports.emitDirect = exports.emitAll = void 0;
@@ -13,7 +17,7 @@ function emitAll(io) {
     for (var _i = 1; _i < arguments.length; _i++) {
         args[_i - 1] = arguments[_i];
     }
-    _1.log.apply(void 0, __spreadArray(['Emit All'], args));
+    _1.log.apply(void 0, __spreadArray(['Emit All'], args, false));
     io.emit.apply(io, args);
 }
 exports.emitAll = emitAll;
@@ -22,15 +26,15 @@ function emitDirect(socket) {
     for (var _i = 1; _i < arguments.length; _i++) {
         args[_i - 1] = arguments[_i];
     }
-    _1.log.apply(void 0, __spreadArray(['Emit Direct'], args));
+    _1.log.apply(void 0, __spreadArray(['Emit Direct'], args, false));
     if (!socket || !socket.emit)
         return;
     socket.emit.apply(socket, args);
 }
 exports.emitDirect = emitDirect;
 function getClientSocket(endpoint) {
-    _1.log('Connecting to', endpoint);
-    return socket_io_client_1.io(endpoint, {
+    (0, _1.log)('Connecting to', endpoint);
+    return (0, socket_io_client_1.io)(endpoint, {
         transports: ['websocket'],
         upgrade: false,
         autoConnect: false,

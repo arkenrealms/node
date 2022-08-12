@@ -28,7 +28,7 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
-  const cacheBreaker = 1660132567 * 1000
+  const cacheBreaker = 1660306733 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -259,6 +259,7 @@ export function getItemFromTokenId(tokenId: string) {
       chanceToSendHarvestToHiddenPool: 0,
       chanceToLoseHarvest: 0,
       harvestBurn: 0,
+      attributes: {}
     },
   }
 
@@ -340,40 +341,43 @@ export function normalizeItem(item: any) {
     const branch = item.branches[1]
     const branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : []
 
-    const actionMetadata: any = {
-      harvestYield: 0,
-      pending: 0,
-      bonus: 0,
-      harvestBurn: 0,
-      chanceToSendHarvestToHiddenPool: 0,
-      chanceToLoseHarvest: 0,
-      guildId: null,
-      characterId: null,
-      itemIndex: 0,
-      itemLength: 0,
-      modIndex: 0,
-      modLength: 0,
-      rand: 0,
-      removeFees: 0,
-      freezeFees: 0,
-      magicFind: 0,
-      unableUseRuneword: null,
-      currentRewardToken: null,
-      hasEarlyUnstakeLocked: null,
-      hasEarlyUnstakeNoReward: null,
-      hiddenPoolPid: null,
-      swapToken: null,
-      swapAmount: null,
-      feeToken: null,
-      feeAmount: null,
-      feeReduction: 0,
-      unstakeLocked: false,
-      classRequired: 0,
-      harvestFeeToken: '',
-      harvestFeePercent: 0,
-      worldstoneShardChance: 0,
-      randomRuneExchange: 0,
-      harvestFees: {},
+    if (!item.meta) {
+      item.meta = {
+        harvestYield: 0,
+        pending: 0,
+        bonus: 0,
+        harvestBurn: 0,
+        chanceToSendHarvestToHiddenPool: 0,
+        chanceToLoseHarvest: 0,
+        guildId: null,
+        characterId: null,
+        itemIndex: 0,
+        itemLength: 0,
+        modIndex: 0,
+        modLength: 0,
+        rand: 0,
+        removeFees: 0,
+        freezeFees: 0,
+        magicFind: 0,
+        unableUseRuneword: null,
+        currentRewardToken: null,
+        hasEarlyUnstakeLocked: null,
+        hasEarlyUnstakeNoReward: null,
+        hiddenPoolPid: null,
+        swapToken: null,
+        swapAmount: null,
+        feeToken: null,
+        feeAmount: null,
+        feeReduction: 0,
+        unstakeLocked: false,
+        classRequired: 0,
+        harvestFeeToken: '',
+        harvestFeePercent: 0,
+        worldstoneShardChance: 0,
+        randomRuneExchange: 0,
+        harvestFees: {},
+        attributes: {},
+      }
     }
 
     item.attributes = branchAttributes
@@ -420,117 +424,39 @@ export function normalizeItem(item: any) {
       }
 
       if (mod.attributeId === ItemAttributes.HarvestYield.id) {
-        actionMetadata.harvestYield += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
-      } else if (mod.attributeId === ItemAttributes.HarvestFee.id) {
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.harvestYield += mod.value
       } else if (mod.attributeId === ItemAttributes.HarvestFeeToken.id) {
-        actionMetadata.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value
       } else if (mod.attributeId === ItemAttributes.SendHarvestHiddenPool.id) {
-        actionMetadata.chanceToSendHarvestToHiddenPool += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.chanceToSendHarvestToHiddenPool += mod.value
       } else if (mod.attributeId === ItemAttributes.BurnEntireHarvest.id) {
-        actionMetadata.chanceToLoseHarvest += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.chanceToLoseHarvest += mod.value
       } else if (mod.attributeId === ItemAttributes.HarvestBurn.id) {
-        actionMetadata.harvestBurn += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.harvestBurn += mod.value
       } else if (mod.attributeId === ItemAttributes.FindShard.id) {
         if (branchAttribute.value !== undefined) mod.value = branchAttribute.value
 
-        actionMetadata.worldstoneShardChance += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.worldstoneShardChance += mod.value
       } else if (mod.attributeId === ItemAttributes.RemoveFees.id) {
-        actionMetadata.feeReduction += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.feeReduction += mod.value
       } else if (mod.attributeId === ItemAttributes.RandomRuneExchange.id) {
-        actionMetadata.randomRuneExchange += mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.randomRuneExchange += mod.value
       } else if (mod.attributeId === ItemAttributes.UnstakeLocked.id) {
-        actionMetadata.unstakeLocked = true
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.unstakeLocked = true
       } else if (mod.attributeId === ItemAttributes.SpecificClass.id) {
-        actionMetadata.classRequired = mod.value
-
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
+        item.meta.classRequired = mod.value
       } else if (mod.attributeId === ItemAttributes.Rarity.id) {
         item.rarity = ItemRarity[ItemRarityNameById[mod.value]]
+      }
+      
+      if (mod.attributeId > 0) {
+        if (!item.meta.attributes[mod.attributeId]) item.meta.attributes[mod.attributeId] = 0
+
+        item.meta.attributes[mod.attributeId] += mod.value
 
         item.attributes[i] = {
           ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
-          ...branchAttribute,
-          ...mod,
-        }
-      } else if (mod.attributeId > 0 && ItemAttributesById[mod.attributeId]) {
-        item.attributes[i] = {
-          ...(item.attributes[i] || {}),
-          ...ItemAttributesById[mod.attributeId],
+          ...(ItemAttributesById[mod.attributeId] || {}),
           ...branchAttribute,
           ...mod,
         }
@@ -558,37 +484,9 @@ export function normalizeItem(item: any) {
 
     // if (item.tokenId === "100300016012001003200700120130022011003200201020030142039011202100700000115") debugger;
 
-    if (actionMetadata.harvestYield) {
-      item.meta.harvestYield = actionMetadata.harvestYield
-    }
-    if (Object.keys(actionMetadata.harvestFees).length > 0) {
-      item.meta.harvestFees = actionMetadata.harvestFees
-      item.meta.harvestFeeToken = Object.keys(actionMetadata.harvestFees)[0]
-      item.meta.harvestFeePercent = actionMetadata.harvestFees[Object.keys(actionMetadata.harvestFees)[0]]
-    }
-    if (actionMetadata.chanceToSendHarvestToHiddenPool) {
-      item.meta.chanceToSendHarvestToHiddenPool += actionMetadata.chanceToSendHarvestToHiddenPool
-    }
-    if (actionMetadata.chanceToLoseHarvest) {
-      item.meta.chanceToLoseHarvest += actionMetadata.chanceToLoseHarvest
-    }
-    if (actionMetadata.harvestBurn) {
-      item.meta.harvestBurn = actionMetadata.harvestBurn
-    }
-    if (actionMetadata.feeReduction) {
-      item.meta.feeReduction = actionMetadata.feeReduction
-    }
-    if (actionMetadata.randomRuneExchange) {
-      item.meta.randomRuneExchange = actionMetadata.randomRuneExchange
-    }
-    if (actionMetadata.worldstoneShardChance) {
-      item.meta.worldstoneShardChance = actionMetadata.worldstoneShardChance
-    }
-    if (actionMetadata.unstakeLocked) {
-      item.meta.unstakeLocked = actionMetadata.unstakeLocked
-    }
-    if (actionMetadata.classRequired) {
-      item.meta.classRequired = actionMetadata.classRequired
+    if (Object.keys(item.meta.harvestFees).length > 0) {
+      item.meta.harvestFeeToken = Object.keys(item.meta.harvestFees)[0]
+      item.meta.harvestFeePercent = item.meta.harvestFees[Object.keys(item.meta.harvestFees)[0]]
     }
 
     if (branch?.perfection) {
@@ -640,17 +538,17 @@ export function normalizeItem(item: any) {
       }
     }
 
-    if (!item.meta) {
-      item.meta = {
-        harvestYield: 0,
-        harvestFeeToken: '',
-        harvestFeePercent: 0,
-        harvestFees: {},
-        chanceToSendHarvestToHiddenPool: 0,
-        chanceToLoseHarvest: 0,
-        harvestBurn: 0,
-      }
-    }
+    // if (!item.meta) {
+    //   item.meta = {
+    //     harvestYield: 0,
+    //     harvestFeeToken: '',
+    //     harvestFeePercent: 0,
+    //     harvestFees: {},
+    //     chanceToSendHarvestToHiddenPool: 0,
+    //     chanceToLoseHarvest: 0,
+    //     harvestBurn: 0,
+    //   }
+    // }
     // if (item.rarity && item.branches[1]?.presets) {
     //   for (const attributeIndex in item.attributes) {
     //     item.attributes[attributeIndex].value = item.branches[1].presets[item.rarity.id][attributeIndex]

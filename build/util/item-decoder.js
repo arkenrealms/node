@@ -10,10 +10,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -44,7 +48,7 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1660132567 * 1000;
+    var cacheBreaker = 1660306733 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
@@ -164,12 +168,12 @@ function getItemTokenCache(tokenId) {
             }
         }
         if (useLocalStorage && window.localStorage) {
-            var tokenCacheText = window.localStorage.getItem("zzz_tokenCache_" + tokenId);
+            var tokenCacheText = window.localStorage.getItem("zzz_tokenCache_".concat(tokenId));
             if (tokenCacheText) {
                 var tokenCache_1 = JSON.parse(tokenCacheText);
                 var now = new Date();
                 if (now.getTime() > tokenCache_1.expiry) {
-                    window.localStorage.removeItem("zzz_tokenCache_" + tokenId);
+                    window.localStorage.removeItem("zzz_tokenCache_".concat(tokenId));
                     return;
                 }
                 return tokenCache_1.value;
@@ -208,7 +212,7 @@ function setItemTokenCache(item) {
         }
         if (useLocalStorage && window.localStorage) {
             var ttl = 3 * 24 * 60 * 60 * 1000;
-            localStorage.setItem("zzz_tokenCache_" + item.tokenId, JSON.stringify({
+            localStorage.setItem("zzz_tokenCache_".concat(item.tokenId), JSON.stringify({
                 expiry: (new Date()).getTime() + ttl,
                 value: item
             }));
@@ -247,6 +251,7 @@ function getItemFromTokenId(tokenId) {
             chanceToSendHarvestToHiddenPool: 0,
             chanceToLoseHarvest: 0,
             harvestBurn: 0,
+            attributes: []
         },
     };
     if (!tokenId || parseInt(tokenId) === 0 || Number.isNaN(parseInt(tokenId)))
@@ -290,7 +295,7 @@ function getItemFromTokenId(tokenId) {
                 modIndex += 4;
             }
         }
-        var item = __assign(__assign(__assign(__assign({}, defaultItem), { id: id_1 }), JSON.parse(JSON.stringify(items_1.itemData[items_type_1.ItemsMainCategoriesType.OTHER].find(function (i) { return i.id === id_1; })))), { type: type, version: version, mods: mods, tokenId: tokenId, shortTokenId: tokenId.slice(0, 23) + "..." + tokenId.slice(-3) });
+        var item = __assign(__assign(__assign(__assign({}, defaultItem), { id: id_1 }), JSON.parse(JSON.stringify(items_1.itemData[items_type_1.ItemsMainCategoriesType.OTHER].find(function (i) { return i.id === id_1; })))), { type: type, version: version, mods: mods, tokenId: tokenId, shortTokenId: "".concat(tokenId.slice(0, 23), "...").concat(tokenId.slice(-3)) });
         return item;
     }
     catch (e) {
@@ -309,41 +314,44 @@ function normalizeItem(item) {
             return tokenCacheItem;
         var branch = item.branches[1];
         var branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : [];
-        var actionMetadata = {
-            harvestYield: 0,
-            pending: 0,
-            bonus: 0,
-            harvestBurn: 0,
-            chanceToSendHarvestToHiddenPool: 0,
-            chanceToLoseHarvest: 0,
-            guildId: null,
-            characterId: null,
-            itemIndex: 0,
-            itemLength: 0,
-            modIndex: 0,
-            modLength: 0,
-            rand: 0,
-            removeFees: 0,
-            freezeFees: 0,
-            magicFind: 0,
-            unableUseRuneword: null,
-            currentRewardToken: null,
-            hasEarlyUnstakeLocked: null,
-            hasEarlyUnstakeNoReward: null,
-            hiddenPoolPid: null,
-            swapToken: null,
-            swapAmount: null,
-            feeToken: null,
-            feeAmount: null,
-            feeReduction: 0,
-            unstakeLocked: false,
-            classRequired: 0,
-            harvestFeeToken: '',
-            harvestFeePercent: 0,
-            worldstoneShardChance: 0,
-            randomRuneExchange: 0,
-            harvestFees: {},
-        };
+        if (!item.meta) {
+            item.meta = {
+                harvestYield: 0,
+                pending: 0,
+                bonus: 0,
+                harvestBurn: 0,
+                chanceToSendHarvestToHiddenPool: 0,
+                chanceToLoseHarvest: 0,
+                guildId: null,
+                characterId: null,
+                itemIndex: 0,
+                itemLength: 0,
+                modIndex: 0,
+                modLength: 0,
+                rand: 0,
+                removeFees: 0,
+                freezeFees: 0,
+                magicFind: 0,
+                unableUseRuneword: null,
+                currentRewardToken: null,
+                hasEarlyUnstakeLocked: null,
+                hasEarlyUnstakeNoReward: null,
+                hiddenPoolPid: null,
+                swapToken: null,
+                swapAmount: null,
+                feeToken: null,
+                feeAmount: null,
+                feeReduction: 0,
+                unstakeLocked: false,
+                classRequired: 0,
+                harvestFeeToken: '',
+                harvestFeePercent: 0,
+                worldstoneShardChance: 0,
+                randomRuneExchange: 0,
+                harvestFees: {},
+                attributes: [],
+            };
+        }
         item.attributes = branchAttributes;
         var prevMod = null;
         if (item.id === 1) {
@@ -383,56 +391,45 @@ function normalizeItem(item) {
                 }
             }
             if (mod.attributeId === items_1.ItemAttributes.HarvestYield.id) {
-                actionMetadata.harvestYield += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.HarvestFee.id) {
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.harvestYield += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.HarvestFeeToken.id) {
-                actionMetadata.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.SendHarvestHiddenPool.id) {
-                actionMetadata.chanceToSendHarvestToHiddenPool += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.chanceToSendHarvestToHiddenPool += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.BurnEntireHarvest.id) {
-                actionMetadata.chanceToLoseHarvest += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.chanceToLoseHarvest += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.HarvestBurn.id) {
-                actionMetadata.harvestBurn += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.harvestBurn += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.FindShard.id) {
                 if (branchAttribute.value !== undefined)
                     mod.value = branchAttribute.value;
-                actionMetadata.worldstoneShardChance += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.worldstoneShardChance += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.RemoveFees.id) {
-                actionMetadata.feeReduction += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.feeReduction += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.RandomRuneExchange.id) {
-                actionMetadata.randomRuneExchange += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.randomRuneExchange += mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.UnstakeLocked.id) {
-                actionMetadata.unstakeLocked = true;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.unstakeLocked = true;
             }
             else if (mod.attributeId === items_1.ItemAttributes.SpecificClass.id) {
-                actionMetadata.classRequired = mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+                item.meta.classRequired = mod.value;
             }
             else if (mod.attributeId === items_1.ItemAttributes.Rarity.id) {
                 item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[mod.value]];
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
             }
-            else if (mod.attributeId > 0 && items_1.ItemAttributesById[mod.attributeId]) {
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), items_1.ItemAttributesById[mod.attributeId]), branchAttribute), mod);
+            if (mod.attributeId > 0) {
+                if (!item.meta.attribubutes[mod.attributeId])
+                    item.meta[mod.attributeId] = 0;
+                item.meta.attributes[mod.attributeId] += mod.value;
+                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), (items_1.ItemAttributesById[mod.attributeId] || {})), branchAttribute), mod);
             }
             if (item.attributes[i]) {
                 item.branches[1].attributes[i] = item.attributes[i];
@@ -453,40 +450,12 @@ function normalizeItem(item) {
             prevMod = mod;
         }
         // if (item.tokenId === "100300016012001003200700120130022011003200201020030142039011202100700000115") debugger;
-        if (actionMetadata.harvestYield) {
-            item.meta.harvestYield = actionMetadata.harvestYield;
-        }
-        if (Object.keys(actionMetadata.harvestFees).length > 0) {
-            item.meta.harvestFees = actionMetadata.harvestFees;
-            item.meta.harvestFeeToken = Object.keys(actionMetadata.harvestFees)[0];
-            item.meta.harvestFeePercent = actionMetadata.harvestFees[Object.keys(actionMetadata.harvestFees)[0]];
-        }
-        if (actionMetadata.chanceToSendHarvestToHiddenPool) {
-            item.meta.chanceToSendHarvestToHiddenPool += actionMetadata.chanceToSendHarvestToHiddenPool;
-        }
-        if (actionMetadata.chanceToLoseHarvest) {
-            item.meta.chanceToLoseHarvest += actionMetadata.chanceToLoseHarvest;
-        }
-        if (actionMetadata.harvestBurn) {
-            item.meta.harvestBurn = actionMetadata.harvestBurn;
-        }
-        if (actionMetadata.feeReduction) {
-            item.meta.feeReduction = actionMetadata.feeReduction;
-        }
-        if (actionMetadata.randomRuneExchange) {
-            item.meta.randomRuneExchange = actionMetadata.randomRuneExchange;
-        }
-        if (actionMetadata.worldstoneShardChance) {
-            item.meta.worldstoneShardChance = actionMetadata.worldstoneShardChance;
-        }
-        if (actionMetadata.unstakeLocked) {
-            item.meta.unstakeLocked = actionMetadata.unstakeLocked;
-        }
-        if (actionMetadata.classRequired) {
-            item.meta.classRequired = actionMetadata.classRequired;
+        if (Object.keys(item.meta.harvestFees).length > 0) {
+            item.meta.harvestFeeToken = Object.keys(item.meta.harvestFees)[0];
+            item.meta.harvestFeePercent = item.meta.harvestFees[Object.keys(item.meta.harvestFees)[0]];
         }
         if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            var perfection = __spreadArray([], branch.perfection);
+            var perfection = __spreadArray([], branch.perfection, true);
             var attributes = branch.attributes;
             // if (item.tokenId === '1001000041000100015647') {
             //   console.log(perfection)
@@ -527,17 +496,17 @@ function normalizeItem(item) {
                 item.perfection = null;
             }
         }
-        if (!item.meta) {
-            item.meta = {
-                harvestYield: 0,
-                harvestFeeToken: '',
-                harvestFeePercent: 0,
-                harvestFees: {},
-                chanceToSendHarvestToHiddenPool: 0,
-                chanceToLoseHarvest: 0,
-                harvestBurn: 0,
-            };
-        }
+        // if (!item.meta) {
+        //   item.meta = {
+        //     harvestYield: 0,
+        //     harvestFeeToken: '',
+        //     harvestFeePercent: 0,
+        //     harvestFees: {},
+        //     chanceToSendHarvestToHiddenPool: 0,
+        //     chanceToLoseHarvest: 0,
+        //     harvestBurn: 0,
+        //   }
+        // }
         // if (item.rarity && item.branches[1]?.presets) {
         //   for (const attributeIndex in item.attributes) {
         //     item.attributes[attributeIndex].value = item.branches[1].presets[item.rarity.id][attributeIndex]
@@ -749,7 +718,7 @@ function normalizeItem(item) {
         }
         // Normalize shorthand
         if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            var perfection = __spreadArray([], branch.perfection);
+            var perfection = __spreadArray([], branch.perfection, true);
             var attributes = branch.attributes;
             if (perfection.length) {
                 var shorthand = [];
@@ -822,6 +791,6 @@ function getTokenIdFromItem(item, rand) {
     }
     attrs += "00000";
     attrs += pad(rand, 3);
-    return "1" + pad(version, 3) + pad(item.id, 5) + pad(item.type, 2) + attrs;
+    return "1".concat(pad(version, 3)).concat(pad(item.id, 5)).concat(pad(item.type, 2)).concat(attrs);
 }
 exports.getTokenIdFromItem = getTokenIdFromItem;

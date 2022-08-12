@@ -1881,6 +1881,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -2204,6 +2207,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -2492,6 +2498,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -2578,6 +2587,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -2907,6 +2919,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -3199,6 +3214,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -3510,6 +3528,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -4014,6 +4035,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -4506,6 +4530,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -4995,6 +5022,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -5518,6 +5548,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -5979,6 +6012,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -6403,6 +6439,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -6965,6 +7004,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -7259,6 +7301,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -7627,6 +7672,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -8111,6 +8159,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -8544,6 +8595,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -8884,6 +8938,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -9230,6 +9287,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -9578,6 +9638,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -9976,6 +10039,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -10245,6 +10311,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -10576,6 +10645,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -10802,6 +10874,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -11236,6 +11311,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -11603,6 +11681,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -11826,6 +11907,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -12139,6 +12223,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -12504,6 +12591,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -12966,6 +13056,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -13398,6 +13491,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -13747,6 +13843,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -13872,6 +13971,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -14029,6 +14131,9 @@ export declare const itemData: {
         materials: number[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -14204,6 +14309,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -14568,6 +14676,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -15001,6 +15112,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -15281,6 +15395,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -15308,6 +15425,9 @@ export declare const itemData: {
         isUpgradable: boolean;
         isPublishable: boolean;
         isRuneword: boolean;
+        isExclusive: boolean;
+        exclusiveConditions: string[];
+        exclusiveActions: string[];
         createdDate: number;
         hotness: number;
         numPerfectionRolls: number;
@@ -15713,6 +15833,9 @@ export declare const itemData: {
         materials: number[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -15980,6 +16103,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -16053,6 +16179,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -16358,6 +16487,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -16661,6 +16793,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -16879,6 +17014,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -17166,6 +17304,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -17236,6 +17377,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -17515,6 +17659,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -17782,6 +17929,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -18019,6 +18169,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -18291,6 +18444,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -18412,6 +18568,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -18482,6 +18641,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -18552,6 +18714,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -18846,6 +19011,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19072,6 +19240,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19268,6 +19439,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19523,6 +19697,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19593,6 +19770,9 @@ export declare const itemData: {
         image?: undefined;
         type?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19735,6 +19915,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19825,6 +20008,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -19925,6 +20111,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -20025,6 +20214,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -20095,6 +20287,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -20165,6 +20360,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;
@@ -20310,6 +20508,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
     } | {
         id: number;
         name: string;

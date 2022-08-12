@@ -65,7 +65,7 @@ function upgradeCodebase() {
                 case 5:
                     _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
                     console.log(stderr, stdout);
-                    return [4 /*yield*/, _1.wait(100)];
+                    return [4 /*yield*/, (0, _1.wait)(100)];
                 case 6:
                     _b.sent();
                     return [2 /*return*/];
@@ -87,7 +87,7 @@ function upgradeGsCodebase() {
                     return [4 /*yield*/, execPromise('cd game-server && rm .git/index.lock', { uid: 1000 })];
                 case 2:
                     _b.sent();
-                    return [4 /*yield*/, _1.wait(1000)];
+                    return [4 /*yield*/, (0, _1.wait)(1000)];
                 case 3:
                     _b.sent();
                     return [3 /*break*/, 5];
@@ -99,7 +99,7 @@ function upgradeGsCodebase() {
                 case 6:
                     _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
                     console.log(stderr, stdout);
-                    return [4 /*yield*/, _1.wait(100)];
+                    return [4 /*yield*/, (0, _1.wait)(100)];
                 case 7:
                     _b.sent();
                     return [2 /*return*/];
@@ -130,7 +130,7 @@ function cloneGsCodebase() {
                 case 5:
                     _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
                     console.log(stderr, stdout);
-                    return [4 /*yield*/, _1.wait(100)];
+                    return [4 /*yield*/, (0, _1.wait)(100)];
                 case 6:
                     _b.sent();
                     return [2 /*return*/];

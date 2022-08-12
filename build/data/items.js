@@ -10,10 +10,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -1795,7 +1799,7 @@ var ignoredItems = [
     'Crafting Competition Certificate'
 ];
 exports.itemData = (_c = {},
-    _c[items_type_1.ItemsMainCategoriesType.OTHER] = __spreadArray(__spreadArray([], items_json_1.default.filter(function (item) { return !ignoredItems.includes(item.name); })), [
+    _c[items_type_1.ItemsMainCategoriesType.OTHER] = __spreadArray(__spreadArray([], items_json_1.default.filter(function (item) { return !ignoredItems.includes(item.name); }), true), [
         {
             id: 1205,
             name: "Founder's Cube",
@@ -7185,7 +7189,7 @@ exports.itemData = (_c = {},
                 },
                 _10),
         },
-    ]),
+    ], false),
     _c[items_type_1.ItemsMainCategoriesType.RUNES] = [
         {
             id: 1,
@@ -8442,7 +8446,7 @@ exports.itemData = (_c = {},
                     attributes: [],
                 },
                 _44[exports.Games.Sanctuary.id] = {
-                    description: ['Unlock additional characters.'],
+                    description: ['Unlock additional character slots.'],
                     attributes: [],
                 },
                 _44),

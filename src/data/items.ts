@@ -10007,7 +10007,7 @@ export const itemData = {
           attributes: [],
         },
         [Games.Sanctuary.id]: {
-          description: ['Unlock additional characters.'],
+          description: ['Unlock additional character slots.'],
           attributes: [],
         },
       },
