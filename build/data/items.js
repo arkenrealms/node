@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _40, _41, _42, _43, _44;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeIdByName = exports.ItemTypeToText = exports.ItemTypeNames = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.SpecificTypeNames = exports.SpecificTypeIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.Games = exports.rewardTokenIdMap = void 0;
+exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeIdByName = exports.ItemTypeToText = exports.ItemTypeNames = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.SpecificTypeNames = exports.SpecificTypeIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.getFilteredItems = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
 var items_json_1 = __importDefault(require("./generated/items.json"));
 exports.rewardTokenIdMap = {
@@ -70,6 +70,45 @@ exports.Games = {
         id: 5,
     },
 };
+function getFilteredItems(list) {
+    var exclusiveItems = list.filter(function (item) { return !!item.isExclusive; });
+    for (var _i = 0, exclusiveItems_1 = exclusiveItems; _i < exclusiveItems_1.length; _i++) {
+        var item = exclusiveItems_1[_i];
+        item.activeConditions = [];
+        for (var _a = 0, _b = item.exclusiveConditions; _a < _b.length; _a++) {
+            var condition = _b[_a];
+            if (condition === 'stream') {
+                var now = new Date();
+                if (now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 19) { // 3-7PM UTC
+                    item.activeConditions.push(condition);
+                }
+            }
+            if (condition === 'halloween') {
+                var now = new Date();
+                var eventStart = new Date("October 31, ".concat(now.getFullYear(), " 00:00:00"));
+                var eventEnd = new Date("November 1, ".concat(now.getFullYear(), " 00:00:00"));
+                if (now > eventStart && now < eventEnd) {
+                    item.activeConditions.push(condition);
+                }
+            }
+            if (condition === 'christmas') {
+                var now = new Date();
+                var eventStart = new Date("December 24, ".concat(now.getFullYear(), " 00:00:00"));
+                var eventEnd = new Date("December 26, ".concat(now.getFullYear(), " 00:00:00"));
+                if (now > eventStart && now < eventEnd) {
+                    item.activeConditions.push(condition);
+                }
+            }
+        }
+        if (item.activeConditions.length > 0) {
+            item.isCraftable = true;
+            item.isSecret = false;
+            item.isUltraSecret = false;
+        }
+    }
+    return list;
+}
+exports.getFilteredItems = getFilteredItems;
 exports.ConditionIdByName = {
     WaitForTime: 1,
     InAura: 2,

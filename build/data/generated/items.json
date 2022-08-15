@@ -17355,7 +17355,7 @@
         "isRuneword": true,
         "isExclusive": true,
         "exclusiveConditions": ["stream"],
-        "exclusiveActions": ["recipe"],
+        "exclusiveActions": ["streamRecipe"],
         "createdDate": 0,
         "hotness": 0,
         "numPerfectionRolls": 1331,

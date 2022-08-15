@@ -46,6 +46,51 @@ export const Games = {
   },
 }
 
+export function getFilteredItems(list: any) {
+  const exclusiveItems = list.filter(item => !!item.isExclusive)
+
+  for (const item of exclusiveItems) {
+    item.activeConditions = []
+
+    for (const condition of item.exclusiveConditions) {
+      if (condition === 'stream') {
+        const now = new Date()
+
+        if (now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 19) { // 3-7PM UTC
+          item.activeConditions.push(condition)
+        }
+      }
+
+      if (condition === 'halloween') {
+        const now = new Date()
+        const eventStart = new Date(`October 31, ${now.getFullYear()} 00:00:00`)
+        const eventEnd = new Date(`November 1, ${now.getFullYear()} 00:00:00`)
+
+        if (now > eventStart && now < eventEnd) {
+          item.activeConditions.push(condition)
+        }
+      }
+
+      if (condition === 'christmas') {
+        const now = new Date()
+        const eventStart = new Date(`December 24, ${now.getFullYear()} 00:00:00`)
+        const eventEnd = new Date(`December 26, ${now.getFullYear()} 00:00:00`)
+
+        if (now > eventStart && now < eventEnd) {
+          item.activeConditions.push(condition)
+        }
+      }
+    }
+
+    if (item.activeConditions.length > 0) {
+      item.isCraftable = true
+      item.isSecret = false
+      item.isUltraSecret = false
+    }
+  }
+
+  return list
+}
 
 export const ConditionIdByName = {
   WaitForTime: 1,
