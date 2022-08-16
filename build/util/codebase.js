@@ -76,31 +76,17 @@ function upgradeCodebase() {
 exports.upgradeCodebase = upgradeCodebase;
 function upgradeGsCodebase() {
     return __awaiter(this, void 0, void 0, function () {
-        var execPromise, e2_2, _a, stdout, stderr;
+        var execPromise, _a, stdout, stderr;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     execPromise = util_1.default.promisify(child_process_1.exec);
-                    _b.label = 1;
+                    return [4 /*yield*/, execPromise('cd game-server && git add -A && git stash && git pull origin master', { uid: 1000 })];
                 case 1:
-                    _b.trys.push([1, 4, , 5]);
-                    return [4 /*yield*/, execPromise('cd game-server && rm .git/index.lock', { uid: 1000 })];
-                case 2:
-                    _b.sent();
-                    return [4 /*yield*/, (0, _1.wait)(1000)];
-                case 3:
-                    _b.sent();
-                    return [3 /*break*/, 5];
-                case 4:
-                    e2_2 = _b.sent();
-                    console.log(e2_2);
-                    return [3 /*break*/, 5];
-                case 5: return [4 /*yield*/, execPromise('cd game-server && git add -A && git stash && git pull origin master', { uid: 1000 })];
-                case 6:
                     _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
                     console.log(stderr, stdout);
                     return [4 /*yield*/, (0, _1.wait)(100)];
-                case 7:
+                case 2:
                     _b.sent();
                     return [2 /*return*/];
             }
@@ -108,30 +94,20 @@ function upgradeGsCodebase() {
     });
 }
 exports.upgradeGsCodebase = upgradeGsCodebase;
-function cloneGsCodebase() {
+function cloneGsCodebase(repoUri) {
     return __awaiter(this, void 0, void 0, function () {
-        var execPromise, e2_3, _a, stdout, stderr;
+        var execPromise, _a, stdout, stderr;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     execPromise = util_1.default.promisify(child_process_1.exec);
-                    _b.label = 1;
+                    return [4 /*yield*/, execPromise("git clone ".concat(repoUri, " game-server"), { uid: 1000 })]; // git@github.com:RuneFarm/rune-evolution-game-server.git
                 case 1:
-                    _b.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, execPromise('rm -rf game-server', { uid: 1000 })];
-                case 2:
-                    _b.sent();
-                    return [3 /*break*/, 4];
-                case 3:
-                    e2_3 = _b.sent();
-                    console.log(e2_3);
-                    return [3 /*break*/, 4];
-                case 4: return [4 /*yield*/, execPromise('git clone git@github.com:RuneFarm/rune-evolution-game-server.git game-server', { uid: 1000 })];
-                case 5:
-                    _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
+                    _a = _b.sent() // git@github.com:RuneFarm/rune-evolution-game-server.git
+                    , stdout = _a.stdout, stderr = _a.stderr;
                     console.log(stderr, stdout);
                     return [4 /*yield*/, (0, _1.wait)(100)];
-                case 6:
+                case 2:
                     _b.sent();
                     return [2 /*return*/];
             }

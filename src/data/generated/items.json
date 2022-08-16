@@ -17344,7 +17344,7 @@
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
-    "isCraftable": true,
+    "isCraftable": false,
     "isEnabled": true,
     "isEquipable": true,
     "isUnequipable": true,
