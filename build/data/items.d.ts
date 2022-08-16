@@ -42,6 +42,7 @@ export declare const Games: {
         id: number;
     };
 };
+export declare function getFilteredItems(list: any): any;
 export declare const ConditionIdByName: {
     WaitForTime: number;
     InAura: number;
