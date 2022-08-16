@@ -762,41 +762,38 @@ function normalizeItem(item) {
             item.perfection = -13;
         if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
             item.branches[1].description[1] = '"So long, I barely knew thee."';
-        if (item.exclusiveConditions) {
-            var conditionMatch = [];
-            console.log(6666, item.exclusiveConditions);
-            for (var _p = 0, _q = item.exclusiveConditions; _p < _q.length; _p++) {
-                var condition = _q[_p];
-                if (condition === 'stream') {
-                    var now = new Date();
-                    // const eventStart = nextDate(0, 20).getTime() / 1000
-                    // const eventEnd = nextDate(0, 23, 59).getTime() / 1000 // 4 hours later
-                    // conditionMatch.push(now > streamStart && now < streamEnd)
-                    // const now = (new Date()).getTime() /  1000
-                    // const eventStart = 1660321091
-                    // const eventEnd = 1660324091
-                    conditionMatch.push(now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 23); // 3-7PM UTC
-                }
-                if (condition === 'halloween') {
-                    var now = new Date();
-                    var eventStart = new Date("October 31, ".concat(now.getFullYear(), " 00:00:00"));
-                    var eventEnd = new Date("November 1, ".concat(now.getFullYear(), " 00:00:00"));
-                    conditionMatch.push(now > eventStart && now < eventEnd);
-                }
-                if (condition === 'christmas') {
-                    var now = new Date();
-                    var eventStart = new Date("December 24, ".concat(now.getFullYear(), " 00:00:00"));
-                    var eventEnd = new Date("December 26, ".concat(now.getFullYear(), " 00:00:00"));
-                    conditionMatch.push(now > eventStart && now < eventEnd);
-                }
-            }
-            console.log(conditionMatch.includes(true));
-            if (conditionMatch.includes(true)) {
-                item.isSecret = false;
-                item.isUltraSecret = false;
-                item.isCraftable = true;
-            }
-        }
+        //     if (item.exclusiveConditions) {
+        //       const conditionMatch = []
+        //       for (const condition of item.exclusiveConditions) {
+        //         if (condition === 'stream') {
+        //           const now = new Date()
+        //           // const eventStart = nextDate(0, 20).getTime() / 1000
+        //           // const eventEnd = nextDate(0, 23, 59).getTime() / 1000 // 4 hours later
+        //           // conditionMatch.push(now > streamStart && now < streamEnd)
+        //           // const now = (new Date()).getTime() /  1000
+        //           // const eventStart = 1660321091
+        //           // const eventEnd = 1660324091
+        //           conditionMatch.push(now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 23) // 3-7PM UTC
+        //         }
+        //         if (condition === 'halloween') {
+        //           const now = new Date()
+        //           const eventStart = new Date(`October 31, ${now.getFullYear()} 00:00:00`)
+        //           const eventEnd = new Date(`November 1, ${now.getFullYear()} 00:00:00`)
+        //           conditionMatch.push(now > eventStart && now < eventEnd)
+        //         }
+        //         if (condition === 'christmas') {
+        //           const now = new Date()
+        //           const eventStart = new Date(`December 24, ${now.getFullYear()} 00:00:00`)
+        //           const eventEnd = new Date(`December 26, ${now.getFullYear()} 00:00:00`)
+        //           conditionMatch.push(now > eventStart && now < eventEnd)
+        //         }
+        //       }
+        //       if (conditionMatch.includes(true)) {
+        //         item.isSecret = false
+        //         item.isUltraSecret = false
+        //         item.isCraftable = true
+        //       }
+        //     }
     }
     catch (e) {
         // console.log('Token is invalid', tokenId)
