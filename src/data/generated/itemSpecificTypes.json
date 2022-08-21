@@ -1,0 +1,1984 @@
+[
+  {
+    "uuid": "rec3VA6TeLvsgFW5g",
+    "id": 1,
+    "name": "Night Blade",
+    "link": "https://rune.game/item-specific-type/night-blade",
+    "subType": 1,
+    "items": [
+      1
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec4J2orFMglydx6q",
+    "id": 2,
+    "name": "War Sword",
+    "link": "https://rune.game/item-specific-type/war-sword",
+    "subType": 1,
+    "items": [
+      2
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recMxgfPxSMpqpPOO",
+    "id": 3,
+    "name": "Ancient Helm",
+    "link": "https://rune.game/item-specific-type/ancient-helm",
+    "subType": 10,
+    "items": [
+      3
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recgSK8wcDsSjnnao",
+    "id": 4,
+    "name": "Relic",
+    "link": "https://rune.game/item-specific-type/relic",
+    "subType": 11,
+    "items": [
+      4
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec9q1ouzwv5931rH",
+    "id": 5,
+    "name": "Astral Greaves",
+    "link": "https://rune.game/item-specific-type/astral-greaves",
+    "subType": 12,
+    "items": [
+      5
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recxGXuuXcKzAu7XB",
+    "id": 6,
+    "name": "Templar Forge",
+    "link": "https://rune.game/item-specific-type/templar-forge",
+    "subType": 13,
+    "items": [
+      6
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "reciNF5j2ErcX6xJ1",
+    "id": 7,
+    "name": "Shadow Wraps",
+    "link": "https://rune.game/item-specific-type/shadow-wraps",
+    "subType": 15,
+    "items": [
+      7
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recWbmJTvuO6bQRCL",
+    "id": 8,
+    "name": "Cloudstrike Sword",
+    "link": "https://rune.game/item-specific-type/cloudstrike-sword",
+    "subType": 18,
+    "items": [
+      10
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "reczmCB8Z3cf2CMoN",
+    "id": 9,
+    "name": "Sage Bow",
+    "link": "https://rune.game/item-specific-type/sage-bow",
+    "subType": 8,
+    "items": [
+      11
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recjZ30Zta275XDZS",
+    "id": 10,
+    "name": "Dimensional Dagger",
+    "link": "https://rune.game/item-specific-type/dimensional-dagger",
+    "subType": 5,
+    "items": [
+      12
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQ23lxux0ABH0Z8",
+    "id": 11,
+    "name": "Chrono Staff",
+    "link": "https://rune.game/item-specific-type/chrono-staff",
+    "subType": 7,
+    "items": [
+      13
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recfeblbQFPeooSdQ",
+    "id": 12,
+    "name": "Unknown",
+    "link": "https://rune.game/item-specific-type/unknown",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec7lsuHeDr6NCf2Z",
+    "id": 13,
+    "name": "Blessed Vira Shield",
+    "link": "https://rune.game/item-specific-type/blessed-vira-shield",
+    "subType": 9,
+    "items": [
+      15
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recI7WcfAjbPs6lbM",
+    "id": 14,
+    "name": "Worldstone Mace",
+    "link": "https://rune.game/item-specific-type/worldstone-mace",
+    "subType": 2,
+    "items": [
+      16
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recOLnTpddiCVBvgF",
+    "id": 15,
+    "name": "Warden Helm",
+    "link": "https://rune.game/item-specific-type/warden-helm",
+    "subType": 10,
+    "items": [
+      19
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recM8sdqP2jAlmwPP",
+    "id": 16,
+    "name": "Templar Chausses",
+    "link": "https://rune.game/item-specific-type/templar-chausses",
+    "subType": 16,
+    "items": [
+      20
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recUPWxTSYhYFQnRQ",
+    "id": 17,
+    "name": "Moonlight Greatsword",
+    "link": "https://rune.game/item-specific-type/moonlight-greatsword",
+    "subType": 18,
+    "items": [
+      21
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec8K0JU9hZoX7aCY",
+    "id": 18,
+    "name": "Templar Broadsword",
+    "link": "https://rune.game/item-specific-type/templar-broadsword",
+    "subType": 1,
+    "items": [
+      22
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recG9gvj2gCaoL8yX",
+    "id": 19,
+    "name": "Astral Gauntlets",
+    "link": "https://rune.game/item-specific-type/astral-gauntlets",
+    "subType": 15,
+    "items": [
+      23
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recCSqgtEMMf8cVBv",
+    "id": 20,
+    "name": "Templar Armguards",
+    "link": "https://rune.game/item-specific-type/templar-armguards",
+    "subType": 24,
+    "items": [
+      24
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recwsJKAF64n29YDX",
+    "id": 21,
+    "name": "Wyrmhide Belt",
+    "link": "https://rune.game/item-specific-type/wyrmhide-belt",
+    "subType": 25,
+    "items": [
+      25
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recMbTRgyofH8kgci",
+    "id": 22,
+    "name": "Inscribed Archon Band",
+    "link": "https://rune.game/item-specific-type/inscribed-archon-band",
+    "subType": 14,
+    "items": [
+      26
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec5xqy9RkummTCIk",
+    "id": 23,
+    "name": "Glimmering Band",
+    "link": "https://rune.game/item-specific-type/glimmering-band",
+    "subType": 14,
+    "items": [
+      27
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recKvNfv9sYs4fRHn",
+    "id": 24,
+    "name": "Lodestar Amulet",
+    "link": "https://rune.game/item-specific-type/lodestar-amulet",
+    "subType": 17,
+    "items": [
+      28
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recu0iXHcE2SqXuzB",
+    "id": 25,
+    "name": "Glow Fly Essence",
+    "link": "https://rune.game/item-specific-type/glow-fly-essence",
+    "items": [
+      1209
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recW2X8tbmqkNGjol",
+    "id": 26,
+    "name": "Dragonforged Cuirass",
+    "link": "https://rune.game/item-specific-type/dragonforged-cuirass",
+    "subType": 13,
+    "items": [
+      31
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec6iBHpY04v1LFfx",
+    "id": 27,
+    "name": "Raider Boots",
+    "link": "https://rune.game/item-specific-type/raider-boots",
+    "subType": 12,
+    "items": [
+      55
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recPZsLcbmskb11s0",
+    "id": 28,
+    "name": "Ironwood Aegis",
+    "link": "https://rune.game/item-specific-type/ironwood-aegis",
+    "subType": 9,
+    "items": [
+      33
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recTmBoYUg4Gi72TM",
+    "id": 29,
+    "name": "Drakehide Vestments",
+    "link": "https://rune.game/item-specific-type/drakehide-vestments",
+    "subType": 13,
+    "items": [
+      34
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recbQnBXpyuo18wn8",
+    "id": 30,
+    "name": "Shadow Veil",
+    "link": "https://rune.game/item-specific-type/shadow-veil",
+    "subType": 10,
+    "items": [
+      30
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recd7HcB4Mmyuidum",
+    "id": 31,
+    "name": "Fanged Dagger",
+    "link": "https://rune.game/item-specific-type/fanged-dagger",
+    "subType": 5,
+    "items": [
+      35,
+      2052
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recpaHQ42Eh1M449E",
+    "id": 32,
+    "name": "Rune-Inscribed Tome",
+    "link": "https://rune.game/item-specific-type/rune-inscribed-tome",
+    "subType": 26,
+    "items": [
+      36
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "reca0YPkSiypb512y",
+    "id": 33,
+    "name": "Soulreaver Scythe",
+    "link": "https://rune.game/item-specific-type/soulreaver-scythe",
+    "subType": 20,
+    "items": [
+      37
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec6tfLOpgknHfDcD",
+    "id": 34,
+    "name": "Whispertread Boots",
+    "link": "https://rune.game/item-specific-type/whispertread-boots",
+    "subType": 12,
+    "items": [
+      38
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recNUlCSIJbhWUT60",
+    "id": 35,
+    "name": "Mask of Irony",
+    "link": "https://rune.game/item-specific-type/mask-of-irony",
+    "subType": 10,
+    "items": [
+      39
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recEt276rrEmCWSxJ",
+    "id": 36,
+    "name": "Darkblood Band",
+    "link": "https://rune.game/item-specific-type/darkblood-band",
+    "subType": 14,
+    "items": [
+      40
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recfWGC55aWDpBqT9",
+    "id": 37,
+    "name": "Prism Band",
+    "link": "https://rune.game/item-specific-type/prism-band",
+    "subType": 14,
+    "items": [
+      41
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recec5a4Hw8DzGxzc",
+    "id": 38,
+    "name": "Shadowscale Bracers",
+    "link": "https://rune.game/item-specific-type/shadowscale-bracers",
+    "subType": 24,
+    "items": [
+      42
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recAjxoDqqMLWQ6Co",
+    "id": 39,
+    "name": "Steel Carapace",
+    "link": "https://rune.game/item-specific-type/steel-carapace",
+    "subType": 13,
+    "items": [
+      53
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rechN2aYmOrnqi5dh",
+    "id": 40,
+    "name": "Circlet of Exaltation",
+    "link": "https://rune.game/item-specific-type/circlet-of-exaltation",
+    "subType": 10,
+    "items": [
+      54
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recUR2zAmHcEqRbn2",
+    "id": 41,
+    "name": "Hydra Bow",
+    "link": "https://rune.game/item-specific-type/hydra-bow",
+    "subType": 8,
+    "items": [
+      2000
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec4sKXe2pTulaxp2",
+    "id": 42,
+    "name": "Stone of Jordan",
+    "link": "https://rune.game/item-specific-type/stone-of-jordan",
+    "subType": 14,
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recOXWiGOC5jGj8gm",
+    "id": 43,
+    "name": "Grim Helm",
+    "link": "https://rune.game/item-specific-type/grim-helm",
+    "subType": 54,
+    "items": [
+      2002
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recBmQzyc7ihw5B3l",
+    "id": 44,
+    "name": "Corona",
+    "link": "https://rune.game/item-specific-type/corona",
+    "subType": 51,
+    "items": [
+      2050
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "receQeqApDVcIeS4a",
+    "id": 45,
+    "name": "Phase Blade",
+    "link": "https://rune.game/item-specific-type/phase-blade",
+    "subType": 1,
+    "items": [
+      2045,
+      2046
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "reckNwkDr4foT8urm",
+    "id": 46,
+    "name": "Shako",
+    "link": "https://rune.game/item-specific-type/shako",
+    "subType": 55,
+    "items": [
+      2003
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQBadTXLgLT7bop",
+    "id": 47,
+    "name": "Chillmetal Ring",
+    "link": "https://rune.game/item-specific-type/chillmetal-ring",
+    "subType": 14,
+    "items": [
+      110
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recaOcwE8TTXI6NNw",
+    "id": 48,
+    "name": "Totemic Mask",
+    "link": "https://rune.game/item-specific-type/totemic-mask",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recX2hXCMOkdg0yVw",
+    "id": 49,
+    "name": "Devilmaw Greataxe",
+    "link": "https://rune.game/item-specific-type/devilmaw-greataxe",
+    "items": [
+      116
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recwm9sj7uXGkaJ0k",
+    "id": 50,
+    "name": "Skullsplitter Greataxe",
+    "link": "https://rune.game/item-specific-type/skullsplitter-greataxe",
+    "items": [
+      124
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recGXkyb473jU7Nx6",
+    "id": 51,
+    "name": "Fanged Dagger",
+    "link": "https://rune.game/item-specific-type/fanged-dagger",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec0vRLe4iVQ68Tw1",
+    "id": 52,
+    "name": "Decapitator",
+    "link": "https://rune.game/item-specific-type/decapitator",
+    "subType": 52,
+    "items": [
+      2054
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recjKcHBDm9Wmj2zW",
+    "id": 53,
+    "name": "Kraken Shell",
+    "link": "https://rune.game/item-specific-type/kraken-shell",
+    "subType": 46,
+    "items": [
+      2051
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recgvwR3Vd8rVsnSf",
+    "id": 54,
+    "name": "Salt Charm",
+    "link": "https://rune.game/item-specific-type/salt-charm",
+    "items": [
+      135
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recbVsvuLLmmRztYL",
+    "id": 55,
+    "name": "Scroll",
+    "link": "https://rune.game/item-specific-type/scroll",
+    "subType": 36,
+    "items": [
+      1100,
+      1211,
+      1300
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recH0a2LOeND5SNdT",
+    "id": 56,
+    "name": "Unique Summon",
+    "link": "https://rune.game/item-specific-type/unique-summon",
+    "subType": 37,
+    "items": [
+      3000,
+      3001,
+      3002,
+      3003,
+      3004,
+      3005,
+      3006,
+      3007,
+      3008
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recDbRW3AmZbrMEpI",
+    "id": 57,
+    "name": "Lost Sanctum Sword",
+    "link": "https://rune.game/item-specific-type/lost-sanctum-sword",
+    "items": [
+      2111
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recfYtQ8wrfxPFzr1",
+    "id": 58,
+    "name": "Trinket",
+    "link": "https://rune.game/item-specific-type/trinket",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recAHe6MowMhRAYNp",
+    "id": 59,
+    "name": "Battle Boots",
+    "link": "https://rune.game/item-specific-type/battle-boots",
+    "subType": 56,
+    "items": [
+      2005
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recY7JvniGtPMQTIW",
+    "id": 60,
+    "name": "Swirling Crystal",
+    "link": "https://rune.game/item-specific-type/swirling-crystal",
+    "subType": 27,
+    "items": [
+      2004
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recAtFMp7a4GHLR40",
+    "id": 61,
+    "name": "Aerin Shield",
+    "link": "https://rune.game/item-specific-type/aerin-shield",
+    "subType": 50,
+    "items": [
+      2007
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recScSpjNdHi1PjzQ",
+    "id": 62,
+    "name": "Featherweight Gauntlets",
+    "link": "https://rune.game/item-specific-type/featherweight-gauntlets",
+    "subType": 57,
+    "items": [
+      2009
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "reckAxpvqWcq8oOq0",
+    "id": 63,
+    "name": "Plated Mittens",
+    "link": "https://rune.game/item-specific-type/plated-mittens",
+    "subType": 58,
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recj6uiP3qIc8hCdS",
+    "id": 64,
+    "name": "Scarabshell Boots",
+    "link": "https://rune.game/item-specific-type/scarabshell-boots",
+    "subType": 49,
+    "items": [
+      2008
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec3L14cIkXByP539",
+    "id": 65,
+    "name": "Studded Demonhide Gloves",
+    "link": "https://rune.game/item-specific-type/studded-demonhide-gloves",
+    "subType": 15,
+    "items": [
+      2010
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recheTbY8JFZBdXEf",
+    "id": 66,
+    "name": "Serpentskin Armor",
+    "link": "https://rune.game/item-specific-type/serpentskin-armor",
+    "subType": 45,
+    "items": [
+      2043
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recYb8NuF1XkdBhwV",
+    "id": 67,
+    "name": "Sharkskin Boots",
+    "link": "https://rune.game/item-specific-type/sharkskin-boots",
+    "subType": 49,
+    "items": [
+      2011
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recZYSTeoqWrwebMA",
+    "id": 68,
+    "name": "Mesh Armor",
+    "link": "https://rune.game/item-specific-type/mesh-armor",
+    "subType": 59,
+    "items": [
+      2012
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recmxXkf7LEdCOFrK",
+    "id": 69,
+    "name": "Spiderweb Sash",
+    "link": "https://rune.game/item-specific-type/spiderweb-sash",
+    "subType": 42,
+    "items": [
+      2013
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recqNDkapwNh9wATf",
+    "id": 70,
+    "name": "Dream Spirit",
+    "link": "https://rune.game/item-specific-type/dream-spirit",
+    "subType": 54,
+    "items": [
+      2014,
+      2031
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec6iuDFMnkbvCdGg",
+    "id": 71,
+    "name": "Sabre",
+    "link": "https://rune.game/item-specific-type/sabre",
+    "subType": 1,
+    "items": [
+      2153
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec5wF3Ct0BRVRYDw",
+    "id": 72,
+    "name": "Tiara",
+    "link": "https://rune.game/item-specific-type/tiara",
+    "subType": 10,
+    "items": [
+      2016
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recKZgdEdp64CYkJh",
+    "id": 73,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec3fM8H0RAxJSaNE",
+    "id": 74,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recrGSrMa5gimlmW0",
+    "id": 75,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recr83saZNq0acKSN",
+    "id": 76,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec2gnp4D9igo6xbo",
+    "id": 77,
+    "name": "Vampirebone Gloves",
+    "link": "https://rune.game/item-specific-type/vampirebone-gloves",
+    "subType": 15,
+    "items": [
+      2021
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recXveDzUv0ZHJVWb",
+    "id": 78,
+    "name": "Mesh Boots",
+    "link": "https://rune.game/item-specific-type/mesh-boots",
+    "subType": 49,
+    "items": [
+      2022
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recJ4hJzy2Ywfns4O",
+    "id": 79,
+    "name": "Elder Staff",
+    "link": "https://rune.game/item-specific-type/elder-staff",
+    "subType": 7,
+    "items": [
+      2023
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recLFEb3VpeUob60l",
+    "id": 80,
+    "name": "Archmage's Diadem",
+    "link": "https://rune.game/item-specific-type/archmages-diadem",
+    "subType": 60,
+    "items": [
+      2024
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec8Ls0Mm1YM7dkb4",
+    "id": 81,
+    "name": "Monarch",
+    "link": "https://rune.game/item-specific-type/monarch",
+    "subType": 61,
+    "items": [
+      2025
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recxMAFMbliOs4RLN",
+    "id": 82,
+    "name": "War Belt",
+    "link": "https://rune.game/item-specific-type/war-belt",
+    "subType": 43,
+    "items": [
+      2026
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recvFssrbb8QUt50f",
+    "id": 83,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recTXqEqA4XVi6b84",
+    "id": 84,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recrCjgYSaG8uv1uC",
+    "id": 85,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec4lug4LEJRYZ7JW",
+    "id": 86,
+    "name": "Sacred Armor",
+    "link": "https://rune.game/item-specific-type/sacred-armor",
+    "subType": 46,
+    "items": [
+      2030,
+      2040
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec6w9OLmf9sWuLPQ",
+    "id": 87,
+    "name": "Dream Spirit",
+    "link": "https://rune.game/item-specific-type/dream-spirit",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recgjc4RKKxqzUBNp",
+    "id": 88,
+    "name": "Archon Staff",
+    "link": "https://rune.game/item-specific-type/archon-staff",
+    "subType": 7,
+    "items": [
+      2032
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recqTg1RgZbrhPCwa",
+    "id": 89,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec8nMjo8frAmOHcV",
+    "id": 90,
+    "name": "Demonhide Sash",
+    "link": "https://rune.game/item-specific-type/demonhide-sash",
+    "subType": 42,
+    "items": [
+      2034
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQrBvdFYVTcFlSO",
+    "id": 91,
+    "name": "Eldritch Orb",
+    "link": "https://rune.game/item-specific-type/eldritch-orb",
+    "subType": 27,
+    "items": [
+      2035
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recJa87hXaVaJh3f4",
+    "id": 92,
+    "name": "Balrog Skin",
+    "link": "https://rune.game/item-specific-type/balrog-skin",
+    "subType": 13,
+    "items": [
+      2036
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "receanE9C2joV2BN6",
+    "id": 93,
+    "name": "Ceremonial Javelin",
+    "link": "https://rune.game/item-specific-type/ceremonial-javelin",
+    "subType": 28,
+    "items": [
+      2037
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recqeVXGLE5hP83WL",
+    "id": 94,
+    "name": "War Boots",
+    "link": "https://rune.game/item-specific-type/war-boots",
+    "subType": 44,
+    "items": [
+      2038
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recY0FxS8ZHQBNHfQ",
+    "id": 95,
+    "name": "Studded Leather Armor",
+    "link": "https://rune.game/item-specific-type/studded-leather-armor",
+    "subType": 45,
+    "items": [
+      2039
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recOVYsgbDuakIx9o",
+    "id": 96,
+    "name": "Sacred Armor",
+    "link": "https://rune.game/item-specific-type/sacred-armor",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recC9j0hhSIIzw0eV",
+    "id": 97,
+    "name": "Russet Armor",
+    "link": "https://rune.game/item-specific-type/russet-armor",
+    "subType": 47,
+    "items": [
+      2041
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQIAqgdhG5qYqwG",
+    "id": 98,
+    "name": "Templar Coat",
+    "link": "https://rune.game/item-specific-type/templar-coat",
+    "subType": 46,
+    "items": [
+      2042
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recuexzNc1Qw9dZSj",
+    "id": 99,
+    "name": "Serpentskin Armor",
+    "link": "https://rune.game/item-specific-type/serpentskin-armor",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQ5jps5Uo3NYCK3",
+    "id": 100,
+    "name": "Dusk Shroud",
+    "link": "https://rune.game/item-specific-type/dusk-shroud",
+    "subType": 48,
+    "items": [
+      2044
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recdfFkY6YAYX5C7U",
+    "id": 101,
+    "name": "Boneweave Boots",
+    "link": "https://rune.game/item-specific-type/boneweave-boots",
+    "subType": 49,
+    "items": [
+      2047
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recWBHcYSrcf6nhPn",
+    "id": 102,
+    "name": "Grim Shield",
+    "link": "https://rune.game/item-specific-type/grim-shield",
+    "subType": 50,
+    "items": [
+      2048
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recGm3oSjcarXUzJI",
+    "id": 103,
+    "name": "Spired Helm",
+    "link": "https://rune.game/item-specific-type/spired-helm",
+    "subType": 51,
+    "items": [
+      2049
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recLRVQlgXFfSurhU",
+    "id": 104,
+    "name": "Thirsting Edge",
+    "link": "https://rune.game/item-specific-type/thirsting-edge",
+    "subType": 1,
+    "items": [
+      182
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recyhwL2f6ojznR9P",
+    "id": 105,
+    "name": "Coral Ring",
+    "link": "https://rune.game/item-specific-type/coral-ring",
+    "subType": 14,
+    "items": [
+      2154
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec9jdoZr48n6ZWtI",
+    "id": 106,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recRilTFMS4ynt3PQ",
+    "id": 107,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recMq7fuxBodPt41R",
+    "id": 108,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recjg5SMlumlp0lvW",
+    "id": 109,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recaEYothYOKwP21D",
+    "id": 110,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recvoDmaaajsmE08Q",
+    "id": 111,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recJVWbQ2hBRLj67C",
+    "id": 112,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recz6oZ07cck50Jys",
+    "id": 113,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recliBWPitxzjPraA",
+    "id": 114,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recLE7UNAkq5fj3Jh",
+    "id": 115,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec5cmHyEXOJNbxyW",
+    "id": 116,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec5QEWsa1bZqLVCx",
+    "id": 117,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec313dpwvgQ5lV88",
+    "id": 118,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recgDZGNxROAtFO8J",
+    "id": 119,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recDEh6GqRtG0r7yB",
+    "id": 120,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recJFTcdEWNqEGuIt",
+    "id": 121,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recvBlczaeVJEGfiM",
+    "id": 122,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec0egmQOHxgGgQhz",
+    "id": 123,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recYVfeFnrcnsuVRz",
+    "id": 124,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec1cXHGNEwTcPLz2",
+    "id": 125,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recAzl3H6CEXu46qg",
+    "id": 126,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recDi8hS0Rmn7gaTr",
+    "id": 127,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recsWrRxQdkjwYmW6",
+    "id": 128,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recfLx2rSlYoh4NXE",
+    "id": 129,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recv96c3sLZVJju3b",
+    "id": 130,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recrluKWQZh7F2mrS",
+    "id": 131,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recGnZCWp4Mjju67e",
+    "id": 132,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recJb6pdKaqq8yGl9",
+    "id": 133,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec7bJXlk6OGjUqzZ",
+    "id": 134,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec1OaBMPcN6Z2Gxh",
+    "id": 135,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recFs2WfQJgBuLX5u",
+    "id": 136,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec0AxuGlyv9aH8YO",
+    "id": 137,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recEP4LLtkvVtFyNJ",
+    "id": 138,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recs0v2gfgFWoq8wC",
+    "id": 139,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec5IalYEkhbSMFkL",
+    "id": 140,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recPxjy0tJZEl26qh",
+    "id": 141,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec1tYKRvdz8WkJx8",
+    "id": 142,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec9Fevg7hBR1McGE",
+    "id": 143,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQgAefD4PTJqIZY",
+    "id": 144,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recRshCBmq5rfRW90",
+    "id": 145,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recgJGkTlAwkAml6Z",
+    "id": 146,
+    "name": "Ring",
+    "link": "https://rune.game/item-specific-type/ring",
+    "subType": 53,
+    "items": [
+      2017,
+      2018,
+      2020,
+      2028
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recWZ2vVBevb13OTh",
+    "id": 147,
+    "name": "Bracers",
+    "link": "https://rune.game/item-specific-type/bracers",
+    "subType": 24,
+    "items": [
+      2019
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec8WQdNKaurA5SSw",
+    "id": 148,
+    "name": "Amulet",
+    "link": "https://rune.game/item-specific-type/amulet",
+    "subType": 17,
+    "items": [
+      2027,
+      2029,
+      2033
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec0dgWqICVNafIUt",
+    "id": 149,
+    "name": "Icebrand",
+    "link": "https://rune.game/item-specific-type/icebrand",
+    "subType": 1,
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recCft251e7SV6PGr",
+    "id": 150,
+    "name": "Painted Robes of Welarah",
+    "link": "https://rune.game/item-specific-type/painted-robes-of-welarah",
+    "subType": 13,
+    "items": [
+      222
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recStwqubN9arVEHo",
+    "id": 151,
+    "name": "Entropic Amulet",
+    "link": "https://rune.game/item-specific-type/entropic-amulet",
+    "subType": 17,
+    "items": [
+      109
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recGz13pa7VAidg5Q",
+    "id": 152,
+    "name": "Coldforge Blade",
+    "link": "https://rune.game/item-specific-type/coldforge-blade",
+    "subType": 1,
+    "items": [
+      209
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rece4m734gLs7W6dF",
+    "id": 153,
+    "name": "Archon's Lightlance",
+    "link": "https://rune.game/item-specific-type/archons-lightlance",
+    "subType": 4,
+    "items": [
+      49
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recZzvtk1662fmxMB",
+    "id": 154,
+    "name": "Eledon's Truth",
+    "link": "https://rune.game/item-specific-type/eledons-truth",
+    "subType": 34,
+    "items": [
+      48
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec3seo0p4ZzWNaxm",
+    "id": 155,
+    "name": "Whispertread Boots",
+    "link": "https://rune.game/item-specific-type/whispertread-boots",
+    "subType": 12,
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recpAeirWBvCdT9iz",
+    "id": 156,
+    "name": "Overwrought Iron Ring",
+    "link": "https://rune.game/item-specific-type/overwrought-iron-ring",
+    "subType": 14,
+    "items": [
+      112
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recvi3oTnKsiRpLzE",
+    "id": 157,
+    "name": "Korryn's Lancer",
+    "link": "https://rune.game/item-specific-type/korryns-lancer",
+    "subType": 8,
+    "items": [
+      241
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recOjnv0bk1oOpcW2",
+    "id": 158,
+    "name": "Fist of Eledon",
+    "link": "https://rune.game/item-specific-type/fist-of-eledon",
+    "subType": 34,
+    "items": [
+      43
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec0uz4CI9UNzBXH4",
+    "id": 159,
+    "name": "Ancestral Axe",
+    "link": "https://rune.game/item-specific-type/ancestral-axe",
+    "subType": 35,
+    "items": [
+      44
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recWtct4sWCsJPx97",
+    "id": 160,
+    "name": "Sol Battlemage Tunic",
+    "link": "https://rune.game/item-specific-type/sol-battlemage-tunic",
+    "subType": 13,
+    "items": [
+      47
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recWIxpplEjOOTkkF",
+    "id": 161,
+    "name": "Sol Battlemage Footwraps",
+    "link": "https://rune.game/item-specific-type/sol-battlemage-footwraps",
+    "subType": 12,
+    "items": [
+      46
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recSvRlzzrKEbtkkh",
+    "id": 162,
+    "name": "Beacon of Relia",
+    "link": "https://rune.game/item-specific-type/beacon-of-relia",
+    "subType": 7,
+    "items": [
+      45
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec32tLOlAiMs8YGP",
+    "id": 163,
+    "name": "Black Steel Blade",
+    "link": "https://rune.game/item-specific-type/black-steel-blade",
+    "subType": 1,
+    "items": [
+      612
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recpeF07kIBPUMSqF",
+    "id": 164,
+    "name": "Steel Sword",
+    "link": "https://rune.game/item-specific-type/steel-sword",
+    "items": [],
+    "itemMaterials": [
+      1
+    ]
+  },
+  {
+    "uuid": "recIme7zz1utShsaG",
+    "id": 165,
+    "link": "https://rune.game/item-specific-type/",
+    "items": [],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recVWPBisGc0uz2Pa",
+    "id": 166,
+    "name": "Korryn's Dexterity",
+    "link": "https://rune.game/item-specific-type/korryns-dexterity",
+    "subType": 15,
+    "items": [
+      240
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recOdBV47yxT56AMG",
+    "id": 167,
+    "name": "Darkgrowth Staff",
+    "link": "https://rune.game/item-specific-type/darkgrowth-staff",
+    "subType": 7,
+    "items": [
+      615
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec1ZF21lxtndeOso",
+    "id": 168,
+    "name": "Korryn's Stride",
+    "link": "https://rune.game/item-specific-type/korryns-stride",
+    "subType": 12,
+    "items": [
+      616
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQAe8UOkgLOj97E",
+    "id": 169,
+    "name": "Korryn's Vision",
+    "link": "https://rune.game/item-specific-type/korryns-vision",
+    "subType": 10,
+    "items": [
+      617
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recqY7LlM24Bm0KBk",
+    "id": 170,
+    "name": "Witchhunter's Coat",
+    "link": "https://rune.game/item-specific-type/witchhunters-coat",
+    "subType": 13,
+    "items": [
+      303
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "reccw4bnTcSbQgJRW",
+    "id": 171,
+    "name": "Glowfly Wings",
+    "link": "https://rune.game/item-specific-type/glowfly-wings",
+    "subType": 29,
+    "items": [
+      32
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recSSnZFrTXLfH4MD",
+    "id": 172,
+    "name": "Unknown Claw",
+    "link": "https://rune.game/item-specific-type/unknown-claw",
+    "subType": 6,
+    "items": [
+      14
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recfH9rmSPQARNlno",
+    "id": 173,
+    "name": "Royal Archon Amulet",
+    "link": "https://rune.game/item-specific-type/royal-archon-amulet",
+    "subType": 17,
+    "items": [
+      29
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec8wHqFzmHqDB5Fz",
+    "id": 174,
+    "name": "Tidal Bands",
+    "link": "https://rune.game/item-specific-type/tidal-bands",
+    "subType": 21,
+    "items": [
+      264
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recZ7zF4fCADDYvjX",
+    "id": 175,
+    "name": "Refulgant Stave",
+    "link": "https://rune.game/item-specific-type/refulgant-stave",
+    "subType": 7,
+    "items": [
+      620
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recxjbScQcWiRlPzv",
+    "id": 176,
+    "name": "Faceless Mask",
+    "link": "https://rune.game/item-specific-type/faceless-mask",
+    "subType": 10,
+    "items": [
+      622
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recXO0nDxmEO1T7Pc",
+    "id": 177,
+    "name": "Band of Bound Souls",
+    "link": "https://rune.game/item-specific-type/band-of-bound-souls",
+    "subType": 14,
+    "items": [
+      618
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recZgIFqLBWyufxkF",
+    "id": 178,
+    "name": "Runic Aegis",
+    "link": "https://rune.game/item-specific-type/runic-aegis",
+    "subType": 13,
+    "items": [
+      624
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recoCVMpFx81E1hSa",
+    "id": 179,
+    "name": "Hexmaster's Cowl",
+    "link": "https://rune.game/item-specific-type/hexmasters-cowl",
+    "subType": 10,
+    "items": [
+      625
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recmiFSDbwzcbbd91",
+    "id": 180,
+    "name": "Hexmaster's Robes",
+    "link": "https://rune.game/item-specific-type/hexmasters-robes",
+    "items": [
+      626
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recCorDvFvaGuyMbr",
+    "id": 181,
+    "name": "Sol Battlemage Leggings",
+    "link": "https://rune.game/item-specific-type/sol-battlemage-leggings",
+    "subType": 16,
+    "items": [
+      56
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recxTXXIvqOTfi5OP",
+    "id": 182,
+    "name": "Ancestral Pelt",
+    "link": "https://rune.game/item-specific-type/ancestral-pelt",
+    "subType": 10,
+    "items": [
+      627
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recMh5k3HdsATzlOs",
+    "id": 183,
+    "name": "Behemoth Grappler",
+    "link": "https://rune.game/item-specific-type/behemoth-grappler",
+    "subType": 38,
+    "items": [
+      628
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recgYxTSAfG6aTqsi",
+    "id": 184,
+    "name": "Ancestral Warpaints",
+    "link": "https://rune.game/item-specific-type/ancestral-warpaints",
+    "subType": 13,
+    "items": [
+      629
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec7aLOevk7TTKWKo",
+    "id": 185,
+    "name": "Behemoth Hide Trousers",
+    "link": "https://rune.game/item-specific-type/behemoth-hide-trousers",
+    "subType": 16,
+    "items": [
+      630
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recpvtzTowfjOpBIn",
+    "id": 186,
+    "name": "Chameleon Cloak",
+    "link": "https://rune.game/item-specific-type/chameleon-cloak",
+    "subType": 39,
+    "items": [
+      631
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recQDentlffMrRp3U",
+    "id": 187,
+    "name": "Warden Garb",
+    "link": "https://rune.game/item-specific-type/warden-garb",
+    "subType": 13,
+    "items": [
+      632
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recYQWmG2BUH2AQtj",
+    "id": 188,
+    "name": "Basilisk Gauntlets",
+    "link": "https://rune.game/item-specific-type/basilisk-gauntlets",
+    "subType": 15,
+    "items": [
+      633
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recDCGbUoGPS8DEwo",
+    "id": 189,
+    "name": "Dryad Bow",
+    "link": "https://rune.game/item-specific-type/dryad-bow",
+    "subType": 8,
+    "items": [
+      634
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recwZqnYOthYHnWBC",
+    "id": 190,
+    "name": "Dryad Quiver",
+    "link": "https://rune.game/item-specific-type/dryad-quiver",
+    "subType": 40,
+    "items": [
+      635
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recT0ZtawKyTgJHvp",
+    "id": 191,
+    "name": "Craven Cowl",
+    "link": "https://rune.game/item-specific-type/craven-cowl",
+    "subType": 10,
+    "items": [
+      637
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec8hZLzx01WWuAYw",
+    "id": 192,
+    "name": "Craven Coat",
+    "link": "https://rune.game/item-specific-type/craven-coat",
+    "subType": 13,
+    "items": [
+      638
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "rec4ONFOyFQ6oEwIU",
+    "id": 193,
+    "name": "Craven Piercer",
+    "link": "https://rune.game/item-specific-type/craven-piercer",
+    "subType": 41,
+    "items": [
+      639
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recLpVVDvW8W0zkZl",
+    "id": 194,
+    "name": "Craven Boots",
+    "link": "https://rune.game/item-specific-type/craven-boots",
+    "subType": 12,
+    "items": [
+      640
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recluHTHNQWICzGy0",
+    "id": 195,
+    "name": "Dragon Scale",
+    "link": "https://rune.game/item-specific-type/dragon-scale",
+    "items": [
+      1207
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recIX06dP3HD3EEhh",
+    "id": 196,
+    "name": "Dragon Talon",
+    "link": "https://rune.game/item-specific-type/dragon-talon",
+    "items": [
+      1208
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recYYLQuBUCMoqUSB",
+    "name": "Coveted Band",
+    "link": "https://rune.game/item-specific-type/coveted-band",
+    "subType": 14,
+    "items": [
+      2001
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recYbN1ihCrCnsM3d",
+    "name": "Covenant Band",
+    "link": "https://rune.game/item-specific-type/covenant-band",
+    "subType": 14,
+    "items": [
+      2015
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recOPu7oqGzxOogwW",
+    "name": "Ticket",
+    "link": "https://rune.game/item-specific-type/ticket",
+    "subType": 62,
+    "items": [
+      1212
+    ],
+    "itemMaterials": []
+  },
+  {
+    "uuid": "recA4LTuvx7nMuDTc",
+    "name": "Cube",
+    "link": "https://rune.game/item-specific-type/cube",
+    "subType": 63,
+    "items": [
+      3011,
+      1205
+    ],
+    "itemMaterials": []
+  }
+]

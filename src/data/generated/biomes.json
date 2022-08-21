@@ -1,0 +1,1361 @@
+[
+  {
+    "uuid": "recarI2rvyR1KeSu2",
+    "id": 1,
+    "name": "Alps",
+    "link": "https://rune.game/biome/alps",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      1,
+      12,
+      13
+    ],
+    "mapAreas": [
+      73,
+      60,
+      49,
+      43,
+      28,
+      27,
+      4,
+      78,
+      88
+    ]
+  },
+  {
+    "uuid": "recuK0dsmgth4RvMu",
+    "id": 2,
+    "name": "Arctic",
+    "link": "https://rune.game/biome/arctic",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      1,
+      9,
+      13,
+      15
+    ],
+    "mapAreas": [
+      9,
+      70,
+      60,
+      34,
+      31,
+      28,
+      23,
+      78,
+      87,
+      95
+    ]
+  },
+  {
+    "uuid": "recgCJr8INlofsLmR",
+    "id": 3,
+    "name": "Forest",
+    "link": "https://rune.game/biome/forest",
+    "shortDescription": "",
+    "description": "forest have a chance to appear as smaller biomes on jungle planets.\n",
+    "features": [
+      2
+    ],
+    "mapAreas": [
+      8,
+      9,
+      74,
+      68,
+      55,
+      54,
+      37
+    ]
+  },
+  {
+    "uuid": "recvF7GL3yR2YDTMj",
+    "id": 4,
+    "name": "Bamboo Forest",
+    "link": "https://rune.game/biome/bamboo-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      3,
+      2,
+      18,
+      11
+    ],
+    "mapAreas": [
+      68,
+      74,
+      55,
+      41,
+      77
+    ]
+  },
+  {
+    "uuid": "recHJ7lqD4OSIRUP8",
+    "id": 5,
+    "name": "Bayou",
+    "link": "https://rune.game/biome/bayou",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      4,
+      22,
+      11,
+      20
+    ],
+    "mapAreas": [
+      35,
+      77
+    ]
+  },
+  {
+    "uuid": "recSWqXHnnq6WxUGm",
+    "id": 6,
+    "name": "Bog",
+    "link": "https://rune.game/biome/bog",
+    "shortDescription": "",
+    "description": "(borders jungle, tropical, coastal rainforest). Swamp Biomes spawn trees with vines on, Lillypads, Oceans and Huts. Marsh-like\n",
+    "features": [
+      2,
+      20,
+      15
+    ],
+    "mapAreas": [
+      6,
+      45,
+      35
+    ]
+  },
+  {
+    "uuid": "recbe8SCygCempTgy",
+    "id": 7,
+    "name": "Boreal Forest",
+    "link": "https://rune.game/biome/boreal-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      18,
+      17,
+      11
+    ],
+    "mapAreas": [
+      29,
+      8,
+      78,
+      89
+    ]
+  },
+  {
+    "uuid": "recytNxe2biIETf4g",
+    "id": 8,
+    "name": "Brushland",
+    "link": "https://rune.game/biome/brushland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      16,
+      19,
+      21
+    ],
+    "mapAreas": [
+      19,
+      55,
+      52,
+      63
+    ]
+  },
+  {
+    "uuid": "reclNjTXTBvXqhjz9",
+    "id": 9,
+    "name": "Canyon",
+    "link": "https://rune.game/biome/canyon",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      6,
+      12,
+      10,
+      7,
+      16,
+      19,
+      25
+    ],
+    "mapAreas": [
+      19,
+      64,
+      61,
+      52,
+      51
+    ]
+  },
+  {
+    "uuid": "reczd9SH4hclJJRDv",
+    "id": 10,
+    "name": "Chaparral",
+    "link": "https://rune.game/biome/chaparral",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      7
+    ],
+    "mapAreas": [
+      19,
+      44
+    ]
+  },
+  {
+    "uuid": "recVFagJsKW2CwImF",
+    "id": 11,
+    "name": "Cherry Blossom Grove",
+    "link": "https://rune.game/biome/cherry-blossom-grove",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      8,
+      2,
+      11
+    ],
+    "mapAreas": [
+      55,
+      89
+    ]
+  },
+  {
+    "uuid": "recrQyFlyapqrRbrC",
+    "id": 12,
+    "name": "Coniferous Forest",
+    "link": "https://rune.game/biome/coniferous-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      10,
+      17,
+      18
+    ],
+    "mapAreas": [
+      8,
+      73,
+      55,
+      54,
+      49,
+      39,
+      36,
+      29,
+      22,
+      5,
+      4,
+      78,
+      9
+    ]
+  },
+  {
+    "uuid": "recRjboVNCOBMfypZ",
+    "id": 13,
+    "name": "Crag",
+    "link": "https://rune.game/biome/crag",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      9,
+      12,
+      14,
+      15,
+      16,
+      25
+    ],
+    "mapAreas": [
+      6,
+      64,
+      61,
+      52,
+      51
+    ]
+  },
+  {
+    "uuid": "recRWgpIAymAwqpiB",
+    "id": 14,
+    "name": "Dead Forest",
+    "link": "https://rune.game/biome/dead-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      15,
+      7,
+      14
+    ],
+    "mapAreas": [
+      6,
+      7,
+      75,
+      55,
+      45,
+      84
+    ]
+  },
+  {
+    "uuid": "recOiKe2HKGh1uIlG",
+    "id": 15,
+    "name": "Dead Swamp",
+    "link": "https://rune.game/biome/dead-swamp",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      4,
+      15,
+      7,
+      14
+    ],
+    "mapAreas": [
+      6,
+      7,
+      55,
+      45,
+      35
+    ]
+  },
+  {
+    "uuid": "rectw5gSMVbYZElZs",
+    "id": 16,
+    "name": "Deciduous Forest",
+    "link": "https://rune.game/biome/deciduous-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      24,
+      16,
+      18
+    ],
+    "mapAreas": [
+      8,
+      74,
+      68,
+      62,
+      55,
+      54,
+      41,
+      33,
+      30,
+      29,
+      22,
+      5
+    ]
+  },
+  {
+    "uuid": "recoEp0VeEq3xnBH0",
+    "id": 17,
+    "name": "Dense Forest",
+    "link": "https://rune.game/biome/dense-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      11,
+      18
+    ],
+    "mapAreas": [
+      74,
+      75,
+      76,
+      68,
+      33,
+      30,
+      84,
+      83
+    ]
+  },
+  {
+    "uuid": "recIgCMzycvEEeugz",
+    "id": 18,
+    "name": "Eucalyptus Forest",
+    "link": "https://rune.game/biome/eucalyptus-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      3,
+      16,
+      19,
+      11,
+      7
+    ],
+    "mapAreas": [
+      26,
+      77
+    ]
+  },
+  {
+    "uuid": "rec7qwc5ByvHn5DRq",
+    "id": 19,
+    "name": "Fen",
+    "link": "https://rune.game/biome/fen",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      16,
+      18
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recJCJkTC6KxJVZ8j",
+    "id": 20,
+    "name": "Flower Field",
+    "link": "https://rune.game/biome/flower-field",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      11,
+      5
+    ],
+    "mapAreas": [
+      58,
+      62,
+      25,
+      89,
+      91
+    ]
+  },
+  {
+    "uuid": "recfQKgAbFXYabZav",
+    "id": 21,
+    "name": "Frost Forest",
+    "link": "https://rune.game/biome/frost-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      1,
+      2,
+      13,
+      7
+    ],
+    "mapAreas": [
+      8,
+      9,
+      54,
+      49,
+      34,
+      31,
+      78
+    ]
+  },
+  {
+    "uuid": "recYvPEEQjCCG9LX9",
+    "id": 22,
+    "name": "Fungi Forest",
+    "link": "https://rune.game/biome/fungi-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      8,
+      23,
+      2,
+      4,
+      11,
+      20
+    ],
+    "mapAreas": [
+      6,
+      76,
+      55,
+      83
+    ]
+  },
+  {
+    "uuid": "recQoYA7iSlwcCzlP",
+    "id": 23,
+    "name": "Garden",
+    "link": "https://rune.game/biome/garden",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      8,
+      11
+    ],
+    "mapAreas": [
+      89
+    ]
+  },
+  {
+    "uuid": "reccmmHX3VBBT95ZH",
+    "id": 24,
+    "name": "Grassland",
+    "link": "https://rune.game/biome/grassland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      4,
+      5,
+      7,
+      10,
+      11
+    ],
+    "mapAreas": [
+      6,
+      19,
+      74,
+      62,
+      58,
+      25,
+      13,
+      91
+    ]
+  },
+  {
+    "uuid": "recSxVY7HICUViSnf",
+    "id": 25,
+    "name": "Grove",
+    "link": "https://rune.game/biome/grove",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      5,
+      11,
+      18
+    ],
+    "mapAreas": [
+      55,
+      29
+    ]
+  },
+  {
+    "uuid": "rec5OfyuDTf0vR42e",
+    "id": 26,
+    "name": "Heathland",
+    "link": "https://rune.game/biome/heathland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      16,
+      21
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recZOOPgUH6NiW8Ds",
+    "id": 27,
+    "name": "Highland",
+    "link": "https://rune.game/biome/highland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      10,
+      12,
+      7
+    ],
+    "mapAreas": [
+      6,
+      48,
+      78,
+      88
+    ]
+  },
+  {
+    "uuid": "recscP1Irwqhcgefm",
+    "id": 28,
+    "name": "Jade Cliffs",
+    "link": "https://rune.game/biome/jade-cliffs",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      12,
+      18,
+      25
+    ],
+    "mapAreas": [
+      89
+    ]
+  },
+  {
+    "uuid": "recwBeXsYyy0eYkf6",
+    "id": 29,
+    "name": "Land of Lakes",
+    "link": "https://rune.game/biome/land-of-lakes",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      22,
+      18,
+      20,
+      10
+    ],
+    "mapAreas": [
+      45,
+      13,
+      79,
+      86
+    ]
+  },
+  {
+    "uuid": "recPwR3T6Mjaq4qEe",
+    "id": 30,
+    "name": "Lavender Fields",
+    "link": "https://rune.game/biome/lavender-fields",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      7,
+      11
+    ],
+    "mapAreas": [
+      62,
+      25,
+      89,
+      91
+    ]
+  },
+  {
+    "uuid": "rec8bbNpgiP8YrC6O",
+    "id": 31,
+    "name": "Lush Desert",
+    "link": "https://rune.game/biome/lush-desert",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      6,
+      21,
+      16,
+      11
+    ],
+    "mapAreas": [
+      19,
+      52,
+      42,
+      80,
+      92,
+      63
+    ]
+  },
+  {
+    "uuid": "recQLoTQTGk62CeNg",
+    "id": 32,
+    "name": "Lush Swamp",
+    "link": "https://rune.game/biome/lush-swamp",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      4,
+      22,
+      20,
+      11
+    ],
+    "mapAreas": [
+      19,
+      79
+    ]
+  },
+  {
+    "uuid": "rec8FwBttLG0OO9f1",
+    "id": 33,
+    "name": "Marsh",
+    "link": "https://rune.game/biome/marsh",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      4,
+      22,
+      20,
+      11,
+      7
+    ],
+    "mapAreas": [
+      19,
+      13,
+      79
+    ]
+  },
+  {
+    "uuid": "recVOemKburC0nZE3",
+    "id": 34,
+    "name": "Meadow",
+    "link": "https://rune.game/biome/meadow",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      5,
+      11
+    ],
+    "mapAreas": [
+      8,
+      74,
+      54,
+      41,
+      89
+    ]
+  },
+  {
+    "uuid": "recZDZgdPTccwHZsT",
+    "id": 35,
+    "name": "Moor",
+    "link": "https://rune.game/biome/moor",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      4,
+      7,
+      20
+    ],
+    "mapAreas": [
+      62,
+      58,
+      37,
+      32,
+      19,
+      91
+    ]
+  },
+  {
+    "uuid": "recm6MJ6DF2ywSUNa",
+    "id": 36,
+    "name": "Mountain",
+    "link": "https://rune.game/biome/mountain",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      12,
+      2,
+      16,
+      25
+    ],
+    "mapAreas": [
+      8,
+      74,
+      73,
+      71,
+      72,
+      64,
+      61,
+      60,
+      55,
+      54,
+      52,
+      51,
+      49,
+      48,
+      43,
+      36,
+      34,
+      27,
+      26,
+      24,
+      5,
+      4,
+      77,
+      78,
+      3,
+      81,
+      82,
+      85,
+      88,
+      28,
+      84
+    ]
+  },
+  {
+    "uuid": "rec9LFam0SlZ0l69k",
+    "id": 37,
+    "name": "Mystic Grove",
+    "link": "https://rune.game/biome/mystic-grove",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      8,
+      2,
+      11,
+      20
+    ],
+    "mapAreas": [
+      8,
+      75,
+      55,
+      54,
+      33,
+      30,
+      89
+    ]
+  },
+  {
+    "uuid": "recqp3Uq31Y9sAZq9",
+    "id": 38,
+    "name": "Ominous Woods",
+    "link": "https://rune.game/biome/ominous-woods",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      8,
+      2,
+      14,
+      4,
+      15
+    ],
+    "mapAreas": [
+      75,
+      84
+    ]
+  },
+  {
+    "uuid": "recVfJyiBb5G9ijL5",
+    "id": 39,
+    "name": "Origin Valley",
+    "link": "https://rune.game/biome/origin-valley",
+    "shortDescription": "",
+    "description": "",
+    "features": [],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recrZicMKZXiqHU2F",
+    "id": 40,
+    "name": "Outback",
+    "link": "https://rune.game/biome/outback",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      6,
+      21,
+      16,
+      19
+    ],
+    "mapAreas": [
+      55,
+      52,
+      40,
+      96,
+      63
+    ]
+  },
+  {
+    "uuid": "recng24v1eNZVx8Vk",
+    "id": 41,
+    "name": "Prairie",
+    "link": "https://rune.game/biome/prairie",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      16,
+      7
+    ],
+    "mapAreas": [
+      74,
+      58,
+      41
+    ]
+  },
+  {
+    "uuid": "recEX8Q1yVcVQT7t3",
+    "id": 42,
+    "name": "Rainforest",
+    "link": "https://rune.game/biome/rainforest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      3,
+      2,
+      20,
+      10,
+      11
+    ],
+    "mapAreas": [
+      55,
+      77
+    ]
+  },
+  {
+    "uuid": "recrOJ6LRrkmfLe77",
+    "id": 43,
+    "name": "Redwood Forest",
+    "link": "https://rune.game/biome/redwood-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      17,
+      18
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "reczFa4TaCGPjxnCt",
+    "id": 44,
+    "name": "Sacred Springs",
+    "link": "https://rune.game/biome/sacred-springs",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      18,
+      2,
+      12,
+      8,
+      20,
+      11
+    ],
+    "mapAreas": [
+      33,
+      30,
+      89
+    ]
+  },
+  {
+    "uuid": "recZPLzHvMcBefpLu",
+    "id": 45,
+    "name": "Seasonal Forest",
+    "link": "https://rune.game/biome/seasonal-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      11,
+      2,
+      18
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "rectEIGiGyw5g7r0c",
+    "id": 46,
+    "name": "Shield",
+    "link": "https://rune.game/biome/shield",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      22,
+      2,
+      17,
+      20
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recQqHcvYYK9Z4Kfm",
+    "id": 47,
+    "name": "Shrubland",
+    "link": "https://rune.game/biome/shrubland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      16,
+      7
+    ],
+    "mapAreas": [
+      74
+    ]
+  },
+  {
+    "uuid": "rec86jCZYKf06UTLx",
+    "id": 48,
+    "name": "Sludgepit",
+    "link": "https://rune.game/biome/sludgepit",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      4,
+      14,
+      15
+    ],
+    "mapAreas": [
+      7,
+      45,
+      35
+    ]
+  },
+  {
+    "uuid": "recjLKVBpgwHJVnNV",
+    "id": 49,
+    "name": "Snowy Coniferous Forest",
+    "link": "https://rune.game/biome/snowy-coniferous-forest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      10,
+      17,
+      18,
+      13
+    ],
+    "mapAreas": [
+      49,
+      21,
+      78,
+      9
+    ]
+  },
+  {
+    "uuid": "recTBIVyOyUdVSiBJ",
+    "id": 50,
+    "name": "Steppe",
+    "link": "https://rune.game/biome/steppe",
+    "shortDescription": "",
+    "description": "The savanna biome is sort of a cross between plains and desert. You won't find much water, and the grass is a darker green. \n",
+    "features": [
+      5,
+      6,
+      16,
+      21,
+      15,
+      19
+    ],
+    "mapAreas": [
+      19,
+      61,
+      52,
+      63
+    ]
+  },
+  {
+    "uuid": "recjlu8gWgdDqLTpP",
+    "id": 51,
+    "name": "Temperate Rainforest",
+    "link": "https://rune.game/biome/temperate-rainforest",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      10,
+      20,
+      17,
+      11
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recRLu0DtvjEa7NRE",
+    "id": 52,
+    "name": "Thicket",
+    "link": "https://rune.game/biome/thicket",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      5,
+      2,
+      15,
+      16
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recdtnLYGxb8GHdSf",
+    "id": 53,
+    "name": "Tropical Rainforest",
+    "link": "https://rune.game/biome/tropical-rainforest",
+    "shortDescription": "",
+    "description": "Tundras are relatively difficult to survive in thanks to a lack of resources and animals. You will find an oak or spruce tree here and there, but for the most part, you'll only find snow and frozen rivers.\n",
+    "features": [
+      3,
+      19,
+      20,
+      11,
+      18
+    ],
+    "mapAreas": [
+      55,
+      24,
+      77,
+      86
+    ]
+  },
+  {
+    "uuid": "recNC6IG0gqZJdd2L",
+    "id": 54,
+    "name": "Tundra",
+    "link": "https://rune.game/biome/tundra",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      13,
+      9,
+      16,
+      15,
+      7
+    ],
+    "mapAreas": [
+      70,
+      49,
+      43,
+      34,
+      28,
+      27,
+      78,
+      87,
+      88,
+      95
+    ]
+  },
+  {
+    "uuid": "recGrUz45RRZdtf6X",
+    "id": 55,
+    "name": "Wasteland",
+    "link": "https://rune.game/biome/wasteland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      9,
+      15,
+      14,
+      7
+    ],
+    "mapAreas": [
+      7,
+      71,
+      72,
+      70,
+      55,
+      48,
+      28,
+      23,
+      78,
+      81,
+      82,
+      87,
+      84,
+      92
+    ]
+  },
+  {
+    "uuid": "recxGYdXWubVp5wfc",
+    "id": 56,
+    "name": "Wetland",
+    "link": "https://rune.game/biome/wetland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      4,
+      11,
+      20,
+      18
+    ],
+    "mapAreas": [
+      32,
+      19,
+      79,
+      86
+    ]
+  },
+  {
+    "uuid": "recvfs44G6HEXwMPc",
+    "id": 57,
+    "name": "Woodland",
+    "link": "https://rune.game/biome/woodland",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      2,
+      16,
+      18
+    ],
+    "mapAreas": [
+      8,
+      54
+    ]
+  },
+  {
+    "uuid": "recKfIElLn98tGcUU",
+    "id": 58,
+    "name": "Volcano",
+    "link": "https://rune.game/biome/volcano",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      12,
+      9,
+      16,
+      19,
+      7,
+      25
+    ],
+    "mapAreas": [
+      6,
+      72,
+      71,
+      38,
+      26
+    ]
+  },
+  {
+    "uuid": "rec6eCSy7CGIQUQyt",
+    "id": 59,
+    "name": "Lava Fields",
+    "link": "https://rune.game/biome/lava-fields",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      7,
+      9,
+      16,
+      19,
+      25
+    ],
+    "mapAreas": [
+      6,
+      72,
+      71,
+      55,
+      38
+    ]
+  },
+  {
+    "uuid": "recaCBaVRMjXIh2Mc",
+    "id": 60,
+    "name": "Ocean",
+    "link": "https://rune.game/biome/ocean",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      22
+    ],
+    "mapAreas": [
+      65,
+      53,
+      50
+    ]
+  },
+  {
+    "uuid": "recRg2rVhN3AzScqF",
+    "id": 61,
+    "name": "Lake",
+    "link": "https://rune.game/biome/lake",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      22
+    ],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recuuoAhbEs8TFhV3",
+    "id": 62,
+    "name": "Bay",
+    "link": "https://rune.game/biome/bay",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      22
+    ],
+    "mapAreas": [
+      67,
+      66,
+      59,
+      57,
+      47,
+      46
+    ]
+  },
+  {
+    "uuid": "rec4aCfyAcYKgqU7i",
+    "id": 63,
+    "name": "River",
+    "link": "https://rune.game/biome/river",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      22
+    ],
+    "mapAreas": [
+      46
+    ]
+  },
+  {
+    "uuid": "recN7NjW5wJwE5Z4w",
+    "id": 64,
+    "name": "Arctic Water",
+    "link": "https://rune.game/biome/arctic-water",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      22,
+      13,
+      1
+    ],
+    "mapAreas": [
+      70,
+      69,
+      56,
+      46,
+      87
+    ]
+  },
+  {
+    "uuid": "recQU4tX6VJg8XAb5",
+    "id": 65,
+    "name": "Glacier",
+    "link": "https://rune.game/biome/glacier",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      1,
+      13,
+      7
+    ],
+    "mapAreas": [
+      60,
+      70,
+      69,
+      56,
+      73,
+      49,
+      28,
+      78,
+      87
+    ]
+  },
+  {
+    "uuid": "recjxw5KjXaUGje5Y",
+    "id": 66,
+    "name": "Underground",
+    "link": "https://rune.game/biome/underground",
+    "shortDescription": "",
+    "description": "",
+    "features": [
+      14,
+      7,
+      25
+    ],
+    "mapAreas": [
+      3,
+      85,
+      90,
+      94
+    ]
+  },
+  {
+    "uuid": "reccDekxxOrrm4OuQ",
+    "id": 67,
+    "name": "Industrial",
+    "link": "https://rune.game/biome/industrial",
+    "shortDescription": "",
+    "description": "",
+    "features": [],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recauu7ZNe3wC0IvN",
+    "name": "Space",
+    "link": "https://rune.game/biome/space",
+    "shortDescription": "",
+    "description": "",
+    "features": [],
+    "mapAreas": []
+  },
+  {
+    "uuid": "recALIefVL501lxGW",
+    "name": "Nexus",
+    "link": "https://rune.game/biome/nexus",
+    "shortDescription": "",
+    "description": "",
+    "features": [],
+    "mapAreas": []
+  }
+]

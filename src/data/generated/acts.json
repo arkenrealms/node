@@ -1,0 +1,72 @@
+[
+  {
+    "uuid": "recs4QYvPbIQtrIEb",
+    "id": 1,
+    "name": "New Beginnings",
+    "isEnabled": true,
+    "link": "https://rune.game/achievement/new-beginnings",
+    "game": 1,
+    "image": "https://dl.airtable.com/.attachments/fc1c761bec972d2c3abb8f2df63dfae6/8d4fa597/s_030.png?ts=1661120465&userId=usrf0GZYc5zCl9Cv7&cs=ee6988329ce8c13e",
+    "key": "CRAFT_1",
+    "category": "Basic",
+    "type": "Crafting",
+    "date": "Anytime",
+    "description": "Craft 1 Runeword\n"
+  },
+  {
+    "uuid": "recP8TNKQ7s1MtvBj",
+    "id": 2,
+    "name": "I Don't Like Being Naked",
+    "isEnabled": true,
+    "link": "https://rune.game/achievement/i-don't-like-being-naked",
+    "game": 1,
+    "image": "https://dl.airtable.com/.attachments/9ad6fb28dab23a4c0218c084db54a41d/69c74221/s_053.png?ts=1661120466&userId=usrf0GZYc5zCl9Cv7&cs=22fc72f7e02ed633",
+    "key": "CRAFT_10",
+    "category": "Basic",
+    "type": "Crafting",
+    "date": "Anytime",
+    "description": "Craft 10 Runewords\n"
+  },
+  {
+    "uuid": "rec45Js1VchnjI1jY",
+    "id": 3,
+    "name": "What About My Friends?",
+    "isEnabled": true,
+    "link": "https://rune.game/achievement/what-about-my-friends?",
+    "game": 1,
+    "image": "https://dl.airtable.com/.attachments/7dca90eb9c85088fd18d0e30490cca32/246bb166/s_077.png?ts=1661120466&userId=usrf0GZYc5zCl9Cv7&cs=cee1602d0767a6ec",
+    "key": "CRAFT_100",
+    "category": "Intermediate",
+    "type": "Crafting",
+    "date": "Anytime",
+    "description": "Craft 100 Runewords\n"
+  },
+  {
+    "uuid": "recdJTSowCtBMYVTS",
+    "id": 4,
+    "name": "Building An Army?",
+    "isEnabled": true,
+    "link": "https://rune.game/achievement/building-an-army?",
+    "game": 1,
+    "image": "https://dl.airtable.com/.attachments/0cd3cfee79f8fd394dfb42d43ddedce7/68cd97a8/sk_f_09.png?ts=1661120467&userId=usrf0GZYc5zCl9Cv7&cs=acb8bb5a54461aea",
+    "key": "CRAFT_1000",
+    "category": "Expert",
+    "type": "Crafting",
+    "date": "Anytime",
+    "description": "Craft 1000 Runewords\n"
+  },
+  {
+    "uuid": "recuz2tSjBOYUlsdl",
+    "id": 5,
+    "name": "All The Runes Are Belong To Me",
+    "isEnabled": true,
+    "link": "https://rune.game/achievement/all-the-runes-are-belong-to-me",
+    "game": 1,
+    "image": "https://dl.airtable.com/.attachments/afcf080414f9fb086c8cf119ba1f2d1e/04d0a06c/s_102.png?ts=1661120468&userId=usrf0GZYc5zCl9Cv7&cs=d7c7983adccb96b3",
+    "key": "ALL_RUNES",
+    "category": "Expert",
+    "type": "Collection",
+    "date": "Anytime",
+    "description": "Acquired Every Rune\n"
+  }
+]

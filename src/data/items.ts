@@ -1,5 +1,5 @@
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type'
-import generatedItems from './generated/items.json'
+import generatedItems from './generated/oldItems.json'
 
 export const rewardTokenIdMap = {
   'Guardian Egg': {
