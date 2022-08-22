@@ -14,7 +14,7 @@
       36,
       37
     ],
-    "mapAreas": [
+    "areas": [
       8,
       6,
       19,
@@ -38,7 +38,7 @@
     "description": "",
     "rarity": 5,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "recipes": [
@@ -58,7 +58,7 @@
     "droppedBy": [
       258
     ],
-    "mapAreas": [
+    "areas": [
       3,
       6,
       78,
@@ -83,7 +83,7 @@
     "droppedBy": [
       258
     ],
-    "mapAreas": [
+    "areas": [
       3,
       6,
       49,
@@ -105,7 +105,7 @@
     "droppedBy": [
       258
     ],
-    "mapAreas": [
+    "areas": [
       49,
       6,
       8,
@@ -124,7 +124,7 @@
     "description": "",
     "rarity": 4,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       291
     ],
     "recipes": [
@@ -146,7 +146,7 @@
       41,
       40
     ],
-    "mapAreas": [
+    "areas": [
       90,
       49
     ],
@@ -169,7 +169,7 @@
       42,
       4
     ],
-    "mapAreas": [
+    "areas": [
       8,
       52,
       63,
@@ -191,7 +191,7 @@
     "description": "",
     "rarity": 7,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       8,
       6,
       19,
@@ -216,7 +216,7 @@
     "description": "",
     "rarity": 6,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       7
     ],
     "recipes": []
@@ -234,7 +234,7 @@
     "droppedBy": [
       50
     ],
-    "mapAreas": [
+    "areas": [
       7
     ],
     "recipes": []
@@ -252,7 +252,7 @@
     "droppedBy": [
       51
     ],
-    "mapAreas": [
+    "areas": [
       7
     ],
     "recipes": []
@@ -269,7 +269,7 @@
     "description": "",
     "rarity": 6,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       78
     ],
     "recipes": []
@@ -288,7 +288,7 @@
     "droppedBy": [
       258
     ],
-    "mapAreas": [
+    "areas": [
       49,
       6,
       8,
@@ -307,7 +307,7 @@
     "description": "",
     "rarity": 5,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "recipes": []
@@ -326,7 +326,7 @@
       41,
       40
     ],
-    "mapAreas": [
+    "areas": [
       90,
       72,
       49
@@ -346,7 +346,7 @@
     "droppedBy": [
       25
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "recipes": []
@@ -362,7 +362,7 @@
     "description": "",
     "rarity": 2,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       42
     ],
     "recipes": [
@@ -383,7 +383,7 @@
     "droppedBy": [
       40
     ],
-    "mapAreas": [
+    "areas": [
       90
     ],
     "recipes": [
@@ -403,7 +403,7 @@
     "droppedBy": [
       46
     ],
-    "mapAreas": [
+    "areas": [
       91
     ],
     "recipes": [
@@ -422,7 +422,7 @@
     "description": "",
     "rarity": 5,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       38,
       6,
       72
@@ -445,7 +445,7 @@
       21,
       13
     ],
-    "mapAreas": [
+    "areas": [
       7,
       75,
       6
@@ -468,7 +468,7 @@
       36,
       37
     ],
-    "mapAreas": [
+    "areas": [
       8,
       6,
       19,
@@ -493,7 +493,7 @@
     "description": "Harder than steel, Mataro Gold is a special type of ice that only melts under extreme cold, and thus can only be forged under the breath weapon of an ice dragon.",
     "rarity": 4,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       60
     ],
     "recipes": [
@@ -511,7 +511,7 @@
     "description": "Unique to the Copper Desert, the aptly-named Rustwood Tree has a red-brown coloration. These trees are resistant to heat and require very little water survive. In the hot season, Rustwood Trees blossom with rich barhi dates. Rustwood is prized for its sturdiness, beautiful red coloration, and heat-conductive properties.",
     "rarity": 5,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       52
     ],
     "recipes": []
@@ -529,7 +529,7 @@
     "droppedBy": [
       47
     ],
-    "mapAreas": [
+    "areas": [
       52,
       63,
       51
@@ -550,7 +550,7 @@
     "description": "Ebik Steel is the only material known to suppress energy. Once refined, this dull, rusty metal scintillates with a brilliant red color, and is used to forge anti-energy weapons, shackles, and cages. Only one Ebik Steel mine exists on Haerra, isolated in the mountains east of Westmarsh. The mine is incredibly treacherous: the rock here is weak and ripe for collapse, and noxious gas from sulphur dioxide and hydrogen sulphide silently kills dozens of miners daily. Adding to the danger, monsters frequently occupy these winding tunnel shafts, striking unsuspecting minters from the darkness.",
     "rarity": 4,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       19,
       13
     ],
@@ -571,7 +571,7 @@
     "droppedBy": [
       48
     ],
-    "mapAreas": [
+    "areas": [
       55
     ],
     "recipes": [
@@ -589,7 +589,7 @@
     "description": "Poisonous spores harvested from certain flora in Mycelia.",
     "rarity": 6,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       76
     ],
     "recipes": []
@@ -607,7 +607,7 @@
     "droppedBy": [
       45
     ],
-    "mapAreas": [
+    "areas": [
       52
     ],
     "recipes": []
@@ -624,7 +624,7 @@
     "description": "This porous coral comes in many colors: from red to teal to yellow. When treated and forged like metal, however, this coral strengthens to an incredible degree. Used as a very lightweight alternative to steel, this coveted material can be forged into featherweight armor and sturdy, razor-sharp weapons.",
     "rarity": 5,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       86
     ],
     "recipes": [
@@ -655,7 +655,7 @@
       22,
       23
     ],
-    "mapAreas": [
+    "areas": [
       7,
       82,
       75
@@ -678,7 +678,7 @@
     "droppedBy": [
       54
     ],
-    "mapAreas": [
+    "areas": [
       86
     ],
     "recipes": [
@@ -700,7 +700,7 @@
       42,
       4
     ],
-    "mapAreas": [
+    "areas": [
       52,
       63,
       9
@@ -724,7 +724,7 @@
       37,
       36
     ],
-    "mapAreas": [
+    "areas": [
       52,
       63
     ],
@@ -744,7 +744,7 @@
       36,
       37
     ],
-    "mapAreas": [
+    "areas": [
       49,
       74
     ],
@@ -763,7 +763,7 @@
     "droppedBy": [
       8
     ],
-    "mapAreas": [
+    "areas": [
       75,
       6
     ],
@@ -782,7 +782,7 @@
     "description": "",
     "rarity": 6,
     "droppedBy": [],
-    "mapAreas": [
+    "areas": [
       291
     ],
     "recipes": [
@@ -802,7 +802,7 @@
     "droppedBy": [
       55
     ],
-    "mapAreas": [
+    "areas": [
       8,
       7,
       75,

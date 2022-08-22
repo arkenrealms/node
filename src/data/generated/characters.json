@@ -6,7 +6,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -22,7 +22,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -38,7 +38,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -54,7 +54,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -73,7 +73,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -90,7 +90,7 @@
       5,
       9
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -106,7 +106,7 @@
     "types": [
       2
     ],
-    "mapAreas": [
+    "areas": [
       9
     ],
     "factions": [],
@@ -123,7 +123,7 @@
       null,
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -142,7 +142,7 @@
       null,
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -159,7 +159,7 @@
       null,
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -176,7 +176,7 @@
       null,
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -193,7 +193,7 @@
       null,
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -209,7 +209,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -228,7 +228,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -246,7 +246,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -264,7 +264,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -282,7 +282,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -300,7 +300,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -318,7 +318,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -336,7 +336,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -354,7 +354,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -373,7 +373,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -391,7 +391,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -409,7 +409,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -425,7 +425,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       75
     ],
     "factions": [],
@@ -443,7 +443,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -459,7 +459,7 @@
     "types": [
       16
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -475,7 +475,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -491,7 +491,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -507,7 +507,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -523,7 +523,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -539,7 +539,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       19
     ],
     "factions": [],
@@ -555,7 +555,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       19
     ],
     "factions": [],
@@ -571,7 +571,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       19
     ],
     "factions": [],
@@ -587,7 +587,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       19
     ],
     "factions": [],
@@ -603,7 +603,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -624,7 +624,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -645,7 +645,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -661,7 +661,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -677,7 +677,7 @@
     "types": [
       2
     ],
-    "mapAreas": [
+    "areas": [
       90
     ],
     "factions": [],
@@ -697,7 +697,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       90
     ],
     "factions": [],
@@ -716,7 +716,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       52,
       63
     ],
@@ -736,7 +736,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       52
     ],
     "factions": [],
@@ -752,7 +752,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       52
     ],
     "factions": [],
@@ -768,7 +768,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       52
     ],
     "factions": [],
@@ -787,7 +787,7 @@
       9,
       8
     ],
-    "mapAreas": [
+    "areas": [
       91
     ],
     "factions": [],
@@ -805,7 +805,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       52,
       63,
       51
@@ -825,7 +825,7 @@
     "types": [
       8
     ],
-    "mapAreas": [
+    "areas": [
       9,
       55
     ],
@@ -844,7 +844,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       291
     ],
     "factions": [],
@@ -862,7 +862,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       7
     ],
     "factions": [],
@@ -880,7 +880,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       7
     ],
     "factions": [],
@@ -898,7 +898,7 @@
     "types": [
       null
     ],
-    "mapAreas": [
+    "areas": [
       8,
       54
     ],
@@ -915,7 +915,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -930,7 +930,7 @@
       2,
       9
     ],
-    "mapAreas": [
+    "areas": [
       86
     ],
     "factions": [],
@@ -948,7 +948,7 @@
     "types": [
       2
     ],
-    "mapAreas": [
+    "areas": [
       8,
       75,
       74,
@@ -969,7 +969,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       10
@@ -985,7 +985,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -999,7 +999,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       12
@@ -1016,7 +1016,7 @@
       3,
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       8
@@ -1032,7 +1032,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       9
@@ -1048,7 +1048,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       13
@@ -1065,7 +1065,7 @@
       3,
       6
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       22
@@ -1082,7 +1082,7 @@
       3,
       15
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [
       11
@@ -1098,7 +1098,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1112,7 +1112,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1126,7 +1126,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1140,7 +1140,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1154,7 +1154,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1168,7 +1168,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1182,7 +1182,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1196,7 +1196,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1210,7 +1210,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1224,7 +1224,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1238,7 +1238,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1252,7 +1252,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1266,7 +1266,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1280,7 +1280,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1294,7 +1294,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1308,7 +1308,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1322,7 +1322,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1336,7 +1336,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1350,7 +1350,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1364,7 +1364,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1378,7 +1378,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1392,7 +1392,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1406,7 +1406,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1420,7 +1420,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1434,7 +1434,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1448,7 +1448,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1462,7 +1462,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1476,7 +1476,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1490,7 +1490,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1504,7 +1504,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1518,7 +1518,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1532,7 +1532,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1546,7 +1546,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1560,7 +1560,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1574,7 +1574,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1588,7 +1588,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1602,7 +1602,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1616,7 +1616,7 @@
     "types": [
       null
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1630,7 +1630,7 @@
     "types": [
       null
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1644,7 +1644,7 @@
     "types": [
       4
     ],
-    "mapAreas": [
+    "areas": [
       82,
       81
     ],
@@ -1661,7 +1661,7 @@
     "types": [
       9
     ],
-    "mapAreas": [
+    "areas": [
       8
     ],
     "factions": [],
@@ -1677,7 +1677,7 @@
     "types": [
       6
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1692,7 +1692,7 @@
       null,
       6
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1703,7 +1703,7 @@
     "uuid": "rec9nOe1F6dvqGSn4",
     "id": 107,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1714,7 +1714,7 @@
     "uuid": "reccYOkLPITb9Vtrk",
     "id": 108,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1725,7 +1725,7 @@
     "uuid": "recN5Avrc6eZLqFDP",
     "id": 109,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1736,7 +1736,7 @@
     "uuid": "receGwkgpRAaPk5hq",
     "id": 110,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1747,7 +1747,7 @@
     "uuid": "recu53kKSq0IqQRAn",
     "id": 111,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1758,7 +1758,7 @@
     "uuid": "rec2xbwoT0tv915ij",
     "id": 112,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1769,7 +1769,7 @@
     "uuid": "rec9T9ygM1hbq1GJQ",
     "id": 113,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1780,7 +1780,7 @@
     "uuid": "recm80HlkkbMG07YB",
     "id": 114,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1791,7 +1791,7 @@
     "uuid": "recSZsr1SqQnq0hmg",
     "id": 115,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1802,7 +1802,7 @@
     "uuid": "rechvzJjzfbpe2X4I",
     "id": 116,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1813,7 +1813,7 @@
     "uuid": "recvgf9KlFA4M7Aqp",
     "id": 117,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1824,7 +1824,7 @@
     "uuid": "rec4z7BYLSoJvzzC0",
     "id": 118,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1835,7 +1835,7 @@
     "uuid": "recmURldmjolk6KBU",
     "id": 119,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1846,7 +1846,7 @@
     "uuid": "recCBZDwOlscKlCeh",
     "id": 120,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1857,7 +1857,7 @@
     "uuid": "recyo1uqrnuvhbl1m",
     "id": 121,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1868,7 +1868,7 @@
     "uuid": "recXVW7uZnmhq18dF",
     "id": 122,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1879,7 +1879,7 @@
     "uuid": "recKoEpxDsQBvu08w",
     "id": 123,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1890,7 +1890,7 @@
     "uuid": "recvnNJWp2ZMr7DSs",
     "id": 124,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1901,7 +1901,7 @@
     "uuid": "recVyp3s9xGc6Tcp2",
     "id": 125,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1912,7 +1912,7 @@
     "uuid": "recq06TxQZQvnkzsB",
     "id": 126,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1923,7 +1923,7 @@
     "uuid": "recpYIeNAPoxdkcOn",
     "id": 127,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1934,7 +1934,7 @@
     "uuid": "recnUQBSlE8NSMb9N",
     "id": 128,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1945,7 +1945,7 @@
     "uuid": "recfDMI7oTLiC1ZFf",
     "id": 129,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1956,7 +1956,7 @@
     "uuid": "recD6ywj5DShkFhZB",
     "id": 130,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1967,7 +1967,7 @@
     "uuid": "recLkVk9Uhp9DkFpI",
     "id": 131,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1978,7 +1978,7 @@
     "uuid": "recyGfAGpLfxccq6g",
     "id": 132,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -1989,7 +1989,7 @@
     "uuid": "recbaAS2pHJny4ik5",
     "id": 133,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2000,7 +2000,7 @@
     "uuid": "recdS9YWfetPRraMC",
     "id": 134,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2011,7 +2011,7 @@
     "uuid": "recrjOtxxdWoVrKaM",
     "id": 135,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2022,7 +2022,7 @@
     "uuid": "reclSQ1cOYDWJuhaf",
     "id": 136,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2033,7 +2033,7 @@
     "uuid": "rechXPHKUe08BndCl",
     "id": 137,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2044,7 +2044,7 @@
     "uuid": "rectxLEYfU6qk91fi",
     "id": 138,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2055,7 +2055,7 @@
     "uuid": "recwAyj318JX2jMC2",
     "id": 139,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2066,7 +2066,7 @@
     "uuid": "recUtdveTNN0ixUSt",
     "id": 140,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2077,7 +2077,7 @@
     "uuid": "recplnZtS3LOTUcM7",
     "id": 141,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2088,7 +2088,7 @@
     "uuid": "rec3ycqqlp9NJlW5e",
     "id": 142,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2099,7 +2099,7 @@
     "uuid": "recSkD4iB8muk5tJi",
     "id": 143,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2110,7 +2110,7 @@
     "uuid": "reclKMCMlVTWw66a5",
     "id": 144,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2121,7 +2121,7 @@
     "uuid": "recMyXEVelgNv5U4t",
     "id": 145,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2132,7 +2132,7 @@
     "uuid": "recbo3RvOHt9eHTTg",
     "id": 146,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2143,7 +2143,7 @@
     "uuid": "recwJ7XOqnef7XmRo",
     "id": 147,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2154,7 +2154,7 @@
     "uuid": "recG5bipW3YVFYF5t",
     "id": 148,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2165,7 +2165,7 @@
     "uuid": "recNadHWA2GZrEvKb",
     "id": 149,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2176,7 +2176,7 @@
     "uuid": "recaRBbBBD2AJzpcj",
     "id": 150,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2187,7 +2187,7 @@
     "uuid": "recPvCv8KG2NXtY2L",
     "id": 151,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2198,7 +2198,7 @@
     "uuid": "recpwcsa1uZqQ8SSn",
     "id": 152,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2209,7 +2209,7 @@
     "uuid": "recLufyZMYmQ9YJwi",
     "id": 153,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2220,7 +2220,7 @@
     "uuid": "recyT5F9SRK58ONSx",
     "id": 154,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2231,7 +2231,7 @@
     "uuid": "rec1yO9TsEs8oAQON",
     "id": 155,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2242,7 +2242,7 @@
     "uuid": "recEGjrI2PZ87a2Gn",
     "id": 156,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2253,7 +2253,7 @@
     "uuid": "recqQ15JI5WEGguKt",
     "id": 157,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2264,7 +2264,7 @@
     "uuid": "recRhqQxbKJydea9v",
     "id": 158,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2275,7 +2275,7 @@
     "uuid": "rec07SA1oez2gsV8y",
     "id": 159,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2286,7 +2286,7 @@
     "uuid": "recHVgOwLG9uY6r2L",
     "id": 160,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2297,7 +2297,7 @@
     "uuid": "recrFrxMH3hiQOrrf",
     "id": 161,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2308,7 +2308,7 @@
     "uuid": "recBbosp10zLNdIXQ",
     "id": 162,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2319,7 +2319,7 @@
     "uuid": "recnz150ty2gsP0Bc",
     "id": 163,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2330,7 +2330,7 @@
     "uuid": "reccKvezX3ulgLloo",
     "id": 164,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2341,7 +2341,7 @@
     "uuid": "rec4LZknkjz3GxbKC",
     "id": 165,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2352,7 +2352,7 @@
     "uuid": "recLPsgD7mlzVQ9pY",
     "id": 166,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2363,7 +2363,7 @@
     "uuid": "recwGNvZsjUAfiAD0",
     "id": 167,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2374,7 +2374,7 @@
     "uuid": "recUV5t5P9EQ9tzLW",
     "id": 168,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2385,7 +2385,7 @@
     "uuid": "rec2P6IX5yeGt9Jsn",
     "id": 169,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2396,7 +2396,7 @@
     "uuid": "rec3yad2hJO20kBQf",
     "id": 170,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2407,7 +2407,7 @@
     "uuid": "recVJXbA3JwHlWzWG",
     "id": 171,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2418,7 +2418,7 @@
     "uuid": "recMDAF85XZ0ioVVQ",
     "id": 172,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2429,7 +2429,7 @@
     "uuid": "recYimoCA7sdtY0BS",
     "id": 173,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2440,7 +2440,7 @@
     "uuid": "rech4S87hFX8lHt3t",
     "id": 174,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2451,7 +2451,7 @@
     "uuid": "reclYrCiEvqyfVlvz",
     "id": 175,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2462,7 +2462,7 @@
     "uuid": "recz5cfYaU76Vqv6F",
     "id": 176,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2473,7 +2473,7 @@
     "uuid": "recxJYbJxxSXAgQ42",
     "id": 177,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2484,7 +2484,7 @@
     "uuid": "recoUzQ6yVfzeck8C",
     "id": 178,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2495,7 +2495,7 @@
     "uuid": "recbwxHuR8tW2MvgP",
     "id": 179,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2506,7 +2506,7 @@
     "uuid": "rec97LAW585tZB6sR",
     "id": 180,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2517,7 +2517,7 @@
     "uuid": "recHSdsiSX6TZmjv4",
     "id": 181,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2528,7 +2528,7 @@
     "uuid": "recLVlliIYMNnDVBj",
     "id": 182,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2539,7 +2539,7 @@
     "uuid": "recn6742H9jSHXnxO",
     "id": 183,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2550,7 +2550,7 @@
     "uuid": "recMD2CClSA604Ew1",
     "id": 184,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2561,7 +2561,7 @@
     "uuid": "recI8J8g6RuDXbsrc",
     "id": 185,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2572,7 +2572,7 @@
     "uuid": "recmrmaQO5h4TtvGW",
     "id": 186,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2583,7 +2583,7 @@
     "uuid": "recXDGACrjASs8dWl",
     "id": 187,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2594,7 +2594,7 @@
     "uuid": "recnynOK1r61ESmEM",
     "id": 188,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2605,7 +2605,7 @@
     "uuid": "recct0yNVB9828I3F",
     "id": 189,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2616,7 +2616,7 @@
     "uuid": "recJiK8ryJq1doigl",
     "id": 190,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2627,7 +2627,7 @@
     "uuid": "recX3h9Q3480xj0SZ",
     "id": 191,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2638,7 +2638,7 @@
     "uuid": "rec53bX6lV1cuZpMM",
     "id": 192,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2649,7 +2649,7 @@
     "uuid": "rectGvCZsmAjeB6MQ",
     "id": 193,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2660,7 +2660,7 @@
     "uuid": "recpXfGvqCAcuIjFS",
     "id": 194,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2671,7 +2671,7 @@
     "uuid": "reck9eGtOiIV1DOAC",
     "id": 195,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2682,7 +2682,7 @@
     "uuid": "rec8n4vRhcXIhasyJ",
     "id": 196,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2693,7 +2693,7 @@
     "uuid": "recOXXWsDlJZNPIul",
     "id": 197,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2704,7 +2704,7 @@
     "uuid": "rectz6SzmH6TVShfa",
     "id": 198,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2715,7 +2715,7 @@
     "uuid": "recrAQMNunuGX7nQZ",
     "id": 199,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2729,7 +2729,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2743,7 +2743,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2757,7 +2757,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2771,7 +2771,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2785,7 +2785,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2799,7 +2799,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2813,7 +2813,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2827,7 +2827,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2841,7 +2841,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2855,7 +2855,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2869,7 +2869,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2883,7 +2883,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2897,7 +2897,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2911,7 +2911,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2925,7 +2925,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2939,7 +2939,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2953,7 +2953,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2967,7 +2967,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2981,7 +2981,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -2995,7 +2995,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3009,7 +3009,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3023,7 +3023,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3037,7 +3037,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3051,7 +3051,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3065,7 +3065,7 @@
     "types": [
       4
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3079,7 +3079,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3093,7 +3093,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3107,7 +3107,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3121,7 +3121,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3135,7 +3135,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3149,7 +3149,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3163,7 +3163,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3177,7 +3177,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3191,7 +3191,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3205,7 +3205,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3219,7 +3219,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3233,7 +3233,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3247,7 +3247,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3261,7 +3261,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3275,7 +3275,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3289,7 +3289,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3303,7 +3303,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3317,7 +3317,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3331,7 +3331,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3345,7 +3345,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3359,7 +3359,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3373,7 +3373,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3387,7 +3387,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3401,7 +3401,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3415,7 +3415,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3429,7 +3429,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3443,7 +3443,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3457,7 +3457,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3471,7 +3471,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3485,7 +3485,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3499,7 +3499,7 @@
     "types": [
       2
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3513,7 +3513,7 @@
     "types": [
       2
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3527,7 +3527,7 @@
     "types": [
       2
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3541,7 +3541,7 @@
     "types": [
       2
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [
@@ -3560,7 +3560,7 @@
     "types": [
       null
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3574,7 +3574,7 @@
     "types": [
       null
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3588,7 +3588,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3602,7 +3602,7 @@
     "types": [
       null
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3615,7 +3615,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3629,7 +3629,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3643,7 +3643,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3657,7 +3657,7 @@
     "types": [
       3
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3671,7 +3671,7 @@
     "types": [
       9
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3686,7 +3686,7 @@
       null,
       6
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3700,7 +3700,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3713,7 +3713,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3726,7 +3726,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3739,7 +3739,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3752,7 +3752,7 @@
     "types": [
       1
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3766,7 +3766,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3780,7 +3780,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3794,7 +3794,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3808,7 +3808,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3822,7 +3822,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3836,7 +3836,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3850,7 +3850,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3864,7 +3864,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3878,7 +3878,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3892,7 +3892,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3906,7 +3906,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3920,7 +3920,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3934,7 +3934,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3948,7 +3948,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3962,7 +3962,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3976,7 +3976,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -3990,7 +3990,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4004,7 +4004,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4018,7 +4018,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4032,7 +4032,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4046,7 +4046,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4060,7 +4060,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4074,7 +4074,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4088,7 +4088,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4102,7 +4102,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4116,7 +4116,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4130,7 +4130,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4144,7 +4144,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4158,7 +4158,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4172,7 +4172,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4186,7 +4186,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4200,7 +4200,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4214,7 +4214,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4227,7 +4227,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4240,7 +4240,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4253,7 +4253,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4266,7 +4266,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4279,7 +4279,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4292,7 +4292,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4305,7 +4305,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4318,7 +4318,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4331,7 +4331,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4344,7 +4344,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4357,7 +4357,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4370,7 +4370,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4383,7 +4383,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4396,7 +4396,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4409,7 +4409,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4422,7 +4422,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4435,7 +4435,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4448,7 +4448,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4461,7 +4461,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4474,7 +4474,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4487,7 +4487,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4500,7 +4500,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4513,7 +4513,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4526,7 +4526,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4539,7 +4539,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4552,7 +4552,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4565,7 +4565,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4578,7 +4578,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4591,7 +4591,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4604,7 +4604,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4617,7 +4617,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4630,7 +4630,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4643,7 +4643,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4656,7 +4656,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4669,7 +4669,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4682,7 +4682,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4695,7 +4695,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4708,7 +4708,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4721,7 +4721,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4734,7 +4734,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4747,7 +4747,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4760,7 +4760,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4773,7 +4773,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4786,7 +4786,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4799,7 +4799,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4812,7 +4812,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4825,7 +4825,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4838,7 +4838,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4851,7 +4851,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4864,7 +4864,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4877,7 +4877,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4890,7 +4890,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4904,7 +4904,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4919,7 +4919,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4932,7 +4932,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4945,7 +4945,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4958,7 +4958,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4971,7 +4971,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4984,7 +4984,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -4997,7 +4997,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5010,7 +5010,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5023,7 +5023,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5036,7 +5036,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5049,7 +5049,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5062,7 +5062,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5075,7 +5075,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5088,7 +5088,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5101,7 +5101,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5115,7 +5115,7 @@
     "types": [
       8
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5129,7 +5129,7 @@
     "types": [
       8
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5143,7 +5143,7 @@
     "types": [
       8
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5157,7 +5157,7 @@
     "types": [
       8
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5171,7 +5171,7 @@
     "types": [
       8
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5185,7 +5185,7 @@
     "types": [
       8
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5197,7 +5197,7 @@
     "id": 381,
     "name": "Hellboar",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5209,7 +5209,7 @@
     "id": 382,
     "name": "Pig Demon",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5221,7 +5221,7 @@
     "id": 383,
     "name": "Dreadtusker",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5233,7 +5233,7 @@
     "id": 384,
     "name": "Swine Warrior",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5245,7 +5245,7 @@
     "id": 385,
     "name": "Plagueball",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5257,7 +5257,7 @@
     "id": 386,
     "name": "Chatter",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5269,7 +5269,7 @@
     "id": 387,
     "name": "Fleshfeaster",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5281,7 +5281,7 @@
     "id": 388,
     "name": "Gobbler",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5293,7 +5293,7 @@
     "id": 389,
     "name": "Ravisher",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5305,7 +5305,7 @@
     "id": 390,
     "name": "Lashworm",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5317,7 +5317,7 @@
     "id": 391,
     "name": "Whipsnake",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5329,7 +5329,7 @@
     "id": 392,
     "name": "Flail Eel",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5341,7 +5341,7 @@
     "id": 393,
     "name": "Flayerpede",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5353,7 +5353,7 @@
     "id": 394,
     "name": "Brainorb",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5365,7 +5365,7 @@
     "id": 395,
     "name": "Darkorb",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5377,7 +5377,7 @@
     "id": 396,
     "name": "Mentorb",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5389,7 +5389,7 @@
     "id": 397,
     "name": "Grim Widow",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5401,7 +5401,7 @@
     "id": 398,
     "name": "Crawling Doom",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5413,7 +5413,7 @@
     "id": 399,
     "name": "Vile Webling",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5425,7 +5425,7 @@
     "id": 400,
     "name": "Death Pod",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5437,7 +5437,7 @@
     "id": 401,
     "name": "Firebat",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5449,7 +5449,7 @@
     "id": 402,
     "name": "Abomination",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5461,7 +5461,7 @@
     "id": 403,
     "name": "Creep",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5473,7 +5473,7 @@
     "id": 404,
     "name": "Dermal Mound",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5485,7 +5485,7 @@
     "id": 405,
     "name": "Hacked Demon",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5497,7 +5497,7 @@
     "id": 406,
     "name": "Storm Hopper",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5509,7 +5509,7 @@
     "id": 407,
     "name": "Resheph",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5521,7 +5521,7 @@
     "id": 408,
     "name": "Tynged",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5533,7 +5533,7 @@
     "id": 409,
     "name": "Adramelech",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5545,7 +5545,7 @@
     "id": 410,
     "name": "Eurynome",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5557,7 +5557,7 @@
     "id": 411,
     "name": "Tarqeq",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5569,7 +5569,7 @@
     "id": 412,
     "name": "Kundalini",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5581,7 +5581,7 @@
     "id": 413,
     "name": "Quaoar",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5592,7 +5592,7 @@
     "uuid": "recdfbZlYdIbiwU22",
     "id": 414,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5603,7 +5603,7 @@
     "uuid": "recZggohwuaXv1uj5",
     "id": 415,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5614,7 +5614,7 @@
     "uuid": "reciaLQLb0JbZP10a",
     "id": 416,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5626,7 +5626,7 @@
     "id": 417,
     "name": "Carcosa",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5638,7 +5638,7 @@
     "id": 418,
     "name": "Cassilda",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5650,7 +5650,7 @@
     "id": 419,
     "name": "Wolfsangel",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5662,7 +5662,7 @@
     "id": 420,
     "name": "Derweze",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5674,7 +5674,7 @@
     "id": 421,
     "name": "Cecaelia",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5686,7 +5686,7 @@
     "id": 422,
     "name": "Linga Sharira",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5698,7 +5698,7 @@
     "id": 423,
     "name": "Herfjotur",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5710,7 +5710,7 @@
     "id": 424,
     "name": "Brocken",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5722,7 +5722,7 @@
     "id": 425,
     "name": "Falcon",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5734,7 +5734,7 @@
     "id": 426,
     "name": "Riot",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5746,7 +5746,7 @@
     "id": 427,
     "name": "Jokulmorder",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5758,7 +5758,7 @@
     "id": 428,
     "name": "Eventide",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5770,7 +5770,7 @@
     "id": 429,
     "name": "Eos",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5782,7 +5782,7 @@
     "id": 430,
     "name": "Machefer",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5794,7 +5794,7 @@
     "id": 431,
     "name": "Greisen",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5806,7 +5806,7 @@
     "id": 432,
     "name": "Amanita",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5818,7 +5818,7 @@
     "id": 433,
     "name": "Hemlock",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5830,7 +5830,7 @@
     "id": 434,
     "name": "Mkodos",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5842,7 +5842,7 @@
     "id": 435,
     "name": "Rotundjere",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5854,7 +5854,7 @@
     "id": 436,
     "name": "Vertigo",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5866,7 +5866,7 @@
     "id": 437,
     "name": "Jaguar",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5878,7 +5878,7 @@
     "id": 438,
     "name": "Eris",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5890,7 +5890,7 @@
     "id": 439,
     "name": "Triton",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5902,7 +5902,7 @@
     "id": 440,
     "name": "Skarn",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5914,7 +5914,7 @@
     "id": 441,
     "name": "Cacofiend",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5926,7 +5926,7 @@
     "id": 442,
     "name": "Cambion",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5938,7 +5938,7 @@
     "id": 443,
     "name": "Wight",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5949,7 +5949,7 @@
     "uuid": "recB2DLUEAzGWJSKY",
     "id": 444,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5961,7 +5961,7 @@
     "id": 445,
     "name": "Nyx",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5973,7 +5973,7 @@
     "id": 446,
     "name": "Brood Spawner",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5985,7 +5985,7 @@
     "id": 447,
     "name": "Hivehost",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -5997,7 +5997,7 @@
     "id": 448,
     "name": "Ice Clan",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6009,7 +6009,7 @@
     "id": 449,
     "name": "Bronze Shaman",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6021,7 +6021,7 @@
     "id": 450,
     "name": "Broodswarm",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6032,7 +6032,7 @@
     "uuid": "recyqHwQbWp3JA2pU",
     "id": 451,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6044,7 +6044,7 @@
     "id": 452,
     "name": "Bloodfire Rogue",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6055,7 +6055,7 @@
     "uuid": "recEvMQ1DBmbSbriu",
     "id": 453,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6067,7 +6067,7 @@
     "id": 454,
     "name": "Dive Bomber",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6079,7 +6079,7 @@
     "id": 455,
     "name": "Sequoia",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6091,7 +6091,7 @@
     "id": 456,
     "name": "Crystal Witch",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6103,7 +6103,7 @@
     "id": 457,
     "name": "High Priestess",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6115,7 +6115,7 @@
     "id": 458,
     "name": "Magma Demon",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6127,7 +6127,7 @@
     "id": 459,
     "name": "Lava Lord",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6139,7 +6139,7 @@
     "id": 460,
     "name": "Sacred Fire Knight",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6151,7 +6151,7 @@
     "id": 461,
     "name": "Henchman Elite",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6163,7 +6163,7 @@
     "id": 462,
     "name": "Bonadea",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6175,7 +6175,7 @@
     "id": 463,
     "name": "Faunus",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6187,7 +6187,7 @@
     "id": 464,
     "name": "Aegipan",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6199,7 +6199,7 @@
     "id": 465,
     "name": "Iambe",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6211,7 +6211,7 @@
     "id": 466,
     "name": "Fawkes",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6223,7 +6223,7 @@
     "id": 467,
     "name": "Shamo",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6235,7 +6235,7 @@
     "id": 468,
     "name": "Amok",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6247,7 +6247,7 @@
     "id": 469,
     "name": "Gharaniq",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6258,7 +6258,7 @@
     "uuid": "recYmbrb2MJl89BSI",
     "id": 470,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6269,7 +6269,7 @@
     "uuid": "rechhMJaTVgMZZu7z",
     "id": 471,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6280,7 +6280,7 @@
     "uuid": "reclCfrr0D5VXEqUI",
     "id": 472,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6291,7 +6291,7 @@
     "uuid": "rec9HOGjTQ3n04KKI",
     "id": 473,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6303,7 +6303,7 @@
     "id": 474,
     "name": "Edea",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6314,7 +6314,7 @@
     "uuid": "recgKoQLXW2lslJ7U",
     "id": 475,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6326,7 +6326,7 @@
     "id": 476,
     "name": "Iwa",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6338,7 +6338,7 @@
     "id": 477,
     "name": "Rephaim",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6350,7 +6350,7 @@
     "id": 478,
     "name": "Anak",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6362,7 +6362,7 @@
     "id": 479,
     "name": "Paaliaq",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6374,7 +6374,7 @@
     "id": 480,
     "name": "Lyrannikin",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6386,7 +6386,7 @@
     "id": 481,
     "name": "Hornet",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6398,7 +6398,7 @@
     "id": 482,
     "name": "Brawl",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6410,7 +6410,7 @@
     "id": 483,
     "name": "Melusina",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6422,7 +6422,7 @@
     "id": 484,
     "name": "Lorelei",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6434,7 +6434,7 @@
     "id": 485,
     "name": "Seawitch",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6446,7 +6446,7 @@
     "id": 486,
     "name": "Sirara",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6458,7 +6458,7 @@
     "id": 487,
     "name": "Tia Dalma",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6470,7 +6470,7 @@
     "id": 488,
     "name": "Atlacamani",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6482,7 +6482,7 @@
     "id": 489,
     "name": "Takfir",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6494,7 +6494,7 @@
     "id": 490,
     "name": "Carabosse",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6506,7 +6506,7 @@
     "id": 491,
     "name": "Freybug",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6518,7 +6518,7 @@
     "id": 492,
     "name": "Hermanubis",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6530,7 +6530,7 @@
     "id": 493,
     "name": "Shaheeda",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6542,7 +6542,7 @@
     "id": 494,
     "name": "Oniwaka",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6553,7 +6553,7 @@
     "uuid": "recHZcZnIor9WWquG",
     "id": 495,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6564,7 +6564,7 @@
     "uuid": "reclQnU6w4i0twZbl",
     "id": 496,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6576,7 +6576,7 @@
     "id": 497,
     "name": "Lycourgos",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6588,7 +6588,7 @@
     "id": 498,
     "name": "Helot",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6600,7 +6600,7 @@
     "id": 499,
     "name": "Gilgamesh",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6612,7 +6612,7 @@
     "id": 500,
     "name": "Krypteia",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6623,7 +6623,7 @@
     "uuid": "recSdIzgihDoOjC7k",
     "id": 501,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6635,7 +6635,7 @@
     "id": 502,
     "name": "Zodiac",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6647,7 +6647,7 @@
     "id": 503,
     "name": "Orchid",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6658,7 +6658,7 @@
     "uuid": "recjDn5p9CefILnWa",
     "id": 504,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6670,7 +6670,7 @@
     "id": 505,
     "name": "Spectre",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6682,7 +6682,7 @@
     "id": 506,
     "name": "Rhea",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6695,7 +6695,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6709,7 +6709,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6722,7 +6722,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6735,7 +6735,7 @@
     "types": [
       5
     ],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6747,7 +6747,7 @@
     "id": 511,
     "name": "Slaanesh",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6759,7 +6759,7 @@
     "id": 512,
     "name": "Tzeentch",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6771,7 +6771,7 @@
     "id": 513,
     "name": "Snowsquall",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6782,7 +6782,7 @@
     "uuid": "recDRTigpzIsB60TV",
     "id": 514,
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6794,7 +6794,7 @@
     "id": 515,
     "name": "Styx",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6806,7 +6806,7 @@
     "id": 516,
     "name": "Tower's Defense",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6818,7 +6818,7 @@
     "id": 517,
     "name": "Tower's Denial",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6830,7 +6830,7 @@
     "id": 518,
     "name": "Tower's Rush",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6842,7 +6842,7 @@
     "id": 519,
     "name": "Tower's Push",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6854,7 +6854,7 @@
     "id": 520,
     "name": "Tower's Wall",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6866,7 +6866,7 @@
     "id": 521,
     "name": "Atlatl",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6878,7 +6878,7 @@
     "id": 522,
     "name": "Raid",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6890,7 +6890,7 @@
     "id": 523,
     "name": "Hastata",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6902,7 +6902,7 @@
     "id": 524,
     "name": "HasteZ",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6914,7 +6914,7 @@
     "id": 525,
     "name": "Hastilude",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6926,7 +6926,7 @@
     "id": 526,
     "name": "Hastur",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6938,7 +6938,7 @@
     "id": 527,
     "name": "Hastin",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],
@@ -6950,7 +6950,7 @@
     "id": 528,
     "name": "Phoenix",
     "types": [],
-    "mapAreas": [],
+    "areas": [],
     "factions": [],
     "npcs": [],
     "itemMaterials": [],

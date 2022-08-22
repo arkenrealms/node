@@ -4,7 +4,7 @@
     "id": 26,
     "name": "Eternity",
     "icon": "/images/items/00026.png",
-    "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1661119940&userId=usrf0GZYc5zCl9Cv7&cs=44cd3b816a6e5772",
+    "image": "https://dl.airtable.com/.attachments/efd443c0c36a4cca523c01f6be6a3603/bcef7575/00026.png?ts=1661137599&userId=usrf0GZYc5zCl9Cv7&cs=353c87ee730a8200",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -307,15 +307,15 @@
             "description": "{p3} {p2} for {p1}, {p4.description}."
           },
           {
-            "uuid": "recHtkkOYLB4X55lO",
-            "id": 2007,
+            "uuid": "reclXhM8GpGtVMSGM",
+            "id": 1164,
             "name": "DoublePickupChance",
             "isEnabled": true,
-            "game": 3,
+            "game": 2,
             "link": "https://rune.game/item-attribute/doublepickupchance",
             "nature": "Buff",
             "influences": "Reward",
-            "description": "{p1} chance to double an item pickup"
+            "description": "{parameter1} chance to double an item pickup"
           },
           {
             "uuid": "recBuLQkmUCQFoMxW",
@@ -369,7 +369,7 @@
     "id": 27,
     "name": "Instinct",
     "icon": "/images/items/00027.png",
-    "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1661119949&userId=usrf0GZYc5zCl9Cv7&cs=a98761acf2b5ef1c",
+    "image": "https://dl.airtable.com/.attachments/42584fe4a7c8b4441b4739bf93d9c3d7/9f3ab1e9/00027.png?ts=1661137620&userId=usrf0GZYc5zCl9Cv7&cs=26eb7571acdba4eb",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -1025,7 +1025,7 @@
     "id": 110,
     "name": "Hoarfrost",
     "icon": "/images/items/00110.png",
-    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1661119954&userId=usrf0GZYc5zCl9Cv7&cs=4629851746f171b5",
+    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1661137647&userId=usrf0GZYc5zCl9Cv7&cs=b9cab3262ca69805",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -1147,7 +1147,7 @@
     "id": 112,
     "name": "Animus",
     "icon": "/images/items/00112.png",
-    "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1661119956&userId=usrf0GZYc5zCl9Cv7&cs=3aa1c2bf1441c116",
+    "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1661137651&userId=usrf0GZYc5zCl9Cv7&cs=c215d1294c7ff6e4",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -1183,8 +1183,7 @@
       "Distribution": [
         "Crafted"
       ],
-      "Date": "Jan 16, 2022 - Now",
-      "Max Supply": "Unknown"
+      "Date": "Jan 16, 2022 - Now"
     },
     "recipe": {
       "requirement": [
@@ -1457,7 +1456,7 @@
     "id": 2001,
     "name": "Stone of Jordan",
     "icon": "/images/items/02001.png",
-    "image": "https://dl.airtable.com/.attachments/1df854b486da7b522f9c4f08927d6f1f/f6881edb/02001.png?ts=1661119958&userId=usrf0GZYc5zCl9Cv7&cs=8836150804ae414c",
+    "image": "https://dl.airtable.com/.attachments/1df854b486da7b522f9c4f08927d6f1f/f6881edb/02001.png?ts=1661137657&userId=usrf0GZYc5zCl9Cv7&cs=489da0123c9e24f8",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -2000,7 +1999,7 @@
     "id": 2018,
     "name": "Dwarf Star",
     "icon": "/images/items/02018.png",
-    "image": "https://dl.airtable.com/.attachments/74bf7c3cc8fb758b5a047112b9ff8b75/83c5c730/02018.png?ts=1661119962&userId=usrf0GZYc5zCl9Cv7&cs=f4425a2fbde7c179",
+    "image": "https://dl.airtable.com/.attachments/74bf7c3cc8fb758b5a047112b9ff8b75/83c5c730/02018.png?ts=1661137665&userId=usrf0GZYc5zCl9Cv7&cs=0eee3203e8632fe6",
     "value": "0",
     "type": 12,
     "subType": 53,
@@ -2142,7 +2141,7 @@
     "id": 2020,
     "name": "Raven Frost",
     "icon": "/images/items/02020.png",
-    "image": "https://dl.airtable.com/.attachments/f5afcfd96e244cc7e5cf104b048e4bbb/8810466b/ring_A_19.png?ts=1661119963&userId=usrf0GZYc5zCl9Cv7&cs=68694716f715c187",
+    "image": "https://dl.airtable.com/.attachments/f5afcfd96e244cc7e5cf104b048e4bbb/8810466b/ring_A_19.png?ts=1661137666&userId=usrf0GZYc5zCl9Cv7&cs=3d73ac50590a1a50",
     "value": "0",
     "type": 12,
     "subType": 53,
@@ -2401,7 +2400,7 @@
     "id": 2154,
     "name": "The Black Pearl",
     "icon": "/images/items/02154.png",
-    "image": "https://dl.airtable.com/.attachments/4a99a7a76606cf8fc0c9deaeff88b4a3/daa07af0/ring_A_24.png?ts=1661119965&userId=usrf0GZYc5zCl9Cv7&cs=56aae50fa153b3b0",
+    "image": "https://dl.airtable.com/.attachments/4a99a7a76606cf8fc0c9deaeff88b4a3/daa07af0/ring_A_24.png?ts=1661137669&userId=usrf0GZYc5zCl9Cv7&cs=9499b800f90c4fc9",
     "value": "0",
     "type": 12,
     "subType": 14,

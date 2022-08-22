@@ -5,8 +5,8 @@
     "name": "Unknown",
     "isEnabled": true,
     "npcs": [],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       81,
       82
     ],
@@ -52,8 +52,8 @@
       31,
       52
     ],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       9,
       49,
       51,
@@ -92,11 +92,8 @@
       45,
       40
     ],
-    "characterRaces": [
-      9,
-      10
-    ],
-    "mapAreas": [],
+    "races": [],
+    "areas": [],
     "characters": [
       200,
       202,
@@ -161,8 +158,8 @@
     "npcs": [
       43
     ],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       7,
       6,
       75,
@@ -240,15 +237,8 @@
       50,
       51
     ],
-    "characterRaces": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6
-    ],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       9,
       8,
       7,
@@ -433,8 +423,8 @@
     "npcs": [
       22
     ],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       42,
       52
     ],
@@ -459,10 +449,8 @@
       6,
       7
     ],
-    "characterRaces": [
-      11
-    ],
-    "mapAreas": [],
+    "races": [],
+    "areas": [],
     "characters": []
   },
   {
@@ -471,8 +459,8 @@
     "name": "Insect",
     "isEnabled": true,
     "npcs": [],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       8,
       7,
       6,
@@ -508,8 +496,8 @@
     "npcs": [
       24
     ],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       9,
       8,
       6,
@@ -601,8 +589,8 @@
     "name": "Dinosaur",
     "isEnabled": true,
     "npcs": [],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       77
     ],
     "characters": []
@@ -620,11 +608,8 @@
       18,
       19
     ],
-    "characterRaces": [
-      7,
-      8
-    ],
-    "mapAreas": [],
+    "races": [],
+    "areas": [],
     "characters": []
   },
   {
@@ -635,8 +620,8 @@
     "npcs": [
       27
     ],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       74,
       1,
       2,
@@ -654,8 +639,8 @@
     "npcs": [
       20
     ],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       6,
       35,
       38,
@@ -672,8 +657,8 @@
     "name": "Plant ",
     "isEnabled": true,
     "npcs": [],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       8,
       9,
       6,
@@ -694,8 +679,8 @@
     "name": "Aberration",
     "isEnabled": true,
     "npcs": [],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       61,
       86,
       89
@@ -710,8 +695,8 @@
     "name": "Giant",
     "isEnabled": true,
     "npcs": [],
-    "characterRaces": [],
-    "mapAreas": [
+    "races": [],
+    "areas": [
       88
     ],
     "characters": [

@@ -435,12 +435,136 @@
   },
   {
     "uuid": "recl9cuOtQaCFKz8F",
+    "id": 45,
     "name": "Carry Weight",
     "key": "CarryWeight",
     "games": []
   },
   {
     "uuid": "recJGKVHkjPGxarwg",
+    "id": 46,
+    "key": "Stamina",
+    "games": []
+  },
+  {
+    "uuid": "recv20PujRXW6gXAM",
+    "id": 47,
+    "name": "Item Drop Amount",
+    "key": "ItemDropAmount",
+    "games": []
+  },
+  {
+    "uuid": "recVJfVcSW1G0FoK0",
+    "id": 48,
+    "name": "Item Drop Type",
+    "key": "ItemDropType",
+    "games": []
+  },
+  {
+    "uuid": "rec0t0BwfHAfmxsFz",
+    "id": 49,
+    "name": "Item Drop Rarity",
+    "key": "ItemDropRarity",
+    "games": []
+  },
+  {
+    "uuid": "recczu67gHQqM4TqN",
+    "id": 50,
+    "name": "Physical",
+    "key": "Physical",
+    "games": []
+  },
+  {
+    "uuid": "recnsO5xsnnsjF7Sc",
+    "id": 51,
+    "name": "Lightning",
+    "key": "Lightning",
+    "games": []
+  },
+  {
+    "uuid": "recPruIkbNu7mxdNS",
+    "id": 52,
+    "name": "Fire",
+    "key": "Fire",
+    "games": []
+  },
+  {
+    "uuid": "recbz8lpBeitOecQZ",
+    "id": 53,
+    "name": "Cold",
+    "key": "Cold",
+    "games": []
+  },
+  {
+    "uuid": "receXfDnafAV5DwOI",
+    "id": 54,
+    "name": "Base Stamina",
+    "key": "BaseStamina",
+    "games": []
+  },
+  {
+    "uuid": "recTHv5iu8IYfTkpZ",
+    "id": 55,
+    "name": "Attack Rating",
+    "key": "AttackRating",
+    "games": []
+  },
+  {
+    "uuid": "recgnUBLnx5etIhu9",
+    "id": 56,
+    "name": "Backpack Gold Limit",
+    "key": "BackpackGoldLimit",
+    "games": []
+  },
+  {
+    "uuid": "recY2TueUYcKa59bn",
+    "id": 57,
+    "name": "Chest Gold Limit",
+    "key": "ChestGoldLimit",
+    "games": []
+  },
+  {
+    "uuid": "rec0CbcvUZAwkkEI1",
+    "id": 58,
+    "name": "Stamina Used",
+    "key": "StaminaUsed",
+    "games": []
+  },
+  {
+    "uuid": "recs3X7KlUPktqGHj",
+    "id": 59,
+    "name": "MaxRoomSize",
+    "key": "MaxRoomSize",
+    "games": []
+  },
+  {
+    "uuid": "recQRXNLjostMWjmj",
+    "id": 60,
+    "name": "RoomCreationQueue",
+    "key": "RoomCreationQueue",
+    "games": []
+  },
+  {
+    "uuid": "recOLBCps97jfEKUF",
+    "id": 61,
+    "name": "FallDamage",
+    "key": "FallDamage",
+    "games": []
+  },
+  {
+    "uuid": "recUlgqu5i0mrrfvp",
+    "games": []
+  },
+  {
+    "uuid": "recyPSJ2pjUhgugyn",
+    "games": []
+  },
+  {
+    "uuid": "recP8zdWAhhNt4RNk",
+    "games": []
+  },
+  {
+    "uuid": "recXbs1rtZEQDty32",
     "games": []
   }
 ]
