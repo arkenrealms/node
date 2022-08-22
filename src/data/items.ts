@@ -56,7 +56,7 @@ export function getFilteredItems(list: any) {
       if (condition === 'stream') {
         const now = new Date()
 
-        if (now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 19) { // 3-7PM UTC
+        if (now.getUTCDay() === 0 && now.getUTCHours() >= 22 || now.getUTCDay() === 1 && now.getUTCHours() <= 2) { // 3-7PM UTC
           item.activeConditions.push(condition)
         }
       }
