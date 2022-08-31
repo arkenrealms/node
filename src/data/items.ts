@@ -1,5 +1,6 @@
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type'
 import generatedItems from './generated/oldItems.json'
+import { removeTimezoneOffset } from '../util/time'
 
 export const rewardTokenIdMap = {
   'Guardian Egg': {
@@ -54,7 +55,7 @@ export function getFilteredItems(list: any) {
 
     for (const condition of item.exclusiveConditions) {
       if (condition === 'stream') {
-        const now = new Date()
+        const now = removeTimezoneOffset(new Date())
 
         if (now.getUTCDay() === 0 && now.getUTCHours() >= 22 || now.getUTCDay() === 1 && now.getUTCHours() <= 2) { // 3-7PM UTC
           item.activeConditions.push(condition)
@@ -62,9 +63,9 @@ export function getFilteredItems(list: any) {
       }
 
       if (condition === 'halloween') {
-        const now = new Date()
-        const eventStart = new Date(`October 31, ${now.getFullYear()} 00:00:00`)
-        const eventEnd = new Date(`November 1, ${now.getFullYear()} 00:00:00`)
+        const now = removeTimezoneOffset(new Date())
+        const eventStart = removeTimezoneOffset(new Date(`October 31, ${now.getFullYear()} 00:00:00+0000`))
+        const eventEnd = removeTimezoneOffset(new Date(`November 1, ${now.getFullYear()} 00:00:00+0000`))
 
         if (now > eventStart && now < eventEnd) {
           item.activeConditions.push(condition)
@@ -72,9 +73,9 @@ export function getFilteredItems(list: any) {
       }
 
       if (condition === 'christmas') {
-        const now = new Date()
-        const eventStart = new Date(`December 24, ${now.getFullYear()} 00:00:00`)
-        const eventEnd = new Date(`December 26, ${now.getFullYear()} 00:00:00`)
+        const now = removeTimezoneOffset(new Date())
+        const eventStart = removeTimezoneOffset(new Date(`December 24, ${now.getFullYear()} 00:00:00+0000`))
+        const eventEnd = removeTimezoneOffset(new Date(`December 26, ${now.getFullYear()} 00:00:00+0000`))
 
         if (now > eventStart && now < eventEnd) {
           item.activeConditions.push(condition)

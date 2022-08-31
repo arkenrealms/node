@@ -558,7 +558,7 @@ export function normalizeItem(item: any) {
     // Normalize rarity based on perfection
     if (!item.rarity) {
       if (item.attributes.find((a) => a.id === 40)?.value) {
-        item.rarity = ItemRarityNameById[item.attributes.find((a) => a.id === 40)?.value || 5]
+        item.rarity = ItemRarity[ItemRarityNameById[item.attributes.find((a) => a.id === 40)?.value || 5]]
       } else if (item.perfection === 1) {
         item.rarity = ItemRarity.Mythic
       } else if (item.perfection >= 0.9) {
@@ -748,28 +748,36 @@ export function normalizeItem(item: any) {
             item.branches[branchIndex].perfection[attributeIndex] = attributePerfection
           }
 
-          if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
-            if (item.branches[branchIndex].attributes[attributeIndex].map) {
+          const attribute = item.branches[branchIndex].attributes[attributeIndex]
+
+          if (attribute.value === undefined) {
+            if (attribute.map) {
               const kindofClose = Math.floor(
-                (item.branches[branchIndex].attributes[attributeIndex].max -
-                  item.branches[branchIndex].attributes[attributeIndex].min) *
+                (attribute.max -
+                  attribute.min) *
                   attributePerfection,
               )
-              const closestKey = Object.keys(item.branches[branchIndex].attributes[attributeIndex].map).sort((a, b) => {
+
+              const closestKey = Object.keys(attribute.map).sort((a, b) => {
                 return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
               })[0]
   
-              item.branches[branchIndex].attributes[attributeIndex].value = closestKey
+              attribute.value = closestKey
             } else {
               const alignedValue = Math.floor(
-                (item.branches[branchIndex].attributes[attributeIndex].max -
-                  item.branches[branchIndex].attributes[attributeIndex].min) *
+                (attribute.max -
+                  attribute.min) *
                   attributePerfection,
               )
-              item.branches[branchIndex].attributes[attributeIndex].value =
-                item.branches[branchIndex].attributes[attributeIndex].min + alignedValue
+
+              attribute.value =
+                attribute.min + alignedValue
             }
           }
+
+          // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
+
+          item.meta.attributes[attribute.id] = attribute.value
         }
       }
     }

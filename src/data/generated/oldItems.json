@@ -9287,7 +9287,7 @@
     ],
     "isPolled": true,
     "isNew": false,
-    "isSecret": true,
+    "isSecret": false,
     "isUltraSecret": false,
     "isPaused": false,
     "isRetired": true,
