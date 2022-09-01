@@ -35,6 +35,7 @@ declare const _default: {
         date: () => string;
         now: () => Date;
         fancyTimeFormat: typeof import("./time/fancyTimeFormat").default;
+        removeTimezoneOffset: typeof import("./time").removeTimezoneOffset;
     };
 };
 export default _default;

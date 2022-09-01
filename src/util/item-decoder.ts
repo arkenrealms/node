@@ -28,7 +28,7 @@ function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
 
-  const cacheBreaker = 1660306733 * 1000
+  const cacheBreaker = 1661989584 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -721,7 +721,9 @@ export function normalizeItem(item: any) {
             break
           }
 
-          if (item.branches[branchIndex].attributes[attributeIndex].value !== undefined) {
+          if (item.branches[branchIndex].attributes[attributeIndex].param1.value !== undefined) {
+            item.meta.attributes[item.branches[branchIndex].attributes[attributeIndex].id] = item.branches[branchIndex].attributes[attributeIndex].param1.value
+
             continue
           }
 
@@ -730,16 +732,16 @@ export function normalizeItem(item: any) {
             : item.perfection
 
           const attributePerfection =
-            originalAttributePerfection === item.attributes[attributeIndex].max
-              ? originalAttributePerfection - item.attributes[attributeIndex].min === 0
+            originalAttributePerfection === item.attributes[attributeIndex].param1.max
+              ? originalAttributePerfection - item.attributes[attributeIndex].param1.min === 0
                 ? 1
-                : (item.attributes[attributeIndex].value - item.attributes[attributeIndex].min) /
-                  (originalAttributePerfection - item.attributes[attributeIndex].min)
-              : item.attributes[attributeIndex].max - originalAttributePerfection === 0
+                : (item.attributes[attributeIndex].param1.value - item.attributes[attributeIndex].param1.min) /
+                  (originalAttributePerfection - item.attributes[attributeIndex].param1.min)
+              : item.attributes[attributeIndex].param1.max - originalAttributePerfection === 0
               ? 1
               : 1 -
-                (item.attributes[attributeIndex].value - originalAttributePerfection) /
-                  (item.attributes[attributeIndex].max - originalAttributePerfection)
+                (item.attributes[attributeIndex].param1.value - originalAttributePerfection) /
+                  (item.attributes[attributeIndex].param1.max - originalAttributePerfection)
           
           if (!item.branches[branchIndex].perfection) {
             item.branches[branchIndex].perfection = []
@@ -750,34 +752,34 @@ export function normalizeItem(item: any) {
 
           const attribute = item.branches[branchIndex].attributes[attributeIndex]
 
-          if (attribute.value === undefined) {
-            if (attribute.map) {
+          if (attribute.param1.value === undefined) {
+            if (attribute.param1.map) {
               const kindofClose = Math.floor(
-                (attribute.max -
-                  attribute.min) *
+                (attribute.param1.max -
+                  attribute.param1.min) *
                   attributePerfection,
               )
 
-              const closestKey = Object.keys(attribute.map).sort((a, b) => {
+              const closestKey = Object.keys(attribute.param1.map).sort((a, b) => {
                 return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
               })[0]
   
-              attribute.value = closestKey
+              attribute.param1.value = closestKey
             } else {
               const alignedValue = Math.floor(
-                (attribute.max -
-                  attribute.min) *
+                (attribute.param1.max -
+                  attribute.param1.min) *
                   attributePerfection,
               )
 
-              attribute.value =
-                attribute.min + alignedValue
+              attribute.param1.value =
+                attribute.param1.min + alignedValue
             }
           }
 
           // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
 
-          item.meta.attributes[attribute.id] = attribute.value
+          item.meta.attributes[attribute.id] = attribute.param1.value
         }
       }
     }

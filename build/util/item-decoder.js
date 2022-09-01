@@ -48,7 +48,7 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1660306733 * 1000;
+    var cacheBreaker = 1661989584 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
@@ -515,7 +515,7 @@ function normalizeItem(item) {
         // Normalize rarity based on perfection
         if (!item.rarity) {
             if ((_b = item.attributes.find(function (a) { return a.id === 40; })) === null || _b === void 0 ? void 0 : _b.value) {
-                item.rarity = items_1.ItemRarityNameById[((_c = item.attributes.find(function (a) { return a.id === 40; })) === null || _c === void 0 ? void 0 : _c.value) || 5];
+                item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[((_c = item.attributes.find(function (a) { return a.id === 40; })) === null || _c === void 0 ? void 0 : _c.value) || 5]];
             }
             else if (item.perfection === 1) {
                 item.rarity = items_1.ItemRarity.Mythic;
@@ -668,46 +668,50 @@ function normalizeItem(item) {
                         !item.branches[branchIndex].attributes[attributeIndex]) {
                         return "break";
                     }
-                    if (item.branches[branchIndex].attributes[attributeIndex].value !== undefined) {
+                    if (item.branches[branchIndex].attributes[attributeIndex].param1.value !== undefined) {
+                        item.meta.attributes[item.branches[branchIndex].attributes[attributeIndex].id] = item.branches[branchIndex].attributes[attributeIndex].param1.value;
                         return "continue";
                     }
                     var originalAttributePerfection = item.branches[1].perfection[attributeIndex]
                         ? item.branches[1].perfection[attributeIndex]
                         : item.perfection;
-                    var attributePerfection = originalAttributePerfection === item.attributes[attributeIndex].max
-                        ? originalAttributePerfection - item.attributes[attributeIndex].min === 0
+                    var attributePerfection = originalAttributePerfection === item.attributes[attributeIndex].param1.max
+                        ? originalAttributePerfection - item.attributes[attributeIndex].param1.min === 0
                             ? 1
-                            : (item.attributes[attributeIndex].value - item.attributes[attributeIndex].min) /
-                                (originalAttributePerfection - item.attributes[attributeIndex].min)
-                        : item.attributes[attributeIndex].max - originalAttributePerfection === 0
+                            : (item.attributes[attributeIndex].param1.value - item.attributes[attributeIndex].param1.min) /
+                                (originalAttributePerfection - item.attributes[attributeIndex].param1.min)
+                        : item.attributes[attributeIndex].param1.max - originalAttributePerfection === 0
                             ? 1
                             : 1 -
-                                (item.attributes[attributeIndex].value - originalAttributePerfection) /
-                                    (item.attributes[attributeIndex].max - originalAttributePerfection);
+                                (item.attributes[attributeIndex].param1.value - originalAttributePerfection) /
+                                    (item.attributes[attributeIndex].param1.max - originalAttributePerfection);
                     if (!item.branches[branchIndex].perfection) {
                         item.branches[branchIndex].perfection = [];
                     }
                     if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
                         item.branches[branchIndex].perfection[attributeIndex] = attributePerfection;
                     }
-                    if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
-                        if (item.branches[branchIndex].attributes[attributeIndex].map) {
-                            var kindofClose_1 = Math.floor((item.branches[branchIndex].attributes[attributeIndex].max -
-                                item.branches[branchIndex].attributes[attributeIndex].min) *
+                    var attribute = item.branches[branchIndex].attributes[attributeIndex];
+                    if (attribute.param1.value === undefined) {
+                        if (attribute.param1.map) {
+                            var kindofClose_1 = Math.floor((attribute.param1.max -
+                                attribute.param1.min) *
                                 attributePerfection);
-                            var closestKey = Object.keys(item.branches[branchIndex].attributes[attributeIndex].map).sort(function (a, b) {
+                            var closestKey = Object.keys(attribute.param1.map).sort(function (a, b) {
                                 return Math.abs(kindofClose_1 - Number(a)) - Math.abs(kindofClose_1 - Number(b));
                             })[0];
-                            item.branches[branchIndex].attributes[attributeIndex].value = closestKey;
+                            attribute.param1.value = closestKey;
                         }
                         else {
-                            var alignedValue = Math.floor((item.branches[branchIndex].attributes[attributeIndex].max -
-                                item.branches[branchIndex].attributes[attributeIndex].min) *
+                            var alignedValue = Math.floor((attribute.param1.max -
+                                attribute.param1.min) *
                                 attributePerfection);
-                            item.branches[branchIndex].attributes[attributeIndex].value =
-                                item.branches[branchIndex].attributes[attributeIndex].min + alignedValue;
+                            attribute.param1.value =
+                                attribute.param1.min + alignedValue;
                         }
                     }
+                    // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
+                    item.meta.attributes[attribute.id] = attribute.param1.value;
                 };
                 for (var attributeIndex in item.attributes) {
                     var state_1 = _loop_1(attributeIndex);
