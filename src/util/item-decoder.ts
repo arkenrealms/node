@@ -1,5 +1,4 @@
 import loki from 'lokijs'
-import gaussian from 'gaussian'
 import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
 import { itemData, ItemAttributes, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
