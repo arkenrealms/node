@@ -1,9 +1,11 @@
 import loki from 'lokijs'
+import gaussian from 'gaussian'
 import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
 import { itemData, ItemAttributes, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
+import ProbabilityCache from '../data/probabilityCache'
+import { average, randInt } from './math'
 
-const average = (arr: any) => arr.reduce((p: any, c: any) => p + c, 0) / arr.length
 
 const useLocalStorage = false
 const useIndexedDb = false
@@ -27,8 +29,11 @@ const db = {
 function databaseInitialize() {
   db.config = dbCon.getCollection('config')
   db.items = dbCon.getCollection('items')
+  if (dbCon.getCollection('items')) {
+    dbCon.getCollection('items').chain().remove()
+  }
 
-  const cacheBreaker = 1661989584 * 1000
+  const cacheBreaker = 1662443869 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -61,6 +66,14 @@ function databaseInitialize() {
   }
 }
 
+export function clearDatabase() {
+  if (dbCon.getCollection('config')) {
+    dbCon.getCollection('config').chain().remove()
+  }
+  if (dbCon.getCollection('items')) {
+    dbCon.getCollection('items').chain().remove()
+  }
+}
 
 export function getTokenCache() {
   // if (useLoki) {
@@ -530,6 +543,50 @@ export function normalizeItem(item: any) {
           if (item.perfection < 0) {
             item.perfection = 0
           }
+
+          const size = 20000
+          if (!ProbabilityCache[item.id]) {
+            ProbabilityCache[item.id] = {};
+
+            // @ts-ignore
+            [...Array(101).keys()].map(function(n) { ProbabilityCache[item.id][n] = 0 });
+
+            // @ts-ignore
+            [...Array(size).keys()].map(function() {
+              const rando = Math.floor((
+                  (
+                    branch.perfection.reduce(function(prev, cur, i) {
+                      return prev + (cur === null || cur === undefined ? 0 : (cur === attributes[i].max 
+                        ? (randInt(attributes[i].min, attributes[i].max)-attributes[i].min)/(attributes[i].max-attributes[i].min) 
+                        : (1-((randInt(attributes[i].min, attributes[i].max)-attributes[i].min)/(attributes[i].max-attributes[i].min)))))
+                    }, 0)/branch.perfection.filter(p => p !== undefined && p !== null).length
+                    // Fury: ((randInt(3, 7)-3)/(7-3)+(randInt(20, 40)-20)/(40-20)+(1-(randInt(20, 40)-20)/(40-20)))/3
+                  )*100)
+              ).toFixed(0)
+              
+              ProbabilityCache[item.id][rando]++
+            });
+          }
+
+          // @ts-ignore
+          const total = [...Array(101).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur], 0)
+          const mythic = ProbabilityCache[item.id][100] / total
+          // @ts-ignore
+          const epic = [...Array(99-90).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur+90], 0) / total
+          // @ts-ignore
+          const rare = [...Array(89-70).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur+70], 0) / total
+          // @ts-ignore
+          const magical = [...Array(70-0).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur+0], 0) / total
+          // @ts-ignore
+          const roll = item.perfection*100 > 3 ? average([...Array(6).keys()].reduce((prev, cur) => ProbabilityCache[item.id][parseInt(cur+item.perfection*100-3)] === 0 ? prev : [...prev, ProbabilityCache[item.id][parseInt(cur+item.perfection*100-3)]], [])) / total : ProbabilityCache[item.id][item.perfection*100] / total
+
+          item.meta.probability = {
+            mythic,
+            epic,
+            rare,
+            magical,
+            roll
+          } 
         } else {
           item.perfection = null
         }
@@ -791,40 +848,47 @@ export function normalizeItem(item: any) {
 
       if (perfection.length) {
         const shorthand = []
+        // let odds = 1
 
         for (let i = 0; i < perfection.length; i++) {
           if (perfection[i] === undefined || perfection[i] === null || !attributes[i]) {
             continue
           }
 
-          shorthand.push(
-            (attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value) + '',
-          )
+          const value = (attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value)
+          shorthand.push(value)
+
+          // odds *= (value - attributes[i].min + 1)
         }
 
-        item.shorthand = shorthand.join('-')
+        // if (odds > 1) {
+        //   item.meta.odds = odds
+        // }
+        
+        item.shorthand = shorthand.map(s => s + '').join('-')
       }
     }
 
     // Normalize odds
-    if (item.meta && item.branches?.[1]) {
-      let odds = 1
+    // if (item.meta && item.branches?.[1]) {
+    //   let mean = 0
+    //   let totalMean = 0
+    //   let odds = 1
 
-      for (const attributeIndex in item.branches[1].attributes) {
-        const attribute = item.branches[1].attributes[attributeIndex]
+    //   for (const attributeIndex in item.branches[1].attributes) {
+    //     const attribute = item.branches[1].attributes[attributeIndex]
 
-        if (attribute.min === undefined || attribute.max === undefined) continue
-        if (attribute.min === attribute.max) continue
-        if (attribute.map) continue
-        if (attribute.id === ItemAttributes.RandomPerfection1.id || attribute.id === ItemAttributes.RandomPerfection2.id || attribute.id === ItemAttributes.RandomPerfection3.id || attribute.id === ItemAttributes.RandomPerfection4.id || attribute.id === ItemAttributes.RandomPerfection5.id) continue
+    //     if (attribute.min === undefined || attribute.max === undefined) continue
+    //     if (attribute.min === attribute.max) continue
+    //     if (attribute.map) continue
+    //     if (attribute.id === ItemAttributes.RandomPerfection1.id || attribute.id === ItemAttributes.RandomPerfection2.id || attribute.id === ItemAttributes.RandomPerfection3.id || attribute.id === ItemAttributes.RandomPerfection4.id || attribute.id === ItemAttributes.RandomPerfection5.id) continue
 
-        odds *= (attribute.max - attribute.min + 1)
-      }
+    //     odds *= (attribute.max - attribute.min + 1)
+    //   }
 
-      if (odds > 1) {
-        item.meta.odds = odds
-      }
-    }
+    //   if (odds > 1) {
+    //   }
+    // }
 
     // Normalize perfection
     if (item.perfection === undefined || item.perfection === null) {

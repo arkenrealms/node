@@ -23,12 +23,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTokenIdFromItem = exports.normalizeItem = exports.getItemFromTokenId = exports.decodeItem = exports.setTokenCache = exports.getTokenCache = void 0;
+exports.getTokenIdFromItem = exports.normalizeItem = exports.getItemFromTokenId = exports.decodeItem = exports.setTokenCache = exports.getTokenCache = exports.clearDatabase = void 0;
 var lokijs_1 = __importDefault(require("lokijs"));
 var incremental_indexeddb_adapter_1 = __importDefault(require("lokijs/src/incremental-indexeddb-adapter"));
 var items_1 = require("../data/items");
 var items_type_1 = require("../data/items.type");
-var average = function (arr) { return arr.reduce(function (p, c) { return p + c; }, 0) / arr.length; };
+var probabilityCache_1 = __importDefault(require("../data/probabilityCache"));
+var math_1 = require("./math");
 var useLocalStorage = false;
 var useIndexedDb = false;
 var useLoki = true;
@@ -48,7 +49,10 @@ function databaseInitialize() {
     var _a, _b, _c, _d;
     db.config = dbCon.getCollection('config');
     db.items = dbCon.getCollection('items');
-    var cacheBreaker = 1661989584 * 1000;
+    if (dbCon.getCollection('items')) {
+        dbCon.getCollection('items').chain().remove();
+    }
+    var cacheBreaker = 1662443869 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
@@ -76,6 +80,15 @@ function databaseInitialize() {
         });
     }
 }
+function clearDatabase() {
+    if (dbCon.getCollection('config')) {
+        dbCon.getCollection('config').chain().remove();
+    }
+    if (dbCon.getCollection('items')) {
+        dbCon.getCollection('items').chain().remove();
+    }
+}
+exports.clearDatabase = clearDatabase;
 function getTokenCache() {
     // if (useLoki) {
     //   var db = new loki('rune.db')
@@ -307,13 +320,13 @@ function getItemFromTokenId(tokenId) {
 exports.getItemFromTokenId = getItemFromTokenId;
 function normalizeItem(item) {
     var _a;
-    var _b, _c, _d, _e, _f;
+    var _b, _c, _d, _e;
     try {
         var tokenCacheItem = getItemTokenCache(item.tokenId);
         if (item.tokenId && tokenCacheItem)
             return tokenCacheItem;
-        var branch = item.branches[1];
-        var branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : [];
+        var branch_1 = item.branches[1];
+        var branchAttributes = branch_1 ? JSON.parse(JSON.stringify(branch_1.attributes)) : [];
         if (!item.meta) {
             item.meta = {
                 harvestYield: 0,
@@ -454,9 +467,9 @@ function normalizeItem(item) {
             item.meta.harvestFeeToken = Object.keys(item.meta.harvestFees)[0];
             item.meta.harvestFeePercent = item.meta.harvestFees[Object.keys(item.meta.harvestFees)[0]];
         }
-        if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            var perfection = __spreadArray([], branch.perfection, true);
-            var attributes = branch.attributes;
+        if (branch_1 === null || branch_1 === void 0 ? void 0 : branch_1.perfection) {
+            var perfection = __spreadArray([], branch_1.perfection, true);
+            var attributes_1 = branch_1.attributes;
             // if (item.tokenId === '1001000041000100015647') {
             //   console.log(perfection)
             //   console.log(item.attributes)
@@ -465,20 +478,20 @@ function normalizeItem(item) {
             if (perfection.length) {
                 var shorthand = [];
                 for (var i = 0; i < perfection.length; i++) {
-                    if (perfection[i] === undefined || perfection[i] === null || !attributes[i]) {
+                    if (perfection[i] === undefined || perfection[i] === null || !attributes_1[i]) {
                         perfection[i] = undefined;
                         continue;
                     }
                     perfection[i] =
-                        perfection[i] === attributes[i].max
-                            ? perfection[i] - attributes[i].min === 0
+                        perfection[i] === attributes_1[i].max
+                            ? perfection[i] - attributes_1[i].min === 0
                                 ? 1
-                                : (attributes[i].value - attributes[i].min) / (perfection[i] - attributes[i].min)
-                            : attributes[i].max - perfection[i] === 0
+                                : (attributes_1[i].value - attributes_1[i].min) / (perfection[i] - attributes_1[i].min)
+                            : attributes_1[i].max - perfection[i] === 0
                                 ? 1
-                                : 1 - (attributes[i].value - perfection[i]) / (attributes[i].max - perfection[i]);
+                                : 1 - (attributes_1[i].value - perfection[i]) / (attributes_1[i].max - perfection[i]);
                 }
-                item.perfection = average(perfection.filter(function (p) { return p !== undefined && p !== null; }));
+                item.perfection = (0, math_1.average)(perfection.filter(function (p) { return p !== undefined && p !== null; }));
                 // if (item.tokenId === '1001000041000100015647') {
                 //   console.log(perfection, branch.attributes[0].max, perfection[0], 1)
                 // }
@@ -487,6 +500,41 @@ function normalizeItem(item) {
                     if (item.perfection < 0) {
                         item.perfection = 0;
                     }
+                    var size = 20000;
+                    if (!probabilityCache_1.default[item.id]) {
+                        probabilityCache_1.default[item.id] = {};
+                        // @ts-ignore
+                        __spreadArray([], Array(101).keys(), true).map(function (n) { probabilityCache_1.default[item.id][n] = 0; });
+                        // @ts-ignore
+                        __spreadArray([], Array(size).keys(), true).map(function () {
+                            var rando = Math.floor(((branch_1.perfection.reduce(function (prev, cur, i) {
+                                return prev + (cur === null || cur === undefined ? 0 : (cur === attributes_1[i].max
+                                    ? ((0, math_1.randInt)(attributes_1[i].min, attributes_1[i].max) - attributes_1[i].min) / (attributes_1[i].max - attributes_1[i].min)
+                                    : (1 - (((0, math_1.randInt)(attributes_1[i].min, attributes_1[i].max) - attributes_1[i].min) / (attributes_1[i].max - attributes_1[i].min)))));
+                            }, 0) / branch_1.perfection.filter(function (p) { return p !== undefined && p !== null; }).length
+                            // Fury: ((randInt(3, 7)-3)/(7-3)+(randInt(20, 40)-20)/(40-20)+(1-(randInt(20, 40)-20)/(40-20)))/3
+                            ) * 100)).toFixed(0);
+                            probabilityCache_1.default[item.id][rando]++;
+                        });
+                    }
+                    // @ts-ignore
+                    var total = __spreadArray([], Array(101).keys(), true).reduce(function (prev, cur) { return prev + probabilityCache_1.default[item.id][cur]; }, 0);
+                    var mythic = probabilityCache_1.default[item.id][100] / total;
+                    // @ts-ignore
+                    var epic = __spreadArray([], Array(99 - 90).keys(), true).reduce(function (prev, cur) { return prev + probabilityCache_1.default[item.id][cur + 90]; }, 0) / total;
+                    // @ts-ignore
+                    var rare = __spreadArray([], Array(89 - 70).keys(), true).reduce(function (prev, cur) { return prev + probabilityCache_1.default[item.id][cur + 70]; }, 0) / total;
+                    // @ts-ignore
+                    var magical = __spreadArray([], Array(70 - 0).keys(), true).reduce(function (prev, cur) { return prev + probabilityCache_1.default[item.id][cur + 0]; }, 0) / total;
+                    // @ts-ignore
+                    var roll = item.perfection * 100 > 3 ? (0, math_1.average)(__spreadArray([], Array(6).keys(), true).reduce(function (prev, cur) { return probabilityCache_1.default[item.id][parseInt(cur + item.perfection * 100 - 3)] === 0 ? prev : __spreadArray(__spreadArray([], prev, true), [probabilityCache_1.default[item.id][parseInt(cur + item.perfection * 100 - 3)]], false); }, [])) / total : probabilityCache_1.default[item.id][item.perfection * 100] / total;
+                    item.meta.probability = {
+                        mythic: mythic,
+                        epic: epic,
+                        rare: rare,
+                        magical: magical,
+                        roll: roll
+                    };
                 }
                 else {
                     item.perfection = null;
@@ -550,8 +598,8 @@ function normalizeItem(item) {
         }
         if (item.branches) {
             // Set .value if .min and .max are same
-            for (var _i = 0, _g = Object.keys(item.branches); _i < _g.length; _i++) {
-                var bIndex = _g[_i];
+            for (var _i = 0, _f = Object.keys(item.branches); _i < _f.length; _i++) {
+                var bIndex = _f[_i];
                 var branchIndex = Number(bIndex);
                 for (var attributeIndex in item.branches[branchIndex].attributes) {
                     if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
@@ -585,8 +633,8 @@ function normalizeItem(item) {
                 // }
             }
             // Set preset and attribute values based on rarity
-            for (var _h = 0, _j = Object.keys(item.branches); _h < _j.length; _h++) {
-                var bIndex = _j[_h];
+            for (var _g = 0, _h = Object.keys(item.branches); _g < _h.length; _g++) {
+                var bIndex = _h[_g];
                 var branchIndex = Number(bIndex);
                 if (!item.branches[branchIndex].attributes)
                     continue;
@@ -619,8 +667,8 @@ function normalizeItem(item) {
                     }
                 }
                 if (item.rarity) {
-                    for (var _k = 0, _l = Object.keys(item.branches); _k < _l.length; _k++) {
-                        var b2Index = _l[_k];
+                    for (var _j = 0, _k = Object.keys(item.branches); _j < _k.length; _j++) {
+                        var b2Index = _k[_j];
                         var branch2Index = Number(b2Index);
                         if (!((_d = item.branches[branch2Index].presets) === null || _d === void 0 ? void 0 : _d[item.rarity.id]))
                             continue;
@@ -638,10 +686,10 @@ function normalizeItem(item) {
             }
         }
         // Normalize main branch map attribute values
-        if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            for (var attributeIndex in branch.attributes) {
-                var attribute = branch.attributes[attributeIndex];
-                var perfection = branch.perfection[attributeIndex];
+        if (branch_1 === null || branch_1 === void 0 ? void 0 : branch_1.perfection) {
+            for (var attributeIndex in branch_1.attributes) {
+                var attribute = branch_1.attributes[attributeIndex];
+                var perfection = branch_1.perfection[attributeIndex];
                 if (perfection === undefined || perfection == null) {
                     if (attribute.value === undefined && attribute.map) {
                         attribute.value = attribute.min;
@@ -652,8 +700,8 @@ function normalizeItem(item) {
         }
         if (item.branches) {
             // Normalize branch values and perfection
-            for (var _m = 0, _o = Object.keys(item.branches); _m < _o.length; _m++) {
-                var bIndex = _o[_m];
+            for (var _l = 0, _m = Object.keys(item.branches); _l < _m.length; _l++) {
+                var bIndex = _m[_l];
                 var branchIndex = Number(bIndex);
                 if (branchIndex === 1) {
                     continue;
@@ -721,39 +769,42 @@ function normalizeItem(item) {
             }
         }
         // Normalize shorthand
-        if (branch === null || branch === void 0 ? void 0 : branch.perfection) {
-            var perfection = __spreadArray([], branch.perfection, true);
-            var attributes = branch.attributes;
+        if (branch_1 === null || branch_1 === void 0 ? void 0 : branch_1.perfection) {
+            var perfection = __spreadArray([], branch_1.perfection, true);
+            var attributes = branch_1.attributes;
             if (perfection.length) {
                 var shorthand = [];
+                // let odds = 1
                 for (var i = 0; i < perfection.length; i++) {
                     if (perfection[i] === undefined || perfection[i] === null || !attributes[i]) {
                         continue;
                     }
-                    shorthand.push((attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value) + '');
+                    var value = (attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value);
+                    shorthand.push(value);
+                    // odds *= (value - attributes[i].min + 1)
                 }
-                item.shorthand = shorthand.join('-');
+                // if (odds > 1) {
+                //   item.meta.odds = odds
+                // }
+                item.shorthand = shorthand.map(function (s) { return s + ''; }).join('-');
             }
         }
         // Normalize odds
-        if (item.meta && ((_e = item.branches) === null || _e === void 0 ? void 0 : _e[1])) {
-            var odds = 1;
-            for (var attributeIndex in item.branches[1].attributes) {
-                var attribute = item.branches[1].attributes[attributeIndex];
-                if (attribute.min === undefined || attribute.max === undefined)
-                    continue;
-                if (attribute.min === attribute.max)
-                    continue;
-                if (attribute.map)
-                    continue;
-                if (attribute.id === items_1.ItemAttributes.RandomPerfection1.id || attribute.id === items_1.ItemAttributes.RandomPerfection2.id || attribute.id === items_1.ItemAttributes.RandomPerfection3.id || attribute.id === items_1.ItemAttributes.RandomPerfection4.id || attribute.id === items_1.ItemAttributes.RandomPerfection5.id)
-                    continue;
-                odds *= (attribute.max - attribute.min + 1);
-            }
-            if (odds > 1) {
-                item.meta.odds = odds;
-            }
-        }
+        // if (item.meta && item.branches?.[1]) {
+        //   let mean = 0
+        //   let totalMean = 0
+        //   let odds = 1
+        //   for (const attributeIndex in item.branches[1].attributes) {
+        //     const attribute = item.branches[1].attributes[attributeIndex]
+        //     if (attribute.min === undefined || attribute.max === undefined) continue
+        //     if (attribute.min === attribute.max) continue
+        //     if (attribute.map) continue
+        //     if (attribute.id === ItemAttributes.RandomPerfection1.id || attribute.id === ItemAttributes.RandomPerfection2.id || attribute.id === ItemAttributes.RandomPerfection3.id || attribute.id === ItemAttributes.RandomPerfection4.id || attribute.id === ItemAttributes.RandomPerfection5.id) continue
+        //     odds *= (attribute.max - attribute.min + 1)
+        //   }
+        //   if (odds > 1) {
+        //   }
+        // }
         // Normalize perfection
         if (item.perfection === undefined || item.perfection === null) {
             item.perfection = 1;
@@ -761,7 +812,7 @@ function normalizeItem(item) {
         if (!item.tokenId) {
             item.tokenId = getTokenIdFromItem(item);
         }
-        item.slug = (_f = item.name) === null || _f === void 0 ? void 0 : _f.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase();
+        item.slug = (_e = item.name) === null || _e === void 0 ? void 0 : _e.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase();
         if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
             item.perfection = -13;
         if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')

@@ -80,7 +80,7 @@ function getFilteredItems(list) {
             var condition = _b[_a];
             if (condition === 'stream') {
                 var now = (0, time_1.removeTimezoneOffset)(new Date());
-                if (now.getUTCDay() === 0 && now.getUTCHours() >= 22 || now.getUTCDay() === 1 && now.getUTCHours() <= 2) { // 3-7PM UTC
+                if (now.getDay() === 0 && now.getHours() >= 22 || now.getDay() === 1 && now.getHours() <= 2) { // 3-7PM UTC
                     item.activeConditions.push(condition);
                 }
             }

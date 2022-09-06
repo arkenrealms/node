@@ -52,12 +52,11 @@ export function getFilteredItems(list: any) {
 
   for (const item of exclusiveItems) {
     item.activeConditions = []
-
     for (const condition of item.exclusiveConditions) {
       if (condition === 'stream') {
         const now = removeTimezoneOffset(new Date())
 
-        if (now.getUTCDay() === 0 && now.getUTCHours() >= 22 || now.getUTCDay() === 1 && now.getUTCHours() <= 2) { // 3-7PM UTC
+        if (now.getDay() === 0 && now.getHours() >= 22 || now.getDay() === 1 && now.getHours() <= 2) { // 3-7PM UTC
           item.activeConditions.push(condition)
         }
       }
@@ -82,7 +81,6 @@ export function getFilteredItems(list: any) {
         }
       }
     }
-
     if (item.activeConditions.length > 0) {
       item.isCraftable = true
       item.isSecret = false

@@ -1,3 +1,4 @@
+export declare function clearDatabase(): void;
 export declare function getTokenCache(): {};
 export declare function setTokenCache(_tokenCache: any): void;
 export declare function decodeItem(tokenId: string): any;
