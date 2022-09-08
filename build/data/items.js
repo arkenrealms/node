@@ -27,6 +27,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.itemData = exports.RuneNames = exports.RuneId = exports.ItemId = exports.ItemSlotToText = exports.ItemSlot = exports.ItemTypeIdByName = exports.ItemTypeToText = exports.ItemTypeNames = exports.ItemType = exports.ItemAttributesById = exports.ItemRarityNameById = exports.ItemRarity = exports.CraftingCompetitionWinner = exports.ClassIdByName = exports.ClassNames = exports.SkillIdByName = exports.SkillNames = exports.ItemAttributes = exports.ModNames = exports.ModIdByName = exports.StatNames = exports.StatIdByName = exports.EffectNames = exports.EffectIdByName = exports.SpecificTypeNames = exports.SpecificTypeIdByName = exports.TypeNames = exports.TypeIdByName = exports.ConditionParamNames = exports.ConditionParamIdByName = exports.ConditionNames = exports.ConditionIdByName = exports.getFilteredItems = exports.Games = exports.rewardTokenIdMap = void 0;
 var items_type_1 = require("./items.type");
 var oldItems_json_1 = __importDefault(require("./generated/oldItems.json"));
+var itemAttributes_json_1 = __importDefault(require("./generated/itemAttributes.json"));
 var time_1 = require("../util/time");
 exports.rewardTokenIdMap = {
     'Guardian Egg': {
@@ -1361,12 +1362,22 @@ exports.ItemAttributes = {
         description: "{parameter1} {parameter2} resistance",
     },
     WinRewardsIncrease: {
-        id: 2900,
+        id: 1150,
         min: 0,
         max: 200,
-        description: "{parameter1} {parameter2} rewards on win",
+        description: "{parameter1} win bonus",
     }
 };
+// Temp: Fill from DB
+for (var _58 = 0, itemAttributes_1 = itemAttributes_json_1.default; _58 < itemAttributes_1.length; _58++) {
+    var itemAttribute = itemAttributes_1[_58];
+    if (itemAttribute.id < 1000)
+        continue; // Don't do raid for now
+    exports.ItemAttributes[itemAttribute.name] = {
+        id: itemAttribute.id,
+        description: itemAttribute.description
+    };
+}
 exports.SkillNames = {
     0: 'None',
     // 1: 'Whirlwind',
@@ -1609,8 +1620,8 @@ for (var i = 0; i < 1000; i++) {
     }
 }
 exports.SkillIdByName = {};
-for (var _58 = 0, _59 = Object.keys(exports.SkillNames); _58 < _59.length; _58++) {
-    var key = _59[_58];
+for (var _59 = 0, _60 = Object.keys(exports.SkillNames); _59 < _60.length; _59++) {
+    var key = _60[_59];
     // @ts-ignore
     exports.SkillIdByName[exports.SkillNames[key]] = parseInt(key);
 }
@@ -1626,8 +1637,8 @@ exports.ClassNames = {
     8: 'Bard',
 };
 exports.ClassIdByName = {};
-for (var _60 = 0, _61 = Object.keys(exports.ClassNames); _60 < _61.length; _60++) {
-    var key = _61[_60];
+for (var _61 = 0, _62 = Object.keys(exports.ClassNames); _61 < _62.length; _61++) {
+    var key = _62[_61];
     // @ts-ignore
     exports.ClassIdByName[exports.ClassNames[key]] = parseInt(key);
 }
@@ -1649,14 +1660,14 @@ exports.ItemRarity = {
     Trash: { id: 10, name: 'Trash' },
 };
 exports.ItemRarityNameById = {};
-for (var _62 = 0, _63 = Object.keys(exports.ItemRarity); _62 < _63.length; _62++) {
-    var key = _63[_62];
+for (var _63 = 0, _64 = Object.keys(exports.ItemRarity); _63 < _64.length; _63++) {
+    var key = _64[_63];
     // @ts-ignore
     exports.ItemRarityNameById[exports.ItemRarity[key].id] = exports.ItemRarity[key].name;
 }
 exports.ItemAttributesById = {};
-for (var _64 = 0, _65 = Object.keys(exports.ItemAttributes); _64 < _65.length; _64++) {
-    var key = _65[_64];
+for (var _65 = 0, _66 = Object.keys(exports.ItemAttributes); _65 < _66.length; _65++) {
+    var key = _66[_65];
     // @ts-ignore
     exports.ItemAttributesById[exports.ItemAttributes[key].id] = exports.ItemAttributes[key];
 }
@@ -1718,8 +1729,8 @@ exports.ItemTypeNames = (_a = {},
     _a);
 exports.ItemTypeToText = exports.ItemTypeNames;
 exports.ItemTypeIdByName = {};
-for (var _66 = 0, _67 = Object.keys(exports.ItemTypeNames); _66 < _67.length; _66++) {
-    var key = _67[_66];
+for (var _67 = 0, _68 = Object.keys(exports.ItemTypeNames); _67 < _68.length; _67++) {
+    var key = _68[_67];
     // @ts-ignore
     exports.ItemTypeIdByName[exports.ItemTypeNames[key]] = parseInt(key);
 }
@@ -1826,8 +1837,8 @@ exports.RuneId = {
     ZOD: 32,
 };
 exports.RuneNames = {};
-for (var _68 = 0, _69 = Object.keys(exports.RuneId); _68 < _69.length; _68++) {
-    var key = _69[_68];
+for (var _69 = 0, _70 = Object.keys(exports.RuneId); _69 < _70.length; _69++) {
+    var key = _70[_69];
     // @ts-ignore
     exports.RuneNames[parseInt(exports.RuneId[key])] = key;
 }
@@ -7341,26 +7352,6 @@ exports.itemData = (_c = {},
                             }
                         },
                         {
-                            "id": 1326,
-                            "name": "ClassRequirement",
-                            "isEnabled": true,
-                            "isImplemented": false,
-                            "game": "Evolution",
-                            "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
-                            "paramType1": "class",
-                            "nature": "Requirement",
-                            "description": "{parameter1} Required",
-                            "param1": {
-                                "spec": "Druid",
-                                "min": 7,
-                                "max": 7,
-                                "value": 7,
-                                "map": {
-                                    "7": "Druid"
-                                }
-                            }
-                        },
-                        {
                             "id": 1238,
                             "name": "CastOnKillType",
                             "isEnabled": true,
@@ -7547,27 +7538,6 @@ exports.itemData = (_c = {},
                                 "value": 1,
                                 "map": {
                                     "1": "EnergyRegen"
-                                }
-                            }
-                        },
-                        {
-                            "id": 3802,
-                            "name": "ClassRequirement",
-                            "isEnabled": true,
-                            "isImplemented": false,
-                            "game": "Infinite",
-                            "nexusLink": "https://nexus.rune.game/item-attribute/classrequirement",
-                            "paramType1": "class",
-                            "nature": "Requirement",
-                            "influences": "Skill",
-                            "description": "{parameter1} Required",
-                            "param1": {
-                                "spec": "Druid",
-                                "min": 7,
-                                "max": 7,
-                                "value": 7,
-                                "map": {
-                                    "7": "Druid"
                                 }
                             }
                         }

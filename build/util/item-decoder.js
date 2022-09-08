@@ -183,13 +183,14 @@ function getItemTokenCache(tokenId) {
         if (useLocalStorage && window.localStorage) {
             var tokenCacheText = window.localStorage.getItem("zzz_tokenCache_".concat(tokenId));
             if (tokenCacheText) {
-                var tokenCache_1 = JSON.parse(tokenCacheText);
+                var tokenCacheItem = JSON.parse(tokenCacheText);
                 var now = new Date();
-                if (now.getTime() > tokenCache_1.expiry) {
+                if (now.getTime() > tokenCacheItem.expiry) {
                     window.localStorage.removeItem("zzz_tokenCache_".concat(tokenId));
                     return;
                 }
-                return tokenCache_1.value;
+                tokenCache[tokenId] = tokenCacheItem.value;
+                return tokenCacheItem.value;
             }
         }
     }
@@ -716,52 +717,64 @@ function normalizeItem(item) {
                         !item.branches[branchIndex].attributes[attributeIndex]) {
                         return "break";
                     }
-                    if (item.branches[branchIndex].attributes[attributeIndex].param1.value !== undefined) {
-                        item.meta.attributes[item.branches[branchIndex].attributes[attributeIndex].id] = item.branches[branchIndex].attributes[attributeIndex].param1.value;
+                    var attribute = item.branches[branchIndex].attributes[attributeIndex];
+                    if (attribute.param1.value !== undefined) {
+                        item.meta.attributes[attribute.id] = attribute.param1.value;
                         return "continue";
                     }
-                    var originalAttributePerfection = item.branches[1].perfection[attributeIndex]
-                        ? item.branches[1].perfection[attributeIndex]
-                        : item.perfection;
-                    var attributePerfection = originalAttributePerfection === item.attributes[attributeIndex].param1.max
-                        ? originalAttributePerfection - item.attributes[attributeIndex].param1.min === 0
-                            ? 1
-                            : (item.attributes[attributeIndex].param1.value - item.attributes[attributeIndex].param1.min) /
-                                (originalAttributePerfection - item.attributes[attributeIndex].param1.min)
-                        : item.attributes[attributeIndex].param1.max - originalAttributePerfection === 0
-                            ? 1
-                            : 1 -
-                                (item.attributes[attributeIndex].param1.value - originalAttributePerfection) /
-                                    (item.attributes[attributeIndex].param1.max - originalAttributePerfection);
-                    if (!item.branches[branchIndex].perfection) {
-                        item.branches[branchIndex].perfection = [];
+                    // let targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
+                    var targetPerfection 
+                    // let attributePerfection
+                    = void 0;
+                    // let attributePerfection
+                    if (item.branches[1].perfection[attributeIndex] !== undefined && item.branches[1].perfection[attributeIndex] !== null) {
+                        targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex] : (1 - item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex]);
                     }
-                    if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
-                        item.branches[branchIndex].perfection[attributeIndex] = attributePerfection;
+                    else {
+                        // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
+                        targetPerfection = item.perfection; // item.branches[branchIndex].perfection[attributeIndex]
                     }
-                    var attribute = item.branches[branchIndex].attributes[attributeIndex];
-                    if (attribute.param1.value === undefined) {
-                        if (attribute.param1.map) {
-                            var kindofClose_1 = Math.floor((attribute.param1.max -
-                                attribute.param1.min) *
-                                attributePerfection);
-                            var closestKey = Object.keys(attribute.param1.map).sort(function (a, b) {
-                                return Math.abs(kindofClose_1 - Number(a)) - Math.abs(kindofClose_1 - Number(b));
-                            })[0];
-                            attribute.param1.value = closestKey;
-                        }
-                        else {
-                            var alignedValue = Math.floor((attribute.param1.max -
-                                attribute.param1.min) *
-                                attributePerfection);
-                            attribute.param1.value =
-                                attribute.param1.min + alignedValue;
-                        }
+                    // if (targetPerfection && targetAttribute) {
+                    //   attributePerfection =
+                    //     targetPerfection === targetAttribute.param1.max
+                    //       ? targetPerfection - targetAttribute.param1.min === 0
+                    //         ? 1
+                    //         : (targetAttribute.param1.value - targetAttribute.param1.min) /
+                    //           (targetPerfection - targetAttribute.param1.min)
+                    //       : targetAttribute.param1.max - targetPerfection === 0
+                    //       ? 1
+                    //       : 1 -
+                    //         (targetAttribute.param1.value - targetPerfection) /
+                    //           (targetAttribute.param1.max - targetPerfection)
+                    // } else {
+                    //   attributePerfection = targetPerfection
+                    // }
+                    if (attribute.param1.map) {
+                        var kindofClose_1 = Math.floor((attribute.param1.max -
+                            attribute.param1.min) *
+                            targetPerfection);
+                        var closestKey = Object.keys(attribute.param1.map).sort(function (a, b) {
+                            return Math.abs(kindofClose_1 - Number(a)) - Math.abs(kindofClose_1 - Number(b));
+                        })[0];
+                        attribute.param1.value = closestKey;
                     }
+                    else {
+                        var alignedValue = Math.floor((attribute.param1.max -
+                            attribute.param1.min) *
+                            targetPerfection);
+                        attribute.param1.value =
+                            attribute.param1.min + alignedValue;
+                    }
+                    // if (!item.branches[branchIndex].perfection) {
+                    //   item.branches[branchIndex].perfection = []
+                    // }
+                    // if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
+                    //   item.branches[branchIndex].perfection[attributeIndex] = targetPerfection
+                    // }
                     // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
                     item.meta.attributes[attribute.id] = attribute.param1.value;
                 };
-                for (var attributeIndex in item.attributes) {
+                for (var attributeIndex in item.branches[branchIndex].attributes) {
                     var state_1 = _loop_1(attributeIndex);
                     if (state_1 === "break")
                         break;

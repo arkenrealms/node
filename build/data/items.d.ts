@@ -22914,7 +22914,6 @@ export declare const itemData: {
                         spec: string;
                         map: {
                             "11"?: undefined;
-                            "7"?: undefined;
                             "101"?: undefined;
                         };
                         min?: undefined;
@@ -22976,30 +22975,6 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "11": string;
-                            "7"?: undefined;
-                            "101"?: undefined;
-                        };
-                    };
-                    influences?: undefined;
-                    paramValue1?: undefined;
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    isImplemented: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    nature: string;
-                    description: string;
-                    param1: {
-                        spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
-                        map: {
-                            "7": string;
-                            "11"?: undefined;
                             "101"?: undefined;
                         };
                     };
@@ -23042,7 +23017,6 @@ export declare const itemData: {
                         map: {
                             "101": string;
                             "11"?: undefined;
-                            "7"?: undefined;
                         };
                     };
                     description?: undefined;
@@ -23140,7 +23114,6 @@ export declare const itemData: {
                         spec: string;
                         map: {
                             "481"?: undefined;
-                            "7"?: undefined;
                         };
                         min?: undefined;
                         max?: undefined;
@@ -23179,7 +23152,6 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "481": string;
-                            "7"?: undefined;
                         };
                     };
                     paramType2?: undefined;
@@ -23242,32 +23214,6 @@ export declare const itemData: {
                         };
                     };
                     paramValue2?: undefined;
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    isImplemented: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    nature: string;
-                    influences: string;
-                    description: string;
-                    param1: {
-                        spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
-                        map: {
-                            "7": string;
-                            "481"?: undefined;
-                        };
-                    };
-                    paramType2?: undefined;
-                    paramValue1?: undefined;
-                    paramValue2?: undefined;
-                    param2?: undefined;
-                    paramType3?: undefined;
                 })[];
                 perfection: number[];
                 presets?: undefined;
@@ -23362,7 +23308,6 @@ export declare const itemData: {
                         spec: string;
                         map: {
                             "11"?: undefined;
-                            "7"?: undefined;
                             "101"?: undefined;
                         };
                         min?: undefined;
@@ -23424,30 +23369,6 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "11": string;
-                            "7"?: undefined;
-                            "101"?: undefined;
-                        };
-                    };
-                    influences?: undefined;
-                    paramValue1?: undefined;
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    isImplemented: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    nature: string;
-                    description: string;
-                    param1: {
-                        spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
-                        map: {
-                            "7": string;
-                            "11"?: undefined;
                             "101"?: undefined;
                         };
                     };
@@ -23490,7 +23411,6 @@ export declare const itemData: {
                         map: {
                             "101": string;
                             "11"?: undefined;
-                            "7"?: undefined;
                         };
                     };
                     description?: undefined;
@@ -23588,7 +23508,6 @@ export declare const itemData: {
                         spec: string;
                         map: {
                             "481"?: undefined;
-                            "7"?: undefined;
                         };
                         min?: undefined;
                         max?: undefined;
@@ -23627,7 +23546,6 @@ export declare const itemData: {
                         value: number;
                         map: {
                             "481": string;
-                            "7"?: undefined;
                         };
                     };
                     paramType2?: undefined;
@@ -23690,32 +23608,6 @@ export declare const itemData: {
                         };
                     };
                     paramValue2?: undefined;
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    isImplemented: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    nature: string;
-                    influences: string;
-                    description: string;
-                    param1: {
-                        spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
-                        map: {
-                            "7": string;
-                            "481"?: undefined;
-                        };
-                    };
-                    paramType2?: undefined;
-                    paramValue1?: undefined;
-                    paramValue2?: undefined;
-                    param2?: undefined;
-                    paramType3?: undefined;
                 })[];
                 perfection: number[];
             };

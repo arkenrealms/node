@@ -7263,7 +7263,7 @@
                         "paramType3": "stat",
                         "paramValue1": "0-100",
                         "paramValue2": "0-200",
-                        "description": "{parameter1} chance for {parameter2 {parameter3} on hit",
+                        "description": "{parameter1} chance for {parameter2} {parameter3} on hit",
                         "param1": {
                             "spec": "10-10",
                             "min": 10,
