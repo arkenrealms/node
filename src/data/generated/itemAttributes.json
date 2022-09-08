@@ -3,1261 +3,2285 @@
     "uuid": "rectRoCGdaD18iZoA",
     "id": 1,
     "name": "HarvestYield",
+    "displayName": "Harvest Yield",
+    "listOrder": 100.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestyield",
+    "isImplemented": true,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increased Harvest Yield"
+    "description": "{parameter1} Increased Harvest Yield",
+    "explanation": ""
   },
   {
     "uuid": "recMn0zsL2FHqBmuV",
     "id": 2,
     "name": "HarvestFee",
+    "displayName": "Harvest Fee",
+    "listOrder": 500.52,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestfee",
+    "isImplemented": true,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Harvest Fee"
+    "description": "{parameter1} Harvest Fee",
+    "explanation": ""
   },
   {
     "uuid": "rece3EUapQqbF4asX",
     "id": 3,
     "name": "HarvestFeeToken",
+    "displayName": "Harvest Fee Token",
+    "listOrder": 500.53,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestfeetoken",
+    "isImplemented": true,
+    "paramTypes": [
+      "tokenID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Mechanic",
-    "description": "Harvest Fee Token: {parameter1}"
+    "description": "Harvest Fee Token: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "rechc6ZFTCXefllvd",
     "id": 4,
     "name": "SendHarvestHiddenPool",
+    "displayName": "Send Harvest Hidden Pool",
+    "listOrder": 200.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/sendharvesthiddenpool",
+    "isImplemented": true,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Send Harvest To Hidden Pool"
+    "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
+    "explanation": ""
   },
   {
     "uuid": "rechTBjqDegb6XtGr",
     "id": 5,
     "name": "BurnEntireHarvest",
+    "displayName": "Burn Entire Harvest",
+    "listOrder": 500.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/burnentireharvest",
+    "isImplemented": true,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Chance To Lose Entire Harvest"
+    "description": "{parameter1} Chance To Lose Entire Harvest",
+    "explanation": ""
   },
   {
     "uuid": "receHHlFW4ntCYUVd",
     "id": 6,
     "name": "HarvestBurn",
+    "displayName": "Harvest Burn",
+    "listOrder": 500.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestburn",
+    "isImplemented": true,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Harvest Burn"
+    "description": "{parameter1} Harvest Burn",
+    "explanation": ""
   },
   {
     "uuid": "rec7I9B8tpkMtrW3k",
     "id": 7,
     "name": "FindShard",
+    "displayName": "Find Shard",
+    "listOrder": 300.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/findshard",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Find Worldstone Shard"
+    "description": "{parameter1} Chance To Find Worldstone Shard",
+    "explanation": "Chance applies once per raid.\n"
   },
   {
     "uuid": "rec42i3KLKSAMj8Yu",
     "id": 8,
     "name": "RemoveFees",
+    "displayName": "Remove Fees",
+    "listOrder": 400.54,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/removefees",
+    "isImplemented": true,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Reduced Harvest Fees"
+    "description": "{parameter1} Reduced Harvest Fees",
+    "explanation": ""
   },
   {
     "uuid": "recuJEGQXP3Eepojf",
     "id": 9,
     "name": "UnstakeLocked",
+    "displayName": "Unstake Locked",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/unstakelocked",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "100-100%"
+    ],
     "nature": "Debuff",
-    "description": "Unstake Locked Until Completion"
+    "description": "Unstake Locked Until Completion",
+    "explanation": ""
   },
   {
     "uuid": "rec59LBOk9cjanp3d",
     "id": 10,
     "name": "EarlyUnstakeNoReward",
+    "displayName": "Early Unstake No Reward",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/earlyunstakenoreward",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "100-100%"
+    ],
     "nature": "Debuff",
-    "description": "No Reward Early Unstake"
+    "description": "No Reward Early Unstake",
+    "explanation": ""
   },
   {
     "uuid": "recLLK1pPHrE7m6Nh",
     "id": 11,
     "name": "RandomRuneExchange",
+    "displayName": "Random Rune Exchange",
+    "listOrder": 200.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomruneexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Random Rune Exchange"
+    "description": "{parameter1} Random Rune Exchange",
+    "explanation": ""
   },
   {
     "uuid": "recd2QiPTSr6XcM2d",
     "id": 12,
     "name": "FindGuildToken",
+    "displayName": "Find Guild Token",
+    "listOrder": 300.52,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/findguildtoken",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Guild Token"
+    "description": "{parameter1} Guild Token",
+    "explanation": ""
   },
   {
     "uuid": "recXr6GLgY7DKBj4C",
     "id": 13,
     "name": "MagicFind",
+    "displayName": "Magic Find",
+    "listOrder": 300.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/magicfind",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-999%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Magic Find"
+    "description": "{parameter1} Magic Find",
+    "explanation": ""
   },
   {
     "uuid": "recNJdrrowTpmcSGU",
     "id": 14,
     "name": "FractureItem",
+    "displayName": "Fracture Item",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/fractureitem",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Chance To Fracture Item"
+    "description": "{parameter1} Chance To Fracture Item",
+    "explanation": ""
   },
   {
     "uuid": "recNqiZuFIZqjAuxF",
     "id": 15,
     "name": "LaunchPoolReward",
+    "displayName": "Launch Pool Reward",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/launchpoolreward",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Launchpool Reward"
+    "description": "{parameter1} Launchpool Reward",
+    "explanation": ""
   },
   {
     "uuid": "receXTdCvQg2yGbfo",
     "id": 16,
     "name": "LaunchPoolToken",
+    "displayName": "Launch Pool Token",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/launchpooltoken",
+    "isImplemented": false,
+    "paramTypes": [
+      "tokenID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Buff",
-    "description": "Reward Token: {parameter1}"
+    "description": "Reward Token: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recEc2SQW7UtsylVp",
     "id": 17,
     "name": "FreezeFees",
+    "displayName": "Freeze Fees",
+    "listOrder": 400.53,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/freezefees",
+    "isImplemented": false,
+    "paramTypes": [
+      "chance"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance to Freeze Fees"
+    "description": "{parameter1} Chance to Freeze Fees",
+    "explanation": ""
   },
   {
     "uuid": "rec5stbe2M7gX1bBI",
     "id": 18,
     "name": "UnableUseRuneword",
+    "displayName": "Unable Use Runeword",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/unableuseruneword",
+    "isImplemented": false,
+    "paramTypes": [
+      "runewordID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Debuff",
-    "description": "Unable To Use Runeword"
+    "description": "Unable To Use Runeword",
+    "explanation": ""
   },
   {
     "uuid": "rectlHYwuFKkce6YK",
     "id": 19,
     "name": "CreateRandomRuneword",
+    "displayName": "Create Random Runeword",
+    "listOrder": 300.53,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/createrandomruneword",
+    "isImplemented": false,
+    "paramTypes": [
+      "chance"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Create Random Runeword"
+    "description": "{parameter1} Chance To Create Random Runeword",
+    "explanation": ""
   },
   {
     "uuid": "reclO1t7YC1RbpwOi",
     "id": 20,
     "name": "SpecificGuild",
+    "displayName": "Specific Guild",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/specificguild",
+    "isImplemented": false,
+    "paramTypes": [
+      "guildID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Guild Required: {parameter1}"
+    "description": "Guild Required: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recd9vGQysPCC2k7M",
     "id": 21,
     "name": "SpecificClass",
+    "displayName": "Specific Class",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/specificclass",
+    "isImplemented": true,
+    "paramTypes": [
+      "classID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "{parameter1} Required"
+    "description": "{parameter1} Required",
+    "explanation": ""
   },
   {
     "uuid": "recdLGnFj0pdsEFH6",
     "id": 22,
     "name": "RemoveTransferFees",
+    "displayName": "Remove Transfer Fees",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/removetransferfees",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Transfer Fees Removed"
+    "description": "{parameter1} Transfer Fees Removed",
+    "explanation": ""
   },
   {
     "uuid": "recHrerZhkvOHCf2G",
     "id": 23,
     "name": "HarvestFeeToRandomRaider",
+    "displayName": "Harvest Fee To Random Raider",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestfeetorandomraider",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Harvest Teleported To Random Raider"
+    "description": "{parameter1} Harvest Teleported To Random Raider",
+    "explanation": ""
   },
   {
     "uuid": "recJVJJvMpvLal1H6",
     "id": 24,
     "name": "ShardOnHarvest",
+    "displayName": "Shard On Harvest",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/shardonharvest",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-50%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Find Shard (On Harvest)"
+    "description": "{parameter1} Chance To Find Shard (On Harvest)",
+    "explanation": ""
   },
   {
     "uuid": "recXlN5NZtZS0pi6V",
     "id": 25,
     "name": "HarvestStartDelay",
+    "displayName": "Harvest Start Delay",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harveststartdelay",
+    "isImplemented": false,
+    "paramTypes": [
+      "hours"
+    ],
+    "paramValues": [
+      "0-24"
+    ],
     "nature": "Debuff",
-    "description": "Harvest Delayed By {parameter1} Hours"
+    "description": "Harvest Delayed By {parameter1} Hours",
+    "explanation": ""
   },
   {
     "uuid": "recVD4cWPzxlnNpNi",
     "id": 26,
     "name": "HarvestClaimDelay",
+    "displayName": "Harvest Claim Delay",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestclaimdelay",
+    "isImplemented": false,
+    "paramTypes": [
+      "days"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Debuff",
-    "description": "Harvest Claim Delayed By {parameter1} Days"
+    "description": "Harvest Claim Delayed By {parameter1} Days",
+    "explanation": ""
   },
   {
     "uuid": "rec98H0Gq5ilijDpF",
     "id": 27,
     "name": "EarlyUnstakeFee",
+    "displayName": "Early Unstake Fee",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/earlyunstakefee",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Early Unstake Fee"
+    "description": "{parameter1} Early Unstake Fee",
+    "explanation": ""
   },
   {
     "uuid": "reckeqY8jli3bWaoC",
     "id": 28,
     "name": "EarlyUnstakeFeeValue",
+    "displayName": "Early Unstake Fee Value",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/earlyunstakefeevalue",
+    "isImplemented": false,
+    "paramTypes": [
+      "days"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Neutral",
-    "description": "Early Unstake Timeline: {parameter1} Days"
+    "description": "Early Unstake Timeline: {parameter1} Days",
+    "explanation": ""
   },
   {
     "uuid": "reckpIKC0qBtqxkKJ",
     "id": 29,
     "name": "FreezeFeesValue",
+    "displayName": "Freeze Fees Value",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/freezefeesvalue",
+    "isImplemented": false,
+    "paramTypes": [
+      "hours"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Neutral",
-    "description": "Freeze Fees Timeline: {parameter1} Hours"
+    "description": "Freeze Fees Timeline: {parameter1} Hours",
+    "explanation": ""
   },
   {
     "uuid": "recMqwADrktEhEgJO",
     "id": 30,
     "name": "HarvestLockedLp",
+    "displayName": "Harvest Locked Lp",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestlockedlp",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1} Harvest Buy & Lock LP"
+    "description": "{parameter1} Harvest Buy & Lock LP",
+    "explanation": ""
   },
   {
     "uuid": "rect9Fay59USVtJcK",
     "id": 31,
     "name": "DepositLockedLp",
+    "displayName": "Deposit Locked Lp",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/depositlockedlp",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1} Deposit Buy & Lock LP"
+    "description": "{parameter1} Deposit Buy & Lock LP",
+    "explanation": ""
   },
   {
     "uuid": "recmnsaDkwLLGpJsO",
     "id": 32,
     "name": "WithdrawLockedLp",
+    "displayName": "Withdraw Locked Lp",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/withdrawlockedlp",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1} Withdraw Buy & Lock LP"
+    "description": "{parameter1} Withdraw Buy & Lock LP",
+    "explanation": ""
   },
   {
     "uuid": "rec4VFBPl0TCYzkMU",
     "id": 33,
     "name": "TransmuteItem",
+    "displayName": "Transmute Item",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/transmuteitem",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Transmute Item"
+    "description": "{parameter1} Chance To Transmute Item",
+    "explanation": ""
   },
   {
     "uuid": "rec3fbRsgxsddN1GM",
     "id": 34,
     "name": "AvoidBurn",
+    "displayName": "Avoid Burn",
+    "listOrder": 400.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/avoidburn",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Avoid All Burns"
+    "description": "{parameter1} Avoid All Burns",
+    "explanation": ""
   },
   {
     "uuid": "rectY4HoZlnrq5yGl",
     "id": 35,
     "name": "EarlyAccess",
+    "displayName": "Early Access",
+    "listOrder": 800.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/earlyaccess",
+    "isImplemented": false,
+    "paramTypes": [
+      "minutes"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Buff",
-    "description": "Early Raid Access: {parameter1} Minutes"
+    "description": "Early Raid Access: {parameter1} Minutes",
+    "explanation": ""
   },
   {
     "uuid": "recv6EiYy1lBzz6KZ",
     "id": 36,
     "name": "NeverHarvestCurrentRaid",
+    "displayName": "Never Harvest Current Rune",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/neverharvestcurrentraid",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "100-100%"
+    ],
     "nature": "Debuff",
-    "description": "Can Never Harvest Current Raid"
+    "description": "Can Never Harvest Current Raid",
+    "explanation": ""
   },
   {
     "uuid": "recKb223NoQW0Jkof",
     "id": 37,
     "name": "GameLottery",
+    "displayName": "Game Lottery",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/gamelottery",
+    "isImplemented": false,
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "reckO2o496NBlUoIq",
     "id": 38,
     "name": "IncreasePoolMultiplier",
+    "displayName": "Increase Pool Multiplier",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/increasepoolmultiplier",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "Increases Pool Multiplier {parameter1}"
+    "description": "Increases Pool Multiplier {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recCW6HtxvjWG5ZVP",
     "id": 39,
     "name": "AddSkill",
+    "displayName": "Add Skill",
+    "listOrder": 800.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/addskill",
+    "isImplemented": false,
+    "paramTypes": [
+      "skill"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Unlocked: {parameter1}"
+    "description": "Unlocked: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recxVsY6QwDxQ1Plb",
     "id": 40,
     "name": "Rarity",
+    "displayName": "Rarity",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/rarity",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1}"
+    "description": "{parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recoXBsvXqwwGElbQ",
     "id": 41,
     "name": "GenericAttribute1",
+    "displayName": "Random Perfection1",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/genericattribute1",
+    "isImplemented": false,
+    "paramTypes": [
+      "value",
+      "description"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "{parameter2}"
+    "description": "{parameter2}",
+    "explanation": ""
   },
   {
     "uuid": "recrbUd3NWDdkrGew",
     "id": 42,
     "name": "GenericAttribute2",
+    "displayName": "Random Perfection2",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/genericattribute2",
+    "isImplemented": false,
+    "paramTypes": [
+      "value",
+      "description"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "{parameter2}"
+    "description": "{parameter2}",
+    "explanation": ""
   },
   {
     "uuid": "recbbeSfcXwwoCvVt",
     "id": 43,
     "name": "RandomPerfection3",
+    "displayName": "Random Perfection3",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomperfection3",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1}"
+    "description": "{parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "rec1eoT4ZczWpdqze",
     "id": 44,
     "name": "RandomPerfection4",
+    "displayName": "Random Perfection4",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomperfection4",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1}"
+    "description": "{parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recE8KsfrK3LloY8I",
     "id": 45,
     "name": "RandomPerfection5",
+    "displayName": "Random Perfection5",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomperfection5",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1}"
+    "description": "{parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "reck7gojtFbrg0OFf",
     "id": 46,
     "name": "BurnReflect",
+    "displayName": "Burn Reflect",
+    "listOrder": 400.52,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/burnreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-20"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Burn Reflected"
+    "description": "{parameter1} Burn Reflected",
+    "explanation": ""
   },
   {
     "uuid": "recO20qQW3JPe0syJ",
     "id": 47,
     "name": "ReduceBurn",
+    "displayName": "Reduce Burn",
+    "listOrder": 400.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/reduceburn",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Reduced Burn"
+    "description": "{parameter1} Reduced Burn",
+    "explanation": ""
   },
   {
     "uuid": "rec1hHKUo4ieX23Iz",
     "id": 48,
     "name": "GuildMemberCapacity",
+    "displayName": "Guild Member Capacity",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildmembercapacity",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increased Member Capacity"
+    "description": "{parameter1} Increased Member Capacity",
+    "explanation": ""
   },
   {
     "uuid": "recqbEFnz9gKTy5SP",
     "id": 49,
     "name": "GuildInventorySpaces",
+    "displayName": "Guild Inventory Spaces",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildinventoryspaces",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increased Inventory Spaces"
+    "description": "{parameter1} Increased Inventory Spaces",
+    "explanation": ""
   },
   {
     "uuid": "recDVCWeqMS0I9l9Y",
     "id": 50,
     "name": "GuildFarmingYield",
+    "displayName": "Guild Farming Yield",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildfarmingyield",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increased Guild Harvest Yield"
+    "description": "{parameter1} Increased Guild Harvest Yield",
+    "explanation": ""
   },
   {
     "uuid": "recEZr2drdXE5Q8z2",
     "id": 51,
     "name": "GuildTokenStakeRequired",
+    "displayName": "Guild Token Stake Required",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildtokenstakerequired",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-33"
+    ],
     "nature": "Requirement",
-    "description": "Staked Token: {parameter1}"
+    "description": "Staked Token: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recRkNyi7FrlJajjR",
     "id": 52,
     "name": "GuildTokenValueRequired",
+    "displayName": "Guild Token Value Required",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildtokenvaluerequired",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Staked Token Amount: {parameter1}"
+    "description": "Staked Token Amount: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "rechVXFIx2BEcMyb5",
     "id": 53,
     "name": "GuildRuneStakeRequired",
+    "displayName": "Guild Rune Stake Required",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildrunestakerequired",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Staking required: {parameter1} RXS"
+    "description": "Staking required: {parameter1} RXS",
+    "explanation": ""
   },
   {
     "uuid": "recRzDYmXAek0fIE0",
     "id": 54,
     "name": "PetAttributeBonus",
+    "displayName": "Pet Farming Yield",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/petattributebonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} increase to beneficial pet attributes"
+    "description": "{parameter1} increase to beneficial pet attributes",
+    "explanation": ""
   },
   {
     "uuid": "recyacaC7wOPGtOX9",
     "id": 55,
     "name": "Sockets",
+    "displayName": "Sockets",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/sockets",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-5"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1} Sockets"
+    "description": "{parameter1} Sockets",
+    "explanation": ""
   },
   {
     "uuid": "recaidTSk2XacWfXc",
     "id": 56,
     "name": "SpecificRuneRewardToken",
+    "displayName": "Specific Rune Reward Token",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/specificrunerewardtoken",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-33"
+    ],
     "nature": "Neutral",
-    "description": "Earn Rune: {parameter1}"
+    "description": "Earn Rune: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recEUf0exlQ0KLD7D",
     "id": 57,
     "name": "SpecificRuneRewardAmount",
+    "displayName": "Specific Rune Reward Amount",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/specificrunerewardamount",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Neutral",
-    "description": "Earned Amount: {parameter1}"
+    "description": "Earned Amount: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recyx2cjXr2ld9gEL",
     "id": 58,
     "name": "ResetSockets",
+    "displayName": "Reset Sockets",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/resetsockets",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "100-100"
+    ],
     "nature": "Buff",
-    "description": "Resets Sockets"
+    "description": "Resets Sockets",
+    "explanation": ""
   },
   {
     "uuid": "recdarWXY1dzHX97t",
     "id": 59,
     "name": "CrafterCertificate",
+    "displayName": "Crafter Certificate",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/craftercertificate",
+    "isImplemented": false,
+    "paramTypes": [
+      "value",
+      "valueMap"
+    ],
+    "paramValues": [
+      "1-999"
+    ],
     "nature": "Neutral",
-    "description": "Crafting Competition #{param1} Winner {param2}"
+    "description": "Crafting Competition #{param1} Winner {param2}",
+    "explanation": ""
   },
   {
     "uuid": "recMyZ3U5GePlbE0C",
     "id": 60,
     "name": "AddSkillLevel",
+    "displayName": "Add Skill Level",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/addskilllevel",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-4"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} to level of equipped skills"
+    "description": "{parameter1} to level of equipped skills",
+    "explanation": ""
   },
   {
     "uuid": "recw9ZzkfkOMZcAgx",
     "id": 61,
     "name": "HarvestCritChance",
+    "displayName": "Harvest Crit Chance",
+    "listOrder": 100.53,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestcritchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increased Chance To Critically Harvest Yield"
+    "description": "{parameter1} Increased Chance To Critically Harvest Yield",
+    "explanation": ""
   },
   {
     "uuid": "recLsUpfeVVt4aEqU",
     "id": 62,
     "name": "HarvestCritMultiplier",
+    "displayName": "Harvest Crit Multiplier",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestcritmultiplier",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Critical Harvest Bonus"
+    "description": "{parameter1} Critical Harvest Bonus",
+    "explanation": ""
   },
   {
     "uuid": "recwklzK6eRUpCvQW",
     "id": 63,
     "name": "HarvestOverTime",
+    "displayName": "Harvest Over Time",
+    "listOrder": 100.52,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestovertime",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
-    "description": "Add {parameter1} To Harvest, Vested Over Time"
+    "description": "Add {parameter1} To Harvest, Vested Over Time",
+    "explanation": ""
   },
   {
     "uuid": "recWe7EJOpMVgjapY",
     "id": 64,
     "name": "HarvestVestmentReduction",
+    "displayName": "Harvest Vestment Reduction",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestvestmentreduction",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increase to Vestment Period"
+    "description": "{parameter1} Increase to Vestment Period",
+    "explanation": ""
   },
   {
     "uuid": "rec3lM0hWcd85Q4aF",
     "id": 65,
     "name": "HarvestVestmentIncrease",
+    "displayName": "Harvest Vestment Increase",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestvestmentincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Decrease to Vestment Period"
+    "description": "{parameter1} Decrease to Vestment Period",
+    "explanation": ""
   },
   {
     "uuid": "recYrtkchg9sCj5sq",
     "id": 66,
     "name": "HarvestTheft",
+    "displayName": "Harvest Theft",
+    "listOrder": 600.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvesttheft",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Enhanced Sacrifice & Steal"
+    "description": "{parameter1} Enhanced Sacrifice & Steal",
+    "explanation": ""
   },
   {
     "uuid": "recO8k0psCX4pzCZR",
     "id": 67,
     "name": "HarvestTheftMaxIncrease",
+    "displayName": "Harvest Theft Max Increase",
+    "listOrder": 600.52,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvesttheftmaxincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "Maximum Possible Harvest Theft Increased By {parameter1}"
+    "description": "Maximum Possible Harvest Theft Increased By {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recpPrZ41t9I1mq0B",
     "id": 68,
     "name": "HarvestTheftMinDecrease",
+    "displayName": "Harvest Theft Min Decrease",
+    "listOrder": 600.53,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvesttheftmindecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Debuff",
-    "description": "Minimum Possible Harvest Theft Decreased By {parameter1} "
+    "description": "Minimum Possible Harvest Theft Decreased By {parameter1} ",
+    "explanation": ""
   },
   {
     "uuid": "recDkW7fNNNPwYFbg",
     "id": 69,
     "name": "RandomRuneBonus",
+    "displayName": "Random Rune Bonus",
+    "listOrder": 100.56,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomrunebonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Bonus Yield Given as a Random Rune"
+    "description": "{parameter1} Bonus Yield Given as a Random Rune",
+    "explanation": ""
   },
   {
     "uuid": "recw2k5MoCJbboIHl",
     "id": 70,
     "name": "YieldBonusSpecificWeapon",
+    "displayName": "Yield Bonus Specific Weapon",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/yieldbonusspecificweapon",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} increase to {weapon} harvest yield bonus"
+    "description": "{parameter1} increase to {weapon} harvest yield bonus",
+    "explanation": ""
   },
   {
     "uuid": "rec5ptxSapvNXGoM1",
     "id": 71,
     "name": "RandomRuneSpecificWeapon",
+    "displayName": "Random Rune Specific Weapon",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomrunespecificweapon",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Increase To Yield Bonus, Given As A Random Rune"
+    "description": "{parameter1} Increase To Yield Bonus, Given As A Random Rune",
+    "explanation": ""
   },
   {
     "uuid": "recnZ1d51dbGG200E",
     "id": 72,
     "name": "SpecificWeaponType",
+    "displayName": "Specific Weapon Type",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/specificweapontype",
+    "isImplemented": false,
+    "paramTypes": [
+      "itemType"
+    ],
     "nature": "Mechanic",
-    "description": "Specific Weapon: {parameter1}"
+    "description": "Specific Weapon: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recvQfPSVjcbvj7F9",
     "id": 73,
     "name": "HarvestTheftDefense",
+    "displayName": "Harvest Theft Defense",
+    "listOrder": 700.5,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvesttheftdefense",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Mechanic",
-    "description": "{parameter1} Theft Counter Chance"
+    "description": "{parameter1} Theft Counter Chance",
+    "explanation": ""
   },
   {
     "uuid": "recTs0dA8eQ1iMNbE",
     "id": 74,
     "name": "RandomRuneExchangeSpecific",
+    "displayName": "Random Rune Exchange Specific",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomruneexchangespecific",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune"
+    "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune",
+    "explanation": ""
   },
   {
     "uuid": "recU7c7R4MCYuupKP",
     "id": 75,
     "name": "RandomRuneToken",
+    "displayName": "Random Rune Token",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomrunetoken",
+    "isImplemented": false,
+    "paramTypes": [
+      "rune"
+    ],
     "nature": "Mechanic",
-    "description": "Random Exchange Target: {parameter1}"
+    "description": "Random Exchange Target: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "recEa2L9znyioZgZ3",
     "id": 76,
     "name": "SetBonusItems",
+    "displayName": "Set Bonus Items",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/setbonusitems",
+    "isImplemented": false,
+    "paramTypes": [
+      "runewordIDs"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rechnrg9hJXFFr72v",
     "id": 77,
     "name": "TwoItemSetBonus",
+    "displayName": "Two Item Set Bonus",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/twoitemsetbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recLRp2mnB1Xx7MO2",
     "id": 78,
     "name": "ThreeItemSetBonus",
+    "displayName": "Three Item Set Bonus",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/threeitemsetbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recu825Ltg5aBeAuD",
     "id": 79,
     "name": "FourItemSetBonus",
+    "displayName": "Four Item Set Bonus",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/fouritemsetbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recTaTKifJihgygl6",
     "id": 80,
     "name": "FiveItemSetBonus",
+    "displayName": "Five Item Set Bonus",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/fiveitemsetbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rec5aYEFplj69zW41",
     "id": 81,
     "name": "GuildTreasuryYieldBonus",
+    "displayName": "Guild Treasury Yield Bonus",
+    "listOrder": 100.54,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildtreasuryyieldbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Yield Bonus, Sent To Guild Treasury"
+    "description": "{parameter1} Yield Bonus, Sent To Guild Treasury",
+    "explanation": ""
   },
   {
     "uuid": "recpET8AnvEy1g1f3",
     "id": 82,
     "name": "HarvestToTreasury",
+    "displayName": "Harvest To Treasury",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvesttotreasury",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1} of Harvest Sent to Guild Treasury"
+    "description": "{parameter1} of Harvest Sent to Guild Treasury",
+    "explanation": ""
   },
   {
     "uuid": "recM7bn9QQXGtF0R2",
     "id": 83,
     "name": "GuildTreasuryAccessKey",
+    "displayName": "Guild Treasury Access Key",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/guildtreasuryaccesskey",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "1-1"
+    ],
     "nature": "Mechanic",
-    "description": "Ability to sign guild treasury transactions."
+    "description": "Ability to sign guild treasury transactions.",
+    "explanation": ""
   },
   {
     "uuid": "recthNtffZYySVpH4",
     "id": 84,
     "name": "RandomStaticAttribute",
+    "displayName": "Random Static Attribute",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/randomstaticattribute",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recKcPyPi292IJmud",
     "id": 85,
     "name": "KarmicInfluence",
+    "displayName": "Karmic Influence",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/karmicinfluence",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "-1-1"
+    ],
     "nature": "Buff",
-    "description": "Sway a pool or farm toward your alignment, receiving a bonus when it matches"
+    "description": "Sway a pool or farm toward your alignment, receiving a bonus when it matches",
+    "explanation": ""
   },
   {
     "uuid": "recWYUexiL1lBkC3O",
     "id": 86,
     "name": "VestingUnequipLock",
+    "displayName": "Vesting Unequip Lock",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/vestingunequiplock",
+    "isImplemented": false,
+    "paramTypes": [
+      "ID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Can not unequip Runeword until vested payouts have completed"
+    "description": "Can not unequip Runeword until vested payouts have completed",
+    "explanation": ""
   },
   {
     "uuid": "recyxq6vsf2sUDfix",
     "id": 87,
     "name": "RaidUnequipLockOnStake",
+    "displayName": "Raid Unequip Lock On Stake",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/raidunequiplockonstake",
+    "isImplemented": false,
+    "paramTypes": [
+      "ID"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Can not unequip until current raid ends after staking."
+    "description": "Can not unequip until current raid ends after staking.",
+    "explanation": ""
   },
   {
     "uuid": "recHQNRiIWb5eucFI",
     "id": 88,
     "name": "FindFashionShard",
+    "displayName": "Find Fashion Shard",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/findfashionshard",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Fashion Find"
+    "description": "{parameter1} Fashion Find",
+    "explanation": ""
   },
   {
     "uuid": "recrQppVBh21AHPRb",
     "id": 89,
     "name": "AddSkillPoint",
+    "displayName": "Add Skill Point",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/addskillpoint",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rectAqMI4I58RLKXB",
     "id": 90,
     "name": "UnlockSkillMod",
+    "displayName": "Unlock Skill Mod",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/unlockskillmod",
+    "isImplemented": false,
     "nature": "Buff",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recfT4oKc8YoeZzpY",
     "id": 91,
     "name": "AttributeDebuffToBuffOnEquipTime",
+    "displayName": "Attribute Debuff To Buff On Equip Time",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributedebufftobuffonequiptime",
+    "isImplemented": false,
+    "paramTypes": [
+      "hours"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Requirement",
-    "description": "Requires {parameter1} hours to unlock full potential."
+    "description": "Requires {parameter1} hours to unlock full potential.",
+    "explanation": ""
   },
   {
     "uuid": "recuzOeclgHNy9nYu",
     "id": 92,
     "name": "AttributeUnlockOnEquipTime",
+    "displayName": "Attribute Unlock On Equip Time",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributeunlockonequiptime",
+    "isImplemented": false,
+    "paramTypes": [
+      "hours"
+    ],
     "nature": "Requirement",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recGzPeyuPYWqfEyQ",
     "id": 93,
     "name": "AttributeUnlockOnConsecutiveEquipTime",
+    "displayName": "Attribute Unlock On Consecutive Equip Time",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
+    "isImplemented": false,
+    "paramTypes": [
+      "hours",
+      "(attribute, (paramValues[]))[]"
+    ],
     "nature": "Requirement",
-    "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}"
+    "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
+    "explanation": ""
   },
   {
     "uuid": "recwj5PtLK0YpQU5F",
     "id": 94,
     "name": "TargetAttributeToUnlock",
+    "displayName": "Target Attribute To Unlock",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/targetattributetounlock",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeSlot"
+    ],
+    "paramValues": [
+      "0-7"
+    ],
     "nature": "Neutral",
-    "description": "{parameter1} To Unlock"
+    "description": "{parameter1} To Unlock",
+    "explanation": ""
   },
   {
     "uuid": "recsS7hpJHJmnDYi0",
     "id": 95,
     "name": "DebuffAttributeToChange",
+    "displayName": "Debuff Attribute To Change",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/debuffattributetochange",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeID"
+    ],
     "nature": "Neutral",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recARikV9jK8MHE7t",
     "id": 96,
     "name": "BuffAttributeToChange",
+    "displayName": "Buff Attribute To Change",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/buffattributetochange",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeID"
+    ],
     "nature": "Neutral",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "reciaCnTo0k9Sp8Bc",
     "id": 97,
     "name": "DebuffToBuffAttributeRange",
+    "displayName": "Debuff To Buff Attribute Range",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/debufftobuffattributerange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Neutral",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rec23XiTQvrJxl94E",
     "id": 98,
     "name": "RequireAttributeID",
+    "displayName": "Require Attribute I D",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/requireattributeid",
+    "isImplemented": false,
+    "paramTypes": [
+      "ID"
+    ],
     "nature": "Requirement",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recMLPFGJhT40GwEw",
     "id": 99,
     "name": "RequireAttributeValue",
+    "displayName": "Require Attribute Value",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/requireattributevalue",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Requirement",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rec544qwBaFCxj4u2",
     "id": 100,
     "name": "RequireSkill",
+    "displayName": "Require Skill",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/requireskill",
+    "isImplemented": false,
+    "paramTypes": [
+      "skill"
+    ],
     "nature": "Requirement",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recqSPzL227OB9Dzi",
     "id": 101,
     "name": "CriticalCraftChance",
+    "displayName": "Critical Craft Chance",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/criticalcraftchance",
+    "isImplemented": false,
     "nature": "Buff",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rec9tmfTGsm1hGGe5",
     "id": 102,
     "name": "DisenchantmentBonus",
+    "displayName": "Disenchantment Bonus",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/disenchantmentbonus",
+    "isImplemented": false,
     "nature": "Buff",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recivTtU2qldh6gH2",
     "id": 103,
     "name": "CriticalSlamChance",
+    "displayName": "Critical Slam Chance",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/criticalslamchance",
+    "isImplemented": false,
     "nature": "Buff",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recrKwixIFmUfJ6Bm",
     "id": 104,
     "name": "RequireHarvestedRunes",
+    "displayName": "Require Harvested Runes",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/requireharvestedrunes",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Requirement",
-    "description": "Must harvest {parameter1} runes with item equipped to unlock attributes."
+    "description": "Must harvest {parameter1} runes with item equipped to unlock attributes.",
+    "explanation": ""
   },
   {
     "uuid": "recOs4rr8Dxfv4vgu",
     "id": 105,
     "name": "IgnoreTheftDefense",
+    "displayName": "Ignore Theft Defense",
+    "listOrder": 600.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/ignoretheftdefense",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Ignore Theft Defense"
+    "description": "{parameter1} Chance To Ignore Theft Defense",
+    "explanation": ""
   },
   {
     "uuid": "recw2pXFKtqGGYgTK",
     "id": 106,
     "name": "HarvestSpeed",
+    "displayName": "Harvest Speed",
+    "listOrder": 100.51,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestspeed",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Reduction To Harvest Cooldown"
+    "description": "{parameter1} Reduction To Harvest Cooldown",
+    "explanation": ""
   },
   {
     "uuid": "recUHGRdUp4GzJE5f",
     "id": 107,
     "name": "StunOnHarvest",
+    "displayName": "Stun On Harvest",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/stunonharvest",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} chance to stun enemy on harvest"
+    "description": "{parameter1} chance to stun enemy on harvest",
+    "explanation": ""
   },
   {
     "uuid": "rec2XjfGGU9Aezgoo",
     "id": 108,
     "name": "StunRecovery",
+    "displayName": "Stun Recovery",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/stunrecovery",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Faster Recovery From Stun Effects"
+    "description": "{parameter1} Faster Recovery From Stun Effects",
+    "explanation": ""
   },
   {
     "uuid": "recLixCviwAiZKjdj",
     "id": 109,
     "name": "FractureReduction",
+    "displayName": "Fracture Reduction",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/fracturereduction",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} reduction to fracturing chance when upgrading item"
+    "description": "{parameter1} reduction to fracturing chance when upgrading item",
+    "explanation": ""
   },
   {
     "uuid": "recAPxuRYPahdrzeB",
     "id": 110,
     "name": "LimitedDurability",
+    "displayName": "Limited Durability",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/limiteddurability",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Mechanic",
-    "description": "Item will break after harvesting {parameter1} runes."
+    "description": "Item will break after harvesting {parameter1} runes.",
+    "explanation": ""
   },
   {
     "uuid": "reckHRVyTwy34O8tp",
     "id": 111,
     "name": "BeginRaidEnergy",
+    "displayName": "Begin Raid Energy",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/beginraidenergy",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "Begin boss and PvP raids with {parameter1} Energy accumulated"
+    "description": "Begin boss and PvP raids with {parameter1} Energy accumulated",
+    "explanation": ""
   },
   {
     "uuid": "recVXkw1YVaV7obXd",
     "id": 112,
     "name": "BeginRaidHealthIncrease",
+    "displayName": "Begin Raid Health Increase",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/beginraidhealthincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "Begin boss and PvP raids with {parameter1} additional shares in health pool"
+    "description": "Begin boss and PvP raids with {parameter1} additional shares in health pool",
+    "explanation": ""
   },
   {
     "uuid": "rec4wJrDj64XZoOFd",
     "id": 113,
     "name": "EnergyTheftOnHarvest",
+    "displayName": "Energy Theft On Harvest",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/energytheftonharvest",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Energy steal in PvP and Boss raids"
+    "description": "{parameter1} Energy steal in PvP and Boss raids",
+    "explanation": ""
   },
   {
     "uuid": "recqfRSa6eLFZnfJ7",
     "id": 114,
     "name": "EnergyPoolMultiplierIncrease",
+    "displayName": "Energy Pool Multiplier Increase",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/energypoolmultiplierincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Energy pool emissions received"
+    "description": "{parameter1} Energy pool emissions received",
+    "explanation": ""
   },
   {
     "uuid": "rec4mQ534whomXc2M",
     "id": 115,
     "name": "UnequipLockRaidDuration",
+    "displayName": "Unequip Lock Raid Duration",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/unequiplockraidduration",
+    "isImplemented": false,
     "nature": "Requirement",
-    "description": "PvP/Boss Raids: Item can not be unequiped for the entire raid if it is equipped at the beginning."
+    "description": "PvP/Boss Raids: Item can not be unequiped for the entire raid if it is equipped at the beginning.",
+    "explanation": ""
   },
   {
     "uuid": "recbyWvBr0LCL0Hy8",
     "id": 116,
     "name": "AttributeDebuffToBuffOnBurnedRunes",
+    "displayName": "Attribute Debuff To Buff On Burned Runes",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributedebufftobuffonburnedrunes",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Requirement",
-    "description": "Must burn {parameter1} runes from raid mechanics to change harmful attribute to beneficial"
+    "description": "Must burn {parameter1} runes from raid mechanics to change harmful attribute to beneficial",
+    "explanation": ""
   },
   {
     "uuid": "recp2DAr7JUBMrWFY",
     "id": 117,
     "name": "AttributeDebuffToBuffOnHarvestedRunes",
+    "displayName": "Attribute Debuff To Buff On Harvested Runes",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributedebufftobuffonharvestedrunes",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Requirement",
-    "description": "Must harvest {parameter1} runes with item equipped to change harmful attribute to beneficial"
+    "description": "Must harvest {parameter1} runes with item equipped to change harmful attribute to beneficial",
+    "explanation": ""
   },
   {
     "uuid": "recXdVV2zMXGnZKKZ",
     "id": 118,
     "name": "YieldBonusToHiddenPool",
+    "displayName": "Yield Bonus To Hidden Pool",
+    "listOrder": 100.57,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/yieldbonustohiddenpool",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} yield bonus on harvests to hidden pool"
+    "description": "{parameter1} yield bonus on harvests to hidden pool",
+    "explanation": ""
   },
   {
     "uuid": "recJ02nC9FUaNdzPb",
     "id": 119,
     "name": "YieldBonusFromHiddenPool",
+    "displayName": "Yield Bonus From Hidden Pool",
+    "listOrder": 100.55,
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/yieldbonusfromhiddenpool",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} Yield Bonus On Harvests From Hidden Pool"
+    "description": "{parameter1} Yield Bonus On Harvests From Hidden Pool",
+    "explanation": ""
   },
   {
     "uuid": "recju9GwAwwpxUysp",
     "id": 120,
     "name": "AttributeDebuffToBuffWhenHiddenPoolStake",
+    "displayName": "Attribute Debuff To Buff When Hidden Pool Stake",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributedebufftobuffwhenhiddenpoolstake",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Requirement",
-    "description": "Must have {parameter1} tokens staked in hidden pool to change harmful attribute to beneficial"
+    "description": "Must have {parameter1} tokens staked in hidden pool to change harmful attribute to beneficial",
+    "explanation": ""
   },
   {
     "uuid": "recoqu9JVAgfdJ1Dc",
     "id": 121,
     "name": "AttributeUnlockWhenHiddenPoolStake",
+    "displayName": "Attribute Unlock When Hidden Pool Stake",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributeunlockwhenhiddenpoolstake",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Requirement",
-    "description": "Must have {parameter1} tokens staked in hidden pool to use item's full potential"
+    "description": "Must have {parameter1} tokens staked in hidden pool to use item's full potential",
+    "explanation": ""
   },
   {
     "uuid": "recv8LTIn53TlhbbZ",
     "id": 122,
     "name": "AttributeScaleWithHiddenPoolStake",
+    "displayName": "Attribute Scale With Hidden Pool Stake",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/attributescalewithhiddenpoolstake",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Mechanic",
-    "description": "Item attributes scale with amount staked in hidden pool. Target amount: {parameter1}."
+    "description": "Item attributes scale with amount staked in hidden pool. Target amount: {parameter1}.",
+    "explanation": ""
   },
   {
     "uuid": "recWftdMUp5fxRIUQ",
     "id": 123,
     "name": "AvoidHarvestLossWithoutBonus",
+    "displayName": "Avoid Harvest Loss Without Bonus",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/avoidharvestlosswithoutbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} chance to avoid harvest loss effects, receiving harvest without bonuses"
+    "description": "{parameter1} chance to avoid harvest loss effects, receiving harvest without bonuses",
+    "explanation": ""
   },
   {
     "uuid": "recFgUpjHt2F9XEod",
     "id": 124,
     "name": "HarvestFeeReductionPenalty",
+    "displayName": "Harvest Fee Reduction Penalty",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestfeereductionpenalty",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} penalty to harvest fee reduction attributes"
+    "description": "{parameter1} penalty to harvest fee reduction attributes",
+    "explanation": ""
   },
   {
     "uuid": "recthi4QJ2Rjjse2T",
     "id": 125,
     "name": "HarvestYieldBonusWeapons",
+    "displayName": "Harvest Yield Bonus Weapons",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestyieldbonusweapons",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
-    "description": "{parameter1} bonus to weapon yield bonuses"
+    "description": "{parameter1} bonus to weapon yield bonuses",
+    "explanation": ""
   },
   {
     "uuid": "rec43pditYjvZ10PR",
     "id": 126,
     "name": "UnstakeLockedDurationFromHarvest",
+    "displayName": "Unstake Locked Duration From Harvest",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/unstakelockeddurationfromharvest",
+    "isImplemented": false,
+    "paramTypes": [
+      "days"
+    ],
     "nature": "Mechanic",
-    "description": "Unstaking is locked for {parameter1} hours after harvest"
+    "description": "Unstaking is locked for {parameter1} hours after harvest",
+    "explanation": ""
   },
   {
     "uuid": "recnBLqsqdzAdUhNB",
@@ -1266,8 +2290,16 @@
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/raidtwoattribute",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "[Hidden Attribute]"
+    "description": "[Hidden Attribute]",
+    "explanation": ""
   },
   {
     "uuid": "recXdeRC1nInRzt2j",
@@ -1276,8 +2308,16 @@
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/raidthreeattribute",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100"
+    ],
     "nature": "Neutral",
-    "description": "[Hidden Attribute]"
+    "description": "[Hidden Attribute]",
+    "explanation": ""
   },
   {
     "uuid": "recTEoaDKhJXGCpAk",
@@ -1286,8 +2326,16 @@
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/chargeablelock",
+    "isImplemented": false,
+    "paramTypes": [
+      "amount"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recn7M3gdIPdVuv6B",
@@ -1296,8 +2344,16 @@
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/chargeableburn",
+    "isImplemented": false,
+    "paramTypes": [
+      "amount"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recXNJEMZ4talmPMm",
@@ -1306,8 +2362,16 @@
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/chargeablelocklp",
+    "isImplemented": false,
+    "paramTypes": [
+      "amount"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recPbVPodtsdoFM3f",
@@ -1316,499 +2380,624 @@
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/chargeableburnlp",
+    "isImplemented": false,
+    "paramTypes": [
+      "amount"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "rec1QVtqAII3CINQz",
     "id": 137,
     "name": "AddSkillWithParam",
+    "displayName": "Add Skill With Param",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/addskillwithparam",
+    "isImplemented": false,
+    "paramTypes": [
+      "skill"
+    ],
+    "paramValues": [
+      "0-999"
+    ],
     "nature": "Mechanic",
-    "description": "Unlocked: {parameter1}"
+    "description": "Unlocked: {parameter1}",
+    "explanation": ""
   },
   {
     "uuid": "rec58wuyvBWyaOY8S",
     "id": 138,
     "name": "HarvestFeeWithParam",
+    "displayName": "Harvest Fee With Param",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestfeewithparam",
+    "isImplemented": false,
+    "paramTypes": [
+      "token"
+    ],
+    "paramValues": [
+      "0-50"
+    ],
     "nature": "Debuff",
-    "description": "{parameter1} Harvest Fee"
+    "description": "{parameter1} Harvest Fee",
+    "explanation": ""
   },
   {
     "uuid": "recqj3JsnJQjhLZub",
     "id": 139,
     "name": "HarvestFeeGroup",
+    "displayName": "Harvest Fee Group",
     "isEnabled": true,
     "game": 1,
     "link": "https://rune.game/item-attribute/harvestfeegroup",
+    "isImplemented": false,
+    "paramValues": [
+      "2,3"
+    ],
     "nature": "Mechanic",
-    "description": ""
+    "description": "",
+    "explanation": ""
   },
   {
     "uuid": "recfTz485YpfDL87Q",
     "id": 1001,
     "name": "PhysicalDamage",
+    "displayName": "Physical Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/physicaldamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-35"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} physical damage"
+    "description": "{parameter1} physical damage",
+    "explanation": ""
   },
   {
     "uuid": "recQjVInUOkHnzxL6",
     "id": 1002,
     "name": "PoisonDamage",
+    "displayName": "Poison Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/poisondamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-20"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} poison damage"
+    "description": "{parameter1} poison damage",
+    "explanation": ""
   },
   {
     "uuid": "recKC2Htp1p5xvwRE",
     "id": 1003,
     "name": "FireDamage",
+    "displayName": "Fire Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/firedamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-30"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} fire damage"
+    "description": "{parameter1} fire damage",
+    "explanation": ""
   },
   {
     "uuid": "recmjcOBb7qVH1FSm",
     "id": 1004,
     "name": "LightningDamage",
+    "displayName": "Lightning Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/lightningdamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} lightning damage"
+    "description": "{parameter1} lightning damage",
+    "explanation": ""
   },
   {
     "uuid": "recLPH0XfyAhxivMq",
     "id": 1005,
     "name": "FrostDamage",
+    "displayName": "Frost Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/frostdamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} frost damage"
+    "description": "{parameter1} frost damage",
+    "explanation": ""
   },
   {
     "uuid": "recOrZXgFl0VQjT3k",
     "id": 1006,
     "name": "RendingDamage",
+    "displayName": "Rending Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/rendingdamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} rending damage"
+    "description": "{parameter1} rending damage",
+    "explanation": ""
   },
   {
     "uuid": "recFHdOlCfYk5x9b2",
     "id": 1007,
     "name": "ArcaneDamage",
+    "displayName": "Arcane Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/arcanedamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} arcane damage"
+    "description": "{parameter1} arcane damage",
+    "explanation": ""
   },
   {
     "uuid": "receBwGBXISKMNAd1",
     "id": 1008,
     "name": "DamageTypeDamage",
+    "displayName": "Damage Type Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/damagetypedamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} {DamageType} damage"
+    "description": "{parameter1} {DamageType} damage",
+    "explanation": ""
   },
   {
     "uuid": "rec3T6vF3BXgdo4t7",
     "id": 1009,
     "name": "DamageType",
+    "displayName": "Damage Type",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/damagetype",
+    "isImplemented": false,
+    "paramTypes": [
+      "type"
+    ],
+    "paramValues": [
+      "0-120"
+    ],
     "nature": "Mechanic",
     "influences": "Offense",
-    "description": "{parameter1} damage"
+    "description": "{parameter1} damage",
+    "explanation": ""
   },
   {
     "uuid": "recQwqN3Qgo811AZL",
     "id": 1010,
     "name": "IncreaseDamage",
+    "displayName": "Increase Damage",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/increasedamage",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-120"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} Damage"
+    "description": "{parameter1} Damage",
+    "explanation": ""
   },
   {
     "uuid": "recPJCNAvaekwhHgT",
     "id": 1011,
     "name": "CriticalHitChance",
+    "displayName": "Critical Hit Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/criticalhitchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} Critical Hit Chance"
+    "description": "{parameter1} Critical Hit Chance",
+    "explanation": ""
   },
   {
     "uuid": "recP1m4LAyKWyJdMi",
     "id": 1012,
     "name": "CriticalHitMultiplier",
+    "displayName": "Critical Hit Multiplier",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/criticalhitmultiplier",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} critical hit multiplier"
+    "description": "{parameter1} critical hit multiplier",
+    "explanation": ""
   },
   {
     "uuid": "recXMzIGpQR7ltWEp",
     "id": 1013,
     "name": "CriticalHitAilmentChance",
+    "displayName": "Critical Hit Ailment Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/criticalhitailmentchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} critical ailment chance"
+    "description": "{parameter1} critical ailment chance",
+    "explanation": ""
   },
   {
     "uuid": "rec0ImykQDdUFn87X",
     "id": 1014,
     "name": "PoisonDamageExchange",
+    "displayName": "Poison Damage Exchange",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/poisondamageexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-20%"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} of damage dealt as poison damage"
+    "description": "{parameter1} of damage dealt as poison damage",
+    "explanation": ""
   },
   {
     "uuid": "recKDX51KLND8nWzO",
     "id": 1015,
     "name": "FireDamageExchange",
+    "displayName": "Fire Damage Exchange",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/firedamageexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-30%"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} of damage dealt as fire damage"
+    "description": "{parameter1} of damage dealt as fire damage",
+    "explanation": ""
   },
   {
     "uuid": "rechoT0DEWOqeyx3t",
     "id": 1016,
     "name": "LightningDamageExchange",
+    "displayName": "Lightning Damage Exchange",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/lightningdamageexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} of damage dealt as lightning damage"
+    "description": "{parameter1} of damage dealt as lightning damage",
+    "explanation": ""
   },
   {
     "uuid": "recrHfoTUipAdojbG",
     "id": 1017,
     "name": "FrostDamageExchange",
+    "displayName": "Frost Damage Exchange",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/frostdamageexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} of damage dealt as frost damage"
+    "description": "{parameter1} of damage dealt as frost damage",
+    "explanation": ""
   },
   {
     "uuid": "recS4FHHFHAxTtZeh",
     "id": 1018,
     "name": "RendingDamageExchange",
+    "displayName": "Rending Damage Exchange",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/rendingdamageexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} of damage dealt as rending damage"
+    "description": "{parameter1} of damage dealt as rending damage",
+    "explanation": ""
   },
   {
     "uuid": "recq2Jbwz5nJbqiv3",
     "id": 1019,
     "name": "LifeSteal",
+    "displayName": "Life Steal",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/lifesteal",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-30%"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} life steal"
+    "description": "{parameter1} life steal",
+    "explanation": ""
   },
   {
     "uuid": "recLTU4GfGlq02m9x",
     "id": 1020,
     "name": "AttackSpeed",
+    "displayName": "Attack Speed",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/attackspeed",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} attack speed"
+    "description": "{parameter1} attack speed",
+    "explanation": ""
   },
   {
     "uuid": "recEJ4OAd2ASDny2O",
     "id": 1021,
     "name": "AilmentChance",
+    "displayName": "Ailment Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/ailmentchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} ailment chance"
+    "description": "{parameter1} ailment chance",
+    "explanation": ""
   },
   {
     "uuid": "recX65TXBVfy1hXbH",
     "id": 1022,
     "name": "SlowChance",
+    "displayName": "Slow Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/slowchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} slow chance"
+    "description": "{parameter1} slow chance",
+    "explanation": ""
   },
   {
     "uuid": "recUurtZQY4sGYtKE",
     "id": 1023,
     "name": "StunChance",
+    "displayName": "Stun Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/stunchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} stun chance"
+    "description": "{parameter1} stun chance",
+    "explanation": ""
   },
   {
     "uuid": "recRplPw0dLksY4Iq",
     "id": 1024,
     "name": "BleedChance",
+    "displayName": "Bleed Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/bleedchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} bleed chance"
+    "description": "{parameter1} bleed chance",
+    "explanation": ""
   },
   {
     "uuid": "recDUaQohn4TH9oB1",
     "id": 1025,
     "name": "PoisonChance",
+    "displayName": "Poison Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/poisonchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} poison chance"
+    "description": "{parameter1} poison chance",
+    "explanation": ""
   },
   {
     "uuid": "recbSrDWEhuyKnbGD",
     "id": 1026,
     "name": "BurnChance",
+    "displayName": "Burn Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/burnchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} burn chance"
+    "description": "{parameter1} burn chance",
+    "explanation": ""
   },
   {
     "uuid": "recHCw8ceFEyYFtKR",
     "id": 1027,
     "name": "SilenceChance",
+    "displayName": "Silence Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/silencechance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} silence chance"
+    "description": "{parameter1} silence chance",
+    "explanation": ""
   },
   {
     "uuid": "recs4xn1rJubRwn4Z",
     "id": 1028,
     "name": "SickChance",
+    "displayName": "Sick Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/sickchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} sickness chance"
+    "description": "{parameter1} sickness chance",
+    "explanation": ""
   },
   {
     "uuid": "rec6Px8FONmrDDIxb",
     "id": 1029,
     "name": "SacrificeChance",
+    "displayName": "Sacrifice Chance",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/sacrificechance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
     "nature": "Buff",
     "influences": "Offense",
-    "description": "{parameter1} sacrifice chance"
+    "description": "{parameter1} sacrifice chance",
+    "explanation": ""
   },
   {
     "uuid": "recnDBCnnWXTc79zw",
     "id": 1030,
     "name": "MovementSpeedIncrease",
+    "displayName": "Movement Speed Increase",
     "isEnabled": true,
     "game": 2,
     "link": "https://rune.game/item-attribute/movementspeedincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
     "nature": "Buff",
     "influences": "Movement",
-    "description": "{parameter1} faster movement."
-  },
-  {
-    "uuid": "recnRXKf1vZ2iP3Q4",
-    "id": 1050,
-    "name": "MaximumHealthIncrease",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/maximumhealthincrease",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} maximum health"
-  },
-  {
-    "uuid": "recNvqoipvZJCzwOK",
-    "id": 1051,
-    "name": "ArcaneResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/arcaneresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} arcane resist"
-  },
-  {
-    "uuid": "recCkuoEMRX2xxpvq",
-    "id": 1052,
-    "name": "LightningResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/lightningresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} lightning resist"
-  },
-  {
-    "uuid": "recKDQP7mma2s4vzo",
-    "id": 1053,
-    "name": "IceResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/iceresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} ice resist"
-  },
-  {
-    "uuid": "recVjHmW6VJbk4GkH",
-    "id": 1054,
-    "name": "PoisonResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/poisonresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} poison resist"
-  },
-  {
-    "uuid": "rec5pq7vVxjAkWfwh",
-    "id": 1055,
-    "name": "RendResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/rendresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} rending resist"
-  },
-  {
-    "uuid": "recYQmOBWuZrFWuGI",
-    "id": 1056,
-    "name": "FireResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/fireresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} fire resist"
-  },
-  {
-    "uuid": "rec3igHfqdFEtePIS",
-    "id": 1057,
-    "name": "FreezeResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/freezeresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} freeze resist"
-  },
-  {
-    "uuid": "recrYwXww3MUaSQV2",
-    "id": 1058,
-    "name": "StunResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/stunresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} stun resist"
-  },
-  {
-    "uuid": "rec5La3qActADgwy6",
-    "id": 1059,
-    "name": "AilmentResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/ailmentresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} ailment resist"
-  },
-  {
-    "uuid": "recVFW9e8F6FgorJV",
-    "id": 1060,
-    "name": "DamageResist",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/damageresist",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} damage resist"
-  },
-  {
-    "uuid": "rechGQdmO6z7Mak7P",
-    "id": 1061,
-    "name": "LightReflect",
-    "isEnabled": true,
-    "game": 2,
-    "link": "https://rune.game/item-attribute/lightreflect",
-    "nature": "Buff",
-    "influences": "Defense",
-    "description": "{parameter1} light reflect"
+    "description": "{parameter1} faster movement.",
+    "explanation": ""
   }
 ]

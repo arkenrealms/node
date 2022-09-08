@@ -1,5 +1,6 @@
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type'
 import generatedItems from './generated/oldItems.json'
+import itemAttributes from './generated/itemAttributes.json'
 import { removeTimezoneOffset } from '../util/time'
 
 export const rewardTokenIdMap = {
@@ -1356,12 +1357,22 @@ export const ItemAttributes = {
     description: `{parameter1} {parameter2} resistance`,
   },
   WinRewardsIncrease: {
-    id: 2900,
+    id: 1150,
     min: 0,
     max: 200,
-    description: `{parameter1} {parameter2} rewards on win`,
+    description: `{parameter1} win bonus`,
   }
   
+}
+
+// Temp: Fill from DB
+for (const itemAttribute of itemAttributes) {
+  if (itemAttribute.id < 1000) continue // Don't do raid for now
+
+  ItemAttributes[itemAttribute.name] = {
+    id: itemAttribute.id,
+    description: itemAttribute.description
+  }
 }
 
 export const SkillNames = {
@@ -7309,15 +7320,340 @@ export const itemData = {
             [ItemRarity.Unique.id]: [3, 10, 20, 20, 4, SkillIdByName['Mystic Insight']],
           },
         },
-        2: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+
+        "2": {
+          "attributes": [
+            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            {
+              "id": 1008,
+              "name": "DamageTypeDamage",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/damagetypedamage",
+              "paramType1": "percent",
+              "nature": "Buff",
+              "influences": "Offense",
+              "description": "{parameter1} {DamageType} damage",
+              "param1": {
+                "spec": [
+                  "7-10"
+                ],
+                "min": 7,
+                "max": 7,
+                "value": 7
+              }
+            },
+            {
+              "id": 1150,
+              "name": "WinRewardsIncrease",
+              "isEnabled": true,
+              "nexusLink": "https://nexus.rune.game/item-attribute/winrewardsincrease",
+              "paramType1": "percent",
+              "paramValue1": "0-20",
+              "nature": "Buff",
+              "influences": "Reward",
+              "description": "{parameter1} win bonus",
+              "param1": {
+                "spec": "1-20",
+                "min": 1,
+                "max": 20
+              }
+            },
+            {
+              "id": 4119,
+              "name": "EggExperienceBonus",
+              "isEnabled": false,
+              "nexusLink": "https://nexus.rune.game/item-attribute/eggexperiencebonus",
+              "param1": {
+                "spec": "2-2",
+                "min": 2,
+                "max": 2,
+                "value": 2
+              }
+            },
+            {
+              "id": 1009,
+              "name": "DamageType",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/damagetype",
+              "paramType1": "type",
+              "paramValue1": "0-120",
+              "nature": "Mechanic",
+              "influences": "Offense",
+              "description": "{parameter1} damage",
+              "param1": {
+                "spec": "1-4",
+                "map": {}
+              }
+            },
+            {
+              "id": 1237,
+              "name": "CastOnKillChance",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/castonkillchance",
+              "paramType1": "percent",
+              "nature": "Buff",
+              "influences": "Skill",
+              "description": "{parameter1} cast {CastOnKillEffect.Value} {CastOnKillType.Value} on kill",
+              "param1": {
+                "spec": "2-10",
+                "min": 2,
+                "max": 10
+              }
+            },
+            {
+              "id": 1327,
+              "name": "SkillMod",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/skillmod",
+              "paramType1": "value",
+              "paramValue1": "0-5",
+              "nature": "Buff",
+              "influences": "Skill",
+              "param1": {
+                "spec": "1-4",
+                "min": 1,
+                "max": 4
+              }
+            },
+            {
+              "id": 1325,
+              "name": "SkillUnlock",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
+              "paramType1": "skill",
+              "nature": "Mechanic",
+              "description": "Unlocked: {parameter1}",
+              "param1": {
+                "spec": "Mystic Insight",
+                "min": 11,
+                "max": 11,
+                "value": 11,
+                "map": {
+                  "11": "Mystic Insight"
+                }
+              }
+            },
+            {
+              "id": 1238,
+              "name": "CastOnKillType",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/castonkilltype",
+              "paramType1": "spelltype",
+              "nature": "Mechanic",
+              "influences": "Skill",
+              "param1": {
+                "spec": "2-2",
+                "min": 2,
+                "max": 2,
+                "value": 2
+              }
+            },
+            {
+              "id": 1239,
+              "name": "CastOnKillEffect",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/castonkilleffect",
+              "paramType1": "effect",
+              "nature": "Mechanic",
+              "influences": "Skill",
+              "param1": {
+                "spec": "101-101",
+                "min": 101,
+                "max": 101,
+                "value": 101,
+                "map": {
+                  "101": "Regeneration"
+                }
+              }
+            }
+          ],
+          "perfection": [
+            null,
+            20,
+            null,
+            null,
+            10,
+            4,
+            null,
+            null,
+            null,
+            null
+          ]
         },
-        3: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+        "3": {
+          "attributes": [
+            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            {
+              "id": 2000,
+              "name": "IncreaseDamage",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Infinite",
+              "nexusLink": "https://nexus.rune.game/item-attribute/increasedamage",
+              "paramType1": "percent",
+              "paramType2": "type",
+              "paramValue1": "0-200",
+              "paramValue2": "0-120",
+              "nature": "Buff",
+              "influences": "Offense",
+              "description": "{parameter1} Increased {parameter2} Damage",
+              "param1": {
+                "spec": "12-15",
+                "min": 12,
+                "max": 15
+              },
+              "param2": {
+                "spec": "Lightning",
+                "min": 2,
+                "max": 2,
+                "value": 2,
+                "map": {
+                  "2": "Lightning"
+                }
+              }
+            },
+            {
+              "id": 2302,
+              "name": "IncreaseEnergy",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Infinite",
+              "nexusLink": "https://nexus.rune.game/item-attribute/increaseenergy",
+              "paramType1": "percent",
+              "paramValue1": "0-999",
+              "nature": "Buff",
+              "influences": "Defense",
+              "description": "{parameter1} Maximum Energy",
+              "param1": {
+                "spec": "1-20",
+                "min": 1,
+                "max": 20
+              }
+            },
+            {
+              "id": 3209,
+              "name": "CastOnCondition",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Infinite",
+              "nexusLink": "https://nexus.rune.game/item-attribute/castoncondition",
+              "paramType1": "conditions",
+              "paramType2": "conditionparams",
+              "paramType3": "skill",
+              "param1": {
+                "spec": "AppliedAilment, SkillTypeNearby",
+                "map": {}
+              },
+              "param2": {
+                "spec": "Poison; Healing",
+                "min": null,
+                "max": null,
+                "map": {}
+              }
+            },
+            {
+              "id": 3801,
+              "name": "UnlockSkills",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Infinite",
+              "nexusLink": "https://nexus.rune.game/item-attribute/unlockskills",
+              "paramType1": "skills",
+              "nature": "Mechanic",
+              "influences": "Skill",
+              "description": "Unlocked: {parameter1}",
+              "param1": {
+                "spec": "Voltaic Orb",
+                "min": 481,
+                "max": 481,
+                "value": 481,
+                "map": {
+                  "481": "Voltaic Orb"
+                }
+              }
+            },
+            {
+              "id": 2902,
+              "name": "MagicFind",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Infinite",
+              "nexusLink": "https://nexus.rune.game/item-attribute/magicfind",
+              "paramType1": "percent",
+              "nature": "Buff",
+              "influences": "Reward",
+              "description": "{parameter1} Magic Find",
+              "param1": {
+                "spec": "2-10",
+                "min": 2,
+                "max": 10
+              }
+            },
+            {
+              "id": 2600,
+              "name": "IncreaseStat",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Infinite",
+              "nexusLink": "https://nexus.rune.game/item-attribute/increasestat",
+              "paramType1": "percent",
+              "paramType2": "stat",
+              "paramType3": "statparams",
+              "paramValue1": "0-200",
+              "nature": "Buff",
+              "influences": "General",
+              "description": "{parameter1} {parameter2} {parameter3}",
+              "param1": {
+                "spec": "8",
+                "min": 8,
+                "max": 8,
+                "value": 8
+              },
+              "param2": {
+                "spec": "EnergyRegen",
+                "min": 1,
+                "max": 1,
+                "value": 1,
+                "map": {
+                  "1": "EnergyRegen"
+                }
+              }
+            }
+          ],
+          "perfection": [
+            15,
+            20,
+            null,
+            null,
+            10,
+            null,
+            null
+          ]
         },
-        4: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+        "4": {
+          "attributes": [
+            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },],
+          "perfection": []
         },
+        "5": {
+          "attributes": [
+            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },],
+          "perfection": []
+        }
       },
     },
   //   {

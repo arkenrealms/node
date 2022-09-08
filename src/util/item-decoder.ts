@@ -186,16 +186,18 @@ function getItemTokenCache(tokenId: string) {
       const tokenCacheText = window.localStorage.getItem(`zzz_tokenCache_${tokenId}`)
     
       if (tokenCacheText) {
-        let tokenCache = JSON.parse(tokenCacheText)
+        let tokenCacheItem = JSON.parse(tokenCacheText)
     
         const now = new Date()
-        if (now.getTime() > tokenCache.expiry) {
+        if (now.getTime() > tokenCacheItem.expiry) {
           window.localStorage.removeItem(`zzz_tokenCache_${tokenId}`)
     
           return
         }
+
+        tokenCache[tokenId] = tokenCacheItem.value
     
-        return tokenCache.value
+        return tokenCacheItem.value
       }
     }
   } catch(e) {
@@ -766,7 +768,7 @@ export function normalizeItem(item: any) {
         }
         if (!item.branches[branchIndex].attributes) continue
 
-        for (const attributeIndex in item.attributes) {
+        for (const attributeIndex in item.branches[branchIndex].attributes) {
           if (
             !item.branches[1] ||
             !item.branches[1].perfection ||
@@ -777,61 +779,72 @@ export function normalizeItem(item: any) {
             break
           }
 
-          if (item.branches[branchIndex].attributes[attributeIndex].param1.value !== undefined) {
-            item.meta.attributes[item.branches[branchIndex].attributes[attributeIndex].id] = item.branches[branchIndex].attributes[attributeIndex].param1.value
+          const attribute = item.branches[branchIndex].attributes[attributeIndex]
+if (item.name === 'Titan') console.log(9999, 'b', attribute)
+          if (attribute.param1.value !== undefined) {
+            item.meta.attributes[attribute.id] = attribute.param1.value
 
             continue
           }
-
-          const originalAttributePerfection = item.branches[1].perfection[attributeIndex]
-            ? item.branches[1].perfection[attributeIndex]
-            : item.perfection
-
-          const attributePerfection =
-            originalAttributePerfection === item.attributes[attributeIndex].param1.max
-              ? originalAttributePerfection - item.attributes[attributeIndex].param1.min === 0
-                ? 1
-                : (item.attributes[attributeIndex].param1.value - item.attributes[attributeIndex].param1.min) /
-                  (originalAttributePerfection - item.attributes[attributeIndex].param1.min)
-              : item.attributes[attributeIndex].param1.max - originalAttributePerfection === 0
-              ? 1
-              : 1 -
-                (item.attributes[attributeIndex].param1.value - originalAttributePerfection) /
-                  (item.attributes[attributeIndex].param1.max - originalAttributePerfection)
           
-          if (!item.branches[branchIndex].perfection) {
-            item.branches[branchIndex].perfection = []
+          // let targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
+          let targetPerfection
+          // let attributePerfection
+
+          if (item.branches[1].perfection[attributeIndex] !== undefined && item.branches[1].perfection[attributeIndex] !== null) {
+            targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex] : (1 - item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex])
+          } else {
+            // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
+            targetPerfection = item.perfection // item.branches[branchIndex].perfection[attributeIndex]
           }
-          if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
-            item.branches[branchIndex].perfection[attributeIndex] = attributePerfection
+
+          if (item.name === 'Titan') console.log(9999, 'a', targetPerfection)
+          // if (targetPerfection && targetAttribute) {
+          //   attributePerfection =
+          //     targetPerfection === targetAttribute.param1.max
+          //       ? targetPerfection - targetAttribute.param1.min === 0
+          //         ? 1
+          //         : (targetAttribute.param1.value - targetAttribute.param1.min) /
+          //           (targetPerfection - targetAttribute.param1.min)
+          //       : targetAttribute.param1.max - targetPerfection === 0
+          //       ? 1
+          //       : 1 -
+          //         (targetAttribute.param1.value - targetPerfection) /
+          //           (targetAttribute.param1.max - targetPerfection)
+          // } else {
+          //   attributePerfection = targetPerfection
+          // }
+
+          if (attribute.param1.map) {
+            const kindofClose = Math.floor(
+              (attribute.param1.max -
+                attribute.param1.min) *
+                targetPerfection,
+            )
+
+            const closestKey = Object.keys(attribute.param1.map).sort((a, b) => {
+              return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
+            })[0]
+
+            attribute.param1.value = closestKey
+          } else {
+            const alignedValue = Math.floor(
+              (attribute.param1.max -
+                attribute.param1.min) *
+                targetPerfection,
+            )
+
+            attribute.param1.value =
+              attribute.param1.min + alignedValue
           }
 
-          const attribute = item.branches[branchIndex].attributes[attributeIndex]
+          // if (!item.branches[branchIndex].perfection) {
+          //   item.branches[branchIndex].perfection = []
+          // }
+          // if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
+          //   item.branches[branchIndex].perfection[attributeIndex] = targetPerfection
+          // }
 
-          if (attribute.param1.value === undefined) {
-            if (attribute.param1.map) {
-              const kindofClose = Math.floor(
-                (attribute.param1.max -
-                  attribute.param1.min) *
-                  attributePerfection,
-              )
-
-              const closestKey = Object.keys(attribute.param1.map).sort((a, b) => {
-                return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
-              })[0]
-  
-              attribute.param1.value = closestKey
-            } else {
-              const alignedValue = Math.floor(
-                (attribute.param1.max -
-                  attribute.param1.min) *
-                  attributePerfection,
-              )
-
-              attribute.param1.value =
-                attribute.param1.min + alignedValue
-            }
-          }
 
           // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
 
