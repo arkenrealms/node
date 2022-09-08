@@ -780,7 +780,7 @@ export function normalizeItem(item: any) {
           }
 
           const attribute = item.branches[branchIndex].attributes[attributeIndex]
-if (item.name === 'Titan') console.log(9999, 'b', attribute)
+
           if (attribute.param1.value !== undefined) {
             item.meta.attributes[attribute.id] = attribute.param1.value
 
@@ -798,7 +798,6 @@ if (item.name === 'Titan') console.log(9999, 'b', attribute)
             targetPerfection = item.perfection // item.branches[branchIndex].perfection[attributeIndex]
           }
 
-          if (item.name === 'Titan') console.log(9999, 'a', targetPerfection)
           // if (targetPerfection && targetAttribute) {
           //   attributePerfection =
           //     targetPerfection === targetAttribute.param1.max
