@@ -781,6 +781,10 @@ export function normalizeItem(item: any) {
 
           const attribute = item.branches[branchIndex].attributes[attributeIndex]
 
+          if (!attribute.param1) {
+            continue
+          }
+
           if (attribute.param1.value !== undefined) {
             item.meta.attributes[attribute.id] = attribute.param1.value
 

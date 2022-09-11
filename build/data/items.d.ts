@@ -1741,6 +1741,24 @@ export declare const itemData: {
                     id: number;
                     name: string;
                     isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                    };
+                    isImplemented?: undefined;
+                    paramValue1?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
                     isImplemented: boolean;
                     game: string;
                     nexusLink: string;
@@ -1979,6 +1997,24 @@ export declare const itemData: {
                         max: number;
                         value: number;
                     };
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                    };
+                    isImplemented?: undefined;
+                    paramValue1?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -2709,7 +2745,6 @@ export declare const itemData: {
                     id: number;
                     name: string;
                     isEnabled: boolean;
-                    isImplemented: boolean;
                     game: string;
                     nexusLink: string;
                     paramType1: string;
@@ -2723,11 +2758,11 @@ export declare const itemData: {
                         value?: undefined;
                     };
                     paramValue1?: undefined;
+                    isImplemented?: undefined;
                 } | {
                     id: number;
                     name: string;
                     isEnabled: boolean;
-                    isImplemented: boolean;
                     game: string;
                     nexusLink: string;
                     paramType1: string;
@@ -2741,6 +2776,7 @@ export declare const itemData: {
                         max: number;
                         value?: undefined;
                     };
+                    isImplemented?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -3743,6 +3779,25 @@ export declare const itemData: {
                     id: number;
                     name: string;
                     isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    isImplemented?: undefined;
+                    paramValue1?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
                     isImplemented: boolean;
                     game: string;
                     nexusLink: string;
@@ -4285,6 +4340,25 @@ export declare const itemData: {
                         value: number;
                         map?: undefined;
                     };
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    isImplemented?: undefined;
+                    paramValue1?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -5862,7 +5936,7 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
-                        value?: undefined;
+                        value: number;
                         map?: undefined;
                     };
                     isImplemented?: undefined;
@@ -7285,7 +7359,7 @@ export declare const itemData: {
                         spec: string;
                         min: number;
                         max: number;
-                        value?: undefined;
+                        value: number;
                     };
                     isImplemented?: undefined;
                     game?: undefined;
@@ -10083,7 +10157,6 @@ export declare const itemData: {
                     id: number;
                     name: string;
                     isEnabled: boolean;
-                    isImplemented: boolean;
                     game: string;
                     nexusLink: string;
                     paramType1: string;
@@ -10098,6 +10171,7 @@ export declare const itemData: {
                         map?: undefined;
                     };
                     paramValue1?: undefined;
+                    isImplemented?: undefined;
                 } | {
                     id: number;
                     name: string;
@@ -10419,7 +10493,6 @@ export declare const itemData: {
                     id: number;
                     name: string;
                     isEnabled: boolean;
-                    isImplemented: boolean;
                     game: string;
                     nexusLink: string;
                     paramType1: string;
@@ -10432,6 +10505,7 @@ export declare const itemData: {
                         max: number;
                         value: number;
                     };
+                    isImplemented?: undefined;
                     paramValue1?: undefined;
                 } | {
                     id: number;

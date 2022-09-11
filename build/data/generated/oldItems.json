@@ -180,13 +180,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": "10-10",
                             "min": 10,
@@ -495,13 +494,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": "10-30",
                             "min": 10,
@@ -1366,7 +1364,7 @@
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} faster movement.",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
                             "spec": [
                                 "1-10"
@@ -1380,13 +1378,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": "1-5",
                             "min": 1,
@@ -1397,14 +1394,13 @@
                         "id": 1223,
                         "name": "EvolveMovementBurst",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/evolvemovementburst",
                         "paramType1": "percent",
                         "paramValue1": "0-25",
                         "nature": "Mechanic",
                         "influences": "Movement",
-                        "description": "{parameter1} temporary increase to movement speed on evolve",
+                        "description": "{parameter1} movement burst on evolve",
                         "param1": {
                             "spec": "5-15",
                             "min": 5,
@@ -2615,13 +2611,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": "15-15",
                             "min": 15,
@@ -3243,13 +3238,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": "15-15",
                             "min": 15,
@@ -5064,14 +5058,15 @@
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/movementspeedincrease",
                         "paramType1": "percent",
-                        "paramValue1": "0-10",
+                        "paramValue1": "10-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} faster movement.",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
-                            "spec": "2-10",
-                            "min": 2,
-                            "max": 10
+                            "spec": "10-10",
+                            "min": 10,
+                            "max": 10,
+                            "value": 10
                         }
                     },
                     {
@@ -5575,7 +5570,7 @@
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} faster movement.",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
                             "spec": "2-5",
                             "min": 2,
@@ -6674,9 +6669,10 @@
                         "influences": "Reward",
                         "description": "{parameter1} win bonus",
                         "param1": {
-                            "spec": "1-3",
-                            "min": 1,
-                            "max": 3
+                            "spec": "3-3",
+                            "min": 3,
+                            "max": 3,
+                            "value": 3
                         }
                     },
                     {
@@ -7088,7 +7084,7 @@
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} faster movement.",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
                             "spec": "1-10",
                             "min": 1,
@@ -7616,7 +7612,7 @@
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} Faster Movement",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
                             "spec": "0-10",
                             "min": 0,
@@ -10181,7 +10177,7 @@
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} faster movement.",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
                             "spec": [
                                 "2-4"
@@ -10206,13 +10202,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": "5-5",
                             "min": 5,
@@ -10707,13 +10702,12 @@
                         "id": 1222,
                         "name": "IncreaseMovementSpeedOnKill",
                         "isEnabled": true,
-                        "isImplemented": false,
                         "game": "Evolution",
                         "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
                         "paramType1": "percent",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} movement speed on kill",
+                        "description": "{parameter1} Movement Burst On Kill",
                         "param1": {
                             "spec": [
                                 "3-5"
@@ -12975,7 +12969,7 @@
                         "paramValue1": "0-10",
                         "nature": "Buff",
                         "influences": "Movement",
-                        "description": "{parameter1} faster movement.",
+                        "description": "{parameter1} movement burst strength",
                         "param1": {
                             "spec": "0-2",
                             "min": 0,
