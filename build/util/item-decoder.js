@@ -718,6 +718,9 @@ function normalizeItem(item) {
                         return "break";
                     }
                     var attribute = item.branches[branchIndex].attributes[attributeIndex];
+                    if (!attribute.param1) {
+                        return "continue";
+                    }
                     if (attribute.param1.value !== undefined) {
                         item.meta.attributes[attribute.id] = attribute.param1.value;
                         return "continue";
