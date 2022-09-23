@@ -1,18 +1,10 @@
 import { Model, RelationMappings, JSONSchema } from 'objection'
-import Node from './node'
-import Product from './product'
-import Tag from './tag'
-import BaseModel from './base'
 import Profile from './profile'
-import Chain from './chain'
+import BaseModel from './base'
 
-export default class Guild extends BaseModel {
-  public parentId!: number
-
-  public players!: Array<Profile>
-
+export default class Reward extends BaseModel {
   public static get tableName(): string {
-    return 'guilds'
+    return 'rewards'
   }
 
   public static get timestamps(): boolean {
@@ -30,12 +22,12 @@ export default class Guild extends BaseModel {
 
   public static get relationMappings(): RelationMappings {
     return {
-      players: {
-        relation: Model.HasManyRelation,
-        modelClass: Guild,
+      owner: {
+        relation: Model.HasOneRelation,
+        modelClass: Profile,
         join: {
-          from: 'guilds.id',
-          to: 'profiles.guildId'
+          from: 'rewards.ownerId',
+          to: 'profiles.id'
         }
       },
     }

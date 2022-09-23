@@ -2,12 +2,15 @@ import { JSONSchema, Model, RelationMappings } from 'objection'
 import Project from './project'
 import License from './license'
 import Order from './order'
+import Achievement from './achievement'
 import Account from './account'
+import Guild from './guild'
 import Message from './message'
 import Asset from './asset'
 import Offer from './offer'
 import Node from './node'
 import Realm from './realm'
+import Reward from './reward'
 import Badge from './badge'
 import Collection from './collection'
 import Event from './event'
@@ -35,7 +38,9 @@ export default class Profile extends BaseModel {
   public reputation!: number // based on events
   public signature!: string
   public chain!: string
+  public points!: number
 
+  public rewards!: Array<Reward>
   public ideas!: Array<Idea>
   public projects!: Array<Project>
   public products!: Array<Product>
@@ -49,6 +54,7 @@ export default class Profile extends BaseModel {
   public collections!: Array<Collection>
   public wishlists!: Array<Node>
   public ownedProducts!: Array<Product>
+  public achievements!: Array<Achievement>
 
   public static get tableName(): string {
     return 'profiles'
@@ -128,6 +134,25 @@ export default class Profile extends BaseModel {
         },
         beforeInsert (model) {
           (model as Node).relationKey = 'orders'
+        }
+      },
+      achievements: {
+        relation: Model.ManyToManyRelation,
+        modelClass: Achievement,
+        join: {
+          from: 'profiles.id',
+          to: 'achievements.id',
+          through: {
+            from: 'nodes.fromProfileId',
+            to: 'nodes.toAchievementId',
+            extra: ['relationKey']
+          }
+        },
+        filter: {
+          relationKey: 'achievements'
+        },
+        beforeInsert (model) {
+          (model as Node).relationKey = 'achievements'
         }
       },
       messages: {
@@ -340,6 +365,14 @@ export default class Profile extends BaseModel {
         join: {
           from: 'profiles.accountId',
           to: 'accounts.id'
+        }
+      },
+      guild: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Guild,
+        join: {
+          from: 'profiles.guildId',
+          to: 'guilds.id'
         }
       },
       projects: {

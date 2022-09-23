@@ -64,8 +64,8 @@ export function getFilteredItems(list: any) {
 
       if (condition === 'halloween') {
         const now = removeTimezoneOffset(new Date())
-        const eventStart = removeTimezoneOffset(new Date(`October 31, ${now.getFullYear()} 00:00:00+0000`))
-        const eventEnd = removeTimezoneOffset(new Date(`November 1, ${now.getFullYear()} 00:00:00+0000`))
+        const eventStart = removeTimezoneOffset(new Date(`October 31, ${now.getFullYear()} 00:00:00`))
+        const eventEnd = removeTimezoneOffset(new Date(`November 1, ${now.getFullYear()} 00:00:00`))
 
         if (now > eventStart && now < eventEnd) {
           item.activeConditions.push(condition)
@@ -74,8 +74,8 @@ export function getFilteredItems(list: any) {
 
       if (condition === 'christmas') {
         const now = removeTimezoneOffset(new Date())
-        const eventStart = removeTimezoneOffset(new Date(`December 24, ${now.getFullYear()} 00:00:00+0000`))
-        const eventEnd = removeTimezoneOffset(new Date(`December 26, ${now.getFullYear()} 00:00:00+0000`))
+        const eventStart = removeTimezoneOffset(new Date(`December 24, ${now.getFullYear()} 00:00:00`))
+        const eventEnd = removeTimezoneOffset(new Date(`December 26, ${now.getFullYear()} 00:00:00`))
 
         if (now > eventStart && now < eventEnd) {
           item.activeConditions.push(condition)
@@ -1362,7 +1362,6 @@ export const ItemAttributes = {
     max: 200,
     description: `{parameter1} win bonus`,
   }
-  
 }
 
 // Temp: Fill from DB
@@ -2171,7 +2170,7 @@ export const itemData = {
       attributes: [],
       details: {
         Type: 'Scroll',
-        Subtype: 'Ticket',
+        Subtype: 'Scroll',
         Distribution: 'Quiz Reward',
         Date: 'March 13, 2022 - Now',
         'Max Supply': 'Unknown',
@@ -9156,7 +9155,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #1 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9195,7 +9194,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #2 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         2: {
@@ -9235,7 +9234,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #3 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9273,7 +9272,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #4 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         2: {
@@ -9313,7 +9312,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #5 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9351,7 +9350,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #6 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9389,7 +9388,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #7 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9427,7 +9426,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #8 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9465,7 +9464,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #9 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9503,7 +9502,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #10 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9541,7 +9540,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #11 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9579,7 +9578,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #12 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9617,7 +9616,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #13 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9655,7 +9654,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #14 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9693,7 +9692,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #15 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9731,7 +9730,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #16 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9769,7 +9768,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #17 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9807,7 +9806,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #18 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9845,7 +9844,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #19 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9883,7 +9882,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #20 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9921,7 +9920,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #21 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9959,7 +9958,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #22 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -9997,7 +9996,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #23 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10035,7 +10034,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #24 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10073,7 +10072,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #25 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10111,7 +10110,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #26 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10149,7 +10148,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #27 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10187,7 +10186,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #28 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10225,7 +10224,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #29 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10263,7 +10262,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #30 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10301,7 +10300,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #31 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10339,7 +10338,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #32 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {
@@ -10377,7 +10376,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ["An ancient rune used in magical craft. It's #33 in the Rune Codex."],
+          description: ["Used to craft items."],
           attributes: [],
         },
         [Games.Evolution.id]: {

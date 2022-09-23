@@ -2,12 +2,18 @@
 import { Model, RelationMappings, JSONSchema } from 'objection'
 import License from './license'
 import Offer from './offer'
+import Chain from './chain'
+import Profile from './profile'
 import Node from './node'
 import BaseModel from './base'
 
 export default class Asset extends BaseModel {
   public parentId!: number
   public score!: number
+  public tokenId!: string
+  public skin!: string
+  public transmuteCount!: number
+  public owner!: Profile
 
   public static get tableName(): string {
     return 'assets'
@@ -36,12 +42,28 @@ export default class Asset extends BaseModel {
           to: 'nodes.id'
         }
       },
+      owner: {
+        relation: Model.HasOneRelation,
+        modelClass: Profile,
+        join: {
+          from: 'rewards.ownerId',
+          to: 'profiles.id'
+        }
+      },
       license: {
         relation: Model.HasOneRelation,
         modelClass: License,
         join: {
           from: 'assets.licenseId',
-          to: 'assets.id'
+          to: 'licenses.id'
+        }
+      },
+      chain: {
+        relation: Model.HasOneRelation,
+        modelClass: Chain,
+        join: {
+          from: 'assets.chainId',
+          to: 'chains.id'
         }
       },
       offers: {

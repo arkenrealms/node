@@ -1907,6 +1907,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -2262,6 +2265,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -2562,6 +2568,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -2651,6 +2660,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -2993,6 +3005,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -3297,6 +3312,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -3621,6 +3639,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -4161,6 +4182,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -4689,6 +4713,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -5196,6 +5223,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -5737,6 +5767,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -6214,6 +6247,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -6673,6 +6709,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -7255,6 +7294,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -7561,6 +7603,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -7961,6 +8006,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -7991,6 +8039,7 @@ export declare const itemData: {
         isUpgradable: boolean;
         isPublishable: boolean;
         isRuneword: boolean;
+        isSkinnable: boolean;
         createdDate: number;
         hotness: string;
         numPerfectionRolls: number;
@@ -8482,6 +8531,8 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -8930,6 +8981,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -9284,6 +9338,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -9643,6 +9700,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -10003,6 +10063,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -10417,6 +10480,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -10697,6 +10763,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -11043,6 +11112,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -11276,6 +11348,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -11724,6 +11799,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -12107,6 +12185,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -12358,6 +12439,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -12684,6 +12768,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -13065,6 +13152,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -13537,6 +13627,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -13979,6 +14072,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -14337,6 +14433,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -14465,6 +14564,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -14625,14 +14727,19 @@ export declare const itemData: {
         materials: number[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
     } | {
+        uuid: string;
         id: number;
         name: string;
-        slug: string;
         icon: string;
+        image: string;
+        imageHigh: string;
         value: string;
         type: number;
         subType: number;
@@ -14654,15 +14761,15 @@ export declare const itemData: {
         isUpgradable: boolean;
         isPublishable: boolean;
         isRuneword: boolean;
+        isSkinnable: boolean;
         createdDate: number;
         hotness: number;
-        numPerfectionRolls: number;
         attributes: any[];
         details: {
             Type: string;
             Subtype: string;
+            Distribution: string[];
             "Rune Word"?: undefined;
-            Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
         };
@@ -14675,118 +14782,145 @@ export declare const itemData: {
         branches: {
             "1": {
                 attributes: ({
+                    uuid: string;
                     id: number;
                     name: string;
+                    displayName: string;
                     isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
                     nature: string;
                     description: string;
+                    explanation: string;
                     param1: {
                         spec: string;
+                        isPercent: boolean;
                         min: number;
                         max: number;
                         value?: undefined;
                     };
-                    paramValue1?: undefined;
-                    paramType2?: undefined;
+                    listOrder?: undefined;
+                    paramValues?: undefined;
                 } | {
+                    uuid: string;
                     id: number;
                     name: string;
+                    displayName: string;
+                    listOrder: number;
                     isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    paramValue1: string;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
                     nature: string;
                     description: string;
+                    explanation: string;
                     param1: {
                         spec: string;
+                        isPercent: boolean;
                         min: number;
                         max: number;
                         value?: undefined;
                     };
-                    paramType2?: undefined;
                 } | {
+                    uuid: string;
                     id: number;
                     name: string;
+                    displayName: string;
                     isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    paramValue1: string;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
                     nature: string;
                     description: string;
+                    explanation: string;
                     param1: {
                         spec: string;
                         min: number;
                         max: number;
                         value: number;
+                        isPercent?: undefined;
                     };
-                    paramType2?: undefined;
+                    listOrder?: undefined;
+                    paramValues?: undefined;
                 } | {
+                    uuid: string;
                     id: number;
                     name: string;
+                    displayName: string;
                     isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    nature: string;
-                    param1: {
-                        spec: string;
-                        min: number;
-                        max: number;
-                        value?: undefined;
-                    };
-                    description?: undefined;
-                    paramValue1?: undefined;
-                    paramType2?: undefined;
-                } | {
-                    id: number;
-                    name: string;
-                    isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    paramType2: string;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
                     nature: string;
                     description: string;
+                    explanation: string;
                     param1: {
                         spec: string;
-                        min: number;
-                        max: number;
-                        value: number;
+                        min: any;
+                        max: any;
+                        isPercent?: undefined;
+                        value?: undefined;
                     };
-                    paramValue1?: undefined;
+                    listOrder?: undefined;
                 })[];
                 perfection: number[];
             };
             "2": {
-                attributes: {
+                attributes: ({
+                    uuid: string;
                     id: number;
                     name: string;
+                    displayName: string;
+                    listOrder: number;
                     isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    paramValue1: string;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
                     nature: string;
                     description: string;
-                }[];
+                    explanation: string;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    listOrder?: undefined;
+                })[];
                 perfection: any[];
             };
             "3": {
                 attributes: {
+                    uuid: string;
                     id: number;
                     name: string;
+                    displayName: string;
                     isEnabled: boolean;
-                    game: string;
-                    nexusLink: string;
-                    paramType1: string;
-                    paramValue1: string;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
                     nature: string;
                     description: string;
+                    explanation: string;
                 }[];
                 perfection: any[];
             };
@@ -14802,7 +14936,8 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
-        image?: undefined;
+        slug?: undefined;
+        numPerfectionRolls?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -15177,6 +15312,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -15621,6 +15759,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -15909,6 +16050,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -16171,6 +16315,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
     } | {
         id: number;
         name: string;
@@ -16356,6 +16503,9 @@ export declare const itemData: {
         materials: number[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -16630,6 +16780,9 @@ export declare const itemData: {
         skills: any[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -16706,6 +16859,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -17021,6 +17177,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -17334,6 +17493,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -17560,6 +17722,182 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        image: string;
+        value: string;
+        type: number;
+        subType: number;
+        specificType: number;
+        slots: number[];
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string[];
+            "Rune Word"?: undefined;
+            Date?: undefined;
+            "Max Supply"?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                    };
+                }[];
+                perfection: number[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: number[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        numPerfectionRolls?: undefined;
+        imageHigh?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        value: string;
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: number;
+        attributes: any[];
+        details: {
+            Distribution: string[];
+            Type?: undefined;
+            Subtype?: undefined;
+            "Rune Word"?: undefined;
+            Date?: undefined;
+            "Max Supply"?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: any[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        image?: undefined;
+        type?: undefined;
+        subType?: undefined;
+        specificType?: undefined;
+        slots?: undefined;
+        numPerfectionRolls?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -17856,6 +18194,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -17929,6 +18270,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -18215,6 +18559,9 @@ export declare const itemData: {
         skills: any[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -18489,6 +18836,9 @@ export declare const itemData: {
         skills: number[];
         materials: number[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -18734,6 +19084,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -19014,6 +19367,9 @@ export declare const itemData: {
         skills: number[];
         materials: any[];
         category: string;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -19139,6 +19495,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -19212,6 +19571,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -19285,6 +19647,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -19587,6 +19952,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -19821,6 +20189,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20024,6 +20395,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20285,6 +20659,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20358,6 +20735,9 @@ export declare const itemData: {
         image?: undefined;
         type?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20503,6 +20883,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20596,6 +20979,9 @@ export declare const itemData: {
         materials: any[];
         category: string;
         image?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20699,6 +21085,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20802,6 +21191,9 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20875,6 +21267,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -20948,6 +21343,9 @@ export declare const itemData: {
         subType?: undefined;
         specificType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;
@@ -21098,6 +21496,1305 @@ export declare const itemData: {
         type?: undefined;
         subType?: undefined;
         slots?: undefined;
+        isSkinnable?: undefined;
+        uuid?: undefined;
+        imageHigh?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        image: string;
+        imageHigh: string;
+        value: string;
+        type: number;
+        subType: number;
+        slots: number[];
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: string;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string[];
+            "Max Supply": string;
+            "Rune Word"?: undefined;
+            Date?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        value?: undefined;
+                        isPercent?: undefined;
+                    };
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                })[];
+                perfection: number[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        value?: undefined;
+                        isPercent?: undefined;
+                    };
+                    influences?: undefined;
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    link: string;
+                    isImplemented: boolean;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                    displayName?: undefined;
+                    game?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    nature?: undefined;
+                    influences?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    param2?: undefined;
+                })[];
+                perfection: any[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: any[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        specificType?: undefined;
+        numPerfectionRolls?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        image: string;
+        imageHigh: string;
+        value: string;
+        type: number;
+        subType: number;
+        specificType: number;
+        slots: number[];
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: string;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string[];
+            "Max Supply": string;
+            "Rune Word"?: undefined;
+            Date?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        isPercent?: undefined;
+                        value?: undefined;
+                    };
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    listOrder?: undefined;
+                })[];
+                perfection: number[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        value?: undefined;
+                        isPercent?: undefined;
+                    };
+                    influences?: undefined;
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    link: string;
+                    isImplemented: boolean;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    displayName?: undefined;
+                    game?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    nature?: undefined;
+                    influences?: undefined;
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                })[];
+                perfection: any[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: any[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        numPerfectionRolls?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        image: string;
+        value: string;
+        type: number;
+        subType: number;
+        specificType: number;
+        slots: number[];
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: string;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string[];
+            "Max Supply": string;
+            "Rune Word"?: undefined;
+            Date?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        isPercent?: undefined;
+                    };
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    listOrder?: undefined;
+                })[];
+                perfection: number[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        isPercent?: undefined;
+                    };
+                    influences?: undefined;
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    link: string;
+                    isImplemented: boolean;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    displayName?: undefined;
+                    game?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    nature?: undefined;
+                    influences?: undefined;
+                    param2?: undefined;
+                })[];
+                perfection: number[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: any[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        numPerfectionRolls?: undefined;
+        imageHigh?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        image: string;
+        imageHigh: string;
+        value: string;
+        type: number;
+        subType: number;
+        specificType: number;
+        slots: number[];
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: string;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string[];
+            "Max Supply": string;
+            "Rune Word"?: undefined;
+            Date?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        isPercent?: undefined;
+                        value?: undefined;
+                    };
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                })[];
+                perfection: number[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        value?: undefined;
+                    };
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    link: string;
+                    isImplemented: boolean;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    displayName?: undefined;
+                    game?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    nature?: undefined;
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    link: string;
+                    isImplemented: boolean;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                    displayName?: undefined;
+                    game?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    nature?: undefined;
+                })[];
+                perfection: any[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: any[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        numPerfectionRolls?: undefined;
+        isExclusive?: undefined;
+        exclusiveConditions?: undefined;
+        exclusiveActions?: undefined;
+    } | {
+        uuid: string;
+        id: number;
+        name: string;
+        icon: string;
+        image: string;
+        imageHigh: string;
+        value: string;
+        type: number;
+        subType: number;
+        specificType: number;
+        slots: number[];
+        isPolled: boolean;
+        isNew: boolean;
+        isSecret: boolean;
+        isUltraSecret: boolean;
+        isPaused: boolean;
+        isRetired: boolean;
+        isDisabled: boolean;
+        isCraftable: boolean;
+        isEnabled: boolean;
+        isEquipable: boolean;
+        isUnequipable: boolean;
+        isTradeable: boolean;
+        isTransferable: boolean;
+        isUpgradable: boolean;
+        isPublishable: boolean;
+        isRuneword: boolean;
+        isSkinnable: boolean;
+        createdDate: number;
+        hotness: string;
+        attributes: any[];
+        details: {
+            Type: string;
+            Subtype: string;
+            Distribution: string[];
+            "Max Supply": string;
+            "Rune Word"?: undefined;
+            Date?: undefined;
+        };
+        recipe: {
+            requirement: any[];
+        };
+        description: string;
+        shortDescription: string;
+        visualDescription: string;
+        branches: {
+            "1": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        isPercent?: undefined;
+                        value?: undefined;
+                    };
+                    listOrder?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                    paramValues?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    listOrder?: undefined;
+                })[];
+                perfection: number[];
+            };
+            "2": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "3": {
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        isPercent?: undefined;
+                        value?: undefined;
+                    };
+                    listOrder?: undefined;
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    listOrder: number;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        isPercent: boolean;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                    param2?: undefined;
+                } | {
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    link: string;
+                    isImplemented: boolean;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                        isPercent?: undefined;
+                    };
+                    param2: {
+                        spec: string;
+                        min: any;
+                        max: any;
+                    };
+                    displayName?: undefined;
+                    game?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    nature?: undefined;
+                    listOrder?: undefined;
+                })[];
+                perfection: number[];
+            };
+            "4": {
+                attributes: any[];
+                perfection: any[];
+            };
+            "5": {
+                attributes: any[];
+                perfection: any[];
+            };
+        };
+        skills: any[];
+        materials: any[];
+        category: string;
+        slug?: undefined;
+        numPerfectionRolls?: undefined;
         isExclusive?: undefined;
         exclusiveConditions?: undefined;
         exclusiveActions?: undefined;

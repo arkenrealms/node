@@ -563,6 +563,7 @@
             "id": 1100,
             "name": "KilledPlayerPenaltyIncrease",
             "isEnabled": true,
+            "isImplemented": false,
             "nexusLink": "https://nexus.rune.game/item-attribute/killedplayerpenaltyincrease",
             "paramType1": "percent",
             "paramValue1": "0-25",
@@ -2423,7 +2424,7 @@
         }
       ]
     },
-    "description": "Crafted with the finest vira materials, this cloudstrike sword is imbued with the power of wind.",
+    "description": "Crafted with the finest Vira materials, this cloudstrike sword is imbued with the power of wind.",
     "shortDescription": "",
     "visualDescription": "Heavily detailed with gold accents and sparkling sapphires, the steel of this blade shimmers so brilliantly that it appears to glow in sunlight.",
     "branches": {
@@ -4817,7 +4818,7 @@
         }
       ]
     },
-    "description": "With seamless claws of unknown material and origin, these royal vira appear vicious despite their beauty.",
+    "description": "With seamless claws of unknown material and origin, these royal Vira appear vicious despite their beauty.",
     "shortDescription": "",
     "visualDescription": "These strange, intricate gauntlets are entirely gold-plated, save for the central gem and claws affixed to the finger joints. The gems and claws are made of the same material: a shimmering purple-blue metal with a gem-like quality.",
     "branches": {
@@ -7377,6 +7378,7 @@
     "isUpgradable": true,
     "isPublishable": true,
     "isRuneword": true,
+    "isSkinnable": true,
     "createdDate": 0,
     "hotness": "9",
     "numPerfectionRolls": 116755769922,
@@ -16275,17 +16277,20 @@
     "category": "accessory"
   },
   {
+    "uuid": "rec9hbLlkqzgzIpMX",
     "id": 41,
     "name": "Windfall",
-    "slug": "Windfall",
-    "icon": "/images/items/00041.png",
+    "icon": "https://dl.airtable.com/.attachments/c63d3d7e5a6bce34882c7e17e6ed9287/70fd8c23/image19.png",
+    "image": "https://dl.airtable.com/.attachments/c63d3d7e5a6bce34882c7e17e6ed9287/70fd8c23/image19.png",
+    "imageHigh": "https://dl.airtable.com/.attachments/822413885ee2a70eb3617a64034fb014/dccd57cf/image19.png",
     "value": "0",
     "type": 12,
     "subType": 14,
     "specificType": 37,
     "slots": [
       13,
-      14
+      14,
+      16
     ],
     "isPolled": false,
     "isNew": false,
@@ -16303,13 +16308,16 @@
     "isUpgradable": true,
     "isPublishable": true,
     "isRuneword": true,
+    "isSkinnable": false,
     "createdDate": 0,
     "hotness": 0,
-    "numPerfectionRolls": 108,
     "attributes": [],
     "details": {
       "Type": "Ring",
-      "Subtype": "Prism Band"
+      "Subtype": "Prism Band",
+      "Distribution": [
+        "Crafted"
+      ]
     },
     "recipe": {
       "requirement": []
@@ -16321,126 +16329,146 @@
       "1": {
         "attributes": [
           {
+            "uuid": "recWftdMUp5fxRIUQ",
             "id": 123,
             "name": "AvoidHarvestLossWithoutBonus",
+            "displayName": "Avoid Harvest Loss Without Bonus",
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/avoidharvestlosswithoutbonus",
-            "paramType1": "percent",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/avoidharvestlosswithoutbonus",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
             "nature": "Buff",
             "description": "{parameter1} chance to avoid harvest loss effects, receiving harvest without bonuses",
+            "explanation": "",
             "param1": {
-              "spec": "0-5",
+              "spec": "0-8",
+              "isPercent": true,
               "min": 0,
-              "max": 5
+              "max": 8
             }
           },
           {
+            "uuid": "recXr6GLgY7DKBj4C",
             "id": 13,
             "name": "MagicFind",
+            "displayName": "Magic Find",
+            "listOrder": 300.51,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/magicfind",
-            "paramType1": "percent",
-            "paramValue1": "0-999",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/magicfind",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999%"
+            ],
             "nature": "Buff",
             "description": "{parameter1} Magic Find",
+            "explanation": "",
             "param1": {
-              "spec": "20-25",
-              "min": 20,
-              "max": 25
+              "spec": "15-30",
+              "isPercent": true,
+              "min": 15,
+              "max": 30
             }
           },
           {
-            "id": 88,
-            "name": "FindFashionShard",
-            "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/findfashionshard",
-            "paramType1": "value",
-            "paramValue1": "0-100",
-            "nature": "Buff",
-            "description": "{parameter1} Fashion Find",
-            "param1": {
-              "spec": "5-5",
-              "min": 5,
-              "max": 5,
-              "value": 5
-            }
-          },
-          {
-            "id": 84,
-            "name": "RandomStaticAttribute",
-            "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/randomstaticattribute",
-            "paramType1": "value",
-            "nature": "Mechanic",
-            "param1": {
-              "spec": "801-820",
-              "min": 801,
-              "max": 820
-            }
-          },
-          {
+            "uuid": "rechTBjqDegb6XtGr",
             "id": 5,
             "name": "BurnEntireHarvest",
+            "displayName": "Burn Entire Harvest",
+            "listOrder": 500.51,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/burnentireharvest",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/burnentireharvest",
+            "isImplemented": true,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Debuff",
             "description": "{parameter1} Chance To Lose Entire Harvest",
+            "explanation": "",
             "param1": {
               "spec": "0-2",
+              "isPercent": true,
               "min": 0,
               "max": 2
             }
           },
           {
+            "uuid": "recvQfPSVjcbvj7F9",
             "id": 73,
             "name": "HarvestTheftDefense",
+            "displayName": "Harvest Theft Defense",
+            "listOrder": 700.5,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/harvesttheftdefense",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvesttheftdefense",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Mechanic",
             "description": "{parameter1} Theft Counter Chance",
+            "explanation": "",
             "param1": {
-              "spec": "0-2",
+              "spec": "0-4",
+              "isPercent": true,
               "min": 0,
-              "max": 2
+              "max": 4
             }
           },
           {
+            "uuid": "recGzPeyuPYWqfEyQ",
             "id": 93,
             "name": "AttributeUnlockOnConsecutiveEquipTime",
+            "displayName": "Attribute Unlock On Consecutive Equip Time",
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
-            "paramType1": "hours",
-            "paramType2": "attributes",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
+            "isImplemented": false,
+            "paramTypes": [
+              "hours",
+              "(attribute, (paramValues[]))[]"
+            ],
             "nature": "Requirement",
             "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
+            "explanation": "",
             "param1": {
-              "spec": "168-168",
+              "spec": "168",
               "min": 168,
               "max": 168,
               "value": 168
             }
           },
           {
+            "uuid": "recwj5PtLK0YpQU5F",
             "id": 94,
             "name": "TargetAttributeToUnlock",
+            "displayName": "Target Attribute To Unlock",
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/targetattributetounlock",
-            "paramType1": "attributeslot",
-            "paramValue1": "0-7",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/targetattributetounlock",
+            "isImplemented": false,
+            "paramTypes": [
+              "attributeSlot"
+            ],
+            "paramValues": [
+              "0-7"
+            ],
             "nature": "Neutral",
             "description": "{parameter1} To Unlock",
+            "explanation": "",
             "param1": {
               "spec": "Attribute 2",
               "min": null,
@@ -16449,10 +16477,8 @@
           }
         ],
         "perfection": [
-          5,
-          25,
-          null,
-          null,
+          8,
+          30,
           0,
           null,
           null,
@@ -16462,26 +16488,43 @@
       "2": {
         "attributes": [
           {
+            "uuid": "rectRoCGdaD18iZoA",
             "id": 1,
             "name": "HarvestYield",
+            "displayName": "Harvest Yield",
+            "listOrder": 100.5,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/harvestyield",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvestyield",
+            "isImplemented": true,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Buff",
-            "description": "{parameter1} Increased Harvest Yield"
+            "description": "{parameter1} Increased Harvest Yield",
+            "explanation": ""
           },
           {
+            "uuid": "recMqwADrktEhEgJO",
             "id": 30,
             "name": "HarvestLockedLp",
+            "displayName": "Harvest Locked Lp",
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/harvestlockedlp",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvestlockedlp",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Neutral",
-            "description": "{parameter1} Harvest Buy & Lock LP"
+            "description": "{parameter1} Harvest Buy & Lock LP",
+            "explanation": ""
           }
         ],
         "perfection": [
@@ -16492,15 +16535,23 @@
       "3": {
         "attributes": [
           {
+            "uuid": "recMqwADrktEhEgJO",
             "id": 30,
             "name": "HarvestLockedLp",
+            "displayName": "Harvest Locked Lp",
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/harvestlockedlp",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvestlockedlp",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Neutral",
-            "description": "{parameter1} Harvest Buy & Lock LP"
+            "description": "{parameter1} Harvest Buy & Lock LP",
+            "explanation": ""
           }
         ],
         "perfection": [
@@ -19036,7 +19087,7 @@
             "paramType1": "value",
             "nature": "Buff",
             "influences": "Skill",
-            "description": "{parameter1} levels added to equipped skill(s)",
+            "description": "+{parameter1} all skills",
             "param1": {
               "spec": "1-1",
               "min": 1,
@@ -20410,18 +20461,19 @@
     "category": "accessory"
   },
   {
+    "uuid": "recfAjOhHFxsm3OKA",
     "id": 110,
     "name": "Hoarfrost",
-    "slug": "Hoarfrost",
     "icon": "/images/items/00110.png",
-    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png?ts=1657605448&userId=usrf0GZYc5zCl9Cv7&cs=3187639478a8b8c9",
+    "image": "https://dl.airtable.com/.attachments/c0bff0357bb978db04c87af54f5b1225/dec09771/ring_A_11.png",
     "value": "0",
     "type": 12,
     "subType": 14,
     "specificType": 47,
     "slots": [
       13,
-      14
+      14,
+      16
     ],
     "isPolled": false,
     "isNew": false,
@@ -20439,13 +20491,16 @@
     "isUpgradable": true,
     "isPublishable": true,
     "isRuneword": true,
+    "isSkinnable": false,
     "createdDate": 0,
     "hotness": 0,
-    "numPerfectionRolls": 726,
     "attributes": [],
     "details": {
       "Type": "Ring",
-      "Subtype": "Chillmetal Ring"
+      "Subtype": "Chillmetal Ring",
+      "Distribution": [
+        "Crafted"
+      ]
     },
     "recipe": {
       "requirement": []
@@ -20457,65 +20512,105 @@
       "1": {
         "attributes": [
           {
+            "uuid": "recO20qQW3JPe0syJ",
             "id": 47,
             "name": "ReduceBurn",
+            "displayName": "Reduce Burn",
+            "listOrder": 400.51,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/reduceburn",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/reduceburn",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Buff",
-            "description": "{parameter1} Reduced Burn (Not Implemented)",
+            "description": "{parameter1} Reduced Burn",
+            "explanation": "",
             "param1": {
-              "spec": "0-5",
-              "min": 0,
+              "spec": "1-5",
+              "isPercent": true,
+              "min": 1,
               "max": 5
             }
           },
           {
+            "uuid": "recvQfPSVjcbvj7F9",
             "id": 73,
             "name": "HarvestTheftDefense",
+            "displayName": "Harvest Theft Defense",
+            "listOrder": 700.5,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/harvesttheftdefense",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvesttheftdefense",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Mechanic",
             "description": "{parameter1} Theft Counter Chance",
+            "explanation": "",
             "param1": {
               "spec": "0-5",
+              "isPercent": true,
               "min": 0,
               "max": 5
             }
           },
           {
+            "uuid": "rec7I9B8tpkMtrW3k",
             "id": 7,
             "name": "FindShard",
+            "displayName": "Find Shard",
+            "listOrder": 300.5,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/findshard",
-            "paramType1": "percent",
-            "paramValue1": "0-100",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/findshard",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
             "nature": "Buff",
-            "description": "{parameter1} Chance To Find Worldstone Shard (Per Raid)",
+            "description": "{parameter1} Chance To Find Worldstone Shard",
+            "explanation": "Chance applies once per raid.\n",
             "param1": {
-              "spec": "10-20",
-              "min": 10,
-              "max": 20
+              "spec": "2-4",
+              "isPercent": true,
+              "min": 2,
+              "max": 4
             }
           },
           {
+            "uuid": "recXr6GLgY7DKBj4C",
             "id": 13,
             "name": "MagicFind",
+            "displayName": "Magic Find",
+            "listOrder": 300.51,
             "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/magicfind",
-            "paramType1": "percent",
-            "paramValue1": "0-999",
+            "game": 1,
+            "link": "https://rune.game/item-attribute/magicfind",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999%"
+            ],
             "nature": "Buff",
             "description": "{parameter1} Magic Find",
+            "explanation": "",
             "param1": {
               "spec": "10-20",
+              "isPercent": true,
               "min": 10,
               "max": 20
             }
@@ -20524,7 +20619,7 @@
         "perfection": [
           5,
           null,
-          20,
+          4,
           20
         ]
       },
@@ -20549,6 +20644,69 @@
       452,
       514
     ],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "recq0W8NuHdqaOd4D",
+    "id": 111,
+    "name": "Verdant",
+    "icon": "/images/items/00111.png",
+    "value": "0",
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": true,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": true,
+    "isPublishable": true,
+    "isRuneword": true,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": 0,
+    "attributes": [],
+    "details": {
+      "Distribution": [
+        "Crafted"
+      ]
+    },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "",
+    "shortDescription": "",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [],
+        "perfection": []
+      },
+      "2": {
+        "attributes": [],
+        "perfection": []
+      },
+      "3": {
+        "attributes": [],
+        "perfection": []
+      },
+      "4": {
+        "attributes": [],
+        "perfection": []
+      },
+      "5": {
+        "attributes": [],
+        "perfection": []
+      }
+    },
+    "skills": [],
     "materials": [],
     "category": "accessory"
   },
@@ -20615,7 +20773,7 @@
     "id": 112,
     "name": "Animus",
     "slug": "Animus",
-    "icon": "/images/items/00112.png",
+    "icon": "https://dl.airtable.com/.attachments/ae928f763813fbdbffa0674ae33bf3d8/d42721e1/Rings_Background_Removal_Collection.png",
     "image": "https://dl.airtable.com/.attachments/f33b5cb45e09563bb4c908d69da45096/28d33b85/00112.png?ts=1657605450&userId=usrf0GZYc5zCl9Cv7&cs=2314fa0abf72a2f2",
     "value": "0",
     "type": 12,
@@ -26617,6 +26775,1689 @@
         "perfection": [
           null,
           5
+        ]
+      },
+      "4": {
+        "attributes": [],
+        "perfection": []
+      },
+      "5": {
+        "attributes": [],
+        "perfection": []
+      }
+    },
+    "skills": [],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "rec7QDOvHzxD6O57M",
+    "id": 2015,
+    "name": "Bul-Kathos' Wedding Band",
+    "icon": "https://dl.airtable.com/.attachments/c03551b95ec81f97e424548ef493f111/e53e0f0e/Rings_Background_Removal_Collection.png",
+    "image": "https://dl.airtable.com/.attachments/c03551b95ec81f97e424548ef493f111/e53e0f0e/Rings_Background_Removal_Collection.png",
+    "imageHigh": "https://dl.airtable.com/.attachments/104565451b40c135f115f62a41c9daeb/7b363a9f/image11.png",
+    "value": "0",
+    "type": 12,
+    "subType": 14,
+    "slots": [
+      13,
+      14,
+      16
+    ],
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": true,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": true,
+    "isPublishable": true,
+    "isRuneword": false,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": "9",
+    "attributes": [],
+    "details": {
+      "Type": "Ring",
+      "Subtype": "Covenant Band",
+      "Distribution": [
+        "Fundraiser"
+      ],
+      "Max Supply": "4"
+    },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "shortDescription": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "recMyZ3U5GePlbE0C",
+            "id": 60,
+            "name": "AddSkillLevel",
+            "displayName": "Add Skill Level",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/addskilllevel",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-4"
+            ],
+            "nature": "Buff",
+            "description": "+{parameter1} All skills",
+            "explanation": "",
+            "param1": {
+              "spec": "1",
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          },
+          {
+            "uuid": "recvQfPSVjcbvj7F9",
+            "id": 73,
+            "name": "HarvestTheftDefense",
+            "displayName": "Harvest Theft Defense",
+            "listOrder": 700.5,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvesttheftdefense",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Mechanic",
+            "description": "{parameter1} Theft Counter Chance",
+            "explanation": "",
+            "param1": {
+              "spec": "4-10",
+              "isPercent": true,
+              "min": 4,
+              "max": 10
+            }
+          },
+          {
+            "uuid": "recO8k0psCX4pzCZR",
+            "id": 67,
+            "name": "HarvestTheftMaxIncrease",
+            "displayName": "Harvest Theft Max Increase",
+            "listOrder": 600.52,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvesttheftmaxincrease",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Buff",
+            "description": "Maximum Possible Harvest Theft Increased By {parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "2-6",
+              "isPercent": true,
+              "min": 2,
+              "max": 6
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          null,
+          null,
+          6
+        ]
+      },
+      "2": {
+        "attributes": [],
+        "perfection": []
+      },
+      "3": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "recBuLQkmUCQFoMxW",
+            "id": 2003,
+            "name": "ModifyStat",
+            "displayName": "Increase Stat",
+            "isEnabled": true,
+            "game": 3,
+            "link": "https://rune.game/item-attribute/modifystat",
+            "isImplemented": false,
+            "paramTypes": [
+              "target",
+              "stat",
+              "value",
+              "conditions?"
+            ],
+            "paramValues": [
+              "0-200%"
+            ],
+            "nature": "Conditional",
+            "influences": "Gameplay",
+            "description": "{p3} {p2} for {p1}, {p4.description}.",
+            "explanation": "",
+            "param1": {
+              "spec": "-1--1%",
+              "min": -1,
+              "max": -1,
+              "value": -1
+            },
+            "param2": {
+              "spec": "MaxHealth",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recoTa3KthqdRkm6u",
+            "id": 4115,
+            "name": "IncreaseSkillLvl",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/increaseskilllvl",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "1-1",
+              "min": 1,
+              "max": 1,
+              "value": 1
+            },
+            "param2": {
+              "spec": "All",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recq2Jbwz5nJbqiv3",
+            "id": 1019,
+            "name": "LifeSteal",
+            "displayName": "Life Steal",
+            "isEnabled": true,
+            "game": 2,
+            "link": "https://rune.game/item-attribute/lifesteal",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-30%"
+            ],
+            "nature": "Buff",
+            "influences": "Offense",
+            "description": "{parameter1} life steal",
+            "explanation": "",
+            "param1": {
+              "spec": "4-4",
+              "isPercent": true,
+              "min": 4,
+              "max": 4,
+              "value": 4
+            },
+            "param2": {
+              "spec": "MaxHealth",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recBuLQkmUCQFoMxW",
+            "id": 2003,
+            "name": "ModifyStat",
+            "displayName": "Increase Stat",
+            "isEnabled": true,
+            "game": 3,
+            "link": "https://rune.game/item-attribute/modifystat",
+            "isImplemented": false,
+            "paramTypes": [
+              "target",
+              "stat",
+              "value",
+              "conditions?"
+            ],
+            "paramValues": [
+              "0-200%"
+            ],
+            "nature": "Conditional",
+            "influences": "Gameplay",
+            "description": "{p3} {p2} for {p1}, {p4.description}.",
+            "explanation": "",
+            "param1": {
+              "spec": "11-11",
+              "isPercent": true,
+              "min": 11,
+              "max": 11,
+              "value": 11
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "4": {
+        "attributes": [],
+        "perfection": []
+      },
+      "5": {
+        "attributes": [],
+        "perfection": []
+      }
+    },
+    "skills": [],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "rec4XQrATwCKW8D1r",
+    "id": 2018,
+    "name": "Dwarf Star",
+    "icon": "https://dl.airtable.com/.attachments/7bed3447aaed85b8f2784426b7ae120f/aa004f15/Rings_Background_Removal_Collection.png",
+    "image": "https://dl.airtable.com/.attachments/7bed3447aaed85b8f2784426b7ae120f/aa004f15/Rings_Background_Removal_Collection.png",
+    "imageHigh": "https://dl.airtable.com/.attachments/00536dc0a24fe58da35484ee1ab2c220/f97ffba9/image12.png",
+    "value": "0",
+    "type": 12,
+    "subType": 53,
+    "specificType": 146,
+    "slots": [
+      13,
+      14,
+      16
+    ],
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": true,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": true,
+    "isPublishable": true,
+    "isRuneword": false,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": "9",
+    "attributes": [],
+    "details": {
+      "Type": "Ring",
+      "Subtype": "Horadric Ring",
+      "Distribution": [
+        "Fundraiser"
+      ],
+      "Max Supply": "4"
+    },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "shortDescription": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "rec42i3KLKSAMj8Yu",
+            "id": 8,
+            "name": "RemoveFees",
+            "displayName": "Remove Fees",
+            "listOrder": 400.54,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/removefees",
+            "isImplemented": true,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Reduced Harvest Fees",
+            "explanation": "",
+            "param1": {
+              "spec": "1-5",
+              "isPercent": true,
+              "min": 1,
+              "max": 5
+            }
+          },
+          {
+            "uuid": "recivTtU2qldh6gH2",
+            "id": 103,
+            "name": "CriticalSlamChance",
+            "displayName": "Critical Slam Chance",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/criticalslamchance",
+            "isImplemented": false,
+            "nature": "Buff",
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "1%",
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          },
+          {
+            "uuid": "recJVJJvMpvLal1H6",
+            "id": 24,
+            "name": "ShardOnHarvest",
+            "displayName": "Shard On Harvest",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/shardonharvest",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-50%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Chance To Find Shard (On Harvest)",
+            "explanation": "",
+            "param1": {
+              "spec": "2",
+              "isPercent": true,
+              "min": 2,
+              "max": 2,
+              "value": 2
+            }
+          },
+          {
+            "uuid": "recXr6GLgY7DKBj4C",
+            "id": 13,
+            "name": "MagicFind",
+            "displayName": "Magic Find",
+            "listOrder": 300.51,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/magicfind",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Magic Find",
+            "explanation": "",
+            "param1": {
+              "spec": "5-10",
+              "isPercent": true,
+              "min": 5,
+              "max": 10
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          5,
+          null,
+          null,
+          10
+        ]
+      },
+      "2": {
+        "attributes": [],
+        "perfection": []
+      },
+      "3": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "rec9PEe9h9TnA37fs",
+            "id": 4116,
+            "name": "GoldFind",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/goldfind",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "20",
+              "min": 20,
+              "max": 20,
+              "value": 20
+            }
+          },
+          {
+            "uuid": "recBuLQkmUCQFoMxW",
+            "id": 2003,
+            "name": "ModifyStat",
+            "displayName": "Increase Stat",
+            "isEnabled": true,
+            "game": 3,
+            "link": "https://rune.game/item-attribute/modifystat",
+            "isImplemented": false,
+            "paramTypes": [
+              "target",
+              "stat",
+              "value",
+              "conditions?"
+            ],
+            "paramValues": [
+              "0-200%"
+            ],
+            "nature": "Conditional",
+            "influences": "Gameplay",
+            "description": "{p3} {p2} for {p1}, {p4.description}.",
+            "explanation": "",
+            "param1": {
+              "spec": "10-10",
+              "isPercent": true,
+              "min": 10,
+              "max": 10,
+              "value": 10
+            }
+          },
+          {
+            "uuid": "recas0DtaPLmwZK18",
+            "id": 4123,
+            "name": "StaminaRegen",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/staminaregen",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "15-15",
+              "min": 15,
+              "max": 15,
+              "value": 15
+            }
+          },
+          {
+            "uuid": "recBuLQkmUCQFoMxW",
+            "id": 2003,
+            "name": "ModifyStat",
+            "displayName": "Increase Stat",
+            "isEnabled": true,
+            "game": 3,
+            "link": "https://rune.game/item-attribute/modifystat",
+            "isImplemented": false,
+            "paramTypes": [
+              "target",
+              "stat",
+              "value",
+              "conditions?"
+            ],
+            "paramValues": [
+              "0-200%"
+            ],
+            "nature": "Conditional",
+            "influences": "Gameplay",
+            "description": "{p3} {p2} for {p1}, {p4.description}.",
+            "explanation": "",
+            "param1": {
+              "spec": "10-10",
+              "isPercent": true,
+              "min": 10,
+              "max": 10,
+              "value": 10
+            },
+            "param2": {
+              "spec": "MaxHealth",
+              "min": null,
+              "max": null
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "4": {
+        "attributes": [],
+        "perfection": []
+      },
+      "5": {
+        "attributes": [],
+        "perfection": []
+      }
+    },
+    "skills": [],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "recpQqQ4WVzCI9o2r",
+    "id": 2020,
+    "name": "Raven Frost",
+    "icon": "https://dl.airtable.com/.attachments/f5afcfd96e244cc7e5cf104b048e4bbb/8810466b/ring_A_19.png",
+    "image": "https://dl.airtable.com/.attachments/f5afcfd96e244cc7e5cf104b048e4bbb/8810466b/ring_A_19.png",
+    "value": "0",
+    "type": 12,
+    "subType": 53,
+    "specificType": 146,
+    "slots": [
+      13,
+      14,
+      16
+    ],
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": true,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": true,
+    "isPublishable": true,
+    "isRuneword": false,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": "9",
+    "attributes": [],
+    "details": {
+      "Type": "Ring",
+      "Subtype": "Ring",
+      "Distribution": [
+        "Fundraiser"
+      ],
+      "Max Supply": "4"
+    },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "shortDescription": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "rec42i3KLKSAMj8Yu",
+            "id": 8,
+            "name": "RemoveFees",
+            "displayName": "Remove Fees",
+            "listOrder": 400.54,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/removefees",
+            "isImplemented": true,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Reduced Harvest Fees",
+            "explanation": "",
+            "param1": {
+              "spec": "1-5",
+              "isPercent": true,
+              "min": 1,
+              "max": 5
+            }
+          },
+          {
+            "uuid": "recEc2SQW7UtsylVp",
+            "id": 17,
+            "name": "FreezeFees",
+            "displayName": "Freeze Fees",
+            "listOrder": 400.53,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/freezefees",
+            "isImplemented": false,
+            "paramTypes": [
+              "chance"
+            ],
+            "paramValues": [
+              "0-100"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Chance to Freeze Fees",
+            "explanation": "",
+            "param1": {
+              "spec": "8-20",
+              "isPercent": true,
+              "min": 8,
+              "max": 20
+            }
+          },
+          {
+            "uuid": "reckpIKC0qBtqxkKJ",
+            "id": 29,
+            "name": "FreezeFeesValue",
+            "displayName": "Freeze Fees Value",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/freezefeesvalue",
+            "isImplemented": false,
+            "paramTypes": [
+              "hours"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Buff",
+            "description": "Freeze Fees Timeline: {parameter1} Hours",
+            "explanation": "",
+            "param1": {
+              "spec": "4-10",
+              "min": 4,
+              "max": 10
+            }
+          },
+          {
+            "uuid": "recvQfPSVjcbvj7F9",
+            "id": 73,
+            "name": "HarvestTheftDefense",
+            "displayName": "Harvest Theft Defense",
+            "listOrder": 700.5,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvesttheftdefense",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Mechanic",
+            "description": "{parameter1} Theft Counter Chance",
+            "explanation": "",
+            "param1": {
+              "spec": "2-8",
+              "isPercent": true,
+              "min": 2,
+              "max": 8
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          5,
+          20,
+          10,
+          8
+        ]
+      },
+      "2": {
+        "attributes": [],
+        "perfection": []
+      },
+      "3": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "recQwqN3Qgo811AZL",
+            "id": 1010,
+            "name": "IncreaseDamage",
+            "displayName": "Increase Damage",
+            "isEnabled": true,
+            "game": 2,
+            "link": "https://rune.game/item-attribute/increasedamage",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-120"
+            ],
+            "nature": "Buff",
+            "influences": "Offense",
+            "description": "{parameter1} Damage",
+            "explanation": "",
+            "param1": {
+              "spec": "4-8",
+              "min": 4,
+              "max": 8
+            },
+            "param2": {
+              "spec": "Ice",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recBuLQkmUCQFoMxW",
+            "id": 2003,
+            "name": "ModifyStat",
+            "displayName": "Increase Stat",
+            "isEnabled": true,
+            "game": 3,
+            "link": "https://rune.game/item-attribute/modifystat",
+            "isImplemented": false,
+            "paramTypes": [
+              "target",
+              "stat",
+              "value",
+              "conditions?"
+            ],
+            "paramValues": [
+              "0-200%"
+            ],
+            "nature": "Conditional",
+            "influences": "Gameplay",
+            "description": "{p3} {p2} for {p1}, {p4.description}.",
+            "explanation": "",
+            "param1": {
+              "spec": "6-10",
+              "isPercent": true,
+              "min": 6,
+              "max": 10
+            },
+            "param2": {
+              "spec": "Dexterity",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recLdpM8FEOR8alda",
+            "id": 4127,
+            "name": "AttackRating",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/attackrating",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "17-21",
+              "min": 17,
+              "max": 21
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          8,
+          null,
+          null
+        ]
+      },
+      "4": {
+        "attributes": [],
+        "perfection": []
+      },
+      "5": {
+        "attributes": [],
+        "perfection": []
+      }
+    },
+    "skills": [],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "recQ0sBFTpyWyVXTu",
+    "id": 2028,
+    "name": "Nature's Peace",
+    "icon": "https://dl.airtable.com/.attachments/ec3ce16d17cd14ee808e37fc47224f32/ee62a8e2/Rings_Background_Removal_Collection.png",
+    "image": "https://dl.airtable.com/.attachments/ec3ce16d17cd14ee808e37fc47224f32/ee62a8e2/Rings_Background_Removal_Collection.png",
+    "imageHigh": "https://dl.airtable.com/.attachments/41f2aeeb334d459c2bd5b4387ebae22e/0915467b/image9.png",
+    "value": "0",
+    "type": 12,
+    "subType": 53,
+    "specificType": 146,
+    "slots": [
+      13,
+      14,
+      16
+    ],
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": true,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": true,
+    "isPublishable": true,
+    "isRuneword": false,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": "9",
+    "attributes": [],
+    "details": {
+      "Type": "Ring",
+      "Subtype": "Nihlathak Ring",
+      "Distribution": [
+        "Fundraiser"
+      ],
+      "Max Supply": "4"
+    },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "shortDescription": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "rectRoCGdaD18iZoA",
+            "id": 1,
+            "name": "HarvestYield",
+            "displayName": "Harvest Yield",
+            "listOrder": 100.5,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvestyield",
+            "isImplemented": true,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Increased Harvest Yield",
+            "explanation": "",
+            "param1": {
+              "spec": "2-5",
+              "isPercent": true,
+              "min": 2,
+              "max": 5
+            }
+          },
+          {
+            "uuid": "rec3fbRsgxsddN1GM",
+            "id": 34,
+            "name": "AvoidBurn",
+            "displayName": "Avoid Burn",
+            "listOrder": 400.5,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/avoidburn",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Avoid All Burns",
+            "explanation": "",
+            "param1": {
+              "spec": "1",
+              "isPercent": true,
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          },
+          {
+            "uuid": "reck7gojtFbrg0OFf",
+            "id": 46,
+            "name": "BurnReflect",
+            "displayName": "Burn Reflect",
+            "listOrder": 400.52,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/burnreflect",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-20"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Burn Reflected",
+            "explanation": "",
+            "param1": {
+              "spec": "1",
+              "isPercent": true,
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          },
+          {
+            "uuid": "recvQfPSVjcbvj7F9",
+            "id": 73,
+            "name": "HarvestTheftDefense",
+            "displayName": "Harvest Theft Defense",
+            "listOrder": 700.5,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvesttheftdefense",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Mechanic",
+            "description": "{parameter1} Theft Counter Chance",
+            "explanation": "",
+            "param1": {
+              "spec": "1-5",
+              "isPercent": true,
+              "min": 1,
+              "max": 5
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          5,
+          null,
+          null,
+          null
+        ]
+      },
+      "2": {
+        "attributes": [],
+        "perfection": []
+      },
+      "3": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "rec8MY8IfdGdDnfLi",
+            "id": 4117,
+            "name": "PreventHealingOnHit",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/preventhealingonhit",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "1",
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          },
+          {
+            "uuid": "receE0wlRMQ6lFxju",
+            "id": 4122,
+            "name": "NoReviveAfterKill",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/noreviveafterkill",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "1-1",
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          },
+          {
+            "uuid": "recTRp3X1PJ65HooP",
+            "id": 4126,
+            "name": "ConsumableSkillCharges",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/consumableskillcharges",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "16-16",
+              "min": 16,
+              "max": 16,
+              "value": 16
+            },
+            "param2": {
+              "spec": "Oak Sage",
+              "min": null,
+              "max": null
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "4": {
+        "attributes": [],
+        "perfection": []
+      },
+      "5": {
+        "attributes": [],
+        "perfection": []
+      }
+    },
+    "skills": [],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "recmErRtFnd8g4I9i",
+    "id": 2017,
+    "name": "Wisp Projector",
+    "icon": "https://dl.airtable.com/.attachments/764256db68b685f1918fcecb2d226ca9/804be942/Rings_Background_Removal_Collection.png",
+    "image": "https://dl.airtable.com/.attachments/764256db68b685f1918fcecb2d226ca9/804be942/Rings_Background_Removal_Collection.png",
+    "imageHigh": "https://dl.airtable.com/.attachments/53b9c482261e1a7480f69d194de73183/09fe3c2f/image13.png",
+    "value": "0",
+    "type": 12,
+    "subType": 53,
+    "specificType": 146,
+    "slots": [
+      13,
+      14,
+      16
+    ],
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": true,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": true,
+    "isUnequipable": true,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": true,
+    "isPublishable": true,
+    "isRuneword": false,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": "9",
+    "attributes": [],
+    "details": {
+      "Type": "Ring",
+      "Subtype": "Willowisp Ring",
+      "Distribution": [
+        "Fundraiser"
+      ],
+      "Max Supply": "4"
+    },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "shortDescription": "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "recLLK1pPHrE7m6Nh",
+            "id": 11,
+            "name": "RandomRuneExchange",
+            "displayName": "Random Rune Exchange",
+            "listOrder": 200.5,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/randomruneexchange",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-100%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Random Rune Exchange",
+            "explanation": "",
+            "param1": {
+              "spec": "1-4",
+              "isPercent": true,
+              "min": 1,
+              "max": 4
+            }
+          },
+          {
+            "uuid": "recw2pXFKtqGGYgTK",
+            "id": 106,
+            "name": "HarvestSpeed",
+            "displayName": "Harvest Speed",
+            "listOrder": 100.51,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvestspeed",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Reduction To Harvest Cooldown",
+            "explanation": "",
+            "param1": {
+              "spec": "1-2",
+              "isPercent": true,
+              "min": 1,
+              "max": 2
+            }
+          },
+          {
+            "uuid": "recw9ZzkfkOMZcAgx",
+            "id": 61,
+            "name": "HarvestCritChance",
+            "displayName": "Harvest Crit Chance",
+            "listOrder": 100.53,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/harvestcritchance",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-10%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Increased Chance To Critically Harvest Yield",
+            "explanation": "",
+            "param1": {
+              "spec": "1-4",
+              "isPercent": true,
+              "min": 1,
+              "max": 4
+            }
+          },
+          {
+            "uuid": "recXr6GLgY7DKBj4C",
+            "id": 13,
+            "name": "MagicFind",
+            "displayName": "Magic Find",
+            "listOrder": 300.51,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/magicfind",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Magic Find",
+            "explanation": "",
+            "param1": {
+              "spec": "10-20",
+              "isPercent": true,
+              "min": 10,
+              "max": 20
+            }
+          },
+          {
+            "uuid": "recivTtU2qldh6gH2",
+            "id": 103,
+            "name": "CriticalSlamChance",
+            "displayName": "Critical Slam Chance",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/criticalslamchance",
+            "isImplemented": false,
+            "nature": "Buff",
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "1%",
+              "min": 1,
+              "max": 1,
+              "value": 1
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          4,
+          2,
+          4,
+          20,
+          null
+        ]
+      },
+      "2": {
+        "attributes": [],
+        "perfection": []
+      },
+      "3": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "uuid": "recXr6GLgY7DKBj4C",
+            "id": 13,
+            "name": "MagicFind",
+            "displayName": "Magic Find",
+            "listOrder": 300.51,
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/magicfind",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999%"
+            ],
+            "nature": "Buff",
+            "description": "{parameter1} Magic Find",
+            "explanation": "",
+            "param1": {
+              "spec": "3-7",
+              "isPercent": true,
+              "min": 3,
+              "max": 7
+            }
+          },
+          {
+            "uuid": "recTRp3X1PJ65HooP",
+            "id": 4126,
+            "name": "ConsumableSkillCharges",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/consumableskillcharges",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "8-8",
+              "min": 8,
+              "max": 8,
+              "value": 8
+            },
+            "param2": {
+              "spec": "Oak Sage",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recTRp3X1PJ65HooP",
+            "id": 4126,
+            "name": "ConsumableSkillCharges",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/consumableskillcharges",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "9-9",
+              "min": 9,
+              "max": 9,
+              "value": 9
+            },
+            "param2": {
+              "spec": "Heart of Wolverine",
+              "min": null,
+              "max": null
+            }
+          },
+          {
+            "uuid": "recTRp3X1PJ65HooP",
+            "id": 4126,
+            "name": "ConsumableSkillCharges",
+            "isEnabled": false,
+            "link": "https://rune.game/item-attribute/consumableskillcharges",
+            "isImplemented": false,
+            "description": "",
+            "explanation": "",
+            "param1": {
+              "spec": "9-9",
+              "min": 9,
+              "max": 9,
+              "value": 9
+            },
+            "param2": {
+              "spec": "Spirit of Barbs",
+              "min": null,
+              "max": null
+            }
+          }
+        ],
+        "perfection": [
+          null,
+          7,
+          null,
+          null,
+          null
         ]
       },
       "4": {

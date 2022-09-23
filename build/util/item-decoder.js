@@ -369,99 +369,109 @@ function normalizeItem(item) {
         item.attributes = branchAttributes;
         var prevMod = null;
         if (item.id === 1) {
-            item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
-            item.mods[1].attributeId = items_1.ItemAttributes.HarvestFee.id;
-            item.mods[2].attributeId = items_1.ItemAttributes.HarvestFeeToken.id;
+            if (item.mods) {
+                item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
+                item.mods[1].attributeId = items_1.ItemAttributes.HarvestFee.id;
+                item.mods[2].attributeId = items_1.ItemAttributes.HarvestFeeToken.id;
+            }
         }
         else if (item.id === 2) {
-            item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
-            item.mods[1].attributeId = items_1.ItemAttributes.SendHarvestHiddenPool.id;
-            item.mods[2].attributeId = items_1.ItemAttributes.BurnEntireHarvest.id;
+            if (item.mods) {
+                item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
+                item.mods[1].attributeId = items_1.ItemAttributes.SendHarvestHiddenPool.id;
+                item.mods[2].attributeId = items_1.ItemAttributes.BurnEntireHarvest.id;
+            }
         }
         else if (item.id === 3) {
-            item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
-            item.mods[1].attributeId = items_1.ItemAttributes.HarvestBurn.id;
-            item.mods[2].attributeId = items_1.ItemAttributes.FindShard.id;
-            delete item.mods[3];
-            delete item.mods[4];
-            delete item.mods[5];
-            delete item.mods[6];
-            item.mods[2].value = 100;
+            if (item.mods) {
+                item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
+                item.mods[1].attributeId = items_1.ItemAttributes.HarvestBurn.id;
+                item.mods[2].attributeId = items_1.ItemAttributes.FindShard.id;
+                delete item.mods[3];
+                delete item.mods[4];
+                delete item.mods[5];
+                delete item.mods[6];
+                item.mods[2].value = 100;
+            }
         }
         else if (item.id === 4) {
-            item.mods[0].attributeId = items_1.ItemAttributes.FindShard.id;
-            item.mods[0].value = 100;
+            if (item.mods) {
+                item.mods[0].attributeId = items_1.ItemAttributes.FindShard.id;
+                item.mods[0].value = 100;
+            }
         }
-        for (var i in item.mods) {
-            var mod = item.mods[i];
-            var branchAttribute = branchAttributes[i];
-            if (!branchAttribute) {
-                // console.log(`Branch attribute doesn't exist on item definition`, item, mod)
-                continue;
-            }
-            if (branchAttribute.value === undefined) {
-                if (branchAttribute.min === branchAttribute.max) {
-                    branchAttribute.value = branchAttribute.min;
+        if (item.mods) {
+            for (var i in item.mods) {
+                var mod = item.mods[i];
+                var branchAttribute = branchAttributes[i];
+                if (!branchAttribute) {
+                    // console.log(`Branch attribute doesn't exist on item definition`, item, mod)
+                    continue;
                 }
-            }
-            if (mod.attributeId === items_1.ItemAttributes.HarvestYield.id) {
-                item.meta.harvestYield += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.HarvestFeeToken.id) {
-                item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.SendHarvestHiddenPool.id) {
-                item.meta.chanceToSendHarvestToHiddenPool += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.BurnEntireHarvest.id) {
-                item.meta.chanceToLoseHarvest += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.HarvestBurn.id) {
-                item.meta.harvestBurn += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.FindShard.id) {
-                if (branchAttribute.value !== undefined)
-                    mod.value = branchAttribute.value;
-                item.meta.worldstoneShardChance += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.RemoveFees.id) {
-                item.meta.feeReduction += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.RandomRuneExchange.id) {
-                item.meta.randomRuneExchange += mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.UnstakeLocked.id) {
-                item.meta.unstakeLocked = true;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.SpecificClass.id) {
-                item.meta.classRequired = mod.value;
-            }
-            else if (mod.attributeId === items_1.ItemAttributes.Rarity.id) {
-                item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[mod.value]];
-            }
-            if (mod.attributeId > 0) {
-                if (!item.meta.attributes[mod.attributeId])
-                    item.meta.attributes[mod.attributeId] = 0;
-                item.meta.attributes[mod.attributeId] += mod.value;
-                item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), (items_1.ItemAttributesById[mod.attributeId] || {})), branchAttribute), mod);
-            }
-            if (item.attributes[i]) {
-                item.branches[1].attributes[i] = item.attributes[i];
-                if (!item.branches[1].attributes[i].param1) {
-                    item.branches[1].attributes[i].param1 = {};
-                    item.branches[1].attributes[i].param1.min = item.branches[1].attributes[i].min;
-                    item.branches[1].attributes[i].param1.max = item.branches[1].attributes[i].max;
-                    item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
-                    item.branches[1].attributes[i].param1.map = item.branches[1].attributes[i].map;
+                if (branchAttribute.value === undefined) {
+                    if (branchAttribute.min === branchAttribute.max) {
+                        branchAttribute.value = branchAttribute.min;
+                    }
                 }
-                else {
-                    item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
-                    item.branches[1].attributes[i].min = item.branches[1].attributes[i].param1.min;
-                    item.branches[1].attributes[i].max = item.branches[1].attributes[i].param1.max;
-                    item.branches[1].attributes[i].map = item.branches[1].attributes[i].param1.map;
+                if (mod.attributeId === items_1.ItemAttributes.HarvestYield.id) {
+                    item.meta.harvestYield += mod.value;
                 }
+                else if (mod.attributeId === items_1.ItemAttributes.HarvestFeeToken.id) {
+                    item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.SendHarvestHiddenPool.id) {
+                    item.meta.chanceToSendHarvestToHiddenPool += mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.BurnEntireHarvest.id) {
+                    item.meta.chanceToLoseHarvest += mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.HarvestBurn.id) {
+                    item.meta.harvestBurn += mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.FindShard.id) {
+                    if (branchAttribute.value !== undefined)
+                        mod.value = branchAttribute.value;
+                    item.meta.worldstoneShardChance += mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.RemoveFees.id) {
+                    item.meta.feeReduction += mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.RandomRuneExchange.id) {
+                    item.meta.randomRuneExchange += mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.UnstakeLocked.id) {
+                    item.meta.unstakeLocked = true;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.SpecificClass.id) {
+                    item.meta.classRequired = mod.value;
+                }
+                else if (mod.attributeId === items_1.ItemAttributes.Rarity.id) {
+                    item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[mod.value]];
+                }
+                if (mod.attributeId > 0) {
+                    if (!item.meta.attributes[mod.attributeId])
+                        item.meta.attributes[mod.attributeId] = 0;
+                    item.meta.attributes[mod.attributeId] += mod.value;
+                    item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), (items_1.ItemAttributesById[mod.attributeId] || {})), branchAttribute), mod);
+                }
+                if (item.attributes[i]) {
+                    item.branches[1].attributes[i] = item.attributes[i];
+                    if (!item.branches[1].attributes[i].param1) {
+                        item.branches[1].attributes[i].param1 = {};
+                        item.branches[1].attributes[i].param1.min = item.branches[1].attributes[i].min;
+                        item.branches[1].attributes[i].param1.max = item.branches[1].attributes[i].max;
+                        item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
+                        item.branches[1].attributes[i].param1.map = item.branches[1].attributes[i].map;
+                    }
+                    else {
+                        item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
+                        item.branches[1].attributes[i].min = item.branches[1].attributes[i].param1.min;
+                        item.branches[1].attributes[i].max = item.branches[1].attributes[i].param1.max;
+                        item.branches[1].attributes[i].map = item.branches[1].attributes[i].param1.map;
+                    }
+                }
+                prevMod = mod;
             }
-            prevMod = mod;
         }
         // if (item.tokenId === "100300016012001003200700120130022011003200201020030142039011202100700000115") debugger;
         if (Object.keys(item.meta.harvestFees).length > 0) {
@@ -718,6 +728,9 @@ function normalizeItem(item) {
                         return "break";
                     }
                     var attribute = item.branches[branchIndex].attributes[attributeIndex];
+                    if (!attribute.param1) {
+                        return "continue";
+                    }
                     if (attribute.param1.value !== undefined) {
                         item.meta.attributes[attribute.id] = attribute.param1.value;
                         return "continue";

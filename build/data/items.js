@@ -87,16 +87,16 @@ function getFilteredItems(list) {
             }
             if (condition === 'halloween') {
                 var now = (0, time_1.removeTimezoneOffset)(new Date());
-                var eventStart = (0, time_1.removeTimezoneOffset)(new Date("October 31, ".concat(now.getFullYear(), " 00:00:00+0000")));
-                var eventEnd = (0, time_1.removeTimezoneOffset)(new Date("November 1, ".concat(now.getFullYear(), " 00:00:00+0000")));
+                var eventStart = (0, time_1.removeTimezoneOffset)(new Date("October 31, ".concat(now.getFullYear(), " 00:00:00")));
+                var eventEnd = (0, time_1.removeTimezoneOffset)(new Date("November 1, ".concat(now.getFullYear(), " 00:00:00")));
                 if (now > eventStart && now < eventEnd) {
                     item.activeConditions.push(condition);
                 }
             }
             if (condition === 'christmas') {
                 var now = (0, time_1.removeTimezoneOffset)(new Date());
-                var eventStart = (0, time_1.removeTimezoneOffset)(new Date("December 24, ".concat(now.getFullYear(), " 00:00:00+0000")));
-                var eventEnd = (0, time_1.removeTimezoneOffset)(new Date("December 26, ".concat(now.getFullYear(), " 00:00:00+0000")));
+                var eventStart = (0, time_1.removeTimezoneOffset)(new Date("December 24, ".concat(now.getFullYear(), " 00:00:00")));
+                var eventEnd = (0, time_1.removeTimezoneOffset)(new Date("December 26, ".concat(now.getFullYear(), " 00:00:00")));
                 if (now > eventStart && now < eventEnd) {
                     item.activeConditions.push(condition);
                 }
@@ -2135,7 +2135,7 @@ exports.itemData = (_c = {},
             attributes: [],
             details: {
                 Type: 'Scroll',
-                Subtype: 'Ticket',
+                Subtype: 'Scroll',
                 Distribution: 'Quiz Reward',
                 Date: 'March 13, 2022 - Now',
                 'Max Supply': 'Unknown',
@@ -7592,7 +7592,7 @@ exports.itemData = (_c = {},
             },
             branches: (_12 = {},
                 _12[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #1 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _12[exports.Games.Evolution.id] = {
@@ -7631,7 +7631,7 @@ exports.itemData = (_c = {},
             },
             branches: (_13 = {},
                 _13[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #2 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _13[2] = {
@@ -7671,7 +7671,7 @@ exports.itemData = (_c = {},
             },
             branches: (_14 = {},
                 _14[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #3 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _14[exports.Games.Evolution.id] = {
@@ -7709,7 +7709,7 @@ exports.itemData = (_c = {},
             },
             branches: (_15 = {},
                 _15[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #4 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _15[2] = {
@@ -7749,7 +7749,7 @@ exports.itemData = (_c = {},
             },
             branches: (_16 = {},
                 _16[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #5 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _16[exports.Games.Evolution.id] = {
@@ -7787,7 +7787,7 @@ exports.itemData = (_c = {},
             },
             branches: (_17 = {},
                 _17[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #6 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _17[exports.Games.Evolution.id] = {
@@ -7825,7 +7825,7 @@ exports.itemData = (_c = {},
             },
             branches: (_18 = {},
                 _18[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #7 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _18[exports.Games.Evolution.id] = {
@@ -7863,7 +7863,7 @@ exports.itemData = (_c = {},
             },
             branches: (_19 = {},
                 _19[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #8 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _19[exports.Games.Evolution.id] = {
@@ -7901,7 +7901,7 @@ exports.itemData = (_c = {},
             },
             branches: (_20 = {},
                 _20[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #9 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _20[exports.Games.Evolution.id] = {
@@ -7939,7 +7939,7 @@ exports.itemData = (_c = {},
             },
             branches: (_21 = {},
                 _21[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #10 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _21[exports.Games.Evolution.id] = {
@@ -7977,7 +7977,7 @@ exports.itemData = (_c = {},
             },
             branches: (_22 = {},
                 _22[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #11 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _22[exports.Games.Evolution.id] = {
@@ -8015,7 +8015,7 @@ exports.itemData = (_c = {},
             },
             branches: (_23 = {},
                 _23[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #12 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _23[exports.Games.Evolution.id] = {
@@ -8053,7 +8053,7 @@ exports.itemData = (_c = {},
             },
             branches: (_24 = {},
                 _24[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #13 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _24[exports.Games.Evolution.id] = {
@@ -8091,7 +8091,7 @@ exports.itemData = (_c = {},
             },
             branches: (_25 = {},
                 _25[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #14 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _25[exports.Games.Evolution.id] = {
@@ -8129,7 +8129,7 @@ exports.itemData = (_c = {},
             },
             branches: (_26 = {},
                 _26[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #15 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _26[exports.Games.Evolution.id] = {
@@ -8167,7 +8167,7 @@ exports.itemData = (_c = {},
             },
             branches: (_27 = {},
                 _27[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #16 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _27[exports.Games.Evolution.id] = {
@@ -8205,7 +8205,7 @@ exports.itemData = (_c = {},
             },
             branches: (_28 = {},
                 _28[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #17 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _28[exports.Games.Evolution.id] = {
@@ -8243,7 +8243,7 @@ exports.itemData = (_c = {},
             },
             branches: (_29 = {},
                 _29[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #18 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _29[exports.Games.Evolution.id] = {
@@ -8281,7 +8281,7 @@ exports.itemData = (_c = {},
             },
             branches: (_30 = {},
                 _30[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #19 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _30[exports.Games.Evolution.id] = {
@@ -8319,7 +8319,7 @@ exports.itemData = (_c = {},
             },
             branches: (_31 = {},
                 _31[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #20 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _31[exports.Games.Evolution.id] = {
@@ -8357,7 +8357,7 @@ exports.itemData = (_c = {},
             },
             branches: (_32 = {},
                 _32[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #21 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _32[exports.Games.Evolution.id] = {
@@ -8395,7 +8395,7 @@ exports.itemData = (_c = {},
             },
             branches: (_33 = {},
                 _33[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #22 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _33[exports.Games.Evolution.id] = {
@@ -8433,7 +8433,7 @@ exports.itemData = (_c = {},
             },
             branches: (_34 = {},
                 _34[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #23 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _34[exports.Games.Evolution.id] = {
@@ -8471,7 +8471,7 @@ exports.itemData = (_c = {},
             },
             branches: (_35 = {},
                 _35[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #24 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _35[exports.Games.Evolution.id] = {
@@ -8509,7 +8509,7 @@ exports.itemData = (_c = {},
             },
             branches: (_36 = {},
                 _36[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #25 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _36[exports.Games.Evolution.id] = {
@@ -8547,7 +8547,7 @@ exports.itemData = (_c = {},
             },
             branches: (_37 = {},
                 _37[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #26 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _37[exports.Games.Evolution.id] = {
@@ -8585,7 +8585,7 @@ exports.itemData = (_c = {},
             },
             branches: (_38 = {},
                 _38[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #27 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _38[exports.Games.Evolution.id] = {
@@ -8623,7 +8623,7 @@ exports.itemData = (_c = {},
             },
             branches: (_39 = {},
                 _39[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #28 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _39[exports.Games.Evolution.id] = {
@@ -8661,7 +8661,7 @@ exports.itemData = (_c = {},
             },
             branches: (_40 = {},
                 _40[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #29 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _40[exports.Games.Evolution.id] = {
@@ -8699,7 +8699,7 @@ exports.itemData = (_c = {},
             },
             branches: (_41 = {},
                 _41[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #30 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _41[exports.Games.Evolution.id] = {
@@ -8737,7 +8737,7 @@ exports.itemData = (_c = {},
             },
             branches: (_42 = {},
                 _42[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #31 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _42[exports.Games.Evolution.id] = {
@@ -8775,7 +8775,7 @@ exports.itemData = (_c = {},
             },
             branches: (_43 = {},
                 _43[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #32 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _43[exports.Games.Evolution.id] = {
@@ -8813,7 +8813,7 @@ exports.itemData = (_c = {},
             },
             branches: (_44 = {},
                 _44[exports.Games.Raid.id] = {
-                    description: ["An ancient rune used in magical craft. It's #33 in the Rune Codex."],
+                    description: ["Used to craft items."],
                     attributes: [],
                 },
                 _44[exports.Games.Evolution.id] = {

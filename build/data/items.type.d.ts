@@ -71,6 +71,7 @@ export declare type ItemType = {
     isUnequipable?: boolean;
     isTransferable?: boolean;
     isUpgradable?: boolean;
+    isSkinnable?: boolean;
     isRuneword?: boolean;
     isSecret?: boolean;
     isTransmutable?: boolean;
