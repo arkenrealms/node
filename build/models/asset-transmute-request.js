@@ -19,32 +19,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var objection_1 = require("objection");
-var license_1 = __importDefault(require("./license"));
-var offer_1 = __importDefault(require("./offer"));
 var chain_1 = __importDefault(require("./chain"));
+var asset_1 = __importDefault(require("./asset"));
 var profile_1 = __importDefault(require("./profile"));
-var node_1 = __importDefault(require("./node"));
 var base_1 = __importDefault(require("./base"));
-var Asset = /** @class */ (function (_super) {
-    __extends(Asset, _super);
-    function Asset() {
+var AssetTransmuteRequest = /** @class */ (function (_super) {
+    __extends(AssetTransmuteRequest, _super);
+    function AssetTransmuteRequest() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(Asset, "tableName", {
+    Object.defineProperty(AssetTransmuteRequest, "tableName", {
         get: function () {
-            return 'assets';
+            return 'asset_transmute_requests';
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Asset, "timestamps", {
+    Object.defineProperty(AssetTransmuteRequest, "timestamps", {
         get: function () {
             return true;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Asset, "jsonSchema", {
+    Object.defineProperty(AssetTransmuteRequest, "jsonSchema", {
         get: function () {
             return {
                 type: 'object',
@@ -55,17 +53,9 @@ var Asset = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Asset, "relationMappings", {
+    Object.defineProperty(AssetTransmuteRequest, "relationMappings", {
         get: function () {
             return {
-                parent: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: node_1.default,
-                    join: {
-                        from: 'assets.parentId',
-                        to: 'nodes.id'
-                    }
-                },
                 owner: {
                     relation: objection_1.Model.HasOneRelation,
                     modelClass: profile_1.default,
@@ -74,46 +64,27 @@ var Asset = /** @class */ (function (_super) {
                         to: 'profiles.id'
                     }
                 },
-                license: {
+                asset: {
                     relation: objection_1.Model.HasOneRelation,
-                    modelClass: license_1.default,
+                    modelClass: asset_1.default,
                     join: {
-                        from: 'assets.licenseId',
-                        to: 'licenses.id'
+                        from: 'asset_transmute_requests.assetId',
+                        to: 'assets.id'
                     }
                 },
                 chain: {
                     relation: objection_1.Model.HasOneRelation,
                     modelClass: chain_1.default,
                     join: {
-                        from: 'assets.chainId',
-                        to: 'chains.id'
+                        from: 'asset_transmute_requests.chainId',
+                        to: 'assets.id'
                     }
                 },
-                offers: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: offer_1.default,
-                    filter: {
-                        relationKey: 'offers'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'offers';
-                    },
-                    join: {
-                        from: 'offers.id',
-                        to: 'communities.id',
-                        through: {
-                            from: 'nodes.fromOfferId',
-                            to: 'nodes.toCommunityId',
-                            extra: ['relationKey']
-                        }
-                    }
-                }
             };
         },
         enumerable: false,
         configurable: true
     });
-    return Asset;
+    return AssetTransmuteRequest;
 }(base_1.default));
-exports.default = Asset;
+exports.default = AssetTransmuteRequest;

@@ -23,7 +23,9 @@ var objection_1 = require("objection");
 var project_1 = __importDefault(require("./project"));
 var license_1 = __importDefault(require("./license"));
 var order_1 = __importDefault(require("./order"));
+var achievement_1 = __importDefault(require("./achievement"));
 var account_1 = __importDefault(require("./account"));
+var guild_1 = __importDefault(require("./guild"));
 var message_1 = __importDefault(require("./message"));
 var asset_1 = __importDefault(require("./asset"));
 var offer_1 = __importDefault(require("./offer"));
@@ -135,6 +137,25 @@ var Profile = /** @class */ (function (_super) {
                     },
                     beforeInsert: function (model) {
                         model.relationKey = 'orders';
+                    }
+                },
+                achievements: {
+                    relation: objection_1.Model.ManyToManyRelation,
+                    modelClass: achievement_1.default,
+                    join: {
+                        from: 'profiles.id',
+                        to: 'achievements.id',
+                        through: {
+                            from: 'nodes.fromProfileId',
+                            to: 'nodes.toAchievementId',
+                            extra: ['relationKey']
+                        }
+                    },
+                    filter: {
+                        relationKey: 'achievements'
+                    },
+                    beforeInsert: function (model) {
+                        model.relationKey = 'achievements';
                     }
                 },
                 messages: {
@@ -347,6 +368,14 @@ var Profile = /** @class */ (function (_super) {
                     join: {
                         from: 'profiles.accountId',
                         to: 'accounts.id'
+                    }
+                },
+                guild: {
+                    relation: objection_1.Model.BelongsToOneRelation,
+                    modelClass: guild_1.default,
+                    join: {
+                        from: 'profiles.guildId',
+                        to: 'guilds.id'
                     }
                 },
                 projects: {

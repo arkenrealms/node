@@ -18,27 +18,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var objection_1 = require("objection");
+var chain_1 = __importDefault(require("./chain"));
 var base_1 = __importDefault(require("./base"));
-var Chain = /** @class */ (function (_super) {
-    __extends(Chain, _super);
-    function Chain() {
+var Action = /** @class */ (function (_super) {
+    __extends(Action, _super);
+    function Action() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(Chain, "tableName", {
+    Object.defineProperty(Action, "tableName", {
         get: function () {
-            return 'chains';
+            return 'actions';
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Chain, "timestamps", {
+    Object.defineProperty(Action, "timestamps", {
         get: function () {
             return true;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Chain, "jsonSchema", {
+    Object.defineProperty(Action, "jsonSchema", {
         get: function () {
             return {
                 type: 'object',
@@ -49,13 +51,22 @@ var Chain = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Chain, "relationMappings", {
+    Object.defineProperty(Action, "relationMappings", {
         get: function () {
-            return {};
+            return {
+                chain: {
+                    relation: objection_1.Model.HasOneRelation,
+                    modelClass: chain_1.default,
+                    join: {
+                        from: 'assets.chainId',
+                        to: 'assets.id'
+                    }
+                },
+            };
         },
         enumerable: false,
         configurable: true
     });
-    return Chain;
+    return Action;
 }(base_1.default));
-exports.default = Chain;
+exports.default = Action;

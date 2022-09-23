@@ -2058,6 +2058,7 @@ export declare const itemData: {
                     id: number;
                     name: string;
                     isEnabled: boolean;
+                    isImplemented: boolean;
                     nexusLink: string;
                     paramType1: string;
                     paramValue1: string;
@@ -2070,7 +2071,6 @@ export declare const itemData: {
                         max: number;
                         value: number;
                     };
-                    isImplemented?: undefined;
                     game?: undefined;
                 } | {
                     id: number;

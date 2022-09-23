@@ -19,26 +19,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var base_1 = __importDefault(require("./base"));
-var Chain = /** @class */ (function (_super) {
-    __extends(Chain, _super);
-    function Chain() {
+var Market = /** @class */ (function (_super) {
+    __extends(Market, _super);
+    function Market() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(Chain, "tableName", {
+    Object.defineProperty(Market, "tableName", {
         get: function () {
-            return 'chains';
+            return 'markets';
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Chain, "timestamps", {
+    Object.defineProperty(Market, "timestamps", {
         get: function () {
             return true;
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Chain, "jsonSchema", {
+    Object.defineProperty(Market, "jsonSchema", {
         get: function () {
             return {
                 type: 'object',
@@ -49,13 +49,13 @@ var Chain = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Chain, "relationMappings", {
+    Object.defineProperty(Market, "relationMappings", {
         get: function () {
             return {};
         },
         enumerable: false,
         configurable: true
     });
-    return Chain;
+    return Market;
 }(base_1.default));
-exports.default = Chain;
+exports.default = Market;

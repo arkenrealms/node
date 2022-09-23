@@ -563,6 +563,7 @@
                         "id": 1100,
                         "name": "KilledPlayerPenaltyIncrease",
                         "isEnabled": true,
+                        "isImplemented": false,
                         "nexusLink": "https://nexus.rune.game/item-attribute/killedplayerpenaltyincrease",
                         "paramType1": "percent",
                         "paramValue1": "0-25",
@@ -16288,7 +16289,8 @@
         "specificType": 37,
         "slots": [
             13,
-            14
+            14,
+            16
         ],
         "isPolled": false,
         "isNew": false,
@@ -20470,7 +20472,8 @@
         "specificType": 47,
         "slots": [
             13,
-            14
+            14,
+            16
         ],
         "isPolled": false,
         "isNew": false,

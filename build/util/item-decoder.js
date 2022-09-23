@@ -52,7 +52,7 @@ function databaseInitialize() {
     if (dbCon.getCollection('items')) {
         dbCon.getCollection('items').chain().remove();
     }
-    var cacheBreaker = 1662443869 * 1000;
+    var cacheBreaker = 1663585883 * 1000;
     var updatedAt = (_d = (_c = (_b = (_a = db.items) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.meta) === null || _d === void 0 ? void 0 : _d.created;
     if (!updatedAt || updatedAt < cacheBreaker) {
         if (dbCon.getCollection('items')) {
@@ -168,6 +168,7 @@ exports.setTokenCache = setTokenCache;
 function getItemTokenCache(tokenId) {
     var _a;
     try {
+        console.log(9999, tokenCache[tokenId]);
         if (tokenCache[tokenId])
             return tokenCache[tokenId];
         if (useLoki) {
@@ -190,6 +191,7 @@ function getItemTokenCache(tokenId) {
                     return;
                 }
                 tokenCache[tokenId] = tokenCacheItem.value;
+                console.log(99999999, tokenCacheItem.value);
                 return tokenCacheItem.value;
             }
         }

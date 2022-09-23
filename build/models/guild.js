@@ -19,8 +19,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var objection_1 = require("objection");
-var node_1 = __importDefault(require("./node"));
-var tag_1 = __importDefault(require("./tag"));
 var base_1 = __importDefault(require("./base"));
 var Guild = /** @class */ (function (_super) {
     __extends(Guild, _super);
@@ -29,7 +27,7 @@ var Guild = /** @class */ (function (_super) {
     }
     Object.defineProperty(Guild, "tableName", {
         get: function () {
-            return 'trades';
+            return 'guilds';
         },
         enumerable: false,
         configurable: true
@@ -55,33 +53,14 @@ var Guild = /** @class */ (function (_super) {
     Object.defineProperty(Guild, "relationMappings", {
         get: function () {
             return {
-                parent: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: node_1.default,
+                players: {
+                    relation: objection_1.Model.HasManyRelation,
+                    modelClass: Guild,
                     join: {
-                        from: 'servers.parentId',
-                        to: 'nodes.id'
+                        from: 'guilds.id',
+                        to: 'profiles.guildId'
                     }
                 },
-                tags: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: tag_1.default,
-                    join: {
-                        from: 'servers.id',
-                        to: 'tags.id',
-                        through: {
-                            from: 'nodes.fromServerId',
-                            to: 'nodes.toTagId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'tags'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'tags';
-                    }
-                }
             };
         },
         enumerable: false,

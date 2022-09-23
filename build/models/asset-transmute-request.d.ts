@@ -1,14 +1,13 @@
 import { RelationMappings, JSONSchema } from 'objection';
+import Chain from './chain';
+import Asset from './asset';
+import Profile from './profile';
 import BaseModel from './base';
-export default class Chain extends BaseModel {
-    name: string;
-    icon: string;
-    shortName: string;
-    networkName: string;
-    networkId: number;
+export default class AssetTransmuteRequest extends BaseModel {
     type: string;
-    chainId: number;
-    blockNumber: number;
+    owner: Profile;
+    asset: Asset;
+    chain: Chain;
     static get tableName(): string;
     static get timestamps(): boolean;
     static get jsonSchema(): JSONSchema;
