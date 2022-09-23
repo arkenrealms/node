@@ -16288,8 +16288,7 @@
         "specificType": 37,
         "slots": [
             13,
-            14,
-            16
+            14
         ],
         "isPolled": false,
         "isNew": false,
@@ -20471,8 +20470,7 @@
         "specificType": 47,
         "slots": [
             13,
-            14,
-            16
+            14
         ],
         "isPolled": false,
         "isNew": false,
