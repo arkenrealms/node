@@ -808,7 +808,7 @@ export function normalizeItem(item: any) {
           // let attributePerfection
 
           if (item.branches[1].perfection[attributeIndex] !== undefined && item.branches[1].perfection[attributeIndex] !== null) {
-            targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex] : (1 - item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex])
+            targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].perfection[attributeIndex] - item.branches[1].attributes[attributeIndex].param1.min) : (1 - (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].perfection[attributeIndex] - item.branches[1].attributes[attributeIndex].param1.min))
           } else {
             // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
             targetPerfection = item.perfection // item.branches[branchIndex].perfection[attributeIndex]

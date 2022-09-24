@@ -1762,8 +1762,7 @@
                 "5-15"
               ],
               "min": 5,
-              "max": 5,
-              "value": 5
+              "max": 15
             }
           },
           {
@@ -1773,7 +1772,7 @@
             "isImplemented": false,
             "game": "Evolution",
             "nexusLink": "https://nexus.rune.game/item-attribute/increasehealthonkill",
-            "paramType1": "value",
+            "paramType1": "percent",
             "nature": "Buff",
             "influences": "Defense",
             "description": "{parameter1} health on kill.",
@@ -1838,7 +1837,7 @@
           }
         ],
         "perfection": [
-          null,
+          15,
           20,
           null,
           null,
@@ -8288,7 +8287,7 @@
             "isImplemented": false,
             "game": "Evolution",
             "nexusLink": "https://nexus.rune.game/item-attribute/increasehealthonkill",
-            "paramType1": "value",
+            "paramType1": "percent",
             "nature": "Buff",
             "influences": "Defense",
             "description": "{parameter1} health on kill.",
@@ -12471,7 +12470,7 @@
             "isImplemented": false,
             "game": "Evolution",
             "nexusLink": "https://nexus.rune.game/item-attribute/increasehealthonkill",
-            "paramType1": "value",
+            "paramType1": "percent",
             "nature": "Buff",
             "influences": "Defense",
             "description": "{parameter1} health on kill.",
