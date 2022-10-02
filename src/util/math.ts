@@ -14,6 +14,8 @@ export function median(values) {
 }
 
 export function toFixed(num, decimals = 2) {
+  if (decimals === 0) return (num + '').match(new RegExp("^-?\\d+(?:\\.\\d{0," + decimals + "})?"))[0].replace('.', '')
+
   return (num + '').match(new RegExp("^-?\\d+(?:\\.\\d{0," + decimals + "})?"))[0]
 }
 

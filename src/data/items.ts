@@ -2597,7 +2597,7 @@ export const itemData = {
       isCraftable: false,
       isDisabled: false,
       isRuneword: false,
-      isSecret: true,
+      isSecret: false,
       createdDate: 0,
       hotness: 1,
       attributes: [],
@@ -3301,7 +3301,7 @@ export const itemData = {
       isCraftable: false,
       isDisabled: false,
       isRuneword: false,
-      isSecret: true,
+      isSecret: false,
       createdDate: 0,
       hotness: 1,
       attributes: [],
@@ -3333,7 +3333,170 @@ export const itemData = {
           },
         },
         [Games.Evolution.id]: {
-          attributes: [],
+              "attributes": [
+                { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
+                {
+                  "id": 1030,
+                  "name": "MovementSpeedIncrease",
+                  "isEnabled": true,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/movementspeedincrease",
+                  "paramType1": "percent",
+                  "paramValue1": "0-10",
+                  "nature": "Buff",
+                  "influences": "Movement",
+                  "description": "{parameter1} movement burst strength",
+                  "param1": {
+                    "spec": [
+                      "2-4"
+                    ],
+                    "min": 2,
+                    "max": 5
+                  }
+                },
+                {
+                  "id": 4111,
+                  "name": "WinStreakRewardChanceIncrease",
+                  "isEnabled": false,
+                  "nexusLink": "https://nexus.rune.game/item-attribute/winstreakrewardchanceincrease",
+                  "param1": {
+                    "spec": "5-5",
+                    "min": 5,
+                    "max": 5,
+                    "value": 5
+                  }
+                },
+                {
+                  "id": 1222,
+                  "name": "IncreaseMovementSpeedOnKill",
+                  "isEnabled": true,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
+                  "paramType1": "percent",
+                  "nature": "Buff",
+                  "influences": "Movement",
+                  "description": "{parameter1} Movement Burst On Kill",
+                  "param1": {
+                    "spec": "5-5",
+                    "min": 5,
+                    "max": 5,
+                    "value": 5
+                  }
+                },
+                {
+                  "id": 1167,
+                  "name": "RunewordFindWin",
+                  "isEnabled": true,
+                  "isImplemented": false,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/runewordfindwin",
+                  "paramType1": "percent",
+                  "nature": "Mechanic",
+                  "influences": "Reward",
+                  "description": "{parameter1} chance to find a random runeword on win",
+                  "param1": {
+                    "spec": "0-1",
+                    "min": 0,
+                    "max": 1
+                  }
+                },
+                {
+                  "id": 1011,
+                  "name": "CriticalHitChance",
+                  "isEnabled": true,
+                  "isImplemented": false,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/criticalhitchance",
+                  "paramType1": "percent",
+                  "nature": "Buff",
+                  "influences": "Offense",
+                  "description": "{parameter1} Critical Hit Chance",
+                  "param1": {
+                    "spec": "1-5",
+                    "min": 1,
+                    "max": 5
+                  }
+                },
+                {
+                  "id": 4119,
+                  "name": "EggExperienceBonus",
+                  "isEnabled": false,
+                  "nexusLink": "https://nexus.rune.game/item-attribute/eggexperiencebonus",
+                  "param1": {
+                    "spec": "10-10",
+                    "min": 10,
+                    "max": 10,
+                    "value": 10
+                  }
+                },
+                {
+                  "id": 1156,
+                  "name": "NoRewardsUnlessFirst",
+                  "isEnabled": true,
+                  "isImplemented": false,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/norewardsunlessfirst",
+                  "paramType1": "percent",
+                  "paramValue1": "0-50",
+                  "nature": "Debuff",
+                  "influences": "Reward",
+                  "description": "{parameter1} chance to receive no rewards for leaderboard positions below first.",
+                  "param1": {
+                    "spec": "0-10",
+                    "min": 0,
+                    "max": 10
+                  }
+                },
+                {
+                  "id": 1155,
+                  "name": "EarlyItemRevealChance",
+                  "isEnabled": true,
+                  "isImplemented": false,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/earlyitemrevealchance",
+                  "paramType1": "percent",
+                  "paramValue1": "0-25",
+                  "nature": "Mechanic",
+                  "influences": "Reward",
+                  "description": "{parameter1} chance to see location of next item early.",
+                  "param1": {
+                    "spec": "3-5",
+                    "min": 3,
+                    "max": 5
+                  }
+                },
+                {
+                  "id": 1325,
+                  "name": "SkillUnlock",
+                  "isEnabled": true,
+                  "isImplemented": false,
+                  "game": "Evolution",
+                  "nexusLink": "https://nexus.rune.game/item-attribute/skillunlock",
+                  "paramType1": "skill",
+                  "nature": "Mechanic",
+                  "description": "Unlocked: {parameter1}",
+                  "param1": {
+                    "spec": "Dragonlight",
+                    "min": 213,
+                    "max": 213,
+                    "value": 213,
+                    "map": {
+                      "213": "Dragonlight"
+                    }
+                  }
+                }
+              ],
+              "perfection": [
+                null,
+                null,
+                null,
+                null,
+                5,
+                null,
+                0,
+                null,
+                null
+              ]
         },
         [Games.Infinite.id]: {
           attributes: [
@@ -7356,7 +7519,7 @@ export const itemData = {
               "param1": {
                 "spec": "1-20",
                 "min": 1,
-                "max": 20
+                "max": 30
               }
             },
             {

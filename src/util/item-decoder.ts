@@ -169,7 +169,7 @@ export function setTokenCache(_tokenCache) {
 
 function getItemTokenCache(tokenId: string) {
   try {
-    console.log(9999, tokenCache[tokenId])
+    // console.log(9999, tokenCache[tokenId])
     if (tokenCache[tokenId]) return tokenCache[tokenId]
 
     if (useLoki) {
@@ -808,7 +808,7 @@ export function normalizeItem(item: any) {
           // let attributePerfection
 
           if (item.branches[1].perfection[attributeIndex] !== undefined && item.branches[1].perfection[attributeIndex] !== null) {
-            targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].perfection[attributeIndex] - item.branches[1].attributes[attributeIndex].param1.min) : (1 - (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].perfection[attributeIndex] - item.branches[1].attributes[attributeIndex].param1.min))
+            targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min) : (1 - (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min))
           } else {
             // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
             targetPerfection = item.perfection // item.branches[branchIndex].perfection[attributeIndex]
@@ -925,6 +925,22 @@ export function normalizeItem(item: any) {
     if (!item.tokenId) {
       item.tokenId = getTokenIdFromItem(item)
     }
+
+    if (item.branches[2]) {
+      item.branches[2].initialCharge = item.branches[2].initialCharge !== undefined ? item.branches[2].initialCharge : item.initialCharge
+      item.branches[2].maxCharge = item.branches[2].maxCharge !== undefined ? item.branches[2].maxCharge : item.maxCharge
+
+      const chargeMultiplier = {
+        [ItemRarity.Magical.id]: 4,
+        [ItemRarity.Rare.id]: 3,
+        [ItemRarity.Epic.id]: 2,
+        [ItemRarity.Mythic.id]: 1
+      }
+
+      item.branches[2].initialCharge *= chargeMultiplier[item.rarity.id]
+      item.branches[2].maxCharge *= chargeMultiplier[item.rarity.id]
+    }
+
 
     item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase()
 

@@ -1639,6 +1639,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -1699,6 +1701,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -1941,6 +1944,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -1980,6 +1985,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -2299,6 +2305,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -2355,6 +2363,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -2602,6 +2611,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -2639,6 +2650,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -2694,6 +2706,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -2733,6 +2747,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -3039,6 +3054,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -3078,6 +3095,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -3095,7 +3113,7 @@ export declare const itemData: {
                         spec: string[];
                         min: number;
                         max: number;
-                        value: number;
+                        value?: undefined;
                     };
                     paramValue1?: undefined;
                 } | {
@@ -3346,6 +3364,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -3402,6 +3422,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -3673,6 +3694,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -3775,6 +3798,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -4216,6 +4240,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -4343,6 +4369,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -4747,6 +4774,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -4857,6 +4886,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -5257,6 +5287,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -5384,6 +5416,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -5801,6 +5834,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -5914,6 +5949,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -6281,6 +6317,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -6362,6 +6400,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -6743,6 +6782,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -6870,6 +6911,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -7328,6 +7370,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -7367,6 +7411,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -7637,6 +7682,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -7693,6 +7740,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -8041,6 +8089,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: string;
         numPerfectionRolls: number;
         attributes: any[];
@@ -8101,6 +8151,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -8564,6 +8615,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -8666,6 +8719,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -9015,6 +9069,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -9054,6 +9110,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -9372,6 +9429,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -9432,6 +9491,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -9734,6 +9794,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -9820,6 +9882,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -10097,6 +10160,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -10176,6 +10241,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -10514,6 +10580,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -10553,6 +10621,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -10797,6 +10866,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -10836,6 +10907,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -11146,6 +11218,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -11223,6 +11297,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: {
@@ -11382,6 +11457,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -11482,6 +11559,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -11833,6 +11911,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -11872,6 +11952,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -12219,6 +12300,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -12277,6 +12360,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -12472,6 +12556,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -12549,6 +12635,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -12802,6 +12889,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -12885,6 +12974,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -13186,6 +13276,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -13296,6 +13388,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -13660,6 +13753,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -13755,6 +13850,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -14106,6 +14202,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -14250,6 +14348,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -14466,6 +14565,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -14523,6 +14624,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -14597,6 +14699,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -14705,6 +14809,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -14763,6 +14868,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         attributes: any[];
         details: {
@@ -14871,6 +14978,7 @@ export declare const itemData: {
                     listOrder?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: ({
@@ -14969,6 +15077,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -15088,6 +15198,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -15346,6 +15457,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -15475,6 +15588,7 @@ export declare const itemData: {
                     isImplemented?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -15793,6 +15907,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -15892,6 +16008,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -16087,6 +16204,8 @@ export declare const itemData: {
         exclusiveConditions: string[];
         exclusiveActions: string[];
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -16141,6 +16260,7 @@ export declare const itemData: {
                     nature?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -16345,6 +16465,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -16381,6 +16503,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -16537,6 +16660,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -16653,6 +16778,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -16809,6 +16935,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -16833,6 +16961,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -16893,6 +17022,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -16969,6 +17100,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: {
@@ -17211,6 +17343,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -17267,6 +17401,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -17527,6 +17662,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -17563,6 +17700,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -17757,6 +17895,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         attributes: any[];
         details: {
@@ -17798,6 +17938,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -17849,6 +17990,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         attributes: any[];
         details: {
@@ -17869,6 +18012,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -17929,6 +18073,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -17989,6 +18135,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -18224,6 +18371,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -18245,6 +18394,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -18304,6 +18454,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -18406,6 +18558,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -18593,6 +18746,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -18709,6 +18864,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -18869,6 +19025,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -18922,6 +19080,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -19118,6 +19277,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -19192,6 +19353,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -19400,6 +19562,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -19459,6 +19623,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -19524,6 +19689,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -19545,6 +19712,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -19600,6 +19768,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -19621,6 +19791,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -19680,6 +19851,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -19779,6 +19952,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -19985,6 +20159,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -20021,6 +20197,7 @@ export declare const itemData: {
                     };
                 }[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -20222,6 +20399,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -20273,6 +20452,7 @@ export declare const itemData: {
                     paramValue1?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -20428,6 +20608,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -20551,6 +20733,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -20690,6 +20873,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -20711,6 +20896,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -20768,6 +20954,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -20861,6 +21049,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -20916,6 +21105,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -20947,6 +21138,7 @@ export declare const itemData: {
                     description: string;
                 }[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: {
@@ -21010,6 +21202,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -21041,6 +21235,7 @@ export declare const itemData: {
                     description: string;
                 }[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: {
@@ -21116,6 +21311,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -21147,6 +21344,7 @@ export declare const itemData: {
                     description: string;
                 }[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: {
@@ -21221,6 +21419,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -21242,6 +21442,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -21296,6 +21497,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -21317,6 +21520,7 @@ export declare const itemData: {
             "1": {
                 attributes: any[];
                 perfection: any[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -21374,6 +21578,8 @@ export declare const itemData: {
         isPublishable: boolean;
         isRuneword: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: number;
         numPerfectionRolls: number;
         attributes: any[];
@@ -21434,6 +21640,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -21531,6 +21738,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: string;
         attributes: any[];
         details: {
@@ -21625,6 +21834,7 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -21819,6 +22029,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: string;
         attributes: any[];
         details: {
@@ -21936,6 +22148,13 @@ export declare const itemData: {
                     listOrder?: undefined;
                 })[];
                 perfection: number[];
+                presets: {
+                    "6": number[];
+                    "5": number[];
+                    "4": number[];
+                    "3": number[];
+                    "2": number[];
+                };
             };
             "2": {
                 attributes: any[];
@@ -22096,6 +22315,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: string;
         attributes: any[];
         details: {
@@ -22187,6 +22408,7 @@ export declare const itemData: {
                     listOrder?: undefined;
                 })[];
                 perfection: number[];
+                presets?: undefined;
             };
             "2": {
                 attributes: any[];
@@ -22349,6 +22571,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: string;
         attributes: any[];
         details: {
@@ -22443,6 +22667,13 @@ export declare const itemData: {
                     };
                 })[];
                 perfection: number[];
+                presets: {
+                    "6": number[];
+                    "5": number[];
+                    "4": number[];
+                    "3": number[];
+                    "2": number[];
+                };
             };
             "2": {
                 attributes: any[];
@@ -22574,6 +22805,8 @@ export declare const itemData: {
         isRuneword: boolean;
         isSkinnable: boolean;
         createdDate: number;
+        initialCharge: number;
+        maxCharge: number;
         hotness: string;
         attributes: any[];
         details: {
@@ -22691,6 +22924,13 @@ export declare const itemData: {
                     listOrder?: undefined;
                 })[];
                 perfection: number[];
+                presets: {
+                    "6": number[];
+                    "5": number[];
+                    "4": number[];
+                    "3": number[];
+                    "2": number[];
+                };
             };
             "2": {
                 attributes: any[];
@@ -24106,6 +24346,142 @@ export declare const itemData: {
                 presets: {
                     [x: number]: number[];
                 };
+            } | {
+                attributes: ({
+                    min: number;
+                    max: number;
+                    map: any;
+                    id: number;
+                    description: string;
+                    name?: undefined;
+                    isEnabled?: undefined;
+                    game?: undefined;
+                    nexusLink?: undefined;
+                    paramType1?: undefined;
+                    paramValue1?: undefined;
+                    nature?: undefined;
+                    influences?: undefined;
+                    param1?: undefined;
+                    isImplemented?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string[];
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                    isImplemented?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    nexusLink: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    game?: undefined;
+                    paramType1?: undefined;
+                    paramValue1?: undefined;
+                    nature?: undefined;
+                    influences?: undefined;
+                    description?: undefined;
+                    isImplemented?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    paramValue1?: undefined;
+                    isImplemented?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    isImplemented: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                    paramValue1?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    isImplemented: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value?: undefined;
+                        map?: undefined;
+                    };
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    isImplemented: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map: {
+                            "213": string;
+                        };
+                    };
+                    paramValue1?: undefined;
+                    influences?: undefined;
+                })[];
+                perfection: number[];
+                presets?: undefined;
             } | {
                 attributes: any[];
                 perfection?: undefined;

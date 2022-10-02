@@ -168,7 +168,7 @@ exports.setTokenCache = setTokenCache;
 function getItemTokenCache(tokenId) {
     var _a;
     try {
-        console.log(9999, tokenCache[tokenId]);
+        // console.log(9999, tokenCache[tokenId])
         if (tokenCache[tokenId])
             return tokenCache[tokenId];
         if (useLoki) {
@@ -322,8 +322,8 @@ function getItemFromTokenId(tokenId) {
 }
 exports.getItemFromTokenId = getItemFromTokenId;
 function normalizeItem(item) {
-    var _a;
-    var _b, _c, _d, _e;
+    var _a, _b;
+    var _c, _d, _e, _f;
     try {
         var tokenCacheItem = getItemTokenCache(item.tokenId);
         if (item.tokenId && tokenCacheItem)
@@ -575,8 +575,8 @@ function normalizeItem(item) {
         // }
         // Normalize rarity based on perfection
         if (!item.rarity) {
-            if ((_b = item.attributes.find(function (a) { return a.id === 40; })) === null || _b === void 0 ? void 0 : _b.value) {
-                item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[((_c = item.attributes.find(function (a) { return a.id === 40; })) === null || _c === void 0 ? void 0 : _c.value) || 5]];
+            if ((_c = item.attributes.find(function (a) { return a.id === 40; })) === null || _c === void 0 ? void 0 : _c.value) {
+                item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[((_d = item.attributes.find(function (a) { return a.id === 40; })) === null || _d === void 0 ? void 0 : _d.value) || 5]];
             }
             else if (item.perfection === 1) {
                 item.rarity = items_1.ItemRarity.Mythic;
@@ -611,8 +611,8 @@ function normalizeItem(item) {
         }
         if (item.branches) {
             // Set .value if .min and .max are same
-            for (var _i = 0, _f = Object.keys(item.branches); _i < _f.length; _i++) {
-                var bIndex = _f[_i];
+            for (var _i = 0, _g = Object.keys(item.branches); _i < _g.length; _i++) {
+                var bIndex = _g[_i];
                 var branchIndex = Number(bIndex);
                 for (var attributeIndex in item.branches[branchIndex].attributes) {
                     if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
@@ -646,8 +646,8 @@ function normalizeItem(item) {
                 // }
             }
             // Set preset and attribute values based on rarity
-            for (var _g = 0, _h = Object.keys(item.branches); _g < _h.length; _g++) {
-                var bIndex = _h[_g];
+            for (var _h = 0, _j = Object.keys(item.branches); _h < _j.length; _h++) {
+                var bIndex = _j[_h];
                 var branchIndex = Number(bIndex);
                 if (!item.branches[branchIndex].attributes)
                     continue;
@@ -680,10 +680,10 @@ function normalizeItem(item) {
                     }
                 }
                 if (item.rarity) {
-                    for (var _j = 0, _k = Object.keys(item.branches); _j < _k.length; _j++) {
-                        var b2Index = _k[_j];
+                    for (var _k = 0, _l = Object.keys(item.branches); _k < _l.length; _k++) {
+                        var b2Index = _l[_k];
                         var branch2Index = Number(b2Index);
-                        if (!((_d = item.branches[branch2Index].presets) === null || _d === void 0 ? void 0 : _d[item.rarity.id]))
+                        if (!((_e = item.branches[branch2Index].presets) === null || _e === void 0 ? void 0 : _e[item.rarity.id]))
                             continue;
                         for (var presetIndex in item.branches[branch2Index].presets[item.rarity.id]) {
                             var preset = item.branches[branch2Index].presets[item.rarity.id][presetIndex];
@@ -713,8 +713,8 @@ function normalizeItem(item) {
         }
         if (item.branches) {
             // Normalize branch values and perfection
-            for (var _l = 0, _m = Object.keys(item.branches); _l < _m.length; _l++) {
-                var bIndex = _m[_l];
+            for (var _m = 0, _o = Object.keys(item.branches); _m < _o.length; _m++) {
+                var bIndex = _o[_m];
                 var branchIndex = Number(bIndex);
                 if (branchIndex === 1) {
                     continue;
@@ -743,7 +743,7 @@ function normalizeItem(item) {
                     = void 0;
                     // let attributePerfection
                     if (item.branches[1].perfection[attributeIndex] !== undefined && item.branches[1].perfection[attributeIndex] !== null) {
-                        targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex] : (1 - item.branches[1].attributes[attributeIndex].param1.value / item.branches[1].perfection[attributeIndex]);
+                        targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min) : (1 - (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min));
                     }
                     else {
                         // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
@@ -840,7 +840,19 @@ function normalizeItem(item) {
         if (!item.tokenId) {
             item.tokenId = getTokenIdFromItem(item);
         }
-        item.slug = (_e = item.name) === null || _e === void 0 ? void 0 : _e.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase();
+        if (item.branches[2]) {
+            item.branches[2].initialCharge = item.branches[2].initialCharge !== undefined ? item.branches[2].initialCharge : item.initialCharge;
+            item.branches[2].maxCharge = item.branches[2].maxCharge !== undefined ? item.branches[2].maxCharge : item.maxCharge;
+            var chargeMultiplier = (_b = {},
+                _b[items_1.ItemRarity.Magical.id] = 4,
+                _b[items_1.ItemRarity.Rare.id] = 3,
+                _b[items_1.ItemRarity.Epic.id] = 2,
+                _b[items_1.ItemRarity.Mythic.id] = 1,
+                _b);
+            item.branches[2].initialCharge *= chargeMultiplier[item.rarity.id];
+            item.branches[2].maxCharge *= chargeMultiplier[item.rarity.id];
+        }
+        item.slug = (_f = item.name) === null || _f === void 0 ? void 0 : _f.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase();
         if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
             item.perfection = -13;
         if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
