@@ -559,7 +559,7 @@
     "paramValues": [
       "0-999"
     ],
-    "nature": "Neutral",
+    "nature": "Buff",
     "description": "Freeze Fees Timeline: {parameter1} Hours",
     "explanation": ""
   },
@@ -1151,7 +1151,7 @@
       "0-4"
     ],
     "nature": "Buff",
-    "description": "{parameter1} to level of equipped skills",
+    "description": "+{parameter1} all skills",
     "explanation": ""
   },
   {
@@ -2997,7 +2997,2928 @@
     ],
     "nature": "Buff",
     "influences": "Movement",
-    "description": "{parameter1} faster movement.",
+    "description": "{parameter1} movement burst strength",
+    "explanation": ""
+  },
+  {
+    "uuid": "recnRXKf1vZ2iP3Q4",
+    "id": 1050,
+    "name": "MaximumHealthIncrease",
+    "displayName": "Maximum Health Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/maximumhealthincrease",
+    "isImplemented": false,
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} maximum health",
+    "explanation": ""
+  },
+  {
+    "uuid": "recNvqoipvZJCzwOK",
+    "id": 1051,
+    "name": "ArcaneResist",
+    "displayName": "Arcane Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/arcaneresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} arcane resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "recCkuoEMRX2xxpvq",
+    "id": 1052,
+    "name": "LightningResist",
+    "displayName": "Lightning Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/lightningresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} lightning resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "recKDQP7mma2s4vzo",
+    "id": 1053,
+    "name": "IceResist",
+    "displayName": "Ice Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/iceresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} ice resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "recVjHmW6VJbk4GkH",
+    "id": 1054,
+    "name": "PoisonResist",
+    "displayName": "Poison Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/poisonresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} poison resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec5pq7vVxjAkWfwh",
+    "id": 1055,
+    "name": "RendResist",
+    "displayName": "Rend Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/rendresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} rending resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "recYQmOBWuZrFWuGI",
+    "id": 1056,
+    "name": "FireResist",
+    "displayName": "Fire Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/fireresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} fire resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec3igHfqdFEtePIS",
+    "id": 1057,
+    "name": "FreezeResist",
+    "displayName": "Freeze Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/freezeresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} freeze resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "recrYwXww3MUaSQV2",
+    "id": 1058,
+    "name": "StunResist",
+    "displayName": "Stun Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/stunresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} stun resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec5La3qActADgwy6",
+    "id": 1059,
+    "name": "AilmentResist",
+    "displayName": "Ailment Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/ailmentresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} ailment resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "recVFW9e8F6FgorJV",
+    "id": 1060,
+    "name": "DamageResist",
+    "displayName": "Damage Resist",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/damageresist",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} damage resist",
+    "explanation": ""
+  },
+  {
+    "uuid": "rechGQdmO6z7Mak7P",
+    "id": 1061,
+    "name": "LightReflect",
+    "displayName": "Light Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/lightreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} light reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recqIcpUmUthTqZBS",
+    "id": 1062,
+    "name": "DarkReflect",
+    "displayName": "Dark Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/darkreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} dark reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "reclG0EazkwWsTktA",
+    "id": 1063,
+    "name": "FireReflect",
+    "displayName": "Fire Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/firereflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} fire reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recMchu2L4NNuIybG",
+    "id": 1064,
+    "name": "IceReflect",
+    "displayName": "Ice Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/icereflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} ice reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recLVIJ1DiQPgK8cw",
+    "id": 1065,
+    "name": "LightningReflect",
+    "displayName": "Lightning Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/lightningreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} lightning reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recsl3hsyKPDuHBSp",
+    "id": 1066,
+    "name": "RendReflect",
+    "displayName": "Rend Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/rendreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} rending reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recaf8q9wUqV7H36N",
+    "id": 1067,
+    "name": "PoisonReflect",
+    "displayName": "Poison Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/poisonreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} poison reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recs2mavLxmwZO6Ua",
+    "id": 1068,
+    "name": "ArcaneReflect",
+    "displayName": "Arcane Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/arcanereflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} arcane reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recVlqs83tJHiURhw",
+    "id": 1069,
+    "name": "AilmentReflect",
+    "displayName": "Ailment Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/ailmentreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} ailment reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "recqmm3CcFuiDE8lg",
+    "id": 1070,
+    "name": "PhysicalReflect",
+    "displayName": "Physical Reflect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/physicalreflect",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} physical reflect",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec10lB59IraoX6G4",
+    "id": 1071,
+    "name": "FireAbsorb",
+    "displayName": "Fire Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/fireabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} fire absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "recYO4pM3tetOiJTM",
+    "id": 1072,
+    "name": "IceAbsorb",
+    "displayName": "Ice Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/iceabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} ice absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec3h3JgB22yf9jW3",
+    "id": 1073,
+    "name": "LightningAbsorb",
+    "displayName": "Lightning Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/lightningabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} lightning absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "recSTn64bHKG6Imam",
+    "id": 1074,
+    "name": "ArcaneAbsorb",
+    "displayName": "Arcane Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/arcaneabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} arcane absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "recA6jF2TBpRbPnLM",
+    "id": 1075,
+    "name": "PoisonAbsorb",
+    "displayName": "Poison Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/poisonabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} poison absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "recJ2Z6FXx0mlmtoA",
+    "id": 1076,
+    "name": "LightAbsorb",
+    "displayName": "Light Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/lightabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} light absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "recQGYpH9LdmEfl41",
+    "id": 1077,
+    "name": "DarkAbsorb",
+    "displayName": "Dark Absorb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/darkabsorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} dark absorb",
+    "explanation": ""
+  },
+  {
+    "uuid": "recigm3V1wtNd4r1J",
+    "id": 1100,
+    "name": "KilledPlayerPenaltyIncrease",
+    "displayName": "Killed Player Penalty Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/killedplayerpenaltyincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "{parameter1} greater point penalty for defeated opponents.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recRTtsVRCKpLaM9M",
+    "id": 1101,
+    "name": "DeathPenaltyDecrease",
+    "displayName": "Death Penalty Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/deathpenaltydecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "{parameter1} reduction to points lost on death.",
+    "explanation": ""
+  },
+  {
+    "uuid": "rechiN55zA5egzgKn",
+    "id": 1102,
+    "name": "DeathPenaltyAvoid",
+    "displayName": "Death Penalty Avoid",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/deathpenaltyavoid",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "{parameter1} to avoid losing points on death.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recN8wprvntg3MEOb",
+    "id": 1104,
+    "name": "EnergyDecayDecrease",
+    "displayName": "Energy Decay Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/energydecaydecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Neutral",
+    "influences": "Game",
+    "description": "{parameter1} decrease to energy decay speed",
+    "explanation": ""
+  },
+  {
+    "uuid": "recoEq3sUxwYYv5UZ",
+    "id": 1105,
+    "name": "EnergyDecayIncrease",
+    "displayName": "Energy Decay Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/energydecayincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Neutral",
+    "influences": "Game",
+    "description": "{parameter1} increase to energy decay speed",
+    "explanation": ""
+  },
+  {
+    "uuid": "recPBfINhUpESYZ2C",
+    "id": 1106,
+    "name": "EarlyOrbRevealChance",
+    "displayName": "Early Orb Reveal Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/earlyorbrevealchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Game",
+    "description": "{parameter1} chance to see location of orb spawns early.",
+    "explanation": ""
+  },
+  {
+    "uuid": "reccePvzkJfxqKyPo",
+    "id": 1107,
+    "name": "OrbTimeReduce",
+    "displayName": "Orb Time Reduce",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbtimereduce",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "{parameter1} reduction to time it takes a victim's death orb to appear",
+    "explanation": ""
+  },
+  {
+    "uuid": "recjRT62cUJHScCoB",
+    "id": 1108,
+    "name": "OrbPickupDamageIncrease",
+    "displayName": "Orb Pickup Damage Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbpickupdamageincrease",
+    "isImplemented": false,
+    "description": "{parameter1} damage increase on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recmuf23GZj9WTw7r",
+    "id": 1109,
+    "name": "OrbPickupHealthIncrease",
+    "displayName": "Orb Pickup Health Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbpickuphealthincrease",
+    "isImplemented": false,
+    "description": "{parameter1} health on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recCdFDy03uiUKQdR",
+    "id": 1110,
+    "name": "OrbPickupMovementSpeedIncrease",
+    "displayName": "Orb Pickup Movement Speed Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbpickupmovementspeedincrease",
+    "isImplemented": false,
+    "description": "{parameter1} movement speed on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "reckkuQVGjukHnLQu",
+    "id": 1111,
+    "name": "OrbPickupCritChance",
+    "displayName": "Orb Pickup Crit Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbpickupcritchance",
+    "isImplemented": false,
+    "description": "{parameter1} critical hit chance on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recCv6fbNt5iT1tVH",
+    "id": 1112,
+    "name": "OrbTimeIncrease",
+    "displayName": "Orb Time Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbtimeincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Game",
+    "description": "{parameter1} additional delay to orb appearance from victim",
+    "explanation": ""
+  },
+  {
+    "uuid": "recgW9VL7MIYRe1LM",
+    "id": 1113,
+    "name": "OrbNoPointsChance",
+    "displayName": "Orb No Points Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/orbnopointschance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Debuff",
+    "influences": "Game",
+    "description": "{parameter1} chance picking up an orb gives no points.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recgdfZMSZqCVngc8",
+    "id": 1114,
+    "name": "EarlyOrbPickup",
+    "displayName": "Early Orb Pickup",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/earlyorbpickup",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "Can pick up orbs early.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recojBzfn9X5A27ZC",
+    "id": 1115,
+    "name": "SelfOrbTimeReduce",
+    "displayName": "Self Orb Time Reduce",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/selforbtimereduce",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "influences": "Game",
+    "description": "{parameter1} less time before own orb manifests",
+    "explanation": ""
+  },
+  {
+    "uuid": "recEhj9CRS70aIPas",
+    "id": 1116,
+    "name": "SelfOrbTimeIncrease",
+    "displayName": "Self Orb Time Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/selforbtimeincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "influences": "Game",
+    "description": "{parameter1} more time before own orb manifests",
+    "explanation": ""
+  },
+  {
+    "uuid": "recsJRRh3rFF57Ub1",
+    "id": 1117,
+    "name": "SpriteFuelIncrease",
+    "displayName": "Sprite Fuel Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/spritefuelincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Neutral",
+    "influences": "Game",
+    "description": "{parameter1} increase to energy given by sprites",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec0tK5xgGpzJn1rF",
+    "id": 1118,
+    "name": "SpriteFuelDecrease",
+    "displayName": "Sprite Fuel Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/spritefueldecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Neutral",
+    "influences": "Game",
+    "description": "{parameter1} decrease to energy given by sprites",
+    "explanation": ""
+  },
+  {
+    "uuid": "recxZGkGY861g6Cu6",
+    "id": 1119,
+    "name": "CriticalPointsChanceIncrease",
+    "displayName": "Critical Points Chance Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/criticalpointschanceincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Game",
+    "description": "{parameter1} chance to receive critical bonus points.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recTy8g1ofwENmYeU",
+    "id": 1120,
+    "name": "CriticalPointsMultiplierIncrease",
+    "displayName": "Critical Points Multiplier Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/criticalpointsmultiplierincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-35%"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "{parameter1} increase to critical bonus.",
+    "explanation": ""
+  },
+  {
+    "uuid": "reccbreWNeXHAocXl",
+    "id": 1150,
+    "name": "WinRewardsIncrease",
+    "displayName": "Win Rewards Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/winrewardsincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-20%"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{parameter1} win bonus",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec6IljQsgWtpNt48",
+    "id": 1151,
+    "name": "ItemRewardsIncrease",
+    "displayName": "Item Rewards Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/itemrewardsincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-20%"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{parameter1} item pickup bonus",
+    "explanation": ""
+  },
+  {
+    "uuid": "recFDgHPrIFF34Kio",
+    "id": 1152,
+    "name": "MagicFind",
+    "displayName": "Magic Find",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/magicfind",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recpRHTz91JuclPsR",
+    "id": 1155,
+    "name": "EarlyItemRevealChance",
+    "displayName": "Early Item Reveal Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/earlyitemrevealchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to see location of next item early.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recH6dCYurSwL6V9T",
+    "id": 1156,
+    "name": "NoRewardsUnlessFirst",
+    "displayName": "No Rewards Unless First",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/norewardsunlessfirst",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-50%"
+    ],
+    "nature": "Debuff",
+    "influences": "Reward",
+    "description": "{parameter1} chance to receive no rewards for leaderboard positions below first.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recNQe6a2ernFnM1k",
+    "id": 1157,
+    "name": "WinStreakRewardIncrease",
+    "displayName": "Win Streak Reward Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/winstreakrewardincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-50%"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{parameter1} increase to win and item rewards with each consecutive win.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recyOPa4uI9CNSuly",
+    "id": 1158,
+    "name": "WinStreakMagicFindIncrease",
+    "displayName": "Win Streak Magic Find Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/winstreakmagicfindincrease",
+    "isImplemented": false,
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recsRkerclR2MmQc7",
+    "id": 1160,
+    "name": "WinRewardsDecrease",
+    "displayName": "Win Rewards Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/winrewardsdecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Reward",
+    "description": "{parameter1} win reward reduction",
+    "explanation": ""
+  },
+  {
+    "uuid": "recO9VZCkvj0unOaL",
+    "id": 1161,
+    "name": "ItemRewardsDecrease",
+    "displayName": "Item Rewards Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/itemrewardsdecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Reward",
+    "description": "{parameter1} item reward reduction",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec4lzUxan0MZUGoC",
+    "id": 1162,
+    "name": "GuildTreasuryWinBonus",
+    "displayName": "Guild Treasury Win Bonus",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/guildtreasurywinbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Reward",
+    "description": "{parameter1} win reward as guild rewards",
+    "explanation": ""
+  },
+  {
+    "uuid": "recL940MhwOfkyiBt",
+    "id": 1163,
+    "name": "GuildTreasuryItemBonus",
+    "displayName": "Guild Treasury Item Bonus",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/guildtreasuryitembonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Reward",
+    "description": "{parameter1} item reward as guild rewards",
+    "explanation": ""
+  },
+  {
+    "uuid": "reclXhM8GpGtVMSGM",
+    "id": 1164,
+    "name": "DoublePickupChance",
+    "displayName": "Double Pickup Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/doublepickupchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{parameter1} chance to double an item pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recgxbvjEVw91R7Ba",
+    "id": 1165,
+    "name": "RandomRuneOnWin",
+    "displayName": "Random Rune On Win",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/randomruneonwin",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{parameter1} of your win reward as a random rune",
+    "explanation": ""
+  },
+  {
+    "uuid": "recfNeSV2igA8QAGI",
+    "id": 1166,
+    "name": "TargetItemType",
+    "displayName": "Target Item Type",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/targetitemtype",
+    "isImplemented": false,
+    "paramTypes": [
+      "itemType"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{ItemType} Runeword rewards more likely",
+    "explanation": ""
+  },
+  {
+    "uuid": "recbeYQ93f1SJgWw9",
+    "id": 1167,
+    "name": "RunewordFindWin",
+    "displayName": "Runeword Find Win",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/runewordfindwin",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to find a random runeword on win",
+    "explanation": ""
+  },
+  {
+    "uuid": "recZJYrm1PWTdJ6Al",
+    "id": 1168,
+    "name": "RunewordFindItem",
+    "displayName": "Runeword Find Item",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/runewordfinditem",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to find a random runeword on item pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recVqsCHJUZRsWfmY",
+    "id": 1169,
+    "name": "ShardFindWin",
+    "displayName": "Shard Find Win",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/shardfindwin",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to find a worldstone shard on win",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec1eDP4yV5Yqqrok",
+    "id": 1170,
+    "name": "ShardFindItem",
+    "displayName": "Shard Find Item",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/shardfinditem",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to find a worldstone shard on item pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec8kSkWIckvc3MZd",
+    "id": 1171,
+    "name": "TokenFindWin",
+    "displayName": "Token Find Win",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/tokenfindwin",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to find a guild token on win",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec9NPoe3ypEmMt4R",
+    "id": 1172,
+    "name": "TokenFindItem",
+    "displayName": "Token Find Item",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/tokenfinditem",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to find a guild token on item pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recGqfZLWWjAIRKFM",
+    "id": 1173,
+    "name": "StealVictimRewardsChance",
+    "displayName": "Steal Victim Rewards Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/stealvictimrewardschance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-10%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{parameter1} chance to take a portion of a killed player's rewards for the round",
+    "explanation": ""
+  },
+  {
+    "uuid": "recvGaSIv93F6g4KN",
+    "id": 1174,
+    "name": "ExpBonus",
+    "displayName": "Exp Bonus",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/expbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{parameter1} increase to egg hatching progress",
+    "explanation": ""
+  },
+  {
+    "uuid": "recdt8imfKRHxafWg",
+    "id": 1200,
+    "name": "LeaderMovementSpeedDecrease",
+    "displayName": "Leader Movement Speed Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leadermovementspeeddecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Movement",
+    "description": "{parameter1} slower movement when leading",
+    "explanation": ""
+  },
+  {
+    "uuid": "recZBr7OZtRnRU9RI",
+    "id": 1201,
+    "name": "LeaderDeathPenaltyIncrease",
+    "displayName": "Leader Death Penalty Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leaderdeathpenaltyincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Game",
+    "description": "{parameter1} increase to points lost on death when leading",
+    "explanation": ""
+  },
+  {
+    "uuid": "recefJShHQQKp7NnQ",
+    "id": 1202,
+    "name": "LeaderSkillPenalty",
+    "displayName": "Leader Skill Penalty",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leaderskillpenalty",
+    "isImplemented": false,
+    "description": "{parameter1} lowered skill level when leader",
+    "explanation": ""
+  },
+  {
+    "uuid": "recZsvXSKvY9DPdjI",
+    "id": 1203,
+    "name": "LeaderDamageResistanceDecrease",
+    "displayName": "Leader Damage Resistance Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leaderdamageresistancedecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Defense",
+    "description": "{parameter1} more damage taken when leader",
+    "explanation": ""
+  },
+  {
+    "uuid": "recBALFo40uvgLOhK",
+    "id": 1204,
+    "name": "LeaderMaxHealthDecrease",
+    "displayName": "Leader Max Health Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leadermaxhealthdecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Defense",
+    "description": "{parameter1} less maximum health when leader",
+    "explanation": ""
+  },
+  {
+    "uuid": "recfzakASH9GLHhVr",
+    "id": 1205,
+    "name": "LeaderMaxEnergyDecrease",
+    "displayName": "Leader Max Energy Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leadermaxenergydecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Defense",
+    "description": "{parameter1} less maximum energy when leader",
+    "explanation": ""
+  },
+  {
+    "uuid": "recH9DAF1j0ww4BxP",
+    "id": 1206,
+    "name": "LeaderDamageDecrease",
+    "displayName": "Leader Damage Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/leaderdamagedecrease",
+    "isImplemented": false,
+    "description": " -{parameter1} damage when leader",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec5UkInlCCnhquzP",
+    "id": 1207,
+    "name": "NotLeaderMovementSpeedIncrease",
+    "displayName": "Not Leader Movement Speed Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/notleadermovementspeedincrease",
+    "isImplemented": false,
+    "description": "{parameter1} movement speed when behind",
+    "explanation": ""
+  },
+  {
+    "uuid": "recYIEZoGDYeKvBHX",
+    "id": 1208,
+    "name": "NotLeaderDamageResistanceIncrease",
+    "displayName": "Not Leader Damage Resistance Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/notleaderdamageresistanceincrease",
+    "isImplemented": false,
+    "description": "{parameter1} damage resistance when behind",
+    "explanation": ""
+  },
+  {
+    "uuid": "recpoRL0AwK1R6nTh",
+    "id": 1209,
+    "name": "NotLeaderDamageIncrease",
+    "displayName": "Not Leader Damage Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/notleaderdamageincrease",
+    "isImplemented": false,
+    "description": "{parameter1} damage increase when behind",
+    "explanation": ""
+  },
+  {
+    "uuid": "recSh0Iqe4mwsjkAA",
+    "id": 1210,
+    "name": "NotLeaderSkillBonus",
+    "displayName": "Not Leader Skill Bonus",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/notleaderskillbonus",
+    "isImplemented": false,
+    "description": "{parameter1} to skill levels when behind",
+    "explanation": ""
+  },
+  {
+    "uuid": "recSMLHlZtIiEpaWm",
+    "id": 1211,
+    "name": "IncreaseAttackSpeedOnOrb",
+    "displayName": "Increase Attack Speed On Orb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increaseattackspeedonorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Offense",
+    "description": "{parameter1} attack speed on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec7O96i6ImjKviQ3",
+    "id": 1212,
+    "name": "IncreaseCritChanceOnOrb",
+    "displayName": "Increase Crit Chance On Orb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasecritchanceonorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Offense",
+    "description": "{parameter1} crit chance on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recg96n3DY8anaFGg",
+    "id": 1213,
+    "name": "IncreaseDamageOnOrb",
+    "displayName": "Increase Damage On Orb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasedamageonorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Offense",
+    "description": "{parameter1} damage on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec7en0l46ayp8Cls",
+    "id": 1214,
+    "name": "IncreaseHealthOnOrb",
+    "displayName": "Increase Health On Orb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasehealthonorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} health on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recmc8vHADfstqBzG",
+    "id": 1215,
+    "name": "PassiveRegenOnOrb",
+    "displayName": "Passive Regen On Orb",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/passiveregenonorb",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": " {parameter1} regeneration on orb pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recJ5KfOv7EyTDaFk",
+    "id": 1216,
+    "name": "IncreaseAttackSpeedOnKill",
+    "displayName": "Increase Attack Speed On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increaseattackspeedonkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Offense",
+    "description": "{parameter1} attack speed on kill",
+    "explanation": ""
+  },
+  {
+    "uuid": "recXqj8tlrYKjXEpF",
+    "id": 1217,
+    "name": "IncreaseCritChanceOnKill",
+    "displayName": "Increase Crit Chance On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasecritchanceonkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Offense",
+    "description": "{parameter1} crit chance on kill",
+    "explanation": ""
+  },
+  {
+    "uuid": "recPXA1oaw7oXqFQG",
+    "id": 1218,
+    "name": "IncreaseDamageOnKill",
+    "displayName": "Increase Damage On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasedamageonkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Offense",
+    "description": "{parameter1} damage on kill",
+    "explanation": ""
+  },
+  {
+    "uuid": "recrCSNGWURnIPJ7Y",
+    "id": 1219,
+    "name": "IncreaseHealthOnKill",
+    "displayName": "Increase Health On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasehealthonkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Defense",
+    "description": "{parameter1} health on kill.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recK4MZbj7dU7r7OZ",
+    "id": 1220,
+    "name": "PassiveRegenOnKill",
+    "displayName": "Passive Regen On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/passiveregenonkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": " {parameter1} regeneration on kill",
+    "explanation": ""
+  },
+  {
+    "uuid": "recTW1HcApd8Gsr3j",
+    "id": 1221,
+    "name": "ReduceEnergyConsumptionOnKill",
+    "displayName": "Reduce Energy Consumption On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/reduceenergyconsumptiononkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Game",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recuKgs3J45AUqqGj",
+    "id": 1222,
+    "name": "IncreaseMovementSpeedOnKill",
+    "displayName": "Increase Movement Speed On Kill",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasemovementspeedonkill",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Movement",
+    "description": "{parameter1} movement speed on kill",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec4teZdXSzEQ7Vdw",
+    "id": 1223,
+    "name": "EvolveMovementBurst",
+    "displayName": "Evolve Movement Burst",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/evolvemovementburst",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Movement",
+    "description": "{parameter1} movement burst on evolve",
+    "explanation": ""
+  },
+  {
+    "uuid": "rechPTewBLOfzJNwe",
+    "id": 1224,
+    "name": "EvolveMovementBurstIncrease",
+    "displayName": "Evolve Movement Burst Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/evolvemovementburstincrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-25%"
+    ],
+    "nature": "Buff",
+    "influences": "Movement",
+    "description": "{parameter1} longer movement speed bonus after evolving",
+    "explanation": ""
+  },
+  {
+    "uuid": "recCRVIXkO7oJoAct",
+    "id": 1225,
+    "name": "CastOnEvolveChance",
+    "displayName": "Cast On Evolve Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonevolvechance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rect0Qk7RwtyzFF2F",
+    "id": 1226,
+    "name": "CastOnEvolveType",
+    "displayName": "Cast On Evolve Type",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonevolvetype",
+    "isImplemented": false,
+    "paramTypes": [
+      "spellType"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "reclSobppwvdrIcGB",
+    "id": 1227,
+    "name": "CastOnEvolveEffect",
+    "displayName": "Cast On Evolve Effect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonevolveeffect",
+    "isImplemented": false,
+    "paramTypes": [
+      "effect"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recK8CFF1zu3Ii1M5",
+    "id": 1228,
+    "name": "CastOnEvolveUpgrade",
+    "displayName": "Cast On Evolve Upgrade",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonevolveupgrade",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} to cast-on-evolve effect level",
+    "explanation": ""
+  },
+  {
+    "uuid": "recKt7XnZw4mXFdiK",
+    "id": 1229,
+    "name": "CastOnDeathChance",
+    "displayName": "Cast On Death Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castondeathchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recRLMOBn67bS7Q3j",
+    "id": 1230,
+    "name": "CastOnDeathType",
+    "displayName": "Cast On Death Type",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castondeathtype",
+    "isImplemented": false,
+    "paramTypes": [
+      "spellType"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recNiXGQWRdq2GQKX",
+    "id": 1231,
+    "name": "CastOnDeathEffect",
+    "displayName": "Cast On Death Effect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castondeatheffect",
+    "isImplemented": false,
+    "paramTypes": [
+      "effect"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recfB7TrXH5kUYAHw",
+    "id": 1232,
+    "name": "CastOnDeathUpgrade",
+    "displayName": "Cast On Death Upgrade",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castondeathupgrade",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} to cast-on-death effect level",
+    "explanation": ""
+  },
+  {
+    "uuid": "recPePhaQPoP6isXI",
+    "id": 1233,
+    "name": "CastOnOrbChance",
+    "displayName": "Cast On Orb Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonorbchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recu1i8ZXjTU8DTR7",
+    "id": 1234,
+    "name": "CastOnOrbType",
+    "displayName": "Cast On Orb Type",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonorbtype",
+    "isImplemented": false,
+    "paramTypes": [
+      "spellType"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recibsdnc1l0SQOmm",
+    "id": 1235,
+    "name": "CastOnOrbEffect",
+    "displayName": "Cast On Orb Effect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonorbeffect",
+    "isImplemented": false,
+    "paramTypes": [
+      "effect"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recMcVWQTLDVHPGxR",
+    "id": 1236,
+    "name": "CastOnOrbUpgrade",
+    "displayName": "Cast On Orb Upgrade",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonorbupgrade",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} to cast-on-orb effect level",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec5sz8FSTngPwWmC",
+    "id": 1237,
+    "name": "CastOnKillChance",
+    "displayName": "Cast On Kill Chance",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonkillchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} cast {CastOnKillEffect.Value} {CastOnKillType.Value} on kill",
+    "explanation": ""
+  },
+  {
+    "uuid": "recsLiTxyMCYpsGDN",
+    "id": 1238,
+    "name": "CastOnKillType",
+    "displayName": "Cast On Kill Type",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonkilltype",
+    "isImplemented": false,
+    "paramTypes": [
+      "spellType"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec06JiDC3uxfOBHp",
+    "id": 1239,
+    "name": "CastOnKillEffect",
+    "displayName": "Cast On Kill Effect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonkilleffect",
+    "isImplemented": false,
+    "paramTypes": [
+      "effect"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recFDZLR32ty0mvio",
+    "id": 1240,
+    "name": "CastOnKillUpgrade",
+    "displayName": "Cast On Kill Upgrade",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/castonkillupgrade",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} to cast-on-kill effect level",
+    "explanation": ""
+  },
+  {
+    "uuid": "recPPk3OV9cJmEsZe",
+    "id": 1241,
+    "name": "DayDamageIncrease",
+    "displayName": "Day Damage Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/daydamageincrease",
+    "isImplemented": false,
+    "description": "{parameter1} damage during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "recndC94W8Mt0lbEX",
+    "id": 1242,
+    "name": "DayHealthIncrease",
+    "displayName": "Day Health Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/dayhealthincrease",
+    "isImplemented": false,
+    "description": "{parameter1} health during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "recItvdsj6gfjaKsx",
+    "id": 1243,
+    "name": "DayMovementSpeedIncrease",
+    "displayName": "Day Movement Speed Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/daymovementspeedincrease",
+    "isImplemented": false,
+    "description": "{parameter1} movement speed during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "recnD1MtU5vAELLSU",
+    "id": 1244,
+    "name": "DayRegen",
+    "displayName": "Day Regen",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/dayregen",
+    "isImplemented": false,
+    "description": "Receive passive regeneration during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec0jNSznvlD2xdOn",
+    "id": 1245,
+    "name": "DayPointBonus",
+    "displayName": "Day Point Bonus",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/daypointbonus",
+    "isImplemented": false,
+    "description": "{parameter1} bonus points during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "recHwNZ5ZWNDHbEj7",
+    "id": 1246,
+    "name": "DayPenaltyReduction",
+    "displayName": "Day Penalty Reduction",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/daypenaltyreduction",
+    "isImplemented": false,
+    "description": " {parameter1} point penalty reduction during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "recBGyZOlENP4wDbl",
+    "id": 1247,
+    "name": "DaySkillCooldownReduction",
+    "displayName": "Day Skill Cooldown Reduction",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/dayskillcooldownreduction",
+    "isImplemented": false,
+    "description": "{parameter1} reduction to skill cooldowns during the day",
+    "explanation": ""
+  },
+  {
+    "uuid": "recbcgJXHTDBDR6Ew",
+    "id": 1248,
+    "name": "NightDamageIncrease",
+    "displayName": "Night Damage Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightdamageincrease",
+    "isImplemented": false,
+    "description": "{parameter1} damage during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "reczBIIjMKtMuZoIE",
+    "id": 1249,
+    "name": "NightHealthIncrease",
+    "displayName": "Night Health Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nighthealthincrease",
+    "isImplemented": false,
+    "description": "{parameter1} health during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "recguytY0x7MxJYea",
+    "id": 1250,
+    "name": "NightMovementSpeedIncrease",
+    "displayName": "Night Movement Speed Increase",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightmovementspeedincrease",
+    "isImplemented": false,
+    "description": "{parameter1} movement speed during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "recnz65OpUrVqFghL",
+    "id": 1251,
+    "name": "NightRegen",
+    "displayName": "Night Regen",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightregen",
+    "isImplemented": false,
+    "description": "Receive passive regeneration during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "rechny78svmVneN9O",
+    "id": 1252,
+    "name": "NightPointBonus",
+    "displayName": "Night Point Bonus",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightpointbonus",
+    "isImplemented": false,
+    "description": "{parameter1} bonus points during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "recBU5nliMGw0I0zh",
+    "id": 1253,
+    "name": "NightPenaltyReduction",
+    "displayName": "Night Penalty Reduction",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightpenaltyreduction",
+    "isImplemented": false,
+    "description": " {parameter1} point penalty reduction during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "recCTEm9TtkXCBJJz",
+    "id": 1254,
+    "name": "NightSkillCooldownReduction",
+    "displayName": "Night Skill Cooldown Reduction",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightskillcooldownreduction",
+    "isImplemented": false,
+    "description": "{parameter1} reduction to skill cooldowns during the night",
+    "explanation": ""
+  },
+  {
+    "uuid": "recILVXfWQc5SBdpa",
+    "id": 1300,
+    "name": "MovementSpeedDecrease",
+    "displayName": "Movement Speed Decrease",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/movementspeeddecrease",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Debuff",
+    "influences": "Movement",
+    "description": "{parameter1} slower movement",
+    "explanation": ""
+  },
+  {
+    "uuid": "recpI8QiNZJ6Gzvxq",
+    "id": 1301,
+    "name": "BecomeBloodDrunk",
+    "displayName": "Become Blood Drunk",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/becomeblooddrunk",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-1%"
+    ],
+    "nature": "Debuff",
+    "influences": "Movement",
+    "description": "Can become blood drunk.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recvzWYKo04wfp6oI",
+    "id": 1302,
+    "name": "BecomeSacrificeOnLead",
+    "displayName": "Become Sacrifice On Lead",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/becomesacrificeonlead",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
+    "nature": "Debuff",
+    "influences": "Gameplay",
+    "description": "{parameter1} chance of becoming sacrifice when taking the lead.",
+    "explanation": ""
+  },
+  {
+    "uuid": "rechi7LDRJQPDEL6L",
+    "id": 1303,
+    "name": "RandomizedItemAttribute",
+    "displayName": "Randomized Item Attribute",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/randomizeditemattribute",
+    "isImplemented": false,
+    "paramTypes": [
+      "randomAttributeID"
+    ],
+    "nature": "Mechanic",
+    "influences": "All",
+    "description": "{RandomAttributeID}.id.description",
+    "explanation": ""
+  },
+  {
+    "uuid": "recNWoaJ3DODULceG",
+    "id": 1304,
+    "name": "AuraEffect",
+    "displayName": "Aura Effect",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/auraeffect",
+    "isImplemented": false,
+    "paramTypes": [
+      "effect"
+    ],
+    "nature": "Mechanic",
+    "influences": "All",
+    "description": "{Effect} aura",
+    "explanation": ""
+  },
+  {
+    "uuid": "recJMDzdl2OsRnax6",
+    "id": 1305,
+    "name": "NightAura",
+    "displayName": "Night Aura",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/nightaura",
+    "isImplemented": false,
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "reci3f7L6Qdcy6rhL",
+    "id": 1306,
+    "name": "HighlightNearby",
+    "displayName": "Highlight Nearby",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/highlightnearby",
+    "isImplemented": false,
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec9ANfjZ7vYJfkge",
+    "id": 1325,
+    "name": "SkillUnlock",
+    "displayName": "Skill Unlock",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/skillunlock",
+    "isImplemented": false,
+    "paramTypes": [
+      "skill"
+    ],
+    "nature": "Mechanic",
+    "description": "Unlocked: {parameter1}",
+    "explanation": ""
+  },
+  {
+    "uuid": "recHECs79pLucc1li",
+    "id": 1326,
+    "name": "ClassPrerequisite",
+    "displayName": "Class Requirement",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/classprerequisite",
+    "isImplemented": false,
+    "paramTypes": [
+      "class"
+    ],
+    "nature": "Requirement",
+    "description": "{parameter1} Required",
+    "explanation": ""
+  },
+  {
+    "uuid": "reckTAKwcpNM8NxTN",
+    "id": 1327,
+    "name": "SkillMod",
+    "displayName": "Skill Mod",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/skillmod",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-5"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec4vmk0dObxQi6dX",
+    "id": 1328,
+    "name": "SkillLevelUp",
+    "displayName": "Skill Level Up",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/skilllevelup",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} levels added to equipped skill(s)",
+    "explanation": ""
+  },
+  {
+    "uuid": "reckC92m4P4cFDjwn",
+    "id": 1329,
+    "name": "ReduceSkillCooldown",
+    "displayName": "Reduce Skill Cooldown",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/reduceskillcooldown",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "{parameter1} skill cooldown reduction",
+    "explanation": ""
+  },
+  {
+    "uuid": "recEad8SWpUT40no2",
+    "id": 1330,
+    "name": "IncreaseMaxSkillCharges",
+    "displayName": "Increase Max Skill Charges",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/increasemaxskillcharges",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec2yiwUL12Pj9spK",
+    "id": 1400,
+    "name": "UnlockOnWins",
+    "displayName": "Unlock On Wins",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/unlockonwins",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recidyjEPOlWP28y5",
+    "id": 1401,
+    "name": "UnlockOnKills",
+    "displayName": "Unlock On Kills",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/unlockonkills",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recdRfZZ8wqUEkXXX",
+    "id": 1402,
+    "name": "UnlockOnConsecutiveWins",
+    "displayName": "Unlock On Consecutive Wins",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/unlockonconsecutivewins",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "receAsV8bjoDD2Xkw",
+    "id": 1403,
+    "name": "UnlockOnGamesPlayed",
+    "displayName": "Unlock On Games Played",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/unlockongamesplayed",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec0ur2FhCqlbzcld",
+    "id": 1404,
+    "name": "UnlockOnRevengeKills",
+    "displayName": "Unlock On Revenge Kills",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/unlockonrevengekills",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "reckB75W6rC9I42RW",
+    "id": 1410,
+    "name": "TargetAttributeUnlock",
+    "displayName": "Target Attribute Unlock",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/targetattributeunlock",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeSlot"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recfXUlf3s1SQBgrw",
+    "id": 1411,
+    "name": "DebuffToBuffRange",
+    "displayName": "Debuff To Buff Range",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/debufftobuffrange",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recGmCVJSdN887QVU",
+    "id": 1412,
+    "name": "DebuffAttributeTarget",
+    "displayName": "Debuff Attribute Target",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/debuffattributetarget",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeID"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recrqEpOszwI0V7W2",
+    "id": 1413,
+    "name": "BuffAttributeTarget",
+    "displayName": "Buff Attribute Target",
+    "isEnabled": true,
+    "game": 2,
+    "link": "https://rune.game/item-attribute/buffattributetarget",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeID"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recETRmdsQ8ha2p8M",
+    "id": 2002,
+    "name": "RandomAttribute",
+    "displayName": "Health Regen",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/randomattribute",
+    "isImplemented": false,
+    "paramTypes": [
+      "(attribute, (paramValues[]))[]"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
+    "nature": "Buff",
+    "influences": "Player",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recBuLQkmUCQFoMxW",
+    "id": 2003,
+    "name": "ModifyStat",
+    "displayName": "Increase Stat",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/modifystat",
+    "isImplemented": false,
+    "paramTypes": [
+      "target",
+      "stat",
+      "value",
+      "conditions?"
+    ],
+    "paramValues": [
+      "0-200%"
+    ],
+    "nature": "Conditional",
+    "influences": "Gameplay",
+    "description": "{p3} {p2} for {p1}, {p4.description}.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recYhV4xd4wNHn6ve",
+    "id": 2004,
+    "name": "SetBonus",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/setbonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "setName"
+    ],
+    "nature": "Container",
+    "influences": "All",
+    "description": "{p1} Set Bonus: {p2}",
+    "explanation": ""
+  },
+  {
+    "uuid": "recpbnaGEM6sjWVG0",
+    "id": 2005,
+    "name": "EarlyItemRevealChance",
+    "displayName": "Early Item Reveal Chance",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/earlyitemrevealchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{p1} chance to see location of next random reward item early",
+    "explanation": ""
+  },
+  {
+    "uuid": "recAMc8wa6saOAA0C",
+    "id": 2006,
+    "name": "GuildTreasuryBonus",
+    "displayName": "Guild Treasury Win Bonus",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/guildtreasurybonus",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
+    "nature": "Debuff",
+    "influences": "Reward",
+    "description": "Additional {p1} of reward sent to guild treasury.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recHtkkOYLB4X55lO",
+    "id": 2007,
+    "name": "DoublePickupChance",
+    "displayName": "Double Pickup Chance",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/doublepickupchance",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
+    "nature": "Buff",
+    "influences": "Reward",
+    "description": "{p1} chance to double an item pickup",
+    "explanation": ""
+  },
+  {
+    "uuid": "recywspIslzwdb5CP",
+    "id": 2008,
+    "name": "StealRewardsOnWin",
+    "displayName": "#REF!",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/stealrewardsonwin",
+    "isImplemented": false,
+    "paramTypes": [
+      "value"
+    ],
+    "paramValues": [
+      "0-100%"
+    ],
+    "nature": "Mechanic",
+    "influences": "Reward",
+    "description": "{p1} chance to take a beaten player's accumulated item rewards for the round",
+    "explanation": ""
+  },
+  {
+    "uuid": "recFREiQ1KT6IwcnN",
+    "id": 2009,
+    "name": "CastOnCondition",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/castoncondition",
+    "isImplemented": false,
+    "paramTypes": [
+      "target",
+      "skill",
+      "conditions"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "${p1.SkillClassification.contains(\"Spell\") ? 'Cast' : 'Use'} {p1} {p2.description}.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recSSXq4xcfaD48UT",
+    "id": 2010,
+    "name": "ActivateSkillMod",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/activateskillmod",
+    "isImplemented": false,
+    "paramTypes": [
+      "mod",
+      "conditions?"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "Activate {p1}[, {p2.description}].",
+    "explanation": ""
+  },
+  {
+    "uuid": "recjRk6fsLkxkL2wM",
+    "id": 2011,
+    "name": "EnableSkill",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/enableskill",
+    "isImplemented": false,
+    "paramTypes": [
+      "skill",
+      "conditions?"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "Enable {p1} [{p2.description}].",
+    "explanation": ""
+  },
+  {
+    "uuid": "recvmStU8ojb74QzQ",
+    "id": 2012,
+    "name": "ReplaceSkill",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/replaceskill",
+    "isImplemented": false,
+    "paramTypes": [
+      "skill",
+      "skill",
+      "conditions"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "Replace {p1} with {p2}, {p3.description}.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recRjMyxruS5PPR6y",
+    "id": 2014,
+    "name": "AuraEffect",
+    "displayName": "Light Aura",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/auraeffect",
+    "isImplemented": false,
+    "paramTypes": [
+      "target",
+      "effect"
+    ],
+    "nature": "Mechanic",
+    "influences": "All",
+    "description": "Emits {p1} aura",
+    "explanation": ""
+  },
+  {
+    "uuid": "recsFpVMHu3l7suHW",
+    "id": 2015,
+    "name": "Indestructible",
+    "displayName": "Socketed",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/indestructible",
+    "isImplemented": false,
+    "nature": "Mechanic",
+    "influences": "Item",
+    "description": "Indestructible",
+    "explanation": ""
+  },
+  {
+    "uuid": "recs8NysXSjjr66gE",
+    "id": 2016,
+    "name": "Socketed",
+    "displayName": "Rarity",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/socketed",
+    "isImplemented": false,
+    "paramTypes": [
+      "value",
+      "gems"
+    ],
+    "nature": "Mechanic",
+    "influences": "Item",
+    "description": "{p1} sockets",
+    "explanation": ""
+  },
+  {
+    "uuid": "recLyGMeuNTAXC4eb",
+    "id": 2017,
+    "name": "Rarity",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/rarity",
+    "isImplemented": false,
+    "paramTypes": [
+      "rarity"
+    ],
+    "nature": "Mechanic",
+    "influences": "Item",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recty02NdrfH4RLxr",
+    "id": 2018,
+    "name": "UnlockSkills",
+    "displayName": "Class Requirement",
+    "listOrder": 800.52,
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/unlockskills",
+    "isImplemented": false,
+    "paramTypes": [
+      "skills",
+      "conditions?"
+    ],
+    "nature": "Mechanic",
+    "influences": "Skill",
+    "description": "Unlocked Skill(s): {p1} [Requirement: {p2.description}]",
+    "explanation": ""
+  },
+  {
+    "uuid": "recb3PS32Tlfd1B02",
+    "id": 2019,
+    "name": "ClassPrerequisite",
+    "displayName": "Skill Mod",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/classprerequisite",
+    "isImplemented": false,
+    "paramTypes": [
+      "class"
+    ],
+    "nature": "Requirement",
+    "influences": "Item",
+    "description": "Must be {p1} to use.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recu4mZY1cSluNevc",
+    "id": 2020,
+    "name": "UnlockSkillMods",
+    "displayName": "Skill Level Up",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/unlockskillmods",
+    "isImplemented": false,
+    "paramTypes": [
+      "skillMods",
+      "conditions?"
+    ],
+    "nature": "Buff",
+    "influences": "Skill",
+    "description": "Unlocks {p1} for selection [Requirement: {p2.description}]",
+    "explanation": ""
+  },
+  {
+    "uuid": "recVIjVRI4nBoic75",
+    "id": 2021,
+    "name": "Unlock",
+    "displayName": "Unlock On Kills",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/unlock",
+    "isImplemented": false,
+    "paramTypes": [
+      "target",
+      "condition?"
+    ],
+    "nature": "Mechanic",
+    "influences": "Progression",
+    "description": "Unlocks: {p1} [Requirement: {p3.description}]",
+    "explanation": ""
+  },
+  {
+    "uuid": "reczxlXFhaMiLIGQX",
+    "id": 2022,
+    "name": "ReplaceAttributes",
+    "displayName": "Debuff Attribute Target",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/replaceattributes",
+    "isImplemented": false,
+    "paramTypes": [
+      "attributeSlots",
+      "(attribute, (paramValues[]))[]",
+      "condition?"
+    ],
+    "nature": "Mechanic",
+    "influences": "Progression",
+    "description": "Replaces {p1.attribute} with {p2}[, {p3.description}].",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec8hksd3SZP5AWaT",
+    "id": 2023,
+    "name": "ModifyStatByCondition",
+    "displayName": "Damage Reduce With Health",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/modifystatbycondition",
+    "isImplemented": false,
+    "paramTypes": [
+      "targetStat",
+      "linkedCondition",
+      "linkedParams",
+      "unlinkedParams?",
+      "(conditionParam : value)[]"
+    ],
+    "nature": "Conditional",
+    "influences": "Gameplay",
+    "description": "Increase {p1} from {p3.min}-{p3.max} based on {p2.name}.",
+    "explanation": ""
+  },
+  {
+    "uuid": "recIsMUfyl1lVWvdD",
+    "id": 2024,
+    "name": "ResistanceExchange",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/resistanceexchange",
+    "isImplemented": false,
+    "paramTypes": [
+      "damageType",
+      "damageType",
+      "value"
+    ],
+    "nature": "Mechanic",
+    "influences": "Defense",
+    "description": "Exchange {p3} of {p1} resistance for {p2} resistance.",
+    "explanation": ""
+  },
+  {
+    "uuid": "rechd3ZVXh80OyNWZ",
+    "id": 2025,
+    "name": "SwitchAttribute",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/switchattribute",
+    "isImplemented": false,
+    "paramTypes": [
+      "(attribute, (paramValues[]))[]",
+      "(conditions, conditionParams)"
+    ],
+    "nature": "Conditional",
+    "influences": "Item",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recxepVZUmUpIJkJS",
+    "id": 2026,
+    "name": "SwitchParam",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/switchparam",
+    "isImplemented": false,
+    "paramTypes": [
+      "attribute",
+      "targetParam",
+      "(conditions, conditionParams)"
+    ],
+    "nature": "Conditional",
+    "influences": "Item",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recc5LEZPsoDWhWME",
+    "id": 2027,
+    "name": "ActivateStat",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/activatestat",
+    "isImplemented": false,
+    "paramTypes": [
+      "target",
+      "stat",
+      "value",
+      "conditions?",
+      "value?"
+    ],
+    "nature": "Conditional",
+    "influences": "Gameplay",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recPzweZJfCRRQstV",
+    "id": 2028,
+    "name": "ModifyStatByStat",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/modifystatbystat",
+    "isImplemented": false,
+    "paramTypes": [
+      "targetStat",
+      "linkedStat"
+    ],
+    "nature": "Conditional",
+    "influences": "Gameplay",
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec7JoWJe7hTusTmG",
+    "id": 2029,
+    "name": "EquipPrerequisite",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/equipprerequisite",
+    "isImplemented": false,
+    "paramTypes": [
+      "conditions"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "recceiGmio3AKRBJ8",
+    "id": 2030,
+    "name": "RandomParam",
+    "isEnabled": true,
+    "game": 3,
+    "link": "https://rune.game/item-attribute/randomparam",
+    "isImplemented": false,
+    "paramTypes": [
+      "attribute",
+      "targetParam",
+      "attributeParams"
+    ],
+    "description": "",
+    "explanation": ""
+  },
+  {
+    "uuid": "rec00ICdzzCLuAhOZ",
+    "id": 2031,
+    "name": "Crafted",
+    "isEnabled": true,
+    "game": 1,
+    "link": "https://rune.game/item-attribute/crafted",
+    "isImplemented": false,
+    "paramTypes": [
+      "itemIDs",
+      "value?"
+    ],
+    "description": "",
     "explanation": ""
   }
 ]

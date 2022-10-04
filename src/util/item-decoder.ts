@@ -357,43 +357,44 @@ export function normalizeItem(item: any) {
     const branch = item.branches[1]
     const branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : []
 
-    if (!item.meta) {
-      item.meta = {
-        harvestYield: 0,
-        pending: 0,
-        bonus: 0,
-        harvestBurn: 0,
-        chanceToSendHarvestToHiddenPool: 0,
-        chanceToLoseHarvest: 0,
-        guildId: null,
-        characterId: null,
-        itemIndex: 0,
-        itemLength: 0,
-        modIndex: 0,
-        modLength: 0,
-        rand: 0,
-        removeFees: 0,
-        freezeFees: 0,
-        magicFind: 0,
-        unableUseRuneword: null,
-        currentRewardToken: null,
-        hasEarlyUnstakeLocked: null,
-        hasEarlyUnstakeNoReward: null,
-        hiddenPoolPid: null,
-        swapToken: null,
-        swapAmount: null,
-        feeToken: null,
-        feeAmount: null,
-        feeReduction: 0,
-        unstakeLocked: false,
-        classRequired: 0,
-        harvestFeeToken: '',
-        harvestFeePercent: 0,
-        worldstoneShardChance: 0,
-        randomRuneExchange: 0,
-        harvestFees: {},
-        attributes: {},
-      }
+    if (!item.meta) item.meta = {}
+
+    item.meta = {
+      harvestYield: 0,
+      pending: 0,
+      bonus: 0,
+      harvestBurn: 0,
+      chanceToSendHarvestToHiddenPool: 0,
+      chanceToLoseHarvest: 0,
+      guildId: null,
+      characterId: null,
+      itemIndex: 0,
+      itemLength: 0,
+      modIndex: 0,
+      modLength: 0,
+      rand: 0,
+      removeFees: 0,
+      freezeFees: 0,
+      magicFind: 0,
+      unableUseRuneword: null,
+      currentRewardToken: null,
+      hasEarlyUnstakeLocked: null,
+      hasEarlyUnstakeNoReward: null,
+      hiddenPoolPid: null,
+      swapToken: null,
+      swapAmount: null,
+      feeToken: null,
+      feeAmount: null,
+      feeReduction: 0,
+      unstakeLocked: false,
+      classRequired: 0,
+      harvestFeeToken: '',
+      harvestFeePercent: 0,
+      worldstoneShardChance: 0,
+      randomRuneExchange: 0,
+      harvestFees: {},
+      attributes: {},
+      ...item.meta
     }
 
     item.attributes = branchAttributes
@@ -475,9 +476,9 @@ export function normalizeItem(item: any) {
         }
         
         if (mod.attributeId > 0) {
-          if (!item.meta.attributes[mod.attributeId]) item.meta.attributes[mod.attributeId] = 0
+          // if (!item.meta.attributes[mod.attributeId]) item.meta.attributes[mod.attributeId] = 0
 
-          item.meta.attributes[mod.attributeId] += mod.value
+          // item.meta.attributes[mod.attributeId] += mod.value
 
           item.attributes[i] = {
             ...(item.attributes[i] || {}),
@@ -776,8 +777,17 @@ export function normalizeItem(item: any) {
       for (const bIndex of Object.keys(item.branches)) {
         const branchIndex = Number(bIndex)
         if (branchIndex === 1) {
+          for (const attributeIndex in item.branches[branchIndex].attributes) {
+            const attribute = item.branches[branchIndex].attributes[attributeIndex]
+            if (attribute.param1.value !== undefined) {
+              if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
+              item.meta.attributes[attribute.id] += attribute.param1.value
+            }
+          }
+
           continue
         }
+
         if (!item.branches[branchIndex].attributes) continue
 
         for (const attributeIndex in item.branches[branchIndex].attributes) {
@@ -798,7 +808,8 @@ export function normalizeItem(item: any) {
           }
 
           if (attribute.param1.value !== undefined) {
-            item.meta.attributes[attribute.id] = attribute.param1.value
+            if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
+            item.meta.attributes[attribute.id] += attribute.param1.value
 
             continue
           }
@@ -863,7 +874,10 @@ export function normalizeItem(item: any) {
 
           // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
 
-          item.meta.attributes[attribute.id] = attribute.param1.value
+          if (attribute.param1.value !== undefined) {
+            if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
+            item.meta.attributes[attribute.id] += attribute.param1.value
+          }
         }
       }
     }
