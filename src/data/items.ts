@@ -1,6 +1,6 @@
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type'
 import generatedItems from './generated/oldItems.json'
-import itemAttributes from './generated/itemAttributes.json'
+import ItemAttributes from './generated/itemAttributes.json'
 import { removeTimezoneOffset } from '../util/time'
 
 export const rewardTokenIdMap = {
@@ -46,6 +46,14 @@ export const Games = {
   Guardians: {
     id: 5,
   },
+}
+
+export const GamesById = {
+  1: 'Raid',
+  2: 'Evolution',
+  3: 'Infinite',
+  4: 'Sanctuary',
+  5: 'Guardians'
 }
 
 export function getFilteredItems(list: any) {
@@ -330,1048 +338,1048 @@ for (const key of Object.keys(ModIdByName)) {
   ModNames[ModIdByName[key]] = key
 }
 
-export const ItemAttributes = {
-  HarvestYield: {
-    id: 1,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Increased Harvest Yield`,
-  },
-  HarvestFee: {
-    id: 2,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Harvest Fee`,
-  },
-  HarvestFeeToken: {
-    id: 3,
-    min: 0,
-    max: 33,
-    description: `Harvest Fee Token: {param1}`,
-  },
-  SendHarvestHiddenPool: {
-    id: 4,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Send Harvest To Hidden Pool`,
-  },
-  BurnEntireHarvest: {
-    id: 5,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Lose Entire Harvest`,
-  },
-  HarvestBurn: {
-    id: 6,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Harvest Burn`,
-  },
-  FindShard: {
-    id: 7,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Find Worldstone Shard`,
-    explanation: 'Chance applies once per raid.'
-  },
-  RemoveFees: {
-    id: 8,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Reduced Harvest Fees`,
-  },
-  UnstakeLocked: {
-    id: 9,
-    min: 0,
-    max: 100,
-    description: `Unstake Locked Until Completion`,
-  },
-  EarlyUnstakeNoReward: {
-    id: 10,
-    min: 0,
-    max: 100,
-    description: `No Reward Early Unstake`,
-  },
-  RandomRuneExchange: {
-    id: 11,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Random Rune Exchange`,
-  },
-  FindGuildToken: {
-    id: 12,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Guild Token (Not Implemented)`,
-  },
-  MagicFind: {
-    id: 13,
-    min: 0,
-    max: 999,
-    paramType1: 'percent',
-    description: `{param1} Magic Find`,
-  },
-  FractureItem: {
-    id: 14,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Fracture Item (Not Implemented)`,
-  },
-  LaunchPoolReward: {
-    id: 15,
-    min: 0,
-    max: 50,
-    paramType1: 'percent',
-    description: `{param1} Launchpool Reward (Not Implemented)`,
-  },
-  LaunchPoolToken: {
-    id: 16,
-    min: 0,
-    max: 999,
-    description: `Reward Token: {param1}`,
-  },
-  FreezeFees: {
-    id: 17,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance to Freeze Fees (1 Hour) (Not Implemented)`,
-  },
-  UnableUseRuneword: {
-    id: 18,
-    min: 0,
-    max: 999,
-    description: `Unable To Use Runeword (Not Implemented)`,
-  },
-  CreateRandomRuneword: {
-    id: 19,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Create Random Runeword (Not Implemented)`,
-  },
-  SpecificGuild: {
-    id: 20,
-    min: 0,
-    max: 999,
-    description: `Guild Only ({param1})`,
-  },
-  SpecificClass: {
-    id: 21,
-    min: 0,
-    max: 6,
-    description: `{param1} Required`,
-  },
-  RemoveTransferFees: {
-    id: 22,
-    min: 0,
-    max: 100,
-    description: `{param1} Transfer Fees Removed`,
-  },
-  HarvestFeeToRandomRaider: {
-    id: 23,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Harvest Donated To Random Raider`,
-  },
-  ShardOnHarvest: {
-    id: 24,
-    min: 0,
-    max: 50,
-    paramType1: 'percent',
-    description: `{param1} Chance To Find Shard (On Harvest)`,
-  },
-  HarvestStartDelay: {
-    id: 25,
-    min: 0,
-    max: 24,
-    description: `Harvest Delayed By {param1} Hours`,
-  },
-  HarvestClaimDelay: {
-    id: 26,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Harvest Claim Delay`,
-  },
-  EarlyUnstakeFee: {
-    id: 27,
-    min: 0,
-    max: 999,
-    paramType1: 'percent',
-    description: `{param1} Early Unstake Fee`,
-  },
-  EarlyUnstakeFeeValue: {
-    id: 28,
-    min: 0,
-    max: 999,
-    description: `Early Unstake Timeline: {param1} Days`,
-  },
-  FreezeFeesValue: {
-    id: 29,
-    min: 0,
-    max: 999,
-    description: `Freeze Fees Timeline: {param1} Hours`,
-  },
-  HarvestLockedLp: {
-    id: 30,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Harvest Buy & Lock LP`,
-  },
-  DepositLockedLp: {
-    id: 31,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Deposit Buy & Lock LP`,
-  },
-  WithdrawLockedLp: {
-    id: 32,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Withdraw Buy & Lock LP`,
-  },
-  TransmuteItem: {
-    id: 33,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Transmute Item (Not Implemented)`,
-  },
-  AvoidBurn: {
-    id: 34,
-    min: 0,
-    max: 999,
-    paramType1: 'percent',
-    description: `{param1} Avoid All Burns (Not Implemented)`,
-  },
-  EarlyAccess: {
-    id: 35,
-    min: 0,
-    max: 999,
-    description: `Early Raid Access: {param1} Minutes (Not Implemented)`,
-  },
-  NeverHarvestCurrentRune: {
-    id: 36,
-    min: 0,
-    max: 999,
-    description: `Can Never Harvest Current Rune (Not Implemented)`,
-  },
-  GameLottery: {
-    id: 37,
-    min: 0,
-    max: 999,
-    description: ``,
-  },
-  IncreasePoolMultiplier: {
-    id: 38,
-    min: 0,
-    max: 999,
-    paramType1: 'percent',
-    description: `Increases Pool Multiplier {param1} (Not Implemented)`,
-  },
-  AddSkill: {
-    id: 39,
-    min: 0,
-    max: 999,
-    description: `Use Skill: {param1} (Not Implemented)`,
-  },
-  Rarity: {
-    id: 40,
-    min: 0,
-    max: 100,
-    description: `Rarity: {param1}`,
-  },
-  RandomPerfection1: {
-    id: 41,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RandomPerfection2: {
-    id: 42,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RandomPerfection3: {
-    id: 43,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RandomPerfection4: {
-    id: 44,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RandomPerfection5: {
-    id: 45,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  SpecificRuneReward: {
-    id: 46,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  ReduceBurn: {
-    id: 47,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Reduced Burn (Not Implemented)`,
-  },
-  GuildMemberCapacity: {
-    id: 48,
-    min: 0,
-    max: 100,
-    description: `{param1} Increased Inventory Spaces (Not Implemented)`,
-  },
-  GuildInventorySpaces: {
-    id: 49,
-    min: 0,
-    max: 10,
-    description: `{param1} Increased Harvest Yield`,
-  },
-  GuildFarmingYield: {
-    id: 50,
-    min: 0,
-    max: 33,
-    description: `Staked Token: {param1}`,
-  },
-  GuildTokenStakeRequired: {
-    id: 51,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Reduced Burn`,
-  },
-  GuildTokenValueRequired: {
-    id: 52,
-    min: 0,
-    max: 999,
-    description: `Staked Token Amount: {param1} (Not Implemented)`,
-  },
-  GuildRuneStakeRequired: {
-    id: 53,
-    min: 0,
-    max: 999,
-    description: `Staking required: {param1} RXS (Not Implemented)`,
-  },
-  PetFarmingYield: {
-    id: 54,
-    min: 0,
-    max: 10,
-    description: `{param1} Increased Harvest Yield`,
-  },
-  Sockets: {
-    id: 55,
-    min: 0,
-    max: 5,
-    description: `{param1} Sockets`,
-  },
-  SpecificRuneRewardToken: {
-    id: 56,
-    min: 0,
-    max: 5,
-    description: `Earn Rune: {param1}`,
-  },
-  SpecificRuneRewardAmount: {
-    id: 57,
-    min: 0,
-    max: 5,
-    description: `Earned Amount: {param1}`,
-  },
-  ResetSockets: {
-    id: 58,
-    min: 100,
-    max: 100,
-    description: `Resets Sockets (Not Implemented)`,
-  },
-  CrafterCertificate: {
-    id: 59,
-    min: 1,
-    max: 999,
-    description: `{param1}`,
-  },
-  HarvestCritChance: {
-    id: 61,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Increased Chance To Critically Harvest Yield (Not Implemented)`,
-  },
-  HarvestCritMultiplier: {
-    id: 62,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Critical Harvest Bonus (Not Implemented)`,
-  },
-  HarvestOverTime: {
-    id: 63,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `Add {param1} To Harvest, Vested Over Time (Not Implemented)`,
-  },
-  HarvestVestmentReduction: {
-    id: 64,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Increase To Vestment Period (Not Implemented)`,
-  },
-  HarvestVestmentIncrease: {
-    id: 65,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Decrease To Vestment Period (Not Implemented)`,
-  },
-  HarvestTheft: {
-    id: 66,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `Enable the option to sacrifice up to 10% of your harvest in order to steal {param1} of the next raider's harvest from the same pool (Not Implemented)`,
-  },
-  HarvestTheftMinIncrease: {
-    id: 67,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `+{param1} Minimum Harvest Theft (Not Implemented)`,
-  },
-  HarvestTheftMaxIncrease: {
-    id: 67,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `+{param1} Maximum Harvest Theft (Not Implemented)`,
-  },
-  HarvestTheftMinDecrease: {
-    id: 68,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `+{param1} Minimum Harvest Theft (Not Implemented)`,
-  },
-  RandomRuneBonus: {
-    id: 69,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Bonus Yield Given as a Random Rune (Not Implemented)`,
-  },
-  YieldBonusSpecificWeapon: {
-    id: 70,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increase to specific weapon harvest yield bonus (Not Implemented)`,
-  },
-  RandomRuneSpecificWeapon: {
-    id: 71,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Increase To Specific Weapon Yield Bonus, Given As A Random Rune (Not Implemented)`,
-  },
-  SpecificWeaponType: {
-    id: 72,
-    min: 0,
-    max: 5,
-    description: `Specific Weapon: {param1} (Not Implemented)`,
-  },
-  HarvestTheftDefense: {
-    id: 73,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Theft Counter Chance (Not Implemented)`,
-  },
-  RandomRuneExchangeSpecific: {
-    id: 74,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} Chance That Random Rune Exchange Gives a Specific Rune (Not Implemented)`,
-  },
-  RandomRuneToken: {
-    id: 75,
-    min: 0,
-    max: 5,
-    description: `Random exchange target: {param1} (Not Implemented)`,
-  },
-  SetBonusItems: {
-    id: 76,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increased chance to critically harvest yield`,
-  },
-  TwoItemSetBonus: {
-    id: 77,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increased chance to critically harvest yield`,
-  },
-  ThreeItemSetBonus: {
-    id: 78,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increased chance to critically harvest yield`,
-  },
-  FourItemSetBonus: {
-    id: 79,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increased chance to critically harvest yield`,
-  },
-  FiveItemSetBonus: {
-    id: 80,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increased chance to critically harvest yield`,
-  },
-  GuildTreasuryYieldBonus: {
-    id: 81,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} yield bonus, sent to guild treasury (Not Implemented)`,
-  },
-  HarvestToTreasury: {
-    id: 82,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} of harvest sent to guild treasury (Not Implemented)`,
-  },
-  GuildTreasuryAccessKey: {
-    id: 83,
-    min: 1,
-    max: 1,
-    description: `Ability to sign guild treasury transactions (Not Implemented)`,
-  },
-  KarmicInfluence: {
-    id: 85,
-    min: -1,
-    max: 1,
-    description: `Sway a pool or farm toward your alignment, receiving a bonus when it matches (Not Implemented)`,
-  },
-  VestingUnequipLock: {
-    id: 86,
-    min: 0,
-    max: 999,
-    description: `Can not unequip Runeword until vested payouts have completed (Not Implemented)`,
-  },
-  RaidUnequipLockOnStake: {
-    id: 87,
-    min: 0,
-    max: 5,
-    paramType1: 'percent',
-    description: `{param1} increased chance to critically harvest yield (Not Implemented)`,
-  },
-  FindFashionShard: {
-    id: 88,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Fashion Find (Not Implemented)`,
-  },
-  AddSkillPoint: {
-    id: 89,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Fashion Find (Not Implemented)`,
-  },
-  UnlockSkillMod: {
-    id: 90,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Fashion Find (Not Implemented)`,
-  },
-  AttributeDebuffToBuffOnEquipTime: {
-    id: 91,
-    min: 0,
-    max: 999,
-    description: `Requires {param1} hours to unlock full potential.`,
-  },
-  AttributeUnlockOnEquipTime: {
-    id: 92,
-    min: 0,
-    max: 5,
-    description: ``,
-  },
-  AttributeUnlockOnConsecutiveEquipTime: {
-    id: 93,
-    min: 0,
-    max: 999,
-    description: `Must equip for {param1} consecutive hours to receive benefit of "Avoid All Burns" (Not Implemented)`,
-  },
-  TargetAttributeToUnlock: {
-    id: 94,
-    min: 0,
-    max: 10,
-    description: `Attribute {param1} is initially locked, and is unlocked via equip time.`,
-  },
-  DebuffAttributeToChange: {
-    id: 95,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  BuffAttributeToChange: {
-    id: 96,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  DebuffToBuffAttributeRange: {
-    id: 97,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RequireAttributeID: {
-    id: 98,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RequireAttributeValue: {
-    id: 99,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RequireSkill: {
-    id: 100,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  CriticalCraftChance: {
-    id: 101,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  DisenchantmentBonus: {
-    id: 102,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  CriticalSlamChance: {
-    id: 103,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  RequireHarvestedRunes: {
-    id: 104,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  IgnoreTheftDefense: {
-    id: 105,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  HarvestSpeed: {
-    id: 106,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  StunOnHarvest: {
-    id: 107,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  StunRecovery: {
-    id: 108,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  FractureReduction: {
-    id: 109,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  LimitedDurability: {
-    id: 110,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  BeginRaidMana: {
-    id: 111,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  BeginRaidHealthIncrease: {
-    id: 112,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  ManaTheftOnHarvest: {
-    id: 113,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  ManaPoolMultiplierIncrease: {
-    id: 114,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  UnequipLockRaidDuration: {
-    id: 115,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  AttributeDebuffToBuffOnBurnedRunes: {
-    id: 116,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  AttributeDebuffToBuffOnHarvestedRunes: {
-    id: 117,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  YieldBonusToHiddenPool: {
-    id: 118,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  YieldBonusFromHiddenPool: {
-    id: 119,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Yield Bonus From Hidden Pool`,
-  },
-  AttributeDebuffToBuffWhenHiddenPoolStake: {
-    id: 120,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  AttributeUnlockWhenHiddenPoolStake: {
-    id: 121,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  AttributeScaleWithHiddenPoolStake: {
-    id: 122,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  AvoidHarvestLossWithoutBonus: {
-    id: 123,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  HarvestFeeReductionPenalty: {
-    id: 124,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  HarvestYieldBonusWeapons: {
-    id: 125,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  AutoCompoundHiddenPool: {
-    id: 126,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  UnstakeLockedDurationFromHarvest: {
-    id: 127,
-    min: 0,
-    max: 100,
-    description: ``,
-  },
-  EnhancedDefense: {
-    id: 201,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Enhanced Defense`,
-  },
-  ColdDamage: {
-    id: 201,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `Adds {param1} Cold Damage`,
-  },
-  ColdDuration: {
-    id: 201,
-    min: 0,
-    max: 100,
-    description: `{param1} Seconds Cold Duration`,
-  },
-  SlowerStaminaDrain: {
-    id: 202,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Slower Stamina Drain`,
-  },
-  LifeStolenPerHit: {
-    id: 203,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Life Stolen Per Hit`,
-  },
-  ManaStolenPerHit: {
-    id: 204,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Mana Stolen Per Hit`,
-  },
-  DamageReduced: {
-    id: 205,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `Physical Damage Reduced By {param1}`,
-  },
-  MagicDamageReduced: {
-    id: 206,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `Magic Damage Reduced By {param1}`,
-  },
-  EvolutionMovementSpeedIncrease: {
-    id: 1030,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Faster Movement`,
-  },
-  InfiniteMovementSpeedIncrease: {
-    id: 1030,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Faster Movement`,
-  },
-  DeathPenaltyAvoid: {
-    id: 1102,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} To Avoid Losing Points On Death`,
-  },
-  DodgeChance: {
-    id: 2159,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Dodge Chance`,
-  },
-  ReduceSkillCooldown: {
-    id: 1329,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Skill Cooldown Reduction`,
-  },
-  EnergyDecayDecrease: {
-    id: 1104,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Decrease To Energy Decay Speed`,
-  },
-  EarlyOrbPickup: {
-    id: 1114,
-    min: 0,
-    max: 0,
-    description: `Can Pick Up Orbs Early.`,
-  },
-  DamageReduce: {
-    id: 2316,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Damage Reduction`,
-  },
-  DoublePickupChance: {
-    id: 2914,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Chance To Double Item Pickup`,
-  },
-  AttackSpeed: {
-    id: 2153,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Attack Speed`,
-  },
-  CriticalHitChance: {
-    id: 2006,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Critical Hit Chance`,
-  },
-  IncreaseSkillPoints: {
-    id: 3807,
-    min: 0,
-    max: 100,
-    description: `+{param1} Skill Points`,
-  },
-  IncreaseAbsorb: {
-    id: 2307,
-    min: 0,
-    max: 100,
-    description: `Increase Absorb`,
-  },
-  IncreaseRandomStat: {
-    id: 2600,
-    min: 0,
-    max: 100,
-    description: `{param1} {param2}`,
-  },
-  IncreaseAilmentChance: {
-    id: 2914,
-    min: 0,
-    max: 100,
-    description: `Increase Ailment Chance`,
-  },
-  IncreaseAilmentDuration: {
-    id: 2015,
-    min: 0,
-    max: 100,
-    description: `Increase Ailment Duration`,
-  },
-  UnlockSkills: {
-    id: 3801,
-    min: 0,
-    max: 100,
-    description: `{param1} Unlocked`,
-  },
-  IncreaseDamage: {
-    id: 3801,
-    min: 0,
-    max: 100,
-    description: `{parameter1} {parameter2} damage`,
-  },
-  SelfEffectOnCondition: {
-    id: 3801,
-    min: 0,
-    max: 100,
-    description: `{parameter1} {parameter2} damage`,
-  },
-  IncreaseRankRewardBonus: {
-    id: 3801,
-    min: 0,
-    max: 100,
-    paramType1: 'percent',
-    description: `{param1} Increase To Rank Reward Bonuses`,
-  },
-  IncreaseDamageTaken: {
-    id: 3801,
-    min: 0,
-    max: 100,
-    description: `{parameter1} Additional Damage Taken ({parameter2})`,
-  },
-  IncreaseStat: {
-    id: 3801,
-    min: 0,
-    max: 100,
-    description: `{parameter1} {parameter2} {parameter3}`,
-  },
-  IncreaseEnergy: {
-    id: 2302,
-    min: 0,
-    max: 999,
-    description: `{parameter1}% Maximum Energy`,
-  },
-  IncreaseOnKill: {
-    id: 3801,
-    min: 0,
-    max: 200,
-    description: `{parameter1} {parameter2} On Kill`,
-  },
-  IncreaseResist: {
-    id: 2304,
-    min: 0,
-    max: 200,
-    description: `{parameter1} {parameter2} resistance`,
-  },
-  WinRewardsIncrease: {
-    id: 1150,
-    min: 0,
-    max: 200,
-    description: `{parameter1} win bonus`,
-  }
-}
+// export const ItemAttributes = {
+//   HarvestYield: {
+//     id: 1,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Increased Harvest Yield`,
+//   },
+//   HarvestFee: {
+//     id: 2,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Harvest Fee`,
+//   },
+//   HarvestFeeToken: {
+//     id: 3,
+//     min: 0,
+//     max: 33,
+//     description: `Harvest Fee Token: {param1}`,
+//   },
+//   SendHarvestHiddenPool: {
+//     id: 4,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Send Harvest To Hidden Pool`,
+//   },
+//   BurnEntireHarvest: {
+//     id: 5,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Lose Entire Harvest`,
+//   },
+//   HarvestBurn: {
+//     id: 6,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Harvest Burn`,
+//   },
+//   FindShard: {
+//     id: 7,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Find Worldstone Shard`,
+//     explanation: 'Chance applies once per raid.'
+//   },
+//   RemoveFees: {
+//     id: 8,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Reduced Harvest Fees`,
+//   },
+//   UnstakeLocked: {
+//     id: 9,
+//     min: 0,
+//     max: 100,
+//     description: `Unstake Locked Until Completion`,
+//   },
+//   EarlyUnstakeNoReward: {
+//     id: 10,
+//     min: 0,
+//     max: 100,
+//     description: `No Reward Early Unstake`,
+//   },
+//   RandomRuneExchange: {
+//     id: 11,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Random Rune Exchange`,
+//   },
+//   FindGuildToken: {
+//     id: 12,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Guild Token (Not Implemented)`,
+//   },
+//   MagicFind: {
+//     id: 13,
+//     min: 0,
+//     max: 999,
+//     paramType1: 'percent',
+//     description: `{param1} Magic Find`,
+//   },
+//   FractureItem: {
+//     id: 14,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Fracture Item (Not Implemented)`,
+//   },
+//   LaunchPoolReward: {
+//     id: 15,
+//     min: 0,
+//     max: 50,
+//     paramType1: 'percent',
+//     description: `{param1} Launchpool Reward (Not Implemented)`,
+//   },
+//   LaunchPoolToken: {
+//     id: 16,
+//     min: 0,
+//     max: 999,
+//     description: `Reward Token: {param1}`,
+//   },
+//   FreezeFees: {
+//     id: 17,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance to Freeze Fees (1 Hour) (Not Implemented)`,
+//   },
+//   UnableUseRuneword: {
+//     id: 18,
+//     min: 0,
+//     max: 999,
+//     description: `Unable To Use Runeword (Not Implemented)`,
+//   },
+//   CreateRandomRuneword: {
+//     id: 19,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Create Random Runeword (Not Implemented)`,
+//   },
+//   SpecificGuild: {
+//     id: 20,
+//     min: 0,
+//     max: 999,
+//     description: `Guild Only ({param1})`,
+//   },
+//   SpecificClass: {
+//     id: 21,
+//     min: 0,
+//     max: 6,
+//     description: `{param1} Required`,
+//   },
+//   RemoveTransferFees: {
+//     id: 22,
+//     min: 0,
+//     max: 100,
+//     description: `{param1} Transfer Fees Removed`,
+//   },
+//   HarvestFeeToRandomRaider: {
+//     id: 23,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Harvest Donated To Random Raider`,
+//   },
+//   ShardOnHarvest: {
+//     id: 24,
+//     min: 0,
+//     max: 50,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Find Shard (On Harvest)`,
+//   },
+//   HarvestStartDelay: {
+//     id: 25,
+//     min: 0,
+//     max: 24,
+//     description: `Harvest Delayed By {param1} Hours`,
+//   },
+//   HarvestClaimDelay: {
+//     id: 26,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Harvest Claim Delay`,
+//   },
+//   EarlyUnstakeFee: {
+//     id: 27,
+//     min: 0,
+//     max: 999,
+//     paramType1: 'percent',
+//     description: `{param1} Early Unstake Fee`,
+//   },
+//   EarlyUnstakeFeeValue: {
+//     id: 28,
+//     min: 0,
+//     max: 999,
+//     description: `Early Unstake Timeline: {param1} Days`,
+//   },
+//   FreezeFeesValue: {
+//     id: 29,
+//     min: 0,
+//     max: 999,
+//     description: `Freeze Fees Timeline: {param1} Hours`,
+//   },
+//   HarvestLockedLp: {
+//     id: 30,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Harvest Buy & Lock LP`,
+//   },
+//   DepositLockedLp: {
+//     id: 31,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Deposit Buy & Lock LP`,
+//   },
+//   WithdrawLockedLp: {
+//     id: 32,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Withdraw Buy & Lock LP`,
+//   },
+//   TransmuteItem: {
+//     id: 33,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Transmute Item (Not Implemented)`,
+//   },
+//   AvoidBurn: {
+//     id: 34,
+//     min: 0,
+//     max: 999,
+//     paramType1: 'percent',
+//     description: `{param1} Avoid All Burns (Not Implemented)`,
+//   },
+//   EarlyAccess: {
+//     id: 35,
+//     min: 0,
+//     max: 999,
+//     description: `Early Raid Access: {param1} Minutes (Not Implemented)`,
+//   },
+//   NeverHarvestCurrentRune: {
+//     id: 36,
+//     min: 0,
+//     max: 999,
+//     description: `Can Never Harvest Current Rune (Not Implemented)`,
+//   },
+//   GameLottery: {
+//     id: 37,
+//     min: 0,
+//     max: 999,
+//     description: ``,
+//   },
+//   IncreasePoolMultiplier: {
+//     id: 38,
+//     min: 0,
+//     max: 999,
+//     paramType1: 'percent',
+//     description: `Increases Pool Multiplier {param1} (Not Implemented)`,
+//   },
+//   AddSkill: {
+//     id: 39,
+//     min: 0,
+//     max: 999,
+//     description: `Use Skill: {param1} (Not Implemented)`,
+//   },
+//   Rarity: {
+//     id: 40,
+//     min: 0,
+//     max: 100,
+//     description: `Rarity: {param1}`,
+//   },
+//   RandomPerfection1: {
+//     id: 41,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RandomPerfection2: {
+//     id: 42,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RandomPerfection3: {
+//     id: 43,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RandomPerfection4: {
+//     id: 44,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RandomPerfection5: {
+//     id: 45,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   SpecificRuneReward: {
+//     id: 46,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   ReduceBurn: {
+//     id: 47,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Reduced Burn (Not Implemented)`,
+//   },
+//   GuildMemberCapacity: {
+//     id: 48,
+//     min: 0,
+//     max: 100,
+//     description: `{param1} Increased Inventory Spaces (Not Implemented)`,
+//   },
+//   GuildInventorySpaces: {
+//     id: 49,
+//     min: 0,
+//     max: 10,
+//     description: `{param1} Increased Harvest Yield`,
+//   },
+//   GuildFarmingYield: {
+//     id: 50,
+//     min: 0,
+//     max: 33,
+//     description: `Staked Token: {param1}`,
+//   },
+//   GuildTokenStakeRequired: {
+//     id: 51,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Reduced Burn`,
+//   },
+//   GuildTokenValueRequired: {
+//     id: 52,
+//     min: 0,
+//     max: 999,
+//     description: `Staked Token Amount: {param1} (Not Implemented)`,
+//   },
+//   GuildRuneStakeRequired: {
+//     id: 53,
+//     min: 0,
+//     max: 999,
+//     description: `Staking required: {param1} RXS (Not Implemented)`,
+//   },
+//   PetFarmingYield: {
+//     id: 54,
+//     min: 0,
+//     max: 10,
+//     description: `{param1} Increased Harvest Yield`,
+//   },
+//   Sockets: {
+//     id: 55,
+//     min: 0,
+//     max: 5,
+//     description: `{param1} Sockets`,
+//   },
+//   SpecificRuneRewardToken: {
+//     id: 56,
+//     min: 0,
+//     max: 5,
+//     description: `Earn Rune: {param1}`,
+//   },
+//   SpecificRuneRewardAmount: {
+//     id: 57,
+//     min: 0,
+//     max: 5,
+//     description: `Earned Amount: {param1}`,
+//   },
+//   ResetSockets: {
+//     id: 58,
+//     min: 100,
+//     max: 100,
+//     description: `Resets Sockets (Not Implemented)`,
+//   },
+//   CrafterCertificate: {
+//     id: 59,
+//     min: 1,
+//     max: 999,
+//     description: `{param1}`,
+//   },
+//   HarvestCritChance: {
+//     id: 61,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Increased Chance To Critically Harvest Yield (Not Implemented)`,
+//   },
+//   HarvestCritMultiplier: {
+//     id: 62,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Critical Harvest Bonus (Not Implemented)`,
+//   },
+//   HarvestOverTime: {
+//     id: 63,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `Add {param1} To Harvest, Vested Over Time (Not Implemented)`,
+//   },
+//   HarvestVestmentReduction: {
+//     id: 64,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Increase To Vestment Period (Not Implemented)`,
+//   },
+//   HarvestVestmentIncrease: {
+//     id: 65,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Decrease To Vestment Period (Not Implemented)`,
+//   },
+//   HarvestTheft: {
+//     id: 66,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `Enable the option to sacrifice up to 10% of your harvest in order to steal {param1} of the next raider's harvest from the same pool (Not Implemented)`,
+//   },
+//   HarvestTheftMinIncrease: {
+//     id: 67,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `+{param1} Minimum Harvest Theft (Not Implemented)`,
+//   },
+//   HarvestTheftMaxIncrease: {
+//     id: 67,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `+{param1} Maximum Harvest Theft (Not Implemented)`,
+//   },
+//   HarvestTheftMinDecrease: {
+//     id: 68,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `+{param1} Minimum Harvest Theft (Not Implemented)`,
+//   },
+//   RandomRuneBonus: {
+//     id: 69,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Bonus Yield Given as a Random Rune (Not Implemented)`,
+//   },
+//   YieldBonusSpecificWeapon: {
+//     id: 70,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increase to specific weapon harvest yield bonus (Not Implemented)`,
+//   },
+//   RandomRuneSpecificWeapon: {
+//     id: 71,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Increase To Specific Weapon Yield Bonus, Given As A Random Rune (Not Implemented)`,
+//   },
+//   SpecificWeaponType: {
+//     id: 72,
+//     min: 0,
+//     max: 5,
+//     description: `Specific Weapon: {param1} (Not Implemented)`,
+//   },
+//   HarvestTheftDefense: {
+//     id: 73,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Theft Counter Chance (Not Implemented)`,
+//   },
+//   RandomRuneExchangeSpecific: {
+//     id: 74,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} Chance That Random Rune Exchange Gives a Specific Rune (Not Implemented)`,
+//   },
+//   RandomRuneToken: {
+//     id: 75,
+//     min: 0,
+//     max: 5,
+//     description: `Random exchange target: {param1} (Not Implemented)`,
+//   },
+//   SetBonusItems: {
+//     id: 76,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increased chance to critically harvest yield`,
+//   },
+//   TwoItemSetBonus: {
+//     id: 77,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increased chance to critically harvest yield`,
+//   },
+//   ThreeItemSetBonus: {
+//     id: 78,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increased chance to critically harvest yield`,
+//   },
+//   FourItemSetBonus: {
+//     id: 79,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increased chance to critically harvest yield`,
+//   },
+//   FiveItemSetBonus: {
+//     id: 80,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increased chance to critically harvest yield`,
+//   },
+//   GuildTreasuryYieldBonus: {
+//     id: 81,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} yield bonus, sent to guild treasury (Not Implemented)`,
+//   },
+//   HarvestToTreasury: {
+//     id: 82,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} of harvest sent to guild treasury (Not Implemented)`,
+//   },
+//   GuildTreasuryAccessKey: {
+//     id: 83,
+//     min: 1,
+//     max: 1,
+//     description: `Ability to sign guild treasury transactions (Not Implemented)`,
+//   },
+//   KarmicInfluence: {
+//     id: 85,
+//     min: -1,
+//     max: 1,
+//     description: `Sway a pool or farm toward your alignment, receiving a bonus when it matches (Not Implemented)`,
+//   },
+//   VestingUnequipLock: {
+//     id: 86,
+//     min: 0,
+//     max: 999,
+//     description: `Can not unequip Runeword until vested payouts have completed (Not Implemented)`,
+//   },
+//   RaidUnequipLockOnStake: {
+//     id: 87,
+//     min: 0,
+//     max: 5,
+//     paramType1: 'percent',
+//     description: `{param1} increased chance to critically harvest yield (Not Implemented)`,
+//   },
+//   FindFashionShard: {
+//     id: 88,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Fashion Find (Not Implemented)`,
+//   },
+//   AddSkillPoint: {
+//     id: 89,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Fashion Find (Not Implemented)`,
+//   },
+//   UnlockSkillMod: {
+//     id: 90,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Fashion Find (Not Implemented)`,
+//   },
+//   AttributeDebuffToBuffOnEquipTime: {
+//     id: 91,
+//     min: 0,
+//     max: 999,
+//     description: `Requires {param1} hours to unlock full potential.`,
+//   },
+//   AttributeUnlockOnEquipTime: {
+//     id: 92,
+//     min: 0,
+//     max: 5,
+//     description: ``,
+//   },
+//   AttributeUnlockOnConsecutiveEquipTime: {
+//     id: 93,
+//     min: 0,
+//     max: 999,
+//     description: `Must equip for {param1} consecutive hours to receive benefit of "Avoid All Burns" (Not Implemented)`,
+//   },
+//   TargetAttributeToUnlock: {
+//     id: 94,
+//     min: 0,
+//     max: 10,
+//     description: `Attribute {param1} is initially locked, and is unlocked via equip time.`,
+//   },
+//   DebuffAttributeToChange: {
+//     id: 95,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   BuffAttributeToChange: {
+//     id: 96,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   DebuffToBuffAttributeRange: {
+//     id: 97,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RequireAttributeID: {
+//     id: 98,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RequireAttributeValue: {
+//     id: 99,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RequireSkill: {
+//     id: 100,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   CriticalCraftChance: {
+//     id: 101,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   DisenchantmentBonus: {
+//     id: 102,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   CriticalSlamChance: {
+//     id: 103,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   RequireHarvestedRunes: {
+//     id: 104,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   IgnoreTheftDefense: {
+//     id: 105,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   HarvestSpeed: {
+//     id: 106,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   StunOnHarvest: {
+//     id: 107,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   StunRecovery: {
+//     id: 108,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   FractureReduction: {
+//     id: 109,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   LimitedDurability: {
+//     id: 110,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   BeginRaidMana: {
+//     id: 111,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   BeginRaidHealthIncrease: {
+//     id: 112,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   ManaTheftOnHarvest: {
+//     id: 113,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   ManaPoolMultiplierIncrease: {
+//     id: 114,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   UnequipLockRaidDuration: {
+//     id: 115,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   AttributeDebuffToBuffOnBurnedRunes: {
+//     id: 116,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   AttributeDebuffToBuffOnHarvestedRunes: {
+//     id: 117,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   YieldBonusToHiddenPool: {
+//     id: 118,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   YieldBonusFromHiddenPool: {
+//     id: 119,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Yield Bonus From Hidden Pool`,
+//   },
+//   AttributeDebuffToBuffWhenHiddenPoolStake: {
+//     id: 120,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   AttributeUnlockWhenHiddenPoolStake: {
+//     id: 121,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   AttributeScaleWithHiddenPoolStake: {
+//     id: 122,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   AvoidHarvestLossWithoutBonus: {
+//     id: 123,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   HarvestFeeReductionPenalty: {
+//     id: 124,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   HarvestYieldBonusWeapons: {
+//     id: 125,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   AutoCompoundHiddenPool: {
+//     id: 126,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   UnstakeLockedDurationFromHarvest: {
+//     id: 127,
+//     min: 0,
+//     max: 100,
+//     description: ``,
+//   },
+//   EnhancedDefense: {
+//     id: 201,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Enhanced Defense`,
+//   },
+//   ColdDamage: {
+//     id: 201,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `Adds {param1} Cold Damage`,
+//   },
+//   ColdDuration: {
+//     id: 201,
+//     min: 0,
+//     max: 100,
+//     description: `{param1} Seconds Cold Duration`,
+//   },
+//   SlowerStaminaDrain: {
+//     id: 202,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Slower Stamina Drain`,
+//   },
+//   LifeStolenPerHit: {
+//     id: 203,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Life Stolen Per Hit`,
+//   },
+//   ManaStolenPerHit: {
+//     id: 204,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Mana Stolen Per Hit`,
+//   },
+//   DamageReduced: {
+//     id: 205,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `Physical Damage Reduced By {param1}`,
+//   },
+//   MagicDamageReduced: {
+//     id: 206,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `Magic Damage Reduced By {param1}`,
+//   },
+//   EvolutionMovementSpeedIncrease: {
+//     id: 1030,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Faster Movement`,
+//   },
+//   InfiniteMovementSpeedIncrease: {
+//     id: 1030,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Faster Movement`,
+//   },
+//   DeathPenaltyAvoid: {
+//     id: 1102,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} To Avoid Losing Points On Death`,
+//   },
+//   DodgeChance: {
+//     id: 2159,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Dodge Chance`,
+//   },
+//   ReduceSkillCooldown: {
+//     id: 1329,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Skill Cooldown Reduction`,
+//   },
+//   EnergyDecayDecrease: {
+//     id: 1104,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Decrease To Energy Decay Speed`,
+//   },
+//   EarlyOrbPickup: {
+//     id: 1114,
+//     min: 0,
+//     max: 0,
+//     description: `Can Pick Up Orbs Early.`,
+//   },
+//   DamageReduce: {
+//     id: 2316,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Damage Reduction`,
+//   },
+//   DoublePickupChance: {
+//     id: 2914,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Chance To Double Item Pickup`,
+//   },
+//   AttackSpeed: {
+//     id: 2153,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Attack Speed`,
+//   },
+//   CriticalHitChance: {
+//     id: 2006,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Critical Hit Chance`,
+//   },
+//   IncreaseSkillPoints: {
+//     id: 3807,
+//     min: 0,
+//     max: 100,
+//     description: `+{param1} Skill Points`,
+//   },
+//   IncreaseAbsorb: {
+//     id: 2307,
+//     min: 0,
+//     max: 100,
+//     description: `Increase Absorb`,
+//   },
+//   IncreaseRandomStat: {
+//     id: 2600,
+//     min: 0,
+//     max: 100,
+//     description: `{param1} {param2}`,
+//   },
+//   IncreaseAilmentChance: {
+//     id: 2914,
+//     min: 0,
+//     max: 100,
+//     description: `Increase Ailment Chance`,
+//   },
+//   IncreaseAilmentDuration: {
+//     id: 2015,
+//     min: 0,
+//     max: 100,
+//     description: `Increase Ailment Duration`,
+//   },
+//   UnlockSkills: {
+//     id: 3801,
+//     min: 0,
+//     max: 100,
+//     description: `{param1} Unlocked`,
+//   },
+//   IncreaseDamage: {
+//     id: 3801,
+//     min: 0,
+//     max: 100,
+//     description: `{parameter1} {parameter2} damage`,
+//   },
+//   SelfEffectOnCondition: {
+//     id: 3801,
+//     min: 0,
+//     max: 100,
+//     description: `{parameter1} {parameter2} damage`,
+//   },
+//   IncreaseRankRewardBonus: {
+//     id: 3801,
+//     min: 0,
+//     max: 100,
+//     paramType1: 'percent',
+//     description: `{param1} Increase To Rank Reward Bonuses`,
+//   },
+//   IncreaseDamageTaken: {
+//     id: 3801,
+//     min: 0,
+//     max: 100,
+//     description: `{parameter1} Additional Damage Taken ({parameter2})`,
+//   },
+//   IncreaseStat: {
+//     id: 3801,
+//     min: 0,
+//     max: 100,
+//     description: `{parameter1} {parameter2} {parameter3}`,
+//   },
+//   IncreaseEnergy: {
+//     id: 2302,
+//     min: 0,
+//     max: 999,
+//     description: `{parameter1}% Maximum Energy`,
+//   },
+//   IncreaseOnKill: {
+//     id: 3801,
+//     min: 0,
+//     max: 200,
+//     description: `{parameter1} {parameter2} On Kill`,
+//   },
+//   IncreaseResist: {
+//     id: 2304,
+//     min: 0,
+//     max: 200,
+//     description: `{parameter1} {parameter2} resistance`,
+//   },
+//   WinRewardsIncrease: {
+//     id: 1150,
+//     min: 0,
+//     max: 200,
+//     description: `{parameter1} win bonus`,
+//   }
+// }
+
+export const ItemAttributesByName = {}
 
 // Temp: Fill from DB
-for (const itemAttribute of itemAttributes) {
-  if (itemAttribute.id < 1000) continue // Don't do raid for now
+for (const itemAttribute of ItemAttributes) {
+  // if (itemAttribute.id < 1000) continue // Don't do raid for now
+  if (!ItemAttributesByName[itemAttribute.game]) ItemAttributesByName[itemAttribute.game] = {}
 
-  ItemAttributes[itemAttribute.name] = {
-    id: itemAttribute.id,
-    description: itemAttribute.description
-  }
+  ItemAttributesByName[itemAttribute.game][itemAttribute.name] = itemAttribute
 }
 
 export const SkillNames = {
@@ -1689,9 +1697,9 @@ for (const key of Object.keys(ItemRarity)) {
 
 export const ItemAttributesById: any = {}
 
-for (const key of Object.keys(ItemAttributes)) {
+for (const itemAttribute of ItemAttributes) {
   // @ts-ignore
-  ItemAttributesById[ItemAttributes[key].id] = ItemAttributes[key]
+  ItemAttributesById[itemAttribute.id] = itemAttribute
 }
 
 export const ItemType = {
@@ -1920,7 +1928,7 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
               description: `Rune Sanctuary Collector's Edition`,
             },
@@ -1949,7 +1957,7 @@ export const itemData = {
         },
         2: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
               description: `Rune Sanctuary Collector's Edition`,
             },
@@ -1978,7 +1986,7 @@ export const itemData = {
         },
         3: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
               description: `Rune Sanctuary Collector's Edition`,
             },
@@ -2007,7 +2015,7 @@ export const itemData = {
         },
         4: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
               description: `Rune Sanctuary Collector's Edition`,
             },
@@ -2126,8 +2134,8 @@ export const itemData = {
         [Games.Raid.id]: {
           description: ['Used for entry to a Rune Royale tournament.'],
           attributes: [
-            { ...ItemAttributes.RandomPerfection1, min: 3, max: 5, value: 5, description: "Access to Rune Royale #{param1}" },
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection1, min: 3, max: 5, value: 5, description: "Access to Rune Royale #{param1}" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
           ],
         },
         [Games.Evolution.id]: {
@@ -2179,8 +2187,8 @@ export const itemData = {
         [Games.Raid.id]: {
           description: ['Redeemed for a randomly generated runeword.'],
           attributes: [
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
           ],
         },
         [Games.Evolution.id]: {
@@ -2233,8 +2241,8 @@ export const itemData = {
         [Games.Raid.id]: {
           description: ['Redeemed for an additional character slot (Not Implemented)'],
           attributes: [
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
           ],
         },
         [Games.Evolution.id]: {
@@ -2286,8 +2294,8 @@ export const itemData = {
         [Games.Raid.id]: {
           description: ['Used for entry to the Riccardo Raffle.'],
           attributes: [
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
-            { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
+            { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
           ],
         },
         [Games.Evolution.id]: {
@@ -2337,9 +2345,9 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 1, max: 4 },
-            { ...ItemAttributes.MagicFind, min: 1, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 4 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 20 },
           ],
           perfection: [],
         },
@@ -2387,9 +2395,9 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 1, max: 5 },
-            { ...ItemAttributes.MagicFind, min: 1, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 20 },
           ],
           perfection: [],
         },
@@ -2437,7 +2445,7 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           description: ['Given as a token of excellence in crafting.'],
-          attributes: [{ ...ItemAttributes.CrafterCertificate, min: 1, max: 2, map: CraftingCompetitionWinner }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].CrafterCertificate, min: 1, max: 2, map: CraftingCompetitionWinner }],
         },
         [Games.Evolution.id]: {
           attributes: [],
@@ -2487,14 +2495,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 20, max: 80 },
-            { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 20, max: 80 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Battle Rage'],
               max: SkillIdByName['Battle Rage'],
               map: SkillNames,
@@ -2550,14 +2558,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-            { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 10, max: 50 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 10, max: 50 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['White Lightning'],
               max: SkillIdByName['White Lightning'],
               map: SkillNames,
@@ -2612,14 +2620,14 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.FreezeFees, min: 70, max: 100 },
-            { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-            { ...ItemAttributes.RandomRuneExchange, value: 4, min: 4, max: 4 },
-            { ...ItemAttributes.HarvestTheftMinIncrease, min: 5, max: 8 },
-            { ...ItemAttributes.HarvestTheftMaxIncrease, min: 5, max: 8 },
-            { ...ItemAttributes.HarvestTheftDefense, min: 14, max: 20 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].FreezeFees, min: 70, max: 100 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, value: 4, min: 4, max: 4 },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestTheftMinIncrease, min: 5, max: 8 },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestTheftMaxIncrease, min: 5, max: 8 },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestTheftDefense, min: 14, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
           ],
           perfection: [null, 100, 5, null, 8, 8, 20, 5],
           presets: {
@@ -2635,14 +2643,14 @@ export const itemData = {
         },
         3: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.EnhancedDefense, min: 70, max: 100 },
-            { ...ItemAttributes.ColdDamage, min: 2, max: 5 },
-            { ...ItemAttributes.ColdDuration, value: 4, min: 4, max: 4 },
-            { ...ItemAttributes.LifeStolenPerHit, min: 5, max: 8 },
-            { ...ItemAttributes.ManaStolenPerHit, min: 5, max: 8 },
-            { ...ItemAttributes.DamageReduced, min: 14, max: 20 },
-            { ...ItemAttributes.MagicDamageReduced, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].EnhancedDefense, min: 70, max: 100 },
+            { ...ItemAttributesByName[Games.Raid.id].ColdDamage, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ColdDuration, value: 4, min: 4, max: 4 },
+            { ...ItemAttributesByName[Games.Raid.id].LifeStolenPerHit, min: 5, max: 8 },
+            { ...ItemAttributesByName[Games.Raid.id].ManaStolenPerHit, min: 5, max: 8 },
+            { ...ItemAttributesByName[Games.Raid.id].DamageReduced, min: 14, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicDamageReduced, min: 2, max: 5 },
           ],
           perfection: [null, 100, 5, null, 8, 8, 20, 5],
         },
@@ -2686,14 +2694,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-            { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-            { ...ItemAttributes.ReduceBurn, min: 8, max: 20 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Inferno Fire Blast'],
               max: SkillIdByName['Inferno Fire Blast'],
               map: SkillNames,
@@ -2750,14 +2758,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-            { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Cosmic Flare'],
               max: SkillIdByName['Cosmic Flare'],
               map: SkillNames,
@@ -2813,14 +2821,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-            { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Veil of Night'],
               max: SkillIdByName['Veil of Night'],
               map: SkillNames,
@@ -2876,14 +2884,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-            { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Sky Swarm'],
               max: SkillIdByName['Sky Swarm'],
               map: SkillNames,
@@ -2939,14 +2947,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-            { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Flurry Assault'],
               max: SkillIdByName['Flurry Assault'],
               map: SkillNames,
@@ -3003,14 +3011,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-            { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Destructive Impact'],
               max: SkillIdByName['Destructive Impact'],
               map: SkillNames,
@@ -3066,14 +3074,14 @@ export const itemData = {
         [Games.Raid.id]: {
           description: [''],
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-            { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-            { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Nova Breath'],
               max: SkillIdByName['Nova Breath'],
               map: SkillNames,
@@ -3128,17 +3136,17 @@ export const itemData = {
       description: ['It seems to be a Guardian egg obtained from the Mage Isles in Rune Evolution.'],
       branches: {
         [Games.Raid.id]: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
           perfection: [],
         },
         2: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
         },
         3: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
         },
         4: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
         },
       },
     },
@@ -3175,17 +3183,17 @@ export const itemData = {
       description: ['It seems to be a powerful cube obtained from the Mage Isles in Rune Evolution.'],
       branches: {
         [Games.Raid.id]: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
           perfection: [],
         },
         2: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
         },
         3: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
         },
         4: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
         },
       },
     },
@@ -3222,17 +3230,17 @@ export const itemData = {
       description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Rune Evolution.'],
       branches: {
         [Games.Raid.id]: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
           perfection: [],
         },
         2: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
         },
         3: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
         },
         4: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
         },
       },
     },
@@ -3269,17 +3277,17 @@ export const itemData = {
       description: 'It seems to be a Rune obtained from the Mage Isles in Rune Evolution.',
       branches: {
         [Games.Raid.id]: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
           perfection: [],
         },
         2: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
         },
         3: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
         },
         4: {
-          attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+          attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
         },
       },
     },
@@ -3316,12 +3324,12 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-            { ...ItemAttributes.MagicFind, min: 5, max: 5 },
-            { ...ItemAttributes.HarvestCritChance, min: 2, max: 5 },
-            { ...ItemAttributes.CreateRandomRuneword, min: 1, max: 1 },
-            { ...ItemAttributes.EarlyAccess, min: 20, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 5, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestCritChance, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 1, max: 1 },
+            { ...ItemAttributesByName[Games.Raid.id].EarlyAccess, min: 20, max: 20 },
           ],
           perfection: [null, 5, null, 5],
           presets: {
@@ -3334,7 +3342,7 @@ export const itemData = {
         },
         [Games.Evolution.id]: {
               "attributes": [
-                { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
+                { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
                 {
                   "id": 1030,
                   "name": "MovementSpeedIncrease",
@@ -3500,20 +3508,20 @@ export const itemData = {
         },
         [Games.Infinite.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.IncreaseStat, min: 3, max: 5, description: '{param1}% Increased Cast Speed' },
-            { ...ItemAttributes.IncreaseEnergy, min: 10, max: 25, description: '{param1}% Maximum Energy' },
-            { ...ItemAttributes.IncreaseStat, min: 5, max: 5, description: '{param1}% Energy Regeneration' },
-            { ...ItemAttributes.DoublePickupChance, min: 1, max: 1 },
-            { ...ItemAttributes.CriticalHitChance, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 3, max: 5, description: '{param1}% Increased Cast Speed' },
+            { ...ItemAttributesByName[Games.Raid.id].IncreaseEnergy, min: 10, max: 25, description: '{param1}% Maximum Energy' },
+            { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 5, max: 5, description: '{param1}% Energy Regeneration' },
+            { ...ItemAttributesByName[Games.Raid.id].DoublePickupChance, min: 1, max: 1 },
+            { ...ItemAttributesByName[Games.Raid.id].CriticalHitChance, min: 2, max: 5 },
             {
-              ...ItemAttributes.IncreaseAilmentDuration,
+              ...ItemAttributesByName[Games.Raid.id].IncreaseAilmentDuration,
               min: 10,
               max: 10,
               description: '{param1}% Increased Burn Ailment Duration',
             },
-            { ...ItemAttributes.IncreaseRankRewardBonus, min: 1, max: 10 },
-            { ...ItemAttributes.IncreaseSkillPoints, min: 1, max: 1 },
+            { ...ItemAttributesByName[Games.Raid.id].IncreaseRankRewardBonus, min: 1, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].IncreaseSkillPoints, min: 1, max: 1 },
           ],
           perfection: [null, 5, 25, null, null, 5, null, 10],
           presets: {
@@ -3574,15 +3582,15 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Made by Men, this blade is common but has minimal downsides.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 5, max: 15 },
-  //           { ...ItemAttributes.HarvestFee, min: 0, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 5, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 0, max: 5 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.EL,
   //             max: RuneId.TIR,
   //             map: RuneNames,
   //           },
-  //           // { ...ItemAttributes.Sockets, value: 2, min: 2, max: 2 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 2, min: 2, max: 2 },
   //         ],
   //         perfection: [15, 0],
   //       },
@@ -3648,10 +3656,10 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Not much is known about this sword, other than the creator had gone mad.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 7 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 20, max: 40 },
-  //           { ...ItemAttributes.BurnEntireHarvest, min: 20, max: 40 },
-  //           // { ...ItemAttributes.Sockets, value: 4, min: 4, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 20, max: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].BurnEntireHarvest, min: 20, max: 40 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 4, min: 4, max: 4 },
   //         ],
   //         perfection: [7, 40, 20],
   //       },
@@ -3716,10 +3724,10 @@ export const itemData = {
   //           'An ancient helm forged by the Archons to seek out powerful shards in the battle between Heaven and Hell.',
   //         ],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 3 },
-  //           { ...ItemAttributes.HarvestBurn, min: 1, max: 3 },
-  //           { ...ItemAttributes.FindShard, min: 100, max: 100, value: 100 },
-  //           // { ...ItemAttributes.Sockets, value: 2, min: 2, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 100, max: 100, value: 100 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 2, min: 2, max: 2 },
   //         ],
   //         perfection: [3, 1],
   //       },
@@ -3772,7 +3780,7 @@ export const itemData = {
   //         description: ['A relic from a broken time.'],
   //         attributes: [
   //           {
-  //             ...ItemAttributes.TransmuteItem,
+  //             ...ItemAttributesByName[Games.Raid.id].TransmuteItem,
   //             description: '100% Chance To Transmute Item',
   //             min: 0,
   //             max: 0,
@@ -3836,10 +3844,10 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Although common in another world, these Sourcer boots are considered high quality.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 10 },
-  //           { ...ItemAttributes.HarvestBurn, min: 1, max: 5 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 20 },
-  //           // { ...ItemAttributes.Sockets, value: 4, min: 4, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 20 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 4, min: 4, max: 4 },
   //         ],
   //         perfection: [10, 1, 20],
   //       },
@@ -3901,10 +3909,10 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Made from light-weight Templar material, it provides quality protection.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 10, max: 20 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 2 },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 10, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 2 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [5, 20, 2],
   //       },
@@ -3966,10 +3974,10 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['These handwraps have an unknown origin and emit a dark aura.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 25, max: 100 },
-  //           { ...ItemAttributes.UnstakeLocked, min: 100, max: 100 },
-  //           // { ...ItemAttributes.Sockets, value: 4, min: 4, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 25, max: 100 },
+  //           { ...ItemAttributesByName[Games.Raid.id].UnstakeLocked, min: 100, max: 100 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 4, min: 4, max: 4 },
   //         ],
   //         perfection: [5, 100],
   //       },
@@ -4021,7 +4029,7 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 3, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 3, map: ItemRarityNameById },
   //           {
   //             id: 1,
   //             min: 0,
@@ -4102,30 +4110,30 @@ export const itemData = {
   //           'Crafted with the finest Vira materials, this Cloudstrike Sword is imbued with the power of wind.',
   //         ],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 10, max: 40 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 15, max: 15 },
-  //           { ...ItemAttributes.FindShard, min: 15, max: 15 },
-  //           { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFee, min: 5, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 10, max: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 15, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 15, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 5, max: 15 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.TAL,
   //             max: RuneId.ORT,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName.Whirlwind,
   //             max: SkillIdByName.Whirlwind,
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Barbarian,
   //             max: ClassIdByName.Barbarian,
   //             map: ClassNames,
   //           },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [40, undefined, undefined, 10, 5],
   //       },
@@ -4187,25 +4195,25 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: `Crafted with the finest Druid material, this Sage Bow is imbued to seek out what is hidden.`,
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 10, max: 40 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 25, max: 25 },
-  //           { ...ItemAttributes.FindShard, min: 10, max: 10 },
-  //           { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFee, min: 5, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 10, max: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 25, max: 25 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 10, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 5, max: 15 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.ORT,
   //             max: RuneId.AMN,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Hidden Shot'],
   //             max: SkillIdByName['Hidden Shot'],
   //             map: SkillNames,
   //           },
-  //           { ...ItemAttributes.SpecificClass, min: ClassIdByName.Amazon, max: ClassIdByName.Amazon, map: ClassNames },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Amazon, max: ClassIdByName.Amazon, map: ClassNames },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [40, undefined, undefined, 10, 5],
   //       },
@@ -4268,24 +4276,24 @@ export const itemData = {
   //           'Crafted with the finest Archon material, this Dimensional Dagger is imbued with banished sacrificial power.',
   //         ],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 40 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 2, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 2, max: 10 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.THUL,
   //             max: RuneId.SOL,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName.Sacrifice,
   //             max: SkillIdByName.Sacrifice,
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Necromancer,
   //             max: ClassIdByName.Necromancer,
   //             map: ClassNames,
@@ -4350,30 +4358,30 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['A mysterious staff that appears to be of Archon origin and imbued with the power of time.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 10, max: 40 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 15, max: 15 },
-  //           { ...ItemAttributes.FindShard, min: 15, max: 15 },
-  //           { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFee, min: 5, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 10, max: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 15, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 15, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 5, max: 15 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.THUL,
   //             max: RuneId.SOL,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Time Warp'],
   //             max: SkillIdByName['Time Warp'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Mage,
   //             max: ClassIdByName.Mage,
   //             map: ClassNames,
   //           },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [40, undefined, undefined, 10, 5],
   //       },
@@ -4435,30 +4443,30 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Originally royal Vira bracers, they have been forged to claws of an unknown material.'],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 7 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 1, max: 2 },
-  //           { ...ItemAttributes.MagicFind, min: 1, max: 15 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 4 },
-  //           { ...ItemAttributes.HarvestFee, min: 2, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 1, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 2, max: 10 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.SOL,
   //             max: RuneId.HEL,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Fade'],
   //             max: SkillIdByName['Fade'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Assassin,
   //             max: ClassIdByName.Assassin,
   //             map: ClassNames,
   //           },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [7, 2, 15, null, 2],
   //       },
@@ -4520,24 +4528,24 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 10 },
-  //           { ...ItemAttributes.FindGuildToken, min: 1, max: 4 },
-  //           { ...ItemAttributes.MagicFind, min: 5, max: 10 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 4 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindGuildToken, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 5, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 10 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Sanctuary Aura'],
   //             max: SkillIdByName['Sanctuary Aura'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Paladin,
   //             max: ClassIdByName.Paladin,
   //             map: ClassNames,
   //           },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [10, 4, 10, null, 10],
   //       },
@@ -4598,25 +4606,25 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-  //           { ...ItemAttributes.FindShard, min: 1, max: 20 },
-  //           { ...ItemAttributes.MagicFind, min: 2, max: 2 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 4 },
-  //           { ...ItemAttributes.HarvestFee, min: 2, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 1, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 2, max: 10 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.SOL,
   //             max: RuneId.HEL,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Mystic Insight'],
   //             max: SkillIdByName['Mystic Insight'],
   //             map: SkillNames,
   //           },
-  //           { ...ItemAttributes.SpecificClass, min: ClassIdByName.Druid, max: ClassIdByName.Druid, map: ClassNames },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Druid, max: ClassIdByName.Druid, map: ClassNames },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [5, 20, null, null, 2],
   //       },
@@ -4676,11 +4684,11 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['A once unbreakable helm, its best days have passed.'],
   //         attributes: [
-  //           { ...ItemAttributes.FindShard, min: 1, max: 15 },
-  //           { ...ItemAttributes.HarvestBurn, min: 1, max: 3 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 4 },
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 5 },
-  //           // { ...ItemAttributes.Sockets, value: 4, min: 4, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 1, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 5 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 4, min: 4, max: 4 },
   //         ],
   //         perfection: [15, 1, 4, 5],
   //       },
@@ -4743,12 +4751,12 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-  //           { ...ItemAttributes.FindShard, min: 1, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 4, max: 4 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 1, max: 4 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 1, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 4, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 3 },
   //         ],
   //         perfection: [10, 10, null, null, 1, 0],
   //       },
@@ -4812,15 +4820,15 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 0, max: 100 },
-  //           { ...ItemAttributes.MagicFind, min: 0, max: 100 },
-  //           { ...ItemAttributes.FindGuildToken, min: 0, max: 10 },
-  //           { ...ItemAttributes.FindShard, min: 0, max: 50 },
-  //           { ...ItemAttributes.BurnEntireHarvest, min: 0, max: 1 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 100 },
-  //           { ...ItemAttributes.HarvestFee, min: 0, max: 100 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 0, max: 100 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 100 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindGuildToken, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 0, max: 50 },
+  //           { ...ItemAttributesByName[Games.Raid.id].BurnEntireHarvest, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 100 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 0, max: 100 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.THUL,
   //             max: RuneId.SOL,
   //             map: RuneNames,
@@ -4831,15 +4839,15 @@ export const itemData = {
   //       2: {
   //         attributes: [],
   //         // attributes: [
-  //         //   { ...ItemAttributes.PhysicalDamage, min: 0, max: 100 },
-  //         //   { ...ItemAttributes.MovementSpeedIncrease, min: 0, max: 100 },
-  //         //   { ...ItemAttributes.TokenFindWin, min: 0, max: 10 },
-  //         //   { ...ItemAttributes.ShardFindWin, min: 0, max: 50 },
-  //         //   { ...ItemAttributes.DamageResist, min: 0, max: 1 },
-  //         //   { ...ItemAttributes.BecomeSacrifice, min: 0, max: 100 },
-  //         //   { ...ItemAttributes.OrbNoPointsChance, min: 0, max: 100 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].PhysicalDamage, min: 0, max: 100 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].MovementSpeedIncrease, min: 0, max: 100 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].TokenFindWin, min: 0, max: 10 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].ShardFindWin, min: 0, max: 50 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].DamageResist, min: 0, max: 1 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].BecomeSacrifice, min: 0, max: 100 },
+  //         //   { ...ItemAttributesByName[Games.Raid.id].OrbNoPointsChance, min: 0, max: 100 },
   //         //   {
-  //         //     ...ItemAttributes.BecomeBloodDrunk,
+  //         //     ...ItemAttributesByName[Games.Raid.id].BecomeBloodDrunk,
   //         //     min: RuneId.THUL,
   //         //     max: RuneId.SOL,
   //         //     map: RuneNames,
@@ -4900,19 +4908,19 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 12 },
-  //           { ...ItemAttributes.FindShard, min: 10, max: 10 },
-  //           { ...ItemAttributes.FindGuildToken, min: 1, max: 4 },
-  //           { ...ItemAttributes.GuildTreasuryYieldBonus, min: 1, max: 5 },
-  //           { ...ItemAttributes.HarvestFee, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 12 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 10, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindGuildToken, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].GuildTreasuryYieldBonus, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 0, max: 10 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.THUL,
   //             max: RuneId.SOL,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Paladin,
   //             max: ClassIdByName.Paladin,
   //             map: ClassNames,
@@ -4978,11 +4986,11 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 5 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 0, max: 5 },
-  //           { ...ItemAttributes.FindShard, min: 1, max: 5 },
-  //           { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 0, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 1 },
   //         ],
   //         perfection: [5, 5, 5, 10, 1],
   //       },
@@ -5045,12 +5053,12 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 0, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 0, max: 15 },
-  //           { ...ItemAttributes.RandomRuneSpecificWeapon, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneSpecificWeapon, min: 1, max: 3 },
   //           {
-  //             ...ItemAttributes.SpecificWeaponType,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificWeaponType,
   //             min: ItemType.OneHandedWeapon,
   //             max: ItemType.OneHandedWeapon,
   //             map: ItemTypeNames,
@@ -5115,11 +5123,11 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 3 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 0, max: 5 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 2 },
-  //           { ...ItemAttributes.RandomRuneExchangeSpecific, min: 10, max: 20 },
-  //           { ...ItemAttributes.RandomRuneToken, min: RuneId.EL, max: RuneId.SHAEL, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 0, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchangeSpecific, min: 10, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneToken, min: RuneId.EL, max: RuneId.SHAEL, map: RuneNames },
   //         ],
   //         perfection: [3, 5, 0, 20],
   //       },
@@ -5182,20 +5190,20 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 4 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 0, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 5, max: 5 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 1 },
-  //           { ...ItemAttributes.HarvestCritChance, min: 1, max: 5 },
-  //           { ...ItemAttributes.EarlyAccess, min: 20, max: 20 },
-  //           { ...ItemAttributes.HarvestFee, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 5, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestCritChance, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].EarlyAccess, min: 20, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 0, max: 10 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.THUL,
   //             max: RuneId.SOL,
   //             map: RuneNames,
   //           },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [4, 3, null, 1, 5, null, 0, null],
   //       },
@@ -5204,19 +5212,19 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.IncreaseStat, min: 3, max: 5, description: '{param1} Cast Speed' },
-  //           { ...ItemAttributes.IncreaseEnergy, min: 6, max: 9, description: '{param1} Maximum Energy' },
-  //           { ...ItemAttributes.IncreaseStat, min: 5, max: 5, description: '{param1} Energy Regeneration' },
-  //           { ...ItemAttributes.DoublePickupChance, min: 0, max: 1 },
-  //           { ...ItemAttributes.CriticalHitChance, min: 3, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 3, max: 5, description: '{param1} Cast Speed' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseEnergy, min: 6, max: 9, description: '{param1} Maximum Energy' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 5, max: 5, description: '{param1} Energy Regeneration' },
+  //           { ...ItemAttributesByName[Games.Raid.id].DoublePickupChance, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CriticalHitChance, min: 3, max: 5 },
   //           {
-  //             ...ItemAttributes.IncreaseAilmentDuration,
+  //             ...ItemAttributesByName[Games.Raid.id].IncreaseAilmentDuration,
   //             min: 10,
   //             max: 10,
   //             description: '{param1} Increased Burn Ailment Duration',
   //           },
-  //           { ...ItemAttributes.IncreaseRankRewardBonus, min: 0, max: 10 },
-  //           { ...ItemAttributes.UnlockSkills, min: 1, max: 1, description: 'Unlocks Bone Prison' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseRankRewardBonus, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].UnlockSkills, min: 1, max: 1, description: 'Unlocks Bone Prison' },
   //         ],
   //       },
   //       [Games.Guardians.id]: {
@@ -5273,12 +5281,12 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 3 },
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 3 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 0, max: 3 },
-  //           { ...ItemAttributes.FindGuildToken, min: 1, max: 4 },
-  //           { ...ItemAttributes.HarvestCritMultiplier, min: 3, max: 5 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindGuildToken, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestCritMultiplier, min: 3, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 3 },
   //         ],
   //         perfection: [3, 3, 3, 4, 5, 0],
   //       },
@@ -5340,11 +5348,11 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 3 },
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 1, max: 3 },
-  //           { ...ItemAttributes.FindShard, min: 1, max: 4 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 1, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 5 },
   //         ],
   //         perfection: [3, 3, 3, 4, 0],
   //       },
@@ -5398,11 +5406,11 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 20, max: 50 },
-  //           { ...ItemAttributes.MagicFind, min: 14, max: 20 },
-  //           { ...ItemAttributes.FindShard, min: 10, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 20, max: 50 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 10, max: 10 },
   //         ],
   //         perfection: [undefined, 5, 50, 20, undefined],
   //       },
@@ -5465,14 +5473,14 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.ReduceBurn, min: 0, max: 15 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestCritChance, min: 0, max: 3 },
-  //           { ...ItemAttributes.RandomRuneBonus, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 30, max: 30 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.EL, max: RuneId.TIR, map: RuneNames },
-  //           { ...ItemAttributes.AttributeUnlockOnConsecutiveEquipTime, min: 336, max: 336 },
-  //           { ...ItemAttributes.TargetAttributeToUnlock, value: 1, min: 1, max: 1, map: ['1', '2'] },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 0, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestCritChance, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneBonus, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 30, max: 30 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.EL, max: RuneId.TIR, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].AttributeUnlockOnConsecutiveEquipTime, min: 336, max: 336 },
+  //           { ...ItemAttributesByName[Games.Raid.id].TargetAttributeToUnlock, value: 1, min: 1, max: 1, map: ['1', '2'] },
   //         ],
   //         perfection: [15, 2, 3, 2, undefined, undefined, undefined, undefined],
   //       },
@@ -5536,11 +5544,11 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 5, max: 10 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestOverTime, min: 0, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 0, max: 4 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 5, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestOverTime, min: 0, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 3 },
   //         ],
   //         perfection: [10, 2, 3, 4, 0],
   //       },
@@ -5549,22 +5557,22 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.DamageReduce, min: 10, max: 14, description: '{param1} Reduced Fire Damage' },
-  //           { ...ItemAttributes.IncreaseAbsorb, min: 4, max: 10, description: '{param1} Increased Fire Absorb' },
+  //           { ...ItemAttributesByName[Games.Raid.id].DamageReduce, min: 10, max: 14, description: '{param1} Reduced Fire Damage' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseAbsorb, min: 4, max: 10, description: '{param1} Increased Fire Absorb' },
   //           {
-  //             ...ItemAttributes.IncreaseRandomStat,
+  //             ...ItemAttributesByName[Games.Raid.id].IncreaseRandomStat,
   //             min: 0,
   //             max: 3,
   //             description: 'Increase Stat: {param1}',
   //             map: { 0: '+10% Magic Find', 1: '+5% Movement Speed', 2: '+10% Energy', 3: '+14% Health' },
   //           },
   //           {
-  //             ...ItemAttributes.IncreaseAilmentChance,
+  //             ...ItemAttributesByName[Games.Raid.id].IncreaseAilmentChance,
   //             min: 4,
   //             max: 8,
   //             description: '{param1} Increased Burn Ailment Chance',
   //           },
-  //           { ...ItemAttributes.UnlockSkills, min: 1, max: 1, description: 'Unlocks Fire Nova and Infernal Cascade' },
+  //           { ...ItemAttributesByName[Games.Raid.id].UnlockSkills, min: 1, max: 1, description: 'Unlocks Fire Nova and Infernal Cascade' },
   //         ],
   //       },
   //       [Games.Guardians.id]: {
@@ -5611,10 +5619,10 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestTheftDefense, min: 1, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 14, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestTheftDefense, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
   //         ],
   //         perfection: [undefined, 2, 3, 20],
   //         rarity: {
@@ -5626,10 +5634,10 @@ export const itemData = {
   //       },
   //       [Games.Evolution.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.EvolutionMovementSpeedIncrease, min: 0, max: 2 },
-  //           { ...ItemAttributes.DeathPenaltyAvoid, min: 1, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 14, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].EvolutionMovementSpeedIncrease, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].DeathPenaltyAvoid, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
   //         ],
   //         perfection: [undefined, 2, 3, 20],
   //         rarity: {
@@ -5641,10 +5649,10 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.InfiniteMovementSpeedIncrease, min: 0, max: 2 },
-  //           { ...ItemAttributes.DodgeChance, min: 1, max: 3 },
-  //           { ...ItemAttributes.MagicFind, min: 14, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].InfiniteMovementSpeedIncrease, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].DodgeChance, min: 1, max: 3 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
   //         ],
   //         perfection: [undefined, 2, 3, 20],
   //         rarity: {
@@ -5706,13 +5714,13 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.RemoveFees, min: 0, max: 10 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 0, max: 5 },
-  //           { ...ItemAttributes.HarvestCritMultiplier, min: 0, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 5, max: 5, value: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 0, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestCritMultiplier, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 5, max: 5, value: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Evasion'],
   //             max: SkillIdByName['Evasion'],
   //             value: SkillIdByName['Evasion'],
@@ -5726,13 +5734,13 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.DamageReduce, min: 5, max: 10, description: '{param1} Reduced Physical Damage' },
-  //           { ...ItemAttributes.DoublePickupChance, min: 0, max: 1 },
-  //           { ...ItemAttributes.AttackSpeed, min: 0, max: 5 },
-  //           { ...ItemAttributes.CriticalHitChance, min: 4, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 10, max: 10, value: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].DamageReduce, min: 5, max: 10, description: '{param1} Reduced Physical Damage' },
+  //           { ...ItemAttributesByName[Games.Raid.id].DoublePickupChance, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AttackSpeed, min: 0, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CriticalHitChance, min: 4, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 10, max: 10, value: 10 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Arcane Orbs'],
   //             max: SkillIdByName['Arcane Orbs'],
   //             value: SkillIdByName['Arcane Orbs'],
@@ -5793,21 +5801,21 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 7 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 15 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, map: RuneNames },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Shadow Strike'],
   //             max: SkillIdByName['Shadow Strike'],
   //             value: SkillIdByName['Shadow Strike'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Assassin,
   //             max: ClassIdByName.Assassin,
   //             value: ClassIdByName.Assassin,
@@ -5818,21 +5826,21 @@ export const itemData = {
   //       },
   //       [Games.Evolution.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 7 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 15 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Shadow Strike'],
   //             max: SkillIdByName['Shadow Strike'],
   //             value: SkillIdByName['Shadow Strike'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Assassin,
   //             max: ClassIdByName.Assassin,
   //             value: ClassIdByName.Assassin,
@@ -5843,21 +5851,21 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 7 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 15 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Shadow Strike'],
   //             max: SkillIdByName['Shadow Strike'],
   //             value: SkillIdByName['Shadow Strike'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Assassin,
   //             max: ClassIdByName.Assassin,
   //             value: ClassIdByName.Assassin,
@@ -5868,21 +5876,21 @@ export const itemData = {
   //       },
   //       [Games.Guardians.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 7 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 15 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Shadow Strike'],
   //             max: SkillIdByName['Shadow Strike'],
   //             value: SkillIdByName['Shadow Strike'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Assassin,
   //             max: ClassIdByName.Assassin,
   //             value: ClassIdByName.Assassin,
@@ -5893,21 +5901,21 @@ export const itemData = {
   //       },
   //       [Games.Sanctuary.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 7 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 10, max: 15 },
-  //           { ...ItemAttributes.AvoidBurn, min: 0, max: 1 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 7 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, value: RuneId.ITH, map: RuneNames },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Shadow Strike'],
   //             max: SkillIdByName['Shadow Strike'],
   //             value: SkillIdByName['Shadow Strike'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Assassin,
   //             max: ClassIdByName.Assassin,
   //             value: ClassIdByName.Assassin,
@@ -5963,21 +5971,21 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 0, max: 30 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 40, max: 40, value: 40 },
-  //           { ...ItemAttributes.YieldBonusFromHiddenPool, min: 0, max: 10 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 30 },
-  //           { ...ItemAttributes.HarvestFee, min: 20, max: 20, value: 20 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.EL, max: RuneId.TIR, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 0, max: 30 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 40, max: 40, value: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].YieldBonusFromHiddenPool, min: 0, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 30 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 20, max: 20, value: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.EL, max: RuneId.TIR, map: RuneNames },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Soul Reaver'],
   //             max: SkillIdByName['Soul Reaver'],
   //             value: SkillIdByName['Soul Reaver'],
   //             map: SkillNames,
   //           },
   //           {
-  //             ...ItemAttributes.SpecificClass,
+  //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
   //             min: ClassIdByName.Necromancer,
   //             max: ClassIdByName.Necromancer,
   //             value: ClassIdByName.Necromancer,
@@ -5991,13 +5999,13 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.IncreaseDamage, min: 10, max: 25, description: '{param1} Increased Physical Damage' },
-  //           { ...ItemAttributes.IncreaseEnergy, min: 8, max: 15, description: '{param1} Maximum Energy' },
-  //           { ...ItemAttributes.IncreaseOnKill, min: 20, max: 25, description: '{param1} Health On Kill' },
-  //           { ...ItemAttributes.IncreaseStat, min: 13, max: 18, description: '{param1} Energy Regeneration' },
-  //           { ...ItemAttributes.MagicFind, min: 20, max: 20 },
-  //           { ...ItemAttributes.UnlockSkills, min: 493, max: 493, description: 'Unlock Skills: Haunting Spirit, Grim Harvest Aura' }, // 493 + 468
-  //           // { ...ItemAttributes.IncreaseRankRewardBonus, min: 5, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseDamage, min: 10, max: 25, description: '{param1} Increased Physical Damage' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseEnergy, min: 8, max: 15, description: '{param1} Maximum Energy' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseOnKill, min: 20, max: 25, description: '{param1} Health On Kill' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 13, max: 18, description: '{param1} Energy Regeneration' },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 20, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].UnlockSkills, min: 493, max: 493, description: 'Unlock Skills: Haunting Spirit, Grim Harvest Aura' }, // 493 + 468
+  //           // { ...ItemAttributesByName[Games.Raid.id].IncreaseRankRewardBonus, min: 5, max: 15 },
   //         ],
   //         perfection: [25, 15, 25, 18, 25, undefined, undefined, undefined],
   //       },
@@ -6052,11 +6060,11 @@ export const itemData = {
   //   //   branches: {
   //   //     [Games.Raid.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-  //   //         { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
-  //   //         { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-  //   //         { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 3 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RaidTwoAttribute, min: 0, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RaidThreeAttribute, min: 1, max: 1 },
   //   //       ],
   //   //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
   //   //     },
@@ -6065,11 +6073,11 @@ export const itemData = {
   //   //     },
   //   //     [Games.Infinite.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.DamageReduce, min: 3, max: 5, description: '{param1} Reduced Damage' }, // All
-  //   //         { ...ItemAttributes.IncreaseStat, min: 5, max: 10, description: '{param1} Movement Speed' }, // MovementSpeed
-  //   //         { ...ItemAttributes.UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Flaming Dash' },
-  //   //         { ...ItemAttributes.IncreaseResist, min: 0, max: 5, description: '{param1} Fire Resistance' }, // Fire
-  //   //         { ...ItemAttributes.WinRewardsIncrease, min: 1, max: 5, description: '{param1} Increased Rune Rewards On Win' }, // Runes
+  //   //         { ...ItemAttributesByName[Games.Raid.id].DamageReduce, min: 3, max: 5, description: '{param1} Reduced Damage' }, // All
+  //   //         { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 5, max: 10, description: '{param1} Movement Speed' }, // MovementSpeed
+  //   //         { ...ItemAttributesByName[Games.Raid.id].UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Flaming Dash' },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].IncreaseResist, min: 0, max: 5, description: '{param1} Fire Resistance' }, // Fire
+  //   //         { ...ItemAttributesByName[Games.Raid.id].WinRewardsIncrease, min: 1, max: 5, description: '{param1} Increased Rune Rewards On Win' }, // Runes
   //   //       ],
   //   //       perfection: [25, 15, 25, 18, 25, undefined, undefined, undefined],
   //   //     },
@@ -6126,14 +6134,14 @@ export const itemData = {
   //   //   branches: {
   //   //     [Games.Raid.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.HarvestYield, min: 15, max: 30 },
-  //   //         { ...ItemAttributes.RaidTwoAttribute, min: 2, max: 4 },
-  //   //         { ...ItemAttributes.RandomRuneBonus, min: 5, max: 10 },
-  //   //         { ...ItemAttributes.HarvestBurn, min: 10, max: 10 },
-  //   //         { ...ItemAttributes.HarvestFee, min: 5, max: 10 },
-  //   //         { ...ItemAttributes.HarvestFeeToken, min: RuneId.SOL, max: RuneId.FAL },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 15, max: 30 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RaidTwoAttribute, min: 2, max: 4 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RandomRuneBonus, min: 5, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 10, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 5, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.SOL, max: RuneId.FAL },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: SkillIdByName['Hidden'],
   //   //           max: SkillIdByName['Hidden'],
   //   //           map: SkillNames,
@@ -6146,13 +6154,13 @@ export const itemData = {
   //   //     },
   //   //     [Games.Infinite.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.IncreaseDamage, min: 20, max: 30, description: '{param1} Increased Damage' }, // All
-  //   //         { ...ItemAttributes.EffectChanceOnCondition, min: 1, max: 1, description: '{param1} Stun Chance On Hit' }, // MovementSpeed
-  //   //         { ...ItemAttributes.CastOnCondition, min: 1, max: 1, description: '{param1} Cast Leap On Applying Stun' },
-  //   //         { ...ItemAttributes.IncreaseStat, min: 10, max: 15, description: '{param1} Increased Energy Regeneration' }, // Fire
-  //   //         { ...ItemAttributes.IncreaseRankRewardBonus, min: 5, max: 10, description: '{param1} Increased Rank Reward Bonus' }, // Runes
-  //   //         { ...ItemAttributes.IncreaseGuildPrestigeGain, min: 10, max: 20, description: '{param1} Increased Guild Prestige' }, // Runes
-  //   //         { ...ItemAttributes.UnlockSkills, min: 493, max: 493, description: 'Unlock Skills: Storm Call, Leap' }, // 493 + 468
+  //   //         { ...ItemAttributesByName[Games.Raid.id].IncreaseDamage, min: 20, max: 30, description: '{param1} Increased Damage' }, // All
+  //   //         { ...ItemAttributesByName[Games.Raid.id].EffectChanceOnCondition, min: 1, max: 1, description: '{param1} Stun Chance On Hit' }, // MovementSpeed
+  //   //         { ...ItemAttributesByName[Games.Raid.id].CastOnCondition, min: 1, max: 1, description: '{param1} Cast Leap On Applying Stun' },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 10, max: 15, description: '{param1} Increased Energy Regeneration' }, // Fire
+  //   //         { ...ItemAttributesByName[Games.Raid.id].IncreaseRankRewardBonus, min: 5, max: 10, description: '{param1} Increased Rank Reward Bonus' }, // Runes
+  //   //         { ...ItemAttributesByName[Games.Raid.id].IncreaseGuildPrestigeGain, min: 10, max: 20, description: '{param1} Increased Guild Prestige' }, // Runes
+  //   //         { ...ItemAttributesByName[Games.Raid.id].UnlockSkills, min: 493, max: 493, description: 'Unlock Skills: Storm Call, Leap' }, // 493 + 468
   //   //       ],
   //   //       perfection: [25, 15, 25, 18, 25, undefined, undefined, undefined],
   //   //     },
@@ -6209,15 +6217,15 @@ export const itemData = {
   //   //   branches: {
   //   //     [Games.Raid.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.HarvestYield, min: 20, max: 40 },
-  //   //         { ...ItemAttributes.RandomRuneExchange, min: 0, max: 5 },
-  //   //         { ...ItemAttributes.RaidTwoAttribute, min: 5, max: 5 },
-  //   //         { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 10 },
-  //   //         { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
-  //   //         { ...ItemAttributes.HarvestFee, min: 10, max: 15 },
-  //   //         { ...ItemAttributes.HarvestFeeToken, min: 17, max: 21 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 20, max: 40 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 0, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RaidTwoAttribute, min: 5, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RaidTwoAttribute, min: 0, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 10, max: 15 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 15 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: 17, max: 21 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: SkillIdByName['Hidden'],
   //   //           max: SkillIdByName['Hidden'],
   //   //           map: SkillNames,
@@ -6284,11 +6292,11 @@ export const itemData = {
   //   //   branches: {
   //   //     [Games.Raid.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-  //   //         { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
-  //   //         // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-  //   //         // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 3 },
+  //   //         // { ...ItemAttributesByName[Games.Raid.id].RaidTwoAttribute, min: 0, max: 5 },
+  //   //         // { ...ItemAttributesByName[Games.Raid.id].RaidThreeAttribute, min: 1, max: 1 },
   //   //       ],
   //   //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
   //   //     },
@@ -6352,12 +6360,12 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 0, max: 4 },
-  //           { ...ItemAttributes.RandomRuneExchange, min: 0, max: 2 },
-  //           { ...ItemAttributes.RandomRuneBonus, min: 0, max: 2 },
-  //           { ...ItemAttributes.HarvestBurn, min: 0, max: 4 },
-  //           { ...ItemAttributes.HarvestFee, min: 10, max: 20 },
-  //           { ...ItemAttributes.HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, map: RuneNames },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 0, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomRuneBonus, min: 0, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 10, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken, min: RuneId.NEF, max: RuneId.ITH, map: RuneNames },
   //         ],
   //         perfection: [4, 2, 2, 0, 10, undefined],
   //       },
@@ -6366,17 +6374,17 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.IncreaseDamage, min: 0, max: 4, description: '{param1} Increased Physical Damage' },
-  //           { ...ItemAttributes.IncreaseStat, min: 1, max: 5, description: '{param1} Energy Regeneration' },
-  //           { ...ItemAttributes.IncreaseStat, min: 1, max: 5, description: '{param1} Attack Speed' },
-  //           { ...ItemAttributes.IncreaseRankRewardBonus, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseDamage, min: 0, max: 4, description: '{param1} Increased Physical Damage' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 1, max: 5, description: '{param1} Energy Regeneration' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 1, max: 5, description: '{param1} Attack Speed' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseRankRewardBonus, min: 1, max: 5 },
   //           {
-  //             ...ItemAttributes.IncreaseDamageTaken,
+  //             ...ItemAttributesByName[Games.Raid.id].IncreaseDamageTaken,
   //             min: 0,
   //             max: 5,
   //             description: '{param1} Additional Damage Taken (While Idle)',
   //           },
-  //           { ...ItemAttributes.UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Berserker Soul' },
+  //           { ...ItemAttributesByName[Games.Raid.id].UnlockSkills, min: 0, max: 4, description: 'Unlock Skill: Berserker Soul' },
   //         ],
   //       },
   //       [Games.Guardians.id]: {
@@ -6432,11 +6440,11 @@ export const itemData = {
   //   //   branches: {
   //   //     [Games.Raid.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.RemoveFees, min: 1, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 0, max: 10 },
-  //   //         { ...ItemAttributes.HarvestBurn, min: 0, max: 3 },
-  //   //         // { ...ItemAttributes.RaidTwoAttribute, min: 0, max: 5 },
-  //   //         // { ...ItemAttributes.RaidThreeAttribute, min: 1, max: 1 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 0, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 0, max: 3 },
+  //   //         // { ...ItemAttributesByName[Games.Raid.id].RaidTwoAttribute, min: 0, max: 5 },
+  //   //         // { ...ItemAttributesByName[Games.Raid.id].RaidThreeAttribute, min: 1, max: 1 },
   //   //       ],
   //   //       perfection: [25, 40, 10, 15, 10, undefined, undefined, undefined],
   //   //     },
@@ -6500,9 +6508,9 @@ export const itemData = {
   //   //   branches: {
   //   //     [Games.Raid.id]: {
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 1, max: 4 },
-  //   //         { ...ItemAttributes.MagicFind, min: 1, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 4 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 20 },
   //   //       ],
   //   //       perfection: [],
   //   //     },
@@ -6550,9 +6558,9 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 5 },
-  //           { ...ItemAttributes.MagicFind, min: 1, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 20 },
   //         ],
   //         perfection: [],
   //       },
@@ -6600,7 +6608,7 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         description: ['Given as a token of excellence in crafting.'],
-  //         attributes: [{ ...ItemAttributes.CrafterCertificate, min: 1, max: 2, map: CraftingCompetitionWinner }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].CrafterCertificate, min: 1, max: 2, map: CraftingCompetitionWinner }],
   //       },
   //       [Games.Evolution.id]: {
   //         attributes: [],
@@ -6649,10 +6657,10 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Ancient power.'],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 2 },
-  //           { ...ItemAttributes.MagicFind, min: 1, max: 20 },
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 2 },
   //         ],
   //         perfection: [],
   //       },
@@ -6703,10 +6711,10 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Ancient power.'],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 1, max: 2 },
-  //           { ...ItemAttributes.MagicFind, min: 1, max: 20 },
-  //           { ...ItemAttributes.RemoveFees, min: 1, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 1, max: 2 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 1, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 1, max: 2 },
   //         ],
   //         perfection: [],
   //       },
@@ -6758,7 +6766,7 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
   //           {
   //             description: `Rune Sanctuary Collector's Edition`,
   //           },
@@ -6787,7 +6795,7 @@ export const itemData = {
   //       },
   //       2: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
   //           {
   //             description: `Rune Sanctuary Collector's Edition`,
   //           },
@@ -6816,7 +6824,7 @@ export const itemData = {
   //       },
   //       3: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
   //           {
   //             description: `Rune Sanctuary Collector's Edition`,
   //           },
@@ -6845,7 +6853,7 @@ export const itemData = {
   //       },
   //       4: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
   //           {
   //             description: `Rune Sanctuary Collector's Edition`,
   //           },
@@ -6910,11 +6918,11 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 4, max: 10 },
-            { ...ItemAttributes.MagicFind, min: 14, max: 20 },
-            { ...ItemAttributes.FindShard, min: 10, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 4, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 10, max: 10 },
           ],
           perfection: [undefined, 5, 50, 20, undefined],
           presets: {
@@ -6975,11 +6983,11 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 2, max: 5 },
-            { ...ItemAttributes.RemoveFees, min: 20, max: 50 },
-            { ...ItemAttributes.MagicFind, min: 14, max: 20 },
-            { ...ItemAttributes.FindShard, min: 10, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 20, max: 50 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 10, max: 10 },
           ],
           perfection: [undefined, 5, 50, 20, undefined],
         },
@@ -7033,28 +7041,28 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.SendHarvestHiddenPool, min: 1, max: 5 },
-            { ...ItemAttributes.YieldBonusFromHiddenPool, min: 1, max: 3 },
-            { ...ItemAttributes.UnstakeLockedDurationFromHarvest },
-            { ...ItemAttributes.MagicFind, min: 14, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 1, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].YieldBonusFromHiddenPool, min: 1, max: 3 },
+            { ...ItemAttributesByName[Games.Raid.id].UnstakeLockedDurationFromHarvest },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
           ],
           perfection: [undefined, 5, 3, undefined, 20],
         },
         [Games.Evolution.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.ReduceSkillCooldown, min: 1, max: 5 },
-            { ...ItemAttributes.EnergyDecayDecrease, min: 1, max: 3 },
-            { ...ItemAttributes.EarlyOrbPickup },
-            { ...ItemAttributes.MagicFind, min: 14, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].ReduceSkillCooldown, min: 1, max: 5 },
+            { ...ItemAttributesByName[Games.Raid.id].EnergyDecayDecrease, min: 1, max: 3 },
+            { ...ItemAttributesByName[Games.Raid.id].EarlyOrbPickup },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 14, max: 20 },
           ],
           perfection: [undefined, 5, 3, undefined, 20],
         },
         [Games.Infinite.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            // { ...ItemAttributes.ManaRegen, min: 1, max: 5 }
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            // { ...ItemAttributesByName[Games.Raid.id].ManaRegen, min: 1, max: 5 }
           ],
         },
         [Games.Guardians.id]: {
@@ -7155,8 +7163,8 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Used for entry to a Rune Royale tournament.'],
   //         attributes: [
-  //           { ...ItemAttributes.RandomPerfection1, min: 3, max: 5, value: 5, description: "Access to Rune Royale #{param1}" },
-  //           { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomPerfection1, min: 3, max: 5, value: 5, description: "Access to Rune Royale #{param1}" },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
   //         ],
   //       },
   //       [Games.Evolution.id]: {
@@ -7208,8 +7216,8 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: ['Redeemed for a randomly generated runeword.'],
   //         attributes: [
-  //           { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
-  //           { ...ItemAttributes.RandomPerfection2, min: 0, max: 999, description: "" },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
+  //           { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
   //         ],
   //       },
   //       [Games.Evolution.id]: {
@@ -7259,25 +7267,25 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.HarvestYield, min: 10, max: 40 },
-  //           { ...ItemAttributes.SendHarvestHiddenPool, min: 25, max: 25 },
-  //           { ...ItemAttributes.FindShard, min: 10, max: 10 },
-  //           { ...ItemAttributes.HarvestBurn, min: 10, max: 15 },
-  //           { ...ItemAttributes.HarvestFee, min: 5, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 10, max: 40 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool, min: 25, max: 25 },
+  //           { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 10, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestBurn, min: 10, max: 15 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestFee, min: 5, max: 15 },
   //           {
-  //             ...ItemAttributes.HarvestFeeToken,
+  //             ...ItemAttributesByName[Games.Raid.id].HarvestFeeToken,
   //             min: RuneId.ORT,
   //             max: RuneId.AMN,
   //             map: RuneNames,
   //           },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Hidden Shot'],
   //             max: SkillIdByName['Hidden Shot'],
   //             map: SkillNames,
   //           },
-  //           { ...ItemAttributes.SpecificClass, min: ClassIdByName.Amazon, max: ClassIdByName.Amazon, map: ClassNames },
-  //           // { ...ItemAttributes.Sockets, value: 5, min: 5, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Amazon, max: ClassIdByName.Amazon, map: ClassNames },
+  //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
   //         ],
   //         perfection: [100, 100, 10, 50, 0, 0, 0, undefined],
   //       },
@@ -7328,12 +7336,12 @@ export const itemData = {
   //     branches: {
   //       [Games.Raid.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 2, max: 4 },
-  //           { ...ItemAttributes.MagicFind, min: 5, max: 5 },
-  //           { ...ItemAttributes.CreateRandomRuneword, min: 0, max: 1 },
-  //           { ...ItemAttributes.HarvestCritChance, min: 1, max: 5 },
-  //           { ...ItemAttributes.EarlyAccess, min: 20, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 2, max: 4 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 5, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CreateRandomRuneword, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestCritChance, min: 1, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].EarlyAccess, min: 20, max: 20 },
   //         ],
   //         perfection: [null, 4, 5, 1, 5],
   //         presets: {
@@ -7349,20 +7357,20 @@ export const itemData = {
   //       },
   //       [Games.Infinite.id]: {
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.IncreaseStat, min: 3, max: 5, description: '{param1} Cast Speed' },
-  //           { ...ItemAttributes.IncreaseEnergy, min: 10, max: 25, description: '{param1} Maximum Energy' },
-  //           { ...ItemAttributes.IncreaseStat, min: 5, max: 5, description: '{param1} Energy Regeneration' },
-  //           { ...ItemAttributes.DoublePickupChance, min: 0, max: 1 },
-  //           { ...ItemAttributes.CriticalHitChance, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 3, max: 5, description: '{param1} Cast Speed' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseEnergy, min: 10, max: 25, description: '{param1} Maximum Energy' },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseStat, min: 5, max: 5, description: '{param1} Energy Regeneration' },
+  //           { ...ItemAttributesByName[Games.Raid.id].DoublePickupChance, min: 0, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].CriticalHitChance, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.IncreaseAilmentDuration,
+  //             ...ItemAttributesByName[Games.Raid.id].IncreaseAilmentDuration,
   //             min: 10,
   //             max: 10,
   //             description: '{param1} Increased Burn Ailment Duration',
   //           },
-  //           { ...ItemAttributes.IncreaseRankRewardBonus, min: 1, max: 10 },
-  //           { ...ItemAttributes.IncreaseSkillPoints, min: 1, max: 1 },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseRankRewardBonus, min: 1, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].IncreaseSkillPoints, min: 1, max: 1 },
   //         ],
   //         perfection: [null, 5, 25, null, 1, 5, null, 10],
   //         presets: {
@@ -7413,14 +7421,14 @@ export const itemData = {
   //     description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
   //         attributes: [],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       4: {
@@ -7461,13 +7469,13 @@ export const itemData = {
       branches: {
         [Games.Raid.id]: {
           attributes: [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-            { ...ItemAttributes.HarvestYield, min: 4, max: 10 },
-            { ...ItemAttributes.FindShard, min: 5, max: 20 },
-            { ...ItemAttributes.MagicFind, min: 5, max: 20 },
-            { ...ItemAttributes.RandomRuneExchange, min: 1, max: 4 },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 4, max: 10 },
+            { ...ItemAttributesByName[Games.Raid.id].FindShard, min: 5, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 5, max: 20 },
+            { ...ItemAttributesByName[Games.Raid.id].RandomRuneExchange, min: 1, max: 4 },
             {
-              ...ItemAttributes.AddSkill,
+              ...ItemAttributesByName[Games.Raid.id].AddSkill,
               min: SkillIdByName['Mystic Insight'],
               max: SkillIdByName['Mystic Insight'],
               map: SkillNames,
@@ -7485,7 +7493,7 @@ export const itemData = {
 
         "2": {
           "attributes": [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
             {
               "id": 1008,
               "name": "DamageTypeDamage",
@@ -7658,7 +7666,7 @@ export const itemData = {
         },
         "3": {
           "attributes": [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
             {
               "id": 2000,
               "name": "IncreaseDamage",
@@ -7808,12 +7816,12 @@ export const itemData = {
         },
         "4": {
           "attributes": [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },],
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },],
           "perfection": []
         },
         "5": {
           "attributes": [
-            { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },],
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },],
           "perfection": []
         }
       },
@@ -7850,14 +7858,14 @@ export const itemData = {
   //     description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
   //         attributes: [],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       4: {
@@ -7897,14 +7905,14 @@ export const itemData = {
   //     description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
   //         attributes: [],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       4: {
@@ -7944,14 +7952,14 @@ export const itemData = {
   //     description: "\"It appears you've been through Hell and back\" - Cain (in honor of Diablo 2)",
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
   //         attributes: [],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       4: {
@@ -7993,14 +8001,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 20, max: 80 },
-  //           { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 20, max: 80 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Battle Rage'],
   //             max: SkillIdByName['Battle Rage'],
   //             map: SkillNames,
@@ -8056,14 +8064,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-  //           { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 10, max: 50 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 10, max: 50 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['White Lightning'],
   //             max: SkillIdByName['White Lightning'],
   //             map: SkillNames,
@@ -8120,14 +8128,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-  //           { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-  //           { ...ItemAttributes.ReduceBurn, min: 8, max: 20 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Inferno Fire Blast'],
   //             max: SkillIdByName['Inferno Fire Blast'],
   //             map: SkillNames,
@@ -8184,14 +8192,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //           { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Cosmic Flare'],
   //             max: SkillIdByName['Cosmic Flare'],
   //             map: SkillNames,
@@ -8247,14 +8255,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //           { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Veil of Night'],
   //             max: SkillIdByName['Veil of Night'],
   //             map: SkillNames,
@@ -8310,14 +8318,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //           { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Sky Swarm'],
   //             max: SkillIdByName['Sky Swarm'],
   //             map: SkillNames,
@@ -8373,14 +8381,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //           { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Flurry Assault'],
   //             max: SkillIdByName['Flurry Assault'],
   //             map: SkillNames,
@@ -8437,14 +8445,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //           { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Destructive Impact'],
   //             max: SkillIdByName['Destructive Impact'],
   //             map: SkillNames,
@@ -8500,14 +8508,14 @@ export const itemData = {
   //       [Games.Raid.id]: {
   //         description: [''],
   //         attributes: [
-  //           { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //           { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //           { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //           { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //           { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //           { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //           { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //           { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //           { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //           {
-  //             ...ItemAttributes.AddSkill,
+  //             ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //             min: SkillIdByName['Nova Breath'],
   //             max: SkillIdByName['Nova Breath'],
   //             map: SkillNames,
@@ -8562,17 +8570,17 @@ export const itemData = {
   //     description: ['It seems to be a Guardian egg obtained from the Mage Isles in Rune Evolution.'],
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //       },
   //       4: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //       },
   //     },
   //   },
@@ -8609,17 +8617,17 @@ export const itemData = {
   //     description: ['It seems to be a powerful cube obtained from the Mage Isles in Rune Evolution.'],
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //       },
   //       4: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //       },
   //     },
   //   },
@@ -8656,17 +8664,17 @@ export const itemData = {
   //     description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Rune Evolution.'],
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //       },
   //       4: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
   //       },
   //     },
   //   },
@@ -8703,17 +8711,17 @@ export const itemData = {
   //     description: 'It seems to be a Rune obtained from the Mage Isles in Rune Evolution.',
   //     branches: {
   //       [Games.Raid.id]: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //         perfection: [],
   //       },
   //       2: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //       },
   //       3: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //       },
   //       4: {
-  //         attributes: [{ ...ItemAttributes.Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
+  //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
   //       },
   //     },
   //   },
@@ -8751,14 +8759,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 20, max: 80 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 20, max: 80 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 12,
   //   //           max: 12,
   //   //           map: SkillNames,
@@ -8814,14 +8822,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 10, max: 50 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 10, max: 50 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 13,
   //   //           max: 13,
   //   //           map: SkillNames,
@@ -8878,14 +8886,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 14,
   //   //           max: 14,
   //   //           map: SkillNames,
@@ -8942,14 +8950,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 15,
   //   //           max: 15,
   //   //           map: SkillNames,
@@ -9005,14 +9013,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 16,
   //   //           max: 16,
   //   //           map: SkillNames,
@@ -9068,14 +9076,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 17,
   //   //           max: 17,
   //   //           map: SkillNames,
@@ -9131,14 +9139,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 18,
   //   //           max: 18,
   //   //           map: SkillNames,
@@ -9195,14 +9203,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 19,
   //   //           max: 19,
   //   //           map: SkillNames,
@@ -9258,14 +9266,14 @@ export const itemData = {
   //   //     [Games.Raid.id]: {
   //   //       description: [''],
   //   //       attributes: [
-  //   //         { ...ItemAttributes.Rarity, min: 3, max: 6, map: ItemRarityNameById },
-  //   //         { ...ItemAttributes.HarvestYield, min: 3, max: 10 },
-  //   //         { ...ItemAttributes.MagicFind, min: 8, max: 20 },
-  //   //         { ...ItemAttributes.AvoidBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.ReduceBurn, min: 2, max: 5 },
-  //   //         { ...ItemAttributes.RemoveFees, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].HarvestYield, min: 3, max: 10 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].MagicFind, min: 8, max: 20 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].AvoidBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].ReduceBurn, min: 2, max: 5 },
+  //   //         { ...ItemAttributesByName[Games.Raid.id].RemoveFees, min: 2, max: 5 },
   //   //         {
-  //   //           ...ItemAttributes.AddSkill,
+  //   //           ...ItemAttributesByName[Games.Raid.id].AddSkill,
   //   //           min: 20,
   //   //           max: 20,
   //   //           map: SkillNames,

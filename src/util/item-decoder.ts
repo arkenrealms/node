@@ -1,6 +1,6 @@
 import loki from 'lokijs'
 import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
-import { itemData, ItemAttributes, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
+import { itemData, Games, ItemAttributesByName, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
 import ProbabilityCache from '../data/probabilityCache'
 import { average, randInt } from './math'
@@ -32,7 +32,7 @@ function databaseInitialize() {
     dbCon.getCollection('items').chain().remove()
   }
 
-  const cacheBreaker = 1663585883 * 1000
+  const cacheBreaker = 1664927329 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -403,21 +403,21 @@ export function normalizeItem(item: any) {
 
     if (item.id === 1) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributes.HarvestYield.id
-        item.mods[1].attributeId = ItemAttributes.HarvestFee.id
-        item.mods[2].attributeId = ItemAttributes.HarvestFeeToken.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id
+        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].HarvestFee.id
+        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].HarvestFeeToken.id
       }
     } else if (item.id === 2) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributes.HarvestYield.id
-        item.mods[1].attributeId = ItemAttributes.SendHarvestHiddenPool.id
-        item.mods[2].attributeId = ItemAttributes.BurnEntireHarvest.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id
+        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool.id
+        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].BurnEntireHarvest.id
       }
     } else if (item.id === 3) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributes.HarvestYield.id
-        item.mods[1].attributeId = ItemAttributes.HarvestBurn.id
-        item.mods[2].attributeId = ItemAttributes.FindShard.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id
+        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].HarvestBurn.id
+        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].FindShard.id
         delete item.mods[3]
         delete item.mods[4]
         delete item.mods[5]
@@ -427,7 +427,7 @@ export function normalizeItem(item: any) {
       }
     } else if (item.id === 4) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributes.FindShard.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].FindShard.id
 
         item.mods[0].value = 100
       }
@@ -449,29 +449,29 @@ export function normalizeItem(item: any) {
           }
         }
 
-        if (mod.attributeId === ItemAttributes.HarvestYield.id) {
+        if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestYield.id) {
           item.meta.harvestYield += mod.value
-        } else if (mod.attributeId === ItemAttributes.HarvestFeeToken.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestFeeToken.id) {
           item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value
-        } else if (mod.attributeId === ItemAttributes.SendHarvestHiddenPool.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool.id) {
           item.meta.chanceToSendHarvestToHiddenPool += mod.value
-        } else if (mod.attributeId === ItemAttributes.BurnEntireHarvest.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].BurnEntireHarvest.id) {
           item.meta.chanceToLoseHarvest += mod.value
-        } else if (mod.attributeId === ItemAttributes.HarvestBurn.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestBurn.id) {
           item.meta.harvestBurn += mod.value
-        } else if (mod.attributeId === ItemAttributes.FindShard.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].FindShard.id) {
           if (branchAttribute.value !== undefined) mod.value = branchAttribute.value
 
           item.meta.worldstoneShardChance += mod.value
-        } else if (mod.attributeId === ItemAttributes.RemoveFees.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].RemoveFees.id) {
           item.meta.feeReduction += mod.value
-        } else if (mod.attributeId === ItemAttributes.RandomRuneExchange.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].RandomRuneExchange.id) {
           item.meta.randomRuneExchange += mod.value
-        } else if (mod.attributeId === ItemAttributes.UnstakeLocked.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].UnstakeLocked.id) {
           item.meta.unstakeLocked = true
-        } else if (mod.attributeId === ItemAttributes.SpecificClass.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].SpecificClass.id) {
           item.meta.classRequired = mod.value
-        } else if (mod.attributeId === ItemAttributes.Rarity.id) {
+        } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].Rarity.id) {
           item.rarity = ItemRarity[ItemRarityNameById[mod.value]]
         }
         
@@ -922,7 +922,7 @@ export function normalizeItem(item: any) {
     //     if (attribute.min === undefined || attribute.max === undefined) continue
     //     if (attribute.min === attribute.max) continue
     //     if (attribute.map) continue
-    //     if (attribute.id === ItemAttributes.RandomPerfection1.id || attribute.id === ItemAttributes.RandomPerfection2.id || attribute.id === ItemAttributes.RandomPerfection3.id || attribute.id === ItemAttributes.RandomPerfection4.id || attribute.id === ItemAttributes.RandomPerfection5.id) continue
+    //     if (attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection1.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection2.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection3.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection4.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection5.id) continue
 
     //     odds *= (attribute.max - attribute.min + 1)
     //   }

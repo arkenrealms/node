@@ -330,65 +330,30 @@ function normalizeItem(item) {
             return tokenCacheItem;
         var branch_1 = item.branches[1];
         var branchAttributes = branch_1 ? JSON.parse(JSON.stringify(branch_1.attributes)) : [];
-        if (!item.meta) {
-            item.meta = {
-                harvestYield: 0,
-                pending: 0,
-                bonus: 0,
-                harvestBurn: 0,
-                chanceToSendHarvestToHiddenPool: 0,
-                chanceToLoseHarvest: 0,
-                guildId: null,
-                characterId: null,
-                itemIndex: 0,
-                itemLength: 0,
-                modIndex: 0,
-                modLength: 0,
-                rand: 0,
-                removeFees: 0,
-                freezeFees: 0,
-                magicFind: 0,
-                unableUseRuneword: null,
-                currentRewardToken: null,
-                hasEarlyUnstakeLocked: null,
-                hasEarlyUnstakeNoReward: null,
-                hiddenPoolPid: null,
-                swapToken: null,
-                swapAmount: null,
-                feeToken: null,
-                feeAmount: null,
-                feeReduction: 0,
-                unstakeLocked: false,
-                classRequired: 0,
-                harvestFeeToken: '',
-                harvestFeePercent: 0,
-                worldstoneShardChance: 0,
-                randomRuneExchange: 0,
-                harvestFees: {},
-                attributes: {},
-            };
-        }
+        if (!item.meta)
+            item.meta = {};
+        item.meta = __assign({ harvestYield: 0, pending: 0, bonus: 0, harvestBurn: 0, chanceToSendHarvestToHiddenPool: 0, chanceToLoseHarvest: 0, guildId: null, characterId: null, itemIndex: 0, itemLength: 0, modIndex: 0, modLength: 0, rand: 0, removeFees: 0, freezeFees: 0, magicFind: 0, unableUseRuneword: null, currentRewardToken: null, hasEarlyUnstakeLocked: null, hasEarlyUnstakeNoReward: null, hiddenPoolPid: null, swapToken: null, swapAmount: null, feeToken: null, feeAmount: null, feeReduction: 0, unstakeLocked: false, classRequired: 0, harvestFeeToken: '', harvestFeePercent: 0, worldstoneShardChance: 0, randomRuneExchange: 0, harvestFees: {}, attributes: {} }, item.meta);
         item.attributes = branchAttributes;
         var prevMod = null;
         if (item.id === 1) {
             if (item.mods) {
-                item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
-                item.mods[1].attributeId = items_1.ItemAttributes.HarvestFee.id;
-                item.mods[2].attributeId = items_1.ItemAttributes.HarvestFeeToken.id;
+                item.mods[0].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestYield.id;
+                item.mods[1].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestFee.id;
+                item.mods[2].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestFeeToken.id;
             }
         }
         else if (item.id === 2) {
             if (item.mods) {
-                item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
-                item.mods[1].attributeId = items_1.ItemAttributes.SendHarvestHiddenPool.id;
-                item.mods[2].attributeId = items_1.ItemAttributes.BurnEntireHarvest.id;
+                item.mods[0].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestYield.id;
+                item.mods[1].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].SendHarvestHiddenPool.id;
+                item.mods[2].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].BurnEntireHarvest.id;
             }
         }
         else if (item.id === 3) {
             if (item.mods) {
-                item.mods[0].attributeId = items_1.ItemAttributes.HarvestYield.id;
-                item.mods[1].attributeId = items_1.ItemAttributes.HarvestBurn.id;
-                item.mods[2].attributeId = items_1.ItemAttributes.FindShard.id;
+                item.mods[0].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestYield.id;
+                item.mods[1].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestBurn.id;
+                item.mods[2].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].FindShard.id;
                 delete item.mods[3];
                 delete item.mods[4];
                 delete item.mods[5];
@@ -398,7 +363,7 @@ function normalizeItem(item) {
         }
         else if (item.id === 4) {
             if (item.mods) {
-                item.mods[0].attributeId = items_1.ItemAttributes.FindShard.id;
+                item.mods[0].attributeId = items_1.ItemAttributesByName[items_1.Games.Raid.id].FindShard.id;
                 item.mods[0].value = 100;
             }
         }
@@ -415,45 +380,44 @@ function normalizeItem(item) {
                         branchAttribute.value = branchAttribute.min;
                     }
                 }
-                if (mod.attributeId === items_1.ItemAttributes.HarvestYield.id) {
+                if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestYield.id) {
                     item.meta.harvestYield += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.HarvestFeeToken.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestFeeToken.id) {
                     item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.SendHarvestHiddenPool.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].SendHarvestHiddenPool.id) {
                     item.meta.chanceToSendHarvestToHiddenPool += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.BurnEntireHarvest.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].BurnEntireHarvest.id) {
                     item.meta.chanceToLoseHarvest += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.HarvestBurn.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].HarvestBurn.id) {
                     item.meta.harvestBurn += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.FindShard.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].FindShard.id) {
                     if (branchAttribute.value !== undefined)
                         mod.value = branchAttribute.value;
                     item.meta.worldstoneShardChance += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.RemoveFees.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].RemoveFees.id) {
                     item.meta.feeReduction += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.RandomRuneExchange.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].RandomRuneExchange.id) {
                     item.meta.randomRuneExchange += mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.UnstakeLocked.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].UnstakeLocked.id) {
                     item.meta.unstakeLocked = true;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.SpecificClass.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].SpecificClass.id) {
                     item.meta.classRequired = mod.value;
                 }
-                else if (mod.attributeId === items_1.ItemAttributes.Rarity.id) {
+                else if (mod.attributeId === items_1.ItemAttributesByName[items_1.Games.Raid.id].Rarity.id) {
                     item.rarity = items_1.ItemRarity[items_1.ItemRarityNameById[mod.value]];
                 }
                 if (mod.attributeId > 0) {
-                    if (!item.meta.attributes[mod.attributeId])
-                        item.meta.attributes[mod.attributeId] = 0;
-                    item.meta.attributes[mod.attributeId] += mod.value;
+                    // if (!item.meta.attributes[mod.attributeId]) item.meta.attributes[mod.attributeId] = 0
+                    // item.meta.attributes[mod.attributeId] += mod.value
                     item.attributes[i] = __assign(__assign(__assign(__assign({}, (item.attributes[i] || {})), (items_1.ItemAttributesById[mod.attributeId] || {})), branchAttribute), mod);
                 }
                 if (item.attributes[i]) {
@@ -717,6 +681,14 @@ function normalizeItem(item) {
                 var bIndex = _o[_m];
                 var branchIndex = Number(bIndex);
                 if (branchIndex === 1) {
+                    for (var attributeIndex in item.branches[branchIndex].attributes) {
+                        var attribute = item.branches[branchIndex].attributes[attributeIndex];
+                        if (attribute.param1.value !== undefined) {
+                            if (!item.meta.attributes[attribute.id])
+                                item.meta.attributes[attribute.id] = 0;
+                            item.meta.attributes[attribute.id] += attribute.param1.value;
+                        }
+                    }
                     continue;
                 }
                 if (!item.branches[branchIndex].attributes)
@@ -734,7 +706,9 @@ function normalizeItem(item) {
                         return "continue";
                     }
                     if (attribute.param1.value !== undefined) {
-                        item.meta.attributes[attribute.id] = attribute.param1.value;
+                        if (!item.meta.attributes[attribute.id])
+                            item.meta.attributes[attribute.id] = 0;
+                        item.meta.attributes[attribute.id] += attribute.param1.value;
                         return "continue";
                     }
                     // let targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
@@ -787,7 +761,11 @@ function normalizeItem(item) {
                     //   item.branches[branchIndex].perfection[attributeIndex] = targetPerfection
                     // }
                     // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
-                    item.meta.attributes[attribute.id] = attribute.param1.value;
+                    if (attribute.param1.value !== undefined) {
+                        if (!item.meta.attributes[attribute.id])
+                            item.meta.attributes[attribute.id] = 0;
+                        item.meta.attributes[attribute.id] += attribute.param1.value;
+                    }
                 };
                 for (var attributeIndex in item.branches[branchIndex].attributes) {
                     var state_1 = _loop_1(attributeIndex);
@@ -827,7 +805,7 @@ function normalizeItem(item) {
         //     if (attribute.min === undefined || attribute.max === undefined) continue
         //     if (attribute.min === attribute.max) continue
         //     if (attribute.map) continue
-        //     if (attribute.id === ItemAttributes.RandomPerfection1.id || attribute.id === ItemAttributes.RandomPerfection2.id || attribute.id === ItemAttributes.RandomPerfection3.id || attribute.id === ItemAttributes.RandomPerfection4.id || attribute.id === ItemAttributes.RandomPerfection5.id) continue
+        //     if (attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection1.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection2.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection3.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection4.id || attribute.id === ItemAttributesByName[Games.Raid.id].RandomPerfection5.id) continue
         //     odds *= (attribute.max - attribute.min + 1)
         //   }
         //   if (odds > 1) {
