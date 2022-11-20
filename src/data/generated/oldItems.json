@@ -16144,7 +16144,7 @@
     "id": 40,
     "name": "Soulcord",
     "slug": "Soulcord",
-    "icon": "/images/items/00040.png",
+    "icon": "https://v5.airtableusercontent.com/v1/11/11/1668996000000/_hHK4sGyF60dhnA0gsHA1g/vUfGyXz_ShETdSmV0WFP_2sgkYD-CEXIioeSKPGnEDMsY2nPSS4XvysVL2kmBAz1wesPjTJoCxIue8M7fKQ-bg/jPkeF6ut4JvsgLB7vVh4pzmFSk_lTV3_xdu5bt6Bdqo",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -16156,11 +16156,11 @@
     "isPolled": false,
     "isNew": false,
     "isSecret": false,
-    "isUltraSecret": true,
+    "isUltraSecret": false,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
-    "isCraftable": false,
+    "isCraftable": true,
     "isEnabled": true,
     "isEquipable": true,
     "isUnequipable": true,
@@ -16177,10 +16177,28 @@
     "attributes": [],
     "details": {
       "Type": "Ring",
-      "Subtype": "Darkblood Band"
+      "Subtype": "Darkblood Band",
+      "Rune Word": "SOL OHM UM LO"
     },
     "recipe": {
-      "requirement": []
+      "requirement": [
+        {
+          "id": 11,
+          "quantity": 1
+        },
+        {
+          "id": 26,
+          "quantity": 1
+        },
+        {
+          "id": 21,
+          "quantity": 1
+        },
+        {
+          "id": 27,
+          "quantity": 1
+        }
+      ]
     },
     "description": "Empowered by tethering tortured souls to your service, this demonbone ring provides capable necromancers with an endless fount of undead.",
     "shortDescription": "",
@@ -16199,6 +16217,7 @@
             "description": "{parameter1} yield bonus on harvests to hidden pool",
             "param1": {
               "spec": "0-4",
+              "isPercent": true,
               "min": 0,
               "max": 4
             }
@@ -16214,6 +16233,7 @@
             "description": "{parameter1} Yield Bonus On Harvests From Hidden Pool",
             "param1": {
               "spec": "0-15",
+              "isPercent": true,
               "min": 0,
               "max": 15
             }
@@ -16272,25 +16292,9 @@
             "nexusLink": "https://nexus.rune.game/item-attribute/attributescalewithhiddenpoolstake",
             "paramType1": "value",
             "nature": "Mechanic",
-            "description": "Item attributes scale with amount staked in hidden pool. Target amount: {parameter1}.",
-            "param1": {
-              "spec": "250-250",
-              "min": 250,
-              "max": 250,
-              "value": 250
-            }
-          },
-          {
-            "id": 121,
-            "name": "AttributeUnlockWhenHiddenPoolStake",
-            "isEnabled": true,
-            "game": "Raid",
-            "nexusLink": "https://nexus.rune.game/item-attribute/attributeunlockwhenhiddenpoolstake",
-            "paramType1": "value",
-            "nature": "Requirement",
             "description": "Must have {parameter1} tokens staked in hidden pool to use item's full potential",
             "param1": {
-              "spec": "250-250",
+              "spec": "250",
               "min": 250,
               "max": 250,
               "value": 250
@@ -16366,11 +16370,11 @@
     "isPolled": false,
     "isNew": false,
     "isSecret": false,
-    "isUltraSecret": true,
+    "isUltraSecret": false,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
-    "isCraftable": false,
+    "isCraftable": true,
     "isEnabled": true,
     "isEquipable": true,
     "isUnequipable": true,
@@ -16390,10 +16394,32 @@
       "Subtype": "Prism Band",
       "Distribution": [
         "Crafted"
-      ]
+      ],
+      "Rune Word": "IST IST IST IST IST"
     },
     "recipe": {
-      "requirement": []
+      "requirement": [
+        {
+          "id": 23,
+          "quantity": 1
+        },
+        {
+          "id": 23,
+          "quantity": 1
+        },
+        {
+          "id": 23,
+          "quantity": 1
+        },
+        {
+          "id": 23,
+          "quantity": 1
+        },
+        {
+          "id": 23,
+          "quantity": 1
+        }
+      ]
     },
     "description": "Commissioned by a legendary Elysium Mage adventurer, this ring is designed to turn devastating blunders into minor errors.",
     "shortDescription": "",
@@ -16522,6 +16548,9 @@
               "min": 168,
               "max": 168,
               "value": 168
+            },
+            "param2": {
+              "value": "Magic Find"
             }
           },
           {
@@ -16544,8 +16573,12 @@
             "explanation": "",
             "param1": {
               "spec": "Attribute 2",
-              "min": null,
-              "max": null
+              "min": 1,
+              "max": 1,
+              "value": 1,
+              "map": {
+                "1": "Magic Find"
+              }
             }
           }
         ],
@@ -28038,7 +28071,7 @@
     "isPolled": false,
     "isNew": false,
     "isSecret": false,
-    "isUltraSecret": true,
+    "isUltraSecret": false,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
@@ -28227,7 +28260,91 @@
         }
       },
       "2": {
-        "attributes": [],
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "id": 1117,
+            "name": "SpriteFuelIncrease",
+            "isEnabled": true,
+            "game": "Evolution",
+            "nexusLink": "https://nexus.rune.game/item-attribute/movementspeedincrease",
+            "paramType1": "percent",
+            "paramValue1": "0-10",
+            "nature": "Buff",
+            "influences": "Movement",
+            "description": "{parameter1} increase to energy given by sprites",
+            "param1": {
+              "spec": [
+                "5-5"
+              ],
+              "min": 5,
+              "max": 5
+            }
+          },
+          {
+            "id": 1109,
+            "name": "OrbPickupHealthIncrease",
+            "isEnabled": true,
+            "game": "Evolution",
+            "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
+            "paramType1": "percent",
+            "nature": "Buff",
+            "influences": "Movement",
+            "description": "{parameter1} health on orb pickup",
+            "param1": {
+              "spec": "5-5",
+              "min": 5,
+              "max": 5,
+              "value": 5
+            }
+          },
+          {
+            "id": 1114,
+            "name": "EarlyOrbPickup",
+            "isEnabled": true,
+            "isImplemented": false,
+            "game": "Evolution",
+            "nexusLink": "https://nexus.rune.game/item-attribute/criticalhitchance",
+            "paramType1": "percent",
+            "nature": "Buff",
+            "influences": "Offense",
+            "description": "Orbs will appear {parameter1} quicker",
+            "param1": {
+              "spec": "4-10",
+              "min": 4,
+              "max": 10
+            }
+          }
+        ],
         "perfection": []
       },
       "3": {
@@ -28355,7 +28472,7 @@
     "isPolled": false,
     "isNew": false,
     "isSecret": false,
-    "isUltraSecret": true,
+    "isUltraSecret": false,
     "isPaused": false,
     "isRetired": false,
     "isDisabled": false,
@@ -28559,7 +28676,91 @@
         }
       },
       "2": {
-        "attributes": [],
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 40,
+            "name": "Rarity",
+            "displayName": "Rarity",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://rune.game/item-attribute/rarity",
+            "isImplemented": false,
+            "paramTypes": [
+              "value"
+            ],
+            "paramValues": [
+              "0-999"
+            ],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "3-6",
+              "min": 3,
+              "max": 6,
+              "map": {
+                "3": "Mythic",
+                "4": "Epic",
+                "5": "Rare",
+                "6": "Magical"
+              }
+            }
+          },
+          {
+            "id": 1030,
+            "name": "MovementSpeedIncrease",
+            "isEnabled": true,
+            "game": "Evolution",
+            "nexusLink": "https://nexus.rune.game/item-attribute/movementspeedincrease",
+            "paramType1": "percent",
+            "paramValue1": "0-10",
+            "nature": "Buff",
+            "influences": "Movement",
+            "description": "{parameter1} movement burst strength",
+            "param1": {
+              "spec": [
+                "2-4"
+              ],
+              "min": 2,
+              "max": 5
+            }
+          },
+          {
+            "id": 1222,
+            "name": "IncreaseMovementSpeedOnKill",
+            "isEnabled": true,
+            "game": "Evolution",
+            "nexusLink": "https://nexus.rune.game/item-attribute/increasemovementspeedonkill",
+            "paramType1": "percent",
+            "nature": "Buff",
+            "influences": "Movement",
+            "description": "{parameter1} Movement Burst On Kill",
+            "param1": {
+              "spec": "10-10",
+              "min": 10,
+              "max": 10,
+              "value": 10
+            }
+          },
+          {
+            "id": 1011,
+            "name": "CriticalHitChance",
+            "isEnabled": true,
+            "isImplemented": false,
+            "game": "Evolution",
+            "nexusLink": "https://nexus.rune.game/item-attribute/criticalhitchance",
+            "paramType1": "percent",
+            "nature": "Buff",
+            "influences": "Offense",
+            "description": "{parameter1} Critical Hit Chance",
+            "param1": {
+              "spec": "4-10",
+              "min": 4,
+              "max": 10
+            }
+          }
+        ],
         "perfection": []
       },
       "3": {

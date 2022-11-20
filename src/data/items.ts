@@ -2639,7 +2639,60 @@ export const itemData = {
           },
         },
         2: {
-          attributes: [],
+          attributes: [
+            { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById },
+            {
+              "id": 1219,
+              "name": "IncreaseHealthOnKill",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/increasehealthonkill",
+              "paramType1": "percent",
+              "nature": "Buff",
+              "influences": "Defense",
+              "description": "{parameter1} health on kill.",
+              "param1": {
+                "spec": "7-7",
+                "min": 7,
+                "max": 7
+              }
+            },
+            {
+              "id": 1218,
+              "name": "IncreaseDamageOnKill",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/increasedamageonkill",
+              "paramType1": "percent",
+              "nature": "Buff",
+              "influences": "Offense",
+              "description": "{parameter1} damage on kill",
+              "param1": {
+                "spec": "15-15",
+                "min": 15,
+                "max": 15
+              }
+            },
+            {
+              "id": 1011,
+              "name": "CriticalHitChance",
+              "isEnabled": true,
+              "isImplemented": false,
+              "game": "Evolution",
+              "nexusLink": "https://nexus.rune.game/item-attribute/criticalhitchance",
+              "paramType1": "percent",
+              "nature": "Buff",
+              "influences": "Offense",
+              "description": "{parameter1} Critical Hit Chance",
+              "param1": {
+                "spec": "1-5",
+                "min": 1,
+                "max": 5
+              }
+            },
+          ],
         },
         3: {
           attributes: [
@@ -7504,7 +7557,7 @@ export const itemData = {
               "paramType1": "percent",
               "nature": "Buff",
               "influences": "Offense",
-              "description": "{parameter1} {DamageType} damage",
+              "description": "{parameter1} lightning damage",
               "param1": {
                 "spec": [
                   "7-10"
@@ -7525,40 +7578,23 @@ export const itemData = {
               "influences": "Reward",
               "description": "{parameter1} win bonus",
               "param1": {
-                "spec": "1-20",
+                "spec": "1-30",
                 "min": 1,
                 "max": 30
               }
             },
-            {
-              "id": 4119,
-              "name": "EggExperienceBonus",
-              "isEnabled": false,
-              "nexusLink": "https://nexus.rune.game/item-attribute/eggexperiencebonus",
-              "param1": {
-                "spec": "2-2",
-                "min": 2,
-                "max": 2,
-                "value": 2
-              }
-            },
-            {
-              "id": 1009,
-              "name": "DamageType",
-              "isEnabled": true,
-              "isImplemented": false,
-              "game": "Evolution",
-              "nexusLink": "https://nexus.rune.game/item-attribute/damagetype",
-              "paramType1": "type",
-              "paramValue1": "0-120",
-              "nature": "Mechanic",
-              "influences": "Offense",
-              "description": "{parameter1} damage",
-              "param1": {
-                "spec": "1-4",
-                "map": {}
-              }
-            },
+            // {
+            //   "id": 4119,
+            //   "name": "EggExperienceBonus",
+            //   "isEnabled": false,
+            //   "nexusLink": "https://nexus.rune.game/item-attribute/eggexperiencebonus",
+            //   "param1": {
+            //     "spec": "2-2",
+            //     "min": 2,
+            //     "max": 2,
+            //     "value": 2
+            //   }
+            // },
             {
               "id": 1237,
               "name": "CastOnKillChance",
@@ -7569,30 +7605,31 @@ export const itemData = {
               "paramType1": "percent",
               "nature": "Buff",
               "influences": "Skill",
-              "description": "{parameter1} cast {CastOnKillEffect.Value} {CastOnKillType.Value} on kill",
+              "description": "{parameter1} cast level 2 regeneration on kill",
               "param1": {
                 "spec": "2-10",
                 "min": 2,
                 "max": 10
               }
             },
-            {
-              "id": 1327,
-              "name": "SkillMod",
-              "isEnabled": true,
-              "isImplemented": false,
-              "game": "Evolution",
-              "nexusLink": "https://nexus.rune.game/item-attribute/skillmod",
-              "paramType1": "value",
-              "paramValue1": "0-5",
-              "nature": "Buff",
-              "influences": "Skill",
-              "param1": {
-                "spec": "1-4",
-                "min": 1,
-                "max": 4
-              }
-            },
+            // {
+            //   "id": 1327,
+            //   "name": "SkillMod",
+            //   "isEnabled": true,
+            //   "isImplemented": false,
+            //   "game": "Evolution",
+            //   "nexusLink": "https://nexus.rune.game/item-attribute/skillmod",
+            //   "paramType1": "value",
+            //   "paramValue1": "0-5",
+            //   "nature": "Buff",
+            //   "influences": "Skill",
+            //   "description": "Skill projectiles increased by {parameter1}",
+            //   "param1": {
+            //     "spec": "1-4",
+            //     "min": 1,
+            //     "max": 4
+            //   }
+            // },
             {
               "id": 1325,
               "name": "SkillUnlock",
@@ -7613,43 +7650,43 @@ export const itemData = {
                 }
               }
             },
-            {
-              "id": 1238,
-              "name": "CastOnKillType",
-              "isEnabled": true,
-              "isImplemented": false,
-              "game": "Evolution",
-              "nexusLink": "https://nexus.rune.game/item-attribute/castonkilltype",
-              "paramType1": "spelltype",
-              "nature": "Mechanic",
-              "influences": "Skill",
-              "param1": {
-                "spec": "2-2",
-                "min": 2,
-                "max": 2,
-                "value": 2
-              }
-            },
-            {
-              "id": 1239,
-              "name": "CastOnKillEffect",
-              "isEnabled": true,
-              "isImplemented": false,
-              "game": "Evolution",
-              "nexusLink": "https://nexus.rune.game/item-attribute/castonkilleffect",
-              "paramType1": "effect",
-              "nature": "Mechanic",
-              "influences": "Skill",
-              "param1": {
-                "spec": "101-101",
-                "min": 101,
-                "max": 101,
-                "value": 101,
-                "map": {
-                  "101": "Regeneration"
-                }
-              }
-            }
+            // {
+            //   "id": 1238,
+            //   "name": "CastOnKillType",
+            //   "isEnabled": true,
+            //   "isImplemented": false,
+            //   "game": "Evolution",
+            //   "nexusLink": "https://nexus.rune.game/item-attribute/castonkilltype",
+            //   "paramType1": "spelltype",
+            //   "nature": "Mechanic",
+            //   "influences": "Skill",
+            //   "param1": {
+            //     "spec": "2-2",
+            //     "min": 2,
+            //     "max": 2,
+            //     "value": 2
+            //   }
+            // },
+            // {
+            //   "id": 1239,
+            //   "name": "CastOnKillEffect",
+            //   "isEnabled": true,
+            //   "isImplemented": false,
+            //   "game": "Evolution",
+            //   "nexusLink": "https://nexus.rune.game/item-attribute/castonkilleffect",
+            //   "paramType1": "effect",
+            //   "nature": "Mechanic",
+            //   "influences": "Skill",
+            //   "param1": {
+            //     "spec": "101-101",
+            //     "min": 101,
+            //     "max": 101,
+            //     "value": 101,
+            //     "map": {
+            //       "101": "Regeneration"
+            //     }
+            //   }
+            // }
           ],
           "perfection": [
             null,

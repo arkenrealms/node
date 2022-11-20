@@ -32,7 +32,7 @@ function databaseInitialize() {
     dbCon.getCollection('items').chain().remove()
   }
 
-  const cacheBreaker = 1664927329 * 1000
+  const cacheBreaker = 1665261167 * 1000
   const updatedAt = db.items?.data?.[0]?.meta?.created
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
@@ -545,7 +545,7 @@ export function normalizeItem(item: any) {
               : 1 - (attributes[i].value - perfection[i]) / (attributes[i].max - perfection[i])
         }
 
-        item.perfection = average(perfection.filter((p) => p !== undefined && p !== null))
+        item.perfection = average(perfection.filter((p) => Number.isFinite(p)))
 
         // if (item.tokenId === '1001000041000100015647') {
         //   console.log(perfection, branch.attributes[0].max, perfection[0], 1)
@@ -667,7 +667,7 @@ export function normalizeItem(item: any) {
               item.branches[branchIndex].attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min
 
               if (branchIndex === 1) {
-                item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min
+                item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].value
               }
             }
           }
@@ -807,7 +807,7 @@ export function normalizeItem(item: any) {
             continue
           }
 
-          if (attribute.param1.value !== undefined) {
+          if (Number.isFinite(attribute.param1.value)) {
             if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
             item.meta.attributes[attribute.id] += attribute.param1.value
 
@@ -818,7 +818,7 @@ export function normalizeItem(item: any) {
           let targetPerfection
           // let attributePerfection
 
-          if (item.branches[1].perfection[attributeIndex] !== undefined && item.branches[1].perfection[attributeIndex] !== null) {
+          if (Number.isFinite(item.branches[1].perfection[attributeIndex])) {
             targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min) : (1 - (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min))
           } else {
             // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
@@ -874,7 +874,7 @@ export function normalizeItem(item: any) {
 
           // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
 
-          if (attribute.param1.value !== undefined) {
+          if (Number.isFinite(attribute.param1.value)) {
             if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
             item.meta.attributes[attribute.id] += attribute.param1.value
           }

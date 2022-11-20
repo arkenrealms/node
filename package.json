@@ -1,6 +1,6 @@
 {
   "name": "rune-backend-sdk",
-  "version": "1.2.62",
+  "version": "1.2.63",
   "description": "",
   "main": "build/index.js",
   "types": "build/index.d.ts",
