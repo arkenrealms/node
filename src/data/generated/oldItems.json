@@ -16312,8 +16312,9 @@
             "description": "{parameter1} To Unlock",
             "param1": {
               "spec": "Attribute 2",
-              "min": null,
-              "max": null
+              "min": 1,
+              "max": 1,
+              "value": 1
             }
           }
         ],
@@ -16364,8 +16365,7 @@
     "specificType": 37,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,
