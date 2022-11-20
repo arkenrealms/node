@@ -16246,9 +16246,9 @@
             "nexusLink": "https://nexus.rune.game/item-attribute/unlockskillmod",
             "nature": "Buff",
             "param1": {
-              "spec": "4011-4015",
-              "min": 4011,
-              "max": 4015
+              "spec": "51-55",
+              "min": 51,
+              "max": 55
             }
           },
           {
