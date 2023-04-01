@@ -1,0 +1,141 @@
+[
+    {
+        "uuid": "recD9jY8aNrJIV5Pb",
+        "id": 1,
+        "name": "Act 1",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-1",
+        "shortDescription": "Though stalking a savage predator through chaospawn-infested lands has its own dangers, stumbling upon a strange artifact will prove far worse.",
+        "description": "Brekil explains he managed to land a shot on one of the strange creatures plaguing his farm last night as it devoured one of his chickens. The creature quickly fled, leaving behind the remains of the chicken, which rapidly decayed after being covered in the strange acidic saliva for only a few minutes.\n",
+        "lore1": "\n",
+        "lore2": "\n",
+        "lore3": "\n",
+        "townNpcs": [
+            27
+        ]
+    },
+    {
+        "uuid": "recBDlXD8BfuSGjyQ",
+        "id": 2,
+        "name": "Act 2",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-2",
+        "shortDescription": "Your hunt for the cube pieces begins, taking you from the floating city of Toralir to the aberrant Myst Reef: where whales soar with the storms and prehistoric birds stalk the murky waters.",
+        "description": "\n",
+        "lore1": "## Starving Tourists (Apl. 3)\n\n<div align=\"center\">\n\n> Reports have reached me of a group of creatures - ghouls, perhaps - that have been heard ransacking the food stores east of the Braybill Crossing. Adventurers willing to investigate this matter further, locate the creature's nest, and eliminate them shall be justly rewarded. For more information, contact Farmer Brekil, near the Braybill Crossing, as soon as possible, and return to me with proof for your reward.\"\n> -Captain Elliot Rem\n\n</div>\n\n**Recommended Character Level:** 3\n**Party Size:** 4 - 6\n**Difficulty:** Deadly (4 players), Medium (6 players)\n**Hunt Creature:** Starved\n**Author:** Vall Syrene\n## Summary\nA pack of starved have slipped through a gateway from the Feydark and have made their residence in an underwater cavern, half a mile east of a local farming community. The creature's insatiable hunger has driven them to consume the food stores of Farmer Brekil, and it falls to the adventurers to track down and eliminate the starved pack before the townsfolk become their next meal.\n",
+        "lore2": "## Stage 1: Meeting the NPCs\nThe characters find Farmer Brekil hard at work at his farm, not far from the Braybill Crossing. Upon arrival, the characters find him attempting to cover a strange acid with a mix of sand and dirt.\n\nBrekil explains he managed to land a shot on one of the strange creatures plaguing his farm last night as it devoured one of his chickens. The creature quickly fled, leaving behind the remains of the chicken, which rapidly decayed after being covered in the strange acidic saliva for only a few minutes.\n\nBrekil requests the characters locate the source of the creatures and remove them as quickly as possible, before they increase in number and get out of hand. He also suggests that since one of the creatures was wounded when it fled, there is likely to be blood on the ground the group can use to track them, though insists the party makes haste, lest the commonplace rainstorms in the region wash the tracks away.\nShould the group accept, Brekil offers a small parcel to aid them in their journey, containing a set of iron crossbow bolts, potion of healing (DMG), and bag of caltrops (PHB).\n\n### Searching the farm\nThe party can choose to search the farm for more clues by making a DC 13 Wisdom (Survival or Perception) check. On a successful check, the party discovers multiple clawed footprints in the dirt of the livestock pens, suggesting the creatures operate in a similar fashion to a pack of wolves. Additionally, the footprints are small in size and light in depth, suggesting the creatures are around the size of a halfling.\n\n### Following the tracks\nThe party can follow the trail of blood left behind by the wounded creature with little difficulty, and arrive at the entrance to a natural cave formation around 1 hour after setting off on foot. The cave entrance is large enough for one Medium or smaller creature to squeeze through at a time, and its interior has no sources of light aside from the cave entrance itself.\n\nThe cavern's winding corridors lead to a set of stone steps, carved out of the rock. A passive DC 14 Wisdom (Perception) check reveals splashes and wet footsteps echoing up from the bottom of the stairs.\nUpon descending the stairwell, the characters arrive at the top of Area 1, a large underground pool bathed in dim blue light. The light can be seen emanating from cracks within the cavern walls.\nA DC 14 Intelligence (History or Arcana) check reveals the cracks to be in the shape of an ancient symbol of the Feydark, suggesting the creatures may have come from the Feywild.\n\nA wounded starved can be seen crouching over the half- decayed body of an unknown adventurer in Area 2, slowly being dissolved by the creature's acidic bile. Three more starved lurk in the waters of Area 3, climbing up the cavern walls occasionally in search of food. If any of the starved detect the party, they alert the others, and attack.\n",
+        "lore3": "## Stage 2: Exploration\n### Examining the bile\nCharacters can examine the acid Farmer Brekil is covering up by spending ten minutes to make a DC 13 Intelligence (Nature or Arcana) check. On a success, the group learns the bile appears to have a severe acidic property, and is capable of melting through metal, flesh, wood and bone with ease.\n",
+        "lore4": "## Stage 3: The Hunt\nUpon detecting the party, the starved lunge to attack, their long tongues lashing to and fro in a display of hunger. Should the characters remain undetected, the starved are surprised when attacked.\nWhile in the water, the starved have half cover (DMG) against attacks originating from outside the pool.\n### Starved Tactics\nThe starved move in groups of two or more, focusing their attacks on a single target at a time using their Pack Tactics feature. If the starved can't reach a target at the beginning of combat, they attack with their Spit Bile before closing the distance. If given the chance, the starved use their Tongue to restrict their target before then attacking them with their Bite. If one of the starved's number is killed, the others flee into the pool and regroup, re-emerging the target the party member who dealt the killing blow.\n",
+        "townNpcs": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            20,
+            21,
+            23,
+            24,
+            28
+        ]
+    },
+    {
+        "uuid": "recLEyrhJvc17XB1t",
+        "id": 3,
+        "name": "Act 3",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-3",
+        "shortDescription": "A setback in your quest demands a detour through the searing deserts; to the orderly vira city of Qiddir. The next leg of your journey takes you into the depths of Fayhelm, to a place of nature that even druids dare not enter.",
+        "description": "\n",
+        "lore3": "\n",
+        "townNpcs": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            21,
+            22,
+            23,
+            24,
+            28
+        ]
+    },
+    {
+        "uuid": "recXWKfcDzadyykZw",
+        "id": 4,
+        "name": "Act 4",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-4",
+        "shortDescription": "Suffering from a major loss, you must traverse the continent to reach the final cube piece before the Betrayer. Despite winning a major victory in Hexwood, the cube piece falls into the hands of the enemy. The fate of Haerra is in your palm: you must stop the enemy before it's too late.",
+        "description": "\n",
+        "lore3": "\n",
+        "townNpcs": [
+            8,
+            12,
+            13,
+            23,
+            24,
+            28,
+            29
+        ]
+    },
+    {
+        "uuid": "recR9A2jqdKpzQYMk",
+        "id": 5,
+        "name": "Act 5",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-5",
+        "shortDescription": "You stand alone against the chaotic onslaught that now ravages Haerra, and your options dwindle. In the face of complete ruin, you must search for a legend that vanished long ago.",
+        "description": "\n",
+        "townNpcs": [
+            28,
+            29,
+            30,
+            31
+        ]
+    },
+    {
+        "uuid": "recpAaMZS2yoxciMF",
+        "id": 6,
+        "name": "Act 6",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-6",
+        "shortDescription": "In a race against time, you must infiltrate the timeline itself to ensure a future for Haerra.",
+        "description": "\n",
+        "townNpcs": [
+            2,
+            9,
+            11,
+            10,
+            28
+        ]
+    },
+    {
+        "uuid": "recHghLGkU9FYTCNB",
+        "name": "Act 7",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-7",
+        "shortDescription": "As the pieces of a greater puzzle click into place, you must learn the divine words as you grapple with your fate.",
+        "description": "",
+        "townNpcs": []
+    },
+    {
+        "uuid": "reczFMEiRCwD0UKod",
+        "id": 7,
+        "name": "Act 8",
+        "isEnabled": true,
+        "link": "https://rune.game/act/act-8",
+        "shortDescription": "You possess all the tools necessary to save Haerra. But when the time comes, will you be strong enough to use them?",
+        "description": "\n",
+        "townNpcs": [
+            28
+        ]
+    }
+]

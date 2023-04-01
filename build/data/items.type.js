@@ -16,6 +16,7 @@ var ItemsMainCategoriesType;
     ItemsMainCategoriesType["ACCESSORIES"] = "accessory";
     ItemsMainCategoriesType["RUNES"] = "rune";
     ItemsMainCategoriesType["OTHER"] = "runeword";
+    ItemsMainCategoriesType["RUNEWORDS"] = "runeword";
 })(ItemsMainCategoriesType = exports.ItemsMainCategoriesType || (exports.ItemsMainCategoriesType = {}));
 var ItemCategoriesType;
 (function (ItemCategoriesType) {
@@ -27,3 +28,4 @@ var ItemCategoriesType;
     ItemCategoriesType["RUNE"] = "rune";
     ItemCategoriesType["ACCESSORY"] = "accessory";
 })(ItemCategoriesType = exports.ItemCategoriesType || (exports.ItemCategoriesType = {}));
+//# sourceMappingURL=items.type.js.map

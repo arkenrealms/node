@@ -17,7 +17,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increased Harvest Yield",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recMn0zsL2FHqBmuV",
@@ -37,7 +43,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Fee",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rece3EUapQqbF4asX",
@@ -57,7 +69,13 @@
         ],
         "nature": "Mechanic",
         "description": "Harvest Fee Token: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "rechc6ZFTCXefllvd",
@@ -77,7 +95,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rechTBjqDegb6XtGr",
@@ -97,7 +121,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Chance To Lose Entire Harvest",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "receHHlFW4ntCYUVd",
@@ -117,7 +147,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Burn",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec7I9B8tpkMtrW3k",
@@ -137,7 +173,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Chance To Find Worldstone Shard",
-        "explanation": "Chance applies once per raid.\n"
+        "explanation": "Chance applies once per raid.\n",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec42i3KLKSAMj8Yu",
@@ -157,7 +199,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Reduced Harvest Fees",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recuJEGQXP3Eepojf",
@@ -176,7 +224,13 @@
         ],
         "nature": "Debuff",
         "description": "Unstake Locked Until Completion",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "100-100",
+            "isPercent": true,
+            "min": "100",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec59LBOk9cjanp3d",
@@ -195,7 +249,13 @@
         ],
         "nature": "Debuff",
         "description": "No Reward Early Unstake",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "100-100",
+            "isPercent": true,
+            "min": "100",
+            "max": "100"
+        }
     },
     {
         "uuid": "recLLK1pPHrE7m6Nh",
@@ -215,7 +275,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Random Rune Exchange",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recd2QiPTSr6XcM2d",
@@ -235,7 +301,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Guild Token",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recXr6GLgY7DKBj4C",
@@ -255,7 +327,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Magic Find",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": true,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recNJdrrowTpmcSGU",
@@ -274,7 +352,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Chance To Fracture Item",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recNqiZuFIZqjAuxF",
@@ -293,7 +377,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Launchpool Reward",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "receXTdCvQg2yGbfo",
@@ -312,7 +402,13 @@
         ],
         "nature": "Buff",
         "description": "Reward Token: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recEc2SQW7UtsylVp",
@@ -328,11 +424,17 @@
             "chance"
         ],
         "paramValues": [
-            "0-100%"
+            "0-100"
         ],
         "nature": "Buff",
         "description": "{parameter1} Chance to Freeze Fees",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100%",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec5stbe2M7gX1bBI",
@@ -351,7 +453,13 @@
         ],
         "nature": "Debuff",
         "description": "Unable To Use Runeword",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "rectlHYwuFKkce6YK",
@@ -371,7 +479,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Chance To Create Random Runeword",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "reclO1t7YC1RbpwOi",
@@ -390,7 +504,13 @@
         ],
         "nature": "Requirement",
         "description": "Guild Required: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recd9vGQysPCC2k7M",
@@ -409,7 +529,13 @@
         ],
         "nature": "Requirement",
         "description": "{parameter1} Required",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recdLGnFj0pdsEFH6",
@@ -428,7 +554,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Transfer Fees Removed",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recHrerZhkvOHCf2G",
@@ -447,7 +579,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Teleported To Random Raider",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recJVJJvMpvLal1H6",
@@ -466,7 +604,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Chance To Find Shard (On Harvest)",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-50",
+            "isPercent": true,
+            "min": "0",
+            "max": "50"
+        }
     },
     {
         "uuid": "recXlN5NZtZS0pi6V",
@@ -485,7 +629,13 @@
         ],
         "nature": "Debuff",
         "description": "Harvest Delayed By {parameter1} Hours",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-24",
+            "isPercent": false,
+            "min": "0",
+            "max": "24"
+        }
     },
     {
         "uuid": "recVD4cWPzxlnNpNi",
@@ -504,7 +654,13 @@
         ],
         "nature": "Debuff",
         "description": "Harvest Claim Delayed By {parameter1} Days",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "rec98H0Gq5ilijDpF",
@@ -523,7 +679,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Early Unstake Fee",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "reckeqY8jli3bWaoC",
@@ -542,7 +704,13 @@
         ],
         "nature": "Neutral",
         "description": "Early Unstake Timeline: {parameter1} Days",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "reckpIKC0qBtqxkKJ",
@@ -561,7 +729,13 @@
         ],
         "nature": "Buff",
         "description": "Freeze Fees Timeline: {parameter1} Hours",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recMqwADrktEhEgJO",
@@ -580,7 +754,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1} Harvest Buy & Lock LP",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rect9Fay59USVtJcK",
@@ -599,7 +779,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1} Deposit Buy & Lock LP",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recmnsaDkwLLGpJsO",
@@ -618,7 +804,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1} Withdraw Buy & Lock LP",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec4VFBPl0TCYzkMU",
@@ -637,7 +829,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Chance To Transmute Item",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec3fbRsgxsddN1GM",
@@ -657,7 +855,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Avoid All Burns",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rectY4HoZlnrq5yGl",
@@ -677,7 +881,13 @@
         ],
         "nature": "Buff",
         "description": "Early Raid Access: {parameter1} Minutes",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recv6EiYy1lBzz6KZ",
@@ -696,7 +906,13 @@
         ],
         "nature": "Debuff",
         "description": "Can Never Harvest Current Raid",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "100-100",
+            "isPercent": true,
+            "min": "100",
+            "max": "100"
+        }
     },
     {
         "uuid": "recKb223NoQW0Jkof",
@@ -728,7 +944,13 @@
         ],
         "nature": "Buff",
         "description": "Increases Pool Multiplier {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recCW6HtxvjWG5ZVP",
@@ -748,7 +970,13 @@
         ],
         "nature": "Requirement",
         "description": "Unlocked: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recxVsY6QwDxQ1Plb",
@@ -767,7 +995,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recoXBsvXqwwGElbQ",
@@ -787,7 +1021,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter2}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recrbUd3NWDdkrGew",
@@ -807,7 +1047,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter2}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recbbeSfcXwwoCvVt",
@@ -826,7 +1072,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec1eoT4ZczWpdqze",
@@ -845,7 +1097,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recE8KsfrK3LloY8I",
@@ -864,7 +1122,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "reck7gojtFbrg0OFf",
@@ -884,7 +1148,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Burn Reflected",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-20",
+            "isPercent": false,
+            "min": "0",
+            "max": "20"
+        }
     },
     {
         "uuid": "recO20qQW3JPe0syJ",
@@ -904,7 +1174,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Reduced Burn",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec1hHKUo4ieX23Iz",
@@ -923,7 +1199,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increased Member Capacity",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recqbEFnz9gKTy5SP",
@@ -942,7 +1224,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increased Inventory Spaces",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recDVCWeqMS0I9l9Y",
@@ -961,7 +1249,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increased Guild Harvest Yield",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recEZr2drdXE5Q8z2",
@@ -980,7 +1274,13 @@
         ],
         "nature": "Requirement",
         "description": "Staked Token: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-33",
+            "isPercent": false,
+            "min": "0",
+            "max": "33"
+        }
     },
     {
         "uuid": "recRkNyi7FrlJajjR",
@@ -999,7 +1299,13 @@
         ],
         "nature": "Requirement",
         "description": "Staked Token Amount: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "rechVXFIx2BEcMyb5",
@@ -1018,7 +1324,13 @@
         ],
         "nature": "Requirement",
         "description": "Staking required: {parameter1} RXS",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recRzDYmXAek0fIE0",
@@ -1037,7 +1349,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} increase to beneficial pet attributes",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recyacaC7wOPGtOX9",
@@ -1056,7 +1374,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1} Sockets",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-5",
+            "isPercent": false,
+            "min": "0",
+            "max": "5"
+        }
     },
     {
         "uuid": "recaidTSk2XacWfXc",
@@ -1075,7 +1399,13 @@
         ],
         "nature": "Neutral",
         "description": "Earn Rune: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-33",
+            "isPercent": false,
+            "min": "0",
+            "max": "33"
+        }
     },
     {
         "uuid": "recEUf0exlQ0KLD7D",
@@ -1094,7 +1424,13 @@
         ],
         "nature": "Neutral",
         "description": "Earned Amount: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recyx2cjXr2ld9gEL",
@@ -1113,7 +1449,13 @@
         ],
         "nature": "Buff",
         "description": "Resets Sockets",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "100-100",
+            "isPercent": false,
+            "min": "100",
+            "max": "100"
+        }
     },
     {
         "uuid": "recdarWXY1dzHX97t",
@@ -1133,7 +1475,13 @@
         ],
         "nature": "Neutral",
         "description": "Crafting Competition #{param1} Winner {param2}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "1-999",
+            "isPercent": false,
+            "min": "1",
+            "max": "999"
+        }
     },
     {
         "uuid": "recMyZ3U5GePlbE0C",
@@ -1152,7 +1500,13 @@
         ],
         "nature": "Buff",
         "description": "+{parameter1} all skills",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-4",
+            "isPercent": false,
+            "min": "0",
+            "max": "4"
+        }
     },
     {
         "uuid": "recw9ZzkfkOMZcAgx",
@@ -1172,7 +1526,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increased Chance To Critically Harvest Yield",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recLsUpfeVVt4aEqU",
@@ -1191,7 +1551,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Critical Harvest Bonus",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recwklzK6eRUpCvQW",
@@ -1211,7 +1577,13 @@
         ],
         "nature": "Buff",
         "description": "Add {parameter1} To Harvest, Vested Over Time",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recWe7EJOpMVgjapY",
@@ -1230,7 +1602,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increase to Vestment Period",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec3lM0hWcd85Q4aF",
@@ -1249,7 +1627,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Decrease to Vestment Period",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recYrtkchg9sCj5sq",
@@ -1269,7 +1653,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Enhanced Sacrifice & Steal",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recO8k0psCX4pzCZR",
@@ -1289,7 +1679,13 @@
         ],
         "nature": "Buff",
         "description": "Maximum Possible Harvest Theft Increased By {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recpPrZ41t9I1mq0B",
@@ -1309,7 +1705,13 @@
         ],
         "nature": "Debuff",
         "description": "Minimum Possible Harvest Theft Decreased By {parameter1} ",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recDkW7fNNNPwYFbg",
@@ -1329,7 +1731,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Bonus Yield Given as a Random Rune",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recw2k5MoCJbboIHl",
@@ -1348,7 +1756,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} increase to {weapon} harvest yield bonus",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "rec5ptxSapvNXGoM1",
@@ -1367,7 +1781,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Increase To Yield Bonus, Given As A Random Rune",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recnZ1d51dbGG200E",
@@ -1403,7 +1823,13 @@
         ],
         "nature": "Mechanic",
         "description": "{parameter1} Theft Counter Chance",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recTs0dA8eQ1iMNbE",
@@ -1470,7 +1896,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recLRp2mnB1Xx7MO2",
@@ -1489,7 +1921,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recu825Ltg5aBeAuD",
@@ -1508,7 +1946,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recTaTKifJihgygl6",
@@ -1527,7 +1971,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rec5aYEFplj69zW41",
@@ -1547,7 +1997,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Yield Bonus, Sent To Guild Treasury",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recpET8AnvEy1g1f3",
@@ -1566,7 +2022,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1} of Harvest Sent to Guild Treasury",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recM7bn9QQXGtF0R2",
@@ -1585,7 +2047,13 @@
         ],
         "nature": "Mechanic",
         "description": "Ability to sign guild treasury transactions.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "1-1",
+            "isPercent": false,
+            "min": "1",
+            "max": "1"
+        }
     },
     {
         "uuid": "recthNtffZYySVpH4",
@@ -1620,7 +2088,13 @@
         ],
         "nature": "Buff",
         "description": "Sway a pool or farm toward your alignment, receiving a bonus when it matches",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "-1-1",
+            "isPercent": false,
+            "min": "",
+            "max": "1"
+        }
     },
     {
         "uuid": "recWYUexiL1lBkC3O",
@@ -1639,7 +2113,13 @@
         ],
         "nature": "Requirement",
         "description": "Can not unequip Runeword until vested payouts have completed",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recyxq6vsf2sUDfix",
@@ -1658,7 +2138,13 @@
         ],
         "nature": "Requirement",
         "description": "Can not unequip until current raid ends after staking.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recHQNRiIWb5eucFI",
@@ -1677,7 +2163,13 @@
         ],
         "nature": "Buff",
         "description": "{parameter1} Fashion Find",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recrQppVBh21AHPRb",
@@ -1725,7 +2217,13 @@
         ],
         "nature": "Requirement",
         "description": "Requires {parameter1} hours to unlock full potential.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recuzOeclgHNy9nYu",
@@ -1777,7 +2275,13 @@
         ],
         "nature": "Neutral",
         "description": "{parameter1} To Unlock",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-7",
+            "isPercent": false,
+            "min": "0",
+            "max": "7"
+        }
     },
     {
         "uuid": "recsS7hpJHJmnDYi0",
@@ -2299,7 +2803,13 @@
         ],
         "nature": "Neutral",
         "description": "[Hidden Attribute]",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recXdeRC1nInRzt2j",
@@ -2317,7 +2827,13 @@
         ],
         "nature": "Neutral",
         "description": "[Hidden Attribute]",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": false,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recTEoaDKhJXGCpAk",
@@ -2335,7 +2851,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recn7M3gdIPdVuv6B",
@@ -2353,7 +2875,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recXNJEMZ4talmPMm",
@@ -2371,7 +2899,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "recPbVPodtsdoFM3f",
@@ -2389,7 +2923,13 @@
         ],
         "nature": "Mechanic",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "rec1QVtqAII3CINQz",
@@ -2408,7 +2948,13 @@
         ],
         "nature": "Mechanic",
         "description": "Unlocked: {parameter1}",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-999",
+            "isPercent": false,
+            "min": "0",
+            "max": "999"
+        }
     },
     {
         "uuid": "rec58wuyvBWyaOY8S",
@@ -2427,7 +2973,13 @@
         ],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Fee",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-50",
+            "isPercent": false,
+            "min": "0",
+            "max": "50"
+        }
     },
     {
         "uuid": "recqj3JsnJQjhLZub",
@@ -2463,7 +3015,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} physical damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-35",
+            "isPercent": false,
+            "min": "0",
+            "max": "35"
+        }
     },
     {
         "uuid": "recQjVInUOkHnzxL6",
@@ -2483,7 +3041,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} poison damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-20",
+            "isPercent": false,
+            "min": "0",
+            "max": "20"
+        }
     },
     {
         "uuid": "recKC2Htp1p5xvwRE",
@@ -2503,7 +3067,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} fire damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-30",
+            "isPercent": false,
+            "min": "0",
+            "max": "30"
+        }
     },
     {
         "uuid": "recmjcOBb7qVH1FSm",
@@ -2523,7 +3093,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} lightning damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": false,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recLPH0XfyAhxivMq",
@@ -2543,7 +3119,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} frost damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": false,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recOrZXgFl0VQjT3k",
@@ -2563,7 +3145,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} rending damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": false,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recFHdOlCfYk5x9b2",
@@ -2617,7 +3205,13 @@
         "nature": "Mechanic",
         "influences": "Offense",
         "description": "{parameter1} damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-120",
+            "isPercent": false,
+            "min": "0",
+            "max": "120"
+        }
     },
     {
         "uuid": "recQwqN3Qgo811AZL",
@@ -2637,7 +3231,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} Damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-120",
+            "isPercent": false,
+            "min": "0",
+            "max": "120"
+        }
     },
     {
         "uuid": "recPJCNAvaekwhHgT",
@@ -2708,7 +3308,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as poison damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-20",
+            "isPercent": true,
+            "min": "0",
+            "max": "20"
+        }
     },
     {
         "uuid": "recKDX51KLND8nWzO",
@@ -2728,7 +3334,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as fire damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-30",
+            "isPercent": true,
+            "min": "0",
+            "max": "30"
+        }
     },
     {
         "uuid": "rechoT0DEWOqeyx3t",
@@ -2748,7 +3360,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as lightning damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recrHfoTUipAdojbG",
@@ -2768,7 +3386,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as frost damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recS4FHHFHAxTtZeh",
@@ -2788,7 +3412,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as rending damage",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recq2Jbwz5nJbqiv3",
@@ -2808,7 +3438,13 @@
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} life steal",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-30",
+            "isPercent": true,
+            "min": "0",
+            "max": "30"
+        }
     },
     {
         "uuid": "recLTU4GfGlq02m9x",
@@ -2984,7 +3620,7 @@
         "uuid": "recnDBCnnWXTc79zw",
         "id": 1030,
         "name": "MovementSpeedIncrease",
-        "displayName": "Movement Speed Increase",
+        "displayName": "Movement Burst Increase",
         "isEnabled": true,
         "game": 2,
         "link": "https://rune.game/item-attribute/movementspeedincrease",
@@ -2998,7 +3634,13 @@
         "nature": "Buff",
         "influences": "Movement",
         "description": "{parameter1} movement burst strength",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recnRXKf1vZ2iP3Q4",
@@ -3491,7 +4133,13 @@
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} greater point penalty for defeated opponents.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recRTtsVRCKpLaM9M",
@@ -3511,7 +4159,13 @@
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} reduction to points lost on death.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "rechiN55zA5egzgKn",
@@ -3531,7 +4185,13 @@
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} to avoid losing points on death.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recN8wprvntg3MEOb",
@@ -3585,7 +4245,13 @@
         "nature": "Mechanic",
         "influences": "Game",
         "description": "{parameter1} chance to see location of orb spawns early.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "reccePvzkJfxqKyPo",
@@ -3605,7 +4271,13 @@
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} reduction to time it takes a victim's death orb to appear",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recjRT62cUJHScCoB",
@@ -3690,7 +4362,13 @@
         "nature": "Debuff",
         "influences": "Game",
         "description": "{parameter1} chance picking up an orb gives no points.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recgdfZMSZqCVngc8",
@@ -3793,7 +4471,13 @@
         "nature": "Mechanic",
         "influences": "Game",
         "description": "{parameter1} chance to receive critical bonus points.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recTy8g1ofwENmYeU",
@@ -3813,7 +4497,13 @@
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} increase to critical bonus.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-35",
+            "isPercent": true,
+            "min": "0",
+            "max": "35"
+        }
     },
     {
         "uuid": "reccbreWNeXHAocXl",
@@ -3833,7 +4523,13 @@
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} win bonus",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-20",
+            "isPercent": true,
+            "min": "0",
+            "max": "20"
+        }
     },
     {
         "uuid": "rec6IljQsgWtpNt48",
@@ -3853,7 +4549,13 @@
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} item pickup bonus",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-20",
+            "isPercent": true,
+            "min": "0",
+            "max": "20"
+        }
     },
     {
         "uuid": "recFDgHPrIFF34Kio",
@@ -3890,7 +4592,13 @@
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to see location of next item early.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recH6dCYurSwL6V9T",
@@ -3910,7 +4618,13 @@
         "nature": "Debuff",
         "influences": "Reward",
         "description": "{parameter1} chance to receive no rewards for leaderboard positions below first.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-50",
+            "isPercent": true,
+            "min": "0",
+            "max": "50"
+        }
     },
     {
         "uuid": "recNQe6a2ernFnM1k",
@@ -3930,7 +4644,13 @@
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} increase to win and item rewards with each consecutive win.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-50",
+            "isPercent": true,
+            "min": "0",
+            "max": "50"
+        }
     },
     {
         "uuid": "recyOPa4uI9CNSuly",
@@ -4183,7 +4903,13 @@
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to take a portion of a killed player's rewards for the round",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-10",
+            "isPercent": true,
+            "min": "0",
+            "max": "10"
+        }
     },
     {
         "uuid": "recvGaSIv93F6g4KN",
@@ -4203,7 +4929,13 @@
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} increase to egg hatching progress",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recdt8imfKRHxafWg",
@@ -4553,7 +5285,7 @@
         "uuid": "recuKgs3J45AUqqGj",
         "id": 1222,
         "name": "IncreaseMovementSpeedOnKill",
-        "displayName": "Increase Movement Speed On Kill",
+        "displayName": "Movement Burst On Kill",
         "isEnabled": true,
         "game": 2,
         "link": "https://rune.game/item-attribute/increasemovementspeedonkill",
@@ -4570,7 +5302,7 @@
         "uuid": "rec4teZdXSzEQ7Vdw",
         "id": 1223,
         "name": "EvolveMovementBurst",
-        "displayName": "Evolve Movement Burst",
+        "displayName": "Movement Burst on Evolve",
         "isEnabled": true,
         "game": 2,
         "link": "https://rune.game/item-attribute/evolvemovementburst",
@@ -4584,7 +5316,13 @@
         "nature": "Mechanic",
         "influences": "Movement",
         "description": "{parameter1} movement burst on evolve",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "rechPTewBLOfzJNwe",
@@ -4604,7 +5342,13 @@
         "nature": "Buff",
         "influences": "Movement",
         "description": "{parameter1} longer movement speed bonus after evolving",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-25",
+            "isPercent": true,
+            "min": "0",
+            "max": "25"
+        }
     },
     {
         "uuid": "recCRVIXkO7oJoAct",
@@ -5081,7 +5825,13 @@
         "nature": "Debuff",
         "influences": "Movement",
         "description": "Can become blood drunk.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-1",
+            "isPercent": true,
+            "min": "0",
+            "max": "1"
+        }
     },
     {
         "uuid": "recvzWYKo04wfp6oI",
@@ -5101,7 +5851,13 @@
         "nature": "Debuff",
         "influences": "Gameplay",
         "description": "{parameter1} chance of becoming sacrifice when taking the lead.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "rechi7LDRJQPDEL6L",
@@ -5211,7 +5967,13 @@
         "nature": "Buff",
         "influences": "Skill",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-5",
+            "isPercent": false,
+            "min": "0",
+            "max": "5"
+        }
     },
     {
         "uuid": "rec4vmk0dObxQi6dX",
@@ -5417,7 +6179,13 @@
         "nature": "Buff",
         "influences": "Player",
         "description": "",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recBuLQkmUCQFoMxW",
@@ -5440,7 +6208,13 @@
         "nature": "Conditional",
         "influences": "Gameplay",
         "description": "{p3} {p2} for {p1}, {p4.description}.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-200",
+            "isPercent": true,
+            "min": "0",
+            "max": "200"
+        }
     },
     {
         "uuid": "recYhV4xd4wNHn6ve",
@@ -5476,7 +6250,13 @@
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{p1} chance to see location of next random reward item early",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recAMc8wa6saOAA0C",
@@ -5496,7 +6276,13 @@
         "nature": "Debuff",
         "influences": "Reward",
         "description": "Additional {p1} of reward sent to guild treasury.",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recHtkkOYLB4X55lO",
@@ -5516,7 +6302,13 @@
         "nature": "Buff",
         "influences": "Reward",
         "description": "{p1} chance to double an item pickup",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recywspIslzwdb5CP",
@@ -5536,7 +6328,13 @@
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{p1} chance to take a beaten player's accumulated item rewards for the round",
-        "explanation": ""
+        "explanation": "",
+        "param1": {
+            "spec": "0-100",
+            "isPercent": true,
+            "min": "0",
+            "max": "100"
+        }
     },
     {
         "uuid": "recFREiQ1KT6IwcnN",

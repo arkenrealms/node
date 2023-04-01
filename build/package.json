@@ -1,0 +1,50 @@
+{
+  "name": "@runemetaverse/backend-sdk",
+  "version": "1.3.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "@typechain/ethers-v4": "^1.0.0",
+    "@types/common-tags": "^1.8.0",
+    "@types/ethereum-protocol": "^1.0.0",
+    "@types/node": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "es6-promise": "^4.2.8",
+    "ethers": "^5.3.1",
+    "fs-jetpack": "^4.1.0",
+    "js-md5": "^0.7.3",
+    "knex": "^0.21.1",
+    "lokijs": "^1.5.12",
+    "moment": "^2.29.1",
+    "objection": "^2.1.3",
+    "shortid": "^2.2.2",
+    "socket.io-client": "^4.1.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.4",
+    "underscore": "^1.13.2",
+    "utf8": "^3.0.0",
+    "web3": "^1.3.6"
+  },
+  "peerDependencies": {
+    "@ethersproject/address": "^5.0.2",
+    "@ethersproject/contracts": "^5.0.2",
+    "@ethersproject/networks": "^5.0.2",
+    "@ethersproject/providers": "^5.0.5",
+    "@ethersproject/solidity": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/web3": "1.0.20",
+    "eslint": "^6.8.0",
+    "eslint-config-marine": "^3.0.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && cp ./src/contracts/* ./build/contracts && cp ./src/data/generated/* ./build/data/generated && NODE_ENV=production tsc"
+  }
+}

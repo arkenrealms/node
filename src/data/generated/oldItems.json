@@ -16144,7 +16144,7 @@
     "id": 40,
     "name": "Soulcord",
     "slug": "Soulcord",
-    "icon": "https://v5.airtableusercontent.com/v1/11/11/1668996000000/_hHK4sGyF60dhnA0gsHA1g/vUfGyXz_ShETdSmV0WFP_2sgkYD-CEXIioeSKPGnEDMsY2nPSS4XvysVL2kmBAz1wesPjTJoCxIue8M7fKQ-bg/jPkeF6ut4JvsgLB7vVh4pzmFSk_lTV3_xdu5bt6Bdqo",
+    "icon": "https://dl.airtable.com/.attachments/e3993c6046d4a359a911d0c9dc41c71c/fc25d260/Rings_Background_Removal_Collection1.png",
     "value": "0",
     "type": 12,
     "subType": 14,
@@ -16245,6 +16245,7 @@
             "game": "Raid",
             "nexusLink": "https://nexus.rune.game/item-attribute/unlockskillmod",
             "nature": "Buff",
+            "description": "Unlocks a hidden Soul Reaver mod",
             "param1": {
               "spec": "51-55",
               "min": 51,
@@ -16321,8 +16322,8 @@
         "perfection": [
           4,
           15,
-          4015,
           null,
+          7,
           null,
           null,
           null,
@@ -16586,7 +16587,7 @@
           8,
           30,
           0,
-          null,
+          4,
           null,
           null
         ]
@@ -20608,8 +20609,7 @@
     "specificType": 47,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,
@@ -27036,8 +27036,7 @@
     "subType": 14,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,
@@ -27381,8 +27380,7 @@
     "specificType": 146,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,
@@ -27733,8 +27731,7 @@
     "specificType": 146,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,
@@ -28065,8 +28062,7 @@
     "specificType": 146,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,
@@ -28466,8 +28462,7 @@
     "specificType": 146,
     "slots": [
       13,
-      14,
-      16
+      14
     ],
     "isPolled": false,
     "isNew": false,

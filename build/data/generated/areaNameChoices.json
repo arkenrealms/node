@@ -1,0 +1,914 @@
+[
+  {
+    "uuid": "recjIBjVBy3UPKZpx",
+    "id": 1,
+    "name": "Ancient",
+    "isFirst": true,
+    "weight": 0.01,
+    "characterTypes": [
+      5
+    ]
+  },
+  {
+    "uuid": "rec5ByDQtm5XXRF6w",
+    "id": 2,
+    "name": "Arctic",
+    "isFirst": true,
+    "weight": 0.01,
+    "characterTypes": [
+      5
+    ]
+  },
+  {
+    "uuid": "recuBNqzL7Gc0qLUi",
+    "id": 3,
+    "name": "Arrid",
+    "isFirst": true,
+    "weight": 0.01,
+    "characterTypes": [
+      5
+    ]
+  },
+  {
+    "uuid": "rec14D2eYzdIZjKO7",
+    "id": 4,
+    "name": "Barren",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recfa66xkm9vs5DmF",
+    "id": 5,
+    "name": "Bedeviled",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reckODQRc8PoXpMcP",
+    "id": 6,
+    "name": "Bewitched",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec08n5CoXJiUHJEV",
+    "id": 7,
+    "name": "Black",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recodbO3OqnQlmrpC",
+    "id": 8,
+    "name": "Bleak",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recYzVN3Nzhrczp2N",
+    "id": 9,
+    "name": "Blessed",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recossGqXQ6c0VSwk",
+    "id": 10,
+    "name": "Brutal",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recsGXWNRmRo5Q2c0",
+    "id": 11,
+    "name": "Chilling",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recGXxjOzVqFmp2ON",
+    "id": 12,
+    "name": "Cold",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recrZ0CGRRoOJH84d",
+    "id": 13,
+    "name": "Consecrated",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recPq0rN1szK1Qs91",
+    "id": 14,
+    "name": "Cruel",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recSf5mCCRj9Deanh",
+    "id": 15,
+    "name": "Cursed",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recnWxHnqYhfrJ4JG",
+    "id": 16,
+    "name": "Dark",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recYcJZeGV0LUtWny",
+    "id": 17,
+    "name": "Demonic",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recPv4KTRQuPBNRKk",
+    "id": 18,
+    "name": "Desolate",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recJGhJq91HUqejHz",
+    "id": 19,
+    "name": "Dismal",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec2DexDBirTdd0ME",
+    "id": 20,
+    "name": "Divine",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recYiqSUEPiuzFozv",
+    "id": 21,
+    "name": "Doomed",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recMGgLqPZwH0kcAm",
+    "id": 22,
+    "name": "Drab",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recx8AU7Dt5ndehUm",
+    "id": 23,
+    "name": "Dreary",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recC8nN6wWviYFuwc",
+    "id": 24,
+    "name": "Dry",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reciQd7FNwMXdGI93",
+    "id": 25,
+    "name": "Dull",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recws9CpbM5uMMjxJ",
+    "id": 26,
+    "name": "Dusky",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reccMV9TF5iOvcQgW",
+    "id": 27,
+    "name": "Dusty",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recNJkYZCp5H0X5LA",
+    "id": 28,
+    "name": "Enchanted",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rececQSywimlhXSKv",
+    "id": 29,
+    "name": "Evil",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recFVBCxQZILhZhsv",
+    "id": 30,
+    "name": "Fallen",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec2uqFMxyOPK0QMv",
+    "id": 31,
+    "name": "Fiendish",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reco1dX49SI5NV7La",
+    "id": 32,
+    "name": "Forlorn",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recI7zcfwfcUGvTue",
+    "id": 33,
+    "name": "Frigid",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recNtiO73Y7yc0KII",
+    "id": 34,
+    "name": "Frosty",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recFO5fiZRwitIxGv",
+    "id": 35,
+    "name": "Frozen",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recAcLcsFOANHMeoJ",
+    "id": 36,
+    "name": "Glacial",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recAdwIx2ZdVQt3IY",
+    "id": 37,
+    "name": "Gloomy",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "receqQnC1Jv4d4Wvg",
+    "id": 38,
+    "name": "Hallowed",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recyzLxACnvriplmb",
+    "id": 39,
+    "name": "Haunted",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recgst4Y9ZxLu7J74",
+    "id": 40,
+    "name": "Holy",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recWMTQ5dEuGLl7A3",
+    "id": 41,
+    "name": "Icy",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recJs6WXwH0Ih1brH",
+    "id": 42,
+    "name": "Infernal",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recp7ksocBlj30V0x",
+    "id": 43,
+    "name": "Lost",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recbbRLtuc0ilpGDQ",
+    "id": 44,
+    "name": "Murky",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recLWZSMynIN6qAuu",
+    "id": 45,
+    "name": "Mysterious",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recA8idddQBK4GJuJ",
+    "id": 46,
+    "name": "Obscure",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reckemxiwBzUNIJ4K",
+    "id": 47,
+    "name": "Overcast",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec2uPLY7rgdEACJI",
+    "id": 48,
+    "name": "Parched",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recRzgIF2qsgNDicB",
+    "id": 49,
+    "name": "Perilous",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recfRPTX3hFNsc5RD",
+    "id": 50,
+    "name": "Polar",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recs1PNuwo7o8aBJ0",
+    "id": 51,
+    "name": "Revered",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recUH9SFyW4v5KnvE",
+    "id": 52,
+    "name": "Sacred",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec6ItrAPxdhvlTVP",
+    "id": 53,
+    "name": "Sinister",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recC4sH2ohIANfdaV",
+    "id": 54,
+    "name": "Somber",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recVU0q4mGtRIgHg4",
+    "id": 55,
+    "name": "Spiritual",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rechw9wcR9vTPMkcW",
+    "id": 56,
+    "name": "Spooky",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recIJOPZ7UkQQcvkh",
+    "id": 57,
+    "name": "Tormented",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recQ4dMEtUe1b54L2",
+    "id": 58,
+    "name": "Treacherous",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recWyATzGMDqCdlsQ",
+    "id": 59,
+    "name": "Unholy",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec1XE2K29O4Yey0f",
+    "id": 60,
+    "name": "Wicked",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recHiD4PtvTxiyFbs",
+    "id": 61,
+    "name": "Backwoods",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recAdeyASCA0iipNK",
+    "id": 62,
+    "name": "Badland",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recJIOTPjFWW1DZXF",
+    "id": 63,
+    "name": "Boscage",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recuDVAkZ95DQjamA",
+    "id": 64,
+    "name": "Chaparral",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recfroQlhR2AgYYNb",
+    "id": 65,
+    "name": "Copse",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recsH9Mo70GvDetcH",
+    "id": 66,
+    "name": "Desert",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reciZvg47zr6MCRwZ",
+    "id": 67,
+    "name": "Dune",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec3sgtAGVzz0orpX",
+    "id": 68,
+    "name": "Embankment",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reccQiftIfVjn5wcw",
+    "id": 69,
+    "name": "Falts",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recD24b92GgYvaPcb",
+    "id": 70,
+    "name": "Field",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recjUrzzVFltbC2fj",
+    "id": 71,
+    "name": "Flatland",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recT3hnIl45dKWSDh",
+    "id": 72,
+    "name": "Forest",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reciBHx2Xpo1kTIMS",
+    "id": 73,
+    "name": "Glade",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recSSweGtPgFtwZBP",
+    "id": 74,
+    "name": "Gorge",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recTZ0lTSc4INbZUJ",
+    "id": 75,
+    "name": "Grange",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec4EChT3QaRvOPYr",
+    "id": 76,
+    "name": "Grove",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reccdmkMIlRdIP1PC",
+    "id": 77,
+    "name": "Highlands",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec6ikmDfpMqSyjl5",
+    "id": 78,
+    "name": "Hollow",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recWHOCx0kJiKasg8",
+    "id": 79,
+    "name": "Homestead",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recNjzWxszHs8CHb4",
+    "id": 80,
+    "name": "Jungle",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recpaYy4qidb7l9Dg",
+    "id": 81,
+    "name": "Labyrinth",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recuo4wgJE6IhhhDt",
+    "id": 82,
+    "name": "Lakeshore",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recvO4X8d5la5PEXS",
+    "id": 83,
+    "name": "Maze",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recgIaG7muHwxIt2w",
+    "id": 84,
+    "name": "Meadow",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recNMaXy2wAgM6xMp",
+    "id": 85,
+    "name": "Moor",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recxQtc63yedz8O1z",
+    "id": 86,
+    "name": "Morass",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recYpGQBGJRUYwF4f",
+    "id": 87,
+    "name": "Pasture",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recnEu9WAJl3NldAj",
+    "id": 88,
+    "name": "Pit",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec81Wtgi0RmwzNfz",
+    "id": 89,
+    "name": "Plain",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reclRDQpSFAogNryn",
+    "id": 90,
+    "name": "Plantation",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recCozLXEFAbIOn7v",
+    "id": 91,
+    "name": "Prarie",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recu26UIFObHZDg10",
+    "id": 92,
+    "name": "River",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reccx6evaH2PfnIPQ",
+    "id": 93,
+    "name": "Riverbank",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recWdhazD7sj4JLzW",
+    "id": 94,
+    "name": "Road",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recV1bZY6hojRgPp4",
+    "id": 95,
+    "name": "Sands",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec6NKHpiFv7nF0Z7",
+    "id": 96,
+    "name": "Scrub",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "reca2Xn27muE7I62o",
+    "id": 97,
+    "name": "Settlement",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recUG9ElsyclZkiUY",
+    "id": 98,
+    "name": "Tangle",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recPNZQ4Nlfp00YYl",
+    "id": 99,
+    "name": "Thicket",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec36qY17diZtoeSv",
+    "id": 100,
+    "name": "Timberland",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recYfrKJ897sIF5fG",
+    "id": 101,
+    "name": "Undergrowth",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rectQDLCy8CLWLzGx",
+    "id": 102,
+    "name": "Valley",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recoPrBIiedbUVMdz",
+    "id": 103,
+    "name": "Waste",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recPt9SR03sL0lZB6",
+    "id": 104,
+    "name": "Wasteland",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recSzvHJTp5CjhB08",
+    "id": 105,
+    "name": "Weald",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recCCCRE6y92aW40i",
+    "id": 106,
+    "name": "Wilderness",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recFENPWxBxpvwBMI",
+    "id": 107,
+    "name": "Wilds",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recBqd0LrfmJPWb27",
+    "id": 108,
+    "name": "Woodland",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recpLcwyeXke7JguN",
+    "id": 109,
+    "name": "Woodlot",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recIdjWhvmWa3Cmdt",
+    "id": 110,
+    "name": "Woods",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recvK7YhdjhYytICx",
+    "id": 111,
+    "name": "Malefic",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recK8wSu6J6ahSWVa",
+    "id": 112,
+    "name": "Petrified",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recJyxbLotUCxtYHs",
+    "id": 113,
+    "name": "Plagued",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recHAOTgrJXdyE3cI",
+    "id": 114,
+    "name": "Pestilent",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recfH7zv9bRxSvOQy",
+    "id": 115,
+    "name": "Desacrated",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recOf4vXg4MNbQWGZ",
+    "id": 116,
+    "name": "Crippled",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recBy4jn8cFTLEHh4",
+    "id": 117,
+    "name": "Ancestral",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recxm4mzRSjkV62tJ",
+    "id": 118,
+    "name": "Shivering",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recopQkQ1vb0rOMPC",
+    "id": 119,
+    "name": "Crystal",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recRWGk4oCcznLm8N",
+    "id": 120,
+    "name": "Demolished",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recqAeshJC1wZk4GK",
+    "id": 121,
+    "name": "Ruined",
+    "isFirst": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "rec7LczGpvf8jFu79",
+    "id": 122,
+    "name": "Walkway",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recEJQJAGGCoT03kY",
+    "id": 123,
+    "name": "Iceway",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recEEWJ9py4S9SZxE",
+    "id": 124,
+    "name": "Marshland",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recGAN8JUiwrZvSdj",
+    "id": 125,
+    "name": "Tunnel",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recrnnN42ZC9oKJen",
+    "id": 126,
+    "name": "Passageway",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recGFIdUWxW8FfiqX",
+    "id": 127,
+    "name": "Heights",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recWGVNjBn8yCavZM",
+    "id": 128,
+    "name": "Temple",
+    "isLast": true,
+    "characterTypes": []
+  },
+  {
+    "uuid": "recgJT8rsY4oXXtiK",
+    "id": 129,
+    "name": "Ruins",
+    "isLast": true,
+    "characterTypes": []
+  }
+]

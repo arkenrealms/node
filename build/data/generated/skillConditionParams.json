@@ -1,0 +1,61 @@
+[
+  {
+    "uuid": "rec8IsQk8SCf7jUNI",
+    "name": "value"
+  },
+  {
+    "uuid": "recIb9b41wmGKj9Fq",
+    "name": "skillType"
+  },
+  {
+    "uuid": "recrD9tqBps5HePgZ",
+    "name": "skill"
+  },
+  {
+    "uuid": "recrpTbMYdDZ285QC",
+    "name": "target",
+    "examples": "self, enemy, ally"
+  },
+  {
+    "uuid": "recziZjFm7EPF5upm",
+    "name": "effectType",
+    "examples": "ailment, buff, damage"
+  },
+  {
+    "uuid": "recIBflqvImU9gDAn",
+    "name": "time"
+  },
+  {
+    "uuid": "recizyZR8CVneYUH1",
+    "name": "operator",
+    "examples": ">, <, ==, !=, <=, >="
+  },
+  {
+    "uuid": "recYOhjtEpYXyv0L8",
+    "name": "damageType",
+    "examples": "fire, arcane, physical, all"
+  },
+  {
+    "uuid": "rec1STQuTgp8QXki1",
+    "name": "mapMod"
+  },
+  {
+    "uuid": "recuTIou2Pb7AfHVb",
+    "name": "itemSubtype"
+  },
+  {
+    "uuid": "rec3sLtEbgPYmrHB0",
+    "name": "evaluationType"
+  },
+  {
+    "uuid": "recEZ0QAUv6dBRelA",
+    "name": "condition"
+  },
+  {
+    "uuid": "recIM2QGD0OZdNyMI",
+    "name": "skillClassification"
+  },
+  {
+    "uuid": "recvJjYy5yZGHUBR0"
+  }
+]

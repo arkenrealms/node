@@ -10,7 +10,8 @@ export declare enum ItemsMainCategoriesType {
     ARMORS = "armor",
     ACCESSORIES = "accessory",
     RUNES = "rune",
-    OTHER = "runeword"
+    OTHER = "runeword",
+    RUNEWORDS = "runeword"
 }
 export declare enum ItemCategoriesType {
     WEAPON = "weapon",
@@ -74,6 +75,7 @@ export declare type ItemType = {
     isSkinnable?: boolean;
     isRuneword?: boolean;
     isSecret?: boolean;
+    isUltraSecret?: boolean;
     isTransmutable?: boolean;
     shorthand?: string;
     slotId?: number;

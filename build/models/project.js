@@ -1,264 +1,228 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var objection_1 = require("objection");
+const objection_1 = require("objection");
 //import ProjectMember from './project-member'
-var profile_1 = __importDefault(require("./profile"));
-var community_1 = __importDefault(require("./community"));
-var product_1 = __importDefault(require("./product"));
-var idea_1 = __importDefault(require("./idea"));
-var tag_1 = __importDefault(require("./tag"));
-var rating_1 = __importDefault(require("./rating"));
-var event_1 = __importDefault(require("./event"));
-var vote_1 = __importDefault(require("./vote"));
-var base_1 = __importDefault(require("./base"));
-var Project = /** @class */ (function (_super) {
-    __extends(Project, _super);
-    function Project() {
-        return _super !== null && _super.apply(this, arguments) || this;
+const profile_1 = __importDefault(require("./profile"));
+const community_1 = __importDefault(require("./community"));
+const product_1 = __importDefault(require("./product"));
+const idea_1 = __importDefault(require("./idea"));
+const tag_1 = __importDefault(require("./tag"));
+const rating_1 = __importDefault(require("./rating"));
+const event_1 = __importDefault(require("./event"));
+const vote_1 = __importDefault(require("./vote"));
+const base_1 = __importDefault(require("./base"));
+class Project extends base_1.default {
+    static get tableName() {
+        return 'projects';
     }
-    Object.defineProperty(Project, "tableName", {
-        get: function () {
-            return 'projects';
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Project, "timestamps", {
-        get: function () {
-            return true;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Project, "jsonSchema", {
-        get: function () {
-            return {
-                type: 'object',
-                required: [],
-                properties: {
-                    contractStatus: {
-                        type: 'string',
-                        enum: ['Inactive', 'Draft', 'Pending', 'Contributable', 'InDevelopment', 'Refundable', 'Rejected', 'Completed'],
-                        default: 'Draft'
-                    }
+    static get timestamps() {
+        return true;
+    }
+    static get jsonSchema() {
+        return {
+            type: 'object',
+            required: [],
+            properties: {
+                contractStatus: {
+                    type: 'string',
+                    enum: ['Inactive', 'Draft', 'Pending', 'Contributable', 'InDevelopment', 'Refundable', 'Rejected', 'Completed'],
+                    default: 'Draft'
                 }
-            };
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Project, "relationMappings", {
-        get: function () {
-            return {
-                // members: {
-                //   relation: Model.ManyToManyRelation,
-                //   modelClass: Profile,
-                //   join: {
-                //     from: 'projects.id',
-                //     through: {
-                //       from: 'project_members.projectId',
-                //       to: 'project_members.profileId',
-                //       modelClass: ProjectMember,
-                //       extra: ['isAdmin']
-                //     },
-                //     to: 'profiles.id'
-                //   }
-                // },
-                // subprojects: {
-                //   relation: Model.HasManyRelation,
-                //   modelClass: Project,
-                //   join: {
-                //     from: 'projects.id',
-                //     to: 'projects.parentId'
-                //   }
-                // },
-                // bounties: {
-                //   relation: Model.HasManyRelation,
-                //   modelClass: Bounty,
-                //   join: {
-                //     from: 'projects.id',
-                //     to: 'bounties.parentId'
-                //     // join view through where parentType == 'project'
-                //     // https://www.tutorialspoint.com/postgresql/postgresql_views.htm
-                //   }
-                // },
-                owner: {
-                    relation: objection_1.Model.BelongsToOneRelation,
-                    modelClass: profile_1.default,
-                    join: {
-                        from: 'projects.ownerId',
-                        to: 'profiles.id'
-                    }
-                },
-                vote: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: vote_1.default,
-                    join: {
-                        from: 'projects.id',
-                        to: 'votes.id',
-                        through: {
-                            from: 'nodes.toProjectId',
-                            to: 'nodes.fromVoteId',
-                            extra: ['relationKey']
-                        }
-                    },
-                },
-                community: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: community_1.default,
-                    join: {
-                        from: 'projects.communityId',
-                        to: 'communities.id'
-                    }
-                },
-                idea: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: idea_1.default,
-                    join: {
-                        from: 'projects.ideaId',
-                        to: 'ideas.id'
-                    }
-                },
-                product: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: product_1.default,
-                    join: {
-                        from: 'projects.productId',
-                        to: 'products.id'
-                    }
-                },
-                rating: {
-                    relation: objection_1.Model.HasOneRelation,
-                    modelClass: rating_1.default,
-                    join: {
-                        from: 'projects.ratingId',
-                        to: 'ratings.id'
-                    }
-                },
-                events: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: event_1.default,
-                    join: {
-                        from: 'projects.id',
-                        to: 'events.id',
-                        through: {
-                            from: 'nodes.fromProjectId',
-                            to: 'nodes.toEventId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'events'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'events';
-                    }
-                },
-                pledges: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: profile_1.default,
-                    join: {
-                        from: 'projects.id',
-                        to: 'profiles.id',
-                        through: {
-                            from: 'nodes.fromProjectId',
-                            to: 'nodes.toProfileId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'pledges'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'pledges';
-                    }
-                },
-                contributors: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: profile_1.default,
-                    join: {
-                        from: 'projects.id',
-                        to: 'profiles.id',
-                        through: {
-                            from: 'nodes.fromProjectId',
-                            to: 'nodes.toProfileId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'contributors'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'contributors';
-                    }
-                },
-                moderators: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: profile_1.default,
-                    join: {
-                        from: 'projects.id',
-                        to: 'profiles.id',
-                        through: {
-                            from: 'nodes.fromProjectId',
-                            to: 'nodes.toProfileId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'moderators'
-                    },
-                    beforeInsert: function (model) {
-                        model.relationKey = 'moderators';
-                    }
-                },
-                tags: {
-                    relation: objection_1.Model.ManyToManyRelation,
-                    modelClass: tag_1.default,
-                    join: {
-                        from: 'projects.id',
-                        to: 'tags.id',
-                        through: {
-                            from: 'nodes.fromProjectId',
-                            to: 'nodes.toTagId',
-                            extra: ['relationKey']
-                        }
-                    },
-                    filter: {
-                        relationKey: 'tags'
-                    },
-                    beforeInsert: function (model) {
-                        console.log(model);
-                        model.relationKey = 'tags';
-                    }
+            }
+        };
+    }
+    static get relationMappings() {
+        return {
+            // members: {
+            //   relation: Model.ManyToManyRelation,
+            //   modelClass: Profile,
+            //   join: {
+            //     from: 'projects.id',
+            //     through: {
+            //       from: 'project_members.projectId',
+            //       to: 'project_members.profileId',
+            //       modelClass: ProjectMember,
+            //       extra: ['isAdmin']
+            //     },
+            //     to: 'profiles.id'
+            //   }
+            // },
+            // subprojects: {
+            //   relation: Model.HasManyRelation,
+            //   modelClass: Project,
+            //   join: {
+            //     from: 'projects.id',
+            //     to: 'projects.parentId'
+            //   }
+            // },
+            // bounties: {
+            //   relation: Model.HasManyRelation,
+            //   modelClass: Bounty,
+            //   join: {
+            //     from: 'projects.id',
+            //     to: 'bounties.parentId'
+            //     // join view through where parentType == 'project'
+            //     // https://www.tutorialspoint.com/postgresql/postgresql_views.htm
+            //   }
+            // },
+            owner: {
+                relation: objection_1.Model.BelongsToOneRelation,
+                modelClass: profile_1.default,
+                join: {
+                    from: 'projects.ownerId',
+                    to: 'profiles.id'
                 }
-                // has many pledges -> node (parentId = this, parentType = project, nextId = profile.id, nextType = profile)
-                // has many contributors -> node (parentId = this, parentType = project, nextId = profile.id, nextType = profile)
-                // has many moderators -> node (parentId = this, parentType = project, nextId = profile.id, nextType = profile)
-            };
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Project;
-}(base_1.default));
+            },
+            vote: {
+                relation: objection_1.Model.ManyToManyRelation,
+                modelClass: vote_1.default,
+                join: {
+                    from: 'projects.id',
+                    to: 'votes.id',
+                    through: {
+                        from: 'nodes.toProjectId',
+                        to: 'nodes.fromVoteId',
+                        extra: ['relationKey']
+                    }
+                },
+            },
+            community: {
+                relation: objection_1.Model.HasOneRelation,
+                modelClass: community_1.default,
+                join: {
+                    from: 'projects.communityId',
+                    to: 'communities.id'
+                }
+            },
+            idea: {
+                relation: objection_1.Model.HasOneRelation,
+                modelClass: idea_1.default,
+                join: {
+                    from: 'projects.ideaId',
+                    to: 'ideas.id'
+                }
+            },
+            product: {
+                relation: objection_1.Model.HasOneRelation,
+                modelClass: product_1.default,
+                join: {
+                    from: 'projects.productId',
+                    to: 'products.id'
+                }
+            },
+            rating: {
+                relation: objection_1.Model.HasOneRelation,
+                modelClass: rating_1.default,
+                join: {
+                    from: 'projects.ratingId',
+                    to: 'ratings.id'
+                }
+            },
+            events: {
+                relation: objection_1.Model.ManyToManyRelation,
+                modelClass: event_1.default,
+                join: {
+                    from: 'projects.id',
+                    to: 'events.id',
+                    through: {
+                        from: 'nodes.fromProjectId',
+                        to: 'nodes.toEventId',
+                        extra: ['relationKey']
+                    }
+                },
+                filter: {
+                    relationKey: 'events'
+                },
+                beforeInsert(model) {
+                    model.relationKey = 'events';
+                }
+            },
+            pledges: {
+                relation: objection_1.Model.ManyToManyRelation,
+                modelClass: profile_1.default,
+                join: {
+                    from: 'projects.id',
+                    to: 'profiles.id',
+                    through: {
+                        from: 'nodes.fromProjectId',
+                        to: 'nodes.toProfileId',
+                        extra: ['relationKey']
+                    }
+                },
+                filter: {
+                    relationKey: 'pledges'
+                },
+                beforeInsert(model) {
+                    model.relationKey = 'pledges';
+                }
+            },
+            contributors: {
+                relation: objection_1.Model.ManyToManyRelation,
+                modelClass: profile_1.default,
+                join: {
+                    from: 'projects.id',
+                    to: 'profiles.id',
+                    through: {
+                        from: 'nodes.fromProjectId',
+                        to: 'nodes.toProfileId',
+                        extra: ['relationKey']
+                    }
+                },
+                filter: {
+                    relationKey: 'contributors'
+                },
+                beforeInsert(model) {
+                    model.relationKey = 'contributors';
+                }
+            },
+            moderators: {
+                relation: objection_1.Model.ManyToManyRelation,
+                modelClass: profile_1.default,
+                join: {
+                    from: 'projects.id',
+                    to: 'profiles.id',
+                    through: {
+                        from: 'nodes.fromProjectId',
+                        to: 'nodes.toProfileId',
+                        extra: ['relationKey']
+                    }
+                },
+                filter: {
+                    relationKey: 'moderators'
+                },
+                beforeInsert(model) {
+                    model.relationKey = 'moderators';
+                }
+            },
+            tags: {
+                relation: objection_1.Model.ManyToManyRelation,
+                modelClass: tag_1.default,
+                join: {
+                    from: 'projects.id',
+                    to: 'tags.id',
+                    through: {
+                        from: 'nodes.fromProjectId',
+                        to: 'nodes.toTagId',
+                        extra: ['relationKey']
+                    }
+                },
+                filter: {
+                    relationKey: 'tags'
+                },
+                beforeInsert(model) {
+                    console.log(model);
+                    model.relationKey = 'tags';
+                }
+            }
+            // has many pledges -> node (parentId = this, parentType = project, nextId = profile.id, nextType = profile)
+            // has many contributors -> node (parentId = this, parentType = project, nextId = profile.id, nextType = profile)
+            // has many moderators -> node (parentId = this, parentType = project, nextId = profile.id, nextType = profile)
+        };
+    }
+}
 exports.default = Project;
 // "id": 1,
 // "name": "Gym With Tim",
@@ -572,3 +536,4 @@ exports.default = Project;
 //     "minPrice": 20
 //   }
 // ]
+//# sourceMappingURL=project.js.map

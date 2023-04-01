@@ -103,3 +103,4 @@ exports.evolutionRestrictedWalletAddresses = [
     "0x8aeedc8d20a349736940cff5aa6ced3bc7ccbf8f"
 ];
 exports.restrictedAllWalletAddresses = [];
+//# sourceMappingURL=restrictList.js.map

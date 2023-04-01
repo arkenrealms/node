@@ -1,35 +1,18 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getClientSocket = exports.emitDirect = exports.emitAll = void 0;
-var socket_io_client_1 = require("socket.io-client");
-var _1 = require(".");
-function emitAll(io) {
-    var args = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        args[_i - 1] = arguments[_i];
-    }
-    _1.log.apply(void 0, __spreadArray(['Emit All'], args, false));
-    io.emit.apply(io, args);
+const socket_io_client_1 = require("socket.io-client");
+const _1 = require(".");
+function emitAll(io, ...args) {
+    (0, _1.log)('Emit All', ...args);
+    io.emit(...args);
 }
 exports.emitAll = emitAll;
-function emitDirect(socket) {
-    var args = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        args[_i - 1] = arguments[_i];
-    }
-    _1.log.apply(void 0, __spreadArray(['Emit Direct'], args, false));
+function emitDirect(socket, ...args) {
+    (0, _1.log)('Emit Direct', ...args);
     if (!socket || !socket.emit)
         return;
-    socket.emit.apply(socket, args);
+    socket.emit(...args);
 }
 exports.emitDirect = emitDirect;
 function getClientSocket(endpoint) {
@@ -46,3 +29,4 @@ function getClientSocket(endpoint) {
     });
 }
 exports.getClientSocket = getClientSocket;
+//# sourceMappingURL=websocket.js.map

@@ -1,0 +1,92 @@
+[
+  {
+    "uuid": "recwbhFfqumf1bDUc",
+    "id": 1,
+    "name": "The First Order",
+    "isEnabled": true,
+    "link": "https://rune.game/guild/the-first-order",
+    "shortDescription": "Scholars and time mages brought together by Bin Zy in the service of Zeno.",
+    "description": "A secretive group of scholars and time mages, brought together by Bin Zy in the service of Zeno. Though their exact tenants remain unknown, they are dedicated to the mastery of time and the protection of Haerra from those who would seek its undoing.",
+    "image": "https://dl.airtable.com/.attachments/5ca62594f037d3c0287aade6e0e9dde4/92828b86/the-first-ones.png?ts=1661138209&userId=usrf0GZYc5zCl9Cv7&cs=a20f2894c123c272",
+    "lore1": "\n",
+    "lore2": "The First Order are a group of scholars which formed many years ago, brought together by a figure named Bin Zy. Its purpose was to study and learn from a cache of secret texts and documents hidden away in the abandoned remains of an ancient temple. It is not known what religion or Gods were worshiped there, which is the reason for the formation of The First Order. Their discoveries of the texts are kept as a great secret and noted in a giant book known as the Book of Secrets.\n",
+    "lore3": "MEMBERSHIP\n\nPeoples of all backgrounds are welcomed into the First Order of Zeno. Rangers are needed to hunt and scout for important peoples and resources, while arcane practitioners can gear their talents towards mastering temporal energy. Barbarians are valued as zealous defenders and necromancers for their understanding of the cycle of life and death. As long as you can find them, becoming a member of the First Order is a straightforward task. In order to join the ranks of these time wielders, you must simply disclose your intentions to the Archdeacon. If the Archdeacon finds these intentions to be pure, then you are welcomed with open arms. If not, you will be turned away with no explanation or appeal.\n",
+    "classRequired": [],
+    "npcs": [
+      28,
+      27,
+      23,
+      35
+    ],
+    "passiveFactionConflict": [
+      9,
+      1
+    ],
+    "activeFactionConflict": [],
+    "passiveGuildConflict": [
+      2
+    ],
+    "activeGuildConflict": [],
+    "areas": [
+      48
+    ]
+  },
+  {
+    "uuid": "recVeskvT3kVHSft9",
+    "id": 2,
+    "name": "Archivists",
+    "isEnabled": true,
+    "link": "https://rune.game/guild/archivists",
+    "shortDescription": "Keepers of lore and the guardians of Haerra's history.",
+    "description": "These brave souls revere Zeno, the God of Time, and wade into battle wielding parchment, tome, and quill. They are renowned keepers of lore, guardians of knowledge, and protectors of Haerra's long-forgotten secrets.",
+    "image": "https://dl.airtable.com/.attachments/f29f27dd06c63367f8baf804a361be77/571b023f/the-archivists.png?ts=1661138210&userId=usrf0GZYc5zCl9Cv7&cs=8040ad7ed7a8fce9",
+    "lore1": "\n",
+    "lore2": "The Archivists are a quasi-religious order based in Westmarsh who serve and revere Zeno, the God of Time. These brave souls wade into battle wielding parchments, tomes and quills, armoured not in ensorcelled plate or links of chain, but with the knowledge of generations past. In their case the pen really is mightier than the sword. The Archivists hold many secrets and forgotten knowledge and fight not only for the future of humanity, but also to save mankind's past and heritage. The members of their honored fraternity are many, and their numbers grow every day.\n",
+    "lore3": "MEMBERSHIP\n\nA valued distinction among scholars and a prestigious title across Haerra, becoming an Archivist is not an easy task. Archivists are expected to be able to wade into the depths of a battle and the frigid icecaps of the Frostlands to carry out their duties. Furthermore, only a handful of new Archivists are selected each year, among the hundreds that apply. To be considered for the position, you must both be educated in a scholarly discipline and have received some military or arcane training. You must present your qualifications to a member of the order and, if selected, take a rigorous test meant to assess not only your scholarly abilities, but also your mental and physical fortitude. Only after you pass this test will you be considered for admittance.\n",
+    "classRequired": [],
+    "npcs": [
+      36
+    ],
+    "passiveFactionConflict": [
+      5
+    ],
+    "activeFactionConflict": [
+      9
+    ],
+    "passiveGuildConflict": [
+      1
+    ],
+    "activeGuildConflict": [],
+    "areas": [
+      13
+    ]
+  },
+  {
+    "uuid": "reczLxiGi4NVpHLSO",
+    "id": 3,
+    "name": "Knights of Westmarsh",
+    "isEnabled": true,
+    "link": "https://rune.game/guild/knights-of-westmarsh",
+    "shortDescription": "Knights of purity and enforcers of justice.",
+    "description": "Armed with gleaming plate and blade, the Knights of Westmarsh are an order of fighters sworn to protect the defenseless against the evils of Haerra. Every knight has renounced the ways of the flesh, forging their minds and bodies anew in service of a greater good.",
+    "image": "https://dl.airtable.com/.attachments/71f5e23dbe26adc7a467f079542ddf50/e5187e41/knights-of-westmarch.png?ts=1661138211&userId=usrf0GZYc5zCl9Cv7&cs=1095591bdbeedde2",
+    "lore1": "\n",
+    "lore2": "The Knights of Westmarsh are an order of knights sworn to protect the defenseless against the evils of Haerra. They refuse alcohol and the ways of the flesh, remaining celibate throughout their ordination and service. Although during the Darkening of Victram the Knights closely followed the teachings of the Azaran, in recent years they have turned to secularity, focused more on defending Westmarsh from physical harm than defending its spirituality.\n",
+    "lore3": "MEMBERSHIP\n\nBecoming a Knight of Westmarsh is a simple process, as almost all who request entrance are admitted. The only barrier to entry is the sworn oath: to defend Haerra against evil and to relinquish earthly ties–including alcohol and sex. Though joining the Knights is an easy task, maintaining your position will be the true challenge. Their orders are stringent and their standards high–even so far as having a branch of their order dedicated to rooting out corruption and ensuring oaths are kept. If you are found to be in contempt of your oath at any point during your service, you are immediately relieved of your position.\n",
+    "classRequired": [],
+    "npcs": [
+      47
+    ],
+    "passiveFactionConflict": [
+      6
+    ],
+    "activeFactionConflict": [],
+    "passiveGuildConflict": [],
+    "activeGuildConflict": [
+      10
+    ],
+    "areas": [
+      13
+    ]
+  }
+]

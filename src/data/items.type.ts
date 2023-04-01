@@ -12,6 +12,7 @@ export enum ItemsMainCategoriesType {
   ACCESSORIES = 'accessory',
   RUNES = 'rune',
   OTHER = 'runeword',
+  RUNEWORDS = 'runeword',
 }
 
 export enum ItemCategoriesType {
@@ -83,6 +84,7 @@ export type ItemType = {
   isSkinnable?: boolean
   isRuneword?: boolean
   isSecret?: boolean
+  isUltraSecret?: boolean
   isTransmutable?: boolean
   shorthand?: string
   slotId?: number

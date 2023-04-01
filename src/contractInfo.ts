@@ -464,6 +464,6 @@ export default {
   },
   dead: {
     [MAINNET]: '0x000000000000000000000000000000000000dead',
-    [TESTNET]: ''
-  }
+    [TESTNET]: '',
+  },
 }

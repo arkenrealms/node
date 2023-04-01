@@ -10,7 +10,11 @@ const path = require('path')
 const writeLogs = false
 const logPrefix = process.env.LOG_PREFIX || '[APP]'
 
-export const isDebug = process.env.HOME === '/Users/dev' || process.env.HOME === '/home/dev' || process.env.HOME === '/root' || process.env.LOG === '1'
+export const isDebug =
+  process.env.HOME === '/Users/dev' ||
+  process.env.HOME === '/home/dev' ||
+  process.env.HOME === '/root' ||
+  process.env.LOG === '1'
 
 export function logError(...msgs) {
   console.log(logPrefix, nowReadable(), ...msgs)
@@ -35,7 +39,7 @@ export function log(...msgs) {
 
   if (writeLogs) {
     const logData = jetpack.read(path.resolve('../public/data/log.json'), 'json') || []
-    
+
     for (const msg of msgs) {
       logData.push(JSON.stringify(msg))
     }
@@ -49,7 +53,7 @@ export function nowReadable() {
 }
 
 export function wait(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 export function round(num, precision) {
@@ -63,10 +67,10 @@ export function pad(n, width, z = '0') {
 }
 
 export function removeDupes(list) {
-  const seen = {};
-  return list.filter(function(item) {
-    const k1 = item.seller + item.tokenId + item.blockNumber;
-    const k2 = item.id;
+  const seen = {}
+  return list.filter(function (item) {
+    const k1 = item.seller + item.tokenId + item.blockNumber
+    const k2 = item.id
     const exists = seen.hasOwnProperty(k1) || seen.hasOwnProperty(k2)
 
     if (!exists) {
@@ -89,19 +93,19 @@ export async function updateGit() {
   updatingGit = true
   try {
     const execPromise = util.promisify(exec)
-    
+
     try {
       await execPromise('rm ./db/.git/index.lock')
-    } catch(e2) {
+    } catch (e2) {}
 
-    }
+    const { stdout, stderr } = await execPromise(
+      'cd db && git add -A && git commit -m "build: Binzy doz it" && git push --set-upstream origin master'
+    )
 
-    const { stdout, stderr } = await execPromise('cd db && git add -A && git commit -m "build: Binzy doz it" && git push --set-upstream origin master')
-  
     console.log(stderr, stdout)
-  
+
     await wait(100)
-  } catch(e) {
+  } catch (e) {
     console.log(e)
   }
 
@@ -109,21 +113,24 @@ export async function updateGit() {
 }
 
 export function groupBySub(xs, key, subkey) {
-  return xs.reduce(function(rv, x) {
-    if (!x[key][subkey]) return rv;
-    (rv[x[key][subkey]] = rv[x[key][subkey]] || []).push(x);
-    return rv;
-  }, {}) || null
+  return (
+    xs.reduce(function (rv, x) {
+      if (!x[key][subkey]) return rv
+      ;(rv[x[key][subkey]] = rv[x[key][subkey]] || []).push(x)
+      return rv
+    }, {}) || null
+  )
 }
 
 export function groupBy(xs, key) {
-  return xs.reduce(function(rv, x) {
-    if (!x[key]) return rv;
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {}) || null
+  return (
+    xs.reduce(function (rv, x) {
+      if (!x[key]) return rv
+      ;(rv[x[key]] = rv[x[key]] || []).push(x)
+      return rv
+    }, {}) || null
+  )
 }
-
 
 export function getHighestId(arr) {
   let highest = 0
@@ -137,34 +144,49 @@ export function getHighestId(arr) {
   return highest
 }
 
-export function average(arr) { return arr.reduce((p, c) => p + c, 0) / arr.length }
-export function ordinalise(n) { return n+(n%10==1&&n%100!=11?'st':n%10==2&&n%100!=12?'nd':n%10==3&&n%100!=13?'rd':'th') }
-export function commarise(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }
+export function average(arr) {
+  return arr.reduce((p, c) => p + c, 0) / arr.length
+}
+export function ordinalise(n) {
+  return (
+    n +
+    (n % 10 == 1 && n % 100 != 11
+      ? 'st'
+      : n % 10 == 2 && n % 100 != 12
+      ? 'nd'
+      : n % 10 == 3 && n % 100 != 13
+      ? 'rd'
+      : 'th')
+  )
+}
+export function commarise(n) {
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
 
 export function getTime() {
   return new Date().getTime()
 }
-  
+
 export function convertToDecimal(byte) {
-  let result = 0;
+  let result = 0
 
-  byte = byte.split('');
+  byte = byte.split('')
 
-  byte.reverse();
+  byte.reverse()
 
-  for (let a = 0; a < byte.length; a++){
-    if (byte[a] === '1'){
-      result += 2 ** a;
+  for (let a = 0; a < byte.length; a++) {
+    if (byte[a] === '1') {
+      result += 2 ** a
     }
   }
 
-  return result;
+  return result
 }
-  
+
 export function binaryAgent(str) {
   let bytes = str.split(' ')
   let output = ''
-    
+
   for (let k = 0; k < bytes.length; k++) {
     if (bytes[k]) output += String.fromCharCode(convertToDecimal(bytes[k]))
   }
@@ -184,22 +206,23 @@ export function decodePayload(msg) {
     const data = JSON.parse(json)
 
     return data
-  }
-  catch (err) {
+  } catch (err) {
     // ...
     console.log(err)
   }
 }
 
 export function isNumeric(str) {
-  if (typeof str != "string") return false // we only process strings!  
-  // @ts-ignore
-  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+  if (typeof str != 'string') return false // we only process strings!
+  return (
+    // @ts-ignore
+    !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+    !isNaN(parseFloat(str))
+  ) // ...and ensure strings of whitespace fail
 }
 
 export function sha256(str) {
-  return crypto.createHash("sha256").update(str, "utf8").digest("base64")
+  return crypto.createHash('sha256').update(str, 'utf8').digest('base64')
 }
 
 export function randomPosition(min, max) {
@@ -208,8 +231,8 @@ export function randomPosition(min, max) {
 
 export function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
   }
 
   return array
@@ -227,5 +250,5 @@ export function random(min, max) {
 
 export default {
   db,
-  time
+  time,
 }

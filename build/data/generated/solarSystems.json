@@ -1,0 +1,19 @@
+[
+    {
+        "uuid": "recr5jQaWI3cV7dVm",
+        "id": 1,
+        "name": "Gamon",
+        "isEnabled": true,
+        "link": "https://rune.game/solar-system/gamon",
+        "stars": "Jiron (Red) & Isro (Blue)",
+        "shortDescription": "Four unique planets orbit this binary star solar system.",
+        "description": "Four planets, including our own Haerra, orbit the binary stars Jiron and Isro. Jiron, a red giant star, glows scarlet in the daytime sky. Isro, a blue star, sheds a much brighter light with azure hues.\n",
+        "planets": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    }
+]

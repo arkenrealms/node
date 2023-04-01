@@ -1,4 +1,4 @@
-export declare const CURRENT_FARM_SYMBOL = "GUL";
+export declare const CURRENT_FARM_SYMBOL = "OHM";
 export interface Address {
     97?: string;
     56: string;

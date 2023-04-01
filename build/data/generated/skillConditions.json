@@ -1,0 +1,479 @@
+[
+  {
+    "uuid": "recTi5jF32PswwWpB",
+    "id": 1,
+    "name": "Always",
+    "description": "",
+    "explanation": "Constant, essentially no conditions needed.",
+    "example": "",
+    "scope": "Match"
+  },
+  {
+    "uuid": "recJ83jtvdrwCAoYg",
+    "id": 2,
+    "name": "WaitForTime",
+    "description": "after waiting {p1} seconds.",
+    "explanation": "Basically an enforced cooldown.",
+    "example": "It must be 10 seconds since the last use or execution.",
+    "scope": "Match",
+    "parameters": [
+      "time"
+    ]
+  },
+  {
+    "uuid": "reclqwZOSkgR61QV2",
+    "id": 3,
+    "name": "InAura",
+    "description": "when affected by a(n) {p1} aura",
+    "explanation": "Player is within an aura of a specified effect.",
+    "example": "Player must be in an aura that deals thorn damage.",
+    "scope": "Match",
+    "parameters": [
+      "effectType"
+    ]
+  },
+  {
+    "uuid": "recIUJeypxzlJxlvd",
+    "id": 4,
+    "name": "SkillHits",
+    "description": "after hitting {p1} with {p2} [{p3} times] [in {p4} seconds]",
+    "explanation": "Player has hit an enemy (optional: with a specified skill) in the last 5s",
+    "example": "Player must have hit an enemy with three fireballs in the last 5s.",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "skill",
+      "value?",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recRiwtpaeKjPC3Bi",
+    "id": 5,
+    "name": "IsDay",
+    "description": "during the day.",
+    "explanation": "",
+    "example": "It must be day.",
+    "scope": "Match"
+  },
+  {
+    "uuid": "rec5IWeA8bOiRLmB3",
+    "id": 6,
+    "name": "IsNight",
+    "description": "at night.",
+    "explanation": "",
+    "example": "It must be night.",
+    "scope": "Match"
+  },
+  {
+    "uuid": "rec1E9EGH86CqJFqg",
+    "id": 7,
+    "name": "Ailment",
+    "description": "when {p1} are/is affected by {p2}",
+    "explanation": "",
+    "example": "The player must be poisoned.",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "ailment"
+    ]
+  },
+  {
+    "uuid": "recfQdcxP5DOcB6GF",
+    "id": 10,
+    "name": "NPCsNearby",
+    "description": "when [{p2}] {p1} are nearby",
+    "explanation": "",
+    "example": "The player must have a hostile npc nearby.",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "value?"
+    ]
+  },
+  {
+    "uuid": "recQiziX4ijFq3bCZ",
+    "id": 11,
+    "name": "MapModActive",
+    "description": "when map has the {mapmod} modifier.",
+    "explanation": "",
+    "example": "The increased attack speed map mod must be active.",
+    "scope": "Match",
+    "parameters": [
+      "mapmod"
+    ]
+  },
+  {
+    "uuid": "recR2v5fsTv9GzK3h",
+    "id": 12,
+    "name": "StepsTaken",
+    "description": "after moving at least {p1} meters.",
+    "explanation": "",
+    "example": "The player must have moved 25 in-game units since the last execution.",
+    "scope": "Match",
+    "parameters": [
+      "value"
+    ]
+  },
+  {
+    "uuid": "rec21aTip6dtXAcu7",
+    "id": 13,
+    "name": "UniqueEnemiesKilled",
+    "description": "after killing {p1} unique enemites",
+    "explanation": "",
+    "example": "The player must have killed 3 unique enemies during the match.",
+    "scope": "Match",
+    "parameters": [
+      "value"
+    ]
+  },
+  {
+    "uuid": "recCMb8IIXuZsfnwT",
+    "id": 14,
+    "name": "WinStreak",
+    "description": "after achieving [{p1}] consecutive wins [in {p2}].",
+    "explanation": "",
+    "example": "The player must be on a winning streak of 3 matches or more.",
+    "scope": "Career",
+    "parameters": [
+      "value?",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "rec94La6kiwbf80Fc",
+    "id": 15,
+    "name": "KillStreak",
+    "description": "after {p1} consecutive kills [in {p2}].",
+    "explanation": "if no optional args, triggers with every kill",
+    "example": "The player must have an ongoing killstreak of 5 or more.",
+    "scope": "Tournament",
+    "parameters": [
+      "value?",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recA9AsJReI4eNyxF",
+    "id": 16,
+    "name": "StatCriterion",
+    "description": "when {p1} is {p2} {p3}.",
+    "explanation": "",
+    "example": "Player must be at perfect health.",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "stat",
+      "operator",
+      "value"
+    ]
+  },
+  {
+    "uuid": "reclQewDALQGspvL1",
+    "id": 20,
+    "name": "UsedNearby",
+    "description": "when {p1} is used nearby [{p2} times within {p3} seconds.",
+    "explanation": "",
+    "example": "An enemy must have used a movement skill nearby.",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "value?",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recslJmO2zCqEK7sV",
+    "id": 21,
+    "name": "CriticalHits",
+    "description": "when landing [{p2}] critical hit[s in {p3} seconds].",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "skill?",
+      "value?",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "reclanCrNuyLPSNsO",
+    "id": 22,
+    "name": "AppliedAilment",
+    "description": "after successfully applying {p1} [{p2} times]",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "ailment",
+      "value?"
+    ]
+  },
+  {
+    "uuid": "rechsjYgPGQgDdfLT",
+    "id": 23,
+    "name": "DoTNearby",
+    "description": "when a nearby {p1} is taking [{p2}] damage over time.",
+    "explanation": "Enemy within set distance has DoT effects of a given type underway",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "damagetype?"
+    ]
+  },
+  {
+    "uuid": "recOvK8AoUvhw6IUv",
+    "id": 24,
+    "name": "PerfectDodge",
+    "description": "after perfectly dodging attacks {p1} time(s) [in {p2} seconds].",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "value",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recaz562THBP0hiRD",
+    "id": 25,
+    "name": "SkillTypeUsed",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "skillclassification",
+      "value",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "rec7fn4i1QLd9wwMY",
+    "name": "HitTaken",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "damagetype?",
+      "value?"
+    ]
+  },
+  {
+    "uuid": "recnDsQY2fUZbK7KP",
+    "id": 26,
+    "name": "Defended",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "skillclassification?",
+      "value",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "rec0ohu77SyLZMEnS",
+    "id": 28,
+    "name": "Absorbed",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "skillclassification?",
+      "type",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recHZtQ1stePrNDcY",
+    "id": 29,
+    "name": "NoDamageTaken",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recwxG7Iq2tIJh0hP",
+    "id": 30,
+    "name": "TimeWithoutCriticalHit",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "time"
+    ]
+  },
+  {
+    "uuid": "rec7xIRBe0X8C6Sf8",
+    "id": 31,
+    "name": "DualWielding",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "itemsubtype?"
+    ]
+  },
+  {
+    "uuid": "recUsk65VA8IVqWp3",
+    "id": 32,
+    "name": "EnemyHealthAbove",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "threshold"
+    ]
+  },
+  {
+    "uuid": "reckDgHcPZXtMNdLt",
+    "id": 34,
+    "name": "EmptyOffHand",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "itemsubtype?"
+    ]
+  },
+  {
+    "uuid": "recZXvvMq572Zep2Z",
+    "id": 35,
+    "name": "RankAchieved",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Career",
+    "parameters": [
+      "rank"
+    ]
+  },
+  {
+    "uuid": "recDFqz88H94fX0yR",
+    "id": 36,
+    "name": "TimeWithoutHits",
+    "description": "",
+    "explanation": "Player has not hit an enemy in over 5s",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "time",
+      "skill?"
+    ]
+  },
+  {
+    "uuid": "recvRG0UOvXz8qF8o",
+    "id": 37,
+    "name": "SkillTypeHits",
+    "description": "",
+    "explanation": "A more general version of \"SkillHits\"",
+    "example": "Player hits an enemy with a skill classified as \"Melee\"",
+    "scope": "Match",
+    "parameters": [
+      "target",
+      "skillclassification",
+      "value"
+    ]
+  },
+  {
+    "uuid": "reckqM7vrUBNO1lyJ",
+    "id": 38,
+    "name": "TimeWithoutSkillTypeHits",
+    "description": "",
+    "explanation": "A more specific version of \"TimeWithoutHits\" that requires a specific type of skill to land the hit",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "skillclassification",
+      "time"
+    ]
+  },
+  {
+    "uuid": "rec6zL14q0RJ4sj3L",
+    "id": 39,
+    "name": "Wins",
+    "description": "",
+    "explanation": "Amount of career wins, optionally constricted to the last {time?}.",
+    "example": "",
+    "scope": "Session",
+    "parameters": [
+      "wins",
+      "time?"
+    ]
+  },
+  {
+    "uuid": "recim0PHXl9WyFdx6",
+    "id": 40,
+    "name": "CurrentStatOffset",
+    "description": "",
+    "explanation": "The deviation of {stat} from its base value due to stat mods",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "stat",
+      "offset"
+    ]
+  },
+  {
+    "uuid": "recEo8Esnas1ffLjX",
+    "id": 41,
+    "name": "CurrentCharge",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Session",
+    "parameters": [
+      "value"
+    ]
+  },
+  {
+    "uuid": "recTSDtNx7upSI5xx",
+    "id": 42,
+    "name": "EnemyOfType",
+    "description": "to {p1}.",
+    "explanation": "",
+    "example": "Player hits a foe tagged as \"summon\"",
+    "scope": "Match",
+    "parameters": [
+      "enemytype"
+    ]
+  },
+  {
+    "uuid": "recn5Mfqph4kXzNHA",
+    "id": 43,
+    "name": "ItemEquipped",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "item"
+    ]
+  },
+  {
+    "uuid": "recAyLwbhFpk3ucdi",
+    "id": 44,
+    "name": "ItemSubtypeEquipped",
+    "description": "",
+    "explanation": "",
+    "example": "",
+    "scope": "Match",
+    "parameters": [
+      "itemsubtype"
+    ]
+  }
+]

@@ -1,0 +1,315 @@
+[
+  {
+    "uuid": "recrGMJHI1dP1xFJT",
+    "id": 1,
+    "name": "Strength",
+    "isManual": true,
+    "value": 0,
+    "description": "While being a key stat for armor/weapon requirements also gives the following bonuses, Attack power, Stamina Recovery rate Carry weight, and overall Stamina.\n"
+  },
+  {
+    "uuid": "reconLjKtCXsGSdHw",
+    "id": 2,
+    "name": "Intelligence",
+    "isManual": true,
+    "value": 0,
+    "description": "Being a requirement for a small amount of items, also has bonuses other than that of being able to wield those weapons Stamina, Mana, Mana recovery rate.\n"
+  },
+  {
+    "uuid": "recFS6vyxnwh2ynSw",
+    "id": 3,
+    "name": "Agility",
+    "isManual": true,
+    "value": 0,
+    "description": "Agility is needed for many bows, also affects your characters Accuracy, Projectile damage ( arrow, spear, etc. ) and defense.\n"
+  },
+  {
+    "uuid": "rec48jdKWOscQUucr",
+    "id": 4,
+    "name": "Vitality",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recITR8yeIaltYhNJ",
+    "id": 5,
+    "name": "Base Health",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recMfZnQm5OgLcq8X",
+    "id": 6,
+    "name": "Base Energy",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "rectHc8mloWeGB9VA",
+    "id": 7,
+    "name": "Stamina",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recCCz8WSwQf8dJ4w",
+    "id": 8,
+    "name": "Movement Speed",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recS4j06onhtlaWKu",
+    "id": 9,
+    "name": "Light Radius",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recKXyb3H59HR8mJw",
+    "id": 10,
+    "name": "Attack Speed",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recWqHoUVELagBh3z",
+    "id": 11,
+    "name": "Cast Speed",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recWOSjnEVf5sjQuP",
+    "id": 12,
+    "name": "Luck",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recy4OHdjQvIbSHEf",
+    "id": 13,
+    "name": "Accuracy",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recAGAeftv2hzvWhZ",
+    "id": 14,
+    "name": "Time Hops",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recSBW58VdwuoxAPi",
+    "id": 15,
+    "name": "Time Played",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recPBgWZCbSSfvRTV",
+    "id": 16,
+    "name": "Mana Per Hit",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recsiuAIiBtHoeljp",
+    "id": 17,
+    "name": "Chance to Inflict a Piercing Hit",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recBRIeMgLAJ1MVZ1",
+    "id": 18,
+    "name": "Critical Hit Chance",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recoGQ62rnd96B7ju",
+    "id": 19,
+    "name": "Critical Hit Damage",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "rec7nShEO79jhoNag",
+    "id": 20,
+    "name": "Defense",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recDli8Bopltrw3Kb",
+    "id": 21,
+    "name": "Extra Gold from Kills",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recUj0Y6CLhRR8PDs",
+    "id": 22,
+    "name": "Damage Reduction",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "reckBBOsQQEyQ5gVf",
+    "id": 23,
+    "name": "Warp Count",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recfTosuL5hBsW7wP",
+    "id": 24,
+    "name": "Death Count",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "rec2R8W4yHIDZv3Bg",
+    "id": 25,
+    "name": "Kill Count",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recGnJRAsbluurZBa",
+    "id": 26,
+    "name": "Chickens Kicked",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recNj2GI5jFmp8S31",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recmVaCrYmJ5kOpEV",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rec60rt9DZIavFXMN",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recLpxEqHN0uKaY53",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rectV7PIzEWP5rQFb",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recv80FgAk4kXDJGl",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recEXE8VBtLT3Hh2j",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recN0bwWN6VYCEtdi",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recKBzk7tLeKmLeaq",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recR7m6iQui15xLA9",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recT81vFDHMvYtQy6",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "reczhx2v7mD1owJd6",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recYStmZg7QUp5dSs",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rec65Juf6Zg7PBE4n",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rec5MswHiI6zo5YkG",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recA8EC9xB6NDLPNd",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recpaLZmyv3JFl2a6",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recpcMjNRqwO5cKXB",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recq3GWYwrKzxRrDN",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recEkp4jOkrtj3Dbp",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "reccEit79r4HTUZ6l",
+    "isManual": false,
+    "description": ""
+  }
+]

@@ -10,12 +10,12 @@ export function addSubProcess(subProcess) {
 
 export function catchExceptions(kill = false) {
   process
-    .on("unhandledRejection", (reason, p) => {
-      console.log(reason, "Unhandled Rejection at Promise", p)
-      logError(reason + ". Unhandled Rejection at Promise:" + p)
+    .on('unhandledRejection', (reason, p) => {
+      console.log(reason, 'Unhandled Rejection at Promise', p)
+      logError(reason + '. Unhandled Rejection at Promise:' + p)
     })
-    .on("uncaughtException", (err) => {
-      console.log(err, "Uncaught Exception thrown")
+    .on('uncaughtException', (err) => {
+      console.log(err, 'Uncaught Exception thrown')
       // logError(err + ". Uncaught Exception thrown" + err.stack)
       if (kill) {
         process.exit(1)
@@ -25,7 +25,7 @@ export function catchExceptions(kill = false) {
 
 export function killSubProcesses() {
   console.log('Killing', subProcesses.length, 'child processes')
-  
+
   for (const i in subProcesses) {
     if (!subProcesses[i]) continue
 
@@ -35,8 +35,10 @@ export function killSubProcesses() {
 
   try {
     const execPromise = util.promisify(exec)
-    execPromise('kill -9 `ps aux | grep /usr/bin/node | grep -v grep | awk \'{ print $2 }\'` && kill -9 `ps aux | grep RuneInfinite | grep -v grep | awk \'{ print $2 }\'` && pkill -f Infinite').catch(() => {})
-  } catch(e2) {
+    execPromise(
+      "kill -9 `ps aux | grep /usr/bin/node | grep -v grep | awk '{ print $2 }'` && kill -9 `ps aux | grep RuneInfinite | grep -v grep | awk '{ print $2 }'` && pkill -f Infinite"
+    ).catch(() => {})
+  } catch (e2) {
     console.log(e2)
   }
 }

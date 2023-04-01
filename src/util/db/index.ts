@@ -3,5 +3,5 @@ import isUniqueConstraintViolation from './isUniqueConstraintViolation'
 
 export default {
   isPostgresError,
-  isUniqueConstraintViolation
+  isUniqueConstraintViolation,
 }

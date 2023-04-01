@@ -397,7 +397,7 @@ exports.achievementData = [
     {
         id: 18,
         key: 'ASTRAL_PLANE',
-        name: "It's Full Of Stars...",
+        name: `It's Full Of Stars...`,
         category: 'Basic',
         isEnabled: false,
         icon: process.env.REACT_APP_PUBLIC_URL + 'images/achievements/green/sk_f_10.PNG',
@@ -410,17 +410,17 @@ exports.achievementData = [
         },
         branches: {
             1: {
-                description: ["Travel to the Astral Plane"],
+                description: [`Travel to the Astral Plane`],
             },
             2: {
-                description: "Travel to the Astral Plane",
+                description: `Travel to the Astral Plane`,
             },
         },
     },
     {
         id: 19,
         key: 'ETHEREAL_PLANE',
-        name: "Carpenter's Walk",
+        name: `Carpenter's Walk`,
         category: 'Basic',
         isEnabled: false,
         icon: process.env.REACT_APP_PUBLIC_URL + 'images/achievements/green/sk_f_10.PNG',
@@ -433,10 +433,10 @@ exports.achievementData = [
         },
         branches: {
             1: {
-                description: ["Travel to the Ethereal Plane"],
+                description: [`Travel to the Ethereal Plane`],
             },
             2: {
-                description: "Travel to the Ethereal Plane",
+                description: `Travel to the Ethereal Plane`,
             },
         },
     },
@@ -456,11 +456,12 @@ exports.achievementData = [
         },
         branches: {
             1: {
-                description: ["Travel to an Energy Plane"],
+                description: [`Travel to an Energy Plane`],
             },
             2: {
-                description: "Travel to an Energy Plane",
+                description: `Travel to an Energy Plane`,
             },
         },
     },
 ];
+//# sourceMappingURL=achievements.js.map

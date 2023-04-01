@@ -1,10 +1,16 @@
 import loki from 'lokijs'
 import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
-import { itemData, Games, ItemAttributesByName, ItemAttributesById, ItemType, ItemRarity, ItemRarityNameById } from '../data/items'
+import {
+  Games,
+  ItemAttributesById,
+  ItemAttributesByName,
+  itemData,
+  ItemRarity,
+  ItemRarityNameById,
+} from '../data/items'
 import { ItemsMainCategoriesType } from '../data/items.type'
 import ProbabilityCache from '../data/probabilityCache'
 import { average, randInt } from './math'
-
 
 const useLocalStorage = false
 const useIndexedDb = false
@@ -13,16 +19,19 @@ const useLoki = true
 let tokenCache = {}
 
 const dbCon = new loki('rune.db', {
-  adapter: typeof window !== 'undefined' ? new IncrementalIndexedDBAdapter() : new (require('lokijs/src/loki-fs-structured-adapter'))(), // typeof indexedDB !== 'undefined'
+  adapter:
+    typeof window !== 'undefined'
+      ? new IncrementalIndexedDBAdapter()
+      : new (require('lokijs/src/loki-fs-structured-adapter'))(), // typeof indexedDB !== 'undefined'
   autoload: true,
-  autoloadCallback : databaseInitialize,
-  autosave: true, 
-  autosaveInterval: 4000
+  autoloadCallback: databaseInitialize,
+  autosave: true,
+  autosaveInterval: 4000,
 })
 
 const db = {
   config: undefined,
-  items: undefined
+  items: undefined,
 }
 
 function databaseInitialize() {
@@ -43,24 +52,24 @@ function databaseInitialize() {
   if (db.config === null) {
     db.config = dbCon.addCollection('config', {
       // clone: true,
-      unique: 'key'
+      unique: 'key',
     })
 
     db.config.insert({
       key: 'updatedAt',
-      value: cacheBreaker
+      value: cacheBreaker,
     })
   }
 
   db.config.find({
-    key: 'updatedAt'
+    key: 'updatedAt',
   }).value = cacheBreaker
 
   if (db.items === null) {
     // Add a collection to the database
     db.items = dbCon.addCollection('items', {
       // clone: true,
-      unique: 'tokenId'
+      unique: 'tokenId',
     })
   }
 }
@@ -83,7 +92,7 @@ export function getTokenCache() {
   // }
 
   // if (useIndexedDb) {
-  //   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+  //   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback
   //   // @ts-ignore
   //   var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 
@@ -111,7 +120,7 @@ export function getTokenCache() {
   //     getJohn.onsuccess = function() {
   //         console.log(getJohn.result.name.first);  // => "John"
   //     };
-      
+
   //     // Close the db when the transaction is done
   //     tx.oncomplete = function() {
   //         db.close();
@@ -131,9 +140,9 @@ export function setTokenCache(_tokenCache) {
   //   // Add a collection to the database
   //   const items = db.addCollection('items')
   // }
-  
+
   // if (useIndexedDb) {
-  //   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback 
+  //   // This works on all devices/browsers, and uses IndexedDBShim as a final fallback
   //   // @ts-ignore
   //   var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
 
@@ -173,7 +182,7 @@ function getItemTokenCache(tokenId: string) {
     if (tokenCache[tokenId]) return tokenCache[tokenId]
 
     if (useLoki) {
-      const result = db.items?.findOne({'tokenId': tokenId})
+      const result = db.items?.findOne({ tokenId: tokenId })
 
       if (result) {
         // console.log('Token found in cache', result)
@@ -185,24 +194,24 @@ function getItemTokenCache(tokenId: string) {
 
     if (useLocalStorage && window.localStorage) {
       const tokenCacheText = window.localStorage.getItem(`zzz_tokenCache_${tokenId}`)
-    
+
       if (tokenCacheText) {
         let tokenCacheItem = JSON.parse(tokenCacheText)
-    
+
         const now = new Date()
         if (now.getTime() > tokenCacheItem.expiry) {
           window.localStorage.removeItem(`zzz_tokenCache_${tokenId}`)
-    
+
           return
         }
 
         tokenCache[tokenId] = tokenCacheItem.value
         console.log(99999999, tokenCacheItem.value)
-    
+
         return tokenCacheItem.value
       }
     }
-  } catch(e) {
+  } catch (e) {
     console.log(e, tokenId)
   }
 }
@@ -213,8 +222,8 @@ function setItemTokenCache(item: any) {
 
     if (useLoki) {
       // Find and update an existing document
-      const result = db.items?.findOne({'tokenId': item.tokenId})
-      
+      const result = db.items?.findOne({ tokenId: item.tokenId })
+
       if (result) {
         for (const key of Object.keys(item)) {
           result[key] = item[key]
@@ -226,7 +235,7 @@ function setItemTokenCache(item: any) {
         try {
           // console.log('Inserting item', item)
           db.items?.insert(item)
-        } catch(e) {
+        } catch (e) {
           db.items?.update(item)
         }
       }
@@ -237,12 +246,15 @@ function setItemTokenCache(item: any) {
     if (useLocalStorage && window.localStorage) {
       const ttl = 3 * 24 * 60 * 60 * 1000
 
-      localStorage.setItem(`zzz_tokenCache_${item.tokenId}`, JSON.stringify({
-        expiry: (new Date()).getTime() + ttl,
-        value: item
-      }))
+      localStorage.setItem(
+        `zzz_tokenCache_${item.tokenId}`,
+        JSON.stringify({
+          expiry: new Date().getTime() + ttl,
+          value: item,
+        })
+      )
     }
-  } catch(e) {
+  } catch (e) {
     console.log(e, item)
   }
 }
@@ -275,7 +287,7 @@ export function getItemFromTokenId(tokenId: string) {
       chanceToSendHarvestToHiddenPool: 0,
       chanceToLoseHarvest: 0,
       harvestBurn: 0,
-      attributes: {}
+      attributes: {},
     },
   }
 
@@ -394,7 +406,7 @@ export function normalizeItem(item: any) {
       randomRuneExchange: 0,
       harvestFees: {},
       attributes: {},
-      ...item.meta
+      ...item.meta,
     }
 
     item.attributes = branchAttributes
@@ -452,7 +464,9 @@ export function normalizeItem(item: any) {
         if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestYield.id) {
           item.meta.harvestYield += mod.value
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestFeeToken.id) {
-          item.meta.harvestFees[branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]] = prevMod.value
+          item.meta.harvestFees[
+            branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]
+          ] = prevMod.value
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool.id) {
           item.meta.chanceToSendHarvestToHiddenPool += mod.value
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].BurnEntireHarvest.id) {
@@ -474,7 +488,7 @@ export function normalizeItem(item: any) {
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].Rarity.id) {
           item.rarity = ItemRarity[ItemRarityNameById[mod.value]]
         }
-        
+
         if (mod.attributeId > 0) {
           // if (!item.meta.attributes[mod.attributeId]) item.meta.attributes[mod.attributeId] = 0
 
@@ -517,7 +531,7 @@ export function normalizeItem(item: any) {
     }
 
     if (branch?.perfection) {
-      const perfection = [ ...branch.perfection ]
+      const perfection = [...branch.perfection]
       const attributes = branch.attributes
 
       // if (item.tokenId === '1001000041000100015647') {
@@ -560,47 +574,73 @@ export function normalizeItem(item: any) {
 
           const size = 20000
           if (!ProbabilityCache[item.id]) {
-            ProbabilityCache[item.id] = {};
+            ProbabilityCache[item.id] = {}
 
             // @ts-ignore
-            [...Array(101).keys()].map(function(n) { ProbabilityCache[item.id][n] = 0 });
+            ;[...Array(101).keys()].map(function (n) {
+              ProbabilityCache[item.id][n] = 0
+            })
 
             // @ts-ignore
-            [...Array(size).keys()].map(function() {
-              const rando = Math.floor((
-                  (
-                    branch.perfection.reduce(function(prev, cur, i) {
-                      return prev + (cur === null || cur === undefined ? 0 : (cur === attributes[i].max 
-                        ? (randInt(attributes[i].min, attributes[i].max)-attributes[i].min)/(attributes[i].max-attributes[i].min) 
-                        : (1-((randInt(attributes[i].min, attributes[i].max)-attributes[i].min)/(attributes[i].max-attributes[i].min)))))
-                    }, 0)/branch.perfection.filter(p => p !== undefined && p !== null).length
-                    // Fury: ((randInt(3, 7)-3)/(7-3)+(randInt(20, 40)-20)/(40-20)+(1-(randInt(20, 40)-20)/(40-20)))/3
-                  )*100)
+            ;[...Array(size).keys()].map(function () {
+              const rando = Math.floor(
+                (branch.perfection.reduce(function (prev, cur, i) {
+                  return (
+                    prev +
+                    (cur === null || cur === undefined
+                      ? 0
+                      : cur === attributes[i].max
+                      ? (randInt(attributes[i].min, attributes[i].max) - attributes[i].min) /
+                        (attributes[i].max - attributes[i].min)
+                      : 1 -
+                        (randInt(attributes[i].min, attributes[i].max) - attributes[i].min) /
+                          (attributes[i].max - attributes[i].min))
+                  )
+                }, 0) /
+                  branch.perfection.filter((p) => p !== undefined && p !== null).length) *
+                  // Fury: ((randInt(3, 7)-3)/(7-3)+(randInt(20, 40)-20)/(40-20)+(1-(randInt(20, 40)-20)/(40-20)))/3
+                  100
               ).toFixed(0)
-              
+
               ProbabilityCache[item.id][rando]++
-            });
+            })
           }
 
           // @ts-ignore
-          const total = [...Array(101).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur], 0)
+          const total = [...Array(101).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur], 0)
           const mythic = ProbabilityCache[item.id][100] / total
-          // @ts-ignore
-          const epic = [...Array(99-90).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur+90], 0) / total
-          // @ts-ignore
-          const rare = [...Array(89-70).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur+70], 0) / total
-          // @ts-ignore
-          const magical = [...Array(70-0).keys()].reduce((prev, cur) => prev+ProbabilityCache[item.id][cur+0], 0) / total
-          // @ts-ignore
-          const roll = item.perfection*100 > 3 ? average([...Array(6).keys()].reduce((prev, cur) => ProbabilityCache[item.id][parseInt(cur+item.perfection*100-3)] === 0 ? prev : [...prev, ProbabilityCache[item.id][parseInt(cur+item.perfection*100-3)]], [])) / total : ProbabilityCache[item.id][item.perfection*100] / total
+          const epic =
+            // @ts-ignore
+            [...Array(99 - 90).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 90], 0) / total
+          const rare =
+            // @ts-ignore
+            [...Array(89 - 70).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 70], 0) / total
+          const magical =
+            // @ts-ignore
+            [...Array(70 - 0).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 0], 0) / total
+          const roll =
+            item.perfection * 100 > 3
+              ? average(
+                  // @ts-ignore
+                  [...Array(6).keys()].reduce(
+                    (prev, cur) =>
+                      // @ts-ignore
+                      ProbabilityCache[item.id][parseInt(cur + item.perfection * 100 - 3)] === 0
+                        ? prev
+                        : // @ts-ignore
+                          [...prev, ProbabilityCache[item.id][parseInt(cur + item.perfection * 100 - 3)]],
+                    []
+                  )
+                ) / total
+              : ProbabilityCache[item.id][item.perfection * 100] / total
 
           item.meta.probability = {
             mythic,
             epic,
             rare,
             magical,
-            roll
-          } 
+            roll,
+          }
         } else {
           item.perfection = null
         }
@@ -663,8 +703,12 @@ export function normalizeItem(item: any) {
 
         for (const attributeIndex in item.branches[branchIndex].attributes) {
           if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
-            if (item.branches[branchIndex].attributes[attributeIndex].min === item.branches[branchIndex].attributes[attributeIndex].max) {
-              item.branches[branchIndex].attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].min
+            if (
+              item.branches[branchIndex].attributes[attributeIndex].min ===
+              item.branches[branchIndex].attributes[attributeIndex].max
+            ) {
+              item.branches[branchIndex].attributes[attributeIndex].value =
+                item.branches[branchIndex].attributes[attributeIndex].min
 
               if (branchIndex === 1) {
                 item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].value
@@ -727,9 +771,21 @@ export function normalizeItem(item: any) {
           for (const pIndex in perf) {
             if (perf[pIndex] === undefined || perf[pIndex] === null) continue
 
-            item.branches[branchIndex].presets[ItemRarity.Magical.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.2 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.2))
-            item.branches[branchIndex].presets[ItemRarity.Rare.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.7 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.7))
-            item.branches[branchIndex].presets[ItemRarity.Epic.id][pIndex] = Math.floor(perf[pIndex] === attrs[pIndex].max ? (attrs[pIndex].max - attrs[pIndex].min) * 0.95 + attrs[pIndex].min : attrs[pIndex].max - ((attrs[pIndex].max - attrs[pIndex].min) * 0.95))
+            item.branches[branchIndex].presets[ItemRarity.Magical.id][pIndex] = Math.floor(
+              perf[pIndex] === attrs[pIndex].max
+                ? (attrs[pIndex].max - attrs[pIndex].min) * 0.2 + attrs[pIndex].min
+                : attrs[pIndex].max - (attrs[pIndex].max - attrs[pIndex].min) * 0.2
+            )
+            item.branches[branchIndex].presets[ItemRarity.Rare.id][pIndex] = Math.floor(
+              perf[pIndex] === attrs[pIndex].max
+                ? (attrs[pIndex].max - attrs[pIndex].min) * 0.7 + attrs[pIndex].min
+                : attrs[pIndex].max - (attrs[pIndex].max - attrs[pIndex].min) * 0.7
+            )
+            item.branches[branchIndex].presets[ItemRarity.Epic.id][pIndex] = Math.floor(
+              perf[pIndex] === attrs[pIndex].max
+                ? (attrs[pIndex].max - attrs[pIndex].min) * 0.95 + attrs[pIndex].min
+                : attrs[pIndex].max - (attrs[pIndex].max - attrs[pIndex].min) * 0.95
+            )
             item.branches[branchIndex].presets[ItemRarity.Mythic.id][pIndex] = perf[pIndex]
             item.branches[branchIndex].presets[ItemRarity.Unique.id][pIndex] = perf[pIndex]
           }
@@ -740,7 +796,7 @@ export function normalizeItem(item: any) {
             const branch2Index = Number(b2Index)
 
             if (!item.branches[branch2Index].presets?.[item.rarity.id]) continue
-            
+
             for (const presetIndex in item.branches[branch2Index].presets[item.rarity.id]) {
               const preset = item.branches[branch2Index].presets[item.rarity.id][presetIndex]
 
@@ -762,7 +818,7 @@ export function normalizeItem(item: any) {
       for (const attributeIndex in branch.attributes) {
         const attribute = branch.attributes[attributeIndex]
         const perfection = branch.perfection[attributeIndex]
-  
+
         if (perfection === undefined || perfection == null) {
           if (attribute.value === undefined && attribute.map) {
             attribute.value = attribute.min
@@ -813,13 +869,23 @@ export function normalizeItem(item: any) {
 
             continue
           }
-          
+
           // let targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
           let targetPerfection
           // let attributePerfection
 
           if (Number.isFinite(item.branches[1].perfection[attributeIndex])) {
-            targetPerfection = item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max ? (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min) : (1 - (item.branches[1].attributes[attributeIndex].param1.value - item.branches[1].attributes[attributeIndex].param1.min) / (item.branches[1].attributes[attributeIndex].param1.max - item.branches[1].attributes[attributeIndex].param1.min))
+            targetPerfection =
+              item.branches[1].perfection[attributeIndex] === item.branches[1].attributes[attributeIndex].param1.max
+                ? (item.branches[1].attributes[attributeIndex].param1.value -
+                    item.branches[1].attributes[attributeIndex].param1.min) /
+                  (item.branches[1].attributes[attributeIndex].param1.max -
+                    item.branches[1].attributes[attributeIndex].param1.min)
+                : 1 -
+                  (item.branches[1].attributes[attributeIndex].param1.value -
+                    item.branches[1].attributes[attributeIndex].param1.min) /
+                    (item.branches[1].attributes[attributeIndex].param1.max -
+                      item.branches[1].attributes[attributeIndex].param1.min)
           } else {
             // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
             targetPerfection = item.perfection // item.branches[branchIndex].perfection[attributeIndex]
@@ -842,11 +908,7 @@ export function normalizeItem(item: any) {
           // }
 
           if (attribute.param1.map) {
-            const kindofClose = Math.floor(
-              (attribute.param1.max -
-                attribute.param1.min) *
-                targetPerfection,
-            )
+            const kindofClose = Math.floor((attribute.param1.max - attribute.param1.min) * targetPerfection)
 
             const closestKey = Object.keys(attribute.param1.map).sort((a, b) => {
               return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
@@ -854,14 +916,9 @@ export function normalizeItem(item: any) {
 
             attribute.param1.value = closestKey
           } else {
-            const alignedValue = Math.floor(
-              (attribute.param1.max -
-                attribute.param1.min) *
-                targetPerfection,
-            )
+            const alignedValue = Math.floor((attribute.param1.max - attribute.param1.min) * targetPerfection)
 
-            attribute.param1.value =
-              attribute.param1.min + alignedValue
+            attribute.param1.value = attribute.param1.min + alignedValue
           }
 
           // if (!item.branches[branchIndex].perfection) {
@@ -870,7 +927,6 @@ export function normalizeItem(item: any) {
           // if (item.branches[branchIndex].perfection[attributeIndex] === undefined) {
           //   item.branches[branchIndex].perfection[attributeIndex] = targetPerfection
           // }
-
 
           // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
 
@@ -884,7 +940,7 @@ export function normalizeItem(item: any) {
 
     // Normalize shorthand
     if (branch?.perfection) {
-      const perfection = [ ...branch.perfection ]
+      const perfection = [...branch.perfection]
       const attributes = branch.attributes
 
       if (perfection.length) {
@@ -896,7 +952,7 @@ export function normalizeItem(item: any) {
             continue
           }
 
-          const value = (attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value)
+          const value = attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value
           shorthand.push(value)
 
           // odds *= (value - attributes[i].min + 1)
@@ -905,8 +961,8 @@ export function normalizeItem(item: any) {
         // if (odds > 1) {
         //   item.meta.odds = odds
         // }
-        
-        item.shorthand = shorthand.map(s => s + '').join('-')
+
+        item.shorthand = shorthand.map((s) => s + '').join('-')
       }
     }
 
@@ -941,20 +997,21 @@ export function normalizeItem(item: any) {
     }
 
     if (item.branches[2]) {
-      item.branches[2].initialCharge = item.branches[2].initialCharge !== undefined ? item.branches[2].initialCharge : item.initialCharge
-      item.branches[2].maxCharge = item.branches[2].maxCharge !== undefined ? item.branches[2].maxCharge : item.maxCharge
+      item.branches[2].initialCharge =
+        item.branches[2].initialCharge !== undefined ? item.branches[2].initialCharge : item.initialCharge
+      item.branches[2].maxCharge =
+        item.branches[2].maxCharge !== undefined ? item.branches[2].maxCharge : item.maxCharge
 
       const chargeMultiplier = {
         [ItemRarity.Magical.id]: 4,
         [ItemRarity.Rare.id]: 3,
         [ItemRarity.Epic.id]: 2,
-        [ItemRarity.Mythic.id]: 1
+        [ItemRarity.Mythic.id]: 1,
       }
 
       item.branches[2].initialCharge *= chargeMultiplier[item.rarity.id]
       item.branches[2].maxCharge *= chargeMultiplier[item.rarity.id]
     }
-
 
     item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase()
 
@@ -962,45 +1019,45 @@ export function normalizeItem(item: any) {
       item.perfection = -13
     if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
       item.branches[1].description[1] = '"So long, I barely knew thee."'
-  
-//     if (item.exclusiveConditions) {
-//       const conditionMatch = []
-//       for (const condition of item.exclusiveConditions) {
-//         if (condition === 'stream') {
-//           const now = new Date()
-//           // const eventStart = nextDate(0, 20).getTime() / 1000
-//           // const eventEnd = nextDate(0, 23, 59).getTime() / 1000 // 4 hours later
 
-//           // conditionMatch.push(now > streamStart && now < streamEnd)
-//           // const now = (new Date()).getTime() /  1000
-//           // const eventStart = 1660321091
-//           // const eventEnd = 1660324091
+    //     if (item.exclusiveConditions) {
+    //       const conditionMatch = []
+    //       for (const condition of item.exclusiveConditions) {
+    //         if (condition === 'stream') {
+    //           const now = new Date()
+    //           // const eventStart = nextDate(0, 20).getTime() / 1000
+    //           // const eventEnd = nextDate(0, 23, 59).getTime() / 1000 // 4 hours later
 
-//           conditionMatch.push(now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 23) // 3-7PM UTC
-//         }
+    //           // conditionMatch.push(now > streamStart && now < streamEnd)
+    //           // const now = (new Date()).getTime() /  1000
+    //           // const eventStart = 1660321091
+    //           // const eventEnd = 1660324091
 
-//         if (condition === 'halloween') {
-//           const now = new Date()
-//           const eventStart = new Date(`October 31, ${now.getFullYear()} 00:00:00`)
-//           const eventEnd = new Date(`November 1, ${now.getFullYear()} 00:00:00`)
+    //           conditionMatch.push(now.getDay() === 0 && now.getHours() >= 15 && now.getHours() <= 23) // 3-7PM UTC
+    //         }
 
-//           conditionMatch.push(now > eventStart && now < eventEnd)
-//         }
+    //         if (condition === 'halloween') {
+    //           const now = new Date()
+    //           const eventStart = new Date(`October 31, ${now.getFullYear()} 00:00:00`)
+    //           const eventEnd = new Date(`November 1, ${now.getFullYear()} 00:00:00`)
 
-//         if (condition === 'christmas') {
-//           const now = new Date()
-//           const eventStart = new Date(`December 24, ${now.getFullYear()} 00:00:00`)
-//           const eventEnd = new Date(`December 26, ${now.getFullYear()} 00:00:00`)
+    //           conditionMatch.push(now > eventStart && now < eventEnd)
+    //         }
 
-//           conditionMatch.push(now > eventStart && now < eventEnd)
-//         }
-//       }
-//       if (conditionMatch.includes(true)) {
-//         item.isSecret = false
-//         item.isUltraSecret = false
-//         item.isCraftable = true
-//       }
-//     }
+    //         if (condition === 'christmas') {
+    //           const now = new Date()
+    //           const eventStart = new Date(`December 24, ${now.getFullYear()} 00:00:00`)
+    //           const eventEnd = new Date(`December 26, ${now.getFullYear()} 00:00:00`)
+
+    //           conditionMatch.push(now > eventStart && now < eventEnd)
+    //         }
+    //       }
+    //       if (conditionMatch.includes(true)) {
+    //         item.isSecret = false
+    //         item.isUltraSecret = false
+    //         item.isCraftable = true
+    //       }
+    //     }
   } catch (e) {
     // console.log('Token is invalid', tokenId)
     console.log(e)
@@ -1031,7 +1088,7 @@ export function getTokenIdFromItem(item, rand = 1) {
     }
   }
 
-  attrs += "00000"
+  attrs += '00000'
   attrs += pad(rand, 3)
 
   return `1${pad(version, 3)}${pad(item.id, 5)}${pad(item.type, 2)}${attrs}`

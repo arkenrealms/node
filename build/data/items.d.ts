@@ -42,6 +42,13 @@ export declare const Games: {
         id: number;
     };
 };
+export declare const GamesById: {
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    5: string;
+};
 export declare function getFilteredItems(list: any): any;
 export declare const ConditionIdByName: {
     WaitForTime: number;
@@ -13675,13 +13682,16 @@ export declare const itemData: {
         details: {
             Type: string;
             Subtype: string;
-            "Rune Word"?: undefined;
+            "Rune Word": string;
             Distribution?: undefined;
             Date?: undefined;
             "Max Supply"?: undefined;
         };
         recipe: {
-            requirement: any[];
+            requirement: {
+                id: number;
+                quantity: number;
+            }[];
         };
         description: string;
         shortDescription: string;
@@ -13699,6 +13709,7 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
+                        isPercent: boolean;
                         min: number;
                         max: number;
                         value?: undefined;
@@ -13712,15 +13723,34 @@ export declare const itemData: {
                     game: string;
                     nexusLink: string;
                     nature: string;
+                    description: string;
                     param1: {
                         spec: string;
                         min: number;
                         max: number;
+                        isPercent?: undefined;
                         value?: undefined;
                         map?: undefined;
                     };
                     paramType1?: undefined;
-                    description?: undefined;
+                    paramValue1?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        isPercent?: undefined;
+                        value?: undefined;
+                        map?: undefined;
+                    };
                     paramValue1?: undefined;
                 } | {
                     id: number;
@@ -13738,6 +13768,7 @@ export declare const itemData: {
                         map: {
                             "19": string;
                         };
+                        isPercent?: undefined;
                     };
                     description?: undefined;
                     paramValue1?: undefined;
@@ -13755,6 +13786,7 @@ export declare const itemData: {
                         min: number;
                         max: number;
                         value: number;
+                        isPercent?: undefined;
                         map?: undefined;
                     };
                     paramValue1?: undefined;
@@ -13770,9 +13802,10 @@ export declare const itemData: {
                     description: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
-                        value?: undefined;
+                        min: number;
+                        max: number;
+                        value: number;
+                        isPercent?: undefined;
                         map?: undefined;
                     };
                 })[];
@@ -13844,12 +13877,15 @@ export declare const itemData: {
             Type: string;
             Subtype: string;
             Distribution: string[];
-            "Rune Word"?: undefined;
+            "Rune Word": string;
             Date?: undefined;
             "Max Supply"?: undefined;
         };
         recipe: {
-            requirement: any[];
+            requirement: {
+                id: number;
+                quantity: number;
+            }[];
         };
         description: string;
         shortDescription: string;
@@ -13875,9 +13911,11 @@ export declare const itemData: {
                         min: number;
                         max: number;
                         value?: undefined;
+                        map?: undefined;
                     };
                     listOrder?: undefined;
                     paramValues?: undefined;
+                    param2?: undefined;
                 } | {
                     uuid: string;
                     id: number;
@@ -13899,7 +13937,9 @@ export declare const itemData: {
                         min: number;
                         max: number;
                         value?: undefined;
+                        map?: undefined;
                     };
+                    param2?: undefined;
                 } | {
                     uuid: string;
                     id: number;
@@ -13919,6 +13959,10 @@ export declare const itemData: {
                         max: number;
                         value: number;
                         isPercent?: undefined;
+                        map?: undefined;
+                    };
+                    param2: {
+                        value: string;
                     };
                     listOrder?: undefined;
                     paramValues?: undefined;
@@ -13938,12 +13982,16 @@ export declare const itemData: {
                     explanation: string;
                     param1: {
                         spec: string;
-                        min: any;
-                        max: any;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map: {
+                            "1": string;
+                        };
                         isPercent?: undefined;
-                        value?: undefined;
                     };
                     listOrder?: undefined;
+                    param2?: undefined;
                 })[];
                 perfection: number[];
                 presets?: undefined;
@@ -21644,7 +21692,112 @@ export declare const itemData: {
                 };
             };
             "2": {
-                attributes: any[];
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        value?: undefined;
+                    };
+                    nexusLink?: undefined;
+                    paramType1?: undefined;
+                    paramValue1?: undefined;
+                    influences?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string[];
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                    uuid?: undefined;
+                    displayName?: undefined;
+                    link?: undefined;
+                    isImplemented?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    explanation?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    uuid?: undefined;
+                    displayName?: undefined;
+                    link?: undefined;
+                    isImplemented?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    explanation?: undefined;
+                    paramValue1?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    isImplemented: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                    uuid?: undefined;
+                    displayName?: undefined;
+                    link?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    explanation?: undefined;
+                    paramValue1?: undefined;
+                })[];
                 perfection: any[];
             };
             "3": {
@@ -21901,7 +22054,112 @@ export declare const itemData: {
                 };
             };
             "2": {
-                attributes: any[];
+                attributes: ({
+                    uuid: string;
+                    id: number;
+                    name: string;
+                    displayName: string;
+                    isEnabled: boolean;
+                    game: number;
+                    link: string;
+                    isImplemented: boolean;
+                    paramTypes: string[];
+                    paramValues: string[];
+                    nature: string;
+                    description: string;
+                    explanation: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map: {
+                            "3": string;
+                            "4": string;
+                            "5": string;
+                            "6": string;
+                        };
+                        value?: undefined;
+                    };
+                    nexusLink?: undefined;
+                    paramType1?: undefined;
+                    paramValue1?: undefined;
+                    influences?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    paramValue1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string[];
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                    uuid?: undefined;
+                    displayName?: undefined;
+                    link?: undefined;
+                    isImplemented?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    explanation?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        value: number;
+                        map?: undefined;
+                    };
+                    uuid?: undefined;
+                    displayName?: undefined;
+                    link?: undefined;
+                    isImplemented?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    explanation?: undefined;
+                    paramValue1?: undefined;
+                } | {
+                    id: number;
+                    name: string;
+                    isEnabled: boolean;
+                    isImplemented: boolean;
+                    game: string;
+                    nexusLink: string;
+                    paramType1: string;
+                    nature: string;
+                    influences: string;
+                    description: string;
+                    param1: {
+                        spec: string;
+                        min: number;
+                        max: number;
+                        map?: undefined;
+                        value?: undefined;
+                    };
+                    uuid?: undefined;
+                    displayName?: undefined;
+                    link?: undefined;
+                    paramTypes?: undefined;
+                    paramValues?: undefined;
+                    explanation?: undefined;
+                    paramValue1?: undefined;
+                })[];
                 perfection: any[];
             };
             "3": {
@@ -22060,6 +22318,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22114,6 +22373,7 @@ export declare const itemData: {
         description?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22163,6 +22423,7 @@ export declare const itemData: {
         description?: undefined;
         recipe?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22212,6 +22473,7 @@ export declare const itemData: {
         description?: undefined;
         recipe?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22261,6 +22523,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22312,6 +22575,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22378,6 +22642,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22429,6 +22694,7 @@ export declare const itemData: {
         rarity?: undefined;
         recipe?: undefined;
         isTransmutable?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22487,6 +22753,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22545,6 +22812,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22602,6 +22870,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22655,6 +22924,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22704,6 +22974,7 @@ export declare const itemData: {
         recipe?: undefined;
         isTransmutable?: undefined;
         video?: undefined;
+        subtype?: undefined;
     } | {
         id: number;
         name: string;
@@ -22712,6 +22983,7 @@ export declare const itemData: {
         value: string;
         isPublishable: boolean;
         type: number;
+        subtype: number;
         slots: number[];
         isNew: boolean;
         isEquipable: boolean;
@@ -22747,19 +23019,19 @@ export declare const itemData: {
                 perfection: number[];
                 presets?: undefined;
             };
-            "2": {
+            '2': {
                 attributes: any[];
                 perfection: number[];
             };
-            "3": {
+            '3': {
                 attributes: any[];
                 perfection: number[];
             };
-            "4": {
+            '4': {
                 attributes: any[];
                 perfection: any[];
             };
-            "5": {
+            '5': {
                 attributes: any[];
                 perfection: any[];
             };

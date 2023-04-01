@@ -13,11 +13,10 @@ function median(values) {
     return (values[half - 1] + values[half]) / 2.0;
 }
 exports.median = median;
-function toFixed(num, decimals) {
-    if (decimals === void 0) { decimals = 2; }
+function toFixed(num, decimals = 2) {
     if (decimals === 0)
-        return (num + '').match(new RegExp("^-?\\d+(?:\\.\\d{0," + decimals + "})?"))[0].replace('.', '');
-    return (num + '').match(new RegExp("^-?\\d+(?:\\.\\d{0," + decimals + "})?"))[0];
+        return (num + '').match(new RegExp('^-?\\d+(?:\\.\\d{0,' + decimals + '})?'))[0].replace('.', '');
+    return (num + '').match(new RegExp('^-?\\d+(?:\\.\\d{0,' + decimals + '})?'))[0];
 }
 exports.toFixed = toFixed;
 function randInt(min, max) {
@@ -27,6 +26,7 @@ function randInt(min, max) {
 }
 exports.randInt = randInt;
 function average(arr) {
-    return arr.reduce(function (p, c) { return p + c; }, 0) / arr.length;
+    return arr.reduce((p, c) => p + c, 0) / arr.length;
 }
 exports.average = average;
+//# sourceMappingURL=math.js.map

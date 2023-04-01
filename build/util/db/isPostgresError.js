@@ -19,11 +19,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _ = __importStar(require("underscore"));
-exports.default = (function (error) {
+const _ = __importStar(require("underscore"));
+exports.default = (error) => {
     if (!error) {
         return false;
     }
     // Just check the existence of a bunch of attributes. There doesn't seem to be an easier way.
-    return _.all(['severity', 'code', 'detail', 'internalQuery', 'routine'], function (attr) { return _.has(error, attr); });
-});
+    return _.all(['severity', 'code', 'detail', 'internalQuery', 'routine'], (attr) => _.has(error, attr));
+};
+//# sourceMappingURL=isPostgresError.js.map
