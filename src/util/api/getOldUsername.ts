@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const profileApi = 'https://api.rune.farm'
+const profileApi = 'https://api.arken.gg'
 
 const cache = {
   getUserAddressByUsername: {},
