@@ -8,3 +8,5 @@ import ArcaneItems from './contracts/ArcaneItems.json'
 import RuneSenderV1 from './contracts/RuneSenderV1.json'
 import BEP20Contract from './contracts/BEP20.json'
 import RuneCubeV1 from './contracts/RuneCubeV1.json'
+
+export * from './util/item-decoder'

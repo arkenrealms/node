@@ -3,23 +3,15 @@
     "uuid": "rec4PD4L91OBjGA6W",
     "id": 1,
     "name": "Barbarian",
-    "link": "https://rune.game/class/barbarian",
+    "link": "https://arken.gg/class/barbarian",
     "parent": 104,
     "characters": [],
     "npcs": [],
-    "skills": [
-      402,
-      403,
-      428
-    ],
-    "guilds": [
-      10,
-      14,
-      null
-    ],
+    "skills": [402, 403, 428],
+    "guilds": [10, 14, null],
     "shortDescription": "HE_SHE is unequaled in close-quarters combat and mastery of weapons.",
     "description": "Known best for their brutality and ruthlessness in combat, barbarians are both feared and admired across Haerra. Unlike other disciplines, few outsiders can “train” to become barbarians. Most barbarians are born, begotten by their tribe. The tribe serves as a central focus to barbarian life: a close-knit community dedicated to the preservation of their way of life and honoring their ancestors. Barbarians exist in almost all cultures and climates across Haerra, from the desert tribes of Kharsh to the Ovaraaks tribe in the Frostlands. No matter their origin, a single barbarian is often considered to be worth ten soldiers, and their fearlessness is envied by many.\n",
-    "buildInfo": "In Rune Raid, Barbarians will have highest yield, and highest rune exchange.",
+    "buildInfo": "In Arken: Runic Raids, Barbarians will have highest yield, and highest rune exchange.",
     "lore1": "FLAVOR TEXT\n\n**Example**:\n\"War horns sound, stones fly from catapults, and the thunder of a thousand booted feet echoes across the land as hobgoblins march to battle. Across the borderlands of civilization, settlements and settlers must contend with these aggressive humanoids, whose thirst for conquest is never satisfied.\"\n",
     "lore2": "**ZEALOUS RAGE**\n\nAbove all else, barbarians are known for their ability to enter an animalistic frenzy. This mythical state allows barbarians to shrug off the deepest wounds, move faster and hit harder than normal warriors, and laugh in the face of fear itself. Such rage is a staple of the barbarian and it influences all of their martial abilities. All barbarians must learn to embrace this frenzy. Once mastered, a single barbarian can use their rage to cripple legions.\n",
     "lore3": "**ANCESTRAL TIES**\n\nFamily plays a central role in barbarian tribes. Young barbarians pay homage to their elders by presenting gifts of the hunt and trophies of fallen enemies. In return elders grant wisdom, and thus the tribe lives on. Stories are passed down orally from generation to generation, and are used to instill the principles, values, and goals of the tribe. Even after death, barbarians believe that their ancestors watch over, protect, and guide them: be it on the battlefield or on the hunt.\n",
@@ -29,9 +21,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/1ecf4623529c701d03e98e6d18239179/aedb7d12/barbarian.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=46693ac8158097b0",
     "infiniteImage": "https://dl.airtable.com/.attachments/53e34e9b7b2ffee438eee8ddd6bdc8d7/65a70f1f/4444.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=46ff308885f9adcb",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Damage",
     "isPlayable": true
@@ -40,19 +30,14 @@
     "uuid": "recBVyqQp3p6xITvA",
     "id": 2,
     "name": "Mage",
-    "link": "https://rune.game/class/mage",
+    "link": "https://arken.gg/class/mage",
     "characters": [],
     "npcs": [],
-    "skills": [
-      405,
-      406
-    ],
-    "guilds": [
-      15
-    ],
+    "skills": [405, 406],
+    "guilds": [15],
     "shortDescription": "HE_SHE has mastered the elemental magics -- fire, lightning, and ice.",
     "description": "Whether by tireless study or natural talent, mages unlock the secrets of mana energy and manipulate it to serve any purpose. From creating simple illusions to tearing mountains from the earth, the extent of a mage’s power is determined by their keenness and dedication. With such power, however, there is a natural danger. There exists a voice in the mind of every mage, one which whispers promises of greater and greater power, threatening to consume the individual entirely. Only the bravest and wisest of souls can truly master the arcane without it turning against them.\n",
-    "buildInfo": "In Rune Raid, Mages will have the high yield, but highest burn, specializing in magic find and interesting time manipulation.",
+    "buildInfo": "In Arken: Runic Raids, Mages will have the high yield, but highest burn, specializing in magic find and interesting time manipulation.",
     "lore1": "FLAVOR TEXT\n",
     "lore2": "**ARDENT STUDENTS**\n\nMastering the arcane requires patience and dedication. Without a good study habit; mages are doomed for failure. Mages are often depicted with books on their person, or reading from a book, or writing on a page: all for good reason. Much of a mage's life is dedicated to the tome, especially their spellbook--where their arcane knowledge is recorded and stored. Without proper study and care, a mage will never achieve greatness and--in some cases--might end up destroying themselves in the process.\n",
     "lore3": "**INNOVATION AND CREATIVITY**\n\nMages are well-known to have the most versatile skillset. Need to get through a locked door? A wizard can use a ghostly chain to open the door from within. Want to trick your friends into thinking you're rich? A wizard can summon a pile of illusory gold and gems at your feet. Need to get somewhere quickly? A mage can open a portal to another realm. No matter the task, studied mages are experts at finding creative arcane solutions.\n",
@@ -62,9 +47,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/1f4b2fa56732b07e2e6005f7f83d151f/1af0266a/sorceress.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=9f8af29ff6b55eab",
     "infiniteImage": "https://dl.airtable.com/.attachments/4718c04635a6b25c65cccc84269b4313/a367a918/3333.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=db49dba6fb79dd0d",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": true
@@ -73,20 +56,14 @@
     "uuid": "reclTDAPuz1kI0WRt",
     "id": 3,
     "name": "Ranger",
-    "link": "https://rune.game/class/ranger",
+    "link": "https://arken.gg/class/ranger",
     "characters": [],
     "npcs": [],
-    "skills": [
-      410
-    ],
-    "guilds": [
-      7,
-      12,
-      null
-    ],
+    "skills": [410],
+    "guilds": [7, 12, null],
     "shortDescription": "Skilled with spear and bow, HE_SHE is a very versatile fighter, tracker, and survivalist.",
     "description": "Dwelling in secluded forests, highlands, and even deserts, the many rangers of Haerra share a similar purpose: to protect their people and lands from forces that seek to exploit them. As city borders creep larger and empires expand, these protectors of the wild stand stalwart against encroaching civilization. Rangers use their knowledge of their environment as a powerful tool in both combat and life, and are known to be expert archers, swordmasters, and trappers--of both monsters and humanoids. Although often kind and selfless if treated likewise, rangers make for formidable foes if threatened.\n",
-    "buildInfo": "In Rune Raid, Rangers will have medium yield, with highest chance of finding special pools (Hidden Pool, Nexus Pool, etc)",
+    "buildInfo": "In Arken: Runic Raids, Rangers will have medium yield, with highest chance of finding special pools (Hidden Pool, Nexus Pool, etc)",
     "lore1": "FLAVOR TEXT\n",
     "lore2": "**PROTECTORS OF NATURE**\n\nThough rangers come from all walks of life, they share a common goal: to protect their environments from the scourge of humanoids. Rangers live off the land and rove their habitat, looking for trespassers, animals in need of help or healing, and any corruption that stains their land. Whether by desert or forest or tundra, rangers will stop at nothing to ensure that natural order is maintained.\n",
     "lore3": "**EXPERT SURVIVALISTS**\n\nRangers are masters of navigating their native terrain. Desert-bound rangers are able to pinpoint all the watering holes and oases within a hundred miles, while woodland rangers can quickly cut through dense undergrowth by using the local animal trails and river fords. No matter their favored terrain, however, all rangers have incredible instincts when it comes to understanding the land: whether reading the stars, tracking predators, or locating food where food is scarce.\n",
@@ -96,9 +73,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/1da62a63c9a06dce2528192edf3d16dd/36f69f55/amazon.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=a16a8ab664ffab8e",
     "infiniteImage": "https://dl.airtable.com/.attachments/62bc922a41dc6fd7acb9c2b196d28250/4db0f9f9/7777.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=558926c688429726",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Ranger",
     "role": "Damage",
     "isPlayable": true
@@ -107,17 +82,14 @@
     "uuid": "recovJS9BtcF4Mzrp",
     "id": 4,
     "name": "Necromancer",
-    "link": "https://rune.game/class/necromancer",
+    "link": "https://arken.gg/class/necromancer",
     "characters": [],
     "npcs": [],
     "skills": [],
-    "guilds": [
-      9,
-      15
-    ],
+    "guilds": [9, 15],
     "shortDescription": "HIS_HER specialties include summoning undead minions, cursing enemies, and harnessing spirits.",
     "description": "Contrary to popular belief, necromancers are not inherently evil. Although their power dabbles in forces too gruesome for many on Haerra, be it animating skeletons or communicating with dead ancestors, necromancers serve as watchers of the border between life and death. While some necromancers do utilize their ichor energy for selfish gain and power-mongering, others use their necromantic skills for good: disguised as healers and seers. Whether raising allies from the dead or ensuring them a smooth passage into death, necromancers face a tough question: can you do good in a world that despises you, or will you become the tyrant they assume you to be?\n",
-    "buildInfo": "In Rune Raid, Necromancers will have medium yield, and interesting tricks to manipulate yield or pools.",
+    "buildInfo": "In Arken: Runic Raids, Necromancers will have medium yield, and interesting tricks to manipulate yield or pools.",
     "lore1": "FLAVOR TEXT\n",
     "lore2": "**GUARDIANS AT THE VEIL**\n\nNecromancers stand at the gates which separate life and death. Though often associated with causing and undoing death, necromancers deal in many other disciplines. Some necromancers answer their calling in graveyards and on battlefields, ensuring peaceful and painless transitions into the land of the dead. Other necromancers focus their energy on the life-giving and healing aspects of necromancy, while others still serve as speakers of the spirit world. Yet there are also those who resist death altogether, using their necrotic powers to cheat death itself.\n",
     "lore3": "**NECROTIC CORRUPTION**\n\nNo matter the necrotic discipline, all necromancers share a common struggle: the ichor energy which they harness always tends towards death. Tragedy often plagues the life of necromancers, degrading and corrupting the people and environment around them. As a result of this--and society's general distrust of necromancy--necromancers tend to live in isolation or with other necromancers. While some fear this corruption, others embrace it. Among others, the Forsaken Mancers exemplify the corruptive aspects of necromancy, harnessing it in their everyday lives.\n",
@@ -127,9 +99,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/1cb92c9450a30c140b5ed169643b9fab/24f4c938/necromancer.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=065fd367e3e90548",
     "infiniteImage": "https://dl.airtable.com/.attachments/22450db5745f22f85851a15e84259338/65e1ac32/2222.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=5a7498246dd6424d",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": true
@@ -138,21 +108,14 @@
     "uuid": "rechNfTcSvFcyVBxW",
     "id": 5,
     "name": "Paladin",
-    "link": "https://rune.game/class/paladin",
+    "link": "https://arken.gg/class/paladin",
     "characters": [],
     "npcs": [],
-    "skills": [
-      414
-    ],
-    "guilds": [
-      11,
-      13,
-      15,
-      null
-    ],
+    "skills": [414],
+    "guilds": [11, 13, 15, null],
     "shortDescription": "HE_SHE is a natural leader and blessed warrior, taking pride in discipline and devotion.",
     "description": "Champions of justice and beacons of hope to their people, paladins dedicate themselves to a cause they consider upright. Whether a Valburn Corruptor dedicated to Azorag or a non-religious member of the Paladins of Ashyrah, the path of a paladin is a long and difficult one. Paladins must not only perfect their martial abilities, but also learn to heal and protect their allies: all within a strict code of conduct. Paladins are always watchful and prepared for adversity, and refuse to waver even in the face of their worst nightmares.\n",
-    "buildInfo": "In Rune Raid, Paladins will have the lowest yield, but highest fee reduction, specializing in finding guild tokens and providing guild buffs.",
+    "buildInfo": "In Arken: Runic Raids, Paladins will have the lowest yield, but highest fee reduction, specializing in finding guild tokens and providing guild buffs.",
     "lore1": "FLAVOR TEXT\n",
     "lore2": "**RIGHTEOUS FIGHTERS**\n\nWherever there is a strong belief in a higher principle: there are paladins. Paladins fight for a cause or oath that they consider righteous: be it under the banner of Eledon, Azorag, or an obscure philosophy. Paladins exist across the alignment spectrum, but they all share a stalwart and unbreaking resolve to carry out their purpose and mission without hesitation. Usually equipped with plate and blade, paladins wade into the thick of battle, heads high and voices thundering.\n",
     "lore3": "**INSPIRING LEADERS**\n\nBy virtue of their stalwart faith in a cause, paladins make for natural leaders. Their courage is unwavering and their dedication enviable. Paladins are the first ones into a fight and the last ones out, and will not hesitate to sacrifice themselves for the cause--or an ally in need. Paladins stand tall and proud in even the most hopeless of slaughters, serving as beacons of light to their fellow soldiers. Whether by words or actions, paladins inspire their compatriots to overcome even the most daunting odds.\n",
@@ -162,9 +125,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/53bdb6581fdbe97e4f6fb2e21b3a370b/331bdb08/paladin.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=a9a32c1a753002a8",
     "infiniteImage": "https://dl.airtable.com/.attachments/289bbf02afb3ac6de456aff16d6947d9/ea65460a/classes111.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=60b1a466b6b6bf72",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Tanker",
     "role": "Support",
     "isPlayable": true
@@ -173,22 +134,15 @@
     "uuid": "recDmyKWNInQnwntl",
     "id": 6,
     "name": "Assassin",
-    "link": "https://rune.game/class/assassin",
+    "link": "https://arken.gg/class/assassin",
     "parent": 107,
     "characters": [],
     "npcs": [],
-    "skills": [
-      413,
-      430,
-      431,
-      434
-    ],
-    "guilds": [
-      6
-    ],
+    "skills": [413, 430, 431, 434],
+    "guilds": [6],
     "shortDescription": "Agile, cunning, and skilled with all manner of poisons and small weapons, HE_SHE makes for a deadly enemy.",
     "description": "Born from all walks of life, assassins are familiar with the darkest corners of Haerra. Some assassins dwell in plain sight, utilizing undetected poisons and traps as their weapons, while others strike from the shadows with blade and bolt. No matter their method, assassins are feared by all: from lord to king to emperor, no one is ever truly safe from the silent blade. Not much is known about their organization or varied hierarchies, as few who investigate live to report their findings.\n",
-    "buildInfo": "Rune Raid: Assassins will have medium yield, and the highest burn protection, highest chance to find runewords, and specialize in dodging (avoiding burns, negating undesired random runes)\n\nInfinite: Aims to evade effectively while making the most of short opportunities to apply damage (DoT, Crit Chance)",
+    "buildInfo": "Arken: Runic Raids: Assassins will have medium yield, and the highest burn protection, highest chance to find runewords, and specialize in dodging (avoiding burns, negating undesired random runes)\n\nInfinite: Aims to evade effectively while making the most of short opportunities to apply damage (DoT, Crit Chance)",
     "lore1": "FLAVOR TEXT\n",
     "lore2": "**MASTERS OF SHADOW**\n\nThe best assassins are able to seamlessly integrate into their environment. Whether it's looking perfectly plain in a crowd or just pompous enough to impersonate a respected lord, assassins must master both disguise and deceit to perfect their craft. Above all, assassins must learn to move silently in the dark: to use the cover of night and the vacuous shadows to hide their movements. Whether the blade falls or toxin is dripped into an evening wine, the hand of a master assassin is always drenched in shadow.\n",
     "lore3": "**THE SILENT BLADE**\n\nThough often characterized as slitting throats in the night, assassins have many weapons and tools at their disposal. One of these is indeed the blade: often long knives which are easily concealed in the coat or boot. Assassins also employ the use of crossbows or bows in ranged missions, and even long rapiers if anticipating combat. But perhaps the most deadly weapons in the assassin's arsenal are their toxins and poisons. More silent than the blade and more dependable than the arrow, a simple poison can kill a king without ever needing to sneak past a guard.\n",
@@ -198,9 +152,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/efa186598d88cd9092c568a7431566d7/b61a1ede/assassin.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=c2d2de830dfd02fc",
     "infiniteImage": "https://dl.airtable.com/.attachments/bbf1d58f65b69872cd43057afab267ae/0244607c/assassin.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=0278e7874072798b",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Striker",
     "role": "Damage",
     "isPlayable": true
@@ -209,17 +161,14 @@
     "uuid": "rec2L16wPBjYXTmBm",
     "id": 7,
     "name": "Druid",
-    "link": "https://rune.game/class/druid",
+    "link": "https://arken.gg/class/druid",
     "characters": [],
     "npcs": [],
     "skills": [],
-    "guilds": [
-      8,
-      15
-    ],
+    "guilds": [8, 15],
     "shortDescription": "Commanding the forces of nature, HE_SHE summons wild beasts and raging storms to HIS_HER side.",
     "description": "Blessed of the earth and the chosen people of nature, druids seek balance above all else. Although often considered as simply guardians of forests and wildlife, druids serve the natural order of things. If a fire is needed to cleanse the forest, the druids aid in this process. If a predator grows too strong and threatens to drive others to extinction, the druids intervene. Where nature takes different forms--even those often considered twisted or evil--there exist druids to watch over it. From the Faytree to Hexwood, these guardians of nature will likely persist even as the buildings of Haerra rise and fall to dust.\n",
-    "buildInfo": "In Rune Raid, Druids will have medium yield, highest shard chance, and interesting pet tricks.",
+    "buildInfo": "In Arken: Runic Raids, Druids will have medium yield, highest shard chance, and interesting pet tricks.",
     "lore1": "FLAVOR TEXT\n",
     "lore2": "**OF WOODS AND WILDFIRE**\n\nDruids maintain the natural order of the world, in all its peaceful rivers and violent maelstroms. Instead of resisting the destructive tendencies of nature, many druids embrace this process. Druids have been known to cause controlled fires if the forests grow too dense and destroy entire species if it disrupts the ecosystem. Each group of druids perceives the natural cycle in a different way, leading to a host of disagreements and even wars among the druids. Some druids even embrace undeath and aberrant nature as part of the natural order, defending this despised wildlife as their own.\n",
     "lore3": "**BLESSED BY NATURE**\n\nThough their ranks house peoples of many races, druids are sometimes classified as a race unto themselves. After such extensive communion with nature, many druids develop a silvery-green sheen to their skin, alongside stranger characteristics. Though no druid is identical to another, some of the more common features include elk horns and hooves, while outliers--such as butterfly wings and appendages of twisting vines--are more rare to see. Each druid reveres these as 'blessings of nature,' often displaying them with great pride.\n",
@@ -229,9 +178,7 @@
     ],
     "raidImage": "https://dl.airtable.com/.attachments/401e3bfa4b43cf0b2d619556f3dcced6/2d239a49/druid.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=019d1b606209f1e3",
     "infiniteImage": "https://dl.airtable.com/.attachments/6a5a236317a34d76a39747572dd70f72/e9b057cb/6666.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=570fd2314cbdf091",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": true
@@ -240,7 +187,7 @@
     "uuid": "recl6NbfShIUXXRFm",
     "id": 8,
     "name": "Bard",
-    "link": "https://rune.game/class/bard",
+    "link": "https://arken.gg/class/bard",
     "parent": 108,
     "characters": [],
     "npcs": [],
@@ -253,9 +200,7 @@
       "https://dl.airtable.com/.attachments/a7b8531128add008ff8e4513a245dcd3/b353c402/Bard_Male_StockArt.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=46f8f39c2d05ab7c"
     ],
     "raidImage": "https://dl.airtable.com/.attachments/a7b8531128add008ff8e4513a245dcd3/b353c402/Bard_Male_StockArt.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=46f8f39c2d05ab7c",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": false
@@ -264,14 +209,11 @@
     "uuid": "reck8gAQZJKswZowl",
     "id": 9,
     "name": "Knight",
-    "link": "https://rune.game/class/knight",
+    "link": "https://arken.gg/class/knight",
     "parent": 103,
     "characters": [],
     "npcs": [],
-    "skills": [
-      401,
-      407
-    ],
+    "skills": [401, 407],
     "guilds": [],
     "shortDescription": "",
     "description": "",
@@ -279,9 +221,7 @@
       "https://dl.airtable.com/.attachments/aba0af01714e166d413eac92b6b77171/4b817c06/Paladin_Female_StockArt.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=71fbf1e55f0d1fc3"
     ],
     "raidImage": "https://dl.airtable.com/.attachments/aba0af01714e166d413eac92b6b77171/4b817c06/Paladin_Female_StockArt.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=71fbf1e55f0d1fc3",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Striker",
     "role": "Damage",
     "isPlayable": false
@@ -290,7 +230,7 @@
     "uuid": "recAvBetnRs94WmZm",
     "id": 10,
     "name": "Warrior",
-    "link": "https://rune.game/class/warrior",
+    "link": "https://arken.gg/class/warrior",
     "parent": 104,
     "characters": [],
     "npcs": [],
@@ -303,9 +243,7 @@
       "https://dl.airtable.com/.attachments/316862a7df2a7d0d0dc53dc1b4ba8bae/0cad89cd/Warrior_Female_StockArt.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=6fd3ab45b2f898d2"
     ],
     "raidImage": "https://dl.airtable.com/.attachments/316862a7df2a7d0d0dc53dc1b4ba8bae/0cad89cd/Warrior_Female_StockArt.png?ts=1661138228&userId=usrf0GZYc5zCl9Cv7&cs=6fd3ab45b2f898d2",
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Damage",
     "isPlayable": false
@@ -314,7 +252,7 @@
     "uuid": "reclgo0DPGJTmr5QA",
     "id": 11,
     "name": "Monk",
-    "link": "https://rune.game/class/monk",
+    "link": "https://arken.gg/class/monk",
     "characters": [],
     "npcs": [],
     "skills": [],
@@ -332,7 +270,7 @@
     "uuid": "recr2NQzlFimhA79H",
     "id": 12,
     "name": "Arcane Archer",
-    "link": "https://rune.game/class/arcane-archer",
+    "link": "https://arken.gg/class/arcane-archer",
     "parent": 105,
     "characters": [],
     "npcs": [],
@@ -347,7 +285,7 @@
     "uuid": "recsruF5rGUJxn72I",
     "id": 13,
     "name": "Skirmisher",
-    "link": "https://rune.game/class/skirmisher",
+    "link": "https://arken.gg/class/skirmisher",
     "parent": 105,
     "characters": [],
     "npcs": [],
@@ -362,7 +300,7 @@
     "uuid": "recBkKljn4RDCQBHE",
     "id": 14,
     "name": "Sniper",
-    "link": "https://rune.game/class/sniper",
+    "link": "https://arken.gg/class/sniper",
     "parent": 105,
     "characters": [],
     "npcs": [],
@@ -372,9 +310,7 @@
     "description": "",
     "buildInfo": "Maintains distance, using high damage skills that require high accuracy.",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Striker",
     "role": "Damage",
     "isPlayable": false
@@ -383,7 +319,7 @@
     "uuid": "recu5w8jSgzt4pXZd",
     "id": 15,
     "name": "Hunter",
-    "link": "https://rune.game/class/hunter",
+    "link": "https://arken.gg/class/hunter",
     "parent": 105,
     "characters": [],
     "npcs": [],
@@ -392,9 +328,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Ranger",
     "role": "Versatile",
     "isPlayable": false
@@ -403,7 +337,7 @@
     "uuid": "recOdOGPUPDUOdQko",
     "id": 56,
     "name": "Amazon",
-    "link": "https://rune.game/class/amazon",
+    "link": "https://arken.gg/class/amazon",
     "parent": 105,
     "characters": [],
     "npcs": [],
@@ -413,9 +347,7 @@
     "description": "",
     "buildInfo": "Average mobility, average damage output, high DoT",
     "images": [],
-    "gender": [
-      "recpf8puiEqXbx0Pf"
-    ],
+    "gender": ["recpf8puiEqXbx0Pf"],
     "archetype": "Kiter",
     "role": "Damage",
     "isPlayable": false
@@ -424,7 +356,7 @@
     "uuid": "recpMYTYWjvDn3J9N",
     "id": 16,
     "name": "Berserker",
-    "link": "https://rune.game/class/berserker",
+    "link": "https://arken.gg/class/berserker",
     "parent": 104,
     "characters": [],
     "npcs": [],
@@ -433,9 +365,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Damage",
     "isPlayable": false
@@ -444,7 +374,7 @@
     "uuid": "recTjMkooXTyoMGbV",
     "id": 17,
     "name": "Warrior",
-    "link": "https://rune.game/class/warrior",
+    "link": "https://arken.gg/class/warrior",
     "parent": 104,
     "characters": [],
     "npcs": [],
@@ -453,9 +383,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Versatile",
     "isPlayable": false
@@ -464,7 +392,7 @@
     "uuid": "rec8UScmUF2DldvSV",
     "id": 53,
     "name": "Executioner",
-    "link": "https://rune.game/class/executioner",
+    "link": "https://arken.gg/class/executioner",
     "parent": 104,
     "characters": [],
     "npcs": [],
@@ -473,9 +401,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Striker",
     "role": "Damage",
     "isPlayable": false
@@ -484,7 +410,7 @@
     "uuid": "rec68byq2mauRAexa",
     "id": 18,
     "name": "Named",
-    "link": "https://rune.game/class/named",
+    "link": "https://arken.gg/class/named",
     "parent": 104,
     "characters": [],
     "npcs": [],
@@ -493,9 +419,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Tanker",
     "role": "Support",
     "isPlayable": false
@@ -504,7 +428,7 @@
     "uuid": "recZDUj4KrvpvegNa",
     "id": 62,
     "name": "Bounty Hunter",
-    "link": "https://rune.game/class/bounty-hunter",
+    "link": "https://arken.gg/class/bounty-hunter",
     "parent": 107,
     "characters": [],
     "npcs": [],
@@ -513,9 +437,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Support",
     "isPlayable": false
@@ -524,7 +446,7 @@
     "uuid": "recjX9StAXtugtQnx",
     "id": 19,
     "name": "Soul Knife",
-    "link": "https://rune.game/class/soul-knife",
+    "link": "https://arken.gg/class/soul-knife",
     "parent": 107,
     "characters": [],
     "npcs": [],
@@ -533,9 +455,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": false
@@ -544,7 +464,7 @@
     "uuid": "recmSjjyUxn3lATm3",
     "id": 20,
     "name": "Swashbuckler",
-    "link": "https://rune.game/class/swashbuckler",
+    "link": "https://arken.gg/class/swashbuckler",
     "parent": 107,
     "characters": [],
     "npcs": [],
@@ -554,9 +474,7 @@
     "description": "",
     "buildInfo": "Applies movement speed/accuracy debuffs with attacks and lifts own to stay more mobile than enemies, also applying DoT. Proficient in applying damage to a single target",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Kiter",
     "role": "Damage",
     "isPlayable": false
@@ -565,21 +483,17 @@
     "uuid": "recPzG6Hsy0Up1QTO",
     "id": 21,
     "name": "Thief",
-    "link": "https://rune.game/class/thief",
+    "link": "https://arken.gg/class/thief",
     "parent": 107,
     "characters": [],
     "npcs": [],
-    "skills": [
-      436
-    ],
+    "skills": [436],
     "guilds": [],
     "shortDescription": "",
     "description": "",
     "buildInfo": "Sacrifices damage output for mobility and reward emphasis. Applies status ailments(blind, silent) to avoid damage. Most damage through DoT",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Kiter",
     "role": "Support",
     "isPlayable": false
@@ -588,7 +502,7 @@
     "uuid": "reczNiWpeALS0JKhG",
     "id": 22,
     "name": "Mirage Dancer",
-    "link": "https://rune.game/class/mirage-dancer",
+    "link": "https://arken.gg/class/mirage-dancer",
     "parent": 107,
     "characters": [],
     "npcs": [],
@@ -598,9 +512,7 @@
     "description": "",
     "buildInfo": "Uses illusion-based skills to avoid and deal damage",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": false
@@ -609,7 +521,7 @@
     "uuid": "reczgc1NHTONDrlSu",
     "id": 23,
     "name": "Conduit",
-    "link": "https://rune.game/class/conduit",
+    "link": "https://arken.gg/class/conduit",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -619,9 +531,7 @@
     "description": "Conduits are often born with an innate talent to channel substantial amounts of magical energy, but have considerable difficulty limiting their release.\n",
     "buildInfo": "Use wide-ranging Magical AoE attacks that are difficult to dodge but require more energy.",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": false
@@ -630,7 +540,7 @@
     "uuid": "recjpMAnHrP5j3gNp",
     "id": 24,
     "name": "Chronomancer",
-    "link": "https://rune.game/class/chronomancer",
+    "link": "https://arken.gg/class/chronomancer",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -639,9 +549,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Versatile",
     "isPlayable": false
@@ -650,20 +558,16 @@
     "uuid": "recQksJiI8khrjrYT",
     "id": 25,
     "name": "Elemancer",
-    "link": "https://rune.game/class/elemancer",
+    "link": "https://arken.gg/class/elemancer",
     "parent": 101,
     "characters": [],
     "npcs": [],
-    "skills": [
-      412
-    ],
+    "skills": [412],
     "guilds": [],
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": false
@@ -672,7 +576,7 @@
     "uuid": "recFzDs3TWC0MmoFy",
     "id": 26,
     "name": "Witch/Warlock",
-    "link": "https://rune.game/class/witch/warlock",
+    "link": "https://arken.gg/class/witch/warlock",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -681,9 +585,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": false
@@ -692,7 +594,7 @@
     "uuid": "recKAdv0C53U5wjJS",
     "id": 27,
     "name": "Archon",
-    "link": "https://rune.game/class/archon",
+    "link": "https://arken.gg/class/archon",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -701,9 +603,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Versatile",
     "isPlayable": false
@@ -712,7 +612,7 @@
     "uuid": "rec5xhJHuaZ86avgl",
     "id": 28,
     "name": "Zealot",
-    "link": "https://rune.game/class/zealot",
+    "link": "https://arken.gg/class/zealot",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -721,9 +621,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Tanker",
     "role": "Damage",
     "isPlayable": false
@@ -732,7 +630,7 @@
     "uuid": "recGb31DQfby3Q9BP",
     "id": 29,
     "name": "Priest",
-    "link": "https://rune.game/class/priest",
+    "link": "https://arken.gg/class/priest",
     "parent": 103,
     "characters": [],
     "npcs": [],
@@ -741,9 +639,7 @@
     "shortDescription": "",
     "description": "\n",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": false
@@ -752,7 +648,7 @@
     "uuid": "recrhN9ZZet1xiMuO",
     "id": 30,
     "name": "Fallen",
-    "link": "https://rune.game/class/fallen",
+    "link": "https://arken.gg/class/fallen",
     "parent": 103,
     "characters": [],
     "npcs": [],
@@ -761,9 +657,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Damage",
     "isPlayable": false
@@ -772,7 +666,7 @@
     "uuid": "reck8SqsQMHYeVRYf",
     "id": 31,
     "name": "Sage",
-    "link": "https://rune.game/class/sage",
+    "link": "https://arken.gg/class/sage",
     "parent": 106,
     "characters": [],
     "npcs": [],
@@ -781,9 +675,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Summons",
     "isPlayable": false
@@ -792,21 +684,17 @@
     "uuid": "recjdXLqp3JYFtbTN",
     "id": 59,
     "name": "Shaman",
-    "link": "https://rune.game/class/shaman",
+    "link": "https://arken.gg/class/shaman",
     "parent": 106,
     "characters": [],
     "npcs": [],
-    "skills": [
-      437
-    ],
+    "skills": [437],
     "guilds": [],
     "shortDescription": "",
     "description": "",
     "buildInfo": "Summons, controls and buffs animals, applying nature-based debuffs to enemy",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Summons",
     "isPlayable": false
@@ -815,7 +703,7 @@
     "uuid": "rec7NjE9DK9tc6lRu",
     "id": 32,
     "name": "Enchanter",
-    "link": "https://rune.game/class/enchanter",
+    "link": "https://arken.gg/class/enchanter",
     "parent": 106,
     "characters": [],
     "npcs": [],
@@ -825,9 +713,7 @@
     "description": "",
     "buildInfo": "Uses totems, auras and other buffs/debuffs to change the tide of battle.",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Kiter",
     "role": "Support",
     "isPlayable": false
@@ -836,7 +722,7 @@
     "uuid": "reczQG4rWkC7wVa6D",
     "id": 33,
     "name": "Shifter",
-    "link": "https://rune.game/class/shifter",
+    "link": "https://arken.gg/class/shifter",
     "parent": 106,
     "characters": [],
     "npcs": [],
@@ -846,9 +732,7 @@
     "description": "",
     "buildInfo": "Shapeshifts into animal forms that allow them to step into different roles during the match",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Versatile",
     "isPlayable": false
@@ -857,7 +741,7 @@
     "uuid": "rec12HWTvh1WpIjHj",
     "id": 34,
     "name": "Hexgard",
-    "link": "https://rune.game/class/hexgard",
+    "link": "https://arken.gg/class/hexgard",
     "parent": 106,
     "characters": [],
     "npcs": [],
@@ -866,9 +750,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": false
@@ -877,7 +759,7 @@
     "uuid": "receIZxZjh5NOCyus",
     "id": 35,
     "name": "Summoner",
-    "link": "https://rune.game/class/summoner",
+    "link": "https://arken.gg/class/summoner",
     "parent": 102,
     "characters": [],
     "npcs": [],
@@ -886,9 +768,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Summons",
     "isPlayable": false
@@ -897,7 +777,7 @@
     "uuid": "recEUDH42vjEDRfqF",
     "id": 36,
     "name": "Witch Hunter",
-    "link": "https://rune.game/class/witch-hunter",
+    "link": "https://arken.gg/class/witch-hunter",
     "parent": 102,
     "characters": [],
     "npcs": [],
@@ -906,9 +786,7 @@
     "shortDescription": "Master of swords, bows and debuffs",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Striker",
     "role": "Damage",
     "isPlayable": false
@@ -917,7 +795,7 @@
     "uuid": "recxENsUcJrOui2VI",
     "id": 37,
     "name": "Bloodmage",
-    "link": "https://rune.game/class/bloodmage",
+    "link": "https://arken.gg/class/bloodmage",
     "parent": 102,
     "characters": [],
     "npcs": [],
@@ -926,9 +804,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Healing",
     "isPlayable": false
@@ -937,7 +813,7 @@
     "uuid": "recYEpic01C4dZhkg",
     "id": 38,
     "name": "Daemonbinder",
-    "link": "https://rune.game/class/daemonbinder",
+    "link": "https://arken.gg/class/daemonbinder",
     "parent": 102,
     "characters": [],
     "npcs": [],
@@ -946,9 +822,7 @@
     "shortDescription": "Use the power of Evil against itself at an unholy cost",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": false
@@ -957,7 +831,7 @@
     "uuid": "recnyJXlnWqgIU9dl",
     "id": 39,
     "name": "Hexer",
-    "link": "https://rune.game/class/hexer",
+    "link": "https://arken.gg/class/hexer",
     "parent": 102,
     "characters": [],
     "npcs": [],
@@ -966,9 +840,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Kiter",
     "role": "Support",
     "isPlayable": false
@@ -977,7 +849,7 @@
     "uuid": "recIxuy7nsvQUrNdd",
     "id": 40,
     "name": "Musician",
-    "link": "https://rune.game/class/musician",
+    "link": "https://arken.gg/class/musician",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -986,9 +858,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": false
@@ -997,7 +867,7 @@
     "uuid": "reco1gptV7ZDMQgsW",
     "id": 41,
     "name": "Lorekeeper",
-    "link": "https://rune.game/class/lorekeeper",
+    "link": "https://arken.gg/class/lorekeeper",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -1006,9 +876,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Support",
     "isPlayable": false
@@ -1017,7 +885,7 @@
     "uuid": "rec0l92yKR7KGYiJz",
     "id": 42,
     "name": "Voice",
-    "link": "https://rune.game/class/voice",
+    "link": "https://arken.gg/class/voice",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -1027,9 +895,7 @@
     "description": "",
     "buildInfo": "Uses words of power to compel and damage enemies",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Damage",
     "isPlayable": false
@@ -1038,7 +904,7 @@
     "uuid": "recm5DsFJYGgFVzuY",
     "id": 43,
     "name": "Merciful Soul",
-    "link": "https://rune.game/class/merciful-soul",
+    "link": "https://arken.gg/class/merciful-soul",
     "parent": 101,
     "characters": [],
     "npcs": [],
@@ -1047,9 +913,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Healer",
     "role": "Support",
     "isPlayable": false
@@ -1058,7 +922,7 @@
     "uuid": "recwMEvq12vjF6RIt",
     "id": 44,
     "name": "Infused Soul",
-    "link": "https://rune.game/class/infused-soul",
+    "link": "https://arken.gg/class/infused-soul",
     "characters": [],
     "npcs": [],
     "skills": [],
@@ -1066,9 +930,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Fighter",
     "role": "Support",
     "isPlayable": false
@@ -1077,7 +939,7 @@
     "uuid": "recF09tl7VeD5UVnk",
     "id": 45,
     "name": "Ignited Soul",
-    "link": "https://rune.game/class/ignited-soul",
+    "link": "https://arken.gg/class/ignited-soul",
     "characters": [],
     "npcs": [],
     "skills": [],
@@ -1085,9 +947,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Caster",
     "role": "Versatile",
     "isPlayable": false
@@ -1096,7 +956,7 @@
     "uuid": "rec0gcME1AMS4wO5p",
     "id": 46,
     "name": "Intangible Soul",
-    "link": "https://rune.game/class/intangible-soul",
+    "link": "https://arken.gg/class/intangible-soul",
     "characters": [],
     "npcs": [],
     "skills": [],
@@ -1104,9 +964,7 @@
     "shortDescription": "",
     "description": "",
     "images": [],
-    "gender": [
-      "recyW51pMlP9TKWF4"
-    ],
+    "gender": ["recyW51pMlP9TKWF4"],
     "archetype": "Tanker",
     "role": "Defense",
     "isPlayable": false

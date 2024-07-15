@@ -1930,16 +1930,16 @@ export const itemData = {
           attributes: [
             { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
-              description: `Rune Sanctuary Collector's Edition`,
+              description: `Heart of the Oasis Collector's Edition`,
             },
             {
-              description: `Early Access to Rune Games`,
+              description: `Early Access to Arken Games`,
             },
             {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -1959,16 +1959,16 @@ export const itemData = {
           attributes: [
             { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
-              description: `Rune Sanctuary Collector's Edition`,
+              description: `Heart of the Oasis Collector's Edition`,
             },
             {
-              description: `Early Access to Rune Games`,
+              description: `Early Access to Arken Games`,
             },
             {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -1988,16 +1988,16 @@ export const itemData = {
           attributes: [
             { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
-              description: `Rune Sanctuary Collector's Edition`,
+              description: `Heart of the Oasis Collector's Edition`,
             },
             {
-              description: `Early Access to Rune Games`,
+              description: `Early Access to Arken Games`,
             },
             {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -2017,16 +2017,16 @@ export const itemData = {
           attributes: [
             { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
             {
-              description: `Rune Sanctuary Collector's Edition`,
+              description: `Heart of the Oasis Collector's Edition`,
             },
             {
-              description: `Early Access to Rune Games`,
+              description: `Early Access to Arken Games`,
             },
             {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -2658,7 +2658,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/increasehealthonkill',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/increasehealthonkill',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Defense',
@@ -2675,7 +2675,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/increasedamageonkill',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/increasedamageonkill',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Offense',
@@ -2692,7 +2692,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/criticalhitchance',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/criticalhitchance',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Offense',
@@ -3197,7 +3197,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: ['It seems to be a Guardian egg obtained from the Mage Isles in Rune Evolution.'],
+      description: ['It seems to be a Guardian egg obtained from the Mage Isles in Second Wind.'],
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -3244,7 +3244,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: ['It seems to be a powerful cube obtained from the Mage Isles in Rune Evolution.'],
+      description: ['It seems to be a powerful cube obtained from the Mage Isles in Second Wind.'],
       branches: {
         [Games.Raid.id]: {
           attributes: [
@@ -3299,9 +3299,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: [
-        'It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Rune Evolution.',
-      ],
+      description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Second Wind.'],
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -3348,7 +3346,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: 'It seems to be a Rune obtained from the Mage Isles in Rune Evolution.',
+      description: 'It seems to be a Rune obtained from the Mage Isles in Second Wind.',
       branches: {
         [Games.Raid.id]: {
           attributes: [
@@ -3430,7 +3428,7 @@ export const itemData = {
               name: 'MovementSpeedIncrease',
               isEnabled: true,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/movementspeedincrease',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/movementspeedincrease',
               paramType1: 'percent',
               paramValue1: '0-10',
               nature: 'Buff',
@@ -3446,7 +3444,7 @@ export const itemData = {
               id: 4111,
               name: 'WinStreakRewardChanceIncrease',
               isEnabled: false,
-              nexusLink: 'https://nexus.rune.game/item-attribute/winstreakrewardchanceincrease',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/winstreakrewardchanceincrease',
               param1: {
                 spec: '5-5',
                 min: 5,
@@ -3459,7 +3457,7 @@ export const itemData = {
               name: 'IncreaseMovementSpeedOnKill',
               isEnabled: true,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/increasemovementspeedonkill',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/increasemovementspeedonkill',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Movement',
@@ -3477,7 +3475,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/runewordfindwin',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/runewordfindwin',
               paramType1: 'percent',
               nature: 'Mechanic',
               influences: 'Reward',
@@ -3494,7 +3492,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/criticalhitchance',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/criticalhitchance',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Offense',
@@ -3509,7 +3507,7 @@ export const itemData = {
               id: 4119,
               name: 'EggExperienceBonus',
               isEnabled: false,
-              nexusLink: 'https://nexus.rune.game/item-attribute/eggexperiencebonus',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/eggexperiencebonus',
               param1: {
                 spec: '10-10',
                 min: 10,
@@ -3523,7 +3521,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/norewardsunlessfirst',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/norewardsunlessfirst',
               paramType1: 'percent',
               paramValue1: '0-50',
               nature: 'Debuff',
@@ -3541,7 +3539,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/earlyitemrevealchance',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/earlyitemrevealchance',
               paramType1: 'percent',
               paramValue1: '0-25',
               nature: 'Mechanic',
@@ -3559,7 +3557,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/skillunlock',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/skillunlock',
               paramType1: 'skill',
               nature: 'Mechanic',
               description: 'Unlocked: {parameter1}',
@@ -6853,16 +6851,16 @@ export const itemData = {
     //         attributes: [
     //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
     //           {
-    //             description: `Rune Sanctuary Collector's Edition`,
+    //             description: `Heart of the Oasis Collector's Edition`,
     //           },
     //           {
-    //             description: `Early Access to Rune Games`,
+    //             description: `Early Access to Arken Games`,
     //           },
     //           {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -6882,16 +6880,16 @@ export const itemData = {
     //         attributes: [
     //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
     //           {
-    //             description: `Rune Sanctuary Collector's Edition`,
+    //             description: `Heart of the Oasis Collector's Edition`,
     //           },
     //           {
-    //             description: `Early Access to Rune Games`,
+    //             description: `Early Access to Arken Games`,
     //           },
     //           {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -6911,16 +6909,16 @@ export const itemData = {
     //         attributes: [
     //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
     //           {
-    //             description: `Rune Sanctuary Collector's Edition`,
+    //             description: `Heart of the Oasis Collector's Edition`,
     //           },
     //           {
-    //             description: `Early Access to Rune Games`,
+    //             description: `Early Access to Arken Games`,
     //           },
     //           {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -6940,16 +6938,16 @@ export const itemData = {
     //         attributes: [
     //           { ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById },
     //           {
-    //             description: `Rune Sanctuary Collector's Edition`,
+    //             description: `Heart of the Oasis Collector's Edition`,
     //           },
     //           {
-    //             description: `Early Access to Rune Games`,
+    //             description: `Early Access to Arken Games`,
     //           },
     //           {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Rune Sanctuary (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -7586,7 +7584,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/damagetypedamage',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/damagetypedamage',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Offense',
@@ -7602,7 +7600,7 @@ export const itemData = {
               id: 1150,
               name: 'WinRewardsIncrease',
               isEnabled: true,
-              nexusLink: 'https://nexus.rune.game/item-attribute/winrewardsincrease',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/winrewardsincrease',
               paramType1: 'percent',
               paramValue1: '0-20',
               nature: 'Buff',
@@ -7618,7 +7616,7 @@ export const itemData = {
             //   "id": 4119,
             //   "name": "EggExperienceBonus",
             //   "isEnabled": false,
-            //   "nexusLink": "https://nexus.rune.game/item-attribute/eggexperiencebonus",
+            //   "nexusLink": "https://nexus.arken.gg/item-attribute/eggexperiencebonus",
             //   "param1": {
             //     "spec": "2-2",
             //     "min": 2,
@@ -7632,7 +7630,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/castonkillchance',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/castonkillchance',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Skill',
@@ -7649,7 +7647,7 @@ export const itemData = {
             //   "isEnabled": true,
             //   "isImplemented": false,
             //   "game": "Evolution",
-            //   "nexusLink": "https://nexus.rune.game/item-attribute/skillmod",
+            //   "nexusLink": "https://nexus.arken.gg/item-attribute/skillmod",
             //   "paramType1": "value",
             //   "paramValue1": "0-5",
             //   "nature": "Buff",
@@ -7667,7 +7665,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://nexus.rune.game/item-attribute/skillunlock',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/skillunlock',
               paramType1: 'skill',
               nature: 'Mechanic',
               description: 'Unlocked: {parameter1}',
@@ -7687,7 +7685,7 @@ export const itemData = {
             //   "isEnabled": true,
             //   "isImplemented": false,
             //   "game": "Evolution",
-            //   "nexusLink": "https://nexus.rune.game/item-attribute/castonkilltype",
+            //   "nexusLink": "https://nexus.arken.gg/item-attribute/castonkilltype",
             //   "paramType1": "spelltype",
             //   "nature": "Mechanic",
             //   "influences": "Skill",
@@ -7704,7 +7702,7 @@ export const itemData = {
             //   "isEnabled": true,
             //   "isImplemented": false,
             //   "game": "Evolution",
-            //   "nexusLink": "https://nexus.rune.game/item-attribute/castonkilleffect",
+            //   "nexusLink": "https://nexus.arken.gg/item-attribute/castonkilleffect",
             //   "paramType1": "effect",
             //   "nature": "Mechanic",
             //   "influences": "Skill",
@@ -7730,7 +7728,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Infinite',
-              nexusLink: 'https://nexus.rune.game/item-attribute/increasedamage',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/increasedamage',
               paramType1: 'percent',
               paramType2: 'type',
               paramValue1: '0-200',
@@ -7759,7 +7757,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Infinite',
-              nexusLink: 'https://nexus.rune.game/item-attribute/increaseenergy',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/increaseenergy',
               paramType1: 'percent',
               paramValue1: '0-999',
               nature: 'Buff',
@@ -7777,7 +7775,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Infinite',
-              nexusLink: 'https://nexus.rune.game/item-attribute/castoncondition',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/castoncondition',
               paramType1: 'conditions',
               paramType2: 'conditionparams',
               paramType3: 'skill',
@@ -7798,7 +7796,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Infinite',
-              nexusLink: 'https://nexus.rune.game/item-attribute/unlockskills',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/unlockskills',
               paramType1: 'skills',
               nature: 'Mechanic',
               influences: 'Skill',
@@ -7819,7 +7817,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Infinite',
-              nexusLink: 'https://nexus.rune.game/item-attribute/magicfind',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/magicfind',
               paramType1: 'percent',
               nature: 'Buff',
               influences: 'Reward',
@@ -7836,7 +7834,7 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Infinite',
-              nexusLink: 'https://nexus.rune.game/item-attribute/increasestat',
+              nexusLink: 'https://nexus.arken.gg/item-attribute/increasestat',
               paramType1: 'percent',
               paramType2: 'stat',
               paramType3: 'statparams',
@@ -8614,7 +8612,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: ['It seems to be a Guardian egg obtained from the Mage Isles in Rune Evolution.'],
+    //     description: ['It seems to be a Guardian egg obtained from the Mage Isles in Second Wind.'],
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -8661,7 +8659,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: ['It seems to be a powerful cube obtained from the Mage Isles in Rune Evolution.'],
+    //     description: ['It seems to be a powerful cube obtained from the Mage Isles in Second Wind.'],
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
@@ -8708,7 +8706,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Rune Evolution.'],
+    //     description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Second Wind.'],
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -8755,7 +8753,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: 'It seems to be a Rune obtained from the Mage Isles in Rune Evolution.',
+    //     description: 'It seems to be a Rune obtained from the Mage Isles in Second Wind.',
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],

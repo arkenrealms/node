@@ -1,6 +1,3 @@
+# Arken Node
 
-  "exports": {
-    ".": "./src/index.ts",
-    "./farmInfo": "./src/farmInfo.ts",
-    "./contractInfo": "./src/contractInfo.ts"
-  },
+Welcome to the Arken Node SDK.

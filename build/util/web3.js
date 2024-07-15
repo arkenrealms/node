@@ -72,7 +72,7 @@ exports.iterateBlocks = iterateBlocks;
 const getAddress = (address) => {
     var _a;
     const mainNetChainId = 56;
-    const chainId = typeof window !== 'undefined' && ((_a = window === null || window === void 0 ? void 0 : window.location) === null || _a === void 0 ? void 0 : _a.hostname) === 'testnet.rune.game'
+    const chainId = typeof window !== 'undefined' && ((_a = window === null || window === void 0 ? void 0 : window.location) === null || _a === void 0 ? void 0 : _a.hostname) === 'testnet.arken.gg'
         ? 97
         : process.env.REACT_APP_CHAIN_ID;
     return address[chainId] ? address[chainId] : address[mainNetChainId];

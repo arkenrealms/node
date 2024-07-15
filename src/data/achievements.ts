@@ -1,5 +1,4 @@
-
-// process.env.REACT_APP_PUBLIC_URL = "https://rune.game/"
+// process.env.REACT_APP_PUBLIC_URL = "https://arken.gg/"
 
 export const achievementData = [
   {
@@ -133,10 +132,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Fought a battle in Rune Evolution'],
+        description: ['Fought a battle in Second Wind'],
       },
       2: {
-        description: 'Fought a battle in Rune Evolution',
+        description: 'Fought a battle in Second Wind',
       },
     },
   },
@@ -156,10 +155,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Killed more than 100 players in Rune Evolution'],
+        description: ['Killed more than 100 players in Second Wind'],
       },
       2: {
-        description: 'Killed more than 100 players in Rune Evolution',
+        description: 'Killed more than 100 players in Second Wind',
       },
     },
   },
@@ -179,10 +178,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Been the Rune Evolution leader 25 games in a row'],
+        description: ['Been the Second Wind leader 25 games in a row'],
       },
       2: {
-        description: 'Been the Rune Evolution leader 25 games in a row',
+        description: 'Been the Second Wind leader 25 games in a row',
       },
     },
   },

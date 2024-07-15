@@ -17,8 +17,7 @@ export default class Achievement extends BaseModel {
     return {
       type: 'object',
       required: [],
-      properties: {
-      }
+      properties: {},
     }
   }
 
@@ -29,20 +28,19 @@ export default class Achievement extends BaseModel {
         modelClass: Node,
         join: {
           from: 'achievements.parentId',
-          to: 'nodes.id'
-        }
-      }
+          to: 'nodes.id',
+        },
+      },
     }
   }
 }
-
 
 // {
 //   "id": 1,
 //   "key": "CRAFT_1",
 //   "name": "New Beginnings",
 //   "category": "Basic",
-//   "icon": "https://rune.game/images/achievements/blue/s_030.PNG",
+//   "icon": "https://arken.gg/images/achievements/blue/s_030.PNG",
 //   "points": 1,
 //   "type": "Crafting",
 //   "isCompleted": false,

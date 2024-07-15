@@ -4,7 +4,7 @@
         "id": 1,
         "name": "The Archons",
         "isEnabled": true,
-        "link": "https://rune.game/faction/the-archons",
+        "link": "https://arken.gg/faction/the-archons",
         "shortDescription": "The Archons are devout followers of Eledon and wielders of astra energy.",
         "description": "The Archons are devout followers of Eledon and wielders of astra energy.",
         "lore1": "The Archons, devout followers of Eledon, believe themselves to be ‘human alorium’ (that is, the highest class of humanity). They emulate their angelic god; dressing in white robes with gold embroidery and embellishments. Archons generally see the population of Haerra as below them, and few Archons leave the islands save for a number of priests who travel across Haerra to spread the gospel of Eledon. They are devoted to their cause and are very resistant to being diverted from what they believe is their true calling.\n",
@@ -12,16 +12,9 @@
         "lore3": "**GOALS**\n\nTo spread the dictates of Eledon across Haerra and to release Eledon from his cubic prison. To seek out and destroy evil wherever it can be found. To perfect oneself by striving towards the principles of Eledon.\n",
         "lore4": "**HISTORY**\n\nThe Archons were founded over two-hundred years ago, when an Elysium mage named Tabila Lio found an old cache of texts said to be the doctrines of Eledon. Tabila scoured these texts for some time, though she claimed her motivations were impure: searching for arcane power instead of \"Eledon's light.\" What she found, however, was a persuasive religious doctrine, which she then spread among her circles. She spoke of order amidst destruction and purity that could perfect one's soul.\n\nOver time, she gathered a large following among the mages. This worried many other mages, who saw their arcane innovation threatened by the strict edicts of Eledon. In response, the mages turned against the self-proclaimed 'Archons' and exiled them from the islands.\n\nTabila and her followers left peacefully, bent on finding a place to practice without the meddling of others in Haerra. The Archons vanished to the islands south of Ashyrah, where they began to build their metropolis: the Archon Citadel. Although it took many years and an incredible amount of magic, the Archons finally completed the Citadel and occupied it alongside their devout followers. The original mages became the first council of Seraphim, giving up their mana-based powers in favor of practicing the Astra energy taught to them by the holy texts. Ever since then, the Archons have been practicing and spreading the gospel of Eledon across Haerra.\n",
         "npcs": [],
-        "areas": [
-            24,
-            77
-        ],
-        "activeFactionConflict": [
-            9
-        ],
-        "passiveFactionConflict": [
-            6
-        ],
+        "areas": [24, 77],
+        "activeFactionConflict": [9],
+        "passiveFactionConflict": [6],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -31,7 +24,7 @@
         "id": 2,
         "name": "Desert Virans",
         "isEnabled": true,
-        "link": "https://rune.game/faction/desert-virans",
+        "link": "https://arken.gg/faction/desert-virans",
         "shortDescription": "Both a race and a civilization, the Desert Virans perfect the art of crafting and set the gold standard for guild organization.",
         "description": "Both a race and a civilization, the Desert Virans perfect the art of crafting and set the gold standard for guild organization.",
         "lore1": "While the vira’s Desert Kilran cousins focus their creativity on chaotic mechanical contraptions and alchemical reactions, the vira prefer to channel their energy into more refined forms of crafting. Any such crafting heavily involves the Guilds. Much of vira society is ordered around the Guilds, which are regarded with near-religious reverence by many vira. Guild membership is determined by birth, and many families have remained in the same discipline for centuries. Certain guilds, such as the Architects Guild, are renowned above others; creating a quasi-caste system that changes depending on which guilds are high in demand.\n",
@@ -39,16 +32,9 @@
         "lore3": "**GOALS**\n\nTo craft marvelous and practical inventions to solve Haerra's issues. To bring order and 'high society' to the world through the use of civic guilds. To move Haerra beyond its foolish wars and bickering, into an era of refined science and prosperity.\n",
         "lore4": "**HISTORY**\n\nSince their inception, the vira have always been a people of the desert. Their small size addresses many of the desert's challenges, since their bodies generate less heat and require less food than many other humanoids. Paired with their unique ingenuity and artifice abilities, the desert makes a natural home and defense for the vira.\n\nAs the vira grew in both population and reputation, they progressed technologically--harnessing the sun through complex contraptions using kona energy--and administratively--setting the Haerran standard for banking and trade. When a major divide in priorities and philosophy led to a split between virans and kilrans, the remaining vira focused their energy on building specialized guilds and work programs. The result was an efficiency machine of a society, with all its upsides and flaws.\n",
         "npcs": [],
-        "areas": [
-            40,
-            63
-        ],
-        "activeFactionConflict": [
-            9
-        ],
-        "passiveFactionConflict": [
-            3
-        ],
+        "areas": [40, 63],
+        "activeFactionConflict": [9],
+        "passiveFactionConflict": [3],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -58,7 +44,7 @@
         "id": 3,
         "name": "Desert Kilrans",
         "isEnabled": true,
-        "link": "https://rune.game/faction/desert-kilrans",
+        "link": "https://arken.gg/faction/desert-kilrans",
         "shortDescription": "Cousins to the Vira, the Kilrans focus their talents on unrestrained alchemical experiments and radical creativity.",
         "description": "Cousins to the Vira, the Kilrans focus their talents on unrestrained alchemical experiments and radical creativity.",
         "lore1": "Just like their vira cousins, the kilrans pride themselves on curiosity and ingenuity. While the vira are a shade more reserved in their creation, the kilrans pursue progress unbridled by restraint. Explosions frequently rock their towns and cities, constructs come to life and wreak havoc, and rarely-tested airships lose control and crash into towers that are resurrected two to three times a year. But with such risk comes great reward, and the kilrans exemplify this above all others: embracing the chaos to generate incredible innovations like sentient constructs and working mechanical wings.\n",
@@ -66,16 +52,9 @@
         "lore3": "**GOALS**\n\nTo create incredible things without reservation. To free Haerra from its preoccupations with order, control, and birth mandates. To bring adventure and playfulness to science, invention, and the overall future of Haerra.\n",
         "lore4": "**HISTORY**\n\nThough the Archivist's calendar places the kilran's split from the vira sometime around 250 R.H., the kilran's dissatisfaction with their cousins stretches much further back.  According to vira lore, the name 'kilran' stems from an ancient instance where a reckless scientist killed a great many vira with an awry experiment. He was referred to in the trial as a 'kil-e-viran' or 'killer of virans'. The name stuck, and vira who went too far in the name of science were labeled \"kilrans.\"\n\nOver time, however, the kilrans came to embrace it. They thought that the benefits of unbridled experimentation outweighed the downsides. According to kilran scholars, one kilran even remarked: \"they call us killers of our own people, but by suppressing talent and creativity they are the real killers of virans.\" After a great deal of strife and in-fighting, the kilrans eventually organized a self-imposed exodus, leaving Qiddir Desert for the harsher deserts across the Bronze Sierras. The kilrans settled the sandy expanses of the Copper Desert, creating a central place of trade where modern-day Tabr now sits.\n",
         "npcs": [],
-        "areas": [
-            42,
-            52
-        ],
-        "activeFactionConflict": [
-            9
-        ],
-        "passiveFactionConflict": [
-            2
-        ],
+        "areas": [42, 52],
+        "activeFactionConflict": [9],
+        "passiveFactionConflict": [2],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -85,7 +64,7 @@
         "id": 4,
         "name": "Fayhelm Druids",
         "isEnabled": true,
-        "link": "https://rune.game/faction/fayhelm-druids",
+        "link": "https://arken.gg/faction/fayhelm-druids",
         "shortDescription": "The Fayhelm Druids are expert uses of gaia energy and strive to become one with nature.",
         "description": "The Fayhelm Druids are expert uses of gaia energy and strive to become one with nature.",
         "lore1": "The tribes of the Fayhelm Druids are scattered across the forests of Fayhelm,  tending to create habitations high in the tree canopies, with walkways connecting their different living areas. The largest tribe of druids--the Tribe of the Great Faytree--dwell in the roots and branches of the massive Faytree. They use earth magic and are attuned with nature and the seasons. They look like humans with a silvery-green sheen to their skin, however, their attunement with nature sometimes gives rise to strange physical characteristics, like antlers and goat legs. They are longer-lived than humans, the eldest being over one hundred and fifty years of age. They generally avoid outsiders, although they have a passable relationship with the elves. Regardless of this isolation, druids will take in any lost or damaged souls who come searching for protection or healing--physical or otherwise.\n",
@@ -93,15 +72,9 @@
         "lore3": "**GOALS**\n\nTo watch over and protect the earth and its inhabitants from destruction. To heal the wounded and care for the ill, especially if they cannot help themselves. To maintain the natural balance and prevent humanoids from disrupting the cycle of life.\n",
         "lore4": "**HISTORY**\n\nThe Fayhelm Druids have protected and dwelt within the Fayhelm forests for as long as humanoids have existed on Haerra. Traditionally isolated and more at home with nature than 'civilization', the druids had little contact with the other peoples of Haerra until recently. There are many ancient tall tales about the druids and hermits living within the Fayhelm forests, though most are more fiction than fact.\n\nThe actual history of the druids is vague at best, relying upon an oral history passed from generation to generation. Much of this is framed in stories, making druidic history entertaining, if not reliable. Heavy mysticism surrounds druidic lore: telling of the goddess Metun planting the seeds of the Great Trees and gifting the druids with their powers, of unicorns and fairies guiding druids to crystal waters and providing protection from storms.\n\nRegardless of the truth, the druids remain one of the most well-respected groups in Fayhelm, dedicated above all others to peace and the wellbeing of all forest denizens: humanoid or otherwise.\n",
         "npcs": [],
-        "areas": [
-            54,
-            30
-        ],
+        "areas": [54, 30],
         "activeFactionConflict": [],
-        "passiveFactionConflict": [
-            9,
-            12
-        ],
+        "passiveFactionConflict": [9, 12],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -111,7 +84,7 @@
         "id": 5,
         "name": "Elysium Mages",
         "isEnabled": true,
-        "link": "https://rune.game/faction/elysium-mages",
+        "link": "https://arken.gg/faction/elysium-mages",
         "shortDescription": "An ancient and esteemed group of mana-wielders, the Elysium Mages are largely aloof from the rest of Haerra.",
         "description": "An ancient and esteemed group of mana-wielders, the Elysium Mages are largely aloof from the rest of Haerra.",
         "lore1": "The Elysium Mages are an ancient group of human academics and spellcasters whose knowledge and power has been built upon for centuries. At the height of their power during the Illumination, the mages held sway over nearly all of Haerra, overseeing an era of prosperity and peace. Eventually, however, the mages grew more and more reclusive, building their floating metropolises in northeastern Elysium and, for the most part, remaining there. In this new era they made great progress, away from the prying eyes and politics of the outside world; establishing universities of magic, researching new spells, and expanding new ways to apply magic.\n",
@@ -119,16 +92,9 @@
         "lore3": "**GOALS**\n\nTo progress the field of magic and achieve greatness. To guide the unlearned people of Haerra into study and reflection. To use magic to heal the world and move it past its barbarism.\n",
         "lore4": "**HISTORY**\n\nPerhaps more than any other faction on Haerra, the history of the Elysium Mages is brimming with great accomplishments and cataclysmic errors. Founded by a small circle of ancient mages dedicated to unlocking the mysteries of arcane knowledge, the Elysium Mages have now embodied that core value for over a millennium. However--even though loved by many--the mages are feared and hated by many across Haerra.\n\nWith such power afforded to a relatively small group of people, mages and even generations of mages have abused this power: from Ogshon the Hog--who made sport of conquering dozens of small towns and taking the women for himself--to Vaedra the Tyrant--who sought to unite Haerra under the rule of the mages. Aside from the infamous figures, the mages are also criticized for their selective involvement, accused of only 'helping' when it benefits the mages.\n\nDespite their many stains, numerous mages seek to improve life for those in Haerra: from building and commissioning universities to freely providing aqueduct and sewage technology to areas across the continent. Mages have provided aid in settling conflicts and averting natural disasters, among other smaller tasks. As such, few would deny that the Elysium mages have done some good, even if it is marred by ill-doing and neglect.\n",
         "npcs": [],
-        "areas": [
-            55,
-            22
-        ],
+        "areas": [55, 22],
         "activeFactionConflict": [],
-        "passiveFactionConflict": [
-            9,
-            8,
-            10
-        ],
+        "passiveFactionConflict": [9, 8, 10],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -138,7 +104,7 @@
         "id": 6,
         "name": "Radiant Viziers",
         "isEnabled": true,
-        "link": "https://rune.game/faction/radiant-viziers",
+        "link": "https://arken.gg/faction/radiant-viziers",
         "shortDescription": "The Radiant Viziers are a group of expert fighters dedicated to Relia, with bastions of influence all over Haerra.",
         "description": "The Radiant Viziers are a group of expert fighters dedicated to Relia, with bastions of influence all over Haerra.",
         "lore1": "Upright and devout servants of the goddess Relia, the Radiant Viziers are a mercenary group of expert fighters. The Viziers sell their skills to the highest bidder and are not cheap, but will only fight once they have debated the cause and found it rightful. Great wealth is afforded to the Viziers, and they use it to spread their forces and influence across Haerra.\n",
@@ -146,19 +112,10 @@
         "lore3": "**GOALS**\n\nTo be a shield: defending the defenseless against the evils of Haerra. To be a sword: striking against the hearts of evildoers, tyrants, and those who sneak in the shadows. To shed light: spreading the radiance of Relia across Haerra, to one day bring order and peace to the continent.\n",
         "lore4": "**HISTORY**\n\nThe Radiant Viziers were created in the mid-sixth century, in the wake of the brutal Magocracy Wars. Its founder, Gelarit Mephar II, had just finished building the seedling city of Linden, including a church to his goddess Relia. Gelarit sought to bring legitimacy to his rule and protection to his people. As such, he wrote up a set of laws and edicts to govern his people, including the founding of the Radiant Viziers. The Viziers would oversee not only Linden's protection but also further the virtues of Relia in Fayhelm and across Haerra.\n\nAs the order progressed and Gelarit passed the torch of leadership, the Radiant Viziers gained more autonomy from the city of Linden. Half a century into its creation, however, the Blight of 715 tore through the area. As the area plunged into poverty, the Viziers chose to sell their swords to provide food for the humans of southern Fayhelm. After several incredibly successful campaigns, the Viziers gained such notoriety that their fame in Haerra skyrocketed--as did their price.\n\nIn the next few decades, the Radiant Viziers grew immensely wealthy and began to expand its operations and influence across Haerra, bearing high the blazing sun banner of Relia.\n",
         "npcs": [],
-        "areas": [
-            5,
-            27
-        ],
-        "activeFactionConflict": [
-            9
-        ],
-        "passiveFactionConflict": [
-            8
-        ],
-        "activeGuildConflict": [
-            6
-        ],
+        "areas": [5, 27],
+        "activeFactionConflict": [9],
+        "passiveFactionConflict": [8],
+        "activeGuildConflict": [6],
         "areaConflict": [],
         "characters": []
     },
@@ -167,7 +124,7 @@
         "id": 7,
         "name": "Newerth Sages",
         "isEnabled": true,
-        "link": "https://rune.game/faction/newerth-sages",
+        "link": "https://arken.gg/faction/newerth-sages",
         "shortDescription": "Scattered across the deserts in tall minarets, the Newerth Sages study astrology and martial arts.",
         "description": "Scattered across the deserts in tall minarets, the Newerth Sages study astrology and martial arts.",
         "lore1": "The Newerth Sages are a unique group whose portfolio includes astrology, philosophy, martial arts, and even magic. Mainly human in number, the Sages are easily spotted in their distinctive bright yellow garb. Contrary to their name, they reside outside of Newerth--though they originated there--mostly scattered along the eastern edges of the Copper Desert in tall minarets. Here, they study the stars and follow a type of astrology linked to the passing of their phases of the sun and moon. They are a very peaceful people and avoid conflict at all costs. However, they are all masters and practitioners of a self-defense martial art aligned with their astrological studies, earning them respect from both scholars and warriors.\n",
@@ -175,9 +132,7 @@
         "lore3": "**GOALS**\n\nTo decipher the secrets of the universe and reveal its teachings to the people of Haerra. To perfect oneself first, before attempting to help perfect another. To see reality in its true form, and therefore achieve a higher state of being.\n",
         "lore4": "**HISTORY**\n\nFrom their inception to today, the distinctive Newerth Sages turn heads wherever they travel. Originally a group of astronomers who worked with the Newerth Empire to map the oceanic skies, they gathered notoriety for their unique philosophies and radical astrological beliefs. Over time, they began exercising a form of martial arts linked to the night sky, treating its practice as a form of ceremony and meditation.\n\nAs their number increased and their philosophies expanded, the Newerth Empire grew worried about these astronomer's influence which bordered on heresy. As such, in the year 702, the Newerth Sages were exiled from the Empire, their practice banned. The Sages fled to the other side of the Bronze Sierras, building minarets with the help of the kilrans and others around Haerra who sympathized with their plight.\n\nToday, the Newerth Sages continue to study the skies at night. During the day--while not training in their unique martial style--Sages can be found pestering travelers along desert roads, locking them into lengthy philosophical debates and complex puzzles. \n",
         "npcs": [],
-        "areas": [
-            52
-        ],
+        "areas": [52],
         "activeFactionConflict": [],
         "passiveFactionConflict": [],
         "activeGuildConflict": [],
@@ -189,7 +144,7 @@
         "id": 8,
         "name": "Forsaken Mancers",
         "isEnabled": true,
-        "link": "https://rune.game/faction/forsaken-mancers",
+        "link": "https://arken.gg/faction/forsaken-mancers",
         "shortDescription": "The Forsaken Mancers are a people corrupted by potent ichor magic, bent on selfish gain.",
         "description": "The Forsaken Mancers are a people corrupted by potent ichor magic, bent on selfish gain.",
         "lore1": "The Forsaken Mancers follow an old form of ichor magic which, over time, infused into their bloodlines and began to corrupt each new generation. Forsaken Mancers are often characterized by piercings and tattoos that adorn their pale, washed-out skin. They have the power to raise undead and spread death among forests and all living things. They live in elegant black marble structures hidden deep in blackened, dead forests. They represent a foulness that can be found in the basest of human beings. Besides their potent ichor energy abilities--which naturally erodes everything around them--they also specialize in a wide variety of crafted poisons, which they have fine-tuned to cause paralysis, madness and, of course, death. They are not good fighters, so if poison and ichor are not viable options, they deal with enemies via a knife in the back or a slit in their throat.\n",
@@ -197,21 +152,9 @@
         "lore3": "**GOALS**\n\nTo spread the ambient effects of ichor across Haerra. To cause unrest and death among those pretenders who claim to be 'righteous,' 'upright,' or 'holy.' To bend others to their will and spread undeath across the continent.\n",
         "lore4": "**HISTORY**\n\nJust like the islands they inhabit, the history of the Forsaken Mancers is heavily shrouded. The first recorded Forsaken Mancers were spotted by Westmarsh explorers in the late 500s: who described them as \"ungodly thin and gaunt, with skin like ghosts and demonic powers most foul.\" Though not demonic--as the explorers had thought--the Mancers' use of ichor energy to manipulate and commune with the dead certainly inspires fear and wariness in the minds of many across Haerra. This leads to a great many versions of their history, some more fictitious than others.\n\nThe most reliable accounts name Cedrikk Azibazi as the first Forsaken Mancer. Cedrikk was a tyrannical necromancer who supposedly terrorized the southern lands with a small army of undead--sometime between 1100 and 900 U.H. After he was defeated by the demonkin tribes, he was said to have fled to the fog-drenched bogs of the southern islands, where he vanished.\n\nSince then, staggered reports of the islands growing more foul circulated around southern Haerra. When the Elysium mages sent a team to investigate in 580 R.H., the islands were already home to \"at least a hundred Forsaken Mancers, though likely many more.\" In addiiton, they noted the existence of a large fortress towering above the central swamps, which appeared well-established. Despite this, the Forsaken Mancers only recently stepped from the shadows into greater Haerra: offering their assassination talent to the Valburn Corruptors for the right price.\n",
         "npcs": [],
-        "areas": [
-            7,
-            45
-        ],
+        "areas": [7, 45],
         "activeFactionConflict": [],
-        "passiveFactionConflict": [
-            1,
-            4,
-            2,
-            3,
-            5,
-            11,
-            7,
-            6
-        ],
+        "passiveFactionConflict": [1, 4, 2, 3, 5, 11, 7, 6],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -221,7 +164,7 @@
         "id": 9,
         "name": "Valburn Corruptors",
         "isEnabled": true,
-        "link": "https://rune.game/faction/valburn-corruptors",
+        "link": "https://arken.gg/faction/valburn-corruptors",
         "shortDescription": "Greater demonkin and elite of the Valburn Empire, Valburn Corruptors wield their power with a deadly accuracy.",
         "description": "Greater demonkin and elite of the Valburn Empire, Valburn Corruptors wield their power with a deadly accuracy.",
         "lore1": "The Valburn Corruptors are lesser chaospawn who worship Azorag, god of Chaos. The Valburn Corruptors control Valburn and aim to expand it across Haerra. The Corruptors are the overlords of the demonkin, although they share many similar characteristics with their sisterkin: from the telltale vibrant skin tones to the clawed feet and spiraling horns. Unlike demonkin, however, Corruptors have a thick, carapace-like skin that provides natural protection. In addition, their horns are usually larger and their magic more potent.\n",
@@ -229,27 +172,10 @@
         "lore3": "**GOALS**\n\nTo impose the virtues of Azorag on all civilizations and peoples. To release Azorag from his prison and aid him in a glorious conquest of Haerra. To destroy the Elysium Mages for their destruction of Valburn.\n",
         "lore4": "**HISTORY**\n\nAs a people, the Corruptors have been around for as long as any other humanoid--though they were once known as shav-demonkin. For many years the shav-demonkin, demonkin, and other humanoids lived together in harmony. Though civilizations were more disparate and less connected than modern Haerra, more enmity existed between the elves and dwarves, or between the humans and dragonkin, than between demonkin and others. Despite their strange appearance, many demonkin were naturally intuitive and charismatic, earning them a great reputation across the old continent.\n\nHowever, after the Magocracy Wars tore the demonkin and shav-demonkin lands apart and leveled their civilizations, popular opinion turned against the demonkin. The demonkin were forced to adopt desperate measures: pillaging more northern cities and trade vessels to sustain themselves. This worsened their plight and reputation further, and shav-demonkin--the more imposing and violent of the demonkin--became known as \"Corruptors.\"\n\nAfter almost a century of squalor, one individual promised a different life for  the Corruptors. Highlord Barakas united the Corruptor tribes into a collective Valburn, under the banner of Azorag. Since then the Corruptors and demonkin have swept across the southern reaches of the continent, expanding their hope in the form of the Valburn Empire.\n",
         "npcs": [],
-        "areas": [
-            6,
-            38,
-            72,
-            35
-        ],
-        "activeFactionConflict": [
-            1,
-            4,
-            2,
-            3,
-            5,
-            11,
-            7,
-            6
-        ],
+        "areas": [6, 38, 72, 35],
+        "activeFactionConflict": [1, 4, 2, 3, 5, 11, 7, 6],
         "passiveFactionConflict": [],
-        "activeGuildConflict": [
-            2,
-            11
-        ],
+        "activeGuildConflict": [2, 11],
         "areaConflict": [],
         "characters": []
     },
@@ -258,7 +184,7 @@
         "id": 10,
         "name": "Arcane Sorcerers",
         "isEnabled": true,
-        "link": "https://rune.game/faction/arcane-sorcerers",
+        "link": "https://arken.gg/faction/arcane-sorcerers",
         "shortDescription": "A mysterious group of sorcerers who possess some of the oldest magic and secrets known to Haerra.",
         "description": "A mysterious group of sorcerers who possess some of the oldest magic and secrets known to Haerra.",
         "lore1": "The Arcane Sorcerers are highly skilled sorcerers that practice both black and white forms of ancient magic. They have been around Haerra since the beginning of recorded history: history that they themselves helped document. They store and research their own old documents and mix new spells and amendments with the old to create spells that have great power. They observe no standard moral code in their exploration of their mystical powers. Hence they are capable of great magic and are very powerful beings, their power being such that they do not need to use any form of weaponry. The Arcane Sorcerers are observers and do not become involved in any conflict unless they feel that they are being threatened.\n",
@@ -266,9 +192,7 @@
         "lore3": "**GOALS**\n\nTo be observers and learners, above all. To find truth where it is hidden, and to record lies wherever they are found. To discover the source.\n",
         "lore4": "**HISTORY**\n\nThe Arcane Sorcerers are a private, highly secluded organization. As such, few concrete facts are known about them. Historians themselves, they've documented many events in Haerra and submitted these to libraries and places of learning across the continent. Despite being such active contributors to a collective history of Haerra, they give away little information on themselves. Thus, the understanding of these sorcerers relies on few vague instances.\n\nIn one such encounter, an Elysium mage challenged an Arcane Sorcerer to a duel outside of the Library Westmarsh. According to the Archivist, the sorcerer declined three times before finally accepting. The 'battle' lasted only moments and, reportedly, the mage woke up in his own bed on the Elysium islands. The sorcerer did not raise a finger.\n\nBesides simple stories like these, there is no standard record of the sorcerers' dealings or goals.\n",
         "npcs": [],
-        "areas": [
-            26
-        ],
+        "areas": [26],
         "activeFactionConflict": [],
         "passiveFactionConflict": [],
         "activeGuildConflict": [],
@@ -280,7 +204,7 @@
         "id": 11,
         "name": "Wardens of Irondell",
         "isEnabled": true,
-        "link": "https://rune.game/faction/wardens-of-irondell",
+        "link": "https://arken.gg/faction/wardens-of-irondell",
         "shortDescription": "The Wardens of Irondell are protectors of the Fayhelm forests and all its inhabitants.",
         "description": "The Wardens of Irondell are protectors of the Fayhelm forests and all its inhabitants.",
         "lore1": "The Wardens of Irondell are the protectors of the Fayhelm forests and its inhabitants, both peoples and creatures. The Wardens are woodsmen and women, mainly of human and elven birth, who live in moveable encampments that are spread throughout the forests. They stringently regulate hunting to protect the denizens of the forest, and transgressors are tried for murder. They know the secret trails and ways of the woodland creatures and are accomplished archers, skillful fighters, and experts at camouflage.\n",
@@ -288,14 +212,9 @@
         "lore3": "**GOALS**\n\nTo protect the Fayhelm forests and their inhabitants. To serve as mediators between the elves and humans, but also between other peoples. To bring balance and peace to Haerra by example.\n",
         "lore4": "**HISTORY**\n\nThe product of an important alliance between humans and elves, the Wardens of Irondell were created to guard the city of Irondell and the greater forests of Fayhelm. A coalition force between elves and humans, the Wardens made history as the first fighting force to have both elves and other humanoids serving side-by-side.\n\nThough the Wardens started as a guardian force, repeated issues with the governance of Irondell led to a successful coup, in which the Wardens toppled the corrupt lords that oversaw the city. In its wake, the first Great Moot of Irondell was held to determine its fate. By both popular opinion and the will of the Wardens, it was decided that a Liege Warden would be elected from among their number. Each year the Great Moot would reconvene, and a new Liege Warden would be appointed to rule over Irondell and, by extension, Fayhelm.\n",
         "npcs": [],
-        "areas": [
-            4,
-            54
-        ],
+        "areas": [4, 54],
         "activeFactionConflict": [],
-        "passiveFactionConflict": [
-            9
-        ],
+        "passiveFactionConflict": [9],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []
@@ -305,7 +224,7 @@
         "id": 12,
         "name": "Hexgard Druids",
         "isEnabled": true,
-        "link": "https://rune.game/faction/hexgard-druids",
+        "link": "https://arken.gg/faction/hexgard-druids",
         "shortDescription": "Native to the twisted Hexwood forest, the Hexgard Druids work with the darker sides of nature.",
         "description": "Native to the twisted Hexwood forest, the Hexgard Druids work with the darker sides of nature.",
         "lore1": "Belonging to one of the most twisted places on Haerra, the Hexgard Druids share many similarities with their kin druids in Fayhelm. They serve as caretakers of the area, ensuring the safety of the varied species of woodland life and plants that reside there. Unlike Fayhelm, however, this natural life looks different in the Hexwood: gnarled trees of colorless bark, grasping vines and tall grass, and shadowed creatures that only vaguely resemble their cousins. The Hexgard Druids are attuned to this environment, conducting dark rituals and nature-based experimentation to bolster the deviant forms of nature found here. While Fayhelm druids gain characteristics like antlers and goat legs, the druidic features of the Hexgard type range from spiderlike appendages to shadow-wreathed claws. The spirits of deceased Hexgard Druids sometimes inhabit physical forms, creating vengeful wraiths of incredible gaia magic known as Hexwood Wights.\n",
@@ -313,13 +232,9 @@
         "lore3": "**GOALS**\n\nTo ensure that the natural order is kept and any that threaten it are destroyed. To guard the Hexwood against those who misunderstand the creatures and plant life within. To study and learn from nature, and to become more integrated into the natural world.\n",
         "lore4": "**HISTORY**\n\nMany ask the question \"which came first: The Hexgard druids or Hexgard?\" Though the exact answer is unknown, though both have coexisted there for all of recorded history. Hexgard druids claim that they exist just as the Fayhelm druids have: since the dawn of time, caretaking their sacred forests. This is debated the learned among the druids, who retort that the nature found in the Hexwood is not _nature_, but a foul abomination alien to Haerra. They argue that the Hexgard druids twisted the area to suit their own evil gain, and only pretend at druidic magic.\n\nAkin to their origins, an exact history of the Hexgard druids is also uncertain. Though they maintain a few archdruids amongst their several tribes, there is no consensus on past leadership. Similarly to their druid counterparts in Fayhelm, they teach oral histories rather than recording on parchment. Unlike the Fayhelm druids, however, the Hexgard druids discuss little politics or important history--focusing instead on the mysticism and tales that inform and guide the next generation.\n",
         "npcs": [],
-        "areas": [
-            75
-        ],
+        "areas": [75],
         "activeFactionConflict": [],
-        "passiveFactionConflict": [
-            4
-        ],
+        "passiveFactionConflict": [4],
         "activeGuildConflict": [],
         "areaConflict": [],
         "characters": []

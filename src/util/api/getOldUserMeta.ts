@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const api = 'https://cache.rune.game'
+const api = 'https://cache.arken.gg'
 
 // const cache = {
 //   getUserMeta: {},

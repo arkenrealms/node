@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const node_fetch_1 = __importDefault(require("node-fetch"));
-const api = 'https://cache.rune.game';
+const api = 'https://cache.arken.gg';
 // const cache = {
 //   getUserMeta: {},
 // }

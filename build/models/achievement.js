@@ -17,7 +17,7 @@ class Achievement extends base_1.default {
         return {
             type: 'object',
             required: [],
-            properties: {}
+            properties: {},
         };
     }
     static get relationMappings() {
@@ -27,9 +27,9 @@ class Achievement extends base_1.default {
                 modelClass: node_1.default,
                 join: {
                     from: 'achievements.parentId',
-                    to: 'nodes.id'
-                }
-            }
+                    to: 'nodes.id',
+                },
+            },
         };
     }
 }
@@ -39,7 +39,7 @@ exports.default = Achievement;
 //   "key": "CRAFT_1",
 //   "name": "New Beginnings",
 //   "category": "Basic",
-//   "icon": "https://rune.game/images/achievements/blue/s_030.PNG",
+//   "icon": "https://arken.gg/images/achievements/blue/s_030.PNG",
 //   "points": 1,
 //   "type": "Crafting",
 //   "isCompleted": false,

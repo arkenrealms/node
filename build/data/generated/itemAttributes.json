@@ -7,14 +7,10 @@
         "listOrder": 100.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestyield",
+        "link": "https://arken.gg/item-attribute/harvestyield",
         "isImplemented": true,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Increased Harvest Yield",
         "explanation": "",
@@ -33,14 +29,10 @@
         "listOrder": 500.52,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestfee",
+        "link": "https://arken.gg/item-attribute/harvestfee",
         "isImplemented": true,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Fee",
         "explanation": "",
@@ -59,14 +51,10 @@
         "listOrder": 500.53,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestfeetoken",
+        "link": "https://arken.gg/item-attribute/harvestfeetoken",
         "isImplemented": true,
-        "paramTypes": [
-            "tokenID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["tokenID"],
+        "paramValues": ["0-999"],
         "nature": "Mechanic",
         "description": "Harvest Fee Token: {parameter1}",
         "explanation": "",
@@ -85,14 +73,10 @@
         "listOrder": 200.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/sendharvesthiddenpool",
+        "link": "https://arken.gg/item-attribute/sendharvesthiddenpool",
         "isImplemented": true,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Chance To Send Harvest To Hidden Pool",
         "explanation": "",
@@ -111,14 +95,10 @@
         "listOrder": 500.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/burnentireharvest",
+        "link": "https://arken.gg/item-attribute/burnentireharvest",
         "isImplemented": true,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Chance To Lose Entire Harvest",
         "explanation": "",
@@ -137,14 +117,10 @@
         "listOrder": 500.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestburn",
+        "link": "https://arken.gg/item-attribute/harvestburn",
         "isImplemented": true,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Burn",
         "explanation": "",
@@ -163,14 +139,10 @@
         "listOrder": 300.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/findshard",
+        "link": "https://arken.gg/item-attribute/findshard",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Chance To Find Worldstone Shard",
         "explanation": "Chance applies once per raid.\n",
@@ -189,14 +161,10 @@
         "listOrder": 400.54,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/removefees",
+        "link": "https://arken.gg/item-attribute/removefees",
         "isImplemented": true,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Reduced Harvest Fees",
         "explanation": "",
@@ -214,14 +182,10 @@
         "displayName": "Unstake Locked",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/unstakelocked",
+        "link": "https://arken.gg/item-attribute/unstakelocked",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "100-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["100-100%"],
         "nature": "Debuff",
         "description": "Unstake Locked Until Completion",
         "explanation": "",
@@ -239,14 +203,10 @@
         "displayName": "Early Unstake No Reward",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/earlyunstakenoreward",
+        "link": "https://arken.gg/item-attribute/earlyunstakenoreward",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "100-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["100-100%"],
         "nature": "Debuff",
         "description": "No Reward Early Unstake",
         "explanation": "",
@@ -265,14 +225,10 @@
         "listOrder": 200.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomruneexchange",
+        "link": "https://arken.gg/item-attribute/randomruneexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Random Rune Exchange",
         "explanation": "",
@@ -291,14 +247,10 @@
         "listOrder": 300.52,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/findguildtoken",
+        "link": "https://arken.gg/item-attribute/findguildtoken",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Guild Token",
         "explanation": "",
@@ -317,14 +269,10 @@
         "listOrder": 300.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/magicfind",
+        "link": "https://arken.gg/item-attribute/magicfind",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-999%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-999%"],
         "nature": "Buff",
         "description": "{parameter1} Magic Find",
         "explanation": "",
@@ -342,14 +290,10 @@
         "displayName": "Fracture Item",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/fractureitem",
+        "link": "https://arken.gg/item-attribute/fractureitem",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Chance To Fracture Item",
         "explanation": "",
@@ -367,14 +311,10 @@
         "displayName": "Launch Pool Reward",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/launchpoolreward",
+        "link": "https://arken.gg/item-attribute/launchpoolreward",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Launchpool Reward",
         "explanation": "",
@@ -392,14 +332,10 @@
         "displayName": "Launch Pool Token",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/launchpooltoken",
+        "link": "https://arken.gg/item-attribute/launchpooltoken",
         "isImplemented": false,
-        "paramTypes": [
-            "tokenID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["tokenID"],
+        "paramValues": ["0-999"],
         "nature": "Buff",
         "description": "Reward Token: {parameter1}",
         "explanation": "",
@@ -418,14 +354,10 @@
         "listOrder": 400.53,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/freezefees",
+        "link": "https://arken.gg/item-attribute/freezefees",
         "isImplemented": false,
-        "paramTypes": [
-            "chance"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["chance"],
+        "paramValues": ["0-100"],
         "nature": "Buff",
         "description": "{parameter1} Chance to Freeze Fees",
         "explanation": "",
@@ -443,14 +375,10 @@
         "displayName": "Unable Use Runeword",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/unableuseruneword",
+        "link": "https://arken.gg/item-attribute/unableuseruneword",
         "isImplemented": false,
-        "paramTypes": [
-            "runewordID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["runewordID"],
+        "paramValues": ["0-999"],
         "nature": "Debuff",
         "description": "Unable To Use Runeword",
         "explanation": "",
@@ -469,14 +397,10 @@
         "listOrder": 300.53,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/createrandomruneword",
+        "link": "https://arken.gg/item-attribute/createrandomruneword",
         "isImplemented": false,
-        "paramTypes": [
-            "chance"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["chance"],
+        "paramValues": ["0-100"],
         "nature": "Buff",
         "description": "{parameter1} Chance To Create Random Runeword",
         "explanation": "",
@@ -494,14 +418,10 @@
         "displayName": "Specific Guild",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/specificguild",
+        "link": "https://arken.gg/item-attribute/specificguild",
         "isImplemented": false,
-        "paramTypes": [
-            "guildID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["guildID"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Guild Required: {parameter1}",
         "explanation": "",
@@ -519,14 +439,10 @@
         "displayName": "Specific Class",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/specificclass",
+        "link": "https://arken.gg/item-attribute/specificclass",
         "isImplemented": true,
-        "paramTypes": [
-            "classID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["classID"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "{parameter1} Required",
         "explanation": "",
@@ -544,14 +460,10 @@
         "displayName": "Remove Transfer Fees",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/removetransferfees",
+        "link": "https://arken.gg/item-attribute/removetransferfees",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Transfer Fees Removed",
         "explanation": "",
@@ -569,14 +481,10 @@
         "displayName": "Harvest Fee To Random Raider",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestfeetorandomraider",
+        "link": "https://arken.gg/item-attribute/harvestfeetorandomraider",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Teleported To Random Raider",
         "explanation": "",
@@ -594,14 +502,10 @@
         "displayName": "Shard On Harvest",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/shardonharvest",
+        "link": "https://arken.gg/item-attribute/shardonharvest",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-50%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-50%"],
         "nature": "Buff",
         "description": "{parameter1} Chance To Find Shard (On Harvest)",
         "explanation": "",
@@ -619,14 +523,10 @@
         "displayName": "Harvest Start Delay",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harveststartdelay",
+        "link": "https://arken.gg/item-attribute/harveststartdelay",
         "isImplemented": false,
-        "paramTypes": [
-            "hours"
-        ],
-        "paramValues": [
-            "0-24"
-        ],
+        "paramTypes": ["hours"],
+        "paramValues": ["0-24"],
         "nature": "Debuff",
         "description": "Harvest Delayed By {parameter1} Hours",
         "explanation": "",
@@ -644,14 +544,10 @@
         "displayName": "Harvest Claim Delay",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestclaimdelay",
+        "link": "https://arken.gg/item-attribute/harvestclaimdelay",
         "isImplemented": false,
-        "paramTypes": [
-            "days"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["days"],
+        "paramValues": ["0-999"],
         "nature": "Debuff",
         "description": "Harvest Claim Delayed By {parameter1} Days",
         "explanation": "",
@@ -669,14 +565,10 @@
         "displayName": "Early Unstake Fee",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/earlyunstakefee",
+        "link": "https://arken.gg/item-attribute/earlyunstakefee",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Early Unstake Fee",
         "explanation": "",
@@ -694,14 +586,10 @@
         "displayName": "Early Unstake Fee Value",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/earlyunstakefeevalue",
+        "link": "https://arken.gg/item-attribute/earlyunstakefeevalue",
         "isImplemented": false,
-        "paramTypes": [
-            "days"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["days"],
+        "paramValues": ["0-999"],
         "nature": "Neutral",
         "description": "Early Unstake Timeline: {parameter1} Days",
         "explanation": "",
@@ -719,14 +607,10 @@
         "displayName": "Freeze Fees Value",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/freezefeesvalue",
+        "link": "https://arken.gg/item-attribute/freezefeesvalue",
         "isImplemented": false,
-        "paramTypes": [
-            "hours"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["hours"],
+        "paramValues": ["0-999"],
         "nature": "Buff",
         "description": "Freeze Fees Timeline: {parameter1} Hours",
         "explanation": "",
@@ -744,14 +628,10 @@
         "displayName": "Harvest Locked Lp",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestlockedlp",
+        "link": "https://arken.gg/item-attribute/harvestlockedlp",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Neutral",
         "description": "{parameter1} Harvest Buy & Lock LP",
         "explanation": "",
@@ -769,14 +649,10 @@
         "displayName": "Deposit Locked Lp",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/depositlockedlp",
+        "link": "https://arken.gg/item-attribute/depositlockedlp",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Neutral",
         "description": "{parameter1} Deposit Buy & Lock LP",
         "explanation": "",
@@ -794,14 +670,10 @@
         "displayName": "Withdraw Locked Lp",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/withdrawlockedlp",
+        "link": "https://arken.gg/item-attribute/withdrawlockedlp",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Neutral",
         "description": "{parameter1} Withdraw Buy & Lock LP",
         "explanation": "",
@@ -819,14 +691,10 @@
         "displayName": "Transmute Item",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/transmuteitem",
+        "link": "https://arken.gg/item-attribute/transmuteitem",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Chance To Transmute Item",
         "explanation": "",
@@ -845,14 +713,10 @@
         "listOrder": 400.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/avoidburn",
+        "link": "https://arken.gg/item-attribute/avoidburn",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Avoid All Burns",
         "explanation": "",
@@ -871,14 +735,10 @@
         "listOrder": 800.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/earlyaccess",
+        "link": "https://arken.gg/item-attribute/earlyaccess",
         "isImplemented": false,
-        "paramTypes": [
-            "minutes"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["minutes"],
+        "paramValues": ["0-999"],
         "nature": "Buff",
         "description": "Early Raid Access: {parameter1} Minutes",
         "explanation": "",
@@ -896,14 +756,10 @@
         "displayName": "Never Harvest Current Rune",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/neverharvestcurrentraid",
+        "link": "https://arken.gg/item-attribute/neverharvestcurrentraid",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "100-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["100-100%"],
         "nature": "Debuff",
         "description": "Can Never Harvest Current Raid",
         "explanation": "",
@@ -921,7 +777,7 @@
         "displayName": "Game Lottery",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/gamelottery",
+        "link": "https://arken.gg/item-attribute/gamelottery",
         "isImplemented": false,
         "nature": "Mechanic",
         "description": "",
@@ -934,14 +790,10 @@
         "displayName": "Increase Pool Multiplier",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/increasepoolmultiplier",
+        "link": "https://arken.gg/item-attribute/increasepoolmultiplier",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "Increases Pool Multiplier {parameter1}",
         "explanation": "",
@@ -960,14 +812,10 @@
         "listOrder": 800.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/addskill",
+        "link": "https://arken.gg/item-attribute/addskill",
         "isImplemented": false,
-        "paramTypes": [
-            "skill"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["skill"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Unlocked: {parameter1}",
         "explanation": "",
@@ -985,14 +833,10 @@
         "displayName": "Rarity",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/rarity",
+        "link": "https://arken.gg/item-attribute/rarity",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-999"],
         "nature": "Neutral",
         "description": "{parameter1}",
         "explanation": "",
@@ -1010,15 +854,10 @@
         "displayName": "Random Perfection1",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/genericattribute1",
+        "link": "https://arken.gg/item-attribute/genericattribute1",
         "isImplemented": false,
-        "paramTypes": [
-            "value",
-            "description"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value", "description"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "{parameter2}",
         "explanation": "",
@@ -1036,15 +875,10 @@
         "displayName": "Random Perfection2",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/genericattribute2",
+        "link": "https://arken.gg/item-attribute/genericattribute2",
         "isImplemented": false,
-        "paramTypes": [
-            "value",
-            "description"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value", "description"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "{parameter2}",
         "explanation": "",
@@ -1062,14 +896,10 @@
         "displayName": "Random Perfection3",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomperfection3",
+        "link": "https://arken.gg/item-attribute/randomperfection3",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "{parameter1}",
         "explanation": "",
@@ -1087,14 +917,10 @@
         "displayName": "Random Perfection4",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomperfection4",
+        "link": "https://arken.gg/item-attribute/randomperfection4",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "{parameter1}",
         "explanation": "",
@@ -1112,14 +938,10 @@
         "displayName": "Random Perfection5",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomperfection5",
+        "link": "https://arken.gg/item-attribute/randomperfection5",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "{parameter1}",
         "explanation": "",
@@ -1138,14 +960,10 @@
         "listOrder": 400.52,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/burnreflect",
+        "link": "https://arken.gg/item-attribute/burnreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-20"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-20"],
         "nature": "Buff",
         "description": "{parameter1} Burn Reflected",
         "explanation": "",
@@ -1164,14 +982,10 @@
         "listOrder": 400.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/reduceburn",
+        "link": "https://arken.gg/item-attribute/reduceburn",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Reduced Burn",
         "explanation": "",
@@ -1189,14 +1003,10 @@
         "displayName": "Guild Member Capacity",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildmembercapacity",
+        "link": "https://arken.gg/item-attribute/guildmembercapacity",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Buff",
         "description": "{parameter1} Increased Member Capacity",
         "explanation": "",
@@ -1214,14 +1024,10 @@
         "displayName": "Guild Inventory Spaces",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildinventoryspaces",
+        "link": "https://arken.gg/item-attribute/guildinventoryspaces",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Buff",
         "description": "{parameter1} Increased Inventory Spaces",
         "explanation": "",
@@ -1239,14 +1045,10 @@
         "displayName": "Guild Farming Yield",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildfarmingyield",
+        "link": "https://arken.gg/item-attribute/guildfarmingyield",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "description": "{parameter1} Increased Guild Harvest Yield",
         "explanation": "",
@@ -1264,14 +1066,10 @@
         "displayName": "Guild Token Stake Required",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildtokenstakerequired",
+        "link": "https://arken.gg/item-attribute/guildtokenstakerequired",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-33"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-33"],
         "nature": "Requirement",
         "description": "Staked Token: {parameter1}",
         "explanation": "",
@@ -1289,14 +1087,10 @@
         "displayName": "Guild Token Value Required",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildtokenvaluerequired",
+        "link": "https://arken.gg/item-attribute/guildtokenvaluerequired",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Staked Token Amount: {parameter1}",
         "explanation": "",
@@ -1314,14 +1108,10 @@
         "displayName": "Guild Rune Stake Required",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildrunestakerequired",
+        "link": "https://arken.gg/item-attribute/guildrunestakerequired",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Staking required: {parameter1} RXS",
         "explanation": "",
@@ -1339,14 +1129,10 @@
         "displayName": "Pet Farming Yield",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/petattributebonus",
+        "link": "https://arken.gg/item-attribute/petattributebonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "description": "{parameter1} increase to beneficial pet attributes",
         "explanation": "",
@@ -1364,14 +1150,10 @@
         "displayName": "Sockets",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/sockets",
+        "link": "https://arken.gg/item-attribute/sockets",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-5"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-5"],
         "nature": "Neutral",
         "description": "{parameter1} Sockets",
         "explanation": "",
@@ -1389,14 +1171,10 @@
         "displayName": "Specific Rune Reward Token",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/specificrunerewardtoken",
+        "link": "https://arken.gg/item-attribute/specificrunerewardtoken",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-33"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-33"],
         "nature": "Neutral",
         "description": "Earn Rune: {parameter1}",
         "explanation": "",
@@ -1414,14 +1192,10 @@
         "displayName": "Specific Rune Reward Amount",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/specificrunerewardamount",
+        "link": "https://arken.gg/item-attribute/specificrunerewardamount",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-999"],
         "nature": "Neutral",
         "description": "Earned Amount: {parameter1}",
         "explanation": "",
@@ -1439,14 +1213,10 @@
         "displayName": "Reset Sockets",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/resetsockets",
+        "link": "https://arken.gg/item-attribute/resetsockets",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "100-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["100-100"],
         "nature": "Buff",
         "description": "Resets Sockets",
         "explanation": "",
@@ -1464,15 +1234,10 @@
         "displayName": "Crafter Certificate",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/craftercertificate",
+        "link": "https://arken.gg/item-attribute/craftercertificate",
         "isImplemented": false,
-        "paramTypes": [
-            "value",
-            "valueMap"
-        ],
-        "paramValues": [
-            "1-999"
-        ],
+        "paramTypes": ["value", "valueMap"],
+        "paramValues": ["1-999"],
         "nature": "Neutral",
         "description": "Crafting Competition #{param1} Winner {param2}",
         "explanation": "",
@@ -1490,14 +1255,10 @@
         "displayName": "Add Skill Level",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/addskilllevel",
+        "link": "https://arken.gg/item-attribute/addskilllevel",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-4"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-4"],
         "nature": "Buff",
         "description": "+{parameter1} all skills",
         "explanation": "",
@@ -1516,14 +1277,10 @@
         "listOrder": 100.53,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestcritchance",
+        "link": "https://arken.gg/item-attribute/harvestcritchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "description": "{parameter1} Increased Chance To Critically Harvest Yield",
         "explanation": "",
@@ -1541,14 +1298,10 @@
         "displayName": "Harvest Crit Multiplier",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestcritmultiplier",
+        "link": "https://arken.gg/item-attribute/harvestcritmultiplier",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "description": "{parameter1} Critical Harvest Bonus",
         "explanation": "",
@@ -1567,14 +1320,10 @@
         "listOrder": 100.52,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestovertime",
+        "link": "https://arken.gg/item-attribute/harvestovertime",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "description": "Add {parameter1} To Harvest, Vested Over Time",
         "explanation": "",
@@ -1592,14 +1341,10 @@
         "displayName": "Harvest Vestment Reduction",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestvestmentreduction",
+        "link": "https://arken.gg/item-attribute/harvestvestmentreduction",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Increase to Vestment Period",
         "explanation": "",
@@ -1617,14 +1362,10 @@
         "displayName": "Harvest Vestment Increase",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestvestmentincrease",
+        "link": "https://arken.gg/item-attribute/harvestvestmentincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "{parameter1} Decrease to Vestment Period",
         "explanation": "",
@@ -1643,14 +1384,10 @@
         "listOrder": 600.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvesttheft",
+        "link": "https://arken.gg/item-attribute/harvesttheft",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Enhanced Sacrifice & Steal",
         "explanation": "",
@@ -1669,14 +1406,10 @@
         "listOrder": 600.52,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvesttheftmaxincrease",
+        "link": "https://arken.gg/item-attribute/harvesttheftmaxincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "Maximum Possible Harvest Theft Increased By {parameter1}",
         "explanation": "",
@@ -1695,14 +1428,10 @@
         "listOrder": 600.53,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvesttheftmindecrease",
+        "link": "https://arken.gg/item-attribute/harvesttheftmindecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "description": "Minimum Possible Harvest Theft Decreased By {parameter1} ",
         "explanation": "",
@@ -1721,14 +1450,10 @@
         "listOrder": 100.56,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomrunebonus",
+        "link": "https://arken.gg/item-attribute/randomrunebonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Bonus Yield Given as a Random Rune",
         "explanation": "",
@@ -1746,14 +1471,10 @@
         "displayName": "Yield Bonus Specific Weapon",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/yieldbonusspecificweapon",
+        "link": "https://arken.gg/item-attribute/yieldbonusspecificweapon",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "description": "{parameter1} increase to {weapon} harvest yield bonus",
         "explanation": "",
@@ -1771,14 +1492,10 @@
         "displayName": "Random Rune Specific Weapon",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomrunespecificweapon",
+        "link": "https://arken.gg/item-attribute/randomrunespecificweapon",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Increase To Yield Bonus, Given As A Random Rune",
         "explanation": "",
@@ -1796,11 +1513,9 @@
         "displayName": "Specific Weapon Type",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/specificweapontype",
+        "link": "https://arken.gg/item-attribute/specificweapontype",
         "isImplemented": false,
-        "paramTypes": [
-            "itemType"
-        ],
+        "paramTypes": ["itemType"],
         "nature": "Mechanic",
         "description": "Specific Weapon: {parameter1}",
         "explanation": ""
@@ -1813,14 +1528,10 @@
         "listOrder": 700.5,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvesttheftdefense",
+        "link": "https://arken.gg/item-attribute/harvesttheftdefense",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Mechanic",
         "description": "{parameter1} Theft Counter Chance",
         "explanation": "",
@@ -1838,11 +1549,9 @@
         "displayName": "Random Rune Exchange Specific",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomruneexchangespecific",
+        "link": "https://arken.gg/item-attribute/randomruneexchangespecific",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Chance That Random Rune Exchange Gives A Specific Rune",
         "explanation": ""
@@ -1854,11 +1563,9 @@
         "displayName": "Random Rune Token",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomrunetoken",
+        "link": "https://arken.gg/item-attribute/randomrunetoken",
         "isImplemented": false,
-        "paramTypes": [
-            "rune"
-        ],
+        "paramTypes": ["rune"],
         "nature": "Mechanic",
         "description": "Random Exchange Target: {parameter1}",
         "explanation": ""
@@ -1870,11 +1577,9 @@
         "displayName": "Set Bonus Items",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/setbonusitems",
+        "link": "https://arken.gg/item-attribute/setbonusitems",
         "isImplemented": false,
-        "paramTypes": [
-            "runewordIDs"
-        ],
+        "paramTypes": ["runewordIDs"],
         "nature": "Mechanic",
         "description": "",
         "explanation": ""
@@ -1886,14 +1591,10 @@
         "displayName": "Two Item Set Bonus",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/twoitemsetbonus",
+        "link": "https://arken.gg/item-attribute/twoitemsetbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -1911,14 +1612,10 @@
         "displayName": "Three Item Set Bonus",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/threeitemsetbonus",
+        "link": "https://arken.gg/item-attribute/threeitemsetbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -1936,14 +1633,10 @@
         "displayName": "Four Item Set Bonus",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/fouritemsetbonus",
+        "link": "https://arken.gg/item-attribute/fouritemsetbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -1961,14 +1654,10 @@
         "displayName": "Five Item Set Bonus",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/fiveitemsetbonus",
+        "link": "https://arken.gg/item-attribute/fiveitemsetbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -1987,14 +1676,10 @@
         "listOrder": 100.54,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildtreasuryyieldbonus",
+        "link": "https://arken.gg/item-attribute/guildtreasuryyieldbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "description": "{parameter1} Yield Bonus, Sent To Guild Treasury",
         "explanation": "",
@@ -2012,14 +1697,10 @@
         "displayName": "Harvest To Treasury",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvesttotreasury",
+        "link": "https://arken.gg/item-attribute/harvesttotreasury",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Neutral",
         "description": "{parameter1} of Harvest Sent to Guild Treasury",
         "explanation": "",
@@ -2037,14 +1718,10 @@
         "displayName": "Guild Treasury Access Key",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/guildtreasuryaccesskey",
+        "link": "https://arken.gg/item-attribute/guildtreasuryaccesskey",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "1-1"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["1-1"],
         "nature": "Mechanic",
         "description": "Ability to sign guild treasury transactions.",
         "explanation": "",
@@ -2062,11 +1739,9 @@
         "displayName": "Random Static Attribute",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/randomstaticattribute",
+        "link": "https://arken.gg/item-attribute/randomstaticattribute",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "description": "",
         "explanation": ""
@@ -2078,14 +1753,10 @@
         "displayName": "Karmic Influence",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/karmicinfluence",
+        "link": "https://arken.gg/item-attribute/karmicinfluence",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "-1-1"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["-1-1"],
         "nature": "Buff",
         "description": "Sway a pool or farm toward your alignment, receiving a bonus when it matches",
         "explanation": "",
@@ -2103,14 +1774,10 @@
         "displayName": "Vesting Unequip Lock",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/vestingunequiplock",
+        "link": "https://arken.gg/item-attribute/vestingunequiplock",
         "isImplemented": false,
-        "paramTypes": [
-            "ID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["ID"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Can not unequip Runeword until vested payouts have completed",
         "explanation": "",
@@ -2128,14 +1795,10 @@
         "displayName": "Raid Unequip Lock On Stake",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/raidunequiplockonstake",
+        "link": "https://arken.gg/item-attribute/raidunequiplockonstake",
         "isImplemented": false,
-        "paramTypes": [
-            "ID"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["ID"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Can not unequip until current raid ends after staking.",
         "explanation": "",
@@ -2153,14 +1816,10 @@
         "displayName": "Find Fashion Shard",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/findfashionshard",
+        "link": "https://arken.gg/item-attribute/findfashionshard",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Buff",
         "description": "{parameter1} Fashion Find",
         "explanation": "",
@@ -2178,11 +1837,9 @@
         "displayName": "Add Skill Point",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/addskillpoint",
+        "link": "https://arken.gg/item-attribute/addskillpoint",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "",
         "explanation": ""
@@ -2194,7 +1851,7 @@
         "displayName": "Unlock Skill Mod",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/unlockskillmod",
+        "link": "https://arken.gg/item-attribute/unlockskillmod",
         "isImplemented": false,
         "nature": "Buff",
         "description": "",
@@ -2207,14 +1864,10 @@
         "displayName": "Attribute Debuff To Buff On Equip Time",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributedebufftobuffonequiptime",
+        "link": "https://arken.gg/item-attribute/attributedebufftobuffonequiptime",
         "isImplemented": false,
-        "paramTypes": [
-            "hours"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["hours"],
+        "paramValues": ["0-999"],
         "nature": "Requirement",
         "description": "Requires {parameter1} hours to unlock full potential.",
         "explanation": "",
@@ -2232,11 +1885,9 @@
         "displayName": "Attribute Unlock On Equip Time",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributeunlockonequiptime",
+        "link": "https://arken.gg/item-attribute/attributeunlockonequiptime",
         "isImplemented": false,
-        "paramTypes": [
-            "hours"
-        ],
+        "paramTypes": ["hours"],
         "nature": "Requirement",
         "description": "",
         "explanation": ""
@@ -2248,12 +1899,9 @@
         "displayName": "Attribute Unlock On Consecutive Equip Time",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributeunlockonconsecutiveequiptime",
+        "link": "https://arken.gg/item-attribute/attributeunlockonconsecutiveequiptime",
         "isImplemented": false,
-        "paramTypes": [
-            "hours",
-            "(attribute, (paramValues[]))[]"
-        ],
+        "paramTypes": ["hours", "(attribute, (paramValues[]))[]"],
         "nature": "Requirement",
         "description": "Must equip for {parameter1} consecutive hours to receive benefit of {parameter2}",
         "explanation": ""
@@ -2265,14 +1913,10 @@
         "displayName": "Target Attribute To Unlock",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/targetattributetounlock",
+        "link": "https://arken.gg/item-attribute/targetattributetounlock",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeSlot"
-        ],
-        "paramValues": [
-            "0-7"
-        ],
+        "paramTypes": ["attributeSlot"],
+        "paramValues": ["0-7"],
         "nature": "Neutral",
         "description": "{parameter1} To Unlock",
         "explanation": "",
@@ -2290,11 +1934,9 @@
         "displayName": "Debuff Attribute To Change",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/debuffattributetochange",
+        "link": "https://arken.gg/item-attribute/debuffattributetochange",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeID"
-        ],
+        "paramTypes": ["attributeID"],
         "nature": "Neutral",
         "description": "",
         "explanation": ""
@@ -2306,11 +1948,9 @@
         "displayName": "Buff Attribute To Change",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/buffattributetochange",
+        "link": "https://arken.gg/item-attribute/buffattributetochange",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeID"
-        ],
+        "paramTypes": ["attributeID"],
         "nature": "Neutral",
         "description": "",
         "explanation": ""
@@ -2322,11 +1962,9 @@
         "displayName": "Debuff To Buff Attribute Range",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/debufftobuffattributerange",
+        "link": "https://arken.gg/item-attribute/debufftobuffattributerange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Neutral",
         "description": "",
         "explanation": ""
@@ -2338,11 +1976,9 @@
         "displayName": "Require Attribute I D",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/requireattributeid",
+        "link": "https://arken.gg/item-attribute/requireattributeid",
         "isImplemented": false,
-        "paramTypes": [
-            "ID"
-        ],
+        "paramTypes": ["ID"],
         "nature": "Requirement",
         "description": "",
         "explanation": ""
@@ -2354,11 +1990,9 @@
         "displayName": "Require Attribute Value",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/requireattributevalue",
+        "link": "https://arken.gg/item-attribute/requireattributevalue",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Requirement",
         "description": "",
         "explanation": ""
@@ -2370,11 +2004,9 @@
         "displayName": "Require Skill",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/requireskill",
+        "link": "https://arken.gg/item-attribute/requireskill",
         "isImplemented": false,
-        "paramTypes": [
-            "skill"
-        ],
+        "paramTypes": ["skill"],
         "nature": "Requirement",
         "description": "",
         "explanation": ""
@@ -2386,7 +2018,7 @@
         "displayName": "Critical Craft Chance",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/criticalcraftchance",
+        "link": "https://arken.gg/item-attribute/criticalcraftchance",
         "isImplemented": false,
         "nature": "Buff",
         "description": "",
@@ -2399,7 +2031,7 @@
         "displayName": "Disenchantment Bonus",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/disenchantmentbonus",
+        "link": "https://arken.gg/item-attribute/disenchantmentbonus",
         "isImplemented": false,
         "nature": "Buff",
         "description": "",
@@ -2412,7 +2044,7 @@
         "displayName": "Critical Slam Chance",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/criticalslamchance",
+        "link": "https://arken.gg/item-attribute/criticalslamchance",
         "isImplemented": false,
         "nature": "Buff",
         "description": "",
@@ -2425,11 +2057,9 @@
         "displayName": "Require Harvested Runes",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/requireharvestedrunes",
+        "link": "https://arken.gg/item-attribute/requireharvestedrunes",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Requirement",
         "description": "Must harvest {parameter1} runes with item equipped to unlock attributes.",
         "explanation": ""
@@ -2442,11 +2072,9 @@
         "listOrder": 600.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/ignoretheftdefense",
+        "link": "https://arken.gg/item-attribute/ignoretheftdefense",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Chance To Ignore Theft Defense",
         "explanation": ""
@@ -2459,11 +2087,9 @@
         "listOrder": 100.51,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestspeed",
+        "link": "https://arken.gg/item-attribute/harvestspeed",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Reduction To Harvest Cooldown",
         "explanation": ""
@@ -2475,11 +2101,9 @@
         "displayName": "Stun On Harvest",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/stunonharvest",
+        "link": "https://arken.gg/item-attribute/stunonharvest",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} chance to stun enemy on harvest",
         "explanation": ""
@@ -2491,11 +2115,9 @@
         "displayName": "Stun Recovery",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/stunrecovery",
+        "link": "https://arken.gg/item-attribute/stunrecovery",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Faster Recovery From Stun Effects",
         "explanation": ""
@@ -2507,11 +2129,9 @@
         "displayName": "Fracture Reduction",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/fracturereduction",
+        "link": "https://arken.gg/item-attribute/fracturereduction",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} reduction to fracturing chance when upgrading item",
         "explanation": ""
@@ -2523,11 +2143,9 @@
         "displayName": "Limited Durability",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/limiteddurability",
+        "link": "https://arken.gg/item-attribute/limiteddurability",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "description": "Item will break after harvesting {parameter1} runes.",
         "explanation": ""
@@ -2539,11 +2157,9 @@
         "displayName": "Begin Raid Energy",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/beginraidenergy",
+        "link": "https://arken.gg/item-attribute/beginraidenergy",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "Begin boss and PvP raids with {parameter1} Energy accumulated",
         "explanation": ""
@@ -2555,11 +2171,9 @@
         "displayName": "Begin Raid Health Increase",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/beginraidhealthincrease",
+        "link": "https://arken.gg/item-attribute/beginraidhealthincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "Begin boss and PvP raids with {parameter1} additional shares in health pool",
         "explanation": ""
@@ -2571,11 +2185,9 @@
         "displayName": "Energy Theft On Harvest",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/energytheftonharvest",
+        "link": "https://arken.gg/item-attribute/energytheftonharvest",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Energy steal in PvP and Boss raids",
         "explanation": ""
@@ -2587,11 +2199,9 @@
         "displayName": "Energy Pool Multiplier Increase",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/energypoolmultiplierincrease",
+        "link": "https://arken.gg/item-attribute/energypoolmultiplierincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Energy pool emissions received",
         "explanation": ""
@@ -2603,7 +2213,7 @@
         "displayName": "Unequip Lock Raid Duration",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/unequiplockraidduration",
+        "link": "https://arken.gg/item-attribute/unequiplockraidduration",
         "isImplemented": false,
         "nature": "Requirement",
         "description": "PvP/Boss Raids: Item can not be unequiped for the entire raid if it is equipped at the beginning.",
@@ -2616,11 +2226,9 @@
         "displayName": "Attribute Debuff To Buff On Burned Runes",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributedebufftobuffonburnedrunes",
+        "link": "https://arken.gg/item-attribute/attributedebufftobuffonburnedrunes",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Requirement",
         "description": "Must burn {parameter1} runes from raid mechanics to change harmful attribute to beneficial",
         "explanation": ""
@@ -2632,11 +2240,9 @@
         "displayName": "Attribute Debuff To Buff On Harvested Runes",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributedebufftobuffonharvestedrunes",
+        "link": "https://arken.gg/item-attribute/attributedebufftobuffonharvestedrunes",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Requirement",
         "description": "Must harvest {parameter1} runes with item equipped to change harmful attribute to beneficial",
         "explanation": ""
@@ -2649,11 +2255,9 @@
         "listOrder": 100.57,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/yieldbonustohiddenpool",
+        "link": "https://arken.gg/item-attribute/yieldbonustohiddenpool",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} yield bonus on harvests to hidden pool",
         "explanation": ""
@@ -2666,11 +2270,9 @@
         "listOrder": 100.55,
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/yieldbonusfromhiddenpool",
+        "link": "https://arken.gg/item-attribute/yieldbonusfromhiddenpool",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} Yield Bonus On Harvests From Hidden Pool",
         "explanation": ""
@@ -2682,11 +2284,9 @@
         "displayName": "Attribute Debuff To Buff When Hidden Pool Stake",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributedebufftobuffwhenhiddenpoolstake",
+        "link": "https://arken.gg/item-attribute/attributedebufftobuffwhenhiddenpoolstake",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Requirement",
         "description": "Must have {parameter1} tokens staked in hidden pool to change harmful attribute to beneficial",
         "explanation": ""
@@ -2698,11 +2298,9 @@
         "displayName": "Attribute Unlock When Hidden Pool Stake",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributeunlockwhenhiddenpoolstake",
+        "link": "https://arken.gg/item-attribute/attributeunlockwhenhiddenpoolstake",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Requirement",
         "description": "Must have {parameter1} tokens staked in hidden pool to use item's full potential",
         "explanation": ""
@@ -2714,11 +2312,9 @@
         "displayName": "Attribute Scale With Hidden Pool Stake",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/attributescalewithhiddenpoolstake",
+        "link": "https://arken.gg/item-attribute/attributescalewithhiddenpoolstake",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "description": "Item attributes scale with amount staked in hidden pool. Target amount: {parameter1}.",
         "explanation": ""
@@ -2730,11 +2326,9 @@
         "displayName": "Avoid Harvest Loss Without Bonus",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/avoidharvestlosswithoutbonus",
+        "link": "https://arken.gg/item-attribute/avoidharvestlosswithoutbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} chance to avoid harvest loss effects, receiving harvest without bonuses",
         "explanation": ""
@@ -2746,11 +2340,9 @@
         "displayName": "Harvest Fee Reduction Penalty",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestfeereductionpenalty",
+        "link": "https://arken.gg/item-attribute/harvestfeereductionpenalty",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "description": "{parameter1} penalty to harvest fee reduction attributes",
         "explanation": ""
@@ -2762,11 +2354,9 @@
         "displayName": "Harvest Yield Bonus Weapons",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestyieldbonusweapons",
+        "link": "https://arken.gg/item-attribute/harvestyieldbonusweapons",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "description": "{parameter1} bonus to weapon yield bonuses",
         "explanation": ""
@@ -2778,11 +2368,9 @@
         "displayName": "Unstake Locked Duration From Harvest",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/unstakelockeddurationfromharvest",
+        "link": "https://arken.gg/item-attribute/unstakelockeddurationfromharvest",
         "isImplemented": false,
-        "paramTypes": [
-            "days"
-        ],
+        "paramTypes": ["days"],
         "nature": "Mechanic",
         "description": "Unstaking is locked for {parameter1} hours after harvest",
         "explanation": ""
@@ -2793,14 +2381,10 @@
         "name": "RaidTwoAttribute",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/raidtwoattribute",
+        "link": "https://arken.gg/item-attribute/raidtwoattribute",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "[Hidden Attribute]",
         "explanation": "",
@@ -2817,14 +2401,10 @@
         "name": "RaidThreeAttribute",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/raidthreeattribute",
+        "link": "https://arken.gg/item-attribute/raidthreeattribute",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100"],
         "nature": "Neutral",
         "description": "[Hidden Attribute]",
         "explanation": "",
@@ -2841,14 +2421,10 @@
         "name": "ChargeableLock",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/chargeablelock",
+        "link": "https://arken.gg/item-attribute/chargeablelock",
         "isImplemented": false,
-        "paramTypes": [
-            "amount"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["amount"],
+        "paramValues": ["0-999"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -2865,14 +2441,10 @@
         "name": "ChargeableBurn",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/chargeableburn",
+        "link": "https://arken.gg/item-attribute/chargeableburn",
         "isImplemented": false,
-        "paramTypes": [
-            "amount"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["amount"],
+        "paramValues": ["0-999"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -2889,14 +2461,10 @@
         "name": "ChargeableLockLP",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/chargeablelocklp",
+        "link": "https://arken.gg/item-attribute/chargeablelocklp",
         "isImplemented": false,
-        "paramTypes": [
-            "amount"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["amount"],
+        "paramValues": ["0-999"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -2913,14 +2481,10 @@
         "name": "ChargeableBurnLP",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/chargeableburnlp",
+        "link": "https://arken.gg/item-attribute/chargeableburnlp",
         "isImplemented": false,
-        "paramTypes": [
-            "amount"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["amount"],
+        "paramValues": ["0-999"],
         "nature": "Mechanic",
         "description": "",
         "explanation": "",
@@ -2938,14 +2502,10 @@
         "displayName": "Add Skill With Param",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/addskillwithparam",
+        "link": "https://arken.gg/item-attribute/addskillwithparam",
         "isImplemented": false,
-        "paramTypes": [
-            "skill"
-        ],
-        "paramValues": [
-            "0-999"
-        ],
+        "paramTypes": ["skill"],
+        "paramValues": ["0-999"],
         "nature": "Mechanic",
         "description": "Unlocked: {parameter1}",
         "explanation": "",
@@ -2963,14 +2523,10 @@
         "displayName": "Harvest Fee With Param",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestfeewithparam",
+        "link": "https://arken.gg/item-attribute/harvestfeewithparam",
         "isImplemented": false,
-        "paramTypes": [
-            "token"
-        ],
-        "paramValues": [
-            "0-50"
-        ],
+        "paramTypes": ["token"],
+        "paramValues": ["0-50"],
         "nature": "Debuff",
         "description": "{parameter1} Harvest Fee",
         "explanation": "",
@@ -2988,11 +2544,9 @@
         "displayName": "Harvest Fee Group",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/harvestfeegroup",
+        "link": "https://arken.gg/item-attribute/harvestfeegroup",
         "isImplemented": false,
-        "paramValues": [
-            "2,3"
-        ],
+        "paramValues": ["2,3"],
         "nature": "Mechanic",
         "description": "",
         "explanation": ""
@@ -3004,14 +2558,10 @@
         "displayName": "Physical Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/physicaldamage",
+        "link": "https://arken.gg/item-attribute/physicaldamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-35"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-35"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} physical damage",
@@ -3030,14 +2580,10 @@
         "displayName": "Poison Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/poisondamage",
+        "link": "https://arken.gg/item-attribute/poisondamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-20"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-20"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} poison damage",
@@ -3056,14 +2602,10 @@
         "displayName": "Fire Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/firedamage",
+        "link": "https://arken.gg/item-attribute/firedamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-30"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-30"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} fire damage",
@@ -3082,14 +2624,10 @@
         "displayName": "Lightning Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightningdamage",
+        "link": "https://arken.gg/item-attribute/lightningdamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} lightning damage",
@@ -3108,14 +2646,10 @@
         "displayName": "Frost Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/frostdamage",
+        "link": "https://arken.gg/item-attribute/frostdamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} frost damage",
@@ -3134,14 +2668,10 @@
         "displayName": "Rending Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/rendingdamage",
+        "link": "https://arken.gg/item-attribute/rendingdamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} rending damage",
@@ -3160,11 +2690,9 @@
         "displayName": "Arcane Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/arcanedamage",
+        "link": "https://arken.gg/item-attribute/arcanedamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} arcane damage",
@@ -3177,11 +2705,9 @@
         "displayName": "Damage Type Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/damagetypedamage",
+        "link": "https://arken.gg/item-attribute/damagetypedamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} {DamageType} damage",
@@ -3194,14 +2720,10 @@
         "displayName": "Damage Type",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/damagetype",
+        "link": "https://arken.gg/item-attribute/damagetype",
         "isImplemented": false,
-        "paramTypes": [
-            "type"
-        ],
-        "paramValues": [
-            "0-120"
-        ],
+        "paramTypes": ["type"],
+        "paramValues": ["0-120"],
         "nature": "Mechanic",
         "influences": "Offense",
         "description": "{parameter1} damage",
@@ -3220,14 +2742,10 @@
         "displayName": "Increase Damage",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasedamage",
+        "link": "https://arken.gg/item-attribute/increasedamage",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-120"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-120"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} Damage",
@@ -3246,11 +2764,9 @@
         "displayName": "Critical Hit Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/criticalhitchance",
+        "link": "https://arken.gg/item-attribute/criticalhitchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} Critical Hit Chance",
@@ -3263,11 +2779,9 @@
         "displayName": "Critical Hit Multiplier",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/criticalhitmultiplier",
+        "link": "https://arken.gg/item-attribute/criticalhitmultiplier",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} critical hit multiplier",
@@ -3280,11 +2794,9 @@
         "displayName": "Critical Hit Ailment Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/criticalhitailmentchance",
+        "link": "https://arken.gg/item-attribute/criticalhitailmentchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} critical ailment chance",
@@ -3297,14 +2809,10 @@
         "displayName": "Poison Damage Exchange",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/poisondamageexchange",
+        "link": "https://arken.gg/item-attribute/poisondamageexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-20%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-20%"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as poison damage",
@@ -3323,14 +2831,10 @@
         "displayName": "Fire Damage Exchange",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/firedamageexchange",
+        "link": "https://arken.gg/item-attribute/firedamageexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-30%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-30%"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as fire damage",
@@ -3349,14 +2853,10 @@
         "displayName": "Lightning Damage Exchange",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightningdamageexchange",
+        "link": "https://arken.gg/item-attribute/lightningdamageexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as lightning damage",
@@ -3375,14 +2875,10 @@
         "displayName": "Frost Damage Exchange",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/frostdamageexchange",
+        "link": "https://arken.gg/item-attribute/frostdamageexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as frost damage",
@@ -3401,14 +2897,10 @@
         "displayName": "Rending Damage Exchange",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/rendingdamageexchange",
+        "link": "https://arken.gg/item-attribute/rendingdamageexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} of damage dealt as rending damage",
@@ -3427,14 +2919,10 @@
         "displayName": "Life Steal",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lifesteal",
+        "link": "https://arken.gg/item-attribute/lifesteal",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-30%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-30%"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} life steal",
@@ -3453,11 +2941,9 @@
         "displayName": "Attack Speed",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/attackspeed",
+        "link": "https://arken.gg/item-attribute/attackspeed",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} attack speed",
@@ -3470,11 +2956,9 @@
         "displayName": "Ailment Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/ailmentchance",
+        "link": "https://arken.gg/item-attribute/ailmentchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} ailment chance",
@@ -3487,11 +2971,9 @@
         "displayName": "Slow Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/slowchance",
+        "link": "https://arken.gg/item-attribute/slowchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} slow chance",
@@ -3504,11 +2986,9 @@
         "displayName": "Stun Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/stunchance",
+        "link": "https://arken.gg/item-attribute/stunchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} stun chance",
@@ -3521,11 +3001,9 @@
         "displayName": "Bleed Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/bleedchance",
+        "link": "https://arken.gg/item-attribute/bleedchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} bleed chance",
@@ -3538,11 +3016,9 @@
         "displayName": "Poison Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/poisonchance",
+        "link": "https://arken.gg/item-attribute/poisonchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} poison chance",
@@ -3555,11 +3031,9 @@
         "displayName": "Burn Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/burnchance",
+        "link": "https://arken.gg/item-attribute/burnchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} burn chance",
@@ -3572,11 +3046,9 @@
         "displayName": "Silence Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/silencechance",
+        "link": "https://arken.gg/item-attribute/silencechance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} silence chance",
@@ -3589,11 +3061,9 @@
         "displayName": "Sick Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/sickchance",
+        "link": "https://arken.gg/item-attribute/sickchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} sickness chance",
@@ -3606,11 +3076,9 @@
         "displayName": "Sacrifice Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/sacrificechance",
+        "link": "https://arken.gg/item-attribute/sacrificechance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} sacrifice chance",
@@ -3623,14 +3091,10 @@
         "displayName": "Movement Burst Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/movementspeedincrease",
+        "link": "https://arken.gg/item-attribute/movementspeedincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Buff",
         "influences": "Movement",
         "description": "{parameter1} movement burst strength",
@@ -3649,7 +3113,7 @@
         "displayName": "Maximum Health Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/maximumhealthincrease",
+        "link": "https://arken.gg/item-attribute/maximumhealthincrease",
         "isImplemented": false,
         "nature": "Buff",
         "influences": "Defense",
@@ -3663,11 +3127,9 @@
         "displayName": "Arcane Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/arcaneresist",
+        "link": "https://arken.gg/item-attribute/arcaneresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} arcane resist",
@@ -3680,11 +3142,9 @@
         "displayName": "Lightning Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightningresist",
+        "link": "https://arken.gg/item-attribute/lightningresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} lightning resist",
@@ -3697,11 +3157,9 @@
         "displayName": "Ice Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/iceresist",
+        "link": "https://arken.gg/item-attribute/iceresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} ice resist",
@@ -3714,11 +3172,9 @@
         "displayName": "Poison Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/poisonresist",
+        "link": "https://arken.gg/item-attribute/poisonresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} poison resist",
@@ -3731,11 +3187,9 @@
         "displayName": "Rend Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/rendresist",
+        "link": "https://arken.gg/item-attribute/rendresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} rending resist",
@@ -3748,11 +3202,9 @@
         "displayName": "Fire Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/fireresist",
+        "link": "https://arken.gg/item-attribute/fireresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} fire resist",
@@ -3765,11 +3217,9 @@
         "displayName": "Freeze Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/freezeresist",
+        "link": "https://arken.gg/item-attribute/freezeresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} freeze resist",
@@ -3782,11 +3232,9 @@
         "displayName": "Stun Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/stunresist",
+        "link": "https://arken.gg/item-attribute/stunresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} stun resist",
@@ -3799,11 +3247,9 @@
         "displayName": "Ailment Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/ailmentresist",
+        "link": "https://arken.gg/item-attribute/ailmentresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} ailment resist",
@@ -3816,11 +3262,9 @@
         "displayName": "Damage Resist",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/damageresist",
+        "link": "https://arken.gg/item-attribute/damageresist",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} damage resist",
@@ -3833,11 +3277,9 @@
         "displayName": "Light Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightreflect",
+        "link": "https://arken.gg/item-attribute/lightreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} light reflect",
@@ -3850,11 +3292,9 @@
         "displayName": "Dark Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/darkreflect",
+        "link": "https://arken.gg/item-attribute/darkreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} dark reflect",
@@ -3867,11 +3307,9 @@
         "displayName": "Fire Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/firereflect",
+        "link": "https://arken.gg/item-attribute/firereflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} fire reflect",
@@ -3884,11 +3322,9 @@
         "displayName": "Ice Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/icereflect",
+        "link": "https://arken.gg/item-attribute/icereflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} ice reflect",
@@ -3901,11 +3337,9 @@
         "displayName": "Lightning Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightningreflect",
+        "link": "https://arken.gg/item-attribute/lightningreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} lightning reflect",
@@ -3918,11 +3352,9 @@
         "displayName": "Rend Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/rendreflect",
+        "link": "https://arken.gg/item-attribute/rendreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} rending reflect",
@@ -3935,11 +3367,9 @@
         "displayName": "Poison Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/poisonreflect",
+        "link": "https://arken.gg/item-attribute/poisonreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} poison reflect",
@@ -3952,11 +3382,9 @@
         "displayName": "Arcane Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/arcanereflect",
+        "link": "https://arken.gg/item-attribute/arcanereflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} arcane reflect",
@@ -3969,11 +3397,9 @@
         "displayName": "Ailment Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/ailmentreflect",
+        "link": "https://arken.gg/item-attribute/ailmentreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} ailment reflect",
@@ -3986,11 +3412,9 @@
         "displayName": "Physical Reflect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/physicalreflect",
+        "link": "https://arken.gg/item-attribute/physicalreflect",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} physical reflect",
@@ -4003,11 +3427,9 @@
         "displayName": "Fire Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/fireabsorb",
+        "link": "https://arken.gg/item-attribute/fireabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} fire absorb",
@@ -4020,11 +3442,9 @@
         "displayName": "Ice Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/iceabsorb",
+        "link": "https://arken.gg/item-attribute/iceabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} ice absorb",
@@ -4037,11 +3457,9 @@
         "displayName": "Lightning Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightningabsorb",
+        "link": "https://arken.gg/item-attribute/lightningabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} lightning absorb",
@@ -4054,11 +3472,9 @@
         "displayName": "Arcane Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/arcaneabsorb",
+        "link": "https://arken.gg/item-attribute/arcaneabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} arcane absorb",
@@ -4071,11 +3487,9 @@
         "displayName": "Poison Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/poisonabsorb",
+        "link": "https://arken.gg/item-attribute/poisonabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} poison absorb",
@@ -4088,11 +3502,9 @@
         "displayName": "Light Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/lightabsorb",
+        "link": "https://arken.gg/item-attribute/lightabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} light absorb",
@@ -4105,11 +3517,9 @@
         "displayName": "Dark Absorb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/darkabsorb",
+        "link": "https://arken.gg/item-attribute/darkabsorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} dark absorb",
@@ -4122,14 +3532,10 @@
         "displayName": "Killed Player Penalty Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/killedplayerpenaltyincrease",
+        "link": "https://arken.gg/item-attribute/killedplayerpenaltyincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} greater point penalty for defeated opponents.",
@@ -4148,14 +3554,10 @@
         "displayName": "Death Penalty Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/deathpenaltydecrease",
+        "link": "https://arken.gg/item-attribute/deathpenaltydecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} reduction to points lost on death.",
@@ -4174,14 +3576,10 @@
         "displayName": "Death Penalty Avoid",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/deathpenaltyavoid",
+        "link": "https://arken.gg/item-attribute/deathpenaltyavoid",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} to avoid losing points on death.",
@@ -4200,11 +3598,9 @@
         "displayName": "Energy Decay Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/energydecaydecrease",
+        "link": "https://arken.gg/item-attribute/energydecaydecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Neutral",
         "influences": "Game",
         "description": "{parameter1} decrease to energy decay speed",
@@ -4217,11 +3613,9 @@
         "displayName": "Energy Decay Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/energydecayincrease",
+        "link": "https://arken.gg/item-attribute/energydecayincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Neutral",
         "influences": "Game",
         "description": "{parameter1} increase to energy decay speed",
@@ -4234,14 +3628,10 @@
         "displayName": "Early Orb Reveal Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/earlyorbrevealchance",
+        "link": "https://arken.gg/item-attribute/earlyorbrevealchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Mechanic",
         "influences": "Game",
         "description": "{parameter1} chance to see location of orb spawns early.",
@@ -4260,14 +3650,10 @@
         "displayName": "Orb Time Reduce",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbtimereduce",
+        "link": "https://arken.gg/item-attribute/orbtimereduce",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} reduction to time it takes a victim's death orb to appear",
@@ -4286,7 +3672,7 @@
         "displayName": "Orb Pickup Damage Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbpickupdamageincrease",
+        "link": "https://arken.gg/item-attribute/orbpickupdamageincrease",
         "isImplemented": false,
         "description": "{parameter1} damage increase on orb pickup",
         "explanation": ""
@@ -4298,7 +3684,7 @@
         "displayName": "Orb Pickup Health Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbpickuphealthincrease",
+        "link": "https://arken.gg/item-attribute/orbpickuphealthincrease",
         "isImplemented": false,
         "description": "{parameter1} health on orb pickup",
         "explanation": ""
@@ -4310,7 +3696,7 @@
         "displayName": "Orb Pickup Movement Speed Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbpickupmovementspeedincrease",
+        "link": "https://arken.gg/item-attribute/orbpickupmovementspeedincrease",
         "isImplemented": false,
         "description": "{parameter1} movement speed on orb pickup",
         "explanation": ""
@@ -4322,7 +3708,7 @@
         "displayName": "Orb Pickup Crit Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbpickupcritchance",
+        "link": "https://arken.gg/item-attribute/orbpickupcritchance",
         "isImplemented": false,
         "description": "{parameter1} critical hit chance on orb pickup",
         "explanation": ""
@@ -4334,11 +3720,9 @@
         "displayName": "Orb Time Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbtimeincrease",
+        "link": "https://arken.gg/item-attribute/orbtimeincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Game",
         "description": "{parameter1} additional delay to orb appearance from victim",
@@ -4351,14 +3735,10 @@
         "displayName": "Orb No Points Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/orbnopointschance",
+        "link": "https://arken.gg/item-attribute/orbnopointschance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Debuff",
         "influences": "Game",
         "description": "{parameter1} chance picking up an orb gives no points.",
@@ -4377,11 +3757,9 @@
         "displayName": "Early Orb Pickup",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/earlyorbpickup",
+        "link": "https://arken.gg/item-attribute/earlyorbpickup",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Game",
         "description": "Can pick up orbs early.",
@@ -4394,11 +3772,9 @@
         "displayName": "Self Orb Time Reduce",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/selforbtimereduce",
+        "link": "https://arken.gg/item-attribute/selforbtimereduce",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "influences": "Game",
         "description": "{parameter1} less time before own orb manifests",
         "explanation": ""
@@ -4410,11 +3786,9 @@
         "displayName": "Self Orb Time Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/selforbtimeincrease",
+        "link": "https://arken.gg/item-attribute/selforbtimeincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "influences": "Game",
         "description": "{parameter1} more time before own orb manifests",
         "explanation": ""
@@ -4426,11 +3800,9 @@
         "displayName": "Sprite Fuel Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/spritefuelincrease",
+        "link": "https://arken.gg/item-attribute/spritefuelincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Neutral",
         "influences": "Game",
         "description": "{parameter1} increase to energy given by sprites",
@@ -4443,11 +3815,9 @@
         "displayName": "Sprite Fuel Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/spritefueldecrease",
+        "link": "https://arken.gg/item-attribute/spritefueldecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Neutral",
         "influences": "Game",
         "description": "{parameter1} decrease to energy given by sprites",
@@ -4460,14 +3830,10 @@
         "displayName": "Critical Points Chance Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/criticalpointschanceincrease",
+        "link": "https://arken.gg/item-attribute/criticalpointschanceincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Mechanic",
         "influences": "Game",
         "description": "{parameter1} chance to receive critical bonus points.",
@@ -4486,14 +3852,10 @@
         "displayName": "Critical Points Multiplier Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/criticalpointsmultiplierincrease",
+        "link": "https://arken.gg/item-attribute/criticalpointsmultiplierincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-35%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-35%"],
         "nature": "Buff",
         "influences": "Game",
         "description": "{parameter1} increase to critical bonus.",
@@ -4512,14 +3874,10 @@
         "displayName": "Win Rewards Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/winrewardsincrease",
+        "link": "https://arken.gg/item-attribute/winrewardsincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-20%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-20%"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} win bonus",
@@ -4538,14 +3896,10 @@
         "displayName": "Item Rewards Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/itemrewardsincrease",
+        "link": "https://arken.gg/item-attribute/itemrewardsincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-20%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-20%"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} item pickup bonus",
@@ -4564,11 +3918,9 @@
         "displayName": "Magic Find",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/magicfind",
+        "link": "https://arken.gg/item-attribute/magicfind",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "",
@@ -4581,14 +3933,10 @@
         "displayName": "Early Item Reveal Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/earlyitemrevealchance",
+        "link": "https://arken.gg/item-attribute/earlyitemrevealchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to see location of next item early.",
@@ -4607,14 +3955,10 @@
         "displayName": "No Rewards Unless First",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/norewardsunlessfirst",
+        "link": "https://arken.gg/item-attribute/norewardsunlessfirst",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-50%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-50%"],
         "nature": "Debuff",
         "influences": "Reward",
         "description": "{parameter1} chance to receive no rewards for leaderboard positions below first.",
@@ -4633,14 +3977,10 @@
         "displayName": "Win Streak Reward Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/winstreakrewardincrease",
+        "link": "https://arken.gg/item-attribute/winstreakrewardincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-50%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-50%"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} increase to win and item rewards with each consecutive win.",
@@ -4659,7 +3999,7 @@
         "displayName": "Win Streak Magic Find Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/winstreakmagicfindincrease",
+        "link": "https://arken.gg/item-attribute/winstreakmagicfindincrease",
         "isImplemented": false,
         "description": "",
         "explanation": ""
@@ -4671,11 +4011,9 @@
         "displayName": "Win Rewards Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/winrewardsdecrease",
+        "link": "https://arken.gg/item-attribute/winrewardsdecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Reward",
         "description": "{parameter1} win reward reduction",
@@ -4688,11 +4026,9 @@
         "displayName": "Item Rewards Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/itemrewardsdecrease",
+        "link": "https://arken.gg/item-attribute/itemrewardsdecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Reward",
         "description": "{parameter1} item reward reduction",
@@ -4705,11 +4041,9 @@
         "displayName": "Guild Treasury Win Bonus",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/guildtreasurywinbonus",
+        "link": "https://arken.gg/item-attribute/guildtreasurywinbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Reward",
         "description": "{parameter1} win reward as guild rewards",
@@ -4722,11 +4056,9 @@
         "displayName": "Guild Treasury Item Bonus",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/guildtreasuryitembonus",
+        "link": "https://arken.gg/item-attribute/guildtreasuryitembonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Reward",
         "description": "{parameter1} item reward as guild rewards",
@@ -4739,11 +4071,9 @@
         "displayName": "Double Pickup Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/doublepickupchance",
+        "link": "https://arken.gg/item-attribute/doublepickupchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} chance to double an item pickup",
@@ -4756,11 +4086,9 @@
         "displayName": "Random Rune On Win",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/randomruneonwin",
+        "link": "https://arken.gg/item-attribute/randomruneonwin",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} of your win reward as a random rune",
@@ -4773,11 +4101,9 @@
         "displayName": "Target Item Type",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/targetitemtype",
+        "link": "https://arken.gg/item-attribute/targetitemtype",
         "isImplemented": false,
-        "paramTypes": [
-            "itemType"
-        ],
+        "paramTypes": ["itemType"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{ItemType} Runeword rewards more likely",
@@ -4790,11 +4116,9 @@
         "displayName": "Runeword Find Win",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/runewordfindwin",
+        "link": "https://arken.gg/item-attribute/runewordfindwin",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to find a random runeword on win",
@@ -4807,11 +4131,9 @@
         "displayName": "Runeword Find Item",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/runewordfinditem",
+        "link": "https://arken.gg/item-attribute/runewordfinditem",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to find a random runeword on item pickup",
@@ -4824,11 +4146,9 @@
         "displayName": "Shard Find Win",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/shardfindwin",
+        "link": "https://arken.gg/item-attribute/shardfindwin",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to find a worldstone shard on win",
@@ -4841,11 +4161,9 @@
         "displayName": "Shard Find Item",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/shardfinditem",
+        "link": "https://arken.gg/item-attribute/shardfinditem",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to find a worldstone shard on item pickup",
@@ -4858,11 +4176,9 @@
         "displayName": "Token Find Win",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/tokenfindwin",
+        "link": "https://arken.gg/item-attribute/tokenfindwin",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to find a guild token on win",
@@ -4875,11 +4191,9 @@
         "displayName": "Token Find Item",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/tokenfinditem",
+        "link": "https://arken.gg/item-attribute/tokenfinditem",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to find a guild token on item pickup",
@@ -4892,14 +4206,10 @@
         "displayName": "Steal Victim Rewards Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/stealvictimrewardschance",
+        "link": "https://arken.gg/item-attribute/stealvictimrewardschance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-10%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-10%"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{parameter1} chance to take a portion of a killed player's rewards for the round",
@@ -4918,14 +4228,10 @@
         "displayName": "Exp Bonus",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/expbonus",
+        "link": "https://arken.gg/item-attribute/expbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{parameter1} increase to egg hatching progress",
@@ -4944,11 +4250,9 @@
         "displayName": "Leader Movement Speed Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leadermovementspeeddecrease",
+        "link": "https://arken.gg/item-attribute/leadermovementspeeddecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Movement",
         "description": "{parameter1} slower movement when leading",
@@ -4961,11 +4265,9 @@
         "displayName": "Leader Death Penalty Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leaderdeathpenaltyincrease",
+        "link": "https://arken.gg/item-attribute/leaderdeathpenaltyincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Game",
         "description": "{parameter1} increase to points lost on death when leading",
@@ -4978,7 +4280,7 @@
         "displayName": "Leader Skill Penalty",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leaderskillpenalty",
+        "link": "https://arken.gg/item-attribute/leaderskillpenalty",
         "isImplemented": false,
         "description": "{parameter1} lowered skill level when leader",
         "explanation": ""
@@ -4990,11 +4292,9 @@
         "displayName": "Leader Damage Resistance Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leaderdamageresistancedecrease",
+        "link": "https://arken.gg/item-attribute/leaderdamageresistancedecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Defense",
         "description": "{parameter1} more damage taken when leader",
@@ -5007,11 +4307,9 @@
         "displayName": "Leader Max Health Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leadermaxhealthdecrease",
+        "link": "https://arken.gg/item-attribute/leadermaxhealthdecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Defense",
         "description": "{parameter1} less maximum health when leader",
@@ -5024,11 +4322,9 @@
         "displayName": "Leader Max Energy Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leadermaxenergydecrease",
+        "link": "https://arken.gg/item-attribute/leadermaxenergydecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Defense",
         "description": "{parameter1} less maximum energy when leader",
@@ -5041,7 +4337,7 @@
         "displayName": "Leader Damage Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/leaderdamagedecrease",
+        "link": "https://arken.gg/item-attribute/leaderdamagedecrease",
         "isImplemented": false,
         "description": " -{parameter1} damage when leader",
         "explanation": ""
@@ -5053,7 +4349,7 @@
         "displayName": "Not Leader Movement Speed Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/notleadermovementspeedincrease",
+        "link": "https://arken.gg/item-attribute/notleadermovementspeedincrease",
         "isImplemented": false,
         "description": "{parameter1} movement speed when behind",
         "explanation": ""
@@ -5065,7 +4361,7 @@
         "displayName": "Not Leader Damage Resistance Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/notleaderdamageresistanceincrease",
+        "link": "https://arken.gg/item-attribute/notleaderdamageresistanceincrease",
         "isImplemented": false,
         "description": "{parameter1} damage resistance when behind",
         "explanation": ""
@@ -5077,7 +4373,7 @@
         "displayName": "Not Leader Damage Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/notleaderdamageincrease",
+        "link": "https://arken.gg/item-attribute/notleaderdamageincrease",
         "isImplemented": false,
         "description": "{parameter1} damage increase when behind",
         "explanation": ""
@@ -5089,7 +4385,7 @@
         "displayName": "Not Leader Skill Bonus",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/notleaderskillbonus",
+        "link": "https://arken.gg/item-attribute/notleaderskillbonus",
         "isImplemented": false,
         "description": "{parameter1} to skill levels when behind",
         "explanation": ""
@@ -5101,11 +4397,9 @@
         "displayName": "Increase Attack Speed On Orb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increaseattackspeedonorb",
+        "link": "https://arken.gg/item-attribute/increaseattackspeedonorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} attack speed on orb pickup",
@@ -5118,11 +4412,9 @@
         "displayName": "Increase Crit Chance On Orb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasecritchanceonorb",
+        "link": "https://arken.gg/item-attribute/increasecritchanceonorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} crit chance on orb pickup",
@@ -5135,11 +4427,9 @@
         "displayName": "Increase Damage On Orb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasedamageonorb",
+        "link": "https://arken.gg/item-attribute/increasedamageonorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} damage on orb pickup",
@@ -5152,11 +4442,9 @@
         "displayName": "Increase Health On Orb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasehealthonorb",
+        "link": "https://arken.gg/item-attribute/increasehealthonorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} health on orb pickup",
@@ -5169,11 +4457,9 @@
         "displayName": "Passive Regen On Orb",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/passiveregenonorb",
+        "link": "https://arken.gg/item-attribute/passiveregenonorb",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Game",
         "description": " {parameter1} regeneration on orb pickup",
@@ -5186,11 +4472,9 @@
         "displayName": "Increase Attack Speed On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increaseattackspeedonkill",
+        "link": "https://arken.gg/item-attribute/increaseattackspeedonkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} attack speed on kill",
@@ -5203,11 +4487,9 @@
         "displayName": "Increase Crit Chance On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasecritchanceonkill",
+        "link": "https://arken.gg/item-attribute/increasecritchanceonkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} crit chance on kill",
@@ -5220,11 +4502,9 @@
         "displayName": "Increase Damage On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasedamageonkill",
+        "link": "https://arken.gg/item-attribute/increasedamageonkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Offense",
         "description": "{parameter1} damage on kill",
@@ -5237,11 +4517,9 @@
         "displayName": "Increase Health On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasehealthonkill",
+        "link": "https://arken.gg/item-attribute/increasehealthonkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Defense",
         "description": "{parameter1} health on kill.",
@@ -5254,11 +4532,9 @@
         "displayName": "Passive Regen On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/passiveregenonkill",
+        "link": "https://arken.gg/item-attribute/passiveregenonkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Game",
         "description": " {parameter1} regeneration on kill",
@@ -5271,11 +4547,9 @@
         "displayName": "Reduce Energy Consumption On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/reduceenergyconsumptiononkill",
+        "link": "https://arken.gg/item-attribute/reduceenergyconsumptiononkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Game",
         "description": "",
@@ -5288,11 +4562,9 @@
         "displayName": "Movement Burst On Kill",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasemovementspeedonkill",
+        "link": "https://arken.gg/item-attribute/increasemovementspeedonkill",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Movement",
         "description": "{parameter1} movement speed on kill",
@@ -5305,14 +4577,10 @@
         "displayName": "Movement Burst on Evolve",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/evolvemovementburst",
+        "link": "https://arken.gg/item-attribute/evolvemovementburst",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Mechanic",
         "influences": "Movement",
         "description": "{parameter1} movement burst on evolve",
@@ -5331,14 +4599,10 @@
         "displayName": "Evolve Movement Burst Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/evolvemovementburstincrease",
+        "link": "https://arken.gg/item-attribute/evolvemovementburstincrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-25%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-25%"],
         "nature": "Buff",
         "influences": "Movement",
         "description": "{parameter1} longer movement speed bonus after evolving",
@@ -5357,11 +4621,9 @@
         "displayName": "Cast On Evolve Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonevolvechance",
+        "link": "https://arken.gg/item-attribute/castonevolvechance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "",
@@ -5374,11 +4636,9 @@
         "displayName": "Cast On Evolve Type",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonevolvetype",
+        "link": "https://arken.gg/item-attribute/castonevolvetype",
         "isImplemented": false,
-        "paramTypes": [
-            "spellType"
-        ],
+        "paramTypes": ["spellType"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5391,11 +4651,9 @@
         "displayName": "Cast On Evolve Effect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonevolveeffect",
+        "link": "https://arken.gg/item-attribute/castonevolveeffect",
         "isImplemented": false,
-        "paramTypes": [
-            "effect"
-        ],
+        "paramTypes": ["effect"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5408,11 +4666,9 @@
         "displayName": "Cast On Evolve Upgrade",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonevolveupgrade",
+        "link": "https://arken.gg/item-attribute/castonevolveupgrade",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} to cast-on-evolve effect level",
@@ -5425,11 +4681,9 @@
         "displayName": "Cast On Death Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castondeathchance",
+        "link": "https://arken.gg/item-attribute/castondeathchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "",
@@ -5442,11 +4696,9 @@
         "displayName": "Cast On Death Type",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castondeathtype",
+        "link": "https://arken.gg/item-attribute/castondeathtype",
         "isImplemented": false,
-        "paramTypes": [
-            "spellType"
-        ],
+        "paramTypes": ["spellType"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5459,11 +4711,9 @@
         "displayName": "Cast On Death Effect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castondeatheffect",
+        "link": "https://arken.gg/item-attribute/castondeatheffect",
         "isImplemented": false,
-        "paramTypes": [
-            "effect"
-        ],
+        "paramTypes": ["effect"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5476,11 +4726,9 @@
         "displayName": "Cast On Death Upgrade",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castondeathupgrade",
+        "link": "https://arken.gg/item-attribute/castondeathupgrade",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} to cast-on-death effect level",
@@ -5493,11 +4741,9 @@
         "displayName": "Cast On Orb Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonorbchance",
+        "link": "https://arken.gg/item-attribute/castonorbchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "",
@@ -5510,11 +4756,9 @@
         "displayName": "Cast On Orb Type",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonorbtype",
+        "link": "https://arken.gg/item-attribute/castonorbtype",
         "isImplemented": false,
-        "paramTypes": [
-            "spellType"
-        ],
+        "paramTypes": ["spellType"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5527,11 +4771,9 @@
         "displayName": "Cast On Orb Effect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonorbeffect",
+        "link": "https://arken.gg/item-attribute/castonorbeffect",
         "isImplemented": false,
-        "paramTypes": [
-            "effect"
-        ],
+        "paramTypes": ["effect"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5544,11 +4786,9 @@
         "displayName": "Cast On Orb Upgrade",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonorbupgrade",
+        "link": "https://arken.gg/item-attribute/castonorbupgrade",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} to cast-on-orb effect level",
@@ -5561,11 +4801,9 @@
         "displayName": "Cast On Kill Chance",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonkillchance",
+        "link": "https://arken.gg/item-attribute/castonkillchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} cast {CastOnKillEffect.Value} {CastOnKillType.Value} on kill",
@@ -5578,11 +4816,9 @@
         "displayName": "Cast On Kill Type",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonkilltype",
+        "link": "https://arken.gg/item-attribute/castonkilltype",
         "isImplemented": false,
-        "paramTypes": [
-            "spellType"
-        ],
+        "paramTypes": ["spellType"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5595,11 +4831,9 @@
         "displayName": "Cast On Kill Effect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonkilleffect",
+        "link": "https://arken.gg/item-attribute/castonkilleffect",
         "isImplemented": false,
-        "paramTypes": [
-            "effect"
-        ],
+        "paramTypes": ["effect"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "",
@@ -5612,11 +4846,9 @@
         "displayName": "Cast On Kill Upgrade",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/castonkillupgrade",
+        "link": "https://arken.gg/item-attribute/castonkillupgrade",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} to cast-on-kill effect level",
@@ -5629,7 +4861,7 @@
         "displayName": "Day Damage Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/daydamageincrease",
+        "link": "https://arken.gg/item-attribute/daydamageincrease",
         "isImplemented": false,
         "description": "{parameter1} damage during the day",
         "explanation": ""
@@ -5641,7 +4873,7 @@
         "displayName": "Day Health Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/dayhealthincrease",
+        "link": "https://arken.gg/item-attribute/dayhealthincrease",
         "isImplemented": false,
         "description": "{parameter1} health during the day",
         "explanation": ""
@@ -5653,7 +4885,7 @@
         "displayName": "Day Movement Speed Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/daymovementspeedincrease",
+        "link": "https://arken.gg/item-attribute/daymovementspeedincrease",
         "isImplemented": false,
         "description": "{parameter1} movement speed during the day",
         "explanation": ""
@@ -5665,7 +4897,7 @@
         "displayName": "Day Regen",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/dayregen",
+        "link": "https://arken.gg/item-attribute/dayregen",
         "isImplemented": false,
         "description": "Receive passive regeneration during the day",
         "explanation": ""
@@ -5677,7 +4909,7 @@
         "displayName": "Day Point Bonus",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/daypointbonus",
+        "link": "https://arken.gg/item-attribute/daypointbonus",
         "isImplemented": false,
         "description": "{parameter1} bonus points during the day",
         "explanation": ""
@@ -5689,7 +4921,7 @@
         "displayName": "Day Penalty Reduction",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/daypenaltyreduction",
+        "link": "https://arken.gg/item-attribute/daypenaltyreduction",
         "isImplemented": false,
         "description": " {parameter1} point penalty reduction during the day",
         "explanation": ""
@@ -5701,7 +4933,7 @@
         "displayName": "Day Skill Cooldown Reduction",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/dayskillcooldownreduction",
+        "link": "https://arken.gg/item-attribute/dayskillcooldownreduction",
         "isImplemented": false,
         "description": "{parameter1} reduction to skill cooldowns during the day",
         "explanation": ""
@@ -5713,7 +4945,7 @@
         "displayName": "Night Damage Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightdamageincrease",
+        "link": "https://arken.gg/item-attribute/nightdamageincrease",
         "isImplemented": false,
         "description": "{parameter1} damage during the night",
         "explanation": ""
@@ -5725,7 +4957,7 @@
         "displayName": "Night Health Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nighthealthincrease",
+        "link": "https://arken.gg/item-attribute/nighthealthincrease",
         "isImplemented": false,
         "description": "{parameter1} health during the night",
         "explanation": ""
@@ -5737,7 +4969,7 @@
         "displayName": "Night Movement Speed Increase",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightmovementspeedincrease",
+        "link": "https://arken.gg/item-attribute/nightmovementspeedincrease",
         "isImplemented": false,
         "description": "{parameter1} movement speed during the night",
         "explanation": ""
@@ -5749,7 +4981,7 @@
         "displayName": "Night Regen",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightregen",
+        "link": "https://arken.gg/item-attribute/nightregen",
         "isImplemented": false,
         "description": "Receive passive regeneration during the night",
         "explanation": ""
@@ -5761,7 +4993,7 @@
         "displayName": "Night Point Bonus",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightpointbonus",
+        "link": "https://arken.gg/item-attribute/nightpointbonus",
         "isImplemented": false,
         "description": "{parameter1} bonus points during the night",
         "explanation": ""
@@ -5773,7 +5005,7 @@
         "displayName": "Night Penalty Reduction",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightpenaltyreduction",
+        "link": "https://arken.gg/item-attribute/nightpenaltyreduction",
         "isImplemented": false,
         "description": " {parameter1} point penalty reduction during the night",
         "explanation": ""
@@ -5785,7 +5017,7 @@
         "displayName": "Night Skill Cooldown Reduction",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightskillcooldownreduction",
+        "link": "https://arken.gg/item-attribute/nightskillcooldownreduction",
         "isImplemented": false,
         "description": "{parameter1} reduction to skill cooldowns during the night",
         "explanation": ""
@@ -5797,11 +5029,9 @@
         "displayName": "Movement Speed Decrease",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/movementspeeddecrease",
+        "link": "https://arken.gg/item-attribute/movementspeeddecrease",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Debuff",
         "influences": "Movement",
         "description": "{parameter1} slower movement",
@@ -5814,14 +5044,10 @@
         "displayName": "Become Blood Drunk",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/becomeblooddrunk",
+        "link": "https://arken.gg/item-attribute/becomeblooddrunk",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-1%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-1%"],
         "nature": "Debuff",
         "influences": "Movement",
         "description": "Can become blood drunk.",
@@ -5840,14 +5066,10 @@
         "displayName": "Become Sacrifice On Lead",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/becomesacrificeonlead",
+        "link": "https://arken.gg/item-attribute/becomesacrificeonlead",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "influences": "Gameplay",
         "description": "{parameter1} chance of becoming sacrifice when taking the lead.",
@@ -5866,11 +5088,9 @@
         "displayName": "Randomized Item Attribute",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/randomizeditemattribute",
+        "link": "https://arken.gg/item-attribute/randomizeditemattribute",
         "isImplemented": false,
-        "paramTypes": [
-            "randomAttributeID"
-        ],
+        "paramTypes": ["randomAttributeID"],
         "nature": "Mechanic",
         "influences": "All",
         "description": "{RandomAttributeID}.id.description",
@@ -5883,11 +5103,9 @@
         "displayName": "Aura Effect",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/auraeffect",
+        "link": "https://arken.gg/item-attribute/auraeffect",
         "isImplemented": false,
-        "paramTypes": [
-            "effect"
-        ],
+        "paramTypes": ["effect"],
         "nature": "Mechanic",
         "influences": "All",
         "description": "{Effect} aura",
@@ -5900,7 +5118,7 @@
         "displayName": "Night Aura",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/nightaura",
+        "link": "https://arken.gg/item-attribute/nightaura",
         "isImplemented": false,
         "description": "",
         "explanation": ""
@@ -5912,7 +5130,7 @@
         "displayName": "Highlight Nearby",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/highlightnearby",
+        "link": "https://arken.gg/item-attribute/highlightnearby",
         "isImplemented": false,
         "description": "",
         "explanation": ""
@@ -5924,11 +5142,9 @@
         "displayName": "Skill Unlock",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/skillunlock",
+        "link": "https://arken.gg/item-attribute/skillunlock",
         "isImplemented": false,
-        "paramTypes": [
-            "skill"
-        ],
+        "paramTypes": ["skill"],
         "nature": "Mechanic",
         "description": "Unlocked: {parameter1}",
         "explanation": ""
@@ -5940,11 +5156,9 @@
         "displayName": "Class Requirement",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/classprerequisite",
+        "link": "https://arken.gg/item-attribute/classprerequisite",
         "isImplemented": false,
-        "paramTypes": [
-            "class"
-        ],
+        "paramTypes": ["class"],
         "nature": "Requirement",
         "description": "{parameter1} Required",
         "explanation": ""
@@ -5956,14 +5170,10 @@
         "displayName": "Skill Mod",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/skillmod",
+        "link": "https://arken.gg/item-attribute/skillmod",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-5"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-5"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "",
@@ -5982,11 +5192,9 @@
         "displayName": "Skill Level Up",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/skilllevelup",
+        "link": "https://arken.gg/item-attribute/skilllevelup",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} levels added to equipped skill(s)",
@@ -5999,11 +5207,9 @@
         "displayName": "Reduce Skill Cooldown",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/reduceskillcooldown",
+        "link": "https://arken.gg/item-attribute/reduceskillcooldown",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "{parameter1} skill cooldown reduction",
@@ -6016,11 +5222,9 @@
         "displayName": "Increase Max Skill Charges",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/increasemaxskillcharges",
+        "link": "https://arken.gg/item-attribute/increasemaxskillcharges",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "",
@@ -6033,11 +5237,9 @@
         "displayName": "Unlock On Wins",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/unlockonwins",
+        "link": "https://arken.gg/item-attribute/unlockonwins",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "description": "",
         "explanation": ""
     },
@@ -6048,11 +5250,9 @@
         "displayName": "Unlock On Kills",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/unlockonkills",
+        "link": "https://arken.gg/item-attribute/unlockonkills",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "description": "",
         "explanation": ""
     },
@@ -6063,11 +5263,9 @@
         "displayName": "Unlock On Consecutive Wins",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/unlockonconsecutivewins",
+        "link": "https://arken.gg/item-attribute/unlockonconsecutivewins",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "description": "",
         "explanation": ""
     },
@@ -6078,11 +5276,9 @@
         "displayName": "Unlock On Games Played",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/unlockongamesplayed",
+        "link": "https://arken.gg/item-attribute/unlockongamesplayed",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "description": "",
         "explanation": ""
     },
@@ -6093,11 +5289,9 @@
         "displayName": "Unlock On Revenge Kills",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/unlockonrevengekills",
+        "link": "https://arken.gg/item-attribute/unlockonrevengekills",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "description": "",
         "explanation": ""
     },
@@ -6108,11 +5302,9 @@
         "displayName": "Target Attribute Unlock",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/targetattributeunlock",
+        "link": "https://arken.gg/item-attribute/targetattributeunlock",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeSlot"
-        ],
+        "paramTypes": ["attributeSlot"],
         "description": "",
         "explanation": ""
     },
@@ -6123,11 +5315,9 @@
         "displayName": "Debuff To Buff Range",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/debufftobuffrange",
+        "link": "https://arken.gg/item-attribute/debufftobuffrange",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
+        "paramTypes": ["value"],
         "description": "",
         "explanation": ""
     },
@@ -6138,11 +5328,9 @@
         "displayName": "Debuff Attribute Target",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/debuffattributetarget",
+        "link": "https://arken.gg/item-attribute/debuffattributetarget",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeID"
-        ],
+        "paramTypes": ["attributeID"],
         "description": "",
         "explanation": ""
     },
@@ -6153,11 +5341,9 @@
         "displayName": "Buff Attribute Target",
         "isEnabled": true,
         "game": 2,
-        "link": "https://rune.game/item-attribute/buffattributetarget",
+        "link": "https://arken.gg/item-attribute/buffattributetarget",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeID"
-        ],
+        "paramTypes": ["attributeID"],
         "description": "",
         "explanation": ""
     },
@@ -6168,14 +5354,10 @@
         "displayName": "Health Regen",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/randomattribute",
+        "link": "https://arken.gg/item-attribute/randomattribute",
         "isImplemented": false,
-        "paramTypes": [
-            "(attribute, (paramValues[]))[]"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["(attribute, (paramValues[]))[]"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "influences": "Player",
         "description": "",
@@ -6194,17 +5376,10 @@
         "displayName": "Increase Stat",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/modifystat",
+        "link": "https://arken.gg/item-attribute/modifystat",
         "isImplemented": false,
-        "paramTypes": [
-            "target",
-            "stat",
-            "value",
-            "conditions?"
-        ],
-        "paramValues": [
-            "0-200%"
-        ],
+        "paramTypes": ["target", "stat", "value", "conditions?"],
+        "paramValues": ["0-200%"],
         "nature": "Conditional",
         "influences": "Gameplay",
         "description": "{p3} {p2} for {p1}, {p4.description}.",
@@ -6222,11 +5397,9 @@
         "name": "SetBonus",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/setbonus",
+        "link": "https://arken.gg/item-attribute/setbonus",
         "isImplemented": false,
-        "paramTypes": [
-            "setName"
-        ],
+        "paramTypes": ["setName"],
         "nature": "Container",
         "influences": "All",
         "description": "{p1} Set Bonus: {p2}",
@@ -6239,14 +5412,10 @@
         "displayName": "Early Item Reveal Chance",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/earlyitemrevealchance",
+        "link": "https://arken.gg/item-attribute/earlyitemrevealchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{p1} chance to see location of next random reward item early",
@@ -6265,14 +5434,10 @@
         "displayName": "Guild Treasury Win Bonus",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/guildtreasurybonus",
+        "link": "https://arken.gg/item-attribute/guildtreasurybonus",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Debuff",
         "influences": "Reward",
         "description": "Additional {p1} of reward sent to guild treasury.",
@@ -6291,14 +5456,10 @@
         "displayName": "Double Pickup Chance",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/doublepickupchance",
+        "link": "https://arken.gg/item-attribute/doublepickupchance",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Buff",
         "influences": "Reward",
         "description": "{p1} chance to double an item pickup",
@@ -6317,14 +5478,10 @@
         "displayName": "#REF!",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/stealrewardsonwin",
+        "link": "https://arken.gg/item-attribute/stealrewardsonwin",
         "isImplemented": false,
-        "paramTypes": [
-            "value"
-        ],
-        "paramValues": [
-            "0-100%"
-        ],
+        "paramTypes": ["value"],
+        "paramValues": ["0-100%"],
         "nature": "Mechanic",
         "influences": "Reward",
         "description": "{p1} chance to take a beaten player's accumulated item rewards for the round",
@@ -6342,13 +5499,9 @@
         "name": "CastOnCondition",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/castoncondition",
+        "link": "https://arken.gg/item-attribute/castoncondition",
         "isImplemented": false,
-        "paramTypes": [
-            "target",
-            "skill",
-            "conditions"
-        ],
+        "paramTypes": ["target", "skill", "conditions"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "${p1.SkillClassification.contains(\"Spell\") ? 'Cast' : 'Use'} {p1} {p2.description}.",
@@ -6360,12 +5513,9 @@
         "name": "ActivateSkillMod",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/activateskillmod",
+        "link": "https://arken.gg/item-attribute/activateskillmod",
         "isImplemented": false,
-        "paramTypes": [
-            "mod",
-            "conditions?"
-        ],
+        "paramTypes": ["mod", "conditions?"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "Activate {p1}[, {p2.description}].",
@@ -6377,12 +5527,9 @@
         "name": "EnableSkill",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/enableskill",
+        "link": "https://arken.gg/item-attribute/enableskill",
         "isImplemented": false,
-        "paramTypes": [
-            "skill",
-            "conditions?"
-        ],
+        "paramTypes": ["skill", "conditions?"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "Enable {p1} [{p2.description}].",
@@ -6394,13 +5541,9 @@
         "name": "ReplaceSkill",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/replaceskill",
+        "link": "https://arken.gg/item-attribute/replaceskill",
         "isImplemented": false,
-        "paramTypes": [
-            "skill",
-            "skill",
-            "conditions"
-        ],
+        "paramTypes": ["skill", "skill", "conditions"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "Replace {p1} with {p2}, {p3.description}.",
@@ -6413,12 +5556,9 @@
         "displayName": "Light Aura",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/auraeffect",
+        "link": "https://arken.gg/item-attribute/auraeffect",
         "isImplemented": false,
-        "paramTypes": [
-            "target",
-            "effect"
-        ],
+        "paramTypes": ["target", "effect"],
         "nature": "Mechanic",
         "influences": "All",
         "description": "Emits {p1} aura",
@@ -6431,7 +5571,7 @@
         "displayName": "Socketed",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/indestructible",
+        "link": "https://arken.gg/item-attribute/indestructible",
         "isImplemented": false,
         "nature": "Mechanic",
         "influences": "Item",
@@ -6445,12 +5585,9 @@
         "displayName": "Rarity",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/socketed",
+        "link": "https://arken.gg/item-attribute/socketed",
         "isImplemented": false,
-        "paramTypes": [
-            "value",
-            "gems"
-        ],
+        "paramTypes": ["value", "gems"],
         "nature": "Mechanic",
         "influences": "Item",
         "description": "{p1} sockets",
@@ -6462,11 +5599,9 @@
         "name": "Rarity",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/rarity",
+        "link": "https://arken.gg/item-attribute/rarity",
         "isImplemented": false,
-        "paramTypes": [
-            "rarity"
-        ],
+        "paramTypes": ["rarity"],
         "nature": "Mechanic",
         "influences": "Item",
         "description": "",
@@ -6480,12 +5615,9 @@
         "listOrder": 800.52,
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/unlockskills",
+        "link": "https://arken.gg/item-attribute/unlockskills",
         "isImplemented": false,
-        "paramTypes": [
-            "skills",
-            "conditions?"
-        ],
+        "paramTypes": ["skills", "conditions?"],
         "nature": "Mechanic",
         "influences": "Skill",
         "description": "Unlocked Skill(s): {p1} [Requirement: {p2.description}]",
@@ -6498,11 +5630,9 @@
         "displayName": "Skill Mod",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/classprerequisite",
+        "link": "https://arken.gg/item-attribute/classprerequisite",
         "isImplemented": false,
-        "paramTypes": [
-            "class"
-        ],
+        "paramTypes": ["class"],
         "nature": "Requirement",
         "influences": "Item",
         "description": "Must be {p1} to use.",
@@ -6515,12 +5645,9 @@
         "displayName": "Skill Level Up",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/unlockskillmods",
+        "link": "https://arken.gg/item-attribute/unlockskillmods",
         "isImplemented": false,
-        "paramTypes": [
-            "skillMods",
-            "conditions?"
-        ],
+        "paramTypes": ["skillMods", "conditions?"],
         "nature": "Buff",
         "influences": "Skill",
         "description": "Unlocks {p1} for selection [Requirement: {p2.description}]",
@@ -6533,12 +5660,9 @@
         "displayName": "Unlock On Kills",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/unlock",
+        "link": "https://arken.gg/item-attribute/unlock",
         "isImplemented": false,
-        "paramTypes": [
-            "target",
-            "condition?"
-        ],
+        "paramTypes": ["target", "condition?"],
         "nature": "Mechanic",
         "influences": "Progression",
         "description": "Unlocks: {p1} [Requirement: {p3.description}]",
@@ -6551,13 +5675,9 @@
         "displayName": "Debuff Attribute Target",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/replaceattributes",
+        "link": "https://arken.gg/item-attribute/replaceattributes",
         "isImplemented": false,
-        "paramTypes": [
-            "attributeSlots",
-            "(attribute, (paramValues[]))[]",
-            "condition?"
-        ],
+        "paramTypes": ["attributeSlots", "(attribute, (paramValues[]))[]", "condition?"],
         "nature": "Mechanic",
         "influences": "Progression",
         "description": "Replaces {p1.attribute} with {p2}[, {p3.description}].",
@@ -6570,15 +5690,9 @@
         "displayName": "Damage Reduce With Health",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/modifystatbycondition",
+        "link": "https://arken.gg/item-attribute/modifystatbycondition",
         "isImplemented": false,
-        "paramTypes": [
-            "targetStat",
-            "linkedCondition",
-            "linkedParams",
-            "unlinkedParams?",
-            "(conditionParam : value)[]"
-        ],
+        "paramTypes": ["targetStat", "linkedCondition", "linkedParams", "unlinkedParams?", "(conditionParam : value)[]"],
         "nature": "Conditional",
         "influences": "Gameplay",
         "description": "Increase {p1} from {p3.min}-{p3.max} based on {p2.name}.",
@@ -6590,13 +5704,9 @@
         "name": "ResistanceExchange",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/resistanceexchange",
+        "link": "https://arken.gg/item-attribute/resistanceexchange",
         "isImplemented": false,
-        "paramTypes": [
-            "damageType",
-            "damageType",
-            "value"
-        ],
+        "paramTypes": ["damageType", "damageType", "value"],
         "nature": "Mechanic",
         "influences": "Defense",
         "description": "Exchange {p3} of {p1} resistance for {p2} resistance.",
@@ -6608,12 +5718,9 @@
         "name": "SwitchAttribute",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/switchattribute",
+        "link": "https://arken.gg/item-attribute/switchattribute",
         "isImplemented": false,
-        "paramTypes": [
-            "(attribute, (paramValues[]))[]",
-            "(conditions, conditionParams)"
-        ],
+        "paramTypes": ["(attribute, (paramValues[]))[]", "(conditions, conditionParams)"],
         "nature": "Conditional",
         "influences": "Item",
         "description": "",
@@ -6625,13 +5732,9 @@
         "name": "SwitchParam",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/switchparam",
+        "link": "https://arken.gg/item-attribute/switchparam",
         "isImplemented": false,
-        "paramTypes": [
-            "attribute",
-            "targetParam",
-            "(conditions, conditionParams)"
-        ],
+        "paramTypes": ["attribute", "targetParam", "(conditions, conditionParams)"],
         "nature": "Conditional",
         "influences": "Item",
         "description": "",
@@ -6643,15 +5746,9 @@
         "name": "ActivateStat",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/activatestat",
+        "link": "https://arken.gg/item-attribute/activatestat",
         "isImplemented": false,
-        "paramTypes": [
-            "target",
-            "stat",
-            "value",
-            "conditions?",
-            "value?"
-        ],
+        "paramTypes": ["target", "stat", "value", "conditions?", "value?"],
         "nature": "Conditional",
         "influences": "Gameplay",
         "description": "",
@@ -6663,12 +5760,9 @@
         "name": "ModifyStatByStat",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/modifystatbystat",
+        "link": "https://arken.gg/item-attribute/modifystatbystat",
         "isImplemented": false,
-        "paramTypes": [
-            "targetStat",
-            "linkedStat"
-        ],
+        "paramTypes": ["targetStat", "linkedStat"],
         "nature": "Conditional",
         "influences": "Gameplay",
         "description": "",
@@ -6680,11 +5774,9 @@
         "name": "EquipPrerequisite",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/equipprerequisite",
+        "link": "https://arken.gg/item-attribute/equipprerequisite",
         "isImplemented": false,
-        "paramTypes": [
-            "conditions"
-        ],
+        "paramTypes": ["conditions"],
         "description": "",
         "explanation": ""
     },
@@ -6694,13 +5786,9 @@
         "name": "RandomParam",
         "isEnabled": true,
         "game": 3,
-        "link": "https://rune.game/item-attribute/randomparam",
+        "link": "https://arken.gg/item-attribute/randomparam",
         "isImplemented": false,
-        "paramTypes": [
-            "attribute",
-            "targetParam",
-            "attributeParams"
-        ],
+        "paramTypes": ["attribute", "targetParam", "attributeParams"],
         "description": "",
         "explanation": ""
     },
@@ -6710,12 +5798,9 @@
         "name": "Crafted",
         "isEnabled": true,
         "game": 1,
-        "link": "https://rune.game/item-attribute/crafted",
+        "link": "https://arken.gg/item-attribute/crafted",
         "isImplemented": false,
-        "paramTypes": [
-            "itemIDs",
-            "value?"
-        ],
+        "paramTypes": ["itemIDs", "value?"],
         "description": "",
         "explanation": ""
     }
