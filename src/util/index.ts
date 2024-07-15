@@ -5,6 +5,7 @@ import * as ethers from 'ethers'
 import util from 'util'
 import db from './db'
 import time from './time'
+export * as decoder from './decoder'
 
 const path = require('path')
 const writeLogs = false

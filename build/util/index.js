@@ -31,7 +31,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.random = exports.getAddress = exports.shuffleArray = exports.randomPosition = exports.sha256 = exports.isNumeric = exports.decodePayload = exports.binaryAgent = exports.convertToDecimal = exports.getTime = exports.commarise = exports.ordinalise = exports.average = exports.getHighestId = exports.groupBy = exports.groupBySub = exports.updateGit = exports.toShort = exports.toLong = exports.removeDupes = exports.pad = exports.round = exports.wait = exports.nowReadable = exports.log = exports.logError = exports.isDebug = void 0;
+exports.random = exports.getAddress = exports.shuffleArray = exports.randomPosition = exports.sha256 = exports.isNumeric = exports.decodePayload = exports.binaryAgent = exports.convertToDecimal = exports.getTime = exports.commarise = exports.ordinalise = exports.average = exports.getHighestId = exports.groupBy = exports.groupBySub = exports.updateGit = exports.toShort = exports.toLong = exports.removeDupes = exports.pad = exports.round = exports.wait = exports.nowReadable = exports.log = exports.logError = exports.isDebug = exports.decoder = void 0;
 const crypto_1 = __importDefault(require("crypto"));
 const child_process_1 = require("child_process");
 const fs_jetpack_1 = __importDefault(require("fs-jetpack"));
@@ -39,6 +39,7 @@ const ethers = __importStar(require("ethers"));
 const util_1 = __importDefault(require("util"));
 const db_1 = __importDefault(require("./db"));
 const time_1 = __importDefault(require("./time"));
+exports.decoder = __importStar(require("./decoder"));
 const path = require('path');
 const writeLogs = false;
 const logPrefix = process.env.LOG_PREFIX || '[APP]';

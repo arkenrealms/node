@@ -1,4 +1,5 @@
 import * as ethers from 'ethers';
+export * as decoder from './decoder';
 export declare const isDebug: boolean;
 export declare function logError(...msgs: any[]): void;
 export declare function log(...msgs: any[]): void;

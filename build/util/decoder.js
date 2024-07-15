@@ -902,4 +902,4 @@ function getTokenIdFromItem(item, rand = 1) {
     return `1${pad(version, 3)}${pad(item.id, 5)}${pad(item.type, 2)}${attrs}`;
 }
 exports.getTokenIdFromItem = getTokenIdFromItem;
-//# sourceMappingURL=item-decoder.js.map
+//# sourceMappingURL=decoder.js.map

@@ -1,1 +1,1 @@
-export * from './util/item-decoder';
+export * as util from './util';
