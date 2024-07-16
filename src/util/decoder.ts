@@ -18,7 +18,7 @@ const useLoki = true
 
 let tokenCache = {}
 
-const dbCon = new loki('rune.db', {
+const dbCon = new loki('arken.db', {
   adapter:
     typeof window !== 'undefined'
       ? new IncrementalIndexedDBAdapter()
@@ -85,7 +85,7 @@ export function clearDatabase() {
 
 export function getTokenCache() {
   // if (useLoki) {
-  //   var db = new loki('rune.db')
+  //   var db = new loki('arken.db')
 
   //   // Add a collection to the database
   //   var items = db.addCollection('items')
@@ -135,7 +135,7 @@ export function setTokenCache(_tokenCache) {
   tokenCache = tokenCache
 
   // if (useLoki) {
-  //   const db = new loki('rune.db')
+  //   const db = new loki('arken.db')
 
   //   // Add a collection to the database
   //   const items = db.addCollection('items')
