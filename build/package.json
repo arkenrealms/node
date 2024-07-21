@@ -1,9 +1,18 @@
 {
   "name": "@arken/node",
-  "version": "1.4.2",
+  "version": "1.4.6",
   "description": "",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "scripts": {
+    "build": "npm-run-all dist",
+    "dist": "npm-run-all clean tsc:*",
+    "clean": "del-cli ./dist && make-dir ./dist",
+    "tsc:1": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && cp ./contracts/* ./build/contracts && cp ./data/generated/* ./build/data/generated && NODE_ENV=production tsc",
+    "test": "jest --coverage --config=jest.unit.config.js",
+    "test:watch": "jest --watch --collect-coverage --config=jest.unit.config.js",
+    "publish": "npm publish --access=public"
+  },
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.0.3",
     "@typechain/ethers-v4": "^1.0.0",
@@ -26,7 +35,18 @@
     "typescript": "^4.3.4",
     "underscore": "^1.13.2",
     "utf8": "^3.0.0",
-    "web3": "^1.3.6"
+    "web3": "^1.3.6",
+    "make-dir-cli": "^3.1.0",
+    "del-cli": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "mongoose": "^8.4.1",
+    "lodash": "~4.17.21",
+    "uuid": "^8.3.2",
+    "dayjs": "^1.11.8",
+    "node-fetch": "~3.3.2",
+    "cross-fetch": "~4.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
   },
   "peerDependencies": {
     "@ethersproject/address": "^5.0.2",
@@ -37,14 +57,18 @@
   },
   "devDependencies": {
     "@types/web3": "1.0.20",
+    "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.196",
+    "ts-jest": "26.5.3",
+    "jest": "~26.6.3",
+    "jest-environment-jsdom": "^27.0.6",
+    "jest-html-reporters": "~2.1.2",
+    "jest-junit": "^12.2.0",
     "eslint": "^6.8.0",
     "eslint-config-marine": "^3.0.2",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0"
-  },
-  "scripts": {
-    "build": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && cp ./src/contracts/* ./build/contracts && cp ./src/data/generated/* ./build/data/generated && NODE_ENV=production tsc"
   }
 }

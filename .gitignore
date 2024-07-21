@@ -1,6 +1,7 @@
 secrets.js
 secrets.ptr.js
 nohup.out
+build
 
 node_modules/
 dist

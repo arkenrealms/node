@@ -1,0 +1,1023 @@
+[
+  {
+    "uuid": "recmNDfLIHvQ6XDES",
+    "id": 1,
+    "name": "Steel",
+    "runes": [
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      },
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recagFsMKRqIv7P77",
+    "id": 2,
+    "name": "Fury",
+    "runes": [
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      },
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      },
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      },
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recdpoZLcFPgQfVIf",
+    "id": 3,
+    "name": "Lorekeeper",
+    "runes": [
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      },
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recAB7M2cl9gaV0SC",
+    "id": 4,
+    "name": "Worldstone Shard",
+    "runes": [],
+    "description": ""
+  },
+  {
+    "uuid": "recdb6CuMnhNlLxVM",
+    "id": 5,
+    "name": "Flash",
+    "runes": [
+      {
+        "uuid": "recnhMsaOYjIJd4F6",
+        "id": 6,
+        "name": "Ith Rune",
+        "symbol": "ITH"
+      },
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      },
+      {
+        "uuid": "recfqMUNvxS9gLIhs",
+        "id": 7,
+        "name": "Tal Rune",
+        "symbol": "TAL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recSp0KtwXE99jAny",
+    "id": 6,
+    "name": "Titan",
+    "runes": [
+      {
+        "uuid": "recfqMUNvxS9gLIhs",
+        "id": 7,
+        "name": "Tal Rune",
+        "symbol": "TAL"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      },
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      },
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recDxVTvdKbHzmL99",
+    "id": 7,
+    "name": "Smoke",
+    "runes": [
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "recnhMsaOYjIJd4F6",
+        "id": 6,
+        "name": "Ith Rune",
+        "symbol": "ITH"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recIjzygaS3b7Ci8T",
+    "id": 10,
+    "name": "Glory",
+    "runes": [
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      },
+      {
+        "uuid": "recnhMsaOYjIJd4F6",
+        "id": 6,
+        "name": "Ith Rune",
+        "symbol": "ITH"
+      },
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recloWfOG2wyjPdTW",
+    "id": 11,
+    "name": "Grace",
+    "runes": [
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      },
+      {
+        "uuid": "recnhMsaOYjIJd4F6",
+        "id": 6,
+        "name": "Ith Rune",
+        "symbol": "ITH"
+      },
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      },
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recbUtAjrDJK8HVGb",
+    "id": 12,
+    "name": "Genesis",
+    "runes": [
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      },
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "recOrm6X4RnN2CScq",
+        "id": 11,
+        "name": "Amn Rune",
+        "symbol": "AMN"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recQGf3mYZwdCw6bn",
+    "id": 13,
+    "name": "Destiny",
+    "runes": [
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      },
+      {
+        "uuid": "recOrm6X4RnN2CScq",
+        "id": 11,
+        "name": "Amn Rune",
+        "symbol": "AMN"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      },
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recDBIAS7Ttqwht8k",
+    "id": 14,
+    "name": "Wrath",
+    "runes": [
+      {
+        "uuid": "recII9UHwY9M5ToMP",
+        "id": 13,
+        "name": "Shael Rune",
+        "symbol": "SHAEL"
+      },
+      {
+        "uuid": "recnhMsaOYjIJd4F6",
+        "id": 6,
+        "name": "Ith Rune",
+        "symbol": "ITH"
+      },
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      },
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "reci3tJSslS2ZxeCy",
+    "id": 15,
+    "name": "Fortress",
+    "runes": [
+      {
+        "uuid": "recII9UHwY9M5ToMP",
+        "id": 13,
+        "name": "Shael Rune",
+        "symbol": "SHAEL"
+      },
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      },
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recX19IODnOgcL2sv",
+    "id": 16,
+    "name": "Elder",
+    "runes": [
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recOrm6X4RnN2CScq",
+        "id": 11,
+        "name": "Amn Rune",
+        "symbol": "AMN"
+      },
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      },
+      {
+        "uuid": "recfqMUNvxS9gLIhs",
+        "id": 7,
+        "name": "Tal Rune",
+        "symbol": "TAL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "rec38K86jyrlWs3jD",
+    "id": 17,
+    "name": "Pledge",
+    "runes": [
+      {
+        "uuid": "recrNF9dXQZj1dgFv",
+        "id": 4,
+        "name": "Nef Rune",
+        "symbol": "NEF"
+      },
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      },
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      },
+      {
+        "uuid": "recQoh524RVig2KB6",
+        "id": 9,
+        "name": "Ort Rune",
+        "symbol": "ORT"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recdZYdfgTlXIF8IY",
+    "id": 18,
+    "name": "Flow",
+    "runes": [
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recWpIxx9wIR1gR9Q",
+        "id": 16,
+        "name": "Io Rune",
+        "symbol": "IO"
+      },
+      {
+        "uuid": "recdjvf1XQp14bxoh",
+        "id": 15,
+        "name": "Hel Rune",
+        "symbol": "HEL"
+      },
+      {
+        "uuid": "recg7syEsikfGQPjO",
+        "id": 17,
+        "name": "Lum Rune",
+        "symbol": "LUM"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "reczH9Ebh823mSIRv",
+    "id": 19,
+    "name": "Guiding Light",
+    "runes": [
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "reciYE2UDlil5F0m0",
+    "id": 20,
+    "name": "Lionheart",
+    "runes": [
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recWpIxx9wIR1gR9Q",
+        "id": 16,
+        "name": "Io Rune",
+        "symbol": "IO"
+      },
+      {
+        "uuid": "recg7syEsikfGQPjO",
+        "id": 17,
+        "name": "Lum Rune",
+        "symbol": "LUM"
+      },
+      {
+        "uuid": "recII9UHwY9M5ToMP",
+        "id": 13,
+        "name": "Shael Rune",
+        "symbol": "SHAEL"
+      },
+      {
+        "uuid": "reccU1cTGzPOkGV9B",
+        "id": 18,
+        "name": "Ko Rune",
+        "symbol": "KO"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "rec7mXVazF7FqEkDB",
+    "id": 21,
+    "name": "Pressure",
+    "runes": [
+      {
+        "uuid": "recnhMsaOYjIJd4F6",
+        "id": 6,
+        "name": "Ith Rune",
+        "symbol": "ITH"
+      },
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      },
+      {
+        "uuid": "reccU1cTGzPOkGV9B",
+        "id": 18,
+        "name": "Ko Rune",
+        "symbol": "KO"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recVXtPsU6uVkPiBY",
+    "id": 22,
+    "name": "Zeal",
+    "runes": [
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      },
+      {
+        "uuid": "recfqMUNvxS9gLIhs",
+        "id": 7,
+        "name": "Tal Rune",
+        "symbol": "TAL"
+      },
+      {
+        "uuid": "recII9UHwY9M5ToMP",
+        "id": 13,
+        "name": "Shael Rune",
+        "symbol": "SHAEL"
+      },
+      {
+        "uuid": "recdjvf1XQp14bxoh",
+        "id": 15,
+        "name": "Hel Rune",
+        "symbol": "HEL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recoYCePc9dq5lRhd",
+    "id": 23,
+    "name": "Balance",
+    "runes": [
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      },
+      {
+        "uuid": "recWpIxx9wIR1gR9Q",
+        "id": 16,
+        "name": "Io Rune",
+        "symbol": "IO"
+      },
+      {
+        "uuid": "recdjvf1XQp14bxoh",
+        "id": 15,
+        "name": "Hel Rune",
+        "symbol": "HEL"
+      },
+      {
+        "uuid": "recep2sud03fNlCvb",
+        "id": 8,
+        "name": "Ral Rune",
+        "symbol": "RAL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "receX4KBYZOgpoyIN",
+    "id": 24,
+    "name": "Eternity",
+    "runes": [
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      },
+      {
+        "uuid": "recOrm6X4RnN2CScq",
+        "id": 11,
+        "name": "Amn Rune",
+        "symbol": "AMN"
+      },
+      {
+        "uuid": "recII9UHwY9M5ToMP",
+        "id": 13,
+        "name": "Shael Rune",
+        "symbol": "SHAEL"
+      },
+      {
+        "uuid": "recWpIxx9wIR1gR9Q",
+        "id": 16,
+        "name": "Io Rune",
+        "symbol": "IO"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recjS71nIw5iXaVyd",
+    "id": 25,
+    "name": "Instinct",
+    "runes": [
+      {
+        "uuid": "recg7syEsikfGQPjO",
+        "id": 17,
+        "name": "Lum Rune",
+        "symbol": "LUM"
+      },
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recWpIxx9wIR1gR9Q",
+        "id": 16,
+        "name": "Io Rune",
+        "symbol": "IO"
+      },
+      {
+        "uuid": "recSeCoRVoY9Wjhs0",
+        "id": 14,
+        "name": "Dol Rune",
+        "symbol": "DOL"
+      },
+      {
+        "uuid": "recg7syEsikfGQPjO",
+        "id": 17,
+        "name": "Lum Rune",
+        "symbol": "LUM"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "rec6la0ZvvGCe1MqZ",
+    "id": 26,
+    "name": "Beacon",
+    "runes": [
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      },
+      {
+        "uuid": "recg7syEsikfGQPjO",
+        "id": 17,
+        "name": "Lum Rune",
+        "symbol": "LUM"
+      },
+      {
+        "uuid": "recWpIxx9wIR1gR9Q",
+        "id": 16,
+        "name": "Io Rune",
+        "symbol": "IO"
+      },
+      {
+        "uuid": "recII9UHwY9M5ToMP",
+        "id": 13,
+        "name": "Shael Rune",
+        "symbol": "SHAEL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recM0TVjg1L8y6Lfy",
+    "id": 27,
+    "name": "Burial",
+    "runes": [
+      {
+        "uuid": "rec5yE2Uugwdndr2e",
+        "id": 23,
+        "name": "Mal Rune",
+        "symbol": "MAL"
+      },
+      {
+        "uuid": "recwoHXT1TDltYKzK",
+        "id": 24,
+        "name": "Ist Rune",
+        "symbol": "IST"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "recfqMUNvxS9gLIhs",
+        "id": 7,
+        "name": "Tal Rune",
+        "symbol": "TAL"
+      },
+      {
+        "uuid": "recx91k9cW8LGHOAl",
+        "id": 2,
+        "name": "Eld Rune",
+        "symbol": "ELD"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recmRg7QSJGoe9B9I",
+    "id": 31,
+    "name": "Rune Royale Ticket",
+    "runes": [
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recAr9JLAx8bSqTtX",
+    "id": 36,
+    "name": "Exile",
+    "runes": [
+      {
+        "uuid": "rec5yE2Uugwdndr2e",
+        "id": 23,
+        "name": "Mal Rune",
+        "symbol": "MAL"
+      },
+      {
+        "uuid": "recTdPe5pp8wPAzBy",
+        "id": 22,
+        "name": "Um Rune",
+        "symbol": "UM"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "recwoHXT1TDltYKzK",
+        "id": 24,
+        "name": "Ist Rune",
+        "symbol": "IST"
+      },
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recw9PhvtBh9n9y13",
+    "id": 37,
+    "name": "Hellfire",
+    "runes": [
+      {
+        "uuid": "rec9M7JdO40aqWzbO",
+        "id": 19,
+        "name": "Fal Rune",
+        "symbol": "FAL"
+      },
+      {
+        "uuid": "rec5yE2Uugwdndr2e",
+        "id": 23,
+        "name": "Mal Rune",
+        "symbol": "MAL"
+      },
+      {
+        "uuid": "recwsjfF9uVDNUkkB",
+        "id": 21,
+        "name": "Pul Rune",
+        "symbol": "PUL"
+      },
+      {
+        "uuid": "recTdPe5pp8wPAzBy",
+        "id": 22,
+        "name": "Um Rune",
+        "symbol": "UM"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recRrmAlt6JlIMisQ",
+    "id": 38,
+    "name": "Reave",
+    "runes": [
+      {
+        "uuid": "recdGlsj7ZbzJ4A3p",
+        "id": 25,
+        "name": "Gul Rune",
+        "symbol": "GUL"
+      },
+      {
+        "uuid": "recVCcFCNxBDCnSoX",
+        "id": 28,
+        "name": "Lo Rune",
+        "symbol": "LO"
+      },
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "recwoHXT1TDltYKzK",
+        "id": 24,
+        "name": "Ist Rune",
+        "symbol": "IST"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recoXNipOVSxDbj6f",
+    "id": 41,
+    "name": "Haze",
+    "runes": [
+      {
+        "uuid": "rectwFIDUdaKcY31Y",
+        "id": 33,
+        "name": "Zod Rune",
+        "symbol": "ZOD"
+      },
+      {
+        "uuid": "rec9M7JdO40aqWzbO",
+        "id": 19,
+        "name": "Fal Rune",
+        "symbol": "FAL"
+      },
+      {
+        "uuid": "recg7syEsikfGQPjO",
+        "id": 17,
+        "name": "Lum Rune",
+        "symbol": "LUM"
+      },
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      },
+      {
+        "uuid": "recVCcFCNxBDCnSoX",
+        "id": 28,
+        "name": "Lo Rune",
+        "symbol": "LO"
+      }
+    ],
+    "description": ""
+  },
+  {
+    "uuid": "recft528NKYpbztm0",
+    "id": 42,
+    "name": "Mercy",
+    "runes": [
+      {
+        "uuid": "recbOEt6VnTfEsvjL",
+        "id": 10,
+        "name": "Thul Rune",
+        "symbol": "THUL"
+      },
+      {
+        "uuid": "rec92T3L2dY7wAFR9",
+        "id": 1,
+        "name": "El Rune",
+        "symbol": "EL"
+      },
+      {
+        "uuid": "recQw2UNqwJQ9CsBp",
+        "id": 12,
+        "name": "Sol Rune",
+        "symbol": "SOL"
+      },
+      {
+        "uuid": "recdjvf1XQp14bxoh",
+        "id": 15,
+        "name": "Hel Rune",
+        "symbol": "HEL"
+      },
+      {
+        "uuid": "recyG3t9XcNi1gAuy",
+        "id": 3,
+        "name": "Tir Rune",
+        "symbol": "TIR"
+      }
+    ],
+    "description": ""
+  }
+]
