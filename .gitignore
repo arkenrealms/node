@@ -10,7 +10,6 @@ Assets/AssetStoreTools.meta
 Assembly-CSharp-Editor.csproj
 Assembly-CSharp.csproj
 bin
-Temp
 Library
 .DS_Store
 *~
@@ -18,7 +17,6 @@ Library
 *.bat
 *.bak
 *.zip
-temp
 .mayaSwatches
 .git
 .svn
