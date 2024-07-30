@@ -176,7 +176,7 @@ export function setTokenCache(_tokenCache) {
   // }
 }
 
-function getItemTokenCache(tokenId: string) {
+export function getItemTokenCache(tokenId: string) {
   try {
     // console.log(9999, tokenCache[tokenId])
     if (tokenCache[tokenId]) return tokenCache[tokenId]
@@ -216,7 +216,7 @@ function getItemTokenCache(tokenId: string) {
   }
 }
 
-function setItemTokenCache(item: any) {
+export function setItemTokenCache(item: any) {
   try {
     tokenCache[item.tokenId] = item
 

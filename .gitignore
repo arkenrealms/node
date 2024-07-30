@@ -2,6 +2,9 @@ secrets.js
 secrets.ptr.js
 nohup.out
 build
+*.db
+*.db.*
+coverage
 
 node_modules/
 dist

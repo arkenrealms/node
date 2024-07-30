@@ -1,7 +1,7 @@
-import { removeTimezoneOffset } from '../util/time'
-import ItemAttributes from './generated/itemAttributes.json'
-import generatedItems from './generated/oldItems.json'
-import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type'
+import { removeTimezoneOffset } from '../util/time';
+import ItemAttributes from './generated/itemAttributes.json';
+import generatedItems from './generated/oldItems.json';
+import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type';
 
 export const rewardTokenIdMap = {
   'Guardian Egg': {
@@ -28,7 +28,7 @@ export const rewardTokenIdMap = {
   RUNE: {
     Normal: '1003030131820400022000000200000020000002000000200000020000002000000001',
   },
-}
+};
 
 export const Games = {
   Raid: {
@@ -46,7 +46,7 @@ export const Games = {
   Guardians: {
     id: 5,
   },
-}
+};
 
 export const GamesById = {
   1: 'Raid',
@@ -54,51 +54,51 @@ export const GamesById = {
   3: 'Infinite',
   4: 'Sanctuary',
   5: 'Guardians',
-}
+};
 
 export function getFilteredItems(list: any) {
-  const exclusiveItems = list.filter((item) => !!item.isExclusive)
+  const exclusiveItems = list.filter((item) => !!item.isExclusive);
 
   for (const item of exclusiveItems) {
-    item.activeConditions = []
+    item.activeConditions = [];
     for (const condition of item.exclusiveConditions) {
       if (condition === 'stream') {
-        const now = removeTimezoneOffset(new Date())
+        const now = removeTimezoneOffset(new Date());
 
         if ((now.getDay() === 0 && now.getHours() >= 22) || (now.getDay() === 1 && now.getHours() <= 2)) {
           // 3-7PM UTC
-          item.activeConditions.push(condition)
+          item.activeConditions.push(condition);
         }
       }
 
       if (condition === 'halloween') {
-        const now = removeTimezoneOffset(new Date())
-        const eventStart = removeTimezoneOffset(new Date(`October 31, ${now.getFullYear()} 00:00:00`))
-        const eventEnd = removeTimezoneOffset(new Date(`November 1, ${now.getFullYear()} 00:00:00`))
+        const now = removeTimezoneOffset(new Date());
+        const eventStart = removeTimezoneOffset(new Date(`October 31, ${now.getFullYear()} 00:00:00`));
+        const eventEnd = removeTimezoneOffset(new Date(`November 1, ${now.getFullYear()} 00:00:00`));
 
         if (now > eventStart && now < eventEnd) {
-          item.activeConditions.push(condition)
+          item.activeConditions.push(condition);
         }
       }
 
       if (condition === 'christmas') {
-        const now = removeTimezoneOffset(new Date())
-        const eventStart = removeTimezoneOffset(new Date(`December 24, ${now.getFullYear()} 00:00:00`))
-        const eventEnd = removeTimezoneOffset(new Date(`December 26, ${now.getFullYear()} 00:00:00`))
+        const now = removeTimezoneOffset(new Date());
+        const eventStart = removeTimezoneOffset(new Date(`December 24, ${now.getFullYear()} 00:00:00`));
+        const eventEnd = removeTimezoneOffset(new Date(`December 26, ${now.getFullYear()} 00:00:00`));
 
         if (now > eventStart && now < eventEnd) {
-          item.activeConditions.push(condition)
+          item.activeConditions.push(condition);
         }
       }
     }
     if (item.activeConditions.length > 0) {
-      item.isCraftable = true
-      item.isSecret = false
-      item.isUltraSecret = false
+      item.isCraftable = true;
+      item.isSecret = false;
+      item.isUltraSecret = false;
     }
   }
 
-  return list
+  return list;
 }
 
 export const ConditionIdByName = {
@@ -134,24 +134,24 @@ export const ConditionIdByName = {
   EmptyOffHand: 30,
   RankAchieved: 31,
   TimeWithoutHits: 32,
-}
+};
 
-export const ConditionNames: any = {}
+export const ConditionNames: any = {};
 
 for (const key of Object.keys(ConditionIdByName)) {
   // @ts-ignore
-  ConditionNames[ConditionIdByName[key]] = key
+  ConditionNames[ConditionIdByName[key]] = key;
 }
 
 export const ConditionParamIdByName = {
   Attack: 1,
-}
+};
 
-export const ConditionParamNames: any = {}
+export const ConditionParamNames: any = {};
 
 for (const key of Object.keys(ConditionParamIdByName)) {
   // @ts-ignore
-  ConditionParamNames[ConditionParamIdByName[key]] = key
+  ConditionParamNames[ConditionParamIdByName[key]] = key;
 }
 
 export const TypeIdByName = {
@@ -190,13 +190,13 @@ export const TypeIdByName = {
   Bard: 108,
   All: 109,
   Ultimate: 27,
-}
+};
 
-export const TypeNames: any = {}
+export const TypeNames: any = {};
 
 for (const key of Object.keys(TypeIdByName)) {
   // @ts-ignore
-  TypeNames[TypeIdByName[key]] = key
+  TypeNames[TypeIdByName[key]] = key;
 }
 
 export const SpecificTypeIdByName = {
@@ -235,13 +235,13 @@ export const SpecificTypeIdByName = {
   Bard: 108,
   All: 109,
   Ultimate: 27,
-}
+};
 
-export const SpecificTypeNames: any = {}
+export const SpecificTypeNames: any = {};
 
 for (const key of Object.keys(SpecificTypeIdByName)) {
   // @ts-ignore
-  SpecificTypeNames[SpecificTypeIdByName[key]] = key
+  SpecificTypeNames[SpecificTypeIdByName[key]] = key;
 }
 
 export const EffectIdByName = {
@@ -297,13 +297,13 @@ export const EffectIdByName = {
   DarkDamage: 208,
   Magnetism: 209,
   MovementDamage: 210,
-}
+};
 
-export const EffectNames: any = {}
+export const EffectNames: any = {};
 
 for (const key of Object.keys(EffectIdByName)) {
   // @ts-ignore
-  EffectNames[EffectIdByName[key]] = key
+  EffectNames[EffectIdByName[key]] = key;
 }
 
 export const StatIdByName = {
@@ -317,26 +317,26 @@ export const StatIdByName = {
   Strength: 8,
   Dexterity: 9,
   Vitality: 10,
-}
+};
 
-export const StatNames: any = {}
+export const StatNames: any = {};
 
 for (const key of Object.keys(StatIdByName)) {
   // @ts-ignore
-  StatNames[StatIdByName[key]] = key
+  StatNames[StatIdByName[key]] = key;
 }
 
 export const ModIdByName = {
   'Wild Swings': 1,
   'Scorching Light': 2,
   Bloodseekers: 3,
-}
+};
 
-export const ModNames: any = {}
+export const ModNames: any = {};
 
 for (const key of Object.keys(ModIdByName)) {
   // @ts-ignore
-  ModNames[ModIdByName[key]] = key
+  ModNames[ModIdByName[key]] = key;
 }
 
 // export const ItemAttributes = {
@@ -1373,14 +1373,14 @@ for (const key of Object.keys(ModIdByName)) {
 //   }
 // }
 
-export const ItemAttributesByName = {}
+export const ItemAttributesByName = {};
 
 // Temp: Fill from DB
 for (const itemAttribute of ItemAttributes) {
   // if (itemAttribute.id < 1000) continue // Don't do raid for now
-  if (!ItemAttributesByName[itemAttribute.game]) ItemAttributesByName[itemAttribute.game] = {}
+  if (!ItemAttributesByName[itemAttribute.game]) ItemAttributesByName[itemAttribute.game] = {};
 
-  ItemAttributesByName[itemAttribute.game][itemAttribute.name] = itemAttribute
+  ItemAttributesByName[itemAttribute.game][itemAttribute.name] = itemAttribute;
 }
 
 export const SkillNames = {
@@ -1618,19 +1618,19 @@ export const SkillNames = {
   618: 'Flurry Assault',
   619: 'Destructive Impact',
   620: 'Nova Breath',
-}
+};
 
 for (let i = 0; i < 1000; i++) {
   if (!SkillNames[i]) {
-    SkillNames[i] = ''
+    SkillNames[i] = '';
   }
 }
 
-export const SkillIdByName: any = {}
+export const SkillIdByName: any = {};
 
 for (const key of Object.keys(SkillNames)) {
   // @ts-ignore
-  SkillIdByName[SkillNames[key]] = parseInt(key)
+  SkillIdByName[SkillNames[key]] = parseInt(key);
 }
 
 export const ClassNames = {
@@ -1643,20 +1643,20 @@ export const ClassNames = {
   6: 'Assassin',
   7: 'Druid',
   8: 'Bard',
-}
+};
 
-export const ClassIdByName: any = {}
+export const ClassIdByName: any = {};
 
 for (const key of Object.keys(ClassNames)) {
   // @ts-ignore
-  ClassIdByName[ClassNames[key]] = parseInt(key)
+  ClassIdByName[ClassNames[key]] = parseInt(key);
 }
 
 export const CraftingCompetitionWinner = {
   1: 'Crafting Competition #1 Winner PT',
   2: 'Crafting Competition #2 Winner Spontaneous',
   3: 'Crafting Competition #3 Winner X',
-}
+};
 
 type ItemRarityKeyType =
   | 'Legendary'
@@ -1668,13 +1668,13 @@ type ItemRarityKeyType =
   | 'Normal'
   | 'Set'
   | 'Quest'
-  | 'Trash'
+  | 'Trash';
 type ItemRarityValueType = {
-  id: number
-  name: ItemRarityKeyType
-}
+  id: number;
+  name: ItemRarityKeyType;
+};
 
-type ItemRarityType = Record<ItemRarityKeyType, ItemRarityValueType>
+type ItemRarityType = Record<ItemRarityKeyType, ItemRarityValueType>;
 
 export const ItemRarity: ItemRarityType = {
   Legendary: { id: 1, name: 'Legendary' },
@@ -1687,20 +1687,20 @@ export const ItemRarity: ItemRarityType = {
   Set: { id: 8, name: 'Set' },
   Quest: { id: 9, name: 'Quest' },
   Trash: { id: 10, name: 'Trash' },
-}
+};
 
-export const ItemRarityNameById: any = {}
+export const ItemRarityNameById: any = {};
 
 for (const key of Object.keys(ItemRarity)) {
   // @ts-ignore
-  ItemRarityNameById[ItemRarity[key].id] = ItemRarity[key].name
+  ItemRarityNameById[ItemRarity[key].id] = ItemRarity[key].name;
 }
 
-export const ItemAttributesById: any = {}
+export const ItemAttributesById: any = {};
 
 for (const itemAttribute of ItemAttributes) {
   // @ts-ignore
-  ItemAttributesById[itemAttribute.id] = itemAttribute
+  ItemAttributesById[itemAttribute.id] = itemAttribute;
 }
 
 export const ItemType = {
@@ -1730,7 +1730,7 @@ export const ItemType = {
   Container: 23,
   WristArmor: 24,
   Misc: 25,
-}
+};
 
 export const ItemTypeNames = {
   [ItemType.None]: 'None',
@@ -1759,15 +1759,15 @@ export const ItemTypeNames = {
   [ItemType.Container]: 'Container',
   [ItemType.Misc]: 'Misc',
   [ItemType.WristArmor]: 'Wrist Armor',
-}
+};
 
-export const ItemTypeToText = ItemTypeNames
+export const ItemTypeToText = ItemTypeNames;
 
-export const ItemTypeIdByName: any = {}
+export const ItemTypeIdByName: any = {};
 
 for (const key of Object.keys(ItemTypeNames)) {
   // @ts-ignore
-  ItemTypeIdByName[ItemTypeNames[key]] = parseInt(key)
+  ItemTypeIdByName[ItemTypeNames[key]] = parseInt(key);
 }
 
 export const ItemSlot = {
@@ -1792,7 +1792,7 @@ export const ItemSlot = {
   Body: 18,
   Companion: 19,
   Mount: 20,
-}
+};
 
 export const ItemSlotToText = {
   [ItemSlot.None]: 'None',
@@ -1816,7 +1816,7 @@ export const ItemSlotToText = {
   [ItemSlot.Pet]: 'Pet',
   [ItemSlot.Companion]: 'Companion',
   [ItemSlot.Mount]: 'Mount',
-}
+};
 
 export const ItemId = {
   Steel: 1,
@@ -1838,7 +1838,7 @@ export const ItemId = {
   Pledge: 19,
   Flow: 20,
   GuidingLight: 21,
-}
+};
 
 export const RuneId = {
   EL: 0,
@@ -1874,13 +1874,13 @@ export const RuneId = {
   JAH: 30,
   CHAM: 31,
   ZOD: 32,
-}
+};
 
-export const RuneNames: any = {}
+export const RuneNames: any = {};
 
 for (const key of Object.keys(RuneId)) {
   // @ts-ignore
-  RuneNames[parseInt(RuneId[key])] = key
+  RuneNames[parseInt(RuneId[key])] = key;
 }
 
 const ignoredItems = [
@@ -1889,7 +1889,7 @@ const ignoredItems = [
   "General's Medallion",
   "Scholar's Codex",
   'Crafting Competition Certificate',
-]
+];
 
 export const itemData = {
   [ItemsMainCategoriesType.OTHER]: [
@@ -2189,7 +2189,7 @@ export const itemData = {
       },
       branches: {
         [Games.Raid.id]: {
-          description: ['Redeemed for a randomly generated runeword.'],
+          description: ['Redeemed for a randomly generated runeform.'],
           attributes: [
             { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: '' },
             { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: '' },
@@ -3475,11 +3475,11 @@ export const itemData = {
               isEnabled: true,
               isImplemented: false,
               game: 'Evolution',
-              nexusLink: 'https://arken.gg/item-attribute/runewordfindwin',
+              nexusLink: 'https://arken.gg/item-attribute/runeformfindwin',
               paramType1: 'percent',
               nature: 'Mechanic',
               influences: 'Reward',
-              description: '{parameter1} chance to find a random runeword on win',
+              description: '{parameter1} chance to find a random runeform on win',
               param1: {
                 spec: '0-1',
                 min: 0,
@@ -7297,7 +7297,7 @@ export const itemData = {
     //     },
     //     branches: {
     //       [Games.Raid.id]: {
-    //         description: ['Redeemed for a randomly generated runeword.'],
+    //         description: ['Redeemed for a randomly generated runeform.'],
     //         attributes: [
     //           { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
     //           { ...ItemAttributesByName[Games.Raid.id].RandomPerfection2, min: 0, max: 999, description: "" },
@@ -10607,6 +10607,6 @@ export const itemData = {
   [ItemsMainCategoriesType.WEAPONS]: [],
   [ItemsMainCategoriesType.SHIELDS]: [],
   [ItemsMainCategoriesType.ARMORS]: [],
-}
+};
 
-export default itemData
+export default itemData;

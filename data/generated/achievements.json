@@ -11,7 +11,7 @@
     "category": "Basic",
     "type": "Crafting",
     "date": "Anytime",
-    "description": "Craft 1 Runeword\n"
+    "description": "Craft 1 Runeform\n"
   },
   {
     "uuid": "recP8TNKQ7s1MtvBj",
@@ -25,7 +25,7 @@
     "category": "Basic",
     "type": "Crafting",
     "date": "Anytime",
-    "description": "Craft 10 Runewords\n"
+    "description": "Craft 10 Runeforms\n"
   },
   {
     "uuid": "rec45Js1VchnjI1jY",
@@ -39,7 +39,7 @@
     "category": "Intermediate",
     "type": "Crafting",
     "date": "Anytime",
-    "description": "Craft 100 Runewords\n"
+    "description": "Craft 100 Runeforms\n"
   },
   {
     "uuid": "recdJTSowCtBMYVTS",
@@ -53,7 +53,7 @@
     "category": "Expert",
     "type": "Crafting",
     "date": "Anytime",
-    "description": "Craft 1000 Runewords\n"
+    "description": "Craft 1000 Runeforms\n"
   },
   {
     "uuid": "recuz2tSjBOYUlsdl",

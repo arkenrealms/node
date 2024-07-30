@@ -17,10 +17,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Craft 1 Runeword'],
+        description: ['Craft 1 Runeform'],
       },
       2: {
-        description: 'Craft 1 Runeword',
+        description: 'Craft 1 Runeform',
       },
     },
   },
@@ -40,10 +40,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Craft 10 Runewords'],
+        description: ['Craft 10 Runeforms'],
       },
       2: {
-        description: 'Craft 10 Runewords',
+        description: 'Craft 10 Runeforms',
       },
     },
   },
@@ -63,10 +63,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Craft 100 Runewords'],
+        description: ['Craft 100 Runeforms'],
       },
       2: {
-        description: 'Craft 100 Runewords',
+        description: 'Craft 100 Runeforms',
       },
     },
   },
@@ -86,10 +86,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Craft 1000 Runewords'],
+        description: ['Craft 1000 Runeforms'],
       },
       2: {
-        description: 'Craft 1000 Runewords',
+        description: 'Craft 1000 Runeforms',
       },
     },
   },
@@ -461,4 +461,4 @@ export const achievementData = [
       },
     },
   },
-]
+];
