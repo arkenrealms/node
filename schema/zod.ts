@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
-const ObjectId = z.string().refine((value) => mongoose.Types.ObjectId.isValid(value), {
+export const ObjectId = z.string().refine((value) => mongoose.Types.ObjectId.isValid(value), {
   message: 'Invalid ObjectId',
 });
 
-const StatusEnum = z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active');
+export const StatusEnum = z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active');
 
-const Common = {
+export const Common = {
   createdById: ObjectId.optional(),
   editedById: ObjectId.optional(),
   deletedById: ObjectId.optional(),
@@ -19,7 +19,7 @@ const Common = {
   status: StatusEnum,
 };
 
-const Entity = z
+export const Entity = z
   .object({
     key: z.string().min(1).optional(),
     name: z.string().min(1),

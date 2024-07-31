@@ -174,7 +174,7 @@ export const TypeIdByName = {
   Mage: 101,
   Necromancer: 102,
   Paladin: 103,
-  Barbarian: 104,
+  Warrior: 104,
   Ranger: 105,
   Druid: 106,
   Rogue: 107,
@@ -219,7 +219,7 @@ export const SpecificTypeIdByName = {
   Mage: 101,
   Necromancer: 102,
   Paladin: 103,
-  Barbarian: 104,
+  Warrior: 104,
   Ranger: 105,
   Druid: 106,
   Rogue: 107,
@@ -1635,9 +1635,9 @@ for (const key of Object.keys(SkillNames)) {
 
 export const ClassNames = {
   0: 'None',
-  1: 'Barbarian',
+  1: 'Warrior',
   2: 'Mage',
-  3: 'Amazon',
+  3: 'Ranger',
   4: 'Necromancer',
   5: 'Paladin',
   6: 'Assassin',
@@ -4212,8 +4212,8 @@ export const itemData = {
     //           },
     //           {
     //             ...ItemAttributesByName[Games.Raid.id].SpecificClass,
-    //             min: ClassIdByName.Barbarian,
-    //             max: ClassIdByName.Barbarian,
+    //             min: ClassIdByName.Warrior,
+    //             max: ClassIdByName.Warrior,
     //             map: ClassNames,
     //           },
     //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
@@ -4295,7 +4295,7 @@ export const itemData = {
     //             max: SkillIdByName['Hidden Shot'],
     //             map: SkillNames,
     //           },
-    //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Amazon, max: ClassIdByName.Amazon, map: ClassNames },
+    //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Ranger, max: ClassIdByName.Ranger, map: ClassNames },
     //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
     //         ],
     //         perfection: [40, undefined, undefined, 10, 5],
@@ -7367,7 +7367,7 @@ export const itemData = {
     //             max: SkillIdByName['Hidden Shot'],
     //             map: SkillNames,
     //           },
-    //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Amazon, max: ClassIdByName.Amazon, map: ClassNames },
+    //           { ...ItemAttributesByName[Games.Raid.id].SpecificClass, min: ClassIdByName.Ranger, max: ClassIdByName.Ranger, map: ClassNames },
     //           // { ...ItemAttributesByName[Games.Raid.id].Sockets, value: 5, min: 5, max: 5 },
     //         ],
     //         perfection: [100, 100, 10, 50, 0, 0, 0, undefined],
@@ -9345,7 +9345,7 @@ export const itemData = {
   [ItemsMainCategoriesType.RUNES]: [
     {
       id: 1,
-      name: 'El Rune',
+      name: 'Ex Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/EL.png',
       value: '0',
@@ -9384,7 +9384,7 @@ export const itemData = {
     },
     {
       id: 2,
-      name: 'Eld Rune',
+      name: 'Elm Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/ELD.png',
       value: '0',
@@ -9425,7 +9425,7 @@ export const itemData = {
     },
     {
       id: 3,
-      name: 'Tir Rune',
+      name: 'Tyr Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/TIR.png',
       value: '0',
@@ -9463,7 +9463,7 @@ export const itemData = {
     },
     {
       id: 4,
-      name: 'Nef Rune',
+      name: 'Nen Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/NEF.png',
       value: '0',
@@ -9503,7 +9503,7 @@ export const itemData = {
     },
     {
       id: 5,
-      name: 'Eth Rune',
+      name: 'Eva Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/ETH.png',
       value: '0',
@@ -9541,7 +9541,7 @@ export const itemData = {
     },
     {
       id: 6,
-      name: 'Ith Rune',
+      name: 'Isa Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/ITH.png',
       value: '0',
@@ -9579,7 +9579,7 @@ export const itemData = {
     },
     {
       id: 7,
-      name: 'Tal Rune',
+      name: 'Tai Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/TAL.png',
       value: '0',
@@ -9617,7 +9617,7 @@ export const itemData = {
     },
     {
       id: 8,
-      name: 'Ral Rune',
+      name: 'Ro Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/RAL.png',
       value: '0',
@@ -9655,7 +9655,7 @@ export const itemData = {
     },
     {
       id: 9,
-      name: 'Ort Rune',
+      name: 'Ore Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/ORT.png',
       value: '0',
@@ -9693,7 +9693,7 @@ export const itemData = {
     },
     {
       id: 10,
-      name: 'Thul Rune',
+      name: 'Thal Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/THUL.png',
       value: '0',
@@ -9731,7 +9731,7 @@ export const itemData = {
     },
     {
       id: 11,
-      name: 'Amn Rune',
+      name: 'Ash Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/AMN.png',
       value: '0',
@@ -9769,7 +9769,7 @@ export const itemData = {
     },
     {
       id: 12,
-      name: 'Sol Rune',
+      name: 'Solo Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/SOL.png',
       value: '0',
@@ -9807,7 +9807,7 @@ export const itemData = {
     },
     {
       id: 13,
-      name: 'Shael Rune',
+      name: 'Sen Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/SHAEL.png',
       value: '0',
@@ -9845,7 +9845,7 @@ export const itemData = {
     },
     {
       id: 14,
-      name: 'Dol Rune',
+      name: 'Da Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/DOL.png',
       value: '0',
@@ -9883,7 +9883,7 @@ export const itemData = {
     },
     {
       id: 15,
-      name: 'Hel Rune',
+      name: 'Han Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/HEL.png',
       value: '0',
@@ -9921,7 +9921,7 @@ export const itemData = {
     },
     {
       id: 16,
-      name: 'Io Rune',
+      name: 'Ion Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/IO.png',
       value: '0',
@@ -9959,7 +9959,7 @@ export const itemData = {
     },
     {
       id: 17,
-      name: 'Lum Rune',
+      name: 'Luph Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/LUM.png',
       value: '0',
@@ -9997,7 +9997,7 @@ export const itemData = {
     },
     {
       id: 18,
-      name: 'Ko Rune',
+      name: 'Ka Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/KO.png',
       value: '0',
@@ -10035,7 +10035,7 @@ export const itemData = {
     },
     {
       id: 19,
-      name: 'Fal Rune',
+      name: 'Fus Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/FAL.png',
       value: '0',
@@ -10073,7 +10073,7 @@ export const itemData = {
     },
     {
       id: 20,
-      name: 'Lem Rune',
+      name: 'Lex Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/LEM.png',
       value: '0',
@@ -10111,7 +10111,7 @@ export const itemData = {
     },
     {
       id: 21,
-      name: 'Pul Rune',
+      name: 'Pai Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/PUL.png',
       value: '0',
@@ -10149,7 +10149,7 @@ export const itemData = {
     },
     {
       id: 22,
-      name: 'Um Rune',
+      name: 'Uln Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/UM.png',
       value: '0',
@@ -10187,7 +10187,7 @@ export const itemData = {
     },
     {
       id: 23,
-      name: 'Mal Rune',
+      name: 'Mor Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/MAL.png',
       value: '0',
@@ -10225,7 +10225,7 @@ export const itemData = {
     },
     {
       id: 24,
-      name: 'Ist Rune',
+      name: 'Isk Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/IST.png',
       value: '0',
@@ -10263,7 +10263,7 @@ export const itemData = {
     },
     {
       id: 25,
-      name: 'Gul Rune',
+      name: 'Gon Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/GUL.png',
       value: '0',
@@ -10301,7 +10301,7 @@ export const itemData = {
     },
     {
       id: 26,
-      name: 'Vex Rune',
+      name: 'Val Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/VEX.png',
       value: '0',
@@ -10339,7 +10339,7 @@ export const itemData = {
     },
     {
       id: 27,
-      name: 'Ohm Rune',
+      name: 'Oh Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/OHM.png',
       value: '0',
@@ -10377,7 +10377,7 @@ export const itemData = {
     },
     {
       id: 28,
-      name: 'Lo Rune',
+      name: 'Lor Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/LO.png',
       value: '0',
@@ -10415,7 +10415,7 @@ export const itemData = {
     },
     {
       id: 29,
-      name: 'Sur Rune',
+      name: 'Su Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/SUR.png',
       value: '0',
@@ -10453,7 +10453,7 @@ export const itemData = {
     },
     {
       id: 30,
-      name: 'Ber Rune',
+      name: 'Beru Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/BER.png',
       value: '0',
@@ -10491,7 +10491,7 @@ export const itemData = {
     },
     {
       id: 31,
-      name: 'Jah Rune',
+      name: 'Jua Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/JAH.png',
       value: '0',
@@ -10529,7 +10529,7 @@ export const itemData = {
     },
     {
       id: 32,
-      name: 'Cham Rune',
+      name: 'Chin Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/CHAM.png',
       value: '0',
@@ -10567,7 +10567,7 @@ export const itemData = {
     },
     {
       id: 33,
-      name: 'Zod Rune',
+      name: 'Zel Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/ZOD.png',
       value: '0',

@@ -2,7 +2,7 @@
   {
     "uuid": "reci6117DNFmvidls",
     "name": "Introduction",
-    "text": "Rune: Infinite is a 2D Arena Brawler, the third game in the Arken ecosystem. The game demonstrates the seamless integration of NFT items into skill-based PvP gameplay and provides players with an exhilarating and challenging experience.\n\n\n",
+    "text": "Arken: Infinite Arena is a 2D Arena Brawler, the third game in the Arken ecosystem. The game demonstrates the seamless integration of NFT items into skill-based PvP gameplay and provides players with an exhilarating and challenging experience.\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": []
@@ -42,7 +42,7 @@
   {
     "uuid": "recD8pCOauqcgP2n6",
     "name": "Story",
-    "text": "Infinite Arena is part of the Arken Realms. The Infinite Arena exists at the End of Time, a nexus where the fabric of causality loses any semblance of structure or temporal order. Within the End of Time, all points in time are accessible and sometimes interconnected or overlapping. The Infinite Arena is an anomaly where the greatest warriors across time and space are locked in an endless cycle of successive battles from a variety of locales and eras. You are one of these warriors, driven by some inscrutable force to test your mettle in the Arena, seeking ever greater power and prizes.\nThe Infinite Arena is embedded in the legends of some of Rune’s culture, and the exploits of warriors within it will be echoed in Sanctuary (MMORPG).\n\n\n",
+    "text": "Infinite Arena is part of the Arken Realms. The Infinite Arena exists at the End of Time, a nexus where the fabric of causality loses any semblance of structure or temporal order. Within the End of Time, all points in time are accessible and sometimes interconnected or overlapping. The Infinite Arena is an anomaly where the greatest warriors across time and space are locked in an endless cycle of successive battles from a variety of locales and eras. You are one of these warriors, driven by some inscrutable force to test your mettle in the Arena, seeking ever greater power and prizes.\nThe Infinite Arena is embedded in the legends of some of Arken's culture, and the exploits of warriors within it will be echoed in Sanctuary (MMORPG).\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": [
@@ -52,7 +52,7 @@
   {
     "uuid": "recUeyZYF2KvgxFJm",
     "name": "Art Direction",
-    "text": "The art style for Rune is a bright world that pops and catches attention while remaining somewhat realistic, rather than cartoony. We feel this will capture an audience that isn’t interested in the gritty dark fantasy theme. We are avoiding the repetition present in a lot of classic RPGs in repeated textures. An example of a game that did this well was Secret of Evermore. Objects within the game are scaled in a realistic manner. We don’t want to pigeonhole ourselves into only using 16 x 16 tiles or 32 x 32 tiles to make everything, so objects should be sized appropriately.\n\n\n",
+    "text": "The art style for Arken is a bright world that pops and catches attention while remaining somewhat realistic, rather than cartoony. We feel this will capture an audience that isn’t interested in the gritty dark fantasy theme. We are avoiding the repetition present in a lot of classic RPGs in repeated textures. An example of a game that did this well was Secret of Evermore. Objects within the game are scaled in a realistic manner. We don’t want to pigeonhole ourselves into only using 16 x 16 tiles or 32 x 32 tiles to make everything, so objects should be sized appropriately.\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": []
@@ -297,7 +297,7 @@
   {
     "uuid": "reciQUwiyrDVoRjFY",
     "name": "Introduction",
-    "text": "_Rune: Sanctuary takes place in a legendary MMORPG universe._\n",
+    "text": "_Arken: Heart of the Oasis takes place in a legendary MMORPG universe._\n",
     "game": 5,
     "isEnabled": true,
     "attachments": []
@@ -313,7 +313,7 @@
   {
     "uuid": "recUWcpRSobfxoCaH",
     "name": "Technical",
-    "text": "## Framework\nRune will be built with the Unity Engine, using our in-house developed BZ Framework.\n\n## Platform Support\nAndroid (version 10 or higher)\niPhone (version 9 or higher)\nWindows (version 10 or higher)\nMac (version 11 or higher)\nWeb (Brave, Chrome, Edge, Firefox) - NOT PLANNED\nIpad + Other Tablets - NOT PLANNED\n\n\n\n\n",
+    "text": "## Framework\nArken will be built with the Unity Engine, using our in-house developed BZ Framework.\n\n## Platform Support\nAndroid (version 10 or higher)\niPhone (version 9 or higher)\nWindows (version 10 or higher)\nMac (version 11 or higher)\nWeb (Brave, Chrome, Edge, Firefox) - NOT PLANNED\nIpad + Other Tablets - NOT PLANNED\n\n\n\n\n",
     "game": 5,
     "isEnabled": true,
     "attachments": []
@@ -337,7 +337,7 @@
   {
     "uuid": "recOSfKD9pesvlYho",
     "name": "Game Mechanics",
-    "text": "## Character Classes\n\nThere are 7 main classes of different energy disciplines/supremacys, each going into a deeper ascendencies.\n- Mage\n- Necromancer\n- Paladin\n- Druid\n- Barbarian\n- Amazon\n- Assassin\n\n# Weapons and Items\nInitial weapons and items are generated in Arken: Runic Raids via onchain contracts. Please see the Raids document for more on that. \n\n\n\n",
+    "text": "## Character Classes\n\nThere are 7 main classes of different energy disciplines/supremacys, each going into a deeper ascendencies.\n- Mage\n- Necromancer\n- Paladin\n- Druid\n- Warrior\n- Ranger\n- Assassin\n\n# Weapons and Items\nInitial weapons and items are generated in Arken: Runic Raids via onchain contracts. Please see the Raids document for more on that. \n\n\n\n",
     "game": 5,
     "isEnabled": true,
     "attachments": [
