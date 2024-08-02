@@ -1197,7 +1197,7 @@
     "paramTypes": ["value"],
     "paramValues": ["0-999"],
     "nature": "Neutral",
-    "description": "Earned Amount: {parameter1}",
+    "description": "Rewarded Amount: {parameter1}",
     "explanation": "",
     "param1": {
       "spec": "0-999",

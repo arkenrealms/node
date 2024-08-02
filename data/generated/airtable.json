@@ -3489,7 +3489,7 @@
       "game": 1,
       "link": "https://arken.gg/item-attribute/specificrunerewardamount",
       "nature": "Neutral",
-      "description": "Earned Amount: {parameter1}"
+      "description": "Rewarded Amount: {parameter1}"
     },
     "recyx2cjXr2ld9gEL": {
       "uuid": "recyx2cjXr2ld9gEL",

@@ -1,8 +1,9 @@
 export * as schema from './schema/types';
+export type * from './schema/types';
 
 export interface Signature {
-  hash: string;
-  address: string;
+  hash?: string;
+  address?: string;
 }
 
 export type Position = {
