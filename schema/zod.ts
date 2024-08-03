@@ -60,6 +60,9 @@ export const Profile = z
     privateKey: z.string().max(300).optional(),
     signature: z.string().max(200).optional(),
     chainId: ObjectId.optional(),
+    isBanned: z.boolean().optional(),
+    banExpireDate: z.date().optional(),
+    banReason: z.string().optional(),
   })
   .merge(Entity);
 
