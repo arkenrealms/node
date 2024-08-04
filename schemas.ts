@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
 // export const Organization = new Schema(
 //   {
@@ -46,6 +46,7 @@ export const Account = new Schema(
     // },
     username: { type: String, required: true },
     email: { type: String },
+    telegramUserId: { type: Number },
     status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
     data: { type: Object, default: {} },
     meta: { type: Object, default: {} },
@@ -54,15 +55,15 @@ export const Account = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'User', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
-Account.index({ metaverseId: 1, username: 1 }, { unique: true })
+Account.index({ metaverseId: 1, username: 1 }, { unique: true });
 
 Account.virtual('profiles', {
   ref: 'Profile',
   localField: '_id',
   foreignField: 'accountId',
-})
+});
 
 export const Profile = new Schema(
   {
@@ -82,6 +83,8 @@ export const Profile = new Schema(
     deletedDate: { type: Date },
     points: { type: Number },
     coins: { type: Number },
+    telegramUserId: { type: Number },
+    interactions: { type: Number, default: 0 },
     activityRating: { type: Number, default: 0 },
     address: { type: String, maxlength: 100 },
     avatar: { type: String, maxlength: 100 },
@@ -94,7 +97,7 @@ export const Profile = new Schema(
     chainId: { type: Schema.Types.ObjectId, ref: 'Chain' },
   },
   { collection: 'Profile', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const Application = new Schema(
   {
@@ -115,673 +118,673 @@ export const Application = new Schema(
     collection: 'Application',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
-Application.index({ name: 1 }, { unique: true })
+Application.index({ name: 1 }, { unique: true });
 
 Application.virtual('agents', {
   ref: 'Agent',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('chain', {
   ref: 'Chain',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('account', {
   ref: 'Account',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('assets', {
   ref: 'Asset',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('badges', {
   ref: 'Badge',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('battlePasses', {
   ref: 'BattlePass',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('collections', {
   ref: 'Collection',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('communities', {
   ref: 'Community',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('discussions', {
   ref: 'Discussion',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('events', {
   ref: 'Event',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('exchanges', {
   ref: 'Exchange',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('files', {
   ref: 'File',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('ideas', {
   ref: 'Idea',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('leaderboards', {
   ref: 'Leaderboard',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('assetLicenses', {
   ref: 'AssetLicense',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('logs', {
   ref: 'Log',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('marketPairs', {
   ref: 'MarketPair',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('markets', {
   ref: 'Market',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('messages', {
   ref: 'Message',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('offers', {
   ref: 'Offer',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('orders', {
   ref: 'Order',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('products', {
   ref: 'Product',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('projects', {
   ref: 'Project',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('ratings', {
   ref: 'Rating',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('realms', {
   ref: 'Realm',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('reviews', {
   ref: 'Review',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('roles', {
   ref: 'Role',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('gameServers', {
   ref: 'Server',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('suggestions', {
   ref: 'Suggestion',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('tags', {
   ref: 'Tag',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('tokens', {
   ref: 'ChainToken',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('tradeIdeas', {
   ref: 'TradeIdea',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('trades', {
   ref: 'Trade',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('buyerTrades', {
   ref: 'Trade',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('transactions', {
   ref: 'ChainTransaction',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('votes', {
   ref: 'Vote',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('payments', {
   ref: 'Payment',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('permissions', {
   ref: 'Permission',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('stats', {
   ref: 'Stat',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('recordUpdates', {
   ref: 'RecordUpdate',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('comments', {
   ref: 'Comment',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('forms', {
   ref: 'Form',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characters', {
   ref: 'Character',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('metaverses', {
   ref: 'Metaverse',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('omniverses', {
   ref: 'Omniverse',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('referrals', {
   ref: 'Referral',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('recipientReferrals', {
   ref: 'Referral',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('senderReferrals', {
   ref: 'Referral',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('chains', {
   ref: 'Chain',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterAbilities', {
   ref: 'CharacterAbility',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 Application.virtual('tournaments', {
   ref: 'Tournament',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('teams', {
   ref: 'Team',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('items', {
   ref: 'Item',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skills', {
   ref: 'Skill',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemRecipes', {
   ref: 'ItemRecipe',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemSkins', {
   ref: 'ItemSkin',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('stashes', {
   ref: 'Stash',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('biomes', {
   ref: 'Biome',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('planets', {
   ref: 'Planet',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('solarSystems', {
   ref: 'SolarSystem',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('universes', {
   ref: 'Universe',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('stars', {
   ref: 'Star',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('areas', {
   ref: 'Area',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('acts', {
   ref: 'Act',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterClasses', {
   ref: 'CharacterClass',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterFactions', {
   ref: 'CharacterFaction',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('eras', {
   ref: 'Era',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('seasons', {
   ref: 'Season',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemAttributes', {
   ref: 'ItemAttribute',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemMaterials', {
   ref: 'ItemMaterial',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemSets', {
   ref: 'ItemSet',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemSlots', {
   ref: 'ItemSlot',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemRarities', {
   ref: 'ItemRarity',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemTypes', {
   ref: 'ItemType',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemSubTypes', {
   ref: 'ItemSubType',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('itemSpecificTypes', {
   ref: 'ItemSpecificType',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 Application.virtual('characterGenders', {
   ref: 'CharacterGender',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterRaces', {
   ref: 'CharacterRace',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterPersonalities', {
   ref: 'CharacterPersonality',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterTitles', {
   ref: 'CharacterTitle',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('lores', {
   ref: 'Lore',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('energies', {
   ref: 'Energy',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('guides', {
   ref: 'Guide',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('achievements', {
   ref: 'Achievement',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('games', {
   ref: '',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('npcs', {
   ref: 'Npc',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterAttributes', {
   ref: 'CharacterAttribute',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterTypes', {
   ref: 'CharacterType',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('areaTypes', {
   ref: 'AreaType',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('areaLandmarks', {
   ref: 'AreaLandmark',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('biomeFeatures', {
   ref: 'BiomeFeature',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skillMods', {
   ref: 'SkillMod',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skillClassifications', {
   ref: 'SkillClassification',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skillConditions', {
   ref: 'SkillCondition',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skillStatusEffects', {
   ref: 'SkillStatusEffect',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skillTrees', {
   ref: 'SkillTree',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('skillTreeNodes', {
   ref: 'SkillTreeNode',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('areaNameChoices', {
   ref: 'AreaNameChoice',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('characterNameChoices', {
   ref: 'CharacterNameChoice',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('validators', {
   ref: 'Validator',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('productUpdates', {
   ref: 'ProductUpdate',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('polls', {
   ref: 'Poll',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('galaxies', {
   ref: 'Galaxy',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('quests', {
   ref: 'Quest',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('raffles', {
   ref: 'Raffle',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('raffleEntries', {
   ref: 'RaffleEntry',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('raffleRequirements', {
   ref: 'RaffleRequirement',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('raffleRewards', {
   ref: 'RaffleReward',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('proposals', {
   ref: 'Proposal',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('companies', {
   ref: 'Company',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 Application.virtual('people', {
   ref: 'Person',
   localField: '_id',
   foreignField: 'applicationId',
-})
+});
 
 export const Video = new Schema(
   {
@@ -800,7 +803,7 @@ export const Video = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Video', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const VideoScene = new Schema(
   {
@@ -822,7 +825,7 @@ export const VideoScene = new Schema(
     collection: 'VideoScene',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const Agent = new Schema(
   {
@@ -841,7 +844,7 @@ export const Agent = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Agent', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const Memory = new Schema(
   {
@@ -859,7 +862,7 @@ export const Memory = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Memory', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const Conversation = new Schema(
   {
@@ -882,7 +885,7 @@ export const Conversation = new Schema(
     collection: 'Conversation',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const Data = new Schema(
   {
@@ -901,8 +904,8 @@ export const Data = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Data', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
-Data.index({ applicationId: 1, mod: 1, key: 1 }, { unique: true })
+);
+Data.index({ applicationId: 1, mod: 1, key: 1 }, { unique: true });
 
 export const Log = new Schema(
   {
@@ -921,12 +924,12 @@ export const Log = new Schema(
     deletedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
   },
   { collection: 'Log', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
-Log.index({ deletedDate: 1 })
-Log.index({ mod: 1 })
-Log.index({ status: 1 })
-Log.index({ createdDate: 1, updatedDate: 1 })
+Log.index({ deletedDate: 1 });
+Log.index({ mod: 1 });
+Log.index({ status: 1 });
+Log.index({ createdDate: 1, updatedDate: 1 });
 
 export const Job = new Schema(
   {
@@ -947,8 +950,8 @@ export const Job = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Job', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
-Job.index({ applicationId: 1, mod: 1, key: 1 }, { unique: true })
+);
+Job.index({ applicationId: 1, mod: 1, key: 1 }, { unique: true });
 
 export const NewsArticle = new Schema(
   {
@@ -976,8 +979,8 @@ export const NewsArticle = new Schema(
     collection: 'NewsArticle',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
-NewsArticle.index({ applicationId: 1, name: 1, source: 1 }, { unique: true })
+);
+NewsArticle.index({ applicationId: 1, name: 1, source: 1 }, { unique: true });
 
 export const Comment = new Schema(
   {
@@ -1011,7 +1014,7 @@ export const Comment = new Schema(
     ratingId: { type: Schema.Types.ObjectId, ref: 'Rating' },
   },
   { collection: 'Comment', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const Question = new Schema(
   {
@@ -1039,7 +1042,7 @@ export const Question = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Question', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const Topic = new Schema(
   {
@@ -1066,7 +1069,7 @@ export const Topic = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Topic', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const WorldEvent = new Schema(
   {
@@ -1096,7 +1099,7 @@ export const WorldEvent = new Schema(
     collection: 'WorldEvent',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const CollectibleCollection = new Schema(
   {
@@ -1125,7 +1128,7 @@ export const CollectibleCollection = new Schema(
     collection: 'CollectibleCollection',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const CollectibleCardBox = new Schema(
   {
@@ -1161,7 +1164,7 @@ export const CollectibleCardBox = new Schema(
     collection: 'CollectibleCardBox',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const CollectibleCardPack = new Schema(
   {
@@ -1214,7 +1217,7 @@ export const CollectibleCardPack = new Schema(
     collection: 'CollectibleCardPack',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const CollectibleCard = new Schema(
   {
@@ -1267,7 +1270,7 @@ export const CollectibleCard = new Schema(
     collection: 'CollectibleCard',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
+);
 
 export const Stock = new Schema(
   {
@@ -1293,7 +1296,7 @@ export const Stock = new Schema(
     deletedDate: { type: Date },
   },
   { collection: 'Stock', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
-)
+);
 
 export const Chain = new Schema(
   {
@@ -1322,31 +1325,31 @@ export const Chain = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Chain',
   }
-)
+);
 
-Chain.index({ deletedDate: 1 })
-Chain.index({ key: 1 })
-Chain.index({ name: 1 })
-Chain.index({ status: 1 })
-Chain.index({ createdDate: 1, updatedDate: 1 })
+Chain.index({ deletedDate: 1 });
+Chain.index({ key: 1 });
+Chain.index({ name: 1 });
+Chain.index({ status: 1 });
+Chain.index({ createdDate: 1, updatedDate: 1 });
 
 Chain.virtual('transactions', {
   ref: 'ChainTransaction',
   localField: '_id',
   foreignField: 'chainId',
-})
+});
 
 Chain.virtual('contracts', {
   ref: 'ChainContract',
   localField: '_id',
   foreignField: 'chainId',
-})
+});
 
 Chain.virtual('tokens', {
   ref: 'ChainToken',
   localField: '_id',
   foreignField: 'chainId',
-})
+});
 
 export const ChainContract = new Schema({
   name: { type: String, required: true, maxlength: 100 },
@@ -1369,7 +1372,7 @@ export const ChainContract = new Schema({
   deletedAt: { type: Date },
   type: { type: String, maxlength: 100 },
   standard: { type: String, maxlength: 100 },
-})
+});
 
 export const ChainToken = new Schema(
   {
@@ -1413,8 +1416,8 @@ export const ChainToken = new Schema(
     collection: 'ChainToken',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
-)
-ChainToken.index({ applicationId: 1, symbol: 1 }, { unique: true })
+);
+ChainToken.index({ applicationId: 1, symbol: 1 }, { unique: true });
 
 export const Asset = new Schema(
   {
@@ -1445,13 +1448,13 @@ export const Asset = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Asset',
   }
-)
+);
 
-Asset.index({ deletedDate: 1 })
-Asset.index({ key: 1 })
-Asset.index({ name: 1 })
-Asset.index({ status: 1 })
-Asset.index({ createdDate: 1, updatedDate: 1 })
+Asset.index({ deletedDate: 1 });
+Asset.index({ key: 1 });
+Asset.index({ name: 1 });
+Asset.index({ status: 1 });
+Asset.index({ createdDate: 1, updatedDate: 1 });
 
 export const Item = new Schema(
   {
@@ -1475,13 +1478,13 @@ export const Item = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Item',
   }
-)
+);
 
-Item.index({ deletedDate: 1 })
-Item.index({ key: 1 })
-Item.index({ name: 1 })
-Item.index({ status: 1 })
-Item.index({ createdDate: 1, updatedDate: 1 })
+Item.index({ deletedDate: 1 });
+Item.index({ key: 1 });
+Item.index({ name: 1 });
+Item.index({ status: 1 });
+Item.index({ createdDate: 1, updatedDate: 1 });
 
 export const ItemTransmute = new Schema(
   {
@@ -1506,25 +1509,25 @@ export const ItemTransmute = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemTransmute',
   }
-)
+);
 
-ItemTransmute.index({ deletedDate: 1 })
-ItemTransmute.index({ key: 1 })
-ItemTransmute.index({ name: 1 })
-ItemTransmute.index({ status: 1 })
-ItemTransmute.index({ createdDate: 1, updatedDate: 1 })
+ItemTransmute.index({ deletedDate: 1 });
+ItemTransmute.index({ key: 1 });
+ItemTransmute.index({ name: 1 });
+ItemTransmute.index({ status: 1 });
+ItemTransmute.index({ createdDate: 1, updatedDate: 1 });
 
 ItemTransmute.virtual('item', {
   ref: 'Item',
   localField: 'gameItemId',
   foreignField: '_id',
-})
+});
 
 ItemTransmute.virtual('asset', {
   ref: 'Asset',
   localField: 'assetId',
   foreignField: '_id',
-})
+});
 
 export const Badge = new Schema(
   {
@@ -1546,13 +1549,13 @@ export const Badge = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Badge',
   }
-)
+);
 
-Badge.index({ deletedDate: 1 })
-Badge.index({ key: 1 })
-Badge.index({ name: 1 })
-Badge.index({ status: 1 })
-Badge.index({ createdDate: 1, updatedDate: 1 })
+Badge.index({ deletedDate: 1 });
+Badge.index({ key: 1 });
+Badge.index({ name: 1 });
+Badge.index({ status: 1 });
+Badge.index({ createdDate: 1, updatedDate: 1 });
 
 export const BattlePass = new Schema(
   {
@@ -1574,13 +1577,13 @@ export const BattlePass = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'BattlePass',
   }
-)
+);
 
-BattlePass.index({ deletedDate: 1 })
-BattlePass.index({ key: 1 })
-BattlePass.index({ name: 1 })
-BattlePass.index({ status: 1 })
-BattlePass.index({ createdDate: 1, updatedDate: 1 })
+BattlePass.index({ deletedDate: 1 });
+BattlePass.index({ key: 1 });
+BattlePass.index({ name: 1 });
+BattlePass.index({ status: 1 });
+BattlePass.index({ createdDate: 1, updatedDate: 1 });
 
 export const Bounty = new Schema(
   {
@@ -1602,13 +1605,13 @@ export const Bounty = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Bounty',
   }
-)
+);
 
-Bounty.index({ deletedDate: 1 })
-Bounty.index({ key: 1 })
-Bounty.index({ name: 1 })
-Bounty.index({ status: 1 })
-Bounty.index({ createdDate: 1, updatedDate: 1 })
+Bounty.index({ deletedDate: 1 });
+Bounty.index({ key: 1 });
+Bounty.index({ name: 1 });
+Bounty.index({ status: 1 });
+Bounty.index({ createdDate: 1, updatedDate: 1 });
 
 export const Collection = new Schema(
   {
@@ -1630,13 +1633,13 @@ export const Collection = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Collection',
   }
-)
+);
 
-Collection.index({ deletedDate: 1 })
-Collection.index({ key: 1 })
-Collection.index({ name: 1 })
-Collection.index({ status: 1 })
-Collection.index({ createdDate: 1, updatedDate: 1 })
+Collection.index({ deletedDate: 1 });
+Collection.index({ key: 1 });
+Collection.index({ name: 1 });
+Collection.index({ status: 1 });
+Collection.index({ createdDate: 1, updatedDate: 1 });
 
 export const Community = new Schema(
   {
@@ -1661,13 +1664,13 @@ export const Community = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Community',
   }
-)
+);
 
-Community.index({ deletedDate: 1 })
-Community.index({ key: 1 })
-Community.index({ name: 1 })
-Community.index({ status: 1 })
-Community.index({ createdDate: 1, updatedDate: 1 })
+Community.index({ deletedDate: 1 });
+Community.index({ key: 1 });
+Community.index({ name: 1 });
+Community.index({ status: 1 });
+Community.index({ createdDate: 1, updatedDate: 1 });
 
 export const Discussion = new Schema(
   {
@@ -1692,13 +1695,13 @@ export const Discussion = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Discussion',
   }
-)
+);
 
-Discussion.index({ deletedDate: 1 })
-Discussion.index({ key: 1 })
-Discussion.index({ name: 1 })
-Discussion.index({ status: 1 })
-Discussion.index({ createdDate: 1, updatedDate: 1 })
+Discussion.index({ deletedDate: 1 });
+Discussion.index({ key: 1 });
+Discussion.index({ name: 1 });
+Discussion.index({ status: 1 });
+Discussion.index({ createdDate: 1, updatedDate: 1 });
 
 export const Event = new Schema(
   {
@@ -1720,13 +1723,13 @@ export const Event = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Event',
   }
-)
+);
 
-Event.index({ deletedDate: 1 })
-Event.index({ key: 1 })
-Event.index({ name: 1 })
-Event.index({ status: 1 })
-Event.index({ createdDate: 1, updatedDate: 1 })
+Event.index({ deletedDate: 1 });
+Event.index({ key: 1 });
+Event.index({ name: 1 });
+Event.index({ status: 1 });
+Event.index({ createdDate: 1, updatedDate: 1 });
 
 export const Exchange = new Schema(
   {
@@ -1748,13 +1751,13 @@ export const Exchange = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Exchange',
   }
-)
+);
 
-Exchange.index({ deletedDate: 1 })
-Exchange.index({ key: 1 })
-Exchange.index({ name: 1 })
-Exchange.index({ status: 1 })
-Exchange.index({ createdDate: 1, updatedDate: 1 })
+Exchange.index({ deletedDate: 1 });
+Exchange.index({ key: 1 });
+Exchange.index({ name: 1 });
+Exchange.index({ status: 1 });
+Exchange.index({ createdDate: 1, updatedDate: 1 });
 
 export const File = new Schema(
   {
@@ -1778,13 +1781,13 @@ export const File = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'File',
   }
-)
+);
 
-File.index({ deletedDate: 1 })
-File.index({ key: 1 })
-File.index({ name: 1 })
-File.index({ status: 1 })
-File.index({ createdDate: 1, updatedDate: 1 })
+File.index({ deletedDate: 1 });
+File.index({ key: 1 });
+File.index({ name: 1 });
+File.index({ status: 1 });
+File.index({ createdDate: 1, updatedDate: 1 });
 
 export const Idea = new Schema(
   {
@@ -1809,13 +1812,13 @@ export const Idea = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Idea',
   }
-)
+);
 
-Idea.index({ deletedDate: 1 })
-Idea.index({ key: 1 })
-Idea.index({ name: 1 })
-Idea.index({ status: 1 })
-Idea.index({ createdDate: 1, updatedDate: 1 })
+Idea.index({ deletedDate: 1 });
+Idea.index({ key: 1 });
+Idea.index({ name: 1 });
+Idea.index({ status: 1 });
+Idea.index({ createdDate: 1, updatedDate: 1 });
 
 export const Leaderboard = new Schema(
   {
@@ -1838,20 +1841,20 @@ export const Leaderboard = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Leaderboard',
   }
-)
+);
 
-Leaderboard.index({ deletedDate: 1 })
-Leaderboard.index({ key: 1 })
-Leaderboard.index({ name: 1 })
-Leaderboard.index({ status: 1 })
-Leaderboard.index({ createdDate: 1, updatedDate: 1 })
+Leaderboard.index({ deletedDate: 1 });
+Leaderboard.index({ key: 1 });
+Leaderboard.index({ name: 1 });
+Leaderboard.index({ status: 1 });
+Leaderboard.index({ createdDate: 1, updatedDate: 1 });
 
 Leaderboard.virtual('product', {
   ref: 'Product',
   localField: 'productId',
   foreignField: '_id',
   justOne: true,
-})
+});
 
 Leaderboard.virtual('players', {
   ref: 'Profile',
@@ -1863,78 +1866,143 @@ Leaderboard.virtual('players', {
     to: 'nodes.toProfileId',
     extra: ['relationKey'],
   },
-})
+});
 
 Leaderboard.pre<any>('save', function (next) {
-  this.relationKey = 'players'
-  next()
-})
+  this.relationKey = 'players';
+  next();
+});
+
+export const ChatGroup = new Schema(
+  {
+    name: { type: String, required: true, maxlength: 100 }, // Name of the chat channel
+    type: { type: String, required: true, enum: ['group', 'private'] }, // Type of chat: group or private
+    members: [{ type: Schema.Types.ObjectId, ref: 'User' }], // List of members in the chat channel
+    meta: { type: Object, default: {} },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+    applicationId: { type: Schema.Types.ObjectId, ref: 'Application', required: true },
+    ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    externalId: { type: String },
+    externalPlatform: { type: String, enum: ['Telegram', 'Discord'] },
+    createdById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    editedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    deletedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date },
+    deletedDate: { type: Date },
+  },
+  {
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+    collection: 'ChatGroup',
+  }
+);
+
+export const ChatMessage = new Schema(
+  {
+    groupId: { type: Schema.Types.ObjectId, ref: 'ChatGroup', required: true }, // Reference to the chat channel
+    profileId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true }, // Reference to the user who sent the message
+    content: { type: String, required: true }, // Message content
+    mediaUrl: { type: String }, // URL to media content (image, video, etc.)
+    replyToId: { type: Schema.Types.ObjectId, ref: 'ChatMessage' }, // Reference to the message being replied to
+    reactions: [
+      {
+        profileId: { type: Schema.Types.ObjectId, ref: 'Profile' },
+        reaction: { type: String },
+      },
+    ], // List of reactions with user references
+    meta: { type: Object, default: {} },
+    externalId: { type: String },
+    externalPlatform: { type: String, enum: ['Telegram', 'Discord'] },
+    isSpam: { type: Boolean, default: false }, // Flag to mark message as spam
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived', 'Deleted'] }, // Message status
+    applicationId: { type: Schema.Types.ObjectId, ref: 'Application', required: true },
+    ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    createdById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    editedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    deletedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date },
+    deletedDate: { type: Date },
+    type: { type: String, default: 'text', enum: ['text', 'image', 'video', 'audio', 'file', 'system'] }, // Type of message
+  },
+  {
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+    collection: 'ChatMessage',
+  }
+);
+
+// Indexes to optimize queries
+ChatMessage.index({ groupId: 1, createdDate: 1 });
+ChatMessage.index({ profileId: 1 });
+ChatMessage.index({ status: 1 });
+ChatMessage.index({ replyToId: 1 });
+ChatMessage.index({ type: 1 });
 
 export enum NodeRelation {
   Chat = 'chat',
 }
 
 interface NodeDocument extends Document {
-  createdDate: any
-  updatedDate: any
-  deletedDate: any
-  parentId: mongoose.Types.ObjectId
-  relationKey: string
-  relationType: string
-  fromAccountId: mongoose.Types.ObjectId
-  toAccountId: mongoose.Types.ObjectId
-  fromProfileId: mongoose.Types.ObjectId
-  toProfileId: mongoose.Types.ObjectId
-  fromBadgeId: mongoose.Types.ObjectId
-  toBadgeId: mongoose.Types.ObjectId
-  fromAchievementId: mongoose.Types.ObjectId
-  toAchievementId: mongoose.Types.ObjectId
-  fromIdeaId: mongoose.Types.ObjectId
-  toIdeaId: mongoose.Types.ObjectId
-  fromSuggestionId: mongoose.Types.ObjectId
-  toSuggestionId: mongoose.Types.ObjectId
-  fromProjectId: mongoose.Types.ObjectId
-  toProjectId: mongoose.Types.ObjectId
-  fromProductId: mongoose.Types.ObjectId
-  toProductId: mongoose.Types.ObjectId
-  fromAssetId: mongoose.Types.ObjectId
-  toAssetId: mongoose.Types.ObjectId
-  fromBountyId: mongoose.Types.ObjectId
-  toBountyId: mongoose.Types.ObjectId
-  fromRealmId: mongoose.Types.ObjectId
-  toRealmId: mongoose.Types.ObjectId
-  fromCommunityId: mongoose.Types.ObjectId
-  toCommunityId: mongoose.Types.ObjectId
-  fromCollectionId: mongoose.Types.ObjectId
-  toCollectionId: mongoose.Types.ObjectId
-  fromDiscussionId: mongoose.Types.ObjectId
-  toDiscussionId: mongoose.Types.ObjectId
-  fromMessageId: mongoose.Types.ObjectId
-  toMessageId: mongoose.Types.ObjectId
-  fromOfferId: mongoose.Types.ObjectId
-  toOfferId: mongoose.Types.ObjectId
-  fromLicenseId: mongoose.Types.ObjectId
-  toLicenseId: mongoose.Types.ObjectId
-  fromOrderId: mongoose.Types.ObjectId
-  toOrderId: mongoose.Types.ObjectId
-  fromRatingId: mongoose.Types.ObjectId
-  toRatingId: mongoose.Types.ObjectId
-  fromReviewId: mongoose.Types.ObjectId
-  toReviewId: mongoose.Types.ObjectId
-  fromTagId: mongoose.Types.ObjectId
-  toTagId: mongoose.Types.ObjectId
-  fromVoteId: mongoose.Types.ObjectId
-  toVoteId: mongoose.Types.ObjectId
-  fromLeaderboardId: mongoose.Types.ObjectId
-  toLeaderboardId: mongoose.Types.ObjectId
-  fromLogId: mongoose.Types.ObjectId
-  toLogId: mongoose.Types.ObjectId
-  fromFileId: mongoose.Types.ObjectId
-  toFileId: mongoose.Types.ObjectId
-  fromEventId: mongoose.Types.ObjectId
-  toEventId: mongoose.Types.ObjectId
-  fromServerId: mongoose.Types.ObjectId
-  toServerId: mongoose.Types.ObjectId
+  createdDate: any;
+  updatedDate: any;
+  deletedDate: any;
+  parentId: mongoose.Types.ObjectId;
+  relationKey: string;
+  relationType: string;
+  fromAccountId: mongoose.Types.ObjectId;
+  toAccountId: mongoose.Types.ObjectId;
+  fromProfileId: mongoose.Types.ObjectId;
+  toProfileId: mongoose.Types.ObjectId;
+  fromBadgeId: mongoose.Types.ObjectId;
+  toBadgeId: mongoose.Types.ObjectId;
+  fromAchievementId: mongoose.Types.ObjectId;
+  toAchievementId: mongoose.Types.ObjectId;
+  fromIdeaId: mongoose.Types.ObjectId;
+  toIdeaId: mongoose.Types.ObjectId;
+  fromSuggestionId: mongoose.Types.ObjectId;
+  toSuggestionId: mongoose.Types.ObjectId;
+  fromProjectId: mongoose.Types.ObjectId;
+  toProjectId: mongoose.Types.ObjectId;
+  fromProductId: mongoose.Types.ObjectId;
+  toProductId: mongoose.Types.ObjectId;
+  fromAssetId: mongoose.Types.ObjectId;
+  toAssetId: mongoose.Types.ObjectId;
+  fromBountyId: mongoose.Types.ObjectId;
+  toBountyId: mongoose.Types.ObjectId;
+  fromRealmId: mongoose.Types.ObjectId;
+  toRealmId: mongoose.Types.ObjectId;
+  fromCommunityId: mongoose.Types.ObjectId;
+  toCommunityId: mongoose.Types.ObjectId;
+  fromCollectionId: mongoose.Types.ObjectId;
+  toCollectionId: mongoose.Types.ObjectId;
+  fromDiscussionId: mongoose.Types.ObjectId;
+  toDiscussionId: mongoose.Types.ObjectId;
+  fromMessageId: mongoose.Types.ObjectId;
+  toMessageId: mongoose.Types.ObjectId;
+  fromOfferId: mongoose.Types.ObjectId;
+  toOfferId: mongoose.Types.ObjectId;
+  fromLicenseId: mongoose.Types.ObjectId;
+  toLicenseId: mongoose.Types.ObjectId;
+  fromOrderId: mongoose.Types.ObjectId;
+  toOrderId: mongoose.Types.ObjectId;
+  fromRatingId: mongoose.Types.ObjectId;
+  toRatingId: mongoose.Types.ObjectId;
+  fromReviewId: mongoose.Types.ObjectId;
+  toReviewId: mongoose.Types.ObjectId;
+  fromTagId: mongoose.Types.ObjectId;
+  toTagId: mongoose.Types.ObjectId;
+  fromVoteId: mongoose.Types.ObjectId;
+  toVoteId: mongoose.Types.ObjectId;
+  fromLeaderboardId: mongoose.Types.ObjectId;
+  toLeaderboardId: mongoose.Types.ObjectId;
+  fromLogId: mongoose.Types.ObjectId;
+  toLogId: mongoose.Types.ObjectId;
+  fromFileId: mongoose.Types.ObjectId;
+  toFileId: mongoose.Types.ObjectId;
+  fromEventId: mongoose.Types.ObjectId;
+  toEventId: mongoose.Types.ObjectId;
+  fromServerId: mongoose.Types.ObjectId;
+  toServerId: mongoose.Types.ObjectId;
 }
 
 export const Node = new Schema<NodeDocument>(
@@ -2068,7 +2136,7 @@ export const Node = new Schema<NodeDocument>(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Node',
   }
-)
+);
 
 export const AssetLicense = new Schema(
   {
@@ -2091,13 +2159,13 @@ export const AssetLicense = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'AssetLicense',
   }
-)
+);
 
-AssetLicense.index({ deletedDate: 1 })
-AssetLicense.index({ key: 1 })
-AssetLicense.index({ name: 1 })
-AssetLicense.index({ status: 1 })
-AssetLicense.index({ createdDate: 1, updatedDate: 1 })
+AssetLicense.index({ deletedDate: 1 });
+AssetLicense.index({ key: 1 });
+AssetLicense.index({ name: 1 });
+AssetLicense.index({ status: 1 });
+AssetLicense.index({ createdDate: 1, updatedDate: 1 });
 
 export const MarketPair = new Schema(
   {
@@ -2119,13 +2187,13 @@ export const MarketPair = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'MarketPair',
   }
-)
+);
 
-MarketPair.index({ deletedDate: 1 })
-MarketPair.index({ key: 1 })
-MarketPair.index({ name: 1 })
-MarketPair.index({ status: 1 })
-MarketPair.index({ createdDate: 1, updatedDate: 1 })
+MarketPair.index({ deletedDate: 1 });
+MarketPair.index({ key: 1 });
+MarketPair.index({ name: 1 });
+MarketPair.index({ status: 1 });
+MarketPair.index({ createdDate: 1, updatedDate: 1 });
 
 export const Market = new Schema(
   {
@@ -2147,13 +2215,13 @@ export const Market = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Market',
   }
-)
+);
 
-Market.index({ deletedDate: 1 })
-Market.index({ key: 1 })
-Market.index({ name: 1 })
-Market.index({ status: 1 })
-Market.index({ createdDate: 1, updatedDate: 1 })
+Market.index({ deletedDate: 1 });
+Market.index({ key: 1 });
+Market.index({ name: 1 });
+Market.index({ status: 1 });
+Market.index({ createdDate: 1, updatedDate: 1 });
 
 export const Message = new Schema(
   {
@@ -2180,13 +2248,13 @@ export const Message = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Message',
   }
-)
+);
 
-Message.index({ deletedDate: 1 })
-Message.index({ key: 1 })
-Message.index({ name: 1 })
-Message.index({ status: 1 })
-Message.index({ createdDate: 1, updatedDate: 1 })
+Message.index({ deletedDate: 1 });
+Message.index({ key: 1 });
+Message.index({ name: 1 });
+Message.index({ status: 1 });
+Message.index({ createdDate: 1, updatedDate: 1 });
 
 export const Offer = new Schema(
   {
@@ -2208,13 +2276,13 @@ export const Offer = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Offer',
   }
-)
+);
 
-Offer.index({ deletedDate: 1 })
-Offer.index({ key: 1 })
-Offer.index({ name: 1 })
-Offer.index({ status: 1 })
-Offer.index({ createdDate: 1, updatedDate: 1 })
+Offer.index({ deletedDate: 1 });
+Offer.index({ key: 1 });
+Offer.index({ name: 1 });
+Offer.index({ status: 1 });
+Offer.index({ createdDate: 1, updatedDate: 1 });
 
 export const Order = new Schema(
   {
@@ -2236,13 +2304,13 @@ export const Order = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Order',
   }
-)
+);
 
-Order.index({ deletedDate: 1 })
-Order.index({ key: 1 })
-Order.index({ name: 1 })
-Order.index({ status: 1 })
-Order.index({ createdDate: 1, updatedDate: 1 })
+Order.index({ deletedDate: 1 });
+Order.index({ key: 1 });
+Order.index({ name: 1 });
+Order.index({ status: 1 });
+Order.index({ createdDate: 1, updatedDate: 1 });
 
 export const Product = new Schema(
   {
@@ -2275,14 +2343,14 @@ export const Product = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Product',
   }
-)
+);
 
-Product.index({ deletedDate: 1 })
-Product.index({ key: 1 })
-Product.index({ name: 1 })
-Product.index({ status: 1 })
-Product.index({ createdDate: 1, updatedDate: 1 })
-Product.index({ tags: 'text' }) // Mongoose does not support GIN index directly, using text index instead
+Product.index({ deletedDate: 1 });
+Product.index({ key: 1 });
+Product.index({ name: 1 });
+Product.index({ status: 1 });
+Product.index({ createdDate: 1, updatedDate: 1 });
+Product.index({ tags: 'text' }); // Mongoose does not support GIN index directly, using text index instead
 
 export const Project = new Schema(
   {
@@ -2313,7 +2381,7 @@ export const Project = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Project',
   }
-)
+);
 
 export const Rating = new Schema(
   {
@@ -2338,7 +2406,7 @@ export const Rating = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Rating',
   }
-)
+);
 
 export const Realm = new Schema(
   {
@@ -2360,7 +2428,7 @@ export const Realm = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Realm',
   }
-)
+);
 
 export const Review = new Schema(
   {
@@ -2382,7 +2450,7 @@ export const Review = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Review',
   }
-)
+);
 
 export const Role = new Schema(
   {
@@ -2410,7 +2478,7 @@ export const Role = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Role',
   }
-)
+);
 
 export const Server = new Schema(
   {
@@ -2432,7 +2500,7 @@ export const Server = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Server',
   }
-)
+);
 
 export const Session = new Schema(
   {
@@ -2443,7 +2511,7 @@ export const Session = new Schema(
   {
     collection: 'Session',
   }
-)
+);
 
 export const Suggestion = new Schema(
   {
@@ -2465,7 +2533,7 @@ export const Suggestion = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Suggestion',
   }
-)
+);
 
 export const Tag = new Schema(
   {
@@ -2487,18 +2555,18 @@ export const Tag = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Tag',
   }
-)
+);
 
 Tag.virtual('parent', {
   ref: 'Node',
   localField: 'parentId',
   foreignField: '_id',
   justOne: true,
-})
+});
 
 Tag.statics.released = function (builder) {
-  return builder.where('name', 'Released')
-}
+  return builder.where('name', 'Released');
+};
 
 export const Tournament = new Schema(
   {
@@ -2520,7 +2588,7 @@ export const Tournament = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Tournament',
   }
-)
+);
 
 export const Trade = new Schema(
   {
@@ -2544,7 +2612,7 @@ export const Trade = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Trade',
   }
-)
+);
 
 export const ChainTransaction = new Schema(
   {
@@ -2568,7 +2636,7 @@ export const ChainTransaction = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ChainTransaction',
   }
-)
+);
 
 export const Vote = new Schema(
   {
@@ -2592,7 +2660,7 @@ export const Vote = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Vote',
   }
-)
+);
 
 export const Payment = new Schema(
   {
@@ -2614,7 +2682,7 @@ export const Payment = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Payment',
   }
-)
+);
 
 export const Referral = new Schema(
   {
@@ -2636,7 +2704,7 @@ export const Referral = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Referral',
   }
-)
+);
 
 export const Permission = new Schema(
   {
@@ -2655,7 +2723,7 @@ export const Permission = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Permission',
   }
-)
+);
 
 export const Stat = new Schema(
   {
@@ -2674,7 +2742,7 @@ export const Stat = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Stat',
   }
-)
+);
 
 export const RecordUpdate = new Schema(
   {
@@ -2698,7 +2766,7 @@ export const RecordUpdate = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'RecordUpdate',
   }
-)
+);
 
 export const Form = new Schema(
   {
@@ -2723,48 +2791,48 @@ export const Form = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Form',
   }
-)
+);
 
 export const FormGroup = new Schema(
-    {
-      name: String,
-      key: String,
-      meta: { type: Object, default: {} },
-      status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
-      createdDate: Date,
-      updatedDate: Date,
-      deletedDate: Date,
-      rolesOnFormGroups: Array,
-    },
-    {
-      collection: 'FormGroup',
-      timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-    }
-  )
+  {
+    name: String,
+    key: String,
+    meta: { type: Object, default: {} },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+    createdDate: Date,
+    updatedDate: Date,
+    deletedDate: Date,
+    rolesOnFormGroups: Array,
+  },
+  {
+    collection: 'FormGroup',
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+  }
+);
 
-  export const FormComponent = new Schema(
-    {
-      name: String,
-      key: String,
-      meta: { type: Object, default: {} },
-      status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
-      value: Object,
-      data: { type: Object, default: {} },
-      type: String,
-      hasAttachment: Boolean,
-      hasValidation: Boolean,
-      isDisabled: Boolean,
-      isEditable: Boolean,
-      isRequired: Boolean,
-      createdDate: Date,
-      updatedDate: Date,
-      deletedDate: Date,
-    },
-    {
-      collection: 'FormComponent',
-      timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-    }
-  )
+export const FormComponent = new Schema(
+  {
+    name: String,
+    key: String,
+    meta: { type: Object, default: {} },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+    value: Object,
+    data: { type: Object, default: {} },
+    type: String,
+    hasAttachment: Boolean,
+    hasValidation: Boolean,
+    isDisabled: Boolean,
+    isEditable: Boolean,
+    isRequired: Boolean,
+    createdDate: Date,
+    updatedDate: Date,
+    deletedDate: Date,
+  },
+  {
+    collection: 'FormComponent',
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+  }
+);
 
 export const FormSubmission = new Schema(
   {
@@ -2776,7 +2844,7 @@ export const FormSubmission = new Schema(
   {
     collection: 'FormSubmission',
   }
-)
+);
 
 export const Character = new Schema(
   {
@@ -2801,7 +2869,7 @@ export const Character = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Character',
   }
-)
+);
 
 export const Team = new Schema(
   {
@@ -2824,7 +2892,7 @@ export const Team = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Team',
   }
-)
+);
 
 export const Npc = new Schema(
   {
@@ -2848,7 +2916,7 @@ export const Npc = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Npc',
   }
-)
+);
 
 export const Metaverse = new Schema(
   {
@@ -2871,7 +2939,7 @@ export const Metaverse = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Metaverse',
   }
-)
+);
 
 export const Omniverse = new Schema(
   {
@@ -2893,7 +2961,7 @@ export const Omniverse = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Omniverse',
   }
-)
+);
 
 export const Skill = new Schema(
   {
@@ -2915,7 +2983,7 @@ export const Skill = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Skill',
   }
-)
+);
 
 export const SkillMod = new Schema(
   {
@@ -2937,7 +3005,7 @@ export const SkillMod = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SkillMod',
   }
-)
+);
 
 export const SkillClassification = new Schema(
   {
@@ -2959,7 +3027,7 @@ export const SkillClassification = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SkillClassification',
   }
-)
+);
 
 export const SkillCondition = new Schema(
   {
@@ -2981,7 +3049,7 @@ export const SkillCondition = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SkillCondition',
   }
-)
+);
 
 export const SkillStatusEffect = new Schema(
   {
@@ -3003,7 +3071,7 @@ export const SkillStatusEffect = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SkillStatusEffect',
   }
-)
+);
 
 export const SkillTree = new Schema(
   {
@@ -3025,7 +3093,7 @@ export const SkillTree = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SkillTree',
   }
-)
+);
 
 export const SkillTreeNode = new Schema(
   {
@@ -3047,7 +3115,7 @@ export const SkillTreeNode = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SkillTreeNode',
   }
-)
+);
 
 export const CharacterAbility = new Schema(
   {
@@ -3069,7 +3137,7 @@ export const CharacterAbility = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterAbility',
   }
-)
+);
 
 export const CharacterAttribute = new Schema(
   {
@@ -3091,7 +3159,7 @@ export const CharacterAttribute = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterAttribute',
   }
-)
+);
 
 export const CharacterType = new Schema(
   {
@@ -3113,7 +3181,7 @@ export const CharacterType = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterType',
   }
-)
+);
 
 export const ItemAttribute = new Schema(
   {
@@ -3135,7 +3203,7 @@ export const ItemAttribute = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemAttribute',
   }
-)
+);
 
 export const ItemMaterial = new Schema(
   {
@@ -3157,7 +3225,7 @@ export const ItemMaterial = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemMaterial',
   }
-)
+);
 
 export const ItemSet = new Schema(
   {
@@ -3179,7 +3247,7 @@ export const ItemSet = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemSet',
   }
-)
+);
 
 export const ItemSlot = new Schema(
   {
@@ -3201,7 +3269,7 @@ export const ItemSlot = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemSlot',
   }
-)
+);
 
 export const ItemRarity = new Schema(
   {
@@ -3223,7 +3291,7 @@ export const ItemRarity = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemRarity',
   }
-)
+);
 
 export const ItemType = new Schema(
   {
@@ -3245,7 +3313,7 @@ export const ItemType = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemType',
   }
-)
+);
 
 export const ItemSubType = new Schema(
   {
@@ -3267,7 +3335,7 @@ export const ItemSubType = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemSubType',
   }
-)
+);
 
 export const ItemSpecificType = new Schema(
   {
@@ -3289,7 +3357,7 @@ export const ItemSpecificType = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemSpecificType',
   }
-)
+);
 
 export const ItemAffix = new Schema(
   {
@@ -3311,7 +3379,7 @@ export const ItemAffix = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemAffix',
   }
-)
+);
 
 export const ItemRecipe = new Schema(
   {
@@ -3333,7 +3401,7 @@ export const ItemRecipe = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemRecipe',
   }
-)
+);
 
 export const ItemSkin = new Schema(
   {
@@ -3354,7 +3422,7 @@ export const ItemSkin = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemSkin',
   }
-)
+);
 
 export const Stash = new Schema(
   {
@@ -3375,7 +3443,7 @@ export const Stash = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Stash',
   }
-)
+);
 
 export const Biome = new Schema(
   {
@@ -3397,7 +3465,7 @@ export const Biome = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Biome',
   }
-)
+);
 
 export const BiomeFeature = new Schema(
   {
@@ -3419,7 +3487,7 @@ export const BiomeFeature = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'BiomeFeature',
   }
-)
+);
 
 export const Planet = new Schema(
   {
@@ -3442,7 +3510,7 @@ export const Planet = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Planet',
   }
-)
+);
 
 export const SolarSystem = new Schema(
   {
@@ -3465,7 +3533,7 @@ export const SolarSystem = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'SolarSystem',
   }
-)
+);
 
 export const Galaxy = new Schema(
   {
@@ -3488,7 +3556,7 @@ export const Galaxy = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Galaxy',
   }
-)
+);
 
 export const Star = new Schema(
   {
@@ -3510,7 +3578,7 @@ export const Star = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Star',
   }
-)
+);
 
 export const Universe = new Schema(
   {
@@ -3531,7 +3599,7 @@ export const Universe = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Universe',
   }
-)
+);
 
 export const Quest = new Schema(
   {
@@ -3554,7 +3622,7 @@ export const Quest = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Quest',
   }
-)
+);
 
 export const Area = new Schema(
   {
@@ -3578,7 +3646,7 @@ export const Area = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Area',
   }
-)
+);
 
 export const AreaType = new Schema(
   {
@@ -3600,7 +3668,7 @@ export const AreaType = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'AreaType',
   }
-)
+);
 
 export const AreaLandmark = new Schema(
   {
@@ -3624,7 +3692,7 @@ export const AreaLandmark = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'AreaLandmark',
   }
-)
+);
 
 export const Act = new Schema(
   {
@@ -3646,7 +3714,7 @@ export const Act = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Act',
   }
-)
+);
 
 export const CharacterClass = new Schema(
   {
@@ -3668,7 +3736,7 @@ export const CharacterClass = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterClass',
   }
-)
+);
 
 export const CharacterRace = new Schema(
   {
@@ -3691,7 +3759,7 @@ export const CharacterRace = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterRace',
   }
-)
+);
 
 export const CharacterGender = new Schema(
   {
@@ -3713,7 +3781,7 @@ export const CharacterGender = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterGender',
   }
-)
+);
 
 export const CharacterPersonality = new Schema(
   {
@@ -3735,7 +3803,7 @@ export const CharacterPersonality = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterPersonality',
   }
-)
+);
 
 export const CharacterTitle = new Schema(
   {
@@ -3757,7 +3825,7 @@ export const CharacterTitle = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterTitle',
   }
-)
+);
 
 export const AreaNameChoice = new Schema(
   {
@@ -3779,7 +3847,7 @@ export const AreaNameChoice = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'AreaNameChoice',
   }
-)
+);
 
 export const CharacterNameChoice = new Schema(
   {
@@ -3801,7 +3869,7 @@ export const CharacterNameChoice = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'CharacterNameChoice',
   }
-)
+);
 
 export const CharacterFaction = new Schema(
   {
@@ -3823,7 +3891,7 @@ export const CharacterFaction = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Faction',
   }
-)
+);
 
 export const Era = new Schema(
   {
@@ -3845,7 +3913,7 @@ export const Era = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Era',
   }
-)
+);
 
 export const Season = new Schema(
   {
@@ -3867,7 +3935,7 @@ export const Season = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Season',
   }
-)
+);
 
 export const Lore = new Schema(
   {
@@ -3890,7 +3958,7 @@ export const Lore = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Lore',
   }
-)
+);
 
 export const Energy = new Schema(
   {
@@ -3912,7 +3980,7 @@ export const Energy = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Energy',
   }
-)
+);
 
 export const Guide = new Schema(
   {
@@ -3937,7 +4005,7 @@ export const Guide = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Guide',
   }
-)
+);
 
 export const Achievement = new Schema(
   {
@@ -3959,7 +4027,7 @@ export const Achievement = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Achievement',
   }
-)
+);
 
 export const Game = new Schema(
   {
@@ -3982,7 +4050,7 @@ export const Game = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Game',
   }
-)
+);
 
 export const Validator = new Schema(
   {
@@ -4005,7 +4073,7 @@ export const Validator = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Validator',
   }
-)
+);
 
 export const Poll = new Schema(
   {
@@ -4027,7 +4095,7 @@ export const Poll = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Poll',
   }
-)
+);
 
 export const ProductUpdate = new Schema(
   {
@@ -4050,7 +4118,7 @@ export const ProductUpdate = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ProductUpdate',
   }
-)
+);
 
 export const Raffle = new Schema(
   {
@@ -4075,7 +4143,7 @@ export const Raffle = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Raffle',
   }
-)
+);
 
 export const RaffleRequirement = new Schema(
   {
@@ -4097,7 +4165,7 @@ export const RaffleRequirement = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'RaffleRequirement',
   }
-)
+);
 
 export const RaffleReward = new Schema(
   {
@@ -4121,7 +4189,7 @@ export const RaffleReward = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'RaffleReward',
   }
-)
+);
 
 export const RaffleEntry = new Schema(
   {
@@ -4144,7 +4212,7 @@ export const RaffleEntry = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'RaffleEntry',
   }
-)
+);
 
 export const Proposal = new Schema(
   {
@@ -4168,7 +4236,7 @@ export const Proposal = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Proposal',
   }
-)
+);
 
 export const Company = new Schema(
   {
@@ -4192,7 +4260,7 @@ export const Company = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Company',
   }
-)
+);
 
 export const Person = new Schema(
   {
@@ -4216,4 +4284,4 @@ export const Person = new Schema(
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'Person',
   }
-)
+);
