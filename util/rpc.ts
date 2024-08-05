@@ -1,7 +1,7 @@
-import { initTRPC, TRPCBuilder, TRPCError, DataTransformer } from '@trpc/server';
+import { initTRPC, TRPCError, DataTransformer } from '@trpc/server';
 import { isValidRequest } from './web3';
 
-export const customErrorFormatter = (t: TRPCBuilder) =>
+export const customErrorFormatter = (t: any) =>
   t.middleware(async ({ ctx, next }) => {
     try {
       return await next();
@@ -36,7 +36,7 @@ export const transformer: DataTransformer = {
   deserialize,
 };
 
-export const validateRequest = (t: TRPCBuilder) =>
+export const validateRequest = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     const { signature, data } = input;
     if (
@@ -51,7 +51,7 @@ export const validateRequest = (t: TRPCBuilder) =>
     // });
   });
 
-export const hasRole = (role: string | string[], t: TRPCBuilder) =>
+export const hasRole = (role: string | string[], t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     if (Array.isArray(role)) {
       const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
@@ -67,7 +67,7 @@ export const hasRole = (role: string | string[], t: TRPCBuilder) =>
     return next();
   });
 
-export const validateSeer = (t: TRPCBuilder) =>
+export const validateSeer = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     if (!ctx.client.isSeer) {
       return { status: 0, message: 'Not authorized' };
@@ -75,7 +75,7 @@ export const validateSeer = (t: TRPCBuilder) =>
     return next();
   });
 
-export const validateAdmin = (t: TRPCBuilder) =>
+export const validateAdmin = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     if (!ctx.client.isAdmin) {
       return { status: 0, message: 'Not authorized' };
@@ -83,7 +83,7 @@ export const validateAdmin = (t: TRPCBuilder) =>
     return next();
   });
 
-export const validateMod = (t: TRPCBuilder) =>
+export const validateMod = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     if (!ctx.client.isMod) {
       return { status: 0, message: 'Not authorized' };
