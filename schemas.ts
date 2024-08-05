@@ -58,6 +58,7 @@ export const Account = new Schema(
 );
 
 Account.index({ metaverseId: 1, username: 1 }, { unique: true });
+Account.index({ telegramUserId: 1 }, { unique: true });
 
 Account.virtual('profiles', {
   ref: 'Profile',
@@ -98,6 +99,8 @@ export const Profile = new Schema(
   },
   { collection: 'Profile', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
 );
+
+Account.index({ telegramUserId: 1 }, { unique: true });
 
 export const Application = new Schema(
   {
@@ -1914,6 +1917,9 @@ export const ChatMessage = new Schema(
     externalId: { type: String },
     externalPlatform: { type: String, enum: ['Telegram', 'Discord'] },
     isSpam: { type: Boolean, default: false }, // Flag to mark message as spam
+    tags: { type: Array, default: [] }, // List of tags associated with the message
+    summary: { type: String }, // Summary of the message content
+    entities: { type: Array, default: [] }, // List of entities extracted from the message content
     status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived', 'Deleted'] }, // Message status
     applicationId: { type: Schema.Types.ObjectId, ref: 'Application', required: true },
     ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
