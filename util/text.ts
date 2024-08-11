@@ -33,7 +33,7 @@ export async function analyzeTextWithGPT(message: string, { apiKey }: { apiKey: 
     const messages = [];
     messages.push({ role: 'user', content: prompt });
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'gpt-4o-mini',
       messages,
       max_tokens: 150,
       n: 1,
@@ -159,6 +159,10 @@ export async function analyzeText(
   message: string,
   opts: any = { enableApiFallback: false, apiKey: null }
 ): Promise<ChatAnalysisResult> {
+  if (!message) {
+    return { tags: [], summary: '', entities: [] };
+  }
+
   const complexityScore = calculateComplexity(message);
 
   if (opts.enableApiFallback && complexityScore > 7) {

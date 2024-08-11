@@ -58,7 +58,7 @@ export const Account = new Schema(
 );
 
 Account.index({ metaverseId: 1, username: 1 }, { unique: true });
-Account.index({ telegramUserId: 1 }, { unique: true });
+Account.index({ metaverseId: 1, telegramUserId: 1 }, { unique: true });
 
 Account.virtual('profiles', {
   ref: 'Profile',
@@ -100,7 +100,8 @@ export const Profile = new Schema(
   { collection: 'Profile', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
 );
 
-Account.index({ telegramUserId: 1 }, { unique: true });
+Account.index({ metaverseId: 1, telegramUserId: 1 }, { unique: true });
+Account.index({ metaverseId: 1, accountId: 1, name: 1 }, { unique: true });
 
 export const Application = new Schema(
   {
@@ -1386,8 +1387,8 @@ export const ChainToken = new Schema(
     },
     rank: { type: Number, min: 0 },
     name: { type: String, required: true },
-    description: { type: String, required: true },
-    content: { type: String, required: true },
+    description: { type: String },
+    content: { type: String },
     type: { type: String, maxlength: 100 },
     standard: { type: String, maxlength: 100 },
     price: { type: Number, min: 0 },
@@ -1904,7 +1905,7 @@ export const ChatMessage = new Schema(
   {
     groupId: { type: Schema.Types.ObjectId, ref: 'ChatGroup', required: true }, // Reference to the chat channel
     profileId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true }, // Reference to the user who sent the message
-    content: { type: String, required: true }, // Message content
+    content: { type: String }, // Message content
     mediaUrl: { type: String }, // URL to media content (image, video, etc.)
     replyToId: { type: Schema.Types.ObjectId, ref: 'ChatMessage' }, // Reference to the message being replied to
     reactions: [
