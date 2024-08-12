@@ -1,28 +1,28 @@
-import fetch from 'node-fetch'
+import fetch from 'axios';
 
-const profileApi = 'https://api.arken.gg'
+const profileApi = 'https://api.arken.gg';
 
 const cache = {
   getUserAddressByUsername: {},
   getUsername: {},
-}
+};
 
 export default async (address: string): Promise<string> => {
   try {
-    if (cache.getUsername[address]) return cache.getUsername[address]
+    if (cache.getUsername[address]) return cache.getUsername[address];
 
-    const response = await fetch(`${profileApi}/users/${address}`)
+    const response = await fetch(`${profileApi}/users/${address}`);
 
-    if (!response.ok) {
-      return ''
+    if (!response.data) {
+      return '';
     }
 
-    const { username = '' }: any = await response.json()
+    const { username = '' }: any = response.data;
 
-    cache.getUsername[address] = username
+    cache.getUsername[address] = username;
 
-    return username
+    return username;
   } catch (error) {
-    return ''
+    return '';
   }
-}
+};

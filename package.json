@@ -2,8 +2,8 @@
   "name": "@arken/node",
   "version": "1.4.6",
   "description": "",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "index.ts",
+  "types": "types.ts",
   "scripts": {
     "build": "npm-run-all dist",
     "dist": "npm-run-all clean tsc:*",
