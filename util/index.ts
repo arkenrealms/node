@@ -1,8 +1,7 @@
 import crypto from 'crypto';
 import { exec } from 'child_process';
-import jetpack from 'fs-jetpack';
+// import jetpack from 'fs-jetpack';
 import * as ethers from 'ethers';
-import util from 'util';
 import _ from 'lodash';
 import config from './config';
 import { decodeRequest, generateLongId, escapeStringRegexp } from './db';
@@ -25,14 +24,14 @@ export const isDebug =
 export function logError(...msgs) {
   console.log(logPrefix, nowReadable(), ...msgs);
 
-  const errorLog = jetpack.read(path.resolve('./public/data/errors.json'), 'json') || [];
+  // const errorLog = jetpack.read(path.resolve('./public/data/errors.json'), 'json') || [];
 
-  for (const msg of msgs) {
-    errorLog.push(JSON.stringify(msg));
-  }
+  // for (const msg of msgs) {
+  //   errorLog.push(JSON.stringify(msg));
+  // }
 
   if (writeLogs) {
-    jetpack.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true });
+    // jetpack.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true });
   }
 
   throw new Error(msgs.join('; '));
@@ -44,13 +43,11 @@ export function log(...msgs) {
   }
 
   if (writeLogs) {
-    const logData = jetpack.read(path.resolve('../public/data/log.json'), 'json') || [];
-
-    for (const msg of msgs) {
-      logData.push(JSON.stringify(msg));
-    }
-
-    jetpack.write(path.resolve('./public/data/log.json'), JSON.stringify(logData, null, 2));
+    // const logData = jetpack.read(path.resolve('../public/data/log.json'), 'json') || [];
+    // for (const msg of msgs) {
+    //   logData.push(JSON.stringify(msg));
+    // }
+    // jetpack.write(path.resolve('./public/data/log.json'), JSON.stringify(logData, null, 2));
   }
 }
 
@@ -98,7 +95,7 @@ export async function updateGit() {
 
   updatingGit = true;
   try {
-    const execPromise = util.promisify(exec);
+    const execPromise = require('util').promisify(exec);
 
     try {
       await execPromise('rm ./db/.git/index.lock');

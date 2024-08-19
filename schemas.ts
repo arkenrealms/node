@@ -372,8 +372,8 @@ Application.virtual('comments', {
   foreignField: 'applicationId',
 });
 
-Application.virtual('forms', {
-  ref: 'Form',
+Application.virtual('interfaces', {
+  ref: 'Interface',
   localField: '_id',
   foreignField: 'applicationId',
 });
@@ -2766,7 +2766,7 @@ export const RecordUpdate = new Schema(
     actionType: { type: String, required: true, maxlength: 100 },
     reason: { type: String, required: true, maxlength: 100 },
     meta: { type: Object, default: {} },
-    recordUpdatesOnForms: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnForms' }],
+    recordUpdatesOnInterfaces: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnInterfaces' }],
     recordUpdatesOnProfiles: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnProfiles' }],
   },
   {
@@ -2775,7 +2775,7 @@ export const RecordUpdate = new Schema(
   }
 );
 
-export const Form = new Schema(
+export const Interface = new Schema(
   {
     applicationId: { type: Schema.Types.ObjectId, ref: 'Application', required: true },
     ownerId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true },
@@ -2790,17 +2790,17 @@ export const Form = new Schema(
     name: { type: String, required: true },
     meta: { type: Object, default: {} },
     status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
-    formSubmissions: [{ type: Schema.Types.ObjectId, ref: 'FormSubmission' }],
-    commentsOnForms: [{ type: Schema.Types.ObjectId, ref: 'CommentsOnForms' }],
-    recordUpdatesOnForms: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnForms' }],
+    submissions: [{ type: Schema.Types.ObjectId, ref: 'InterfaceSubmission' }],
+    commentsOnInterfaces: [{ type: Schema.Types.ObjectId, ref: 'CommentsOnInterfaces' }],
+    recordUpdatesOnInterfaces: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnInterfaces' }],
   },
   {
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-    collection: 'Form',
+    collection: 'Interface',
   }
 );
 
-export const FormGroup = new Schema(
+export const InterfaceGroup = new Schema(
   {
     name: String,
     key: String,
@@ -2809,15 +2809,15 @@ export const FormGroup = new Schema(
     createdDate: Date,
     updatedDate: Date,
     deletedDate: Date,
-    rolesOnFormGroups: Array,
+    rolesOnInterfaceGroups: Array,
   },
   {
-    collection: 'FormGroup',
+    collection: 'InterfaceGroup',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
 );
 
-export const FormComponent = new Schema(
+export const InterfaceComponent = new Schema(
   {
     name: String,
     key: String,
@@ -2836,20 +2836,20 @@ export const FormComponent = new Schema(
     deletedDate: Date,
   },
   {
-    collection: 'FormComponent',
+    collection: 'InterfaceComponent',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
 );
 
-export const FormSubmission = new Schema(
+export const InterfaceSubmission = new Schema(
   {
     meta: { type: Object, default: {} },
-    formId: { type: String, required: true },
+    InterfaceId: { type: String, required: true },
     status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
-    form: { type: Schema.Types.ObjectId, ref: 'Form' },
+    interface: { type: Schema.Types.ObjectId, ref: 'Interface' },
   },
   {
-    collection: 'FormSubmission',
+    collection: 'InterfaceSubmission',
   }
 );
 
@@ -3428,6 +3428,41 @@ export const ItemSkin = new Schema(
   {
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: 'ItemSkin',
+  }
+);
+
+export const Task = new Schema(
+  {
+    externalId: { type: String, required: true },
+    platform: { type: String, required: true, enum: ['Trello', 'Jira', 'GitHub'] },
+    name: { type: String, required: true },
+    key: { type: String, required: true },
+    description: { type: String },
+    labels: [{ type: String }],
+    dueDate: { type: Date },
+    url: { type: String },
+    assigneeId: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    boardId: { type: String },
+    listId: { type: String },
+    issueType: { type: String },
+    priority: { type: String },
+    repository: { type: String },
+    milestone: { type: String },
+    pullRequest: { type: Boolean },
+    metaverseId: { type: Schema.Types.ObjectId, ref: 'Metaverse', required: true },
+    ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    createdById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    editedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    deletedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date },
+    deletedDate: { type: Date },
+    meta: { type: Object, default: {} },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+  },
+  {
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+    collection: 'Task',
   }
 );
 

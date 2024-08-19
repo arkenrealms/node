@@ -1,4 +1,4 @@
-import util from 'util'
+
 import { spawn, exec } from 'child_process'
 import { wait } from '.'
 
@@ -21,7 +21,7 @@ export async function upgradeCodebase() {
 
 export async function upgradeGsCodebase() {
   // Pull latest from Git
-  const execPromise = util.promisify(exec)
+  const execPromise = require('util').promisify(exec)
 
   // try {
   //   await execPromise('cd game-server && rm .git/index.lock', {uid: 1000})
@@ -41,7 +41,7 @@ export async function upgradeGsCodebase() {
 
 export async function cloneGsCodebase(repoUri) {
   // Pull latest from Git
-  const execPromise = util.promisify(exec)
+  const execPromise = require('util').promisify(exec)
 
   // try {
   //   await execPromise('rm -rf game-server', {uid: 1000})
