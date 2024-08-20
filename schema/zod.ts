@@ -76,6 +76,7 @@ export const Video = z
   .object({
     applicationId: ObjectId,
     name: z.string(),
+    youtubeId: z.string(),
   })
   .merge(Entity);
 
@@ -987,5 +988,29 @@ export const Person = z
     content: z.string().optional(),
     applicationId: ObjectId,
     companyId: ObjectId.optional(),
+  })
+  .merge(Entity);
+
+  
+  // Participant schema
+  export const VideoParticipant = z.object({
+    name: z.string(),
+    profileId: ObjectId
+  })
+  .merge(Entity);
+  
+  // VideoDialogue schema
+  export const VideoDialogue = z.object({
+    participantId: ObjectId,
+    text: z.string(),
+    timestamp: z.string(), 
+  })
+  .merge(Entity);
+  
+  // VideoTranscript schema
+  export const VideoTranscript = z.object({
+    videoId: ObjectId, // Store the video ID as a string
+    transcript: z.array(VideoDialogue), // Array of dialogues
+    summary: z.string().optional(),
   })
   .merge(Entity);

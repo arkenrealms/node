@@ -112,7 +112,8 @@ export type Application = Omit<z.infer<typeof zodSchema.Application>, 'metaverse
 export type Video = Omit<z.infer<typeof zodSchema.Video>, 'metaverseId' | 'ownerId'> & Entity;
 export type VideoScene = Omit<z.infer<typeof zodSchema.VideoScene>, 'metaverseId' | 'ownerId'> & Entity;
 export type Agent = Omit<z.infer<typeof zodSchema.Agent>, 'metaverseId' | 'ownerId'> & Entity;
-export type Memory = Omit<z.infer<typeof zodSchema.Memory>, 'metaverseId' | 'ownerId'> & Entity;
+export type Memory = Omit<z.infer<typeof zodSchema.Memory>, 'metaverseId' | 'ownerId'>
+ & Entity;
 export type Conversation = Omit<z.infer<typeof zodSchema.Conversation>, 'metaverseId' | 'ownerId'> & Entity;
 export type Log = Omit<z.infer<typeof zodSchema.Log>, 'metaverseId' | 'ownerId'> & Entity;
 export type Job = Omit<z.infer<typeof zodSchema.Job>, 'metaverseId' | 'ownerId'> & Entity;
@@ -185,3 +186,6 @@ export type SkillCondition = Omit<z.infer<typeof zodSchema.SkillCondition>, 'met
 export type SkillStatusEffect = Omit<z.infer<typeof zodSchema.SkillStatusEffect>, 'metaverseId' | 'ownerId'> & Entity;
 export type SkillTree = Omit<z.infer<typeof zodSchema.SkillTree>, 'metaverseId' | 'ownerId'> & Entity;
 export type SkillTreeNode = Omit<z.infer<typeof zodSchema.SkillTreeNode>, 'metaverseId' | 'ownerId'> & Entity;
+export type VideoParticipant = Omit<z.infer<typeof zodSchema.VideoParticipant>, 'metaverseId' | 'ownerId'> & Entity;
+export type VideoDialogue = Omit<z.infer<typeof zodSchema.VideoDialogue>, 'metaverseId' | 'ownerId'> & Entity;
+export type VideoTranscript = Omit<z.infer<typeof zodSchema.VideoTranscript>, 'metaverseId' | 'ownerId'> & Entity;
