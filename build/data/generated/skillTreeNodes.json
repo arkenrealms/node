@@ -5,22 +5,16 @@
     "nodeId": 0,
     "classStartIndex": 0,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 3
   },
   {
     "uuid": "recWJ52MQK8TBIJgt",
-    "name": "Barbarian",
+    "name": "Warrior",
     "nodeId": 1,
     "classStartIndex": 1,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 1,
     "parentClass": 104
   },
@@ -30,10 +24,7 @@
     "nodeId": 2,
     "classStartIndex": 2,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 6,
     "parentClass": 107
   },
@@ -43,10 +34,7 @@
     "nodeId": 3,
     "classStartIndex": 3,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 2
   },
   {
@@ -55,10 +43,7 @@
     "nodeId": 4,
     "classStartIndex": 4,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 5
   },
   {
@@ -67,10 +52,7 @@
     "nodeId": 5,
     "classStartIndex": 5,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 7
   },
   {
@@ -79,10 +61,7 @@
     "nodeId": 6,
     "classStartIndex": 6,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 4
   },
   {
@@ -91,10 +70,7 @@
     "nodeId": 7,
     "classStartIndex": 7,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 8,
     "parentClass": 108
   },
@@ -104,10 +80,7 @@
     "nodeId": 8,
     "classStartIndex": 8,
     "isSubclassStart": false,
-    "games": [
-      1,
-      3
-    ],
+    "games": [1, 3],
     "subclass": 11
   },
   {
@@ -115,9 +88,7 @@
     "name": "Arcane Archer",
     "nodeId": 9,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 12,
     "parentClass": 105
   },
@@ -126,9 +97,7 @@
     "name": "Skirmisher",
     "nodeId": 10,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 13,
     "parentClass": 105
   },
@@ -137,9 +106,7 @@
     "name": "Sniper",
     "nodeId": 11,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 14,
     "parentClass": 105
   },
@@ -148,20 +115,16 @@
     "name": "Hunter",
     "nodeId": 12,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 15,
     "parentClass": 105
   },
   {
     "uuid": "recXhikAcNXoQ5JBp",
-    "name": "Amazon",
+    "name": "Ranger",
     "nodeId": 13,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 56,
     "parentClass": 105
   },
@@ -170,9 +133,7 @@
     "name": "Berserker",
     "nodeId": 14,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 16,
     "parentClass": 104
   },
@@ -181,9 +142,7 @@
     "name": "Warrior",
     "nodeId": 15,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 10,
     "parentClass": 104
   },
@@ -192,9 +151,7 @@
     "name": "Executioner",
     "nodeId": 16,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 53,
     "parentClass": 104
   },
@@ -203,9 +160,7 @@
     "name": "Named",
     "nodeId": 17,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 18,
     "parentClass": 104
   },
@@ -214,9 +169,7 @@
     "name": "Thief",
     "nodeId": 18,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 21,
     "parentClass": 107
   },
@@ -225,9 +178,7 @@
     "name": "Bounty Hunter",
     "nodeId": 19,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 62,
     "parentClass": 107
   },
@@ -236,9 +187,7 @@
     "name": "Mirage Dancer",
     "nodeId": 20,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 22,
     "parentClass": 107
   },
@@ -247,9 +196,7 @@
     "name": "Swashbuckler",
     "nodeId": 21,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 20,
     "parentClass": 107
   },
@@ -258,9 +205,7 @@
     "name": "Soul Knife",
     "nodeId": 22,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 19,
     "parentClass": 107
   },
@@ -269,9 +214,7 @@
     "name": "Conduit",
     "nodeId": 23,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 23,
     "parentClass": 101
   },
@@ -280,9 +223,7 @@
     "name": "Chronomancer",
     "nodeId": 24,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 24,
     "parentClass": 101
   },
@@ -291,9 +232,7 @@
     "name": "Elemancer",
     "nodeId": 25,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 25,
     "parentClass": 101
   },
@@ -302,9 +241,7 @@
     "name": "Witch/Warlock",
     "nodeId": 26,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 26,
     "parentClass": 101
   },
@@ -313,9 +250,7 @@
     "name": "Archon",
     "nodeId": 27,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 27,
     "parentClass": 101
   },
@@ -324,9 +259,7 @@
     "name": "Zealot",
     "nodeId": 28,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 28,
     "parentClass": 101
   },
@@ -335,9 +268,7 @@
     "name": "Priest/Priestess",
     "nodeId": 29,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 29,
     "parentClass": 103
   },
@@ -346,9 +277,7 @@
     "name": "Knight",
     "nodeId": 30,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 9,
     "parentClass": 103
   },
@@ -357,9 +286,7 @@
     "name": "Fallen",
     "nodeId": 31,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 30,
     "parentClass": 103
   },
@@ -368,9 +295,7 @@
     "name": "Sage",
     "nodeId": 32,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 31,
     "parentClass": 106
   },
@@ -379,9 +304,7 @@
     "name": "Shaman",
     "nodeId": 33,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 59,
     "parentClass": 106
   },
@@ -390,9 +313,7 @@
     "name": "Enchanter",
     "nodeId": 34,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 32,
     "parentClass": 106
   },
@@ -401,9 +322,7 @@
     "name": "Shifter",
     "nodeId": 35,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 33,
     "parentClass": 106
   },
@@ -412,9 +331,7 @@
     "name": "Hexgard",
     "nodeId": 36,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 34,
     "parentClass": 106
   },
@@ -423,9 +340,7 @@
     "name": "Summoner",
     "nodeId": 37,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 35,
     "parentClass": 102
   },
@@ -434,9 +349,7 @@
     "name": "Witch Hunter",
     "nodeId": 38,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 36,
     "parentClass": 102
   },
@@ -445,9 +358,7 @@
     "name": "Bloodmage",
     "nodeId": 39,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 37,
     "parentClass": 102
   },
@@ -456,9 +367,7 @@
     "name": "Daemonbinder",
     "nodeId": 40,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 38,
     "parentClass": 102
   },
@@ -467,9 +376,7 @@
     "name": "Hexer",
     "nodeId": 41,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 39,
     "parentClass": 102
   },
@@ -478,9 +385,7 @@
     "name": "Musician",
     "nodeId": 42,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 40,
     "parentClass": 101
   },
@@ -489,9 +394,7 @@
     "name": "Lorekeeper",
     "nodeId": 43,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 41,
     "parentClass": 101
   },
@@ -500,9 +403,7 @@
     "name": "Voice",
     "nodeId": 44,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 42,
     "parentClass": 101
   },
@@ -511,9 +412,7 @@
     "name": "Merciful Soul",
     "nodeId": 45,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 43,
     "parentClass": 101
   },
@@ -522,9 +421,7 @@
     "name": "Infused Soul",
     "nodeId": 46,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 44
   },
   {
@@ -532,9 +429,7 @@
     "name": "Ignited Soul",
     "nodeId": 47,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 45
   },
   {
@@ -542,9 +437,7 @@
     "name": "Intangible Soul",
     "nodeId": 48,
     "isSubclassStart": true,
-    "games": [
-      3
-    ],
+    "games": [3],
     "subclass": 46
   },
   {
@@ -552,8 +445,6 @@
     "name": "Brute",
     "nodeId": 49,
     "isSubclassStart": false,
-    "games": [
-      3
-    ]
+    "games": [3]
   }
 ]

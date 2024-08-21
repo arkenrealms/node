@@ -2625,7 +2625,7 @@
             "description": "{parameter1} Required",
             "explanation": "",
             "param1": {
-              "spec": "Barbarian",
+              "spec": "Warrior",
               "min": null,
               "max": null,
               "map": {}
@@ -2796,7 +2796,7 @@
             "description": "{parameter1} Required",
             "explanation": "",
             "param1": {
-              "spec": "Barbarian",
+              "spec": "Warrior",
               "min": null,
               "max": null
             }
@@ -2971,7 +2971,7 @@
             "description": "{parameter1} Required",
             "explanation": "",
             "param1": {
-              "spec": "Barbarian",
+              "spec": "Warrior",
               "min": null,
               "max": null
             }
@@ -3401,7 +3401,7 @@
             "description": "{parameter1} Required",
             "explanation": "",
             "param1": {
-              "spec": "Amazon",
+              "spec": "Ranger",
               "min": null,
               "max": null
             }
@@ -31366,7 +31366,7 @@
               "value": 3
             },
             "param2": {
-              "spec": "Sorceress",
+              "spec": "Mage",
               "min": null,
               "max": null
             }
@@ -39717,7 +39717,7 @@
               "value": 2
             },
             "param2": {
-              "spec": "Sorceress",
+              "spec": "Mage",
               "min": null,
               "max": null
             }
@@ -40124,7 +40124,7 @@
               "value": 2
             },
             "param2": {
-              "spec": "Amazon",
+              "spec": "Ranger",
               "min": null,
               "max": null
             }

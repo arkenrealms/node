@@ -2,7 +2,7 @@
   {
     "uuid": "rec4PD4L91OBjGA6W",
     "id": 1,
-    "name": "Barbarian",
+    "name": "Warrior",
     "link": "https://arken.gg/class/barbarian",
     "parent": 104,
     "characters": [],
@@ -10,8 +10,8 @@
     "skills": [402, 403, 428],
     "guilds": [10, 14, null],
     "shortDescription": "HE_SHE is unequaled in close-quarters combat and mastery of weapons.",
-    "description": "Known best for their brutality and ruthlessness in combat, barbarians are both feared and admired across Haerra. Unlike other disciplines, few outsiders can “train” to become barbarians. Most barbarians are born, begotten by their tribe. The tribe serves as a central focus to barbarian life: a close-knit community dedicated to the preservation of their way of life and honoring their ancestors. Barbarians exist in almost all cultures and climates across Haerra, from the desert tribes of Kharsh to the Ovaraaks tribe in the Frostlands. No matter their origin, a single barbarian is often considered to be worth ten soldiers, and their fearlessness is envied by many.\n",
-    "buildInfo": "In Arken: Runic Raids, Barbarians will have highest yield, and highest rune exchange.",
+    "description": "Known best for their brutality and ruthlessness in combat, barbarians are both feared and admired across Haerra. Unlike other disciplines, few outsiders can “train” to become barbarians. Most barbarians are born, begotten by their tribe. The tribe serves as a central focus to barbarian life: a close-knit community dedicated to the preservation of their way of life and honoring their ancestors. Warriors exist in almost all cultures and climates across Haerra, from the desert tribes of Kharsh to the Ovaraaks tribe in the Frostlands. No matter their origin, a single barbarian is often considered to be worth ten soldiers, and their fearlessness is envied by many.\n",
+    "buildInfo": "In Arken: Runic Raids, Warriors will have highest yield, and highest rune exchange.",
     "lore1": "FLAVOR TEXT\n\n**Example**:\n\"War horns sound, stones fly from catapults, and the thunder of a thousand booted feet echoes across the land as hobgoblins march to battle. Across the borderlands of civilization, settlements and settlers must contend with these aggressive humanoids, whose thirst for conquest is never satisfied.\"\n",
     "lore2": "**ZEALOUS RAGE**\n\nAbove all else, barbarians are known for their ability to enter an animalistic frenzy. This mythical state allows barbarians to shrug off the deepest wounds, move faster and hit harder than normal warriors, and laugh in the face of fear itself. Such rage is a staple of the barbarian and it influences all of their martial abilities. All barbarians must learn to embrace this frenzy. Once mastered, a single barbarian can use their rage to cripple legions.\n",
     "lore3": "**ANCESTRAL TIES**\n\nFamily plays a central role in barbarian tribes. Young barbarians pay homage to their elders by presenting gifts of the hunt and trophies of fallen enemies. In return elders grant wisdom, and thus the tribe lives on. Stories are passed down orally from generation to generation, and are used to instill the principles, values, and goals of the tribe. Even after death, barbarians believe that their ancestors watch over, protect, and guide them: be it on the battlefield or on the hunt.\n",
@@ -336,7 +336,7 @@
   {
     "uuid": "recOdOGPUPDUOdQko",
     "id": 56,
-    "name": "Amazon",
+    "name": "Ranger",
     "link": "https://arken.gg/class/amazon",
     "parent": 105,
     "characters": [],

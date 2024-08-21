@@ -371,8 +371,8 @@
   {
     "uuid": "rec5stbe2M7gX1bBI",
     "id": 18,
-    "name": "UnableUseRuneword",
-    "displayName": "Unable Use Runeword",
+    "name": "UnableUseRuneform",
+    "displayName": "Unable Use Runeform",
     "isEnabled": true,
     "game": 1,
     "link": "https://arken.gg/item-attribute/unableuseruneword",
@@ -380,7 +380,7 @@
     "paramTypes": ["runewordID"],
     "paramValues": ["0-999"],
     "nature": "Debuff",
-    "description": "Unable To Use Runeword",
+    "description": "Unable To Use Runeform",
     "explanation": "",
     "param1": {
       "spec": "0-999",
@@ -392,8 +392,8 @@
   {
     "uuid": "rectlHYwuFKkce6YK",
     "id": 19,
-    "name": "CreateRandomRuneword",
-    "displayName": "Create Random Runeword",
+    "name": "CreateRandomRuneform",
+    "displayName": "Create Random Runeform",
     "listOrder": 300.53,
     "isEnabled": true,
     "game": 1,
@@ -402,7 +402,7 @@
     "paramTypes": ["chance"],
     "paramValues": ["0-100"],
     "nature": "Buff",
-    "description": "{parameter1} Chance To Create Random Runeword",
+    "description": "{parameter1} Chance To Create Random Runeform",
     "explanation": "",
     "param1": {
       "spec": "0-100",
@@ -1197,7 +1197,7 @@
     "paramTypes": ["value"],
     "paramValues": ["0-999"],
     "nature": "Neutral",
-    "description": "Earned Amount: {parameter1}",
+    "description": "Rewarded Amount: {parameter1}",
     "explanation": "",
     "param1": {
       "spec": "0-999",
@@ -1779,7 +1779,7 @@
     "paramTypes": ["ID"],
     "paramValues": ["0-999"],
     "nature": "Requirement",
-    "description": "Can not unequip Runeword until vested payouts have completed",
+    "description": "Can not unequip Runeform until vested payouts have completed",
     "explanation": "",
     "param1": {
       "spec": "0-999",
@@ -4106,14 +4106,14 @@
     "paramTypes": ["itemType"],
     "nature": "Buff",
     "influences": "Reward",
-    "description": "{ItemType} Runeword rewards more likely",
+    "description": "{ItemType} Runeform rewards more likely",
     "explanation": ""
   },
   {
     "uuid": "recbeYQ93f1SJgWw9",
     "id": 1167,
-    "name": "RunewordFindWin",
-    "displayName": "Runeword Find Win",
+    "name": "RuneformFindWin",
+    "displayName": "Runeform Find Win",
     "isEnabled": true,
     "game": 2,
     "link": "https://arken.gg/item-attribute/runewordfindwin",
@@ -4127,8 +4127,8 @@
   {
     "uuid": "recZJYrm1PWTdJ6Al",
     "id": 1168,
-    "name": "RunewordFindItem",
-    "displayName": "Runeword Find Item",
+    "name": "RuneformFindItem",
+    "displayName": "Runeform Find Item",
     "isEnabled": true,
     "game": 2,
     "link": "https://arken.gg/item-attribute/runewordfinditem",

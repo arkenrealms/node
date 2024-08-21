@@ -12,15 +12,13 @@ export default async (address: string): Promise<object> => {
 
     const response = await fetch(`${api}/user/${address}`);
 
-    if (!response.ok) {
+    if (!response?.data) {
       return {};
     }
 
-    const data = await response.json();
-
     // cache.getUserMeta[address] = data
 
-    return data as any;
+    return response.data as any;
   } catch (error) {
     return {};
   }

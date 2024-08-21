@@ -2,7 +2,7 @@
   {
     "uuid": "reci6117DNFmvidls",
     "name": "Introduction",
-    "text": "Rune: Infinite is a 2D Arena Brawler, the third game in the Arken ecosystem. The game demonstrates the seamless integration of NFT items into skill-based PvP gameplay and provides players with an exhilarating and challenging experience.\n\n\n",
+    "text": "Arken: Infinite Arena is a 2D Arena Brawler, the third game in the Arken ecosystem. The game demonstrates the seamless integration of NFT items into skill-based PvP gameplay and provides players with an exhilarating and challenging experience.\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": []
@@ -42,7 +42,7 @@
   {
     "uuid": "recD8pCOauqcgP2n6",
     "name": "Story",
-    "text": "Infinite Arena is part of the Arken Realms. The Infinite Arena exists at the End of Time, a nexus where the fabric of causality loses any semblance of structure or temporal order. Within the End of Time, all points in time are accessible and sometimes interconnected or overlapping. The Infinite Arena is an anomaly where the greatest warriors across time and space are locked in an endless cycle of successive battles from a variety of locales and eras. You are one of these warriors, driven by some inscrutable force to test your mettle in the Arena, seeking ever greater power and prizes.\nThe Infinite Arena is embedded in the legends of some of Rune’s culture, and the exploits of warriors within it will be echoed in Sanctuary (MMORPG).\n\n\n",
+    "text": "Infinite Arena is part of the Arken Realms. The Infinite Arena exists at the End of Time, a nexus where the fabric of causality loses any semblance of structure or temporal order. Within the End of Time, all points in time are accessible and sometimes interconnected or overlapping. The Infinite Arena is an anomaly where the greatest warriors across time and space are locked in an endless cycle of successive battles from a variety of locales and eras. You are one of these warriors, driven by some inscrutable force to test your mettle in the Arena, seeking ever greater power and prizes.\nThe Infinite Arena is embedded in the legends of some of Arken's culture, and the exploits of warriors within it will be echoed in Sanctuary (MMORPG).\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": [
@@ -52,7 +52,7 @@
   {
     "uuid": "recUeyZYF2KvgxFJm",
     "name": "Art Direction",
-    "text": "The art style for Rune is a bright world that pops and catches attention while remaining somewhat realistic, rather than cartoony. We feel this will capture an audience that isn’t interested in the gritty dark fantasy theme. We are avoiding the repetition present in a lot of classic RPGs in repeated textures. An example of a game that did this well was Secret of Evermore. Objects within the game are scaled in a realistic manner. We don’t want to pigeonhole ourselves into only using 16 x 16 tiles or 32 x 32 tiles to make everything, so objects should be sized appropriately.\n\n\n",
+    "text": "The art style for Arken is a bright world that pops and catches attention while remaining somewhat realistic, rather than cartoony. We feel this will capture an audience that isn’t interested in the gritty dark fantasy theme. We are avoiding the repetition present in a lot of classic RPGs in repeated textures. An example of a game that did this well was Secret of Evermore. Objects within the game are scaled in a realistic manner. We don’t want to pigeonhole ourselves into only using 16 x 16 tiles or 32 x 32 tiles to make everything, so objects should be sized appropriately.\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": []
@@ -94,7 +94,7 @@
   {
     "uuid": "recK97Nef3lh5dIPl",
     "name": "Game Mechanics",
-    "text": "## NFT Item Integration\nEach players’ build and play style are determined by their equipped NFT items (_Runewords_), which confer **skills**,** skill mods**,** skill points **and **passive attribute bonuses/penalties**.\n**Like a card game, **items will provide interesting opportunities for **synergies**, extended combos, situational moments of brilliance.\n\n\n",
+    "text": "## NFT Item Integration\nEach players’ build and play style are determined by their equipped NFT items (_Runeforms_), which confer **skills**,** skill mods**,** skill points **and **passive attribute bonuses/penalties**.\n**Like a card game, **items will provide interesting opportunities for **synergies**, extended combos, situational moments of brilliance.\n\n\n",
     "game": 3,
     "isEnabled": true,
     "attachments": [
@@ -297,7 +297,7 @@
   {
     "uuid": "reciQUwiyrDVoRjFY",
     "name": "Introduction",
-    "text": "_Rune: Sanctuary takes place in a legendary MMORPG universe._\n",
+    "text": "_Arken: Heart of the Oasis takes place in a legendary MMORPG universe._\n",
     "game": 5,
     "isEnabled": true,
     "attachments": []
@@ -313,7 +313,7 @@
   {
     "uuid": "recUWcpRSobfxoCaH",
     "name": "Technical",
-    "text": "## Framework\nRune will be built with the Unity Engine, using our in-house developed BZ Framework.\n\n## Platform Support\nAndroid (version 10 or higher)\niPhone (version 9 or higher)\nWindows (version 10 or higher)\nMac (version 11 or higher)\nWeb (Brave, Chrome, Edge, Firefox) - NOT PLANNED\nIpad + Other Tablets - NOT PLANNED\n\n\n\n\n",
+    "text": "## Framework\nArken will be built with the Unity Engine, using our in-house developed BZ Framework.\n\n## Platform Support\nAndroid (version 10 or higher)\niPhone (version 9 or higher)\nWindows (version 10 or higher)\nMac (version 11 or higher)\nWeb (Brave, Chrome, Edge, Firefox) - NOT PLANNED\nIpad + Other Tablets - NOT PLANNED\n\n\n\n\n",
     "game": 5,
     "isEnabled": true,
     "attachments": []
@@ -337,7 +337,7 @@
   {
     "uuid": "recOSfKD9pesvlYho",
     "name": "Game Mechanics",
-    "text": "## Character Classes\n\nThere are 7 main classes of different energy disciplines/supremacys, each going into a deeper ascendencies.\n- Mage\n- Necromancer\n- Paladin\n- Druid\n- Barbarian\n- Amazon\n- Assassin\n\n# Weapons and Items\nInitial weapons and items are generated in Arken: Runic Raids via onchain contracts. Please see the Raids document for more on that. \n\n\n\n",
+    "text": "## Character Classes\n\nThere are 7 main classes of different energy disciplines/supremacys, each going into a deeper ascendencies.\n- Mage\n- Necromancer\n- Paladin\n- Druid\n- Warrior\n- Ranger\n- Assassin\n\n# Weapons and Items\nInitial weapons and items are generated in Arken: Runic Raids via onchain contracts. Please see the Raids document for more on that. \n\n\n\n",
     "game": 5,
     "isEnabled": true,
     "attachments": [
@@ -405,7 +405,7 @@
   {
     "uuid": "recpj7GTua1s3oOmM",
     "name": "Transmuting",
-    "text": "We all love crafting a Mythic, but in their quest for one some of our raiders have found themselves with quite the collection of weapons and armor that are just collecting dust, so what to do with them? Well, here at Rune we usually like to see things burn, but as those Runewords are all rather special, the fire didn’t seem quite appropriate this time. So instead, we’ll just take them apart.\n\nWithin them, they tell a tale of mystical disenchanting powers that turn Runewords back into runes. But rather than the runes used to craft the Runeword, you’ll receive LEM runes instead. As this process requires some degree of sorcery, items of a higher perfection will yield more LEM than more common ones. LEM can then be used to upgrade your other items, or for crafting more Runewords.\n",
+    "text": "We all love crafting a Mythic, but in their quest for one some of our raiders have found themselves with quite the collection of weapons and armor that are just collecting dust, so what to do with them? Well, here at Rune we usually like to see things burn, but as those Runeforms are all rather special, the fire didn’t seem quite appropriate this time. So instead, we’ll just take them apart.\n\nWithin them, they tell a tale of mystical disenchanting powers that turn Runeforms back into runes. But rather than the runes used to craft the Runeform, you’ll receive LEM runes instead. As this process requires some degree of sorcery, items of a higher perfection will yield more LEM than more common ones. LEM can then be used to upgrade your other items, or for crafting more Runeforms.\n",
     "game": 1,
     "isEnabled": true,
     "attachments": []
@@ -413,7 +413,7 @@
   {
     "uuid": "recIJjoeQ8IHk3kP7",
     "name": "Game Description",
-    "text": "\n## Game Objective\nThe goal of the game is to distribute gaming assets to users who provide liquidity to the ecosystem. Users play the game by optimizing their liquidity strategies through the gamification of NFTs, yield farms, and pools to earn in-game items.\n\n## Gameplay\nRaiding is the act of pillaging a farm for newly minted gaming assets. To raid a farm, a gamer must acquire $RUNE or the various in-game runes (BEP-20 tokens), provide liquidity, and stake the LP tokens in a farm. The tokens can be acquired through games such as Second Wind, buy them from an exchange such as Rune Swap, or earn them from raiding previous farms. There are 33 different runes in the Arken ecosystem, distributed over two years through a variety of mechanisms. Each rune is a BEP20 token with a finite supply of 100,000 units or less (after burns). Many of these runes can only be acquired by providing liquidity and raiding farms. Each rune has a unique use-case or utility within the Rune Universe. For example, runes are needed to mint Runewords, rare NFTs that make your character more powerful.\n\n## Features\n- Yield farming\n- Staking NFTs ~10 that affect your harvest positively or negatively\n- Fluid farming, automatic multi-token reward accumulation\n- Crafting NFTs based on recipes utilizing the rewarded tokens\n",
+    "text": "\n## Game Objective\nThe goal of the game is to distribute gaming assets to users who provide liquidity to the ecosystem. Users play the game by optimizing their liquidity strategies through the gamification of NFTs, yield farms, and pools to earn in-game items.\n\n## Gameplay\nRaiding is the act of pillaging a farm for newly minted gaming assets. To raid a farm, a gamer must acquire $RUNE or the various in-game runes (BEP-20 tokens), provide liquidity, and stake the LP tokens in a farm. The tokens can be acquired through games such as Second Wind, buy them from an exchange such as Rune Swap, or earn them from raiding previous farms. There are 33 different runes in the Arken ecosystem, distributed over two years through a variety of mechanisms. Each rune is a BEP20 token with a finite supply of 100,000 units or less (after burns). Many of these runes can only be acquired by providing liquidity and raiding farms. Each rune has a unique use-case or utility within the Rune Universe. For example, runes are needed to mint Runeforms, rare NFTs that make your character more powerful.\n\n## Features\n- Yield farming\n- Staking NFTs ~10 that affect your harvest positively or negatively\n- Fluid farming, automatic multi-token reward accumulation\n- Crafting NFTs based on recipes utilizing the rewarded tokens\n",
     "game": 1,
     "isEnabled": true,
     "attachments": []
@@ -421,7 +421,7 @@
   {
     "uuid": "recusE7yg32UyslWG",
     "name": "Introduction",
-    "text": "Arken: Runic Raids is the first game in the Rune Universe. The game initially distributed the Rune governance token ($RXS) and rewards liquidity providers with in-game items such as runes and Runewords (NFTs). Several runes (BEP20 tokens) in the ecosystem can only be acquired by raiding yield farms.\n\nThere are 33 runes in the Arken ecosystem, distributed over two years through a variety of mechanisms. Each rune is a BEP20 token with a finite supply of 100,000 units or less (after burns).\n\nMany of these runes can only be acquired by providing liquidity and raiding farms. Each rune has a unique use-case or utility within the Rune Universe. For example, runes are needed to mint Runewords, rare NFTs that make your character more powerful. Some of these Runewords can even be used to optimize your yield farming game. Most of the runes will be used and burned forever 🔥\n\nThe Rune protocol token was issued on Binance Smart Chain (BSC) through an Initial Decentralized Exchange Offering (IDO) on Pancake Swap with a limited supply of 19,300 tokens. There was a fair launch of the token with no pre-mine. To enable the token as an in-game currency each $RUNE was split into 10,000 Arken Rune Shards ($RXS) in the Great Sharding of November 2021, giving $RXS a total supply of 193,000,000. All $RXS tokens have been mined, however there is plenty more raiding to be had!\n",
+    "text": "Arken: Runic Raids is the first game in the Rune Universe. The game initially distributed the Rune governance token ($RXS) and rewards liquidity providers with in-game items such as runes and Runeforms (NFTs). Several runes (BEP20 tokens) in the ecosystem can only be acquired by raiding yield farms.\n\nThere are 33 runes in the Arken ecosystem, distributed over two years through a variety of mechanisms. Each rune is a BEP20 token with a finite supply of 100,000 units or less (after burns).\n\nMany of these runes can only be acquired by providing liquidity and raiding farms. Each rune has a unique use-case or utility within the Rune Universe. For example, runes are needed to mint Runeforms, rare NFTs that make your character more powerful. Some of these Runeforms can even be used to optimize your yield farming game. Most of the runes will be used and burned forever 🔥\n\nThe Rune protocol token was issued on Binance Smart Chain (BSC) through an Initial Decentralized Exchange Offering (IDO) on Pancake Swap with a limited supply of 19,300 tokens. There was a fair launch of the token with no pre-mine. To enable the token as an in-game currency each $RUNE was split into 10,000 Arken Realm Shards ($RXS) in the Great Sharding of November 2021, giving $RXS a total supply of 193,000,000. All $RXS tokens have been mined, however there is plenty more raiding to be had!\n",
     "game": 1,
     "isEnabled": true,
     "attachments": []

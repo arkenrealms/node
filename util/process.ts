@@ -48,6 +48,12 @@ export function cleanExit() {
   process.kill(0);
 }
 
+/* exit(1) will not force a restart on nodemon */
+export default async function (msg) {
+  console.log(`Exiting now... ${msg}`);
+  process.exit(1);
+}
+
 // process.on('exit', cleanExit)
 // process.on('SIGINT', cleanExit) // catch ctrl-c
 // process.on('SIGTERM', cleanExit) // catch kill

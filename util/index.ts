@@ -4,12 +4,20 @@ import { exec } from 'child_process';
 import * as ethers from 'ethers';
 import _ from 'lodash';
 import config from './config';
-import { decodeRequest, generateLongId, escapeStringRegexp } from './db';
-import time from './time';
-import { getQueryFromApolloVariables } from './api';
-import { generateUuid } from './guid';
+import * as time from './time';
+import * as objects from './object';
+import * as db from './db';
+import * as api from './api';
+import * as guid from './guid';
+import * as number from './number';
+import * as string from './string';
+import * as process2 from './process';
+import * as web3 from './web3';
+import * as math from './math';
+import * as json from './json';
+import * as format from './format';
+import * as browser from './browser';
 export * as decoder from './decoder';
-import { getComponentsByKey } from './object';
 
 const path = require('path');
 const writeLogs = false;
@@ -291,24 +299,6 @@ export function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const objects = {
-  getComponentsByKey,
-};
-
-export const db = {
-  decodeRequest,
-  generateLongId,
-  escapeStringRegexp,
-};
-
-export const api = {
-  getQueryFromApolloVariables,
-};
-
-export const guid = {
-  generateUuid,
-};
-
 export const isEthereumAddress = (address: string) => {
   // Regular expression to check if the string is a valid Ethereum address
   return /^0x[a-fA-F0-9]{40}$/.test(address);
@@ -323,10 +313,18 @@ export const ipHashFromSocket = (socket) => {
 };
 
 export default {
-  config,
   objects,
-  db,
   api,
   guid,
+  number,
+  string,
+  process: process2,
+  web3,
+  math,
+  json,
+  db,
+  format,
+  browser,
+  config,
   time,
 };
