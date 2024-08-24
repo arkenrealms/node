@@ -799,6 +799,7 @@ export const Video = new Schema(
     },
     name: { type: String, required: true },
     description: { type: String },
+    youtubeId: { type: String, required: false, unique: true },
     status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
     data: { type: Object, default: {} },
     meta: { type: Object, default: {} },
@@ -808,6 +809,54 @@ export const Video = new Schema(
   },
   { collection: 'Video', timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' } }
 );
+
+export const VideoDialogue = new Schema(
+  {
+    applicationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Application',
+      required: true,
+    },
+    participantId: { type: mongoose.Schema.Types.ObjectId, ref: 'VideoParticipant', required: false },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+    data: { type: Object, default: {} },
+    text: { type: String, required: true },
+    timestamp: { type: String, required: false },
+    meta: { type: Object, default: {} },
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date },
+    deletedDate: { type: Date },
+  },
+  {
+    collection: 'VideoDialogue',
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+  }
+);
+
+export const VideoTranscript = new Schema(
+  {
+    applicationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Application',
+      required: true,
+    },
+    videoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Video', required: true },
+    transcript: { type: [VideoDialogue], required: true },
+    summary: { type: String, required: true },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+    data: { type: Object, default: {} },
+    meta: { type: Object, default: {} },
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date },
+    deletedDate: { type: Date },
+  },
+  {
+    collection: 'VideoTranscript',
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+  }
+);
+
+VideoTranscript.index({ videoId: 1 }, { unique: true });
 
 export const VideoScene = new Schema(
   {
@@ -827,6 +876,29 @@ export const VideoScene = new Schema(
   },
   {
     collection: 'VideoScene',
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+  }
+);
+
+export const VideoParticipant = new Schema(
+  {
+    applicationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Application',
+      required: true,
+    },
+    name: { type: String, required: true },
+    profileId: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile', required: false },
+    description: { type: String },
+    status: { type: String, default: 'Active', enum: ['Paused', 'Pending', 'Active', 'Archived'] },
+    data: { type: Object, default: {} },
+    meta: { type: Object, default: {} },
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date },
+    deletedDate: { type: Date },
+  },
+  {
+    collection: 'VideoParticipant',
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
   }
 );

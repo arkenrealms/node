@@ -26,11 +26,13 @@ export type Entity = Common & {
   key: string;
   name: string;
   description?: string;
+  youtubeId: string;
   metaverseId: mongoose.Schema.Types.ObjectId;
   ownerId?: ObjectId;
   meta?: Meta;
   status: typeof Status;
 };
+export type Video = Omit<z.infer<typeof zodSchema.Video>, 'metaverseId' | 'ownerId'> & Entity;
 
 export type CharacterAbility = Entity & Omit<z.infer<typeof zodSchema.CharacterAbility>, 'metaverseId' | 'ownerId'>;
 export type CharacterAttribute = Entity & Omit<z.infer<typeof zodSchema.CharacterAttribute>, 'metaverseId' | 'ownerId'>;
@@ -112,8 +114,7 @@ export type Application = Omit<z.infer<typeof zodSchema.Application>, 'metaverse
 export type Video = Omit<z.infer<typeof zodSchema.Video>, 'metaverseId' | 'ownerId'> & Entity;
 export type VideoScene = Omit<z.infer<typeof zodSchema.VideoScene>, 'metaverseId' | 'ownerId'> & Entity;
 export type Agent = Omit<z.infer<typeof zodSchema.Agent>, 'metaverseId' | 'ownerId'> & Entity;
-export type Memory = Omit<z.infer<typeof zodSchema.Memory>, 'metaverseId' | 'ownerId'>
- & Entity;
+export type Memory = Omit<z.infer<typeof zodSchema.Memory>, 'metaverseId' | 'ownerId'> & Entity;
 export type Conversation = Omit<z.infer<typeof zodSchema.Conversation>, 'metaverseId' | 'ownerId'> & Entity;
 export type Log = Omit<z.infer<typeof zodSchema.Log>, 'metaverseId' | 'ownerId'> & Entity;
 export type Job = Omit<z.infer<typeof zodSchema.Job>, 'metaverseId' | 'ownerId'> & Entity;
