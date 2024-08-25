@@ -1,4 +1,4 @@
-export const camelize = (str: string): string => {
+export const toCamelCase = (str: string): string => {
   if (!str) return str;
 
   return str
@@ -6,13 +6,21 @@ export const camelize = (str: string): string => {
     .replace(/[\s:,()&/\-\+]+/g, '');
 };
 
-export const pluralize = (singular: string, plural: string, count: number, showCount = true, zero = ''): string => {
+export const toPlural = (singular: string, plural: string, count: number, showCount = true, zero = ''): string => {
   if (count === 0 && zero) return zero;
 
   const output = count === 1 ? singular : plural || `${singular}s`;
 
   return showCount ? `${count} ${output}` : output;
 };
+
+export const toPascalCase = (str) => {
+  return str.replace(/(^\w|_\w)/g, (match) => match.replace('_', '').toUpperCase());
+};
+
+export const camelize = toCamelCase;
+export const pascalize = toPascalCase;
+export const pluralize = toPlural;
 
 export const getFirstName = (str: string): string => str.split(' ')[0];
 

@@ -63,7 +63,8 @@
     "franc": "~6.2.0",
     "langdetect": "~0.2.1",
     "@trpc/server": "~10.45.2",
-    "puppeteer": "^22.12.0"
+    "puppeteer": "^22.12.0",
+    "pluralize": "~8.0.0"
   },
   "devDependencies": {
     "@types/web3": "1.0.20",

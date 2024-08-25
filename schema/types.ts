@@ -1,37 +1,19 @@
 import { z } from 'zod';
 import * as zodSchema from './zod';
-import mongoose, { ObjectId } from 'mongoose';
 
-// export type Common = {
-//   createdById?: ObjectId; // mongoose.Schema.Types.ObjectId
-//   editedById?: ObjectId;
-//   deletedById?: ObjectId;
-//   createdDate: Date;
-//   updatedDate?: Date;
-//   deletedDate?: Date;
-// };
+export enum Status {
+  Paused = 'Paused',
+  Pending = 'Pending',
+  Active = 'Active',
+  Archived = 'Archived',
+}
 
-// export enum Status {
-//   Paused = 'Paused',
-//   Pending = 'Pending',
-//   Active = 'Active',
-//   Archived = 'Archived',
-// }
+export type Meta = {
+  [key: string]: unknown;
+};
 
-// export type Meta = {
-//   [key: string]: unknown;
-// };
-
-// export type Entity = Common & {
-//   key: string;
-//   name: string;
-//   description?: string;
-//   youtubeId: string;
-//   metaverseId: mongoose.Schema.Types.ObjectId;
-//   ownerId?: ObjectId;
-//   meta?: Meta;
-//   status: typeof Status;
-// };
+export type Common = z.infer<typeof zodSchema.Common>;
+export type Entity = z.infer<typeof zodSchema.Entity>;
 
 export type CharacterAbility = z.infer<typeof zodSchema.CharacterAbility>;
 export type CharacterAttribute = z.infer<typeof zodSchema.CharacterAttribute>;
@@ -147,10 +129,10 @@ export type Referral = z.infer<typeof zodSchema.Referral>;
 export type Permission = z.infer<typeof zodSchema.Permission>;
 export type Stat = z.infer<typeof zodSchema.Stat>;
 export type RecordUpdate = z.infer<typeof zodSchema.RecordUpdate>;
-export type Form = z.infer<typeof zodSchema.Form>;
-export type FormGroup = z.infer<typeof zodSchema.FormGroup>;
-export type FormComponent = z.infer<typeof zodSchema.FormComponent>;
-export type FormSubmission = z.infer<typeof zodSchema.FormSubmission>;
+export type Interface = z.infer<typeof zodSchema.Interface>;
+export type InterfaceGroup = z.infer<typeof zodSchema.InterfaceGroup>;
+export type InterfaceComponent = z.infer<typeof zodSchema.InterfaceComponent>;
+export type InterfaceSubmission = z.infer<typeof zodSchema.InterfaceSubmission>;
 export type Character = z.infer<typeof zodSchema.Character>;
 export type Team = z.infer<typeof zodSchema.Team>;
 export type Npc = z.infer<typeof zodSchema.Npc>;
@@ -168,3 +150,5 @@ export type VideoScene = z.infer<typeof zodSchema.VideoScene>;
 export type VideoParticipant = z.infer<typeof zodSchema.VideoParticipant>;
 export type VideoDialogue = z.infer<typeof zodSchema.VideoDialogue>;
 export type VideoTranscript = z.infer<typeof zodSchema.VideoTranscript>;
+export type ChatGroup = z.infer<typeof zodSchema.ChatGroup>;
+export type ChatMessage = z.infer<typeof zodSchema.ChatMessage>;

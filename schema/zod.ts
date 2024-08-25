@@ -7,7 +7,7 @@ export const ObjectId = z.string().refine((value) => mongoose.Types.ObjectId.isV
 
 export const StatusEnum = z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active');
 
-export const Common = {
+export const Common = z.object({
   createdById: ObjectId.optional(),
   editedById: ObjectId.optional(),
   deletedById: ObjectId.optional(),
@@ -17,42 +17,47 @@ export const Common = {
   meta: z.record(z.unknown()).optional(),
   data: z.record(z.unknown()).optional(),
   status: StatusEnum,
-};
+});
 
 export const Entity = z
   .object({
-    key: z.string().min(1).optional(),
-    name: z.string().min(1),
+    key: z.string().min(2).max(200).trim(),
+    name: z.string().min(2).max(200).trim(),
     description: z.string().optional(),
     applicationId: ObjectId.optional(),
     ownerId: ObjectId.optional(),
   })
-  .merge(z.object(Common));
+  .merge(Common);
+
+export const Metaverse = z
+  .object({
+    omniverseId: ObjectId,
+    ratingId: ObjectId.optional(),
+  })
+  .merge(Common);
+
+export const Omniverse = z
+  .object({
+    ratingId: ObjectId.optional(),
+  })
+  .merge(Common);
 
 export const Account = z
   .object({
-    metaverseId: ObjectId,
     username: z.string(),
     email: z.string().optional(),
+    telegramUserId: z.number().optional(),
   })
-  .merge(Entity);
-
-export const Data = z
-  .object({
-    applicationId: ObjectId,
-    mod: z.string(),
-    key: z.string(),
-  })
-  .merge(Entity);
+  .merge(Common);
 
 export const Profile = z
   .object({
     accountId: ObjectId,
-    name: z.string(),
-    key: z.string().max(100).optional(),
     points: z.number().optional(),
     coins: z.number().optional(),
+    telegramUserId: z.number().optional(),
     activityRating: z.number().default(0),
+    interactions: z.number().default(0),
     address: z.string().max(100).optional(),
     avatar: z.string().max(100).optional(),
     roleId: ObjectId.optional(),
@@ -72,33 +77,25 @@ export const Application = z
   })
   .merge(Entity);
 
-export const Agent = z
+export const Agent = z.object({}).merge(Entity);
+
+export const Data = z
   .object({
-    applicationId: ObjectId,
-    name: z.string(),
+    mod: z.string(),
   })
   .merge(Entity);
 
-export const Memory = z
-  .object({
-    applicationId: ObjectId,
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const Memory = z.object({}).merge(Entity);
 
 export const Conversation = z
   .object({
-    applicationId: ObjectId,
     userId: ObjectId.optional(),
-    name: z.string(),
-    description: z.string().optional(),
     messages: z.array(z.unknown()).optional(),
   })
   .merge(Entity);
 
 export const Log = z
   .object({
-    applicationId: ObjectId,
     mod: z.string(),
     messages: z.array(z.unknown()).optional(),
     tags: z.array(z.unknown()).optional(),
@@ -107,9 +104,7 @@ export const Log = z
 
 export const Job = z
   .object({
-    applicationId: ObjectId,
     mod: z.string(),
-    key: z.string(),
     startDate: z.date().optional(),
     expireDate: z.date().optional(),
   })
@@ -117,8 +112,6 @@ export const Job = z
 
 export const NewsArticle = z
   .object({
-    applicationId: ObjectId,
-    name: z.string().min(3).max(50).trim(),
     href: z.string(),
     source: z.string(),
   })
@@ -126,20 +119,17 @@ export const NewsArticle = z
 
 export const Comment = z
   .object({
-    applicationId: ObjectId,
     body: z.string(),
     entity: ObjectId,
     entityModel: z.enum(['NewsArticle', 'ChainToken']),
     text: z.string(),
-    ownerId: ObjectId,
+    ratingId: ObjectId,
   })
   .merge(Entity);
 
 export const Question = z
   .object({
-    applicationId: ObjectId,
-    topics: z.array(z.string()).optional(),
-    key: z.string().min(2).max(200).trim(),
+    topics: z.array(z.unknown()).optional(),
     text: z.string(),
     answer: z.string(),
     popularity: z.number().optional(),
@@ -148,8 +138,6 @@ export const Question = z
 
 export const Topic = z
   .object({
-    applicationId: ObjectId,
-    key: z.string().min(2).max(200).trim(),
     text: z.string(),
     popularity: z.number().optional(),
     tags: z.array(z.unknown()).optional(),
@@ -158,8 +146,6 @@ export const Topic = z
 
 export const WorldEvent = z
   .object({
-    applicationId: ObjectId,
-    key: z.string().min(2).max(200).trim(),
     text: z.string(),
     importance: z.number().optional(),
     tags: z.array(z.unknown()).optional(),
@@ -168,8 +154,6 @@ export const WorldEvent = z
 
 export const CollectibleCollection = z
   .object({
-    applicationId: ObjectId,
-    name: z.string().min(2).max(200).trim(),
     hype: z.number().optional(),
     value: z.number().optional(),
   })
@@ -177,9 +161,7 @@ export const CollectibleCollection = z
 
 export const CollectibleCard = z
   .object({
-    applicationId: ObjectId,
     collectibleCollectionId: ObjectId.optional(),
-    name: z.string().min(1).max(200).trim(),
     franchise: z.string().trim(),
     ungraded: z.number().optional(),
     grade10: z.number().optional(),
@@ -203,18 +185,14 @@ export const CollectibleCard = z
 
 export const CollectibleCardBox = z
   .object({
-    applicationId: ObjectId,
     collectibleCollectionId: ObjectId.optional(),
-    name: z.string().min(2).max(200).trim(),
     franchise: z.string().trim(),
   })
   .merge(Entity);
 
 export const CollectibleCardPack = z
   .object({
-    applicationId: ObjectId,
     collectibleCollectionId: ObjectId.optional(),
-    name: z.string().min(2).max(200).trim(),
     franchise: z.string().trim(),
     ungraded: z.number().optional(),
     grade10: z.number().optional(),
@@ -238,9 +216,7 @@ export const CollectibleCardPack = z
 
 export const Stock = z
   .object({
-    applicationId: ObjectId,
     rank: z.number().min(0).optional(),
-    name: z.string(),
     price: z.number().min(0).optional(),
     hourChange: z.number().optional(),
     dayChange: z.number().optional(),
@@ -254,26 +230,26 @@ export const Stock = z
 
 export const Chain = z
   .object({
-    name: z.string().max(100),
     content: z.string(),
+    type: z.string(),
+    standard: z.string(),
   })
   .merge(Entity);
 
 export const ChainContract = z
   .object({
-    name: z.string().max(100),
-    description: z.string(),
+    type: z.string(),
     content: z.string(),
+    standard: z.string(),
   })
   .merge(Entity);
 
 export const ChainToken = z
   .object({
-    applicationId: ObjectId,
     rank: z.number().min(0).optional(),
-    name: z.string(),
-    description: z.string(),
     content: z.string(),
+    standard: z.string(),
+    type: z.string(),
     price: z.number().min(0).optional(),
     hourChange: z.number().optional(),
     dayChange: z.number().optional(),
@@ -283,6 +259,11 @@ export const ChainToken = z
     symbol: z.string(),
     circulatingSupply: z.number().min(0).optional(),
     cmcLink: z.string().optional(),
+    movementDown: z.number().min(0).optional(),
+    movementUp: z.number().min(0).optional(),
+    enteredTop100: z.number().min(0).optional(),
+    exitedTop100: z.number().min(0).optional(),
+    largeMoveDown: z.number().min(0).optional(),
   })
   .merge(Entity);
 
@@ -293,7 +274,7 @@ export const Asset = z
     standard: z.string().max(100).optional(),
     licenseId: ObjectId.optional(),
     license: ObjectId.optional(),
-    chain: ObjectId.optional(),
+    chainId: ObjectId.optional(),
     items: z.array(ObjectId).optional(),
   })
   .merge(Entity);
@@ -302,12 +283,16 @@ export const Item = z
   .object({
     token: z.string().max(500).optional(),
     assetId: ObjectId,
+    chainId: ObjectId,
   })
   .merge(Entity);
 
 export const ItemTransmute = z
   .object({
+    token: z.string().max(500).optional(),
+    assetId: ObjectId,
     gameItemId: ObjectId,
+    chainId: ObjectId,
   })
   .merge(Entity);
 
@@ -317,17 +302,9 @@ export const Badge = z
   })
   .merge(Entity);
 
-export const BattlePass = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const BattlePass = z.object({}).merge(Entity);
 
-export const Bounty = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const Bounty = z.object({}).merge(Entity);
 
 export const Collection = z
   .object({
@@ -388,68 +365,6 @@ export const Leaderboard = z
   })
   .merge(Entity);
 
-export const Node = z
-  .object({
-    parentId: ObjectId,
-    relationKey: z.string(),
-    relationType: z.string(),
-    fromAccountId: ObjectId.optional(),
-    toAccountId: ObjectId.optional(),
-    fromProfileId: ObjectId.optional(),
-    toProfileId: ObjectId.optional(),
-    fromBadgeId: ObjectId.optional(),
-    toBadgeId: ObjectId.optional(),
-    fromAchievementId: ObjectId.optional(),
-    toAchievementId: ObjectId.optional(),
-    fromIdeaId: ObjectId.optional(),
-    toIdeaId: ObjectId.optional(),
-    fromSuggestionId: ObjectId.optional(),
-    toSuggestionId: ObjectId.optional(),
-    fromProjectId: ObjectId.optional(),
-    toProjectId: ObjectId.optional(),
-    fromProductId: ObjectId.optional(),
-    toProductId: ObjectId.optional(),
-    fromAssetId: ObjectId.optional(),
-    toAssetId: ObjectId.optional(),
-    fromBountyId: ObjectId.optional(),
-    toBountyId: ObjectId.optional(),
-    fromRealmId: ObjectId.optional(),
-    toRealmId: ObjectId.optional(),
-    fromCommunityId: ObjectId.optional(),
-    toCommunityId: ObjectId.optional(),
-    fromCollectionId: ObjectId.optional(),
-    toCollectionId: ObjectId.optional(),
-    fromDiscussionId: ObjectId.optional(),
-    toDiscussionId: ObjectId.optional(),
-    fromMessageId: ObjectId.optional(),
-    toMessageId: ObjectId.optional(),
-    fromOfferId: ObjectId.optional(),
-    toOfferId: ObjectId.optional(),
-    fromLicenseId: ObjectId.optional(),
-    toLicenseId: ObjectId.optional(),
-    fromOrderId: ObjectId.optional(),
-    toOrderId: ObjectId.optional(),
-    fromRatingId: ObjectId.optional(),
-    toRatingId: ObjectId.optional(),
-    fromReviewId: ObjectId.optional(),
-    toReviewId: ObjectId.optional(),
-    fromTagId: ObjectId.optional(),
-    toTagId: ObjectId.optional(),
-    fromVoteId: ObjectId.optional(),
-    toVoteId: ObjectId.optional(),
-    fromLeaderboardId: ObjectId.optional(),
-    toLeaderboardId: ObjectId.optional(),
-    fromLogId: ObjectId.optional(),
-    toLogId: ObjectId.optional(),
-    fromFileId: ObjectId.optional(),
-    toFileId: ObjectId.optional(),
-    fromEventId: ObjectId.optional(),
-    toEventId: ObjectId.optional(),
-    fromServerId: ObjectId.optional(),
-    toServerId: ObjectId.optional(),
-  })
-  .merge(Entity);
-
 export const AssetLicense = z
   .object({
     value: z.string().optional(),
@@ -472,6 +387,7 @@ export const Market = z
 export const Message = z
   .object({
     content: z.string().optional(),
+    type: z.string().max(100).optional(),
     replyToId: ObjectId.optional(),
     parentId: ObjectId.optional(),
     parent: ObjectId.optional(),
@@ -494,7 +410,6 @@ export const Order = z
 export const Product = z
   .object({
     shortDescription: z.string().max(300).optional(),
-    description: z.string().max(2000).optional(),
     content: z.string().optional(),
     communityId: ObjectId.optional(),
     type: z.string().max(100).default('game'),
@@ -552,7 +467,6 @@ export const Server = z
 
 export const Session = z
   .object({
-    applicationId: ObjectId,
     expired: z.date(),
   })
   .merge(Entity);
@@ -577,6 +491,8 @@ export const Tournament = z
 
 export const Trade = z
   .object({
+    chainId: ObjectId,
+    buyerId: ObjectId,
     content: z.string().optional(),
   })
   .merge(Entity);
@@ -612,7 +528,6 @@ export const Referral = z
 
 export const Permission = z
   .object({
-    name: z.string().max(100),
     permissionsOnRoles: z.array(ObjectId).optional(),
   })
   .merge(Entity);
@@ -637,8 +552,6 @@ export const RecordUpdate = z
 export const Form = z
   .object({
     ratingId: ObjectId.optional(),
-    key: z.string().nonempty(),
-    name: z.string().nonempty(),
     formSubmissions: z.array(ObjectId).optional(),
     commentsOnForms: z.array(ObjectId).optional(),
     recordUpdatesOnForms: z.array(ObjectId).optional(),
@@ -673,9 +586,7 @@ export const FormSubmission = z
 
 export const Character = z
   .object({
-    metaverseId: ObjectId,
     teamId: ObjectId.optional(),
-    ownerId: ObjectId,
     ratingId: ObjectId.optional(),
     classId: ObjectId.optional(),
     token: z.string().nonempty(),
@@ -684,9 +595,7 @@ export const Character = z
 
 export const Team = z
   .object({
-    metaverseId: ObjectId,
     ratingId: ObjectId.optional(),
-    description: z.string().optional(),
   })
   .merge(Entity);
 
@@ -697,120 +606,39 @@ export const Npc = z
   })
   .merge(Entity);
 
-export const Metaverse = z
-  .object({
-    omniverseId: ObjectId,
-    ratingId: ObjectId.optional(),
-  })
-  .merge(Entity);
+export const Skill = z.object({}).merge(Entity);
 
-export const Omniverse = z
-  .object({
-    ratingId: ObjectId.optional(),
-  })
-  .merge(Entity);
+export const SkillMod = z.object({}).merge(Entity);
 
-export const Skill = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const SkillClassification = z.object({}).merge(Entity);
 
-export const SkillMod = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const SkillCondition = z.object({}).merge(Entity);
 
-export const SkillClassification = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const SkillStatusEffect = z.object({}).merge(Entity);
 
-export const SkillCondition = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const SkillTree = z.object({}).merge(Entity);
 
-export const SkillStatusEffect = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const SkillTreeNode = z.object({}).merge(Entity);
 
-export const SkillTree = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const CharacterAbility = z.object({}).merge(Entity);
 
-export const SkillTreeNode = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const CharacterAttribute = z.object({}).merge(Entity);
 
-export const CharacterAbility = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const CharacterType = z.object({}).merge(Entity);
 
-export const CharacterAttribute = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemAttribute = z.object({}).merge(Entity);
 
-export const CharacterType = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemMaterial = z.object({}).merge(Entity);
 
-export const ItemAttribute = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemSet = z.object({}).merge(Entity);
 
-export const ItemMaterial = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemSlot = z.object({}).merge(Entity);
 
-export const ItemSet = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemRarity = z.object({}).merge(Entity);
 
-export const ItemSlot = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemType = z.object({}).merge(Entity);
 
-export const ItemRarity = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
-
-export const ItemType = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
-
-export const ItemSubType = z
-  .object({
-    description: z.string().optional(),
-  })
-  .merge(Entity);
+export const ItemSubType = z.object({}).merge(Entity);
 
 export const ItemSpecificType = CharacterAbility;
 export const ItemAffix = CharacterAbility;
@@ -909,14 +737,7 @@ export const Guide = z
   })
   .merge(Entity);
 
-export const Achievement = z
-  .object({
-    metaverseId: ObjectId,
-    createdById: ObjectId.optional(),
-    editedById: ObjectId.optional(),
-    deletedById: ObjectId.optional(),
-  })
-  .merge(Entity);
+export const Achievement = z.object({}).merge(Entity);
 
 export const Game = z
   .object({
@@ -936,7 +757,6 @@ export const ProductUpdate = z
 
 export const Raffle = z
   .object({
-    applicationId: ObjectId,
     content: z.string(),
     rewards: z.array(ObjectId).optional(),
     raffleRequirement: z.array(ObjectId).optional(),
@@ -947,9 +767,7 @@ export const Raffle = z
 export const RaffleRequirement = z
   .object({
     amount: z.number(),
-    raffleRewardId: z.string().optional(),
-    raffleReward: ObjectId.optional(),
-    ownerId: ObjectId.optional(),
+    raffleRewardId: ObjectId.optional(),
   })
   .merge(Entity);
 
@@ -958,9 +776,8 @@ export const RaffleReward = z
     raffleId: z.string().optional(),
     raffle: ObjectId.optional(),
     winnerId: z.string().optional(),
-    ownerId: ObjectId.optional(),
     winner: ObjectId.optional(),
-    RaffleRequirementsOnRaffleRewards: z.array(ObjectId).optional(),
+    requirements: z.array(ObjectId).optional(),
     entries: z.array(ObjectId).optional(),
   })
   .merge(Entity);
@@ -969,9 +786,7 @@ export const RaffleEntry = z
   .object({
     amount: z.number(),
     raffleRewardId: z.string().optional(),
-    raffleReward: ObjectId.optional(),
-    ownerId: ObjectId.optional(),
-    Raffle: ObjectId.optional(),
+    raffleId: ObjectId.optional(),
   })
   .merge(Entity);
 
@@ -984,7 +799,6 @@ export const Proposal = z
 export const Company = z
   .object({
     content: z.string().optional(),
-    applicationId: ObjectId,
     people: z.array(ObjectId).optional(),
   })
   .merge(Entity);
@@ -992,32 +806,22 @@ export const Company = z
 export const Person = z
   .object({
     content: z.string().optional(),
-    applicationId: ObjectId,
     companyId: ObjectId.optional(),
   })
   .merge(Entity);
 
 export const Video = z
   .object({
-    applicationId: ObjectId,
-    name: z.string(),
     youtubeId: z.string(),
     url: z.string(),
   })
   .merge(Entity);
 
-export const VideoScene = z
-  .object({
-    applicationId: ObjectId,
-    name: z.string(),
-  })
-  .merge(Entity);
+export const VideoScene = z.object({}).merge(Entity);
 
 // Participant schema
 export const VideoParticipant = z
   .object({
-    name: z.string(),
-    applicationId: ObjectId,
     profileId: ObjectId.optional(),
   })
   .merge(Entity);
@@ -1037,5 +841,67 @@ export const VideoTranscript = z
     videoId: ObjectId, // Store the video ID as a string
     transcript: z.array(VideoDialogue), // Array of dialogues
     summary: z.string().optional(),
+  })
+  .merge(Entity);
+
+export const Node = z
+  .object({
+    parentId: ObjectId,
+    relationKey: z.string(),
+    relationType: z.string(),
+    fromAccountId: ObjectId.optional(),
+    toAccountId: ObjectId.optional(),
+    fromProfileId: ObjectId.optional(),
+    toProfileId: ObjectId.optional(),
+    fromBadgeId: ObjectId.optional(),
+    toBadgeId: ObjectId.optional(),
+    fromAchievementId: ObjectId.optional(),
+    toAchievementId: ObjectId.optional(),
+    fromIdeaId: ObjectId.optional(),
+    toIdeaId: ObjectId.optional(),
+    fromSuggestionId: ObjectId.optional(),
+    toSuggestionId: ObjectId.optional(),
+    fromProjectId: ObjectId.optional(),
+    toProjectId: ObjectId.optional(),
+    fromProductId: ObjectId.optional(),
+    toProductId: ObjectId.optional(),
+    fromAssetId: ObjectId.optional(),
+    toAssetId: ObjectId.optional(),
+    fromBountyId: ObjectId.optional(),
+    toBountyId: ObjectId.optional(),
+    fromRealmId: ObjectId.optional(),
+    toRealmId: ObjectId.optional(),
+    fromCommunityId: ObjectId.optional(),
+    toCommunityId: ObjectId.optional(),
+    fromCollectionId: ObjectId.optional(),
+    toCollectionId: ObjectId.optional(),
+    fromDiscussionId: ObjectId.optional(),
+    toDiscussionId: ObjectId.optional(),
+    fromMessageId: ObjectId.optional(),
+    toMessageId: ObjectId.optional(),
+    fromOfferId: ObjectId.optional(),
+    toOfferId: ObjectId.optional(),
+    fromLicenseId: ObjectId.optional(),
+    toLicenseId: ObjectId.optional(),
+    fromOrderId: ObjectId.optional(),
+    toOrderId: ObjectId.optional(),
+    fromRatingId: ObjectId.optional(),
+    toRatingId: ObjectId.optional(),
+    fromReviewId: ObjectId.optional(),
+    toReviewId: ObjectId.optional(),
+    fromTagId: ObjectId.optional(),
+    toTagId: ObjectId.optional(),
+    fromVoteId: ObjectId.optional(),
+    toVoteId: ObjectId.optional(),
+    fromLeaderboardId: ObjectId.optional(),
+    toLeaderboardId: ObjectId.optional(),
+    fromLogId: ObjectId.optional(),
+    toLogId: ObjectId.optional(),
+    fromFileId: ObjectId.optional(),
+    toFileId: ObjectId.optional(),
+    fromEventId: ObjectId.optional(),
+    toEventId: ObjectId.optional(),
+    fromServerId: ObjectId.optional(),
+    toServerId: ObjectId.optional(),
   })
   .merge(Entity);
