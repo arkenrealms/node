@@ -24,12 +24,11 @@ export const Entity = z
     key: z.string().min(1).optional(),
     name: z.string().min(1),
     description: z.string().optional(),
-    metaverseId: ObjectId.optional(),
+    applicationId: ObjectId.optional(),
     ownerId: ObjectId.optional(),
   })
   .merge(z.object(Common));
 
-// Schemas
 export const Account = z
   .object({
     metaverseId: ObjectId,
@@ -68,20 +67,7 @@ export const Profile = z
 
 export const Application = z
   .object({
-    name: z.string(),
-  })
-  .merge(Entity);
-
-export const Video = z
-  .object({
-    applicationId: ObjectId,
-    name: z.string(),
-  })
-  .merge(Entity);
-
-export const VideoScene = z
-  .object({
-    applicationId: ObjectId,
+    metaverseId: ObjectId,
     name: z.string(),
   })
   .merge(Entity);
@@ -152,6 +138,7 @@ export const Comment = z
 export const Question = z
   .object({
     applicationId: ObjectId,
+    topics: z.array(z.string()).optional(),
     key: z.string().min(2).max(200).trim(),
     text: z.string(),
     answer: z.string(),
@@ -185,6 +172,32 @@ export const CollectibleCollection = z
     name: z.string().min(2).max(200).trim(),
     hype: z.number().optional(),
     value: z.number().optional(),
+  })
+  .merge(Entity);
+
+export const CollectibleCard = z
+  .object({
+    applicationId: ObjectId,
+    collectibleCollectionId: ObjectId.optional(),
+    name: z.string().min(1).max(200).trim(),
+    franchise: z.string().trim(),
+    ungraded: z.number().optional(),
+    grade10: z.number().optional(),
+    grade9: z.number().optional(),
+    grade8: z.number().optional(),
+    grade7: z.number().optional(),
+    grade6: z.number().optional(),
+    grade5: z.number().optional(),
+    grade4: z.number().optional(),
+    grade3: z.number().optional(),
+    grade2: z.number().optional(),
+    grade1: z.number().optional(),
+    additional: z.string().optional(),
+    code: z.string().optional(),
+    hype: z.number().optional(),
+    series: z.string().optional(),
+    category: z.string().optional(),
+    year: z.number().optional(),
   })
   .merge(Entity);
 
@@ -223,15 +236,6 @@ export const CollectibleCardPack = z
   })
   .merge(Entity);
 
-export const CollectibleCard = z
-  .object({
-    applicationId: ObjectId,
-    collectibleCollectionId: ObjectId.optional(),
-    name: z.string().min(1).max(200).trim(),
-    franchise: z.string().trim(),
-  })
-  .merge(Entity);
-
 export const Stock = z
   .object({
     applicationId: ObjectId,
@@ -251,6 +255,7 @@ export const Stock = z
 export const Chain = z
   .object({
     name: z.string().max(100),
+    content: z.string(),
   })
   .merge(Entity);
 
@@ -578,6 +583,7 @@ export const Trade = z
 
 export const ChainTransaction = z
   .object({
+    chainId: ObjectId,
     value: z.string().optional(),
   })
   .merge(Entity);
@@ -931,9 +937,10 @@ export const ProductUpdate = z
 export const Raffle = z
   .object({
     applicationId: ObjectId,
+    content: z.string(),
     rewards: z.array(ObjectId).optional(),
-    RaffleRequirement: z.array(ObjectId).optional(),
-    RaffleEntry: z.array(ObjectId).optional(),
+    raffleRequirement: z.array(ObjectId).optional(),
+    raffleEntry: z.array(ObjectId).optional(),
   })
   .merge(Entity);
 
@@ -987,5 +994,48 @@ export const Person = z
     content: z.string().optional(),
     applicationId: ObjectId,
     companyId: ObjectId.optional(),
+  })
+  .merge(Entity);
+
+export const Video = z
+  .object({
+    applicationId: ObjectId,
+    name: z.string(),
+    youtubeId: z.string(),
+    url: z.string(),
+  })
+  .merge(Entity);
+
+export const VideoScene = z
+  .object({
+    applicationId: ObjectId,
+    name: z.string(),
+  })
+  .merge(Entity);
+
+// Participant schema
+export const VideoParticipant = z
+  .object({
+    name: z.string(),
+    applicationId: ObjectId,
+    profileId: ObjectId.optional(),
+  })
+  .merge(Entity);
+
+// VideoDialogue schema
+export const VideoDialogue = z
+  .object({
+    participantId: ObjectId,
+    text: z.string(),
+    timestamp: z.string(),
+  })
+  .merge(Entity);
+
+// VideoTranscript schema
+export const VideoTranscript = z
+  .object({
+    videoId: ObjectId, // Store the video ID as a string
+    transcript: z.array(VideoDialogue), // Array of dialogues
+    summary: z.string().optional(),
   })
   .merge(Entity);
