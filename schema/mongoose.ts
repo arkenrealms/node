@@ -831,10 +831,8 @@ export const Payment = createSchema<types.Payment>('Payment', {
 });
 
 export const Referral = createSchema<types.Referral>('Referral', {
-  recipientId: { type: String, required: true },
-  senderId: { type: String, required: true },
-  recipient: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
-  sender: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
+  recipientId: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
+  senderId: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
 });
 
 export const Permission = createSchema<types.Permission>('Permission', {
@@ -877,8 +875,7 @@ export const InterfaceComponent = createSchema<types.InterfaceComponent>('Interf
 });
 
 export const InterfaceSubmission = createSchema<types.InterfaceSubmission>('InterfaceSubmission', {
-  InterfaceId: { type: String, required: true },
-  interface: { type: Schema.Types.ObjectId, ref: 'Interface' } as any,
+  interfaceId: { type: Schema.Types.ObjectId, ref: 'Interface' } as any,
 });
 
 export const Character = createSchema<types.Character>('Character', {
