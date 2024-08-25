@@ -1,3 +1,4 @@
+import * as readline from 'readline';
 import { exec } from 'child_process';
 import { logError } from '.';
 
@@ -57,3 +58,17 @@ export default async function (msg) {
 // process.on('exit', cleanExit)
 // process.on('SIGINT', cleanExit) // catch ctrl-c
 // process.on('SIGTERM', cleanExit) // catch kill
+
+export async function awaitEnter() {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise((resolve) =>
+    rl.question('', (_) => {
+      rl.close();
+      resolve(_);
+    })
+  );
+}

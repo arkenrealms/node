@@ -1,42 +1,41 @@
-import Mongoose from 'mongoose'
-import crossFetch from 'cross-fetch'
-import { escapeStringRegexp } from './db'
+import Mongoose from 'mongoose';
+import crossFetch from 'cross-fetch';
+import { escapeStringRegexp } from './db';
 
 interface FetchVariables {
-  [key: string]: any
+  [key: string]: any;
 }
 
 interface WhereClause {
-  id?: { equals: string }
-  email?: { equals: string }
-  key?: { equals: string }
-  name?: { equals: string }
-  OR?: WhereClause[]
-  AND?: WhereClause[]
-  [key: string]: any
+  id?: { equals: string };
+  email?: { equals: string };
+  key?: { equals: string };
+  name?: { equals: string };
+  OR?: WhereClause[];
+  AND?: WhereClause[];
+  [key: string]: any;
 }
 
 interface ApolloVariables {
-  where: WhereClause
+  where: WhereClause;
 }
 
 export function getQueryFromApolloVariables(variables: ApolloVariables): Record<string, any> {
-  const query: Record<string, any> = {}
+  const query: Record<string, any> = {};
 
   if (variables.where.id?.equals) {
-    query._id = new Mongoose.Types.ObjectId(variables.where.id.equals)
   }
 
   if (variables.where.email?.equals) {
-    query.email = variables.where.email.equals
+    query.email = variables.where.email.equals;
   }
 
   if (variables.where.key?.equals) {
-    query.key = variables.where.key.equals
+    query.key = variables.where.key.equals;
   }
 
   if (variables.where.name?.equals) {
-    query.name = variables.where.name.equals
+    query.name = variables.where.name.equals;
   }
 
   const processOperator = (operator: WhereClause, condition: 'OR' | 'AND') => {
@@ -44,17 +43,17 @@ export function getQueryFromApolloVariables(variables: ApolloVariables): Record<
       if (operator[key]?.contains) {
         query[key] = ['key', 'title', 'name'].includes(key)
           ? { $regex: escapeStringRegexp(operator[key].contains), $options: 'i' }
-          : operator[key].contains
+          : operator[key].contains;
       } else if (operator[key]?.in) {
-        query[key] = { $in: operator[key].in }
+        query[key] = { $in: operator[key].in };
       }
-    })
-  }
+    });
+  };
 
-  variables.where.OR?.forEach((operator) => processOperator(operator, 'OR'))
-  variables.where.AND?.forEach((operator) => processOperator(operator, 'AND'))
+  variables.where.OR?.forEach((operator) => processOperator(operator, 'OR'));
+  variables.where.AND?.forEach((operator) => processOperator(operator, 'AND'));
 
-  return query
+  return query;
 }
 
 export async function fetch(url: string, variables: FetchVariables): Promise<any> {
@@ -73,6 +72,6 @@ export async function fetch(url: string, variables: FetchVariables): Promise<any
     },
     body: JSON.stringify(variables),
     method: 'POST',
-  })
-  return response.json()
+  });
+  return response.json();
 }

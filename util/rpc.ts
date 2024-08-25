@@ -36,6 +36,11 @@ export const transformer: DataTransformer = {
   deserialize,
 };
 
+export const dummyTransformer: DataTransformer = {
+  serialize: (object: any): any => object,
+  deserialize: (object: any): any => object,
+};
+
 export const validateRequest = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     const { signature, data } = input;
@@ -53,6 +58,7 @@ export const validateRequest = (t: any) =>
 
 export const hasRole = (role: string | string[], t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
+    console.log('hasRole', role, ctx.client.roles);
     if (Array.isArray(role)) {
       const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
       if (!hasAnyRole) {
@@ -69,23 +75,8 @@ export const hasRole = (role: string | string[], t: any) =>
 
 export const validateSeer = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
+    console.log('validateSeer', input);
     if (!ctx.client.isSeer) {
-      return { status: 0, message: 'Not authorized' };
-    }
-    return next();
-  });
-
-export const validateAdmin = (t: any) =>
-  t.middleware(async ({ input, ctx, next }) => {
-    if (!ctx.client.isAdmin) {
-      return { status: 0, message: 'Not authorized' };
-    }
-    return next();
-  });
-
-export const validateMod = (t: any) =>
-  t.middleware(async ({ input, ctx, next }) => {
-    if (!ctx.client.isMod) {
       return { status: 0, message: 'Not authorized' };
     }
     return next();
