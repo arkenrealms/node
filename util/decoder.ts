@@ -1,5 +1,5 @@
-import loki from 'lokijs'
-import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter'
+import loki from 'lokijs';
+import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter';
 import {
   Games,
   ItemAttributesById,
@@ -7,16 +7,16 @@ import {
   itemData,
   ItemRarity,
   ItemRarityNameById,
-} from '../data/items'
-import { ItemsMainCategoriesType } from '../data/items.type'
-import ProbabilityCache from '../data/probabilityCache'
-import { average, randInt } from './math'
+} from '../data/items';
+import { ItemsMainCategoriesType } from '../data/items.type';
+import ProbabilityCache from '../data/probabilityCache';
+import { average, randInt } from './math';
 
-const useLocalStorage = false
-const useIndexedDb = false
-const useLoki = true
+const useLocalStorage = false;
+const useIndexedDb = false;
+const useLoki = true;
 
-let tokenCache = {}
+let tokenCache = {};
 
 const dbCon = new loki('arken.db', {
   adapter:
@@ -27,25 +27,25 @@ const dbCon = new loki('arken.db', {
   autoloadCallback: databaseInitialize,
   autosave: true,
   autosaveInterval: 4000,
-})
+});
 
 const db = {
   config: undefined,
   items: undefined,
-}
+};
 
 function databaseInitialize() {
-  db.config = dbCon.getCollection('config')
-  db.items = dbCon.getCollection('items')
+  db.config = dbCon.getCollection('config');
+  db.items = dbCon.getCollection('items');
   if (dbCon.getCollection('items')) {
-    dbCon.getCollection('items').chain().remove()
+    dbCon.getCollection('items').chain().remove();
   }
 
-  const cacheBreaker = 1665261167 * 1000
-  const updatedAt = db.items?.data?.[0]?.meta?.created
+  const cacheBreaker = 1665261167 * 1000;
+  const updatedAt = db.items?.data?.[0]?.meta?.created;
   if (!updatedAt || updatedAt < cacheBreaker) {
     if (dbCon.getCollection('items')) {
-      dbCon.getCollection('items').chain().remove()
+      dbCon.getCollection('items').chain().remove();
     }
   }
 
@@ -53,33 +53,33 @@ function databaseInitialize() {
     db.config = dbCon.addCollection('config', {
       // clone: true,
       unique: 'key',
-    })
+    });
 
     db.config.insert({
       key: 'updatedAt',
       value: cacheBreaker,
-    })
+    });
   }
 
   db.config.find({
     key: 'updatedAt',
-  }).value = cacheBreaker
+  }).value = cacheBreaker;
 
   if (db.items === null) {
     // Add a collection to the database
     db.items = dbCon.addCollection('items', {
       // clone: true,
       unique: 'tokenId',
-    })
+    });
   }
 }
 
 export function clearDatabase() {
   if (dbCon.getCollection('config')) {
-    dbCon.getCollection('config').chain().remove()
+    dbCon.getCollection('config').chain().remove();
   }
   if (dbCon.getCollection('items')) {
-    dbCon.getCollection('items').chain().remove()
+    dbCon.getCollection('items').chain().remove();
   }
 }
 
@@ -128,11 +128,11 @@ export function getTokenCache() {
   //   }
   // }
 
-  return tokenCache
+  return tokenCache;
 }
 
 export function setTokenCache(_tokenCache) {
-  tokenCache = tokenCache
+  tokenCache = tokenCache;
 
   // if (useLoki) {
   //   const db = new loki('arken.db')
@@ -179,64 +179,64 @@ export function setTokenCache(_tokenCache) {
 export function getItemTokenCache(tokenId: string) {
   try {
     // console.log(9999, tokenCache[tokenId])
-    if (tokenCache[tokenId]) return tokenCache[tokenId]
+    if (tokenCache[tokenId]) return tokenCache[tokenId];
 
     if (useLoki) {
-      const result = db.items?.findOne({ tokenId: tokenId })
+      const result = db.items?.findOne({ tokenId: tokenId });
 
       if (result) {
         // console.log('Token found in cache', result)
-        return result
+        return result;
       } else {
         // console.log('Token NOT found in cache', tokenId)
       }
     }
 
     if (useLocalStorage && window.localStorage) {
-      const tokenCacheText = window.localStorage.getItem(`zzz_tokenCache_${tokenId}`)
+      const tokenCacheText = window.localStorage.getItem(`zzz_tokenCache_${tokenId}`);
 
       if (tokenCacheText) {
-        let tokenCacheItem = JSON.parse(tokenCacheText)
+        let tokenCacheItem = JSON.parse(tokenCacheText);
 
-        const now = new Date()
+        const now = new Date();
         if (now.getTime() > tokenCacheItem.expiry) {
-          window.localStorage.removeItem(`zzz_tokenCache_${tokenId}`)
+          window.localStorage.removeItem(`zzz_tokenCache_${tokenId}`);
 
-          return
+          return;
         }
 
-        tokenCache[tokenId] = tokenCacheItem.value
-        console.log(99999999, tokenCacheItem.value)
+        tokenCache[tokenId] = tokenCacheItem.value;
+        console.log(99999999, tokenCacheItem.value);
 
-        return tokenCacheItem.value
+        return tokenCacheItem.value;
       }
     }
   } catch (e) {
-    console.log(e, tokenId)
+    console.log(e, tokenId);
   }
 }
 
 export function setItemTokenCache(item: any) {
   try {
-    tokenCache[item.tokenId] = item
+    tokenCache[item.tokenId] = item;
 
     if (useLoki) {
       // Find and update an existing document
-      const result = db.items?.findOne({ tokenId: item.tokenId })
+      const result = db.items?.findOne({ tokenId: item.tokenId });
 
       if (result) {
         for (const key of Object.keys(item)) {
-          result[key] = item[key]
+          result[key] = item[key];
         }
 
         // console.log('Updating item', item)
-        db.items?.update(result)
+        db.items?.update(result);
       } else {
         try {
           // console.log('Inserting item', item)
-          db.items?.insert(item)
+          db.items?.insert(item);
         } catch (e) {
-          db.items?.update(item)
+          db.items?.update(item);
         }
       }
 
@@ -244,7 +244,7 @@ export function setItemTokenCache(item: any) {
     }
 
     if (useLocalStorage && window.localStorage) {
-      const ttl = 3 * 24 * 60 * 60 * 1000
+      const ttl = 3 * 24 * 60 * 60 * 1000;
 
       localStorage.setItem(
         `zzz_tokenCache_${item.tokenId}`,
@@ -252,22 +252,23 @@ export function setItemTokenCache(item: any) {
           expiry: new Date().getTime() + ttl,
           value: item,
         })
-      )
+      );
     }
   } catch (e) {
-    console.log(e, item)
+    console.log(e, item);
   }
 }
-export function decodeItem(tokenId: string) {
-  const tokenCacheItem = getItemTokenCache(tokenId)
-  if (tokenId && tokenCacheItem) return tokenCacheItem
 
-  return normalizeItem(getItemFromTokenId(tokenId))
+export function decodeItem(tokenId: string) {
+  const tokenCacheItem = getItemTokenCache(tokenId);
+  if (tokenId && tokenCacheItem) return tokenCacheItem;
+
+  return normalizeItem(getItemFromTokenId(tokenId));
 }
 
 export function getItemFromTokenId(tokenId: string) {
-  const tokenCacheItem = getItemTokenCache(tokenId)
-  if (tokenId && tokenCacheItem) return tokenCacheItem
+  const tokenCacheItem = getItemTokenCache(tokenId);
+  if (tokenId && tokenCacheItem) return tokenCacheItem;
 
   const defaultItem = {
     tokenId,
@@ -289,54 +290,54 @@ export function getItemFromTokenId(tokenId: string) {
       harvestBurn: 0,
       attributes: {},
     },
-  }
+  };
 
-  if (!tokenId || parseInt(tokenId) === 0 || Number.isNaN(parseInt(tokenId))) return defaultItem
+  if (!tokenId || parseInt(tokenId) === 0 || Number.isNaN(parseInt(tokenId))) return defaultItem;
 
   try {
-    const version = parseInt(tokenId.slice(1, 4))
-    const id = parseInt(tokenId.slice(4, 9))
+    const version = parseInt(tokenId.slice(1, 4));
+    const id = parseInt(tokenId.slice(4, 9));
 
-    let type = 0
-    let modStart = 9
+    let type = 0;
+    let modStart = 9;
 
     if (version === 1) {
-      modStart = 9
+      modStart = 9;
     } else {
-      type = parseInt(tokenId.slice(9, 11))
-      modStart = 11
+      type = parseInt(tokenId.slice(9, 11));
+      modStart = 11;
     }
 
-    const mods = []
+    const mods = [];
 
-    let modIndex = modStart
+    let modIndex = modStart;
     while (modIndex < tokenId.length) {
-      const variant = parseInt(tokenId.slice(modIndex, modIndex + 1))
+      const variant = parseInt(tokenId.slice(modIndex, modIndex + 1));
 
       if (variant === 2) {
-        const attributeId = parseInt(tokenId.slice(modIndex + 1, modIndex + 4))
-        const value = parseInt(tokenId.slice(modIndex + 4, modIndex + 7))
+        const attributeId = parseInt(tokenId.slice(modIndex + 1, modIndex + 4));
+        const value = parseInt(tokenId.slice(modIndex + 4, modIndex + 7));
 
-        if (Number.isNaN(value)) break
+        if (Number.isNaN(value)) break;
 
         mods.push({
           variant,
           attributeId,
           value,
-        })
+        });
 
-        modIndex += 7
+        modIndex += 7;
       } else {
-        const value = parseInt(tokenId.slice(modIndex + 1, modIndex + 4))
+        const value = parseInt(tokenId.slice(modIndex + 1, modIndex + 4));
 
-        if (Number.isNaN(value)) break
+        if (Number.isNaN(value)) break;
 
         mods.push({
           variant,
           value,
-        })
+        });
 
-        modIndex += 4
+        modIndex += 4;
       }
     }
 
@@ -350,26 +351,26 @@ export function getItemFromTokenId(tokenId: string) {
       mods,
       tokenId,
       shortTokenId: `${tokenId.slice(0, 23)}...${tokenId.slice(-3)}`,
-    }
+    };
 
-    return item
+    return item;
   } catch (e) {
     // console.log('Token is invalid', tokenId)
-    console.log(e)
+    console.log(e);
   }
 
-  return defaultItem
+  return defaultItem;
 }
 
 export function normalizeItem(item: any) {
   try {
-    const tokenCacheItem = getItemTokenCache(item.tokenId)
-    if (item.tokenId && tokenCacheItem) return tokenCacheItem
+    const tokenCacheItem = getItemTokenCache(item.tokenId);
+    if (item.tokenId && tokenCacheItem) return tokenCacheItem;
 
-    const branch = item.branches[1]
-    const branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : []
+    const branch = item.branches[1];
+    const branchAttributes = branch ? JSON.parse(JSON.stringify(branch.attributes)) : [];
 
-    if (!item.meta) item.meta = {}
+    if (!item.meta) item.meta = {};
 
     item.meta = {
       harvestYield: 0,
@@ -407,86 +408,86 @@ export function normalizeItem(item: any) {
       harvestFees: {},
       attributes: {},
       ...item.meta,
-    }
+    };
 
-    item.attributes = branchAttributes
+    item.attributes = branchAttributes;
 
-    let prevMod = null
+    let prevMod = null;
 
     if (item.id === 1) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id
-        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].HarvestFee.id
-        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].HarvestFeeToken.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id;
+        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].HarvestFee.id;
+        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].HarvestFeeToken.id;
       }
     } else if (item.id === 2) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id
-        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool.id
-        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].BurnEntireHarvest.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id;
+        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool.id;
+        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].BurnEntireHarvest.id;
       }
     } else if (item.id === 3) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id
-        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].HarvestBurn.id
-        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].FindShard.id
-        delete item.mods[3]
-        delete item.mods[4]
-        delete item.mods[5]
-        delete item.mods[6]
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].HarvestYield.id;
+        item.mods[1].attributeId = ItemAttributesByName[Games.Raid.id].HarvestBurn.id;
+        item.mods[2].attributeId = ItemAttributesByName[Games.Raid.id].FindShard.id;
+        delete item.mods[3];
+        delete item.mods[4];
+        delete item.mods[5];
+        delete item.mods[6];
 
-        item.mods[2].value = 100
+        item.mods[2].value = 100;
       }
     } else if (item.id === 4) {
       if (item.mods) {
-        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].FindShard.id
+        item.mods[0].attributeId = ItemAttributesByName[Games.Raid.id].FindShard.id;
 
-        item.mods[0].value = 100
+        item.mods[0].value = 100;
       }
     }
 
     if (item.mods) {
       for (const i in item.mods) {
-        const mod = item.mods[i]
-        const branchAttribute = branchAttributes[i]
+        const mod = item.mods[i];
+        const branchAttribute = branchAttributes[i];
 
         if (!branchAttribute) {
           // console.log(`Branch attribute doesn't exist on item definition`, item, mod)
-          continue
+          continue;
         }
 
         if (branchAttribute.value === undefined) {
           if (branchAttribute.min === branchAttribute.max) {
-            branchAttribute.value = branchAttribute.min
+            branchAttribute.value = branchAttribute.min;
           }
         }
 
         if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestYield.id) {
-          item.meta.harvestYield += mod.value
+          item.meta.harvestYield += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestFeeToken.id) {
           item.meta.harvestFees[
             branchAttribute.param1 ? branchAttribute.param1.map[mod.value] : branchAttribute.map[mod.value]
-          ] = prevMod.value
+          ] = prevMod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].SendHarvestHiddenPool.id) {
-          item.meta.chanceToSendHarvestToHiddenPool += mod.value
+          item.meta.chanceToSendHarvestToHiddenPool += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].BurnEntireHarvest.id) {
-          item.meta.chanceToLoseHarvest += mod.value
+          item.meta.chanceToLoseHarvest += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].HarvestBurn.id) {
-          item.meta.harvestBurn += mod.value
+          item.meta.harvestBurn += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].FindShard.id) {
-          if (branchAttribute.value !== undefined) mod.value = branchAttribute.value
+          if (branchAttribute.value !== undefined) mod.value = branchAttribute.value;
 
-          item.meta.worldstoneShardChance += mod.value
+          item.meta.worldstoneShardChance += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].RemoveFees.id) {
-          item.meta.feeReduction += mod.value
+          item.meta.feeReduction += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].RandomRuneExchange.id) {
-          item.meta.randomRuneExchange += mod.value
+          item.meta.randomRuneExchange += mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].UnstakeLocked.id) {
-          item.meta.unstakeLocked = true
+          item.meta.unstakeLocked = true;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].SpecificClass.id) {
-          item.meta.classRequired = mod.value
+          item.meta.classRequired = mod.value;
         } else if (mod.attributeId === ItemAttributesByName[Games.Raid.id].Rarity.id) {
-          item.rarity = ItemRarity[ItemRarityNameById[mod.value]]
+          item.rarity = ItemRarity[ItemRarityNameById[mod.value]];
         }
 
         if (mod.attributeId > 0) {
@@ -499,40 +500,40 @@ export function normalizeItem(item: any) {
             ...(ItemAttributesById[mod.attributeId] || {}),
             ...branchAttribute,
             ...mod,
-          }
+          };
         }
 
         if (item.attributes[i]) {
-          item.branches[1].attributes[i] = item.attributes[i]
+          item.branches[1].attributes[i] = item.attributes[i];
 
           if (!item.branches[1].attributes[i].param1) {
-            item.branches[1].attributes[i].param1 = {}
-            item.branches[1].attributes[i].param1.min = item.branches[1].attributes[i].min
-            item.branches[1].attributes[i].param1.max = item.branches[1].attributes[i].max
-            item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value
-            item.branches[1].attributes[i].param1.map = item.branches[1].attributes[i].map
+            item.branches[1].attributes[i].param1 = {};
+            item.branches[1].attributes[i].param1.min = item.branches[1].attributes[i].min;
+            item.branches[1].attributes[i].param1.max = item.branches[1].attributes[i].max;
+            item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
+            item.branches[1].attributes[i].param1.map = item.branches[1].attributes[i].map;
           } else {
-            item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value
-            item.branches[1].attributes[i].min = item.branches[1].attributes[i].param1.min
-            item.branches[1].attributes[i].max = item.branches[1].attributes[i].param1.max
-            item.branches[1].attributes[i].map = item.branches[1].attributes[i].param1.map
+            item.branches[1].attributes[i].param1.value = item.branches[1].attributes[i].value;
+            item.branches[1].attributes[i].min = item.branches[1].attributes[i].param1.min;
+            item.branches[1].attributes[i].max = item.branches[1].attributes[i].param1.max;
+            item.branches[1].attributes[i].map = item.branches[1].attributes[i].param1.map;
           }
         }
 
-        prevMod = mod
+        prevMod = mod;
       }
     }
 
     // if (item.tokenId === "100300016012001003200700120130022011003200201020030142039011202100700000115") debugger;
 
     if (Object.keys(item.meta.harvestFees).length > 0) {
-      item.meta.harvestFeeToken = Object.keys(item.meta.harvestFees)[0]
-      item.meta.harvestFeePercent = item.meta.harvestFees[Object.keys(item.meta.harvestFees)[0]]
+      item.meta.harvestFeeToken = Object.keys(item.meta.harvestFees)[0];
+      item.meta.harvestFeePercent = item.meta.harvestFees[Object.keys(item.meta.harvestFees)[0]];
     }
 
     if (branch?.perfection) {
-      const perfection = [...branch.perfection]
-      const attributes = branch.attributes
+      const perfection = [...branch.perfection];
+      const attributes = branch.attributes;
 
       // if (item.tokenId === '1001000041000100015647') {
       //   console.log(perfection)
@@ -541,12 +542,12 @@ export function normalizeItem(item: any) {
       // }
 
       if (perfection.length) {
-        const shorthand = []
+        const shorthand = [];
 
         for (let i = 0; i < perfection.length; i++) {
           if (perfection[i] === undefined || perfection[i] === null || !attributes[i]) {
-            perfection[i] = undefined
-            continue
+            perfection[i] = undefined;
+            continue;
           }
 
           perfection[i] =
@@ -556,33 +557,33 @@ export function normalizeItem(item: any) {
                 : (attributes[i].value - attributes[i].min) / (perfection[i] - attributes[i].min)
               : attributes[i].max - perfection[i] === 0
               ? 1
-              : 1 - (attributes[i].value - perfection[i]) / (attributes[i].max - perfection[i])
+              : 1 - (attributes[i].value - perfection[i]) / (attributes[i].max - perfection[i]);
         }
 
-        item.perfection = average(perfection.filter((p) => Number.isFinite(p)))
+        item.perfection = average(perfection.filter((p) => Number.isFinite(p)));
 
         // if (item.tokenId === '1001000041000100015647') {
         //   console.log(perfection, branch.attributes[0].max, perfection[0], 1)
         // }
 
         if (Number.isFinite(item.perfection) && item.perfection <= 1) {
-          item.perfection = parseFloat((Math.floor(item.perfection * 100) / 100).toFixed(2))
+          item.perfection = parseFloat((Math.floor(item.perfection * 100) / 100).toFixed(2));
 
           if (item.perfection < 0) {
-            item.perfection = 0
+            item.perfection = 0;
           }
 
-          const size = 20000
+          const size = 20000;
           if (!ProbabilityCache[item.id]) {
-            ProbabilityCache[item.id] = {}
+            ProbabilityCache[item.id] = {};
 
             // @ts-ignore
-            ;[...Array(101).keys()].map(function (n) {
-              ProbabilityCache[item.id][n] = 0
-            })
+            [...Array(101).keys()].map(function (n) {
+              ProbabilityCache[item.id][n] = 0;
+            });
 
             // @ts-ignore
-            ;[...Array(size).keys()].map(function () {
+            [...Array(size).keys()].map(function () {
               const rando = Math.floor(
                 (branch.perfection.reduce(function (prev, cur, i) {
                   return (
@@ -595,29 +596,29 @@ export function normalizeItem(item: any) {
                       : 1 -
                         (randInt(attributes[i].min, attributes[i].max) - attributes[i].min) /
                           (attributes[i].max - attributes[i].min))
-                  )
+                  );
                 }, 0) /
                   branch.perfection.filter((p) => p !== undefined && p !== null).length) *
                   // Fury: ((randInt(3, 7)-3)/(7-3)+(randInt(20, 40)-20)/(40-20)+(1-(randInt(20, 40)-20)/(40-20)))/3
                   100
-              ).toFixed(0)
+              ).toFixed(0);
 
-              ProbabilityCache[item.id][rando]++
-            })
+              ProbabilityCache[item.id][rando]++;
+            });
           }
 
           // @ts-ignore
-          const total = [...Array(101).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur], 0)
-          const mythic = ProbabilityCache[item.id][100] / total
+          const total = [...Array(101).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur], 0);
+          const mythic = ProbabilityCache[item.id][100] / total;
           const epic =
             // @ts-ignore
-            [...Array(99 - 90).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 90], 0) / total
+            [...Array(99 - 90).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 90], 0) / total;
           const rare =
             // @ts-ignore
-            [...Array(89 - 70).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 70], 0) / total
+            [...Array(89 - 70).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 70], 0) / total;
           const magical =
             // @ts-ignore
-            [...Array(70 - 0).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 0], 0) / total
+            [...Array(70 - 0).keys()].reduce((prev, cur) => prev + ProbabilityCache[item.id][cur + 0], 0) / total;
           const roll =
             item.perfection * 100 > 3
               ? average(
@@ -632,7 +633,7 @@ export function normalizeItem(item: any) {
                     []
                   )
                 ) / total
-              : ProbabilityCache[item.id][item.perfection * 100] / total
+              : ProbabilityCache[item.id][item.perfection * 100] / total;
 
           item.meta.probability = {
             mythic,
@@ -640,12 +641,12 @@ export function normalizeItem(item: any) {
             rare,
             magical,
             roll,
-          }
+          };
         } else {
-          item.perfection = null
+          item.perfection = null;
         }
       } else {
-        item.perfection = null
+        item.perfection = null;
       }
     }
 
@@ -669,37 +670,37 @@ export function normalizeItem(item: any) {
     // Normalize rarity based on perfection
     if (!item.rarity) {
       if (item.attributes.find((a) => a.id === 40)?.value) {
-        item.rarity = ItemRarity[ItemRarityNameById[item.attributes.find((a) => a.id === 40)?.value || 5]]
+        item.rarity = ItemRarity[ItemRarityNameById[item.attributes.find((a) => a.id === 40)?.value || 5]];
       } else if (item.perfection === 1) {
-        item.rarity = ItemRarity.Mythic
+        item.rarity = ItemRarity.Mythic;
       } else if (item.perfection >= 0.9) {
-        item.rarity = ItemRarity.Epic
+        item.rarity = ItemRarity.Epic;
       } else if (item.perfection >= 0.7) {
-        item.rarity = ItemRarity.Rare
+        item.rarity = ItemRarity.Rare;
       } else if (item.perfection >= 0) {
-        item.rarity = ItemRarity.Magical
+        item.rarity = ItemRarity.Magical;
       }
     }
 
     // Normalize perfection basd on rarity
     if (item.rarity && item.perfection === null) {
       if (item.rarity.id === ItemRarity.Mythic) {
-        item.perfection = 1
+        item.perfection = 1;
       } else if (item.rarity.id === ItemRarity.Epic) {
-        item.perfection = 0.9
+        item.perfection = 0.9;
       } else if (item.rarity.id === ItemRarity.Rare) {
-        item.perfection = 0.7
+        item.perfection = 0.7;
       } else if (item.rarity.id === ItemRarity.Magical) {
-        item.perfection = 0.35
+        item.perfection = 0.35;
       } else {
-        item.perfection = 1
+        item.perfection = 1;
       }
     }
 
     if (item.branches) {
       // Set .value if .min and .max are same
       for (const bIndex of Object.keys(item.branches)) {
-        const branchIndex = Number(bIndex)
+        const branchIndex = Number(bIndex);
 
         for (const attributeIndex in item.branches[branchIndex].attributes) {
           if (item.branches[branchIndex].attributes[attributeIndex].value === undefined) {
@@ -708,10 +709,10 @@ export function normalizeItem(item: any) {
               item.branches[branchIndex].attributes[attributeIndex].max
             ) {
               item.branches[branchIndex].attributes[attributeIndex].value =
-                item.branches[branchIndex].attributes[attributeIndex].min
+                item.branches[branchIndex].attributes[attributeIndex].min;
 
               if (branchIndex === 1) {
-                item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].value
+                item.attributes[attributeIndex].value = item.branches[branchIndex].attributes[attributeIndex].value;
               }
             }
           }
@@ -743,13 +744,13 @@ export function normalizeItem(item: any) {
 
       // Set preset and attribute values based on rarity
       for (const bIndex of Object.keys(item.branches)) {
-        const branchIndex = Number(bIndex)
-        if (!item.branches[branchIndex].attributes) continue
+        const branchIndex = Number(bIndex);
+        if (!item.branches[branchIndex].attributes) continue;
 
-        const presets = item.branches[branchIndex].presets
+        const presets = item.branches[branchIndex].presets;
         if (!presets) {
-          const perf = item.branches[branchIndex].perfection
-          const attrs = item.branches[branchIndex].attributes
+          const perf = item.branches[branchIndex].perfection;
+          const attrs = item.branches[branchIndex].attributes;
 
           // TODO: figure out if attribute min or max is best and push that into array of perfs (requires spec)
           // if (!perf) {
@@ -766,46 +767,46 @@ export function normalizeItem(item: any) {
             [ItemRarity.Epic.id]: [],
             [ItemRarity.Mythic.id]: [],
             [ItemRarity.Unique.id]: [],
-          }
+          };
 
           for (const pIndex in perf) {
-            if (perf[pIndex] === undefined || perf[pIndex] === null) continue
+            if (perf[pIndex] === undefined || perf[pIndex] === null) continue;
 
             item.branches[branchIndex].presets[ItemRarity.Magical.id][pIndex] = Math.floor(
               perf[pIndex] === attrs[pIndex].max
                 ? (attrs[pIndex].max - attrs[pIndex].min) * 0.2 + attrs[pIndex].min
                 : attrs[pIndex].max - (attrs[pIndex].max - attrs[pIndex].min) * 0.2
-            )
+            );
             item.branches[branchIndex].presets[ItemRarity.Rare.id][pIndex] = Math.floor(
               perf[pIndex] === attrs[pIndex].max
                 ? (attrs[pIndex].max - attrs[pIndex].min) * 0.7 + attrs[pIndex].min
                 : attrs[pIndex].max - (attrs[pIndex].max - attrs[pIndex].min) * 0.7
-            )
+            );
             item.branches[branchIndex].presets[ItemRarity.Epic.id][pIndex] = Math.floor(
               perf[pIndex] === attrs[pIndex].max
                 ? (attrs[pIndex].max - attrs[pIndex].min) * 0.95 + attrs[pIndex].min
                 : attrs[pIndex].max - (attrs[pIndex].max - attrs[pIndex].min) * 0.95
-            )
-            item.branches[branchIndex].presets[ItemRarity.Mythic.id][pIndex] = perf[pIndex]
-            item.branches[branchIndex].presets[ItemRarity.Unique.id][pIndex] = perf[pIndex]
+            );
+            item.branches[branchIndex].presets[ItemRarity.Mythic.id][pIndex] = perf[pIndex];
+            item.branches[branchIndex].presets[ItemRarity.Unique.id][pIndex] = perf[pIndex];
           }
         }
 
         if (item.rarity) {
           for (const b2Index of Object.keys(item.branches)) {
-            const branch2Index = Number(b2Index)
+            const branch2Index = Number(b2Index);
 
-            if (!item.branches[branch2Index].presets?.[item.rarity.id]) continue
+            if (!item.branches[branch2Index].presets?.[item.rarity.id]) continue;
 
             for (const presetIndex in item.branches[branch2Index].presets[item.rarity.id]) {
-              const preset = item.branches[branch2Index].presets[item.rarity.id][presetIndex]
+              const preset = item.branches[branch2Index].presets[item.rarity.id][presetIndex];
 
-              if (item.branches[branch2Index].attributes[presetIndex].value !== undefined) continue
+              if (item.branches[branch2Index].attributes[presetIndex].value !== undefined) continue;
 
-              item.branches[branch2Index].attributes[presetIndex].value = preset
+              item.branches[branch2Index].attributes[presetIndex].value = preset;
 
               if (branch2Index === 1) {
-                item.attributes[presetIndex].value = preset
+                item.attributes[presetIndex].value = preset;
               }
             }
           }
@@ -816,13 +817,13 @@ export function normalizeItem(item: any) {
     // Normalize main branch map attribute values
     if (branch?.perfection) {
       for (const attributeIndex in branch.attributes) {
-        const attribute = branch.attributes[attributeIndex]
-        const perfection = branch.perfection[attributeIndex]
+        const attribute = branch.attributes[attributeIndex];
+        const perfection = branch.perfection[attributeIndex];
 
         if (perfection === undefined || perfection == null) {
           if (attribute.value === undefined && attribute.map) {
-            attribute.value = attribute.min
-            item.attributes[attributeIndex] = attribute
+            attribute.value = attribute.min;
+            item.attributes[attributeIndex] = attribute;
           }
         }
       }
@@ -831,20 +832,20 @@ export function normalizeItem(item: any) {
     if (item.branches) {
       // Normalize branch values and perfection
       for (const bIndex of Object.keys(item.branches)) {
-        const branchIndex = Number(bIndex)
+        const branchIndex = Number(bIndex);
         if (branchIndex === 1) {
           for (const attributeIndex in item.branches[branchIndex].attributes) {
-            const attribute = item.branches[branchIndex].attributes[attributeIndex]
+            const attribute = item.branches[branchIndex].attributes[attributeIndex];
             if (attribute.param1.value !== undefined) {
-              if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
-              item.meta.attributes[attribute.id] += attribute.param1.value
+              if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0;
+              item.meta.attributes[attribute.id] += attribute.param1.value;
             }
           }
 
-          continue
+          continue;
         }
 
-        if (!item.branches[branchIndex].attributes) continue
+        if (!item.branches[branchIndex].attributes) continue;
 
         for (const attributeIndex in item.branches[branchIndex].attributes) {
           if (
@@ -854,24 +855,24 @@ export function normalizeItem(item: any) {
             !item.branches[branchIndex] ||
             !item.branches[branchIndex].attributes[attributeIndex]
           ) {
-            break
+            break;
           }
 
-          const attribute = item.branches[branchIndex].attributes[attributeIndex]
+          const attribute = item.branches[branchIndex].attributes[attributeIndex];
 
           if (!attribute.param1) {
-            continue
+            continue;
           }
 
           if (Number.isFinite(attribute.param1.value)) {
-            if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
-            item.meta.attributes[attribute.id] += attribute.param1.value
+            if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0;
+            item.meta.attributes[attribute.id] += attribute.param1.value;
 
-            continue
+            continue;
           }
 
           // let targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
-          let targetPerfection
+          let targetPerfection;
           // let attributePerfection
 
           if (Number.isFinite(item.branches[1].perfection[attributeIndex])) {
@@ -885,10 +886,10 @@ export function normalizeItem(item: any) {
                   (item.branches[1].attributes[attributeIndex].param1.value -
                     item.branches[1].attributes[attributeIndex].param1.min) /
                     (item.branches[1].attributes[attributeIndex].param1.max -
-                      item.branches[1].attributes[attributeIndex].param1.min)
+                      item.branches[1].attributes[attributeIndex].param1.min);
           } else {
             // targetAttribute = item.branches[branchIndex].attributes[attributeIndex]
-            targetPerfection = item.perfection // item.branches[branchIndex].perfection[attributeIndex]
+            targetPerfection = item.perfection; // item.branches[branchIndex].perfection[attributeIndex]
           }
 
           // if (targetPerfection && targetAttribute) {
@@ -908,17 +909,17 @@ export function normalizeItem(item: any) {
           // }
 
           if (attribute.param1.map) {
-            const kindofClose = Math.floor((attribute.param1.max - attribute.param1.min) * targetPerfection)
+            const kindofClose = Math.floor((attribute.param1.max - attribute.param1.min) * targetPerfection);
 
             const closestKey = Object.keys(attribute.param1.map).sort((a, b) => {
-              return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b))
-            })[0]
+              return Math.abs(kindofClose - Number(a)) - Math.abs(kindofClose - Number(b));
+            })[0];
 
-            attribute.param1.value = closestKey
+            attribute.param1.value = closestKey;
           } else {
-            const alignedValue = Math.floor((attribute.param1.max - attribute.param1.min) * targetPerfection)
+            const alignedValue = Math.floor((attribute.param1.max - attribute.param1.min) * targetPerfection);
 
-            attribute.param1.value = attribute.param1.min + alignedValue
+            attribute.param1.value = attribute.param1.min + alignedValue;
           }
 
           // if (!item.branches[branchIndex].perfection) {
@@ -931,8 +932,8 @@ export function normalizeItem(item: any) {
           // if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
 
           if (Number.isFinite(attribute.param1.value)) {
-            if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0
-            item.meta.attributes[attribute.id] += attribute.param1.value
+            if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0;
+            item.meta.attributes[attribute.id] += attribute.param1.value;
           }
         }
       }
@@ -940,20 +941,20 @@ export function normalizeItem(item: any) {
 
     // Normalize shorthand
     if (branch?.perfection) {
-      const perfection = [...branch.perfection]
-      const attributes = branch.attributes
+      const perfection = [...branch.perfection];
+      const attributes = branch.attributes;
 
       if (perfection.length) {
-        const shorthand = []
+        const shorthand = [];
         // let odds = 1
 
         for (let i = 0; i < perfection.length; i++) {
           if (perfection[i] === undefined || perfection[i] === null || !attributes[i]) {
-            continue
+            continue;
           }
 
-          const value = attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value
-          shorthand.push(value)
+          const value = attributes[i].map ? attributes[i].map[attributes[i].value] : attributes[i].value;
+          shorthand.push(value);
 
           // odds *= (value - attributes[i].min + 1)
         }
@@ -962,7 +963,7 @@ export function normalizeItem(item: any) {
         //   item.meta.odds = odds
         // }
 
-        item.shorthand = shorthand.map((s) => s + '').join('-')
+        item.shorthand = shorthand.map((s) => s + '').join('-');
       }
     }
 
@@ -989,36 +990,36 @@ export function normalizeItem(item: any) {
 
     // Normalize perfection
     if (item.perfection === undefined || item.perfection === null) {
-      item.perfection = 1
+      item.perfection = 1;
     }
 
     if (!item.tokenId) {
-      item.tokenId = getTokenIdFromItem(item)
+      item.tokenId = getTokenIdFromItem(item);
     }
 
     if (item.branches[2]) {
       item.branches[2].initialCharge =
-        item.branches[2].initialCharge !== undefined ? item.branches[2].initialCharge : item.initialCharge
+        item.branches[2].initialCharge !== undefined ? item.branches[2].initialCharge : item.initialCharge;
       item.branches[2].maxCharge =
-        item.branches[2].maxCharge !== undefined ? item.branches[2].maxCharge : item.maxCharge
+        item.branches[2].maxCharge !== undefined ? item.branches[2].maxCharge : item.maxCharge;
 
       const chargeMultiplier = {
         [ItemRarity.Magical.id]: 4,
         [ItemRarity.Rare.id]: 3,
         [ItemRarity.Epic.id]: 2,
         [ItemRarity.Mythic.id]: 1,
-      }
+      };
 
-      item.branches[2].initialCharge *= chargeMultiplier[item.rarity.id]
-      item.branches[2].maxCharge *= chargeMultiplier[item.rarity.id]
+      item.branches[2].initialCharge *= chargeMultiplier[item.rarity.id];
+      item.branches[2].maxCharge *= chargeMultiplier[item.rarity.id];
     }
 
-    item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase()
+    item.slug = item.name?.replace(/ /gi, '-').replace(/"/gi, '').toLowerCase();
 
     if (item.tokenId === '100300014012001002201900120130012011001200200720030122039008202100600000875')
-      item.perfection = -13
+      item.perfection = -13;
     if (item.tokenId === '100301201142040003200100520130200000000000000000000000000000000000000000001')
-      item.branches[1].description[1] = '"So long, I barely knew thee."'
+      item.branches[1].description[1] = '"So long, I barely knew thee."';
 
     //     if (item.exclusiveConditions) {
     //       const conditionMatch = []
@@ -1060,36 +1061,36 @@ export function normalizeItem(item: any) {
     //     }
   } catch (e) {
     // console.log('Token is invalid', tokenId)
-    console.log(e)
+    console.log(e);
   }
 
-  setItemTokenCache(item)
+  setItemTokenCache(item);
 
-  return item
+  return item;
 }
 
 function pad(n, width, z = '0') {
-  const nn = n + ''
-  return nn.length >= width ? nn : new Array(width - nn.length + 1).join(z) + nn
+  const nn = n + '';
+  return nn.length >= width ? nn : new Array(width - nn.length + 1).join(z) + nn;
 }
 
 export function getTokenIdFromItem(item, rand = 1) {
-  const version = 3
+  const version = 3;
 
-  let attrs = ''
+  let attrs = '';
 
   for (let i = 0; i < 8; i++) {
-    const attribute = item.attributes[i]
+    const attribute = item.attributes[i];
 
     if (attribute && attribute?.id) {
-      attrs += '2' + pad(attribute?.id || 0, 3) + pad(attribute?.value || 0, 3)
+      attrs += '2' + pad(attribute?.id || 0, 3) + pad(attribute?.value || 0, 3);
     } else {
-      attrs += '0' + pad(attribute?.id || 0, 3) + pad(attribute?.value || 0, 3)
+      attrs += '0' + pad(attribute?.id || 0, 3) + pad(attribute?.value || 0, 3);
     }
   }
 
-  attrs += '00000'
-  attrs += pad(rand, 3)
+  attrs += '00000';
+  attrs += pad(rand, 3);
 
-  return `1${pad(version, 3)}${pad(item.id, 5)}${pad(item.type, 2)}${attrs}`
+  return `1${pad(version, 3)}${pad(item.id, 5)}${pad(item.type, 2)}${attrs}`;
 }
