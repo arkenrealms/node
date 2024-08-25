@@ -4,8 +4,8 @@ import * as types from './types';
 import { toCamelCase } from '../util/string';
 
 const CommonFields = {
-  key: { type: String, required: true, minlength: 2, maxlength: 200, trim: true },
-  name: { type: String, required: true },
+  key: { type: String, minlength: 2, maxlength: 200, trim: true },
+  name: { type: String },
   description: { type: String },
   status: {
     type: String,
@@ -513,7 +513,7 @@ export const ChainToken = createSchema<types.ChainToken>(
   {
     rank: { type: Number, min: 0 },
     description: { type: String, required: true },
-    content: { type: String, required: true },
+    content: { type: String },
     type: { type: String, maxlength: 100 },
     standard: { type: String, maxlength: 100 },
     price: { type: Number, min: 0 },
@@ -860,7 +860,6 @@ export const Interface = createSchema<types.Interface>('Interface', {
 });
 
 export const InterfaceGroup = createSchema<types.InterfaceGroup>('InterfaceGroup', {
-  value: { type: String },
   rolesOnInterfaceGroups: Array,
 });
 
@@ -879,11 +878,6 @@ export const InterfaceSubmission = createSchema<types.InterfaceSubmission>('Inte
 });
 
 export const Character = createSchema<types.Character>('Character', {
-  applicationId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Application',
-    required: true,
-  } as any,
   teamId: { type: Schema.Types.ObjectId, ref: 'Team' } as any,
   ownerId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true } as any,
   ratingId: { type: Schema.Types.ObjectId, ref: 'Rating' } as any,
@@ -894,11 +888,6 @@ export const Character = createSchema<types.Character>('Character', {
 });
 
 export const Team = createSchema<types.Team>('Team', {
-  applicationId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Application',
-    required: true,
-  } as any,
   ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
   ratingId: { type: Schema.Types.ObjectId, ref: 'Rating' } as any,
 });
@@ -976,8 +965,7 @@ export const Area = createSchema<types.Area>('Area', {
 export const AreaType = createSchema<types.AreaType>('AreaType');
 
 export const AreaLandmark = createSchema<types.AreaLandmark>('AreaLandmark', {
-  areaId: { type: String },
-  area: { type: Schema.Types.ObjectId, ref: 'Area' } as any,
+  areaId: { type: Schema.Types.ObjectId, ref: 'Area' } as any,
 });
 
 export const Act = createSchema<types.Act>('Act');
@@ -1016,10 +1004,7 @@ export const Guide = createSchema<types.Guide>('Guide', {
   attachments: { type: Schema.Types.Mixed, default: [] },
 });
 
-export const Achievement = createSchema<types.Achievement>('Achievement', {
-  description: { type: String, default: null },
-  meta: { type: Schema.Types.Mixed },
-});
+export const Achievement = createSchema<types.Achievement>('Achievement');
 
 export const Game = createSchema<types.Game>('Game', {
   productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true } as any,
@@ -1032,6 +1017,7 @@ export const Poll = createSchema<types.Poll>('Poll');
 export const ProductUpdate = createSchema<types.ProductUpdate>('ProductUpdate', {
   productId: { type: Schema.Types.ObjectId, ref: 'Product' } as any,
 });
+
 export const Raffle = createSchema<types.Raffle>(
   'Raffle',
   {
@@ -1068,8 +1054,7 @@ export const RaffleRequirement = createSchema<types.RaffleRequirement>('RaffleRe
 
 export const RaffleReward = createSchema<types.RaffleReward>('RaffleReward', {
   raffleId: { type: Schema.Types.ObjectId, ref: 'Raffle' } as any,
-  winnerId: { type: String },
-  winner: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
+  winnerId: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
   requirements: [{ type: Schema.Types.ObjectId, ref: 'RaffleRequirement' }],
   entries: [{ type: Schema.Types.ObjectId, ref: 'RaffleEntry' }],
 });

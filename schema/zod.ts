@@ -21,8 +21,8 @@ export const Common = z.object({
 
 export const Entity = z
   .object({
-    key: z.string().min(2).max(200).trim(),
-    name: z.string().min(2).max(200).trim(),
+    key: z.string().min(2).max(200).trim().optional(),
+    name: z.string().min(2).max(200).trim().optional(),
     description: z.string().optional(),
     applicationId: ObjectId.optional(),
     ownerId: ObjectId.optional(),
@@ -549,22 +549,22 @@ export const RecordUpdate = z
   })
   .merge(Entity);
 
-export const Form = z
+export const Interface = z
   .object({
     ratingId: ObjectId.optional(),
-    formSubmissions: z.array(ObjectId).optional(),
-    commentsOnForms: z.array(ObjectId).optional(),
-    recordUpdatesOnForms: z.array(ObjectId).optional(),
+    submissions: z.array(ObjectId).optional(),
+    commentsOnInterfaces: z.array(ObjectId).optional(),
+    recordUpdatesOnInterfaces: z.array(ObjectId).optional(),
   })
   .merge(Entity);
 
-export const FormGroup = z
+export const InterfaceGroup = z
   .object({
-    rolesOnFormGroups: z.array(ObjectId).optional(),
+    rolesOnInterfaceGroups: z.array(ObjectId).optional(),
   })
   .merge(Entity);
 
-export const FormComponent = z
+export const InterfaceComponent = z
   .object({
     value: z.unknown().optional(),
     data: z.record(z.unknown()).optional(),
@@ -577,10 +577,10 @@ export const FormComponent = z
   })
   .merge(Entity);
 
-export const FormSubmission = z
+export const InterfaceSubmission = z
   .object({
-    formId: ObjectId,
-    form: ObjectId.optional(),
+    interfaceId: ObjectId,
+    interface: ObjectId.optional(),
   })
   .merge(Entity);
 
