@@ -53,13 +53,16 @@
     "utf8": "^3",
     "uuid": "^9",
     "web3": "^1",
-    "zod": "^3"
+    "zod": "^3",
+    "rxjs": "^7",
+    "fast-safe-stringify": "^2"
   },
   "devDependencies": {
     "@types/common-tags": "^1",
     "@types/ethereum-protocol": "^1",
     "@types/jest": "^29",
     "@types/lodash": "^4",
+    "@types/mongoose": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

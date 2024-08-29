@@ -1,4 +1,17 @@
-import mongoose, { Schema, SchemaDefinition, SchemaOptions, Document, Query } from 'mongoose';
+import mongoose, {
+  Schema,
+  SchemaDefinition,
+  SchemaOptions,
+  SchemaTypeOptions,
+  SchemaTypes,
+  Document,
+  Query,
+  IndexOptions,
+  SchemaDefinitionProperty,
+} from 'mongoose';
+import { Mixed, ObjectIdSchemaDefinition } from 'mongoose'; // Mixed type
+import type { AnyArray } from 'mongoose'; // AnyArray utility type
+import { StringSchemaDefinition } from 'mongoose';
 import pluralize from 'pluralize';
 import * as types from './types';
 import { toCamelCase } from '../util/string';
@@ -83,7 +96,7 @@ function createSchema<T>(
     schema.index({ status: 1 });
 
     if (extend === 'EntityFields') {
-      schema.index({ applicationId: 1, key: 1 }, { unique: true });
+      schema.index({ applicationId: 1, key: 1 }, { unique: true } as IndexOptions);
     }
   }
 
@@ -340,7 +353,7 @@ export const Memory = createSchema<types.Memory>('Memory');
 
 export const Conversation = createSchema<types.Conversation>('Conversation', {
   userId: { type: String },
-  messages: { type: Array, default: [] },
+  messages: { type: Schema.Types.Mixed, default: [] },
 });
 
 export const Log = createSchema<types.Log>(
@@ -349,8 +362,8 @@ export const Log = createSchema<types.Log>(
     key: { type: String, minlength: 2, maxlength: 200, trim: true },
     name: { type: String },
     mod: { type: String, required: true },
-    messages: { type: Array, default: [] },
-    tags: { type: Array, default: [] },
+    messages: { type: Schema.Types.Mixed, default: [] },
+    tags: { type: Schema.Types.Mixed, default: [] },
   },
   {
     indexes: [{ deletedDate: 1 }, { mod: 1 }, { status: 1 }, { createdDate: 1, updatedDate: 1 }],
@@ -392,19 +405,19 @@ export const Question = createSchema<types.Question>('Question', {
   text: { type: String, required: true },
   answer: { type: String, required: true },
   popularity: { type: Number },
-  topics: { type: Array, default: [] },
+  topics: { type: Schema.Types.Mixed, default: [] },
 });
 
 export const Topic = createSchema<types.Topic>('Topic', {
   text: { type: String, required: true },
   popularity: { type: Number },
-  tags: { type: Array, default: [] },
+  tags: { type: Schema.Types.Mixed, default: [] },
 });
 
 export const WorldEvent = createSchema<types.WorldEvent>('WorldEvent', {
   text: { type: String, required: true },
   importance: { type: Number },
-  tags: { type: Array, default: [] },
+  tags: { type: Schema.Types.Mixed, default: [] },
 });
 
 export const CollectibleCollection = createSchema<types.CollectibleCollection>('CollectibleCollection', {
@@ -719,12 +732,12 @@ export const Product = createSchema<types.Product>(
     communityId: { type: Schema.Types.ObjectId, ref: 'Community' } as any,
     type: { type: String, default: 'game', maxlength: 100 },
     releaseDate: { type: Date },
-    tags: { type: [String], default: [] },
+    // tags: { type: [String], default: [] }, // Explicitly cast to Schema.Types.String[]
   },
   {
-    indexes: [
-      { tags: 'text' }, // Mongoose does not support GIN index directly, using text index instead
-    ],
+    // indexes: [
+    //   { tags: 'text' }, // Mongoose does not support GIN index directly, using text index instead
+    // ],
     virtuals: [
       {
         name: 'projects',
@@ -860,7 +873,7 @@ export const Interface = createSchema<types.Interface>('Interface', {
 });
 
 export const InterfaceGroup = createSchema<types.InterfaceGroup>('InterfaceGroup', {
-  rolesOnInterfaceGroups: Array,
+  rolesOnInterfaceGroups: Schema.Types.Mixed,
 });
 
 export const InterfaceComponent = createSchema<types.InterfaceComponent>('InterfaceComponent', {
@@ -1104,9 +1117,9 @@ export const ChatMessage = createSchema<types.ChatMessage>(
     externalId: { type: String },
     externalPlatform: { type: String, enum: ['Telegram', 'Discord'] },
     isSpam: { type: Boolean, default: false },
-    tags: { type: Array, default: [] },
+    tags: { type: Schema.Types.Mixed, default: [] },
     summary: { type: String },
-    entities: { type: Array, default: [] },
+    entities: { type: Schema.Types.Mixed, default: [] },
     type: {
       type: String,
       default: 'text',
