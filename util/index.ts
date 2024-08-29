@@ -16,7 +16,7 @@ import * as web3 from './web3';
 import * as math from './math';
 import * as json from './json';
 import * as format from './format';
-import * as browser from './browser';
+// import * as browser from './browser';
 export * as decoder from './decoder';
 
 const path = require('path');
@@ -324,7 +324,7 @@ export default {
   json,
   db,
   format,
-  browser,
+  // browser,
   config,
   time,
 };
