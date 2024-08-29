@@ -16,11 +16,11 @@ interface WhereClause {
   [key: string]: any;
 }
 
-interface ApolloVariables {
+interface Variables {
   where: WhereClause;
 }
 
-export function getQueryFromApolloVariables(variables: ApolloVariables): Record<string, any> {
+export function processInputQuery(variables: Variables): Record<string, any> {
   const query: Record<string, any> = {};
 
   if (variables.where.id?.equals) {

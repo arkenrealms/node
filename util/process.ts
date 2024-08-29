@@ -61,7 +61,9 @@ export default async function (msg) {
 
 export async function awaitEnter() {
   const rl = readline.createInterface({
+    // @ts-ignore
     input: process.stdin,
+    // @ts-ignore
     output: process.stdout,
   });
 
