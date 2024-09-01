@@ -15,6 +15,7 @@ export const ObjectId = z.union([
 // export const StatusEnum = z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active');
 
 export const Common = z.object({
+  id: ObjectId.optional(),
   createdById: ObjectId.optional(),
   editedById: ObjectId.optional(),
   deletedById: ObjectId.optional(),

@@ -1,146 +1,181 @@
+// module/core.router.ts
+
 import { z as zod } from 'zod';
-import { initTRPC } from '@trpc/server';
-import type { Context } from '../../types';
-import { Service } from './core.service';
+import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
+import { customErrorFormatter, hasRole } from '~/util/rpc';
+import { dateFromString } from '~/util/zod';
+import type { RouterContext } from '~/types';
+import {
+  Account,
+  Achievement,
+  Act,
+  Agent,
+  Application,
+  Badge,
+  BattlePass,
+  Biome,
+  BiomeFeature,
+  Bounty,
+  Collection,
+  Comment,
+  Community,
+  Company,
+  Conversation,
+  Data,
+  Discussion,
+  Energy,
+  Event,
+  Exchange,
+  File,
+  Galaxy,
+  Guide,
+  Idea,
+  Leaderboard,
+  Log,
+  Lore,
+  Market,
+  Memory,
+  Message,
+  Metaverse,
+  NewsArticle,
+  Npc,
+  Offer,
+  Omniverse,
+  Order,
+  Payment,
+  Permission,
+  Person,
+  Planet,
+  Poll,
+  Project,
+  Proposal,
+  Quest,
+  Rating,
+  Realm,
+  RecordUpdate,
+  Referral,
+  Review,
+  Role,
+  Season,
+  Server,
+  Session,
+  SolarSystem,
+  Star,
+  Stash,
+  Stock,
+  Suggestion,
+  Tag,
+  Team,
+  Tournament,
+  Trade,
+  Universe,
+  Validator,
+  Vote,
+  WorldEvent,
+  Stat,
+} from './core.schema';
 
 export const z = zod;
-export const t = initTRPC.context<Context>().create();
+export const t = initTRPC.context<RouterContext>().create();
 export const router = t.router;
 export const procedure = t.procedure;
 
-export const createRouter = (service: any) =>
+export const createRouter = () =>
   router({
-    // Account routes
-    getAccount: procedure.input(z.object({ accountId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getAccount(input, ctx);
-    }),
+    // Account Procedures
+    getAccount: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ accountId: z.string() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getAccount as any)(input, ctx)),
+
     createAccount: procedure
-      .input(z.object({ username: z.string(), email: z.string().optional(), telegramUserId: z.number().optional() }))
-      .mutation(async ({ input, ctx }) => {
-        return service.createAccount(input, ctx);
-      }),
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(Account)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createAccount as any)(input, ctx)),
+
     updateAccount: procedure
-      .input(
-        z.object({
-          accountId: z.string(),
-          data: z.object({
-            username: z.string().optional(),
-            email: z.string().optional(),
-            telegramUserId: z.number().optional(),
-          }),
-        })
-      )
-      .mutation(async ({ input, ctx }) => {
-        return service.updateAccount(input, ctx);
-      }),
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ accountId: z.string(), data: Account.partial() }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateAccount as any)(input, ctx)),
 
-    // Achievement routes
-    getAchievement: procedure.input(z.object({ achievementId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getAchievement(input, ctx);
-    }),
-    createAchievement: procedure.input(z.object({})).mutation(async ({ input, ctx }) => {
-      return service.createAchievement(input, ctx);
-    }),
+    // Achievement Procedures
+    getAchievement: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ achievementId: z.string() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getAchievement as any)(input, ctx)),
+
+    createAchievement: procedure
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(Achievement)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createAchievement as any)(input, ctx)),
+
     updateAchievement: procedure
-      .input(z.object({ achievementId: z.string(), data: z.object({}) }))
-      .mutation(async ({ input, ctx }) => {
-        return service.updateAchievement(input, ctx);
-      }),
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ achievementId: z.string(), data: Achievement.partial() }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateAchievement as any)(input, ctx)),
 
-    // Act routes
-    getAct: procedure.input(z.object({ actId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getAct(input, ctx);
-    }),
-    createAct: procedure.input(z.object({})).mutation(async ({ input, ctx }) => {
-      return service.createAct(input, ctx);
-    }),
-    updateAct: procedure.input(z.object({ actId: z.string(), data: z.object({}) })).mutation(async ({ input, ctx }) => {
-      return service.updateAct(input, ctx);
-    }),
+    // Add similar procedures for Act, Agent, Application, Badge, BattlePass, Biome, BiomeFeature,
+    // Bounty, Collection, Comment, Community, Company, Conversation, Data, Discussion, Energy, Event, Exchange,
+    // File, Galaxy, Guide, Idea, Leaderboard, Log, Lore, Market, Memory, Message, Metaverse, NewsArticle, Npc,
+    // Offer, Omniverse, Order, Payment, Permission, Person, Planet, Poll, Project, Proposal, Quest, Rating, Realm,
+    // RecordUpdate, Referral, Review, Role, Season, Server, Session, SolarSystem, Star, Stash, Stock, Suggestion, Tag,
+    // Team, Tournament, Trade, Universe, Validator, Vote, WorldEvent.
 
-    // Agent routes
-    getAgent: procedure.input(z.object({ agentId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getAgent(input, ctx);
-    }),
-    createAgent: procedure.input(z.object({})).mutation(async ({ input, ctx }) => {
-      return service.createAgent(input, ctx);
-    }),
-    updateAgent: procedure
-      .input(z.object({ agentId: z.string(), data: z.object({}) }))
-      .mutation(async ({ input, ctx }) => {
-        return service.updateAgent(input, ctx);
-      }),
+    // Here are some examples for additional entities
 
-    // Application routes
-    getApplication: procedure.input(z.object({ applicationId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getApplication(input, ctx);
-    }),
-    createApplication: procedure
-      .input(
-        z.object({ ownerId: z.string(), metaverseId: z.string(), name: z.string(), description: z.string().optional() })
-      )
-      .mutation(async ({ input, ctx }) => {
-        return service.createApplication(input, ctx);
-      }),
-    updateApplication: procedure
-      .input(
-        z.object({
-          applicationId: z.string(),
-          data: z.object({
-            ownerId: z.string().optional(),
-            metaverseId: z.string().optional(),
-            name: z.string().optional(),
-            description: z.string().optional(),
-          }),
-        })
-      )
-      .mutation(async ({ input, ctx }) => {
-        return service.updateApplication(input, ctx);
-      }),
+    // Example: Role Procedures
+    getRole: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ roleId: z.string() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRole as any)(input, ctx)),
 
-    // Badge routes
-    getBadge: procedure.input(z.object({ badgeId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getBadge(input, ctx);
-    }),
-    createBadge: procedure.input(z.object({ value: z.string() })).mutation(async ({ input, ctx }) => {
-      return service.createBadge(input, ctx);
-    }),
-    updateBadge: procedure
-      .input(z.object({ badgeId: z.string(), data: z.object({ value: z.string().optional() }) }))
-      .mutation(async ({ input, ctx }) => {
-        return service.updateBadge(input, ctx);
-      }),
+    createRole: procedure
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(Role)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRole as any)(input, ctx)),
 
-    // Repeat similar structure for other entities...
+    updateRole: procedure
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ roleId: z.string(), data: Role.partial() }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRole as any)(input, ctx)),
 
-    // WorldEvent routes
-    getWorldEvent: procedure.input(z.object({ worldEventId: z.string() })).query(async ({ input, ctx }) => {
-      return service.getWorldEvent(input, ctx);
-    }),
-    createWorldEvent: procedure
-      .input(z.object({ text: z.string(), importance: z.number().optional(), tags: z.array(z.unknown()).optional() }))
-      .mutation(async ({ input, ctx }) => {
-        return service.createWorldEvent(input, ctx);
-      }),
-    updateWorldEvent: procedure
-      .input(
-        z.object({
-          worldEventId: z.string(),
-          data: z.object({
-            text: z.string().optional(),
-            importance: z.number().optional(),
-            tags: z.array(z.unknown()).optional(),
-          }),
-        })
-      )
-      .mutation(async ({ input, ctx }) => {
-        return service.updateWorldEvent(input, ctx);
-      }),
+    // Example: Universe Procedures
+    getUniverse: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ universeId: z.string() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getUniverse as any)(input, ctx)),
 
-    info: procedure.query(async ({ input, ctx }) => {
-      return service.info(ctx);
-    }),
+    createUniverse: procedure
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(Universe)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createUniverse as any)(input, ctx)),
+
+    updateUniverse: procedure
+      .use(hasRole('realm', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ universeId: z.string(), data: Universe.partial() }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateUniverse as any)(input, ctx)),
+
+    info: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({}))
+      .query(({ input, ctx }) => (ctx.app.service.Core.info as any)(input, ctx)),
+
     stats: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
       .input(
         z.object({
           where: z.object({
@@ -153,9 +188,9 @@ export const createRouter = (service: any) =>
           }),
         })
       )
-      .query(async ({ input, ctx }) => {
-        return service.stats(ctx);
-      }),
+      .query(({ input, ctx }) => (ctx.app.service.Core.stats as any)(input, ctx)),
   });
 
-// export const router: ReturnType<typeof Service.createRouter>;
+export type Router = ReturnType<typeof createRouter>;
+export type RouterInput = inferRouterInputs<Router>;
+export type RouterOutput = inferRouterOutputs<Router>;

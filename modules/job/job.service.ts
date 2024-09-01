@@ -1,25 +1,41 @@
-import dayjs from 'dayjs';
-import type { Job } from './job.types';
-import type { IApp, Context } from '../../types';
+// module/job.service.ts
 
-// export interface IService {
-//   jobs: (ctx: any) => Promise<any>;
-// }
+import type { Job, RouterContext, Router, RouterInput, RouterOutput } from './job.types';
 
 export class Service {
-  constructor() {}
+  async getJob(input: RouterInput['getJob'], ctx: RouterContext): Promise<RouterOutput['getJob']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Job.Service.getJob', input.jobId);
 
-  async init({ app }: { app: IApp }) {}
+    const job = await ctx.app.model.Job.findById(input.jobId).lean().exec();
+    if (!job) throw new Error('Job not found');
 
-  async jobs({ app }: { app: IApp }) {
-    console.log('Job.Service.jobs');
-
-    const jobs = await app.model.Job.find().lean().exec();
-
-    return { data: jobs as Job[] };
+    return job as Job;
   }
 
-  async updateMetrics(ctx: Context) {
+  async createJob(input: RouterInput['createJob'], ctx: RouterContext): Promise<RouterOutput['createJob']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Job.Service.createJob', input);
+
+    const job = await ctx.app.model.Job.create(input);
+    return job as Job;
+  }
+
+  async updateJob(input: RouterInput['updateJob'], ctx: RouterContext): Promise<RouterOutput['updateJob']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Job.Service.updateJob', input.jobId, input.data);
+
+    const updatedJob = await ctx.app.model.Job.findByIdAndUpdate(input.jobId, input.data, { new: true }).lean().exec();
+    if (!updatedJob) throw new Error('Job update failed');
+
+    return updatedJob as Job;
+  }
+
+  async updateMetrics(
+    input: RouterInput['updateJobCategory'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateJobCategory']> {
+    if (!input) throw new Error('Input should not be void');
     console.log('Job.Service.updateMetrics');
 
     let latestRecord;

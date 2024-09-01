@@ -1,9 +1,14 @@
+// module/core.types.ts
+
+import { z } from 'zod';
 import * as schema from './core.schema';
-import { z, Model, Document } from '../../util/mongo';
+import { Document, Model } from '../../util/mongo';
+
+export type * from './core.router';
 export type * from './core.service';
+export type { RouterContext } from '../../types';
 
-// TypeScript types for each schema
-
+// Define all core types from schemas
 export type Account = z.infer<typeof schema.Account>;
 export type Achievement = z.infer<typeof schema.Achievement>;
 export type Act = z.infer<typeof schema.Act>;
@@ -59,6 +64,7 @@ export type Server = z.infer<typeof schema.Server>;
 export type Session = z.infer<typeof schema.Session>;
 export type SolarSystem = z.infer<typeof schema.SolarSystem>;
 export type Star = z.infer<typeof schema.Star>;
+export type Stat = z.infer<typeof schema.Stat>;
 export type Stash = z.infer<typeof schema.Stash>;
 export type Stock = z.infer<typeof schema.Stock>;
 export type Suggestion = z.infer<typeof schema.Suggestion>;
@@ -70,10 +76,8 @@ export type Universe = z.infer<typeof schema.Universe>;
 export type Validator = z.infer<typeof schema.Validator>;
 export type Vote = z.infer<typeof schema.Vote>;
 export type WorldEvent = z.infer<typeof schema.WorldEvent>;
-export type Stat = z.infer<typeof schema.Stat>;
-export type StatDocument = Stat & Document;
 
-// Document types for Mongoose models
+// Define document types
 export type AccountDocument = Account & Document;
 export type AchievementDocument = Achievement & Document;
 export type ActDocument = Act & Document;
@@ -141,7 +145,7 @@ export type ValidatorDocument = Validator & Document;
 export type VoteDocument = Vote & Document;
 export type WorldEventDocument = WorldEvent & Document;
 
-// Model mappings for Mongoose models
+// Define model mappings
 export type Mappings = {
   Account: Model<AccountDocument>;
   Achievement: Model<AchievementDocument>;
@@ -198,6 +202,7 @@ export type Mappings = {
   Session: Model<SessionDocument>;
   SolarSystem: Model<SolarSystemDocument>;
   Star: Model<StarDocument>;
+  Stat: Model<StatDocument>;
   Stash: Model<StashDocument>;
   Stock: Model<StockDocument>;
   Suggestion: Model<SuggestionDocument>;
@@ -209,5 +214,4 @@ export type Mappings = {
   Validator: Model<ValidatorDocument>;
   Vote: Model<VoteDocument>;
   WorldEvent: Model<WorldEventDocument>;
-  Stat: Model<StatDocument>;
 };

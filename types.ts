@@ -1,14 +1,23 @@
 import { Model as MongooseModel, Document } from 'mongoose';
 export * as schema from './schema/types';
 import { createRouter } from './router';
-import type * as Area from './modules/area/area.types';
-import type * as Asset from './modules/asset/asset.types';
-import type * as Chain from './modules/chain/chain.types';
-import type * as Core from './modules/core/core.types';
-import type * as Game from './modules/game/game.types';
-import type * as Job from './modules/job/job.types';
-import type * as Interface from './modules/interface/interface.types';
-import type * as Profile from './modules/profile/profile.types';
+import * as Area from './modules/area/area.types';
+import * as Asset from './modules/asset/asset.types';
+import * as Chain from './modules/chain/chain.types';
+import * as Character from './modules/character/character.types';
+import * as Chat from './modules/chat/chat.types';
+import * as Collection from './modules/collection/collection.types';
+import * as Core from './modules/core/core.types';
+import * as Game from './modules/game/game.types';
+import * as Interface from './modules/interface/interface.types';
+import * as Item from './modules/item/item.types';
+import * as Job from './modules/job/job.types';
+import * as Market from './modules/market/market.types';
+import * as Product from './modules/product/product.types';
+import * as Profile from './modules/profile/profile.types';
+import * as Raffle from './modules/raffle/raffle.types';
+import * as Skill from './modules/skill/skill.types';
+import * as Video from './modules/video/video.types';
 
 export type Router = ReturnType<typeof createRouter>;
 
@@ -16,20 +25,38 @@ export interface Application {
   model: {} & Area.Mappings &
     Asset.Mappings &
     Chain.Mappings &
+    Character.Mappings &
+    Chat.Mappings &
+    Collection.Mappings &
     Core.Mappings &
     Game.Mappings &
-    Job.Mappings &
     Interface.Mappings &
-    Profile.Mappings;
+    Item.Mappings &
+    Job.Mappings &
+    Market.Mappings &
+    Product.Mappings &
+    Profile.Mappings &
+    Raffle.Mappings &
+    Skill.Mappings &
+    Video.Mappings;
   service: {
     Area: Area.Service;
     Asset: Asset.Service;
     Chain: Chain.Service;
+    Character: Character.Service;
+    Chat: Chat.Service;
+    Collection: Collection.Service;
     Core: Core.Service;
     Game: Game.Service;
-    Job: Job.Service;
     Interface: Interface.Service;
+    Item: Item.Service;
+    Job: Job.Service;
+    Market: Market.Service;
+    Product: Product.Service;
     Profile: Profile.Service;
+    Raffle: Raffle.Service;
+    Skill: Skill.Service;
+    Video: Video.Service;
   };
 }
 

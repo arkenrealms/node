@@ -181,6 +181,42 @@ export class Model<T extends Document> {
     return this.model.find(filter, options);
   }
 
+  findOne(
+    filter: FilterQuery<T> = {},
+    projection?: ProjectionType<T> | null,
+    options?: QueryOptions
+  ): Query<T | null, T> {
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+
+    if (filter.applicationId && typeof filter.applicationId === 'string') {
+      // @ts-ignore
+      filter.applicationId = filter.applicationId;
+    }
+
+    return this.model.findOne(filter, options);
+  }
+
+  findOneAndUpdate(
+    filter: FilterQuery<T>,
+    update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
+    options?: QueryOptions & { new?: boolean }
+  ): Query<T | null, T> {
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+
+    if (filter.applicationId && typeof filter.applicationId === 'string') {
+      // @ts-ignore
+      filter.applicationId = filter.applicationId;
+    }
+
+    return this.model.findOneAndUpdate(filter, update, options);
+  }
+
   findAll(): Query<T[], T> {
     return this.model.find();
   }
@@ -190,7 +226,19 @@ export class Model<T extends Document> {
     projection?: ProjectionType<T> | null,
     options?: QueryOptions
   ): Query<T | null, T> {
-    return this.model.findById(id, projection, options);
+    const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
+
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+
+    if (filter.applicationId && typeof filter.applicationId === 'string') {
+      // @ts-ignore
+      filter.applicationId = filter.applicationId;
+    }
+
+    return this.model.findOne(filter, projection, options);
   }
 
   findByIdAndUpdate(
@@ -198,7 +246,35 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
     options?: QueryOptions & { new?: boolean }
   ): Query<T | null, T> {
-    return this.model.findByIdAndUpdate(id, update, options);
+    const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
+
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+
+    if (filter.applicationId && typeof filter.applicationId === 'string') {
+      // @ts-ignore
+      filter.applicationId = filter.applicationId;
+    }
+
+    return this.model.findOneAndUpdate(filter, update, options);
+  }
+
+  findByIdAndDelete(id: Types.ObjectId | string, options?: QueryOptions): Query<T | null, T> {
+    const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
+
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+
+    if (filter.applicationId && typeof filter.applicationId === 'string') {
+      // @ts-ignore
+      filter.applicationId = filter.applicationId;
+    }
+
+    return this.model.findOneAndDelete(filter, options);
   }
 
   async upsert(
@@ -216,25 +292,6 @@ export class Model<T extends Document> {
     } else {
       return (await this.create(create)) as T;
     }
-  }
-
-  findOne(
-    filter: FilterQuery<T> = {},
-    projection?: ProjectionType<T> | null,
-    options?: QueryOptions
-  ): Query<T | null, T> {
-    console.log(this.model.modelName);
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
-      // @ts-ignore
-      filter.applicationId = this.filters.applicationId;
-    }
-
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = filter.applicationId;
-    }
-
-    return this.model.findOne(filter, options);
   }
 
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
