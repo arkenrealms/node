@@ -1,4 +1,4 @@
-import { initTRPC, TRPCError, DataTransformer } from '@trpc/server';
+import { initTRPC, TRPCError } from '@trpc/server';
 import { isValidRequest } from './web3';
 
 export const customErrorFormatter = (t: any) =>
@@ -31,12 +31,12 @@ export const deserialize = (string: string): any => {
   });
 };
 
-export const transformer: DataTransformer = {
+export const transformer: any = {
   serialize,
   deserialize,
 };
 
-export const dummyTransformer: DataTransformer = {
+export const dummyTransformer: any = {
   serialize: (object: any): any => object,
   deserialize: (object: any): any => object,
 };

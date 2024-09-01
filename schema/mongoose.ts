@@ -1,134 +1,4 @@
-import mongoose, {
-  Schema,
-  SchemaDefinition,
-  SchemaOptions,
-  SchemaTypeOptions,
-  SchemaTypes,
-  Document,
-  Query,
-  IndexOptions,
-  SchemaDefinitionProperty,
-} from 'mongoose';
-import { Mixed, ObjectIdSchemaDefinition } from 'mongoose'; // Mixed type
-import type { AnyArray } from 'mongoose'; // AnyArray utility type
-import { StringSchemaDefinition } from 'mongoose';
-import pluralize from 'pluralize';
-import * as types from './types';
-import { toCamelCase } from '../util/string';
-
-const CommonFields = {
-  key: { type: String, minlength: 2, maxlength: 200, trim: true },
-  name: { type: String },
-  description: { type: String },
-  status: {
-    type: String,
-    default: 'Active',
-    enum: ['Paused', 'Pending', 'Active', 'Archived'],
-  },
-  data: { type: Object, default: {} },
-  meta: { type: Object, default: {} },
-  createdById: { type: Schema.Types.ObjectId, ref: 'Profile' },
-  editedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
-  deletedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
-  createdDate: { type: Date, default: Date.now },
-  updatedDate: { type: Date },
-  deletedDate: { type: Date },
-};
-
-const EntityFields = {
-  applicationId: { type: Schema.Types.ObjectId, ref: 'Application', required: true },
-  ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
-};
-
-type PreHookMethod = keyof mongoose.Query<any, any> | 'save' | 'validate';
-
-interface CustomSchemaOptions extends SchemaOptions {
-  extend?: 'EntityFields' | 'CommonFields';
-  indexes?: { [field: string]: any }[];
-  virtuals?: {
-    name: string;
-    options?: { ref?: string; localField?: string; foreignField?: string; justOne?: boolean; through?: any };
-  }[];
-  pre?: { method: PreHookMethod | RegExp; handler: (this: Document, next: any) => void }[];
-}
-
-function createSchema<T>(
-  name: string,
-  customFields: SchemaDefinition<T> = {} as SchemaDefinition<T>,
-  options: CustomSchemaOptions = {}
-): Schema<T & typeof CommonFields & (typeof EntityFields | {})> {
-  const extend = options.extend || 'EntityFields';
-  const collectionName = options.collection || name;
-
-  let schema: Schema<T & typeof CommonFields & (typeof EntityFields | {})>;
-
-  if (extend === 'EntityFields') {
-    schema = new Schema<T & typeof CommonFields & typeof EntityFields>(
-      {
-        ...CommonFields,
-        ...EntityFields,
-        ...customFields,
-      } as SchemaDefinition<T & typeof CommonFields & typeof EntityFields>,
-      {
-        timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-        collection: collectionName,
-      }
-    );
-  } else {
-    schema = new Schema<T & typeof CommonFields>(
-      {
-        ...CommonFields,
-        ...customFields,
-      } as SchemaDefinition<T & typeof CommonFields>,
-      {
-        timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-        collection: collectionName,
-      }
-    );
-  }
-
-  // Apply indexes
-  if (options.indexes) {
-    options.indexes.forEach((index) => schema.index(index));
-  } else {
-    schema.index({ key: 1 });
-    schema.index({ name: 1 });
-    schema.index({ status: 1 });
-
-    if (extend === 'EntityFields') {
-      schema.index({ applicationId: 1, key: 1 }, { unique: true } as IndexOptions);
-    }
-  }
-
-  // Apply virtuals
-  if (options.virtuals) {
-    options.virtuals.forEach((virtual) => {
-      const ref =
-        virtual.options?.ref || pluralize.singular(virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1));
-      const localField = virtual.options?.localField || '_id';
-      const foreignField = virtual.options?.foreignField || `${toCamelCase(name)}Id`; // Default foreignField
-      const justOne =
-        virtual.options?.justOne !== undefined ? virtual.options.justOne : !pluralize.isPlural(virtual.name);
-
-      schema.virtual(virtual.name, {
-        ref,
-        localField,
-        foreignField,
-        justOne,
-        ...virtual.options,
-      });
-    });
-  }
-
-  // Apply pre middleware
-  if (options.pre) {
-    options.pre.forEach((preHook) => {
-      schema.pre(preHook.method as any, preHook.handler); // Casting to 'any' for compatibility with Mongoose types
-    });
-  }
-
-  return schema;
-}
+import { Schema, createSchema, types } from '../util/mongo'; // Mixed type
 
 export const Omniverse = createSchema<types.Omniverse>('Omniverse', {}, { extend: 'CommonFields' });
 
@@ -140,62 +10,20 @@ export const Metaverse = createSchema<types.Metaverse>(
   { extend: 'CommonFields' }
 );
 
-export const Account = createSchema<types.Account>(
-  'Account',
-  {
-    username: { type: String, required: true },
-    email: { type: String },
-    telegramUserId: { type: Number },
-  },
-  {
-    indexes: [
-      { applicationId: 1, username: 1, unique: true },
-      { applicationId: 1, telegramUserId: 1, unique: true },
-    ],
-    virtuals: [
-      {
-        name: 'profiles',
-      },
-    ],
-  }
-);
-
-export const Profile = createSchema<types.Profile>(
-  'Profile',
-  {
-    accountId: { type: Schema.Types.ObjectId, ref: 'Account', required: true } as any,
-    points: { type: Number },
-    coins: { type: Number },
-    telegramUserId: { type: Number },
-    interactions: { type: Number, default: 0 } as any,
-    activityRating: { type: Number, default: 0 } as any,
-    address: { type: String, maxlength: 100 },
-    avatar: { type: String, maxlength: 100 },
-    roleId: { type: Schema.Types.ObjectId, ref: 'Role' } as any,
-    privateKey: { type: String, maxlength: 300 },
-    signature: { type: String, maxlength: 200 },
-    chainId: { type: Schema.Types.ObjectId, ref: 'Chain' } as any,
-  },
-  {
-    indexes: [
-      { applicationId: 1, telegramUserId: 1, unique: true },
-      { applicationId: 1, accountId: 1, name: 1, unique: true },
-    ],
-  }
-);
-
 export const Application = createSchema<types.Application>(
   'Application',
   {
     metaverseId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Metaverse',
       required: true,
     } as any,
+    ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
     name: { type: String, required: true },
     description: { type: String },
   },
   {
+    extend: null,
     indexes: [{ metaverseId: 1, name: 1, unique: true }],
     virtuals: [
       { name: 'agents' },
@@ -313,6 +141,26 @@ export const Application = createSchema<types.Application>(
   }
 );
 
+export const Account = createSchema<types.Account>(
+  'Account',
+  {
+    username: { type: String, required: true },
+    email: { type: String },
+    telegramUserId: { type: Number },
+  },
+  {
+    indexes: [
+      { applicationId: 1, username: 1, unique: true },
+      { applicationId: 1, telegramUserId: 1, unique: true },
+    ],
+    virtuals: [
+      {
+        name: 'profiles',
+      },
+    ],
+  }
+);
+
 export const Data = createSchema<types.Data>(
   'Data',
   {
@@ -330,18 +178,18 @@ export const Video = createSchema<types.Video>('Video', {
 });
 
 export const VideoParticipant = createSchema<types.VideoParticipant>('VideoParticipant', {
-  profileId: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' } as any,
+  profileId: { type: Schema.Types.ObjectId, ref: 'Profile' } as any,
 });
 
 export const VideoDialogue = createSchema<types.VideoDialogue>('VideoDialogue', {
-  participantId: { type: mongoose.Schema.Types.ObjectId, ref: 'VideoParticipant' } as any,
+  participantId: { type: Schema.Types.ObjectId, ref: 'VideoParticipant' } as any,
   text: { type: String, required: true },
   timestamp: { type: String, required: true },
 });
 
 export const VideoTranscript = createSchema<types.VideoTranscript>('VideoTranscript', {
-  videoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Video', required: true } as any,
-  transcript: { type: [mongoose.Schema.Types.Mixed], required: true } as any,
+  videoId: { type: Schema.Types.ObjectId, ref: 'Video', required: true } as any,
+  transcript: { type: [Schema.Types.Mixed], required: true } as any,
   summary: { type: String, required: true },
 });
 
@@ -367,18 +215,6 @@ export const Log = createSchema<types.Log>(
   },
   {
     indexes: [{ deletedDate: 1 }, { mod: 1 }, { status: 1 }, { createdDate: 1, updatedDate: 1 }],
-  }
-);
-
-export const Job = createSchema<types.Job>(
-  'Job',
-  {
-    mod: { type: String, required: true },
-    startDate: { type: Date },
-    expireDate: { type: Date },
-  },
-  {
-    indexes: [{ applicationId: 1, mod: 1, key: 1 }],
   }
 );
 
@@ -426,12 +262,12 @@ export const CollectibleCollection = createSchema<types.CollectibleCollection>('
 });
 
 export const CollectibleCardBox = createSchema<types.CollectibleCardBox>('CollectibleCardBox', {
-  collectibleCollectionId: { type: mongoose.Schema.Types.ObjectId, ref: 'CollectibleCollection' } as any,
+  collectibleCollectionId: { type: Schema.Types.ObjectId, ref: 'CollectibleCollection' } as any,
   franchise: { type: String, required: true, trim: true },
 });
 
 export const CollectibleCardPack = createSchema<types.CollectibleCardPack>('CollectibleCardPack', {
-  collectibleCollectionId: { type: mongoose.Schema.Types.ObjectId, ref: 'CollectibleCollection' } as any,
+  collectibleCollectionId: { type: Schema.Types.ObjectId, ref: 'CollectibleCollection' } as any,
   franchise: { type: String, required: true, trim: true },
   ungraded: { type: Number },
   grade10: { type: Number },
@@ -454,7 +290,7 @@ export const CollectibleCardPack = createSchema<types.CollectibleCardPack>('Coll
 
 export const CollectibleCard = createSchema<types.CollectibleCard>('CollectibleCard', {
   collectibleCollectionId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'CollectibleCollection',
   } as any,
   franchise: { type: String, required: true, trim: true },
@@ -525,7 +361,7 @@ export const ChainToken = createSchema<types.ChainToken>(
   'ChainToken',
   {
     rank: { type: Number, min: 0 },
-    description: { type: String, required: true },
+    description: { type: String },
     content: { type: String },
     type: { type: String, maxlength: 100 },
     standard: { type: String, maxlength: 100 },
@@ -852,10 +688,6 @@ export const Permission = createSchema<types.Permission>('Permission', {
   permissionsOnRoles: [{ type: Schema.Types.ObjectId, ref: 'PermissionsOnRoles' } as any],
 });
 
-export const Stat = createSchema<types.Stat>('Stat', {
-  number: { type: Number, default: 0 },
-});
-
 export const RecordUpdate = createSchema<types.RecordUpdate>('RecordUpdate', {
   objectType: { type: String, required: true, maxlength: 100 },
   objectId: { type: String, required: true },
@@ -863,31 +695,6 @@ export const RecordUpdate = createSchema<types.RecordUpdate>('RecordUpdate', {
   reason: { type: String, required: true, maxlength: 100 },
   recordUpdatesOnForms: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnForms' } as any],
   recordUpdatesOnProfiles: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnProfiles' } as any],
-});
-
-export const Interface = createSchema<types.Interface>('Interface', {
-  key: { type: String, required: true },
-  submissions: [{ type: Schema.Types.ObjectId, ref: 'InterfaceSubmission' }],
-  commentsOnInterfaces: [{ type: Schema.Types.ObjectId, ref: 'CommentsOnInterfaces' }],
-  recordUpdatesOnInterfaces: [{ type: Schema.Types.ObjectId, ref: 'RecordUpdatesOnInterfaces' }],
-});
-
-export const InterfaceGroup = createSchema<types.InterfaceGroup>('InterfaceGroup', {
-  rolesOnInterfaceGroups: Schema.Types.Mixed,
-});
-
-export const InterfaceComponent = createSchema<types.InterfaceComponent>('InterfaceComponent', {
-  value: { type: Object, default: {} },
-  type: { type: String },
-  hasAttachment: { type: Boolean },
-  hasValidation: { type: Boolean },
-  isDisabled: { type: Boolean },
-  isEditable: { type: Boolean },
-  isRequired: { type: Boolean },
-});
-
-export const InterfaceSubmission = createSchema<types.InterfaceSubmission>('InterfaceSubmission', {
-  interfaceId: { type: Schema.Types.ObjectId, ref: 'Interface' } as any,
 });
 
 export const Character = createSchema<types.Character>('Character', {
@@ -1001,8 +808,6 @@ export const CharacterNameChoice = createSchema<types.CharacterNameChoice>('Char
 
 export const CharacterFaction = createSchema<types.CharacterFaction>('CharacterFaction');
 
-export const Era = createSchema<types.Era>('Era');
-
 export const Season = createSchema<types.Season>('Season');
 
 export const Lore = createSchema<types.Lore>('Lore', {
@@ -1018,10 +823,6 @@ export const Guide = createSchema<types.Guide>('Guide', {
 });
 
 export const Achievement = createSchema<types.Achievement>('Achievement');
-
-export const Game = createSchema<types.Game>('Game', {
-  productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true } as any,
-});
 
 export const Validator = createSchema<types.Validator>('Validator');
 
@@ -1103,11 +904,11 @@ export const ChatGroup = createSchema<types.ChatGroup>('ChatGroup', {
 export const ChatMessage = createSchema<types.ChatMessage>(
   'ChatMessage',
   {
-    groupId: { type: Schema.Types.ObjectId, ref: 'ChatGroup', required: true },
-    profileId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true },
+    groupId: { type: Schema.Types.ObjectId, ref: 'ChatGroup', required: true } as any,
+    profileId: { type: Schema.Types.ObjectId, ref: 'Profile', required: true } as any,
     content: { type: String },
     mediaUrl: { type: String },
-    replyToId: { type: Schema.Types.ObjectId, ref: 'ChatMessage' },
+    replyToId: { type: Schema.Types.ObjectId, ref: 'ChatMessage' } as any,
     reactions: [
       {
         profileId: { type: Schema.Types.ObjectId, ref: 'Profile' },

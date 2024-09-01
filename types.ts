@@ -1,5 +1,36 @@
+import { Model as MongooseModel, Document } from 'mongoose';
 export * as schema from './schema/types';
-// export type * from './schema/types';
+import { createRouter } from './router';
+import type * as Core from './modules/core/core.types';
+import type * as Game from './modules/game/game.types';
+import type * as Job from './modules/job/job.types';
+import type * as Interface from './modules/interface/interface.types';
+import type * as Profile from './modules/profile/profile.types';
+
+export type Router = ReturnType<typeof createRouter>;
+
+export interface IApp {
+  model: {} & Core.Mappings & Game.Mappings & Job.Mappings & Interface.Mappings & Profile.Mappings;
+  service: {
+    Core: Core.Service;
+    Game: Game.Service;
+    Job: Job.Service;
+    Interface: Interface.Service;
+    Profile: Profile.Service;
+  };
+}
+
+export type Context = {
+  app: IApp;
+  user: {
+    rolesOnUsers: Array<{
+      status: string;
+      role: {
+        name: string;
+      };
+    }>;
+  };
+};
 
 export interface Signature {
   hash?: string;

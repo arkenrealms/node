@@ -9,11 +9,13 @@ import mongoose, {
   Types,
   Connection,
   Mongoose,
+  Query,
 } from 'mongoose';
+import { Model } from './util/mongo';
 import safeStringify from 'fast-safe-stringify';
 import fsPath from 'path';
 
-let cerebro: any;
+let app: any;
 let log: (...msgs: any[]) => void;
 
 const isObject = (obj: any): obj is Record<string, any> => obj && typeof obj === 'object';
@@ -35,113 +37,131 @@ const createNestedProxy = <T extends Record<string, any>>(obj: T): T =>
     },
   });
 
-const applicationExcludedModels = ['Omniverse', 'Metaverse', 'Application'];
+// const applicationExcludedModels = ['Omniverse', 'Metaverse', 'Application'];
 
-class BaseModel<T extends Document> {
-  protected model: MongooseModel<T>;
-  protected schema: Schema;
+// export class Model<T extends Document> {
+//   protected model: MongooseModel<T>;
+//   protected schema: Schema;
 
-  constructor(model: MongooseModel<T>) {
-    this.model = model;
-    this.schema = model.schema;
-  }
+//   constructor(model: MongooseModel<T>) {
+//     this.model = model;
+//     this.schema = model.schema;
+//   }
 
-  aggregate(...props: any[]): any {
-    return this.model.aggregate(...props);
-  }
+//   aggregate(...props: any[]): any {
+//     return this.model.aggregate(...props);
+//   }
 
-  find(filter: Record<string, any> = {}, options: Record<string, any> = {}): any {
-    if (!applicationExcludedModels.includes(this.model.modelName)) {
-      filter.applicationId = cerebro.filters.applicationId;
-    }
+//   where(...props: [any, any]): any {
+//     return this.model.where(...props);
+//   }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      filter.applicationId = filter.applicationId;
-    }
+//   find(filter: Record<string, any> = {}, options: Record<string, any> = {}): Query<T[], T> {
+//     if (!applicationExcludedModels.includes(this.model.modelName)) {
+//       filter.applicationId = app.filters.applicationId;
+//     }
 
-    return this.model.find(filter, options);
-  }
+//     if (filter.applicationId && typeof filter.applicationId === 'string') {
+//       filter.applicationId = filter.applicationId;
+//     }
 
-  async upsert(
-    filter: Record<string, any> = {},
-    create: Record<string, any> = {},
-    update: Record<string, any> = {},
-    options: Record<string, any> = {}
-  ): Promise<any> {
-    console.log('Trying to find model with filter', filter, options);
-    const res = await this.findOne(filter, options).exec();
-    console.log('Result of findOne', res);
-    if (res) {
-      await this.update(filter, update, options);
-      return await this.findOne(filter, options).exec();
-    } else {
-      return await this.create(create);
-    }
-  }
+//     return this.model.find(filter, options);
+//   }
 
-  findOne(filter: Record<string, any> = {}, options: Record<string, any> = {}): any {
-    if (!applicationExcludedModels.includes(this.model.modelName)) {
-      filter.applicationId = cerebro.filters.applicationId;
-    }
+//   findAll(): Query<T[], T> {
+//     return this.model.find();
+//   }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      filter.applicationId = filter.applicationId;
-    }
+//   async upsert(
+//     filter: Record<string, any> = {},
+//     create: Record<string, any> = {},
+//     update: Record<string, any> = {},
+//     options: Record<string, any> = {}
+//   ): Promise<any> {
+//     console.log('Trying to find model with filter', filter, options);
+//     const res = await this.findOne(filter, options).exec();
+//     console.log('Result of findOne', res);
+//     if (res) {
+//       await this.update(filter, update, options);
+//       return await this.findOne(filter, options).exec();
+//     } else {
+//       return await this.create(create);
+//     }
+//   }
 
-    return this.model.findOne(filter, options);
-  }
+//   findOne(filter: Record<string, any> = {}, options: Record<string, any> = {}): Query<T | null, T> {
+//     console.log(this.model.modelName);
+//     if (!applicationExcludedModels.includes(this.model.modelName)) {
+//       filter.applicationId = app.filters.applicationId;
+//     }
 
-  create(data: Record<string, any>): any {
-    if (!applicationExcludedModels.includes(this.model.modelName)) {
-      data.applicationId = cerebro.filters.applicationId;
-    }
+//     if (filter.applicationId && typeof filter.applicationId === 'string') {
+//       filter.applicationId = filter.applicationId;
+//     }
 
-    if (data.applicationId && typeof data.applicationId === 'string') {
-      data.applicationId = data.applicationId;
-    }
+//     return this.model.findOne(filter, options);
+//   }
 
-    const res = this.model.create(data);
+//   create(data: Record<string, any>): any {
+//     console.log(this.model.modelName);
+//     if (!applicationExcludedModels.includes(this.model.modelName)) {
+//       data.applicationId = app.filters.applicationId;
+//     }
 
-    const createHandler = <U extends object>(path: string[] = []): ProxyHandler<U> => ({
-      // @ts-ignore
-      get: (target: U, key: keyof U): any => {
-        if (key === 'isProxy') return true;
-        if (typeof target[key] === 'object' && target[key] != null) {
-          // @ts-ignore
-          return new Proxy(target[key], createHandler([...path, key as string]));
-        }
-        return target[key];
-      },
-      // @ts-ignore
-      set: (target: U, key: keyof U, value: any): boolean => {
-        console.log(`Setting ${[...path, key]} to: `, value);
-        target[key] = value;
-        return true;
-      },
-    });
+//     if (data.applicationId && typeof data.applicationId === 'string') {
+//       data.applicationId = data.applicationId;
+//     }
 
-    if ((res as any).meta) (res as any).meta = new Proxy((res as any).meta, createHandler<any>());
+//     const res = this.model.create(data);
 
-    return res;
-  }
+//     const createHandler = <U extends object>(path: string[] = []): ProxyHandler<U> => ({
+//       // @ts-ignore
+//       get: (target: U, key: keyof U): any => {
+//         if (key === 'isProxy') return true;
+//         if (typeof target[key] === 'object' && target[key] != null) {
+//           // @ts-ignore
+//           return new Proxy(target[key], createHandler([...path, key as string]));
+//         }
+//         return target[key];
+//       },
+//       // @ts-ignore
+//       set: (target: U, key: keyof U, value: any): boolean => {
+//         console.log(`Setting ${[...path, key]} to: `, value);
+//         target[key] = value;
+//         return true;
+//       },
+//     });
 
-  update(filter: Record<string, any>, update: Record<string, any>, options: Record<string, any> = {}): any {
-    if (!applicationExcludedModels.includes(this.model.modelName)) {
-      filter.applicationId = cerebro.filters.applicationId;
-      update.applicationId = cerebro.filters.applicationId; // Ensure the update object includes applicationId
-    }
+//     if ((res as any).meta) (res as any).meta = new Proxy((res as any).meta, createHandler<any>());
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      filter.applicationId = filter.applicationId;
-    }
+//     return res;
+//   }
 
-    if (update.applicationId && typeof update.applicationId === 'string') {
-      update.applicationId = update.applicationId;
-    }
+//   update(filter: Record<string, any>, update: Record<string, any>, options: Record<string, any> = {}): any {
+//     if (!applicationExcludedModels.includes(this.model.modelName)) {
+//       filter.applicationId = app.filters.applicationId;
+//       update.applicationId = app.filters.applicationId; // Ensure the update object includes applicationId
+//     }
 
-    return this.model.updateOne(filter, update, options);
-  }
-}
+//     if (filter.applicationId && typeof filter.applicationId === 'string') {
+//       filter.applicationId = filter.applicationId;
+//     }
+
+//     if (update.applicationId && typeof update.applicationId === 'string') {
+//       update.applicationId = update.applicationId;
+//     }
+
+//     return this.model.updateOne(filter, update, options);
+//   }
+
+//   updateOne(...props: [any, any]): any {
+//     return this.update(...props);
+//   }
+
+//   countDocuments(): any {
+//     return this.model.countDocuments();
+//   }
+// }
 
 class Database {
   // @ts-ignore
@@ -152,7 +172,7 @@ class Database {
     log: new ReplaySubject<any[]>(10),
   };
   public data = {
-    model: {} as Record<string, BaseModel<Document>>,
+    model: {} as Record<string, Model<Document>>,
   };
 
   constructor() {}
@@ -244,10 +264,10 @@ class Database {
     });
   }
 
-  model<T extends Document>(key: string, schema?: Schema): BaseModel<T> | undefined {
+  model<T extends Document>(key: string, schema?: Schema): Model<T> | undefined {
     if (schema) {
       // @ts-ignore
-      this.data.model[key] = new BaseModel<T>(mongoose.model<T>(key, schema, key));
+      this.data.model[key] = new Model<T>(mongoose.model<T>(key, schema, key));
     }
 
     if (!this.data.model[key]) {
@@ -255,7 +275,7 @@ class Database {
     }
 
     // @ts-ignore
-    return this.data.model[key] as BaseModel<T>;
+    return this.data.model[key] as Model<T>;
   }
 
   initCollection(name: string, key: string, data: Record<string, any>) {
@@ -392,8 +412,8 @@ class Database {
 
 export const db = new Database();
 
-export async function init(props: { cerebro: any }) {
-  cerebro = props.cerebro;
+export async function init(props: { app: any }) {
+  app = props.app;
   log = db.log.bind(db);
 
   await db.initLoki();

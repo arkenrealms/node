@@ -1,28 +1,35 @@
-import mongoose from 'mongoose';
-import { z } from 'zod';
+import mongoose, { Types } from 'mongoose';
+import { z as zod } from 'zod';
 
-export const ObjectId = z.string().refine((value) => mongoose.Types.ObjectId.isValid(value), {
-  message: 'Invalid ObjectId',
-});
+export const z = zod;
 
-export const StatusEnum = z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active');
+// @ts-ignore
+export const ObjectId = z.union([
+  z.instanceof(Types.ObjectId), // Accept Mongoose ObjectId instances
+  z.string().refine((value) => mongoose.isValidObjectId(value), {
+    // Accept valid ObjectId strings
+    message: 'Invalid ObjectId',
+  }),
+]);
+
+// export const StatusEnum = z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active');
 
 export const Common = z.object({
   createdById: ObjectId.optional(),
   editedById: ObjectId.optional(),
   deletedById: ObjectId.optional(),
-  createdDate: z.date().default(() => new Date()),
+  createdDate: z.date().default(() => new Date()), // Default matches Mongoose
   updatedDate: z.date().optional(),
   deletedDate: z.date().optional(),
-  meta: z.record(z.unknown()).optional(),
-  data: z.record(z.unknown()).optional(),
-  status: StatusEnum,
+  meta: z.record(z.unknown()).default({}), // Default value set here matches Mongoose
+  data: z.record(z.unknown()).default({}), // Default value set here matches Mongoose
+  status: z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active'), // Default set in StatusEnum matches Mongoose
 });
 
 export const Entity = z
   .object({
-    key: z.string().min(2).max(200).trim().optional(),
-    name: z.string().min(2).max(200).trim().optional(),
+    key: z.string().min(1).max(200).trim().optional(),
+    name: z.string().min(1).max(200).trim().optional(),
     description: z.string().optional(),
     applicationId: ObjectId.optional(),
     ownerId: ObjectId.optional(),
@@ -72,6 +79,7 @@ export const Profile = z
 
 export const Application = z
   .object({
+    ownerId: ObjectId,
     metaverseId: ObjectId,
     name: z.string(),
   })
@@ -99,14 +107,6 @@ export const Log = z
     mod: z.string(),
     messages: z.array(z.unknown()).optional(),
     tags: z.array(z.unknown()).optional(),
-  })
-  .merge(Entity);
-
-export const Job = z
-  .object({
-    mod: z.string(),
-    startDate: z.date().optional(),
-    expireDate: z.date().optional(),
   })
   .merge(Entity);
 
@@ -532,12 +532,6 @@ export const Permission = z
   })
   .merge(Entity);
 
-export const Stat = z
-  .object({
-    number: z.number().default(0),
-  })
-  .merge(Entity);
-
 export const RecordUpdate = z
   .object({
     objectType: z.string().max(100),
@@ -546,41 +540,6 @@ export const RecordUpdate = z
     reason: z.string().max(100),
     recordUpdatesOnForms: z.array(ObjectId).optional(),
     recordUpdatesOnProfiles: z.array(ObjectId).optional(),
-  })
-  .merge(Entity);
-
-export const Interface = z
-  .object({
-    ratingId: ObjectId.optional(),
-    submissions: z.array(ObjectId).optional(),
-    commentsOnInterfaces: z.array(ObjectId).optional(),
-    recordUpdatesOnInterfaces: z.array(ObjectId).optional(),
-  })
-  .merge(Entity);
-
-export const InterfaceGroup = z
-  .object({
-    rolesOnInterfaceGroups: z.array(ObjectId).optional(),
-  })
-  .merge(Entity);
-
-export const InterfaceComponent = z
-  .object({
-    value: z.unknown().optional(),
-    data: z.record(z.unknown()).optional(),
-    type: z.string().optional(),
-    hasAttachment: z.boolean().optional(),
-    hasValidation: z.boolean().optional(),
-    isDisabled: z.boolean().optional(),
-    isEditable: z.boolean().optional(),
-    isRequired: z.boolean().optional(),
-  })
-  .merge(Entity);
-
-export const InterfaceSubmission = z
-  .object({
-    interfaceId: ObjectId,
-    interface: ObjectId.optional(),
   })
   .merge(Entity);
 
@@ -717,8 +676,6 @@ export const CharacterNameChoice = z.object({}).merge(Entity);
 
 export const CharacterFaction = z.object({}).merge(Entity);
 
-export const Era = z.object({}).merge(Entity);
-
 export const Season = z.object({}).merge(Entity);
 
 export const Lore = z
@@ -738,12 +695,6 @@ export const Guide = z
   .merge(Entity);
 
 export const Achievement = z.object({}).merge(Entity);
-
-export const Game = z
-  .object({
-    productId: ObjectId,
-  })
-  .merge(Entity);
 
 export const Validator = z.object({}).merge(Entity);
 
@@ -843,6 +794,37 @@ export const VideoTranscript = z
     summary: z.string().optional(),
   })
   .merge(Entity);
+
+export const ChatGroup = z.object({
+  name: z.string().max(100),
+  type: z.enum(['group', 'private']),
+  members: z.array(ObjectId),
+  externalId: z.string().optional(),
+  externalPlatform: z.enum(['Telegram', 'Discord']).optional(),
+});
+
+export const ChatMessage = z.object({
+  groupId: ObjectId,
+  profileId: ObjectId,
+  content: z.string().optional(),
+  mediaUrl: z.string().optional(),
+  replyToId: ObjectId.optional(),
+  reactions: z
+    .array(
+      z.object({
+        profileId: ObjectId,
+        reaction: z.string(),
+      })
+    )
+    .optional(),
+  externalId: z.string().optional(),
+  externalPlatform: z.enum(['Telegram', 'Discord']).optional(),
+  isSpam: z.boolean().default(false),
+  tags: z.array(z.unknown()).default([]),
+  summary: z.string().optional(),
+  entities: z.array(z.unknown()).default([]),
+  type: z.enum(['text', 'image', 'video', 'audio', 'file', 'system']).default('text'),
+});
 
 export const Node = z
   .object({
