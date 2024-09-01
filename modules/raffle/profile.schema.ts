@@ -2,7 +2,7 @@ import { z, ObjectId, Entity } from '../../schema/zod';
 
 export const Raffle = Entity.merge(
   z.object({
-    content: z.string().nonempty(),
+    content: z.string().min(1),
   })
 );
 

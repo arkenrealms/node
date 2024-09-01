@@ -535,7 +535,7 @@ export const Permission = z
 export const RecordUpdate = z
   .object({
     objectType: z.string().max(100),
-    objectId: z.string().nonempty(),
+    objectId: z.string().min(1),
     actionType: z.string().max(100),
     reason: z.string().max(100),
     recordUpdatesOnForms: z.array(ObjectId).optional(),
@@ -548,7 +548,7 @@ export const Character = z
     teamId: ObjectId.optional(),
     ratingId: ObjectId.optional(),
     classId: ObjectId.optional(),
-    token: z.string().nonempty(),
+    token: z.string().min(1),
   })
   .merge(Entity);
 

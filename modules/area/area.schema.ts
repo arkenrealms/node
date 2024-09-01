@@ -16,7 +16,7 @@ export const AreaLandmark = Entity.merge(
 
 export const AreaType = Entity.merge(
   z.object({
-    name: z.string().nonempty(),
+    name: z.string().min(1),
     description: z.string().optional(),
   })
 );

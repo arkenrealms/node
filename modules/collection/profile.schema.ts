@@ -10,14 +10,14 @@ export const CollectibleCollection = Entity.merge(
 export const CollectibleCardBox = Entity.merge(
   z.object({
     collectibleCollectionId: ObjectId,
-    franchise: z.string().nonempty(),
+    franchise: z.string().min(1),
   })
 );
 
 export const CollectibleCardPack = Entity.merge(
   z.object({
     collectibleCollectionId: ObjectId,
-    franchise: z.string().nonempty(),
+    franchise: z.string().min(1),
     ungraded: z.number().optional(),
     grade10: z.number().optional(),
     grade9: z.number().optional(),
@@ -41,7 +41,7 @@ export const CollectibleCardPack = Entity.merge(
 export const CollectibleCard = Entity.merge(
   z.object({
     collectibleCollectionId: ObjectId,
-    franchise: z.string().nonempty(),
+    franchise: z.string().min(1),
     ungraded: z.number().optional(),
     grade10: z.number().optional(),
     grade9: z.number().optional(),

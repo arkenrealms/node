@@ -6,7 +6,7 @@ export const Character = Entity.merge(
     ownerId: ObjectId,
     ratingId: ObjectId.optional(),
     classId: ObjectId.optional(),
-    token: z.string().nonempty(),
+    token: z.string().min(1),
   })
 );
 

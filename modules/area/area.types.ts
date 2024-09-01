@@ -2,6 +2,10 @@ import { z } from 'zod';
 import * as schema from './area.schema';
 import { Document, Model } from '../../util/mongo';
 
+export type * from './area.router';
+export type * from './area.service';
+export type { RouterContext } from '../../types';
+
 export type Area = z.infer<typeof schema.Area>;
 export type AreaLandmark = z.infer<typeof schema.AreaLandmark>;
 export type AreaType = z.infer<typeof schema.AreaType>;

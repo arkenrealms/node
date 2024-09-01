@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import * as schema from './collection.schema';
 import { Document, Model } from '../../util/mongo';
+export type * from './collection.service';
 
 export type CollectibleCollection = z.infer<typeof schema.CollectibleCollection>;
 export type CollectibleCardBox = z.infer<typeof schema.CollectibleCardBox>;

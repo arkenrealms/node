@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import * as schema from './character.schema';
 import { Document, Model } from '../../util/mongo';
+export type * from './character.service';
 
 export type Character = z.infer<typeof schema.Character>;
 export type CharacterAbility = z.infer<typeof schema.CharacterAbility>;

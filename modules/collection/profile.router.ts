@@ -17,23 +17,19 @@ export const createRouter = () =>
     }),
 
     addCollectibleCardBox: procedure
-      .input(z.object({ collectionId: z.string(), franchise: z.string().nonempty() }))
+      .input(z.object({ collectionId: z.string(), franchise: z.string().min(1) }))
       .mutation(async ({ input, ctx }) => {
         return collectionService.addCollectibleCardBox(input, ctx);
       }),
 
     addCollectibleCardPack: procedure
-      .input(
-        z.object({ collectionId: z.string(), franchise: z.string().nonempty(), cardData: z.object({}).passthrough() })
-      )
+      .input(z.object({ collectionId: z.string(), franchise: z.string().min(1), cardData: z.object({}).passthrough() }))
       .mutation(async ({ input, ctx }) => {
         return collectionService.addCollectibleCardPack(input, ctx);
       }),
 
     addCollectibleCard: procedure
-      .input(
-        z.object({ collectionId: z.string(), franchise: z.string().nonempty(), cardData: z.object({}).passthrough() })
-      )
+      .input(z.object({ collectionId: z.string(), franchise: z.string().min(1), cardData: z.object({}).passthrough() }))
       .mutation(async ({ input, ctx }) => {
         return collectionService.addCollectibleCard(input, ctx);
       }),

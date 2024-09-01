@@ -1,6 +1,9 @@
 import { Model as MongooseModel, Document } from 'mongoose';
 export * as schema from './schema/types';
 import { createRouter } from './router';
+import type * as Area from './modules/area/area.types';
+import type * as Asset from './modules/asset/asset.types';
+import type * as Chain from './modules/chain/chain.types';
 import type * as Core from './modules/core/core.types';
 import type * as Game from './modules/game/game.types';
 import type * as Job from './modules/job/job.types';
@@ -9,9 +12,19 @@ import type * as Profile from './modules/profile/profile.types';
 
 export type Router = ReturnType<typeof createRouter>;
 
-export interface IApp {
-  model: {} & Core.Mappings & Game.Mappings & Job.Mappings & Interface.Mappings & Profile.Mappings;
+export interface Application {
+  model: {} & Area.Mappings &
+    Asset.Mappings &
+    Chain.Mappings &
+    Core.Mappings &
+    Game.Mappings &
+    Job.Mappings &
+    Interface.Mappings &
+    Profile.Mappings;
   service: {
+    Area: Area.Service;
+    Asset: Asset.Service;
+    Chain: Chain.Service;
     Core: Core.Service;
     Game: Game.Service;
     Job: Job.Service;
@@ -20,8 +33,8 @@ export interface IApp {
   };
 }
 
-export type Context = {
-  app: IApp;
+export type RouterContext = {
+  app: Application;
   user: {
     rolesOnUsers: Array<{
       status: string;

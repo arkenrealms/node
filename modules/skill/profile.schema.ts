@@ -2,7 +2,7 @@ import { z, ObjectId, Entity } from '../../schema/zod';
 
 export const Item = Entity.merge(
   z.object({
-    token: z.string().max(500).nonempty(),
+    token: z.string().max(500).min(1),
     assetId: ObjectId,
     chainId: ObjectId,
   })

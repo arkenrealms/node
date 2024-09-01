@@ -2,18 +2,18 @@ import { z, ObjectId, Entity } from '../../schema/zod';
 
 export const Chain = Entity.merge(
   z.object({
-    content: z.string().nonempty(),
-    type: z.string().max(100).nonempty(),
-    standard: z.string().max(100).nonempty(),
+    content: z.string().min(1),
+    type: z.string().max(100).min(1),
+    standard: z.string().max(100).min(1),
   })
 );
 
 export const ChainContract = Entity.merge(
   z.object({
-    description: z.string().nonempty(),
-    content: z.string().nonempty(),
-    type: z.string().max(100).nonempty(),
-    standard: z.string().max(100).nonempty(),
+    description: z.string().min(1),
+    content: z.string().min(1),
+    type: z.string().max(100).min(1),
+    standard: z.string().max(100).min(1),
   })
 );
 
@@ -21,16 +21,16 @@ export const ChainToken = Entity.merge(
   z.object({
     rank: z.number().optional(),
     description: z.string().optional(),
-    content: z.string().nonempty(),
-    type: z.string().max(100).nonempty(),
-    standard: z.string().max(100).nonempty(),
+    content: z.string().min(1),
+    type: z.string().max(100).min(1),
+    standard: z.string().max(100).min(1),
     price: z.number().optional(),
     hourChange: z.number().optional(),
     dayChange: z.number().optional(),
     weekChange: z.number().optional(),
     marketCap: z.number().optional(),
     volume: z.number().optional(),
-    symbol: z.string().nonempty(),
+    symbol: z.string().min(1),
     circulatingSupply: z.number().optional(),
     cmcLink: z.string().optional(),
     movementDown: z.number().optional(),
@@ -43,7 +43,7 @@ export const ChainToken = Entity.merge(
 
 export const ChainTransaction = Entity.merge(
   z.object({
-    value: z.string().nonempty(),
+    value: z.string().min(1),
     chainId: ObjectId,
   })
 );

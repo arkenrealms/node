@@ -2,8 +2,8 @@ import { z, ObjectId, Entity } from '../../schema/zod';
 
 export const Video = Entity.merge(
   z.object({
-    youtubeId: z.string().nonempty(),
-    url: z.string().nonempty(),
+    youtubeId: z.string().min(1),
+    url: z.string().min(1),
   })
 );
 
@@ -16,8 +16,8 @@ export const VideoParticipant = Entity.merge(
 export const VideoDialogue = Entity.merge(
   z.object({
     participantId: ObjectId,
-    text: z.string().nonempty(),
-    timestamp: z.string().nonempty(),
+    text: z.string().min(1),
+    timestamp: z.string().min(1),
   })
 );
 

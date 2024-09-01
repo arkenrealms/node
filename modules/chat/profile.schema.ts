@@ -2,7 +2,7 @@ import { z, ObjectId, Entity } from '../../schema/zod';
 
 export const ChatGroup = Entity.merge(
   z.object({
-    name: z.string().max(100).nonempty(),
+    name: z.string().max(100).min(1),
     type: z.enum(['group', 'private']),
     members: z.array(ObjectId),
     externalId: z.string().optional(),

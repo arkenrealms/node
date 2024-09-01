@@ -3,7 +3,7 @@ import { z, ObjectId, Entity } from '../../schema/zod';
 // Account Schema
 export const Account = Entity.merge(
   z.object({
-    username: z.string().nonempty(),
+    username: z.string().min(1),
     email: z.string().optional(),
     telegramUserId: z.number().optional(),
   })
@@ -23,7 +23,7 @@ export const Application = Entity.merge(
   z.object({
     ownerId: ObjectId.optional(),
     metaverseId: ObjectId.optional(),
-    name: z.string().nonempty(),
+    name: z.string().min(1),
     description: z.string().optional(),
   })
 );
@@ -31,7 +31,7 @@ export const Application = Entity.merge(
 // Badge Schema
 export const Badge = Entity.merge(
   z.object({
-    value: z.string().nonempty(),
+    value: z.string().min(1),
   })
 );
 
@@ -57,7 +57,7 @@ export const Collection = Entity.merge(
 // Comment Schema
 export const Comment = Entity.merge(
   z.object({
-    body: z.string().nonempty(),
+    body: z.string().min(1),
     entity: ObjectId,
     entityModel: z.enum(['NewsArticle', 'ChainToken']),
     text: z.string(),
@@ -330,7 +330,7 @@ export const Realm = Entity.merge(
 export const RecordUpdate = Entity.merge(
   z.object({
     objectType: z.string().max(100),
-    objectId: z.string().nonempty(),
+    objectId: z.string().min(1),
     actionType: z.string().max(100),
     reason: z.string().max(100),
     recordUpdatesOnForms: z.array(ObjectId).optional(),
@@ -459,7 +459,7 @@ export const Vote = Entity.merge(
 // WorldEvent Schema
 export const WorldEvent = Entity.merge(
   z.object({
-    text: z.string().nonempty(),
+    text: z.string().min(1),
     importance: z.number().optional(),
     tags: z.array(z.unknown()).optional(),
   })
