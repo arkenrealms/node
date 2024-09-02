@@ -1,8 +1,5 @@
-// module/core.service.ts
-
 import type {
   RouterContext,
-  Router,
   RouterInput,
   RouterOutput,
   Account,
@@ -24,7 +21,6 @@ import type {
   Discussion,
   Energy,
   Event,
-  Exchange,
   File,
   Galaxy,
   Guide,
@@ -32,7 +28,6 @@ import type {
   Leaderboard,
   Log,
   Lore,
-  Market,
   Memory,
   Message,
   Metaverse,

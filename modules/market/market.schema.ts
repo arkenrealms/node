@@ -11,3 +11,9 @@ export const MarketPair = Entity.merge(
     value: z.string().min(1),
   })
 );
+
+export const MarketExchange = Entity.merge(
+  z.object({
+    value: z.string().optional(),
+  })
+);

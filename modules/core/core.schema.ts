@@ -118,13 +118,6 @@ export const Event = Entity.merge(
   })
 );
 
-// Exchange Schema
-export const Exchange = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
-
 // File Schema
 export const File = Entity.merge(
   z.object({
@@ -306,6 +299,15 @@ export const Proposal = Entity.merge(
 export const Quest = Entity.merge(
   z.object({
     type: z.string().default('zone'),
+  })
+);
+
+export const Question = Entity.merge(
+  z.object({
+    topics: z.array(z.unknown()).optional(),
+    text: z.string(),
+    answer: z.string(),
+    popularity: z.number().optional(),
   })
 );
 

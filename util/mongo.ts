@@ -12,6 +12,7 @@ import mongoose, {
   UpdateQuery,
   UpdateWithAggregationPipeline,
   ProjectionType,
+  Collection,
 } from 'mongoose';
 
 export type { Mixed, ObjectIdSchemaDefinition, AnyArray, StringSchemaDefinition } from 'mongoose'; // Mixed type
@@ -149,9 +150,11 @@ export class Model<T extends Document> {
   protected schema: Schema;
   public filters: Record<string, any> = {};
   public filterOmitModels: string[] = ['Omniverse', 'Metaverse', 'Application'];
+  public collection: Collection;
 
   constructor(model: MongooseModel<T>) {
     this.model = model;
+    this.collection = model.collection;
     this.schema = model.schema;
   }
 
@@ -159,8 +162,8 @@ export class Model<T extends Document> {
     return this.model.aggregate(...props);
   }
 
-  where(path: string, val?: any): Query<T[], T>;
-  where(obj: object): Query<T[], T>;
+  where(arg1: string, arg2?: any): Query<T[], T>;
+  where(arg1: object): Query<T[], T>;
   where(arg1: string | object, arg2?: any): Query<T[], T> {
     return this.model.where(arg1 as any, arg2);
   }
@@ -175,10 +178,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     return this.model.find(filter, options);
   }
@@ -193,10 +196,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     return this.model.findOne(filter, options);
   }
@@ -211,10 +214,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     return this.model.findOneAndUpdate(filter, update, options);
   }
@@ -226,10 +229,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId; // Ensure correct typing
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     // Call the original findOneAndDelete method
     return this.model.findOneAndDelete(filter, options);
@@ -251,10 +254,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     return this.model.findOne(filter, projection, options);
   }
@@ -271,10 +274,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     return this.model.findOneAndUpdate(filter, update, options);
   }
@@ -287,10 +290,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
     return this.model.findOneAndDelete(filter, options);
   }
@@ -313,20 +316,20 @@ export class Model<T extends Document> {
   }
 
   create(doc: Partial<T>): Promise<T>;
-  create(docs: Partial<T>[]): Promise<T[]>;
-  create(docOrDocs: Partial<T> | Partial<T>[]): Promise<T | T[]> {
+  create(doc: Partial<T>[]): Promise<T[]>;
+  create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
     if (!this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       doc.applicationId = this.filters.applicationId;
     }
 
-    // @ts-ignore
-    if (doc.applicationId && typeof doc.applicationId === 'string') {
-      // @ts-ignore
-      doc.applicationId = new mongoose.Schema.Types.ObjectId(doc.applicationId);
-    }
+    // // @ts-ignore
+    // if (doc.applicationId && typeof doc.applicationId === 'string') {
+    //   // @ts-ignore
+    //   doc.applicationId = new mongoose.Schema.Types.ObjectId(doc.applicationId);
+    // }
 
-    const res = this.model.create(docOrDocs as T | T[]);
+    const res = this.model.create(doc as T | T[]);
 
     const createHandler = <U extends object>(path: string[] = []): ProxyHandler<U> => ({
       // @ts-ignore
@@ -363,16 +366,16 @@ export class Model<T extends Document> {
       update.applicationId = this.filters.applicationId; // Ensure the update object includes applicationId
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
-    // @ts-ignore
-    if (update.applicationId && typeof update.applicationId === 'string') {
-      // @ts-ignore
-      update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
-    }
+    // // @ts-ignore
+    // if (update.applicationId && typeof update.applicationId === 'string') {
+    //   // @ts-ignore
+    //   update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
+    // }
     // @ts-ignore
     return this.model.update(filter, update, options);
   }
@@ -389,16 +392,16 @@ export class Model<T extends Document> {
       update.applicationId = this.filters.applicationId; // Ensure the update object includes applicationId
     }
 
-    if (filter.applicationId && typeof filter.applicationId === 'string') {
-      // @ts-ignore
-      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    }
+    // if (filter.applicationId && typeof filter.applicationId === 'string') {
+    //   // @ts-ignore
+    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    // }
 
-    // @ts-ignore
-    if (update.applicationId && typeof update.applicationId === 'string') {
-      // @ts-ignore
-      update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
-    }
+    // // @ts-ignore
+    // if (update.applicationId && typeof update.applicationId === 'string') {
+    //   // @ts-ignore
+    //   update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
+    // }
     // @ts-ignore
     return this.model.updateOne(filter, update, options);
   }

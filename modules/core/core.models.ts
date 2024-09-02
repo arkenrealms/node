@@ -172,6 +172,13 @@ export const Badge = mongo.createModel<Types.BadgeDocument>('Badge', {
   value: { type: String, required: true },
 });
 
+export const Question = mongo.createModel<Types.QuestionDocument>('Question', {
+  text: { type: String, required: true },
+  answer: { type: String, required: true },
+  popularity: { type: Number },
+  topics: { type: mongo.Schema.Types.Mixed, default: [] },
+});
+
 export const Universe = mongo.createModel<Types.UniverseDocument>('Universe', {});
 
 export const Validator = mongo.createModel<Types.ValidatorDocument>('Validator', {});
@@ -184,7 +191,7 @@ export const Vote = mongo.createModel<Types.VoteDocument>('Vote', {
 export const WorldEvent = mongo.createModel<Types.WorldEventDocument>('WorldEvent', {
   text: { type: String, required: true },
   importance: { type: Number },
-  tags: { type: [mongo.Schema.Types.Mixed], default: [] },
+  tags: { type: mongo.Schema.Types.Mixed },
 });
 
 export const Stat = mongo.createModel<Types.StatDocument>('Stat', {

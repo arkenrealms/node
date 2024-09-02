@@ -28,9 +28,9 @@ export const ChatMessage = mongo.createModel<Types.ChatMessageDocument>(
     externalId: { type: String },
     externalPlatform: { type: String, enum: ['Telegram', 'Discord'] },
     isSpam: { type: Boolean, default: false },
-    tags: { type: [mongo.Schema.Types.Mixed], default: [] },
+    tags: { type: mongo.Schema.Types.Mixed }, // Correctly define as array of Mixed
     summary: { type: String },
-    entities: { type: [mongo.Schema.Types.Mixed], default: [] },
+    entities: { type: mongo.Schema.Types.Mixed }, // Correctly define as array of Mixed
     type: {
       type: String,
       default: 'text',

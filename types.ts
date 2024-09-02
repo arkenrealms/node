@@ -85,7 +85,7 @@ export interface Application {
 
 export type RouterContext = {
   app: Application;
-  profile: {
+  profile?: {
     roles: Array<{
       status: 'Paused' | 'Pending' | 'Active' | 'Archived';
       role: {

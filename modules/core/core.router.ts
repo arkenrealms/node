@@ -25,7 +25,6 @@ import {
   Discussion,
   Energy,
   Event,
-  Exchange,
   File,
   Galaxy,
   Guide,

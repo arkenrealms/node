@@ -58,6 +58,8 @@ export const Query = z
     where: z.object({
       id: z.object({ equals: z.string().optional() }).optional(),
       key: z.object({ equals: z.string().optional() }).optional(),
+      name: z.object({ equals: z.string().optional() }).optional(),
+      email: z.object({ equals: z.string().optional() }).optional(),
       status: z.object({ equals: z.string().optional() }).optional(),
       OR: z
         .tuple([
@@ -66,6 +68,9 @@ export const Query = z
           }),
           z.object({
             key: z.string().optional(),
+          }),
+          z.object({
+            name: z.string().optional(),
           }),
           z.object({
             version: z.string().optional(),
@@ -79,6 +84,9 @@ export const Query = z
           }),
           z.object({
             key: z.string().optional(),
+          }),
+          z.object({
+            name: z.string().optional(),
           }),
           z.object({
             version: z.string().optional(),
@@ -100,4 +108,4 @@ export const Query = z
   })
   .optional();
 
-export type Query = z.infer<typeof Query>;
+export type Query = zod.infer<typeof Query>;
