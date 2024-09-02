@@ -1,12 +1,18 @@
-import ArcaneRaidV1 from './contracts/ArcaneRaidV1.json'
-import ArcaneTraderV1 from './contracts/ArcaneTraderV1.json'
-import ArcaneCharacters from './contracts/ArcaneCharacters.json'
-import ArcaneCharacterFactoryV3 from './contracts/ArcaneCharacterFactoryV3.json'
-import ArcaneBarracksFacetV1 from './contracts/ArcaneBarracksFacetV1.json'
-import ArcaneProfile from './contracts/ArcaneProfile.json'
-import ArcaneItems from './contracts/ArcaneItems.json'
-import RuneSenderV1 from './contracts/RuneSenderV1.json'
-import BEP20Contract from './contracts/BEP20.json'
-import RuneCubeV1 from './contracts/RuneCubeV1.json'
-
-export * as util from './util'
+export * as util from './util';
+export * as Area from './modules/area';
+export * as Asset from './modules/asset';
+export * as Chain from './modules/chain';
+export * as Character from './modules/character';
+export * as Chat from './modules/chat';
+export * as Collection from './modules/collection';
+export * as Core from './modules/core';
+export * as Game from './modules/game';
+export * as Interface from './modules/interface';
+export * as Item from './modules/item';
+export * as Job from './modules/job';
+export * as Market from './modules/market';
+export * as Product from './modules/product';
+export * as Profile from './modules/profile';
+export * as Raffle from './modules/raffle';
+export * as Skill from './modules/skill';
+export * as Video from './modules/video';

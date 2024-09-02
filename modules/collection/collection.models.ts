@@ -1,36 +1,17 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './collection.types';
 
-// CollectibleCollection
+export const CollectibleCollection = mongo.createModel<Types.CollectibleCollectionDocument>('CollectibleCollection', {
+  hype: { type: Number, default: 0 },
+  value: { type: Number, default: 0 },
+});
 
-export const CollectibleCollectionSchema = mongo.createSchema<Types.CollectibleCollectionDocument>(
-  'CollectibleCollection',
-  {
-    hype: { type: Number, default: 0 },
-    value: { type: Number, default: 0 },
-  }
-);
-
-export const CollectibleCollection = mongo.createModel<Types.CollectibleCollectionDocument>(
-  'CollectibleCollection',
-  CollectibleCollectionSchema
-);
-
-// CollectibleCardBox
-
-export const CollectibleCardBoxSchema = mongo.createSchema<Types.CollectibleCardBoxDocument>('CollectibleCardBox', {
+export const CollectibleCardBox = mongo.createModel<Types.CollectibleCardBoxDocument>('CollectibleCardBox', {
   collectibleCollectionId: { type: mongo.Schema.Types.ObjectId, ref: 'CollectibleCollection', required: true },
   franchise: { type: String, required: true, trim: true },
 });
 
-export const CollectibleCardBox = mongo.createModel<Types.CollectibleCardBoxDocument>(
-  'CollectibleCardBox',
-  CollectibleCardBoxSchema
-);
-
-// CollectibleCardPack
-
-export const CollectibleCardPackSchema = mongo.createSchema<Types.CollectibleCardPackDocument>('CollectibleCardPack', {
+export const CollectibleCardPack = mongo.createModel<Types.CollectibleCardPackDocument>('CollectibleCardPack', {
   collectibleCollectionId: { type: mongo.Schema.Types.ObjectId, ref: 'CollectibleCollection', required: true },
   franchise: { type: String, required: true, trim: true },
   ungraded: { type: Number, default: 0 },
@@ -52,14 +33,7 @@ export const CollectibleCardPackSchema = mongo.createSchema<Types.CollectibleCar
   year: { type: Number },
 });
 
-export const CollectibleCardPack = mongo.createModel<Types.CollectibleCardPackDocument>(
-  'CollectibleCardPack',
-  CollectibleCardPackSchema
-);
-
-// CollectibleCard
-
-export const CollectibleCardSchema = mongo.createSchema<Types.CollectibleCardDocument>('CollectibleCard', {
+export const CollectibleCard = mongo.createModel<Types.CollectibleCardDocument>('CollectibleCard', {
   collectibleCollectionId: { type: mongo.Schema.Types.ObjectId, ref: 'CollectibleCollection', required: true },
   franchise: { type: String, required: true, trim: true },
   ungraded: { type: Number, default: 0 },
@@ -80,8 +54,3 @@ export const CollectibleCardSchema = mongo.createSchema<Types.CollectibleCardDoc
   category: { type: String, trim: true },
   year: { type: Number },
 });
-
-export const CollectibleCard = mongo.createModel<Types.CollectibleCardDocument>(
-  'CollectibleCard',
-  CollectibleCardSchema
-);

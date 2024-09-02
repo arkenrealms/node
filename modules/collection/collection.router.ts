@@ -20,13 +20,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Collection.getCollectibleCollection as any)(input, ctx)),
 
     createCollectibleCollection: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(CollectibleCollection)
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.createCollectibleCollection as any)(input, ctx)),
 
     updateCollectibleCollection: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ collectibleCollectionId: z.string(), data: CollectibleCollection.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.updateCollectibleCollection as any)(input, ctx)),
@@ -38,13 +38,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Collection.getCollectibleCardBox as any)(input, ctx)),
 
     createCollectibleCardBox: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(CollectibleCardBox)
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.createCollectibleCardBox as any)(input, ctx)),
 
     updateCollectibleCardBox: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ collectibleCardBoxId: z.string(), data: CollectibleCardBox.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.updateCollectibleCardBox as any)(input, ctx)),
@@ -56,13 +56,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Collection.getCollectibleCardPack as any)(input, ctx)),
 
     createCollectibleCardPack: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(CollectibleCardPack)
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.createCollectibleCardPack as any)(input, ctx)),
 
     updateCollectibleCardPack: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ collectibleCardPackId: z.string(), data: CollectibleCardPack.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.updateCollectibleCardPack as any)(input, ctx)),
@@ -74,13 +74,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Collection.getCollectibleCard as any)(input, ctx)),
 
     createCollectibleCard: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(CollectibleCard)
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.createCollectibleCard as any)(input, ctx)),
 
     updateCollectibleCard: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ collectibleCardId: z.string(), data: CollectibleCard.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Collection.updateCollectibleCard as any)(input, ctx)),

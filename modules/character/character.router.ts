@@ -193,6 +193,12 @@ export const createRouter = () =>
       .input(z.object({ characterFactionId: z.string() }))
       .query(({ input, ctx }) => (ctx.app.service.Character.getCharacterFaction as any)(input, ctx)),
 
+    getCharacterFactions: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({}))
+      .query(({ input, ctx }) => (ctx.app.service.Character.getCharacterFactions as any)(input, ctx)),
+
     createCharacterFaction: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))

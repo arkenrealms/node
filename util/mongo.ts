@@ -16,9 +16,7 @@ import mongoose, {
 
 export type { Mixed, ObjectIdSchemaDefinition, AnyArray, StringSchemaDefinition } from 'mongoose'; // Mixed type
 import pluralize from 'pluralize';
-export * as types from '../schema/types';
 import { toCamelCase } from '../util/string';
-import { schema } from '~/types';
 export { z } from 'zod';
 
 export { Schema } from 'mongoose';
@@ -138,8 +136,12 @@ export function createSchema<T>(
   return schema;
 }
 
-export function createModel<T extends Document>(key: string, schema: Schema<T>) {
-  return new Model<T>(mongoose.model<T>(key, schema));
+export function createModel<T extends Document>(
+  key: string,
+  schema: SchemaDefinition<T> = {} as SchemaDefinition<T>,
+  options: CustomSchemaOptions = {}
+) {
+  return new Model<T>(mongoose.model<T>(key, createSchema<T>(key, schema, options)));
 }
 
 export class Model<T extends Document> {
@@ -175,7 +177,7 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     return this.model.find(filter, options);
@@ -193,7 +195,7 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     return this.model.findOne(filter, options);
@@ -211,10 +213,26 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     return this.model.findOneAndUpdate(filter, update, options);
+  }
+
+  findOneAndDelete(filter: FilterQuery<T>, options?: QueryOptions): Query<T | null, T> {
+    // Add custom filtering logic based on your requirements
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId; // Ensure correct typing
+    }
+
+    if (filter.applicationId && typeof filter.applicationId === 'string') {
+      // @ts-ignore
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
+    }
+
+    // Call the original findOneAndDelete method
+    return this.model.findOneAndDelete(filter, options);
   }
 
   findAll(): Query<T[], T> {
@@ -235,7 +253,7 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     return this.model.findOne(filter, projection, options);
@@ -255,7 +273,7 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     return this.model.findOneAndUpdate(filter, update, options);
@@ -271,7 +289,7 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     return this.model.findOneAndDelete(filter, options);
@@ -294,7 +312,9 @@ export class Model<T extends Document> {
     }
   }
 
-  create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
+  create(doc: Partial<T>): Promise<T>;
+  create(docs: Partial<T>[]): Promise<T[]>;
+  create(docOrDocs: Partial<T> | Partial<T>[]): Promise<T | T[]> {
     if (!this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       doc.applicationId = this.filters.applicationId;
@@ -303,10 +323,10 @@ export class Model<T extends Document> {
     // @ts-ignore
     if (doc.applicationId && typeof doc.applicationId === 'string') {
       // @ts-ignore
-      doc.applicationId = doc.applicationId;
+      doc.applicationId = new mongoose.Schema.Types.ObjectId(doc.applicationId);
     }
 
-    const res = this.model.create(doc as T | T[]);
+    const res = this.model.create(docOrDocs as T | T[]);
 
     const createHandler = <U extends object>(path: string[] = []): ProxyHandler<U> => ({
       // @ts-ignore
@@ -345,13 +365,13 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     // @ts-ignore
     if (update.applicationId && typeof update.applicationId === 'string') {
       // @ts-ignore
-      update.applicationId = update.applicationId;
+      update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
     }
     // @ts-ignore
     return this.model.update(filter, update, options);
@@ -371,13 +391,13 @@ export class Model<T extends Document> {
 
     if (filter.applicationId && typeof filter.applicationId === 'string') {
       // @ts-ignore
-      filter.applicationId = filter.applicationId;
+      filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
     }
 
     // @ts-ignore
     if (update.applicationId && typeof update.applicationId === 'string') {
       // @ts-ignore
-      update.applicationId = update.applicationId;
+      update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
     }
     // @ts-ignore
     return this.model.updateOne(filter, update, options);

@@ -1,8 +1,9 @@
 import { z, Model, Document } from '../../util/mongo';
 import * as schema from './interface.schema';
-export type * from './interface.service';
 
-export type Query = z.infer<typeof schema.Query>;
+export type * from './interface.router';
+export type * from './interface.service';
+export type { RouterContext } from '../../types';
 
 export type Interface = z.infer<typeof schema.Interface>;
 export type InterfaceDocument = Interface & Document;

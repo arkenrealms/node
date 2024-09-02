@@ -1,4 +1,4 @@
-import { z, ObjectId, Entity } from '../../schema/zod';
+import { z, ObjectId, Entity } from '../../schema';
 
 // Profile schema for a user on a digital game platform
 export const Profile = Entity.merge(

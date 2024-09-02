@@ -19,13 +19,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Raffle.getRaffle as any)(input, ctx)),
 
     createRaffle: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(Raffle)
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.createRaffle as any)(input, ctx)),
 
     updateRaffle: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ raffleId: z.string(), data: Raffle.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.updateRaffle as any)(input, ctx)),
@@ -37,13 +37,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Raffle.getRaffleRequirement as any)(input, ctx)),
 
     createRaffleRequirement: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(RaffleRequirement)
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.createRaffleRequirement as any)(input, ctx)),
 
     updateRaffleRequirement: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ raffleRequirementId: z.string(), data: RaffleRequirement.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.updateRaffleRequirement as any)(input, ctx)),
@@ -55,13 +55,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Raffle.getRaffleReward as any)(input, ctx)),
 
     createRaffleReward: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(RaffleReward)
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.createRaffleReward as any)(input, ctx)),
 
     updateRaffleReward: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ raffleRewardId: z.string(), data: RaffleReward.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.updateRaffleReward as any)(input, ctx)),
@@ -73,13 +73,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Raffle.getRaffleEntry as any)(input, ctx)),
 
     createRaffleEntry: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(RaffleEntry)
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.createRaffleEntry as any)(input, ctx)),
 
     updateRaffleEntry: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ raffleEntryId: z.string(), data: RaffleEntry.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Raffle.updateRaffleEntry as any)(input, ctx)),

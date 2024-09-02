@@ -1,30 +1,20 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './chain.types';
 
-// Chain
-
-export const ChainSchema = mongo.createSchema<Types.ChainDocument>('Chain', {
+export const Chain = mongo.createModel<Types.ChainDocument>('Chain', {
   content: { type: String, required: true },
   type: { type: String, maxlength: 100, required: true },
   standard: { type: String, maxlength: 100, required: true },
 });
 
-export const Chain = mongo.createModel<Types.ChainDocument>('Chain', ChainSchema);
-
-// ChainContract
-
-export const ChainContractSchema = mongo.createSchema<Types.ChainContractDocument>('ChainContract', {
+export const ChainContract = mongo.createModel<Types.ChainContractDocument>('ChainContract', {
   description: { type: String, required: true },
   content: { type: String, required: true },
   type: { type: String, maxlength: 100, required: true },
   standard: { type: String, maxlength: 100, required: true },
 });
 
-export const ChainContract = mongo.createModel<Types.ChainContractDocument>('ChainContract', ChainContractSchema);
-
-// ChainToken
-
-export const ChainTokenSchema = mongo.createSchema<Types.ChainTokenDocument>(
+export const ChainToken = mongo.createModel<Types.ChainTokenDocument>(
   'ChainToken',
   {
     rank: { type: Number, min: 0, default: 0 },
@@ -52,16 +42,7 @@ export const ChainTokenSchema = mongo.createSchema<Types.ChainTokenDocument>(
   }
 );
 
-export const ChainToken = mongo.createModel<Types.ChainTokenDocument>('ChainToken', ChainTokenSchema);
-
-// ChainTransaction
-
-export const ChainTransactionSchema = mongo.createSchema<Types.ChainTransactionDocument>('ChainTransaction', {
+export const ChainTransaction = mongo.createModel<Types.ChainTransactionDocument>('ChainTransaction', {
   value: { type: String, required: true },
   chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain', required: true },
 });
-
-export const ChainTransaction = mongo.createModel<Types.ChainTransactionDocument>(
-  'ChainTransaction',
-  ChainTransactionSchema
-);

@@ -1,4 +1,4 @@
-import { z, ObjectId, Entity } from '../../schema/zod';
+import { z, ObjectId, Entity } from '../../schema';
 
 export const Area = Entity.merge(
   z.object({

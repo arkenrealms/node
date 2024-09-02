@@ -1,4 +1,4 @@
-import { z, Entity } from '../../schema/zod';
+import { z, Entity } from '../../schema';
 
 export const Market = Entity.merge(
   z.object({

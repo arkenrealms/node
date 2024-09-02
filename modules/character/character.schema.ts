@@ -1,6 +1,6 @@
 // module/character.schema.ts
 
-import { z, ObjectId, Entity } from '../../schema/zod';
+import { z, ObjectId, Entity } from '../../schema';
 
 // Character schema
 export const Character = Entity.merge(

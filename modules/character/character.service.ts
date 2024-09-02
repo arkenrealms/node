@@ -207,6 +207,19 @@ export class Service {
     return characterFaction as CharacterFaction;
   }
 
+  async getCharacterFactions(
+    input: RouterInput['getCharacterFactions'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getCharacterFactions']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Character.Service.getCharacterFactions', input);
+
+    const characterFactions = await ctx.app.model.CharacterFaction.find().lean().exec();
+    if (!characterFactions) throw new Error('CharacterFactions not found');
+
+    return characterFactions as CharacterFaction[];
+  }
+
   async createCharacterFaction(
     input: RouterInput['createCharacterFaction'],
     ctx: RouterContext

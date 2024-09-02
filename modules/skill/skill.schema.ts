@@ -1,4 +1,4 @@
-import { z, ObjectId, Entity } from '../../schema/zod';
+import { z, ObjectId, Entity } from '../../schema';
 
 export const Skill = Entity.merge(
   z.object({
@@ -26,3 +26,15 @@ export const SkillRequirement = Entity.merge(
     previousSkillId: ObjectId.optional(), // Reference to a prerequisite skill
   })
 );
+
+export const SkillMod = Entity.merge(z.object({}));
+
+export const SkillClassification = Entity.merge(z.object({}));
+
+export const SkillCondition = Entity.merge(z.object({}));
+
+export const SkillStatusEffect = Entity.merge(z.object({}));
+
+export const SkillTree = Entity.merge(z.object({}));
+
+export const SkillTreeNode = Entity.merge(z.object({}));

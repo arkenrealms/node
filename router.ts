@@ -1,9 +1,6 @@
-import { initTRPC, TRPCError } from '@trpc/server';
-// import { createTRPCProxyClient, httpBatchLink, createWSClient, wsLink } from '@trpc/client';
-// import { customErrorFormatter, hasRole, transformer } from './util/rpc';
 import zod from 'zod';
+import { initTRPC, TRPCError } from '@trpc/server';
 import type { RouterContext } from './types';
-
 import * as Area from './modules/area/area.router';
 import * as Asset from './modules/asset/asset.router';
 import * as Chain from './modules/chain/chain.router';
@@ -22,24 +19,14 @@ import * as Raffle from './modules/raffle/raffle.router';
 import * as Skill from './modules/skill/skill.router';
 import * as Video from './modules/video/video.router';
 
-import type { Application } from './types';
-
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
 export const router = t.router;
 export const procedure = t.procedure;
 export const createCallerFactory = t.createCallerFactory;
 
-export const createRouter = (app: Application) =>
+export const createRouter = () =>
   router({
-    // connected: procedure
-    //   .use(hasRole("realm", t))
-    //   .use(customErrorFormatter(t))
-    //   .input(schema.connected)
-    //   .mutation(({ input, ctx }) =>
-    //     service.connected(input as Schema.ConnectedInput, ctx)
-    //   ),
-
     area: Area.createRouter(),
     asset: Asset.createRouter(),
     chain: Chain.createRouter(),

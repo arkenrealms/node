@@ -133,6 +133,7 @@ export type ServerDocument = Server & Document;
 export type SessionDocument = Session & Document;
 export type SolarSystemDocument = SolarSystem & Document;
 export type StarDocument = Star & Document;
+export type StatDocument = Stat & Document;
 export type StashDocument = Stash & Document;
 export type StockDocument = Stock & Document;
 export type SuggestionDocument = Suggestion & Document;

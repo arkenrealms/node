@@ -1,4 +1,4 @@
-import { z, ObjectId, Entity } from '../../schema/zod';
+import { z, ObjectId, Entity } from '../../schema';
 
 export const Query = z
   .object({
@@ -64,7 +64,7 @@ export const Interface = Entity.merge(
 
 export const InterfaceGroup = Entity.merge(
   z.object({
-    // rolesOnInterfaceGroups: z.array(ObjectId).optional(),
+    roles: z.array(ObjectId).optional(),
   })
 );
 

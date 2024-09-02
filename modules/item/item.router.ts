@@ -34,13 +34,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Item.getItem as any)(input, ctx)),
 
     createItem: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(Item)
       .mutation(({ input, ctx }) => (ctx.app.service.Item.createItem as any)(input, ctx)),
 
     updateItem: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ itemId: z.string(), data: Item.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.updateItem as any)(input, ctx)),
@@ -52,13 +52,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Item.getItemAttribute as any)(input, ctx)),
 
     createItemAttribute: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(ItemAttribute)
       .mutation(({ input, ctx }) => (ctx.app.service.Item.createItemAttribute as any)(input, ctx)),
 
     updateItemAttribute: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ itemAttributeId: z.string(), data: ItemAttribute.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.updateItemAttribute as any)(input, ctx)),
@@ -72,13 +72,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Item.getItemTransmute as any)(input, ctx)),
 
     createItemTransmute: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(ItemTransmute)
       .mutation(({ input, ctx }) => (ctx.app.service.Item.createItemTransmute as any)(input, ctx)),
 
     updateItemTransmute: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ itemTransmuteId: z.string(), data: ItemTransmute.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.updateItemTransmute as any)(input, ctx)),

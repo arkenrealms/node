@@ -1,26 +1,13 @@
 import Mongoose from 'mongoose';
 import crossFetch from 'cross-fetch';
 import { escapeStringRegexp } from './db';
+import type { Query } from '../schema';
 
 interface FetchVariables {
   [key: string]: any;
 }
 
-interface WhereClause {
-  id?: { equals: string };
-  email?: { equals: string };
-  key?: { equals: string };
-  name?: { equals: string };
-  OR?: WhereClause[];
-  AND?: WhereClause[];
-  [key: string]: any;
-}
-
-interface Variables {
-  where: WhereClause;
-}
-
-export function processInputQuery(variables: Variables): Record<string, any> {
+export function getFilter(variables: Query): Record<string, any> {
   const query: Record<string, any> = {};
 
   if (variables.where.id?.equals) {
@@ -38,10 +25,10 @@ export function processInputQuery(variables: Variables): Record<string, any> {
     query.name = variables.where.name.equals;
   }
 
-  const processOperator = (operator: WhereClause, condition: 'OR' | 'AND') => {
+  const processOperator = (operator: any, condition: 'OR' | 'AND') => {
     Object.keys(operator).forEach((key) => {
       if (operator[key]?.contains) {
-        query[key] = ['key', 'title', 'name'].includes(key)
+        query[key] = ['key', 'name'].includes(key)
           ? { $regex: escapeStringRegexp(operator[key].contains), $options: 'i' }
           : operator[key].contains;
       } else if (operator[key]?.in) {

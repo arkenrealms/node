@@ -2,8 +2,7 @@ import * as mongo from '../../util/mongo';
 import type * as Types from './chat.types';
 
 // ChatGroup
-
-export const ChatGroupSchema = mongo.createSchema<Types.ChatGroupDocument>('ChatGroup', {
+export const ChatGroup = mongo.createModel<Types.ChatGroupDocument>('ChatGroup', {
   name: { type: String, required: true, maxlength: 100 },
   type: { type: String, required: true, enum: ['group', 'private'] },
   members: [{ type: mongo.Schema.Types.ObjectId, ref: 'Profile' }],
@@ -11,11 +10,8 @@ export const ChatGroupSchema = mongo.createSchema<Types.ChatGroupDocument>('Chat
   externalPlatform: { type: String, enum: ['Telegram', 'Discord'] },
 });
 
-export const ChatGroup = mongo.createModel<Types.ChatGroupDocument>('ChatGroup', ChatGroupSchema);
-
 // ChatMessage
-
-export const ChatMessageSchema = mongo.createSchema<Types.ChatMessageDocument>(
+export const ChatMessage = mongo.createModel<Types.ChatMessageDocument>(
   'ChatMessage',
   {
     groupId: { type: mongo.Schema.Types.ObjectId, ref: 'ChatGroup', required: true },
@@ -45,5 +41,3 @@ export const ChatMessageSchema = mongo.createSchema<Types.ChatMessageDocument>(
     indexes: [{ groupId: 1, createdDate: 1 }, { profileId: 1 }, { status: 1 }, { replyToId: 1 }, { type: 1 }],
   }
 );
-
-export const ChatMessage = mongo.createModel<Types.ChatMessageDocument>('ChatMessage', ChatMessageSchema);

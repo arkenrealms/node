@@ -19,13 +19,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Product.getProduct as any)(input, ctx)),
 
     createProduct: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(Product)
       .mutation(({ input, ctx }) => (ctx.app.service.Product.createProduct as any)(input, ctx)),
 
     updateProduct: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ productId: z.string(), data: Product.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Product.updateProduct as any)(input, ctx)),
@@ -38,13 +38,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Product.getProductDLC as any)(input, ctx)),
 
     createProductDLC: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(ProductDLC)
       .mutation(({ input, ctx }) => (ctx.app.service.Product.createProductDLC as any)(input, ctx)),
 
     updateProductDLC: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ dlcId: z.string(), data: ProductDLC.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Product.updateProductDLC as any)(input, ctx)),
@@ -57,13 +57,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Product.getProductBundle as any)(input, ctx)),
 
     createProductBundle: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(ProductBundle)
       .mutation(({ input, ctx }) => (ctx.app.service.Product.createProductBundle as any)(input, ctx)),
 
     updateProductBundle: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ bundleId: z.string(), data: ProductBundle.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Product.updateProductBundle as any)(input, ctx)),
@@ -76,13 +76,13 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Product.getProductReview as any)(input, ctx)),
 
     createProductReview: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(ProductReview)
       .mutation(({ input, ctx }) => (ctx.app.service.Product.createProductReview as any)(input, ctx)),
 
     updateProductReview: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(z.object({ reviewId: z.string(), data: ProductReview.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Product.updateProductReview as any)(input, ctx)),

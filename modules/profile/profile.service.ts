@@ -1,11 +1,13 @@
-import type { Profile, RouterContext, Router, RouterInput, RouterOutput } from './profile.types';
+import type { Profile, RouterContext, RouterInput, RouterOutput } from './profile.types';
+import { getFilter } from '../../util/api';
 
 export class Service {
   async getProfile(input: RouterInput['getProfile'], ctx: RouterContext): Promise<RouterOutput['getProfile']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Profile.Service.getProfile', input.userId);
+    console.log('Profile.Service.getProfile', input.query);
 
-    const profile = await ctx.app.model.Profile.findOne({ userId: input.userId }).lean().exec();
+    const filter = getFilter(input.query);
+    const profile = await ctx.app.model.Profile.findOne(filter).lean().exec();
     if (!profile) throw new Error('Profile not found');
 
     return profile as Profile;
@@ -13,19 +15,18 @@ export class Service {
 
   async createProfile(input: RouterInput['createProfile'], ctx: RouterContext): Promise<RouterOutput['createProfile']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Profile.Service.createProfile', input);
+    console.log('Profile.Service.createProfile', input.data);
 
-    const profile = await ctx.app.model.Profile.create(input);
+    const profile = await ctx.app.model.Profile.create(input.data);
     return profile as Profile;
   }
 
   async updateProfile(input: RouterInput['updateProfile'], ctx: RouterContext): Promise<RouterOutput['updateProfile']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Profile.Service.updateProfile', input.userId, input.data);
+    console.log('Profile.Service.updateProfile', input.query, input.data);
 
-    const updatedProfile = await ctx.app.model.Profile.findOneAndUpdate({ userId: input.userId }, input.data, {
-      new: true,
-    })
+    const filter = getFilter(input.query);
+    const updatedProfile = await ctx.app.model.Profile.findOneAndUpdate(filter, input.data, { new: true })
       .lean()
       .exec();
     if (!updatedProfile) throw new Error('Profile update failed');
@@ -38,9 +39,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getProfileStats']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Profile.Service.getProfileStats', input.userId);
+    console.log('Profile.Service.getProfileStats', input.query);
 
-    const profile = await ctx.app.model.Profile.findOne({ userId: input.userId }).lean().exec();
+    const filter = getFilter(input.query);
+    const profile = await ctx.app.model.Profile.findOne(filter).lean().exec();
     if (!profile) throw new Error('Profile not found');
 
     return profile.stats;
@@ -51,10 +53,11 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateProfileSettings']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Profile.Service.updateProfileSettings', input.userId, input.settings);
+    console.log('Profile.Service.updateProfileSettings', input.query, input.settings);
 
+    const filter = getFilter(input.query);
     const updatedProfile = await ctx.app.model.Profile.findOneAndUpdate(
-      { userId: input.userId },
+      filter,
       { settings: input.settings },
       { new: true }
     )

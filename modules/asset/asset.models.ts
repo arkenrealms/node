@@ -1,9 +1,7 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './asset.types';
 
-// Asset
-
-export const AssetSchema = mongo.createSchema<Types.AssetDocument>(
+export const Asset = mongo.createModel<Types.AssetDocument>(
   'Asset',
   {
     uri: { type: String, required: true },
@@ -12,7 +10,7 @@ export const AssetSchema = mongo.createSchema<Types.AssetDocument>(
     licenseId: { type: mongo.Schema.Types.ObjectId, ref: 'AssetLicense' },
     license: { type: mongo.Schema.Types.ObjectId, ref: 'AssetLicense' },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
-    items: [{ type: mongo.Schema.Types.ObjectId, ref: 'Item' }],
+    // items: [{ type: mongo.Schema.Types.ObjectId, ref: 'Item' }],
   },
   {
     virtuals: [
@@ -28,13 +26,7 @@ export const AssetSchema = mongo.createSchema<Types.AssetDocument>(
   }
 );
 
-export const Asset = mongo.createModel<Types.AssetDocument>('Asset', AssetSchema);
-
-// AssetLicense
-
-export const AssetLicenseSchema = mongo.createSchema<Types.AssetLicenseDocument>('AssetLicense', {
+export const AssetLicense = mongo.createModel<Types.AssetLicenseDocument>('AssetLicense', {
   value: { type: String, required: true },
-  assets: [{ type: mongo.Schema.Types.ObjectId, ref: 'Asset' }],
+  // assets: [{ type: mongo.Schema.Types.ObjectId, ref: 'Asset' }],
 });
-
-export const AssetLicense = mongo.createModel<Types.AssetLicenseDocument>('AssetLicense', AssetLicenseSchema);

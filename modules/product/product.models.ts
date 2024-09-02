@@ -1,9 +1,7 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './product.types';
 
-// Product
-
-export const ProductSchema = mongo.createSchema<Types.ProductDocument>(
+export const Product = mongo.createModel<Types.ProductDocument>(
   'Product',
   {
     shortDescription: { type: String, maxlength: 300, required: true },
@@ -50,14 +48,8 @@ export const ProductSchema = mongo.createSchema<Types.ProductDocument>(
   }
 );
 
-export const Product = mongo.createModel<Types.ProductDocument>('Product', ProductSchema);
-
-// ProductUpdate
-
-export const ProductUpdateSchema = mongo.createSchema<Types.ProductUpdateDocument>('ProductUpdate', {
+export const ProductUpdate = mongo.createModel<Types.ProductUpdateDocument>('ProductUpdate', {
   productId: { type: mongo.Schema.Types.ObjectId, ref: 'Product', required: true },
   updateContent: { type: String, required: true },
   updateDate: { type: Date, required: true },
 });
-
-export const ProductUpdate = mongo.createModel<Types.ProductUpdateDocument>('ProductUpdate', ProductUpdateSchema);

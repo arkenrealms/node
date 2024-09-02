@@ -1,10 +1,11 @@
-// module/job.router.ts
+// job.router.ts
 
 import { z as zod } from 'zod';
 import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
 import { Job } from './job.schema';
+import { Query } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -16,20 +17,26 @@ export const createRouter = () =>
     getJob: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ jobId: z.string() }))
+      .input(z.object({ query: Query }))
       .query(({ input, ctx }) => (ctx.app.service.Job.getJob as any)(input, ctx)),
 
     createJob: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Job)
+      .input(z.object({ data: Job }))
       .mutation(({ input, ctx }) => (ctx.app.service.Job.createJob as any)(input, ctx)),
 
     updateJob: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ jobId: z.string(), data: Job.partial() }))
+      .input(z.object({ query: Query, data: Job.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Job.updateJob as any)(input, ctx)),
+
+    updateMetrics: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ query: Query }).optional())
+      .mutation(({ input, ctx }) => (ctx.app.service.Job.updateMetrics as any)(input, ctx)),
   });
 
 export type Router = ReturnType<typeof createRouter>;

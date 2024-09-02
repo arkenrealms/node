@@ -1,9 +1,7 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './profile.types';
 
-// Profile
-
-export const ProfileSchema = mongo.createSchema<Types.ProfileDocument>(
+export const Profile = mongo.createModel<Types.ProfileDocument>(
   'Profile',
   {
     accountId: { type: mongo.Schema.Types.ObjectId, ref: 'Account', required: true },
@@ -26,5 +24,3 @@ export const ProfileSchema = mongo.createSchema<Types.ProfileDocument>(
     ],
   }
 );
-
-export const Profile = mongo.createModel<Types.ProfileDocument>('Profile', ProfileSchema);

@@ -3,6 +3,7 @@ import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
 import { Era } from './game.schema';
+import { Query } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -15,26 +16,25 @@ export const createRouter = () =>
     getEras: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({}))
-      .output(z.object({ data: z.array(Era) }))
+      .input(z.object({ query: Query }))
       .query(({ input, ctx }) => (ctx.app.service.Game.getEras as any)(input, ctx)),
 
     createEra: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Era.omit({ id: true }))
+      .input(z.object({ data: Era.omit({ id: true }) }))
       .mutation(({ input, ctx }) => (ctx.app.service.Game.createEra as any)(input, ctx)),
 
     updateEra: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Era.pick({ id: true, data: true }))
+      .input(z.object({ query: Query, data: Era.partial() }))
       .mutation(({ input, ctx }) => (ctx.app.service.Game.updateEra as any)(input, ctx)),
 
     deleteEra: procedure
-      .use(hasRole('realm', t))
+      .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Era.pick({ id: true }))
+      .input(z.object({ query: Query }))
       .mutation(({ input, ctx }) => (ctx.app.service.Game.deleteEra as any)(input, ctx)),
   });
 

@@ -1,4 +1,4 @@
-import { z, ObjectId, Entity } from '../../schema/zod';
+import { z, ObjectId, Entity } from '../../schema';
 
 export const Video = Entity.merge(
   z.object({
@@ -7,7 +7,7 @@ export const Video = Entity.merge(
     title: z.string().min(1),
     description: z.string().optional(),
     duration: z.number().min(0).optional(),
-    publishedAt: z.date().optional(),
+    // publishedAt: z.date().optional(),
   })
 );
 
@@ -15,7 +15,7 @@ export const VideoParticipant = Entity.merge(
   z.object({
     videoId: ObjectId, // Reference to the associated Video
     profileId: ObjectId.optional(), // Reference to a participant profile
-    role: z.enum(['creator', 'contributor', 'guest']).optional(),
+    role: z.enum(['Host', 'Contributor', 'Guest']).optional(),
   })
 );
 
