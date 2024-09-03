@@ -81,3 +81,68 @@ export const validateSeer = (t: any) =>
     }
     return next();
   });
+
+/**
+ * Reusable middleware to ensure
+ * users are logged in
+ */
+const isAuthed = (t: any) =>
+  t.middleware(({ ctx: { user, acceptableOrigin }, next }) => {
+    if (!user) throw new TRPCError({ code: 'UNAUTHORIZED' });
+    if (user.bannedAt)
+      throw new TRPCError({
+        code: 'FORBIDDEN',
+        message: 'You cannot perform this action because your account has been banned',
+      });
+    return next({ ctx: { user, acceptableOrigin } });
+  });
+
+const isMuted = (t: any) =>
+  t.middleware(async ({ ctx, next }) => {
+    const { user } = ctx;
+    if (!user) throw new TRPCError({ code: 'UNAUTHORIZED' });
+    if (user.muted)
+      throw new TRPCError({
+        code: 'FORBIDDEN',
+        message: 'You cannot perform this action because your account has been restricted',
+      });
+
+    return next({
+      ctx: {
+        ...ctx,
+        user,
+      },
+    });
+  });
+
+const isMod = (t: any) =>
+  t.middleware(({ ctx: { user, acceptableOrigin }, next }) => {
+    if (!user) throw new TRPCError({ code: 'UNAUTHORIZED' });
+    if (!user.isModerator)
+      throw new TRPCError({
+        code: 'FORBIDDEN',
+        message: 'You do not have permission to perform this action',
+      });
+    return next({ ctx: { user, acceptableOrigin } });
+  });
+
+const isOnboarded = (t: any) =>
+  t.middleware(({ ctx, next }) => {
+    const { user } = ctx;
+    //   if (!user) throw new TRPCError({ code: 'UNAUTHORIZED' });
+    //   if (!Flags.hasFlag(user.onboarding, 'TOS')) {
+    //     throw new TRPCError({
+    //       code: 'FORBIDDEN',
+    //       message: 'You must accept our terms of service before performing this action',
+    //     });
+    //   }
+    return next({ ctx: { ...ctx, user } });
+  });
+
+export const isFlagProtected = (flag: keyof FeatureAccess) =>
+  middleware(({ ctx, next }) => {
+    const features = getFeatureFlags(ctx);
+    if (!features[flag]) throw new TRPCError({ code: 'FORBIDDEN' });
+
+    return next();
+  });
