@@ -1,10 +1,11 @@
 // module/core.router.ts
 
 import { z as zod } from 'zod';
-import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
+import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import { dateFromString } from '../../util/zod';
 import type { RouterContext } from '../../types';
+import { Query, getQueryInput, inferRouterOutputs } from '../../schema';
 import {
   Account,
   Achievement,
@@ -51,7 +52,7 @@ import {
   Quest,
   Rating,
   Realm,
-  RecordUpdate,
+  Revision,
   Referral,
   Review,
   Role,
@@ -81,1221 +82,1422 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
-    // Account Procedures
     getAccount: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ accountId: z.string() }))
+      .input(getQueryInput(Account))
+      .output(Account)
       .query(({ input, ctx }) => (ctx.app.service.Core.getAccount as any)(input, ctx)),
+
+    getAccounts: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Account))
+      .output(Account.array())
+      .query(({ input, ctx }) => (ctx.app.service.Core.getAccounts as any)(input, ctx)),
 
     createAccount: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Account)
+      .input(getQueryInput(Account))
+      .output(Account.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createAccount as any)(input, ctx)),
 
     updateAccount: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ accountId: z.string(), data: Account.partial() }))
+      .input(getQueryInput(Account))
+      .output(Account.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateAccount as any)(input, ctx)),
 
-    // Achievement Procedures
     getAchievement: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ achievementId: z.string() }))
+      .input(getQueryInput(Achievement))
+      .output(Achievement)
       .query(({ input, ctx }) => (ctx.app.service.Core.getAchievement as any)(input, ctx)),
+
+    getAchievements: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Achievement))
+      .output(Achievement.array())
+      .query(({ input, ctx }) => (ctx.app.service.Core.getAchievements as any)(input, ctx)),
 
     createAchievement: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Achievement)
+      .input(getQueryInput(Achievement))
+      .output(Achievement.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createAchievement as any)(input, ctx)),
 
     updateAchievement: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ achievementId: z.string(), data: Achievement.partial() }))
+      .input(getQueryInput(Achievement))
+      .output(Achievement.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateAchievement as any)(input, ctx)),
 
     // Add similar procedures for Act, Agent, Application, Badge, BattlePass, Biome, BiomeFeature,
     // Bounty, Collection, Comment, Community, Company, Conversation, Data, Discussion, Energy, Event, Exchange,
     // File, Galaxy, Guide, Idea, Leaderboard, Log, Lore, Market, Memory, Message, Metaverse, NewsArticle, Npc,
     // Offer, Omniverse, Order, Payment, Permission, Person, Planet, Poll, Project, Proposal, Quest, Rating, Realm,
-    // RecordUpdate, Referral, Review, Role, Season, Server, Session, SolarSystem, Star, Stash, Stock, Suggestion, Tag,
+    // Revision, Referral, Review, Role, Season, Server, Session, SolarSystem, Star, Stash, Stock, Suggestion, Tag,
     // Team, Tournament, Trade, Universe, Validator, Vote, WorldEvent.
-
     // Act Procedures
     getAct: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ actId: z.string() }))
+      .input(getQueryInput(Act))
+      .output(Act)
       .query(({ input, ctx }) => (ctx.app.service.Core.getAct as any)(input, ctx)),
 
     createAct: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Act)
+      .input(getQueryInput(Act))
+      .output(Act.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createAct as any)(input, ctx)),
 
     updateAct: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ actId: z.string(), data: Act.partial() }))
+      .input(getQueryInput(Act))
+      .output(Act.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateAct as any)(input, ctx)),
 
     // Agent Procedures
     getAgent: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ agentId: z.string() }))
+      .input(getQueryInput(Agent))
+      .output(Agent)
       .query(({ input, ctx }) => (ctx.app.service.Core.getAgent as any)(input, ctx)),
 
     createAgent: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Agent)
+      .input(getQueryInput(Agent))
+      .output(Agent.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createAgent as any)(input, ctx)),
 
     updateAgent: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ agentId: z.string(), data: Agent.partial() }))
+      .input(getQueryInput(Agent))
+      .output(Agent.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateAgent as any)(input, ctx)),
 
     // Application Procedures
     getApplication: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ applicationId: z.string() }))
+      .input(getQueryInput(Application))
+      .output(Application)
       .query(({ input, ctx }) => (ctx.app.service.Core.getApplication as any)(input, ctx)),
 
     createApplication: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Application)
+      .input(getQueryInput(Application))
+      .output(Application.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createApplication as any)(input, ctx)),
 
     updateApplication: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ applicationId: z.string(), data: Application.partial() }))
+      .input(getQueryInput(Application))
+      .output(Application.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateApplication as any)(input, ctx)),
-
     // Badge Procedures
     getBadge: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ badgeId: z.string() }))
+      .input(getQueryInput(Badge))
+      .output(Badge)
       .query(({ input, ctx }) => (ctx.app.service.Core.getBadge as any)(input, ctx)),
 
     createBadge: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Badge)
+      .input(getQueryInput(Badge))
+      .output(Badge.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createBadge as any)(input, ctx)),
 
     updateBadge: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ badgeId: z.string(), data: Badge.partial() }))
+      .input(getQueryInput(Badge))
+      .output(Badge.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateBadge as any)(input, ctx)),
 
     // BattlePass Procedures
     getBattlePass: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ battlePassId: z.string() }))
+      .input(getQueryInput(BattlePass))
+      .output(BattlePass)
       .query(({ input, ctx }) => (ctx.app.service.Core.getBattlePass as any)(input, ctx)),
 
     createBattlePass: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(BattlePass)
+      .input(getQueryInput(BattlePass))
+      .output(BattlePass.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createBattlePass as any)(input, ctx)),
 
     updateBattlePass: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ battlePassId: z.string(), data: BattlePass.partial() }))
+      .input(getQueryInput(BattlePass))
+      .output(BattlePass.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateBattlePass as any)(input, ctx)),
 
     // Biome Procedures
     getBiome: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ biomeId: z.string() }))
+      .input(getQueryInput(Biome))
+      .output(Biome)
       .query(({ input, ctx }) => (ctx.app.service.Core.getBiome as any)(input, ctx)),
 
     createBiome: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Biome)
+      .input(getQueryInput(Biome))
+      .output(Biome.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createBiome as any)(input, ctx)),
 
     updateBiome: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ biomeId: z.string(), data: Biome.partial() }))
+      .input(getQueryInput(Biome))
+      .output(Biome.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateBiome as any)(input, ctx)),
-
     // BiomeFeature Procedures
     getBiomeFeature: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ biomeFeatureId: z.string() }))
+      .input(getQueryInput(BiomeFeature))
+      .output(BiomeFeature)
       .query(({ input, ctx }) => (ctx.app.service.Core.getBiomeFeature as any)(input, ctx)),
 
     createBiomeFeature: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(BiomeFeature)
+      .output(BiomeFeature.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createBiomeFeature as any)(input, ctx)),
-
     updateBiomeFeature: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ biomeFeatureId: z.string(), data: BiomeFeature.partial() }))
+      .input(getQueryInput(BiomeFeature))
+      .output(BiomeFeature.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateBiomeFeature as any)(input, ctx)),
 
     // Bounty Procedures
     getBounty: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ bountyId: z.string() }))
+      .input(getQueryInput(Bounty))
+      .output(Bounty)
       .query(({ input, ctx }) => (ctx.app.service.Core.getBounty as any)(input, ctx)),
 
     createBounty: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Bounty)
+      .input(getQueryInput(Bounty))
+      .output(Bounty.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createBounty as any)(input, ctx)),
 
     updateBounty: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ bountyId: z.string(), data: Bounty.partial() }))
+      .input(getQueryInput(Bounty))
+      .output(Bounty.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateBounty as any)(input, ctx)),
+
     // Collection Procedures
     getCollection: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ collectionId: z.string() }))
+      .input(getQueryInput(Collection))
+      .output(Collection)
       .query(({ input, ctx }) => (ctx.app.service.Core.getCollection as any)(input, ctx)),
 
     createCollection: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Collection)
+      .input(getQueryInput(Collection))
+      .output(Collection.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createCollection as any)(input, ctx)),
 
     updateCollection: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ collectionId: z.string(), data: Collection.partial() }))
+      .input(getQueryInput(Collection))
+      .output(Collection.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateCollection as any)(input, ctx)),
 
     // Comment Procedures
     getComment: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ commentId: z.string() }))
+      .input(getQueryInput(Comment))
+      .output(Comment)
       .query(({ input, ctx }) => (ctx.app.service.Core.getComment as any)(input, ctx)),
 
     createComment: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Comment)
+      .input(getQueryInput(Comment))
+      .output(Comment.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createComment as any)(input, ctx)),
 
     updateComment: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ commentId: z.string(), data: Comment.partial() }))
+      .input(getQueryInput(Comment))
+      .output(Comment.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateComment as any)(input, ctx)),
 
     // Community Procedures
     getCommunity: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ communityId: z.string() }))
+      .input(getQueryInput(Community))
+      .output(Community)
       .query(({ input, ctx }) => (ctx.app.service.Core.getCommunity as any)(input, ctx)),
 
     createCommunity: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Community)
+      .input(getQueryInput(Community))
+      .output(Community.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createCommunity as any)(input, ctx)),
 
     updateCommunity: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ communityId: z.string(), data: Community.partial() }))
+      .input(getQueryInput(Community))
+      .output(Community.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateCommunity as any)(input, ctx)),
 
     // Company Procedures
     getCompany: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ companyId: z.string() }))
+      .input(getQueryInput(Company))
+      .output(Company)
       .query(({ input, ctx }) => (ctx.app.service.Core.getCompany as any)(input, ctx)),
 
     createCompany: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Company)
+      .input(getQueryInput(Company))
+      .output(Company.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createCompany as any)(input, ctx)),
 
     updateCompany: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ companyId: z.string(), data: Company.partial() }))
+      .input(getQueryInput(Company))
+      .output(Company.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateCompany as any)(input, ctx)),
 
     // Conversation Procedures
     getConversation: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ conversationId: z.string() }))
+      .input(getQueryInput(Conversation))
+      .output(Conversation)
       .query(({ input, ctx }) => (ctx.app.service.Core.getConversation as any)(input, ctx)),
 
     createConversation: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Conversation)
+      .input(getQueryInput(Conversation))
+      .output(Conversation.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversation as any)(input, ctx)),
 
     updateConversation: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ conversationId: z.string(), data: Conversation.partial() }))
+      .input(getQueryInput(Conversation))
+      .output(Conversation.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversation as any)(input, ctx)),
+
     // Data Procedures
     getData: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ dataId: z.string() }))
+      .input(getQueryInput(Data))
+      .output(Data)
       .query(({ input, ctx }) => (ctx.app.service.Core.getData as any)(input, ctx)),
 
     createData: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Data)
+      .input(getQueryInput(Data))
+      .output(Data.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createData as any)(input, ctx)),
 
     updateData: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ dataId: z.string(), data: Data.partial() }))
+      .input(getQueryInput(Data))
+      .output(Data.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateData as any)(input, ctx)),
 
     // Discussion Procedures
     getDiscussion: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ discussionId: z.string() }))
+      .input(getQueryInput(Discussion))
+      .output(Discussion)
       .query(({ input, ctx }) => (ctx.app.service.Core.getDiscussion as any)(input, ctx)),
 
     createDiscussion: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Discussion)
+      .input(getQueryInput(Discussion))
+      .output(Discussion.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createDiscussion as any)(input, ctx)),
 
     updateDiscussion: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ discussionId: z.string(), data: Discussion.partial() }))
+      .input(getQueryInput(Discussion))
+      .output(Discussion.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateDiscussion as any)(input, ctx)),
 
     // Energy Procedures
     getEnergy: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ energyId: z.string() }))
+      .input(getQueryInput(Energy))
+      .output(Energy)
       .query(({ input, ctx }) => (ctx.app.service.Core.getEnergy as any)(input, ctx)),
 
     createEnergy: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Energy)
+      .input(getQueryInput(Energy))
+      .output(Energy.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createEnergy as any)(input, ctx)),
 
     updateEnergy: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ energyId: z.string(), data: Energy.partial() }))
+      .input(getQueryInput(Energy))
+      .output(Energy.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateEnergy as any)(input, ctx)),
 
     // Event Procedures
     getEvent: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ eventId: z.string() }))
+      .input(getQueryInput(Event))
+      .output(Event)
       .query(({ input, ctx }) => (ctx.app.service.Core.getEvent as any)(input, ctx)),
 
     createEvent: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Event)
+      .input(getQueryInput(Event))
+      .output(Event.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createEvent as any)(input, ctx)),
 
     updateEvent: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ eventId: z.string(), data: Event.partial() }))
+      .input(getQueryInput(Event))
+      .output(Event.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateEvent as any)(input, ctx)),
+
     // File Procedures
     getFile: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ fileId: z.string() }))
+      .input(getQueryInput(File))
+      .output(File)
       .query(({ input, ctx }) => (ctx.app.service.Core.getFile as any)(input, ctx)),
 
     createFile: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(File)
+      .input(getQueryInput(File))
+      .output(File.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createFile as any)(input, ctx)),
 
     updateFile: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ fileId: z.string(), data: File.partial() }))
+      .input(getQueryInput(File))
+      .output(File.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateFile as any)(input, ctx)),
 
     // Galaxy Procedures
     getGalaxy: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ galaxyId: z.string() }))
+      .input(getQueryInput(Galaxy))
+      .output(Galaxy)
       .query(({ input, ctx }) => (ctx.app.service.Core.getGalaxy as any)(input, ctx)),
 
     createGalaxy: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Galaxy)
+      .input(getQueryInput(Galaxy))
+      .output(Galaxy.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createGalaxy as any)(input, ctx)),
 
     updateGalaxy: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ galaxyId: z.string(), data: Galaxy.partial() }))
+      .input(getQueryInput(Galaxy))
+      .output(Galaxy.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateGalaxy as any)(input, ctx)),
 
     // Guide Procedures
     getGuide: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ guideId: z.string() }))
+      .input(getQueryInput(Guide))
+      .output(Guide)
       .query(({ input, ctx }) => (ctx.app.service.Core.getGuide as any)(input, ctx)),
 
     createGuide: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Guide)
+      .input(getQueryInput(Guide))
+      .output(Guide.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createGuide as any)(input, ctx)),
 
     updateGuide: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ guideId: z.string(), data: Guide.partial() }))
+      .input(getQueryInput(Guide))
+      .output(Guide.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateGuide as any)(input, ctx)),
-
     // Idea Procedures
     getIdea: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ ideaId: z.string() }))
+      .input(getQueryInput(Idea))
+      .output(Idea)
       .query(({ input, ctx }) => (ctx.app.service.Core.getIdea as any)(input, ctx)),
 
     createIdea: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Idea)
+      .input(getQueryInput(Idea))
+      .output(Idea.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createIdea as any)(input, ctx)),
 
     updateIdea: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ ideaId: z.string(), data: Idea.partial() }))
+      .input(getQueryInput(Idea))
+      .output(Idea.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateIdea as any)(input, ctx)),
+
     // Leaderboard Procedures
     getLeaderboard: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ leaderboardId: z.string() }))
+      .input(getQueryInput(Leaderboard))
+      .output(Leaderboard)
       .query(({ input, ctx }) => (ctx.app.service.Core.getLeaderboard as any)(input, ctx)),
 
     createLeaderboard: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Leaderboard)
+      .input(getQueryInput(Leaderboard))
+      .output(Leaderboard.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createLeaderboard as any)(input, ctx)),
 
     updateLeaderboard: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ leaderboardId: z.string(), data: Leaderboard.partial() }))
+      .input(getQueryInput(Leaderboard))
+      .output(Leaderboard.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateLeaderboard as any)(input, ctx)),
 
     // Log Procedures
     getLog: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ logId: z.string() }))
+      .input(getQueryInput(Log))
+      .output(Log)
       .query(({ input, ctx }) => (ctx.app.service.Core.getLog as any)(input, ctx)),
 
     createLog: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Log)
+      .input(getQueryInput(Log))
+      .output(Log.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createLog as any)(input, ctx)),
 
     updateLog: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ logId: z.string(), data: Log.partial() }))
+      .input(getQueryInput(Log))
+      .output(Log.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateLog as any)(input, ctx)),
 
     // Lore Procedures
     getLore: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ loreId: z.string() }))
+      .input(getQueryInput(Lore))
+      .output(Lore)
       .query(({ input, ctx }) => (ctx.app.service.Core.getLore as any)(input, ctx)),
 
     createLore: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Lore)
+      .input(getQueryInput(Lore))
+      .output(Lore.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createLore as any)(input, ctx)),
 
     updateLore: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ loreId: z.string(), data: Lore.partial() }))
+      .input(getQueryInput(Lore))
+      .output(Lore.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateLore as any)(input, ctx)),
 
     // Memory Procedures
     getMemory: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ memoryId: z.string() }))
+      .input(getQueryInput(Memory))
+      .output(Memory)
       .query(({ input, ctx }) => (ctx.app.service.Core.getMemory as any)(input, ctx)),
 
     createMemory: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Memory)
+      .input(getQueryInput(Memory))
+      .output(Memory.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createMemory as any)(input, ctx)),
 
     updateMemory: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ memoryId: z.string(), data: Memory.partial() }))
+      .input(getQueryInput(Memory))
+      .output(Memory.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateMemory as any)(input, ctx)),
+
     // Message Procedures
     getMessage: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ messageId: z.string() }))
+      .input(getQueryInput(Message))
+      .output(Message)
       .query(({ input, ctx }) => (ctx.app.service.Core.getMessage as any)(input, ctx)),
 
     createMessage: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Message)
+      .input(getQueryInput(Message))
+      .output(Message.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createMessage as any)(input, ctx)),
 
     updateMessage: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ messageId: z.string(), data: Message.partial() }))
+      .input(getQueryInput(Message))
+      .output(Message.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateMessage as any)(input, ctx)),
 
     // Metaverse Procedures
     getMetaverse: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ metaverseId: z.string() }))
+      .input(getQueryInput(Metaverse))
+      .output(Metaverse)
       .query(({ input, ctx }) => (ctx.app.service.Core.getMetaverse as any)(input, ctx)),
 
     createMetaverse: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Metaverse)
+      .input(getQueryInput(Metaverse))
+      .output(Metaverse.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createMetaverse as any)(input, ctx)),
 
     updateMetaverse: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ metaverseId: z.string(), data: Metaverse.partial() }))
+      .input(getQueryInput(Metaverse))
+      .output(Metaverse.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateMetaverse as any)(input, ctx)),
 
     // NewsArticle Procedures
     getNewsArticle: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ newsArticleId: z.string() }))
+      .input(getQueryInput(NewsArticle))
+      .output(NewsArticle)
       .query(({ input, ctx }) => (ctx.app.service.Core.getNewsArticle as any)(input, ctx)),
 
     createNewsArticle: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(NewsArticle)
+      .input(getQueryInput(NewsArticle))
+      .output(NewsArticle.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createNewsArticle as any)(input, ctx)),
 
     updateNewsArticle: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ newsArticleId: z.string(), data: NewsArticle.partial() }))
+      .input(getQueryInput(NewsArticle))
+      .output(NewsArticle.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateNewsArticle as any)(input, ctx)),
 
     // Npc Procedures
     getNpc: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ npcId: z.string() }))
+      .input(getQueryInput(Npc))
+      .output(Npc)
       .query(({ input, ctx }) => (ctx.app.service.Core.getNpc as any)(input, ctx)),
 
     createNpc: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Npc)
+      .input(getQueryInput(Npc))
+      .output(Npc.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createNpc as any)(input, ctx)),
 
     updateNpc: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ npcId: z.string(), data: Npc.partial() }))
+      .input(getQueryInput(Npc))
+      .output(Npc.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateNpc as any)(input, ctx)),
+
     // Offer Procedures
     getOffer: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ offerId: z.string() }))
+      .input(getQueryInput(Offer))
+      .output(Offer)
       .query(({ input, ctx }) => (ctx.app.service.Core.getOffer as any)(input, ctx)),
 
     createOffer: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Offer)
+      .input(getQueryInput(Offer))
+      .output(Offer.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createOffer as any)(input, ctx)),
 
     updateOffer: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ offerId: z.string(), data: Offer.partial() }))
+      .input(getQueryInput(Offer))
+      .output(Offer.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateOffer as any)(input, ctx)),
 
     // Omniverse Procedures
     getOmniverse: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ omniverseId: z.string() }))
+      .input(getQueryInput(Omniverse))
+      .output(Omniverse)
       .query(({ input, ctx }) => (ctx.app.service.Core.getOmniverse as any)(input, ctx)),
 
     createOmniverse: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Omniverse)
+      .input(getQueryInput(Omniverse))
+      .output(Omniverse.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createOmniverse as any)(input, ctx)),
 
     updateOmniverse: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ omniverseId: z.string(), data: Omniverse.partial() }))
+      .input(getQueryInput(Omniverse))
+      .output(Omniverse.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateOmniverse as any)(input, ctx)),
 
     // Order Procedures
     getOrder: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ orderId: z.string() }))
+      .input(getQueryInput(Order))
+      .output(Order)
       .query(({ input, ctx }) => (ctx.app.service.Core.getOrder as any)(input, ctx)),
 
     createOrder: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Order)
+      .input(getQueryInput(Order))
+      .output(Order.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createOrder as any)(input, ctx)),
 
     updateOrder: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ orderId: z.string(), data: Order.partial() }))
+      .input(getQueryInput(Order))
+      .output(Order.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateOrder as any)(input, ctx)),
 
     // Payment Procedures
     getPayment: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ paymentId: z.string() }))
+      .input(getQueryInput(Payment))
+      .output(Payment)
       .query(({ input, ctx }) => (ctx.app.service.Core.getPayment as any)(input, ctx)),
 
     createPayment: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Payment)
+      .input(getQueryInput(Payment))
+      .output(Payment.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createPayment as any)(input, ctx)),
 
     updatePayment: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ paymentId: z.string(), data: Payment.partial() }))
+      .input(getQueryInput(Payment))
+      .output(Payment.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updatePayment as any)(input, ctx)),
+
     // Permission Procedures
     getPermission: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ permissionId: z.string() }))
+      .input(getQueryInput(Permission))
+      .output(Permission)
       .query(({ input, ctx }) => (ctx.app.service.Core.getPermission as any)(input, ctx)),
 
     createPermission: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Permission)
+      .input(getQueryInput(Permission))
+      .output(Permission.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createPermission as any)(input, ctx)),
 
     updatePermission: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ permissionId: z.string(), data: Permission.partial() }))
+      .input(getQueryInput(Permission))
+      .output(Permission.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updatePermission as any)(input, ctx)),
 
     // Person Procedures
     getPerson: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ personId: z.string() }))
+      .input(getQueryInput(Person))
+      .output(Person)
       .query(({ input, ctx }) => (ctx.app.service.Core.getPerson as any)(input, ctx)),
 
     createPerson: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Person)
+      .input(getQueryInput(Person))
+      .output(Person.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createPerson as any)(input, ctx)),
 
     updatePerson: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ personId: z.string(), data: Person.partial() }))
+      .input(getQueryInput(Person))
+      .output(Person.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updatePerson as any)(input, ctx)),
 
     // Planet Procedures
     getPlanet: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ planetId: z.string() }))
+      .input(getQueryInput(Planet))
+      .output(Planet)
       .query(({ input, ctx }) => (ctx.app.service.Core.getPlanet as any)(input, ctx)),
 
     createPlanet: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Planet)
+      .input(getQueryInput(Planet))
+      .output(Planet.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createPlanet as any)(input, ctx)),
 
     updatePlanet: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ planetId: z.string(), data: Planet.partial() }))
+      .input(getQueryInput(Planet))
+      .output(Planet.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updatePlanet as any)(input, ctx)),
 
     // Poll Procedures
     getPoll: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ pollId: z.string() }))
+      .input(getQueryInput(Poll))
+      .output(Poll)
       .query(({ input, ctx }) => (ctx.app.service.Core.getPoll as any)(input, ctx)),
 
     createPoll: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Poll)
+      .input(getQueryInput(Poll))
+      .output(Poll.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createPoll as any)(input, ctx)),
 
     updatePoll: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ pollId: z.string(), data: Poll.partial() }))
+      .input(getQueryInput(Poll))
+      .output(Poll.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updatePoll as any)(input, ctx)),
+
     // Project Procedures
     getProject: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ projectId: z.string() }))
+      .input(getQueryInput(Project))
+      .output(Project)
       .query(({ input, ctx }) => (ctx.app.service.Core.getProject as any)(input, ctx)),
 
     createProject: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Project)
+      .input(getQueryInput(Project))
+      .output(Project.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createProject as any)(input, ctx)),
 
     updateProject: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ projectId: z.string(), data: Project.partial() }))
+      .input(getQueryInput(Project))
+      .output(Project.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateProject as any)(input, ctx)),
 
     // Proposal Procedures
     getProposal: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ proposalId: z.string() }))
+      .input(getQueryInput(Proposal))
+      .output(Proposal)
       .query(({ input, ctx }) => (ctx.app.service.Core.getProposal as any)(input, ctx)),
-
     createProposal: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Proposal)
+      .input(getQueryInput(Proposal))
+      .output(Proposal.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createProposal as any)(input, ctx)),
 
     updateProposal: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ proposalId: z.string(), data: Proposal.partial() }))
+      .input(getQueryInput(Proposal))
+      .output(Proposal.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateProposal as any)(input, ctx)),
 
     // Quest Procedures
     getQuest: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ questId: z.string() }))
+      .input(getQueryInput(Quest))
+      .output(Quest)
       .query(({ input, ctx }) => (ctx.app.service.Core.getQuest as any)(input, ctx)),
 
     createQuest: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Quest)
+      .input(getQueryInput(Quest))
+      .output(Quest.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createQuest as any)(input, ctx)),
 
     updateQuest: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ questId: z.string(), data: Quest.partial() }))
+      .input(getQueryInput(Quest))
+      .output(Quest.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateQuest as any)(input, ctx)),
 
     // Rating Procedures
     getRating: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ ratingId: z.string() }))
+      .input(getQueryInput(Rating))
+      .output(Rating)
       .query(({ input, ctx }) => (ctx.app.service.Core.getRating as any)(input, ctx)),
 
     createRating: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Rating)
+      .input(getQueryInput(Rating))
+      .output(Rating.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createRating as any)(input, ctx)),
 
     updateRating: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ ratingId: z.string(), data: Rating.partial() }))
+      .input(getQueryInput(Rating))
+      .output(Rating.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRating as any)(input, ctx)),
+
     // Realm Procedures
     getRealm: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ realmId: z.string() }))
+      .input(getQueryInput(Realm))
+      .output(Realm)
       .query(({ input, ctx }) => (ctx.app.service.Core.getRealm as any)(input, ctx)),
 
     createRealm: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Realm)
+      .input(getQueryInput(Realm))
+      .output(Realm.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createRealm as any)(input, ctx)),
 
     updateRealm: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ realmId: z.string(), data: Realm.partial() }))
+      .input(getQueryInput(Realm))
+      .output(Realm.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealm as any)(input, ctx)),
 
-    // RecordUpdate Procedures
-    getRecordUpdate: procedure
+    // Revision Procedures
+    getRevision: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ recordUpdateId: z.string() }))
-      .query(({ input, ctx }) => (ctx.app.service.Core.getRecordUpdate as any)(input, ctx)),
+      .input(getQueryInput(Revision))
+      .output(Revision)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRevision as any)(input, ctx)),
 
-    createRecordUpdate: procedure
+    createRevision: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(RecordUpdate)
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRecordUpdate as any)(input, ctx)),
+      .input(getQueryInput(Revision))
+      .output(Revision.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRevision as any)(input, ctx)),
 
-    updateRecordUpdate: procedure
+    updateRevision: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ recordUpdateId: z.string(), data: RecordUpdate.partial() }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRecordUpdate as any)(input, ctx)),
+      .input(getQueryInput(Revision))
+      .output(Revision.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRevision as any)(input, ctx)),
 
     // Referral Procedures
     getReferral: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ referralId: z.string() }))
+      .input(getQueryInput(Referral))
+      .output(Referral)
       .query(({ input, ctx }) => (ctx.app.service.Core.getReferral as any)(input, ctx)),
 
     createReferral: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Referral)
+      .input(getQueryInput(Referral))
+      .output(Referral.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createReferral as any)(input, ctx)),
 
     updateReferral: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ referralId: z.string(), data: Referral.partial() }))
+      .input(getQueryInput(Referral))
+      .output(Referral.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateReferral as any)(input, ctx)),
-
     // Review Procedures
     getReview: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ reviewId: z.string() }))
+      .input(getQueryInput(Review))
+      .output(Review)
       .query(({ input, ctx }) => (ctx.app.service.Core.getReview as any)(input, ctx)),
 
     createReview: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Review)
+      .input(getQueryInput(Review))
+      .output(Review.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createReview as any)(input, ctx)),
 
     updateReview: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ reviewId: z.string(), data: Review.partial() }))
+      .input(getQueryInput(Review))
+      .output(Review.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateReview as any)(input, ctx)),
     // Role Procedures
     getRole: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ roleId: z.string() }))
+      .input(getQueryInput(Role))
+      .output(Role)
       .query(({ input, ctx }) => (ctx.app.service.Core.getRole as any)(input, ctx)),
 
     createRole: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Role)
+      .input(getQueryInput(Role))
+      .output(Role.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createRole as any)(input, ctx)),
 
     updateRole: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ roleId: z.string(), data: Role.partial() }))
+      .input(getQueryInput(Role))
+      .output(Role.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRole as any)(input, ctx)),
 
     // Season Procedures
     getSeason: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ seasonId: z.string() }))
+      .input(getQueryInput(Season))
+      .output(Season)
       .query(({ input, ctx }) => (ctx.app.service.Core.getSeason as any)(input, ctx)),
 
     createSeason: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Season)
+      .input(getQueryInput(Season))
+      .output(Season.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createSeason as any)(input, ctx)),
 
     updateSeason: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ seasonId: z.string(), data: Season.partial() }))
+      .input(getQueryInput(Season))
+      .output(Season.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSeason as any)(input, ctx)),
 
     // Server Procedures
     getServer: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ serverId: z.string() }))
+      .input(getQueryInput(Server))
+      .output(Server)
       .query(({ input, ctx }) => (ctx.app.service.Core.getServer as any)(input, ctx)),
 
     createServer: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Server)
+      .input(getQueryInput(Server))
+      .output(Server.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createServer as any)(input, ctx)),
 
     updateServer: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ serverId: z.string(), data: Server.partial() }))
+      .input(getQueryInput(Server))
+      .output(Server.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateServer as any)(input, ctx)),
 
     // Session Procedures
     getSession: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ sessionId: z.string() }))
+      .input(getQueryInput(Session))
+      .output(Session)
       .query(({ input, ctx }) => (ctx.app.service.Core.getSession as any)(input, ctx)),
 
     createSession: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Session)
+      .input(getQueryInput(Session))
+      .output(Session.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createSession as any)(input, ctx)),
 
     updateSession: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ sessionId: z.string(), data: Session.partial() }))
+      .input(getQueryInput(Session))
+      .output(Session.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSession as any)(input, ctx)),
+
     // SolarSystem Procedures
     getSolarSystem: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ solarSystemId: z.string() }))
+      .input(getQueryInput(SolarSystem))
+      .output(SolarSystem)
       .query(({ input, ctx }) => (ctx.app.service.Core.getSolarSystem as any)(input, ctx)),
 
     createSolarSystem: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(SolarSystem)
+      .input(getQueryInput(SolarSystem))
+      .output(SolarSystem.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createSolarSystem as any)(input, ctx)),
 
     updateSolarSystem: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ solarSystemId: z.string(), data: SolarSystem.partial() }))
+      .input(getQueryInput(SolarSystem))
+      .output(SolarSystem.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSolarSystem as any)(input, ctx)),
 
     // Star Procedures
     getStar: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ starId: z.string() }))
+      .input(getQueryInput(Star))
+      .output(Star)
       .query(({ input, ctx }) => (ctx.app.service.Core.getStar as any)(input, ctx)),
 
     createStar: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Star)
+      .input(getQueryInput(Star))
+      .output(Star.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createStar as any)(input, ctx)),
 
     updateStar: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ starId: z.string(), data: Star.partial() }))
+      .input(getQueryInput(Star))
+      .output(Star.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateStar as any)(input, ctx)),
 
     // Stash Procedures
     getStash: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ stashId: z.string() }))
+      .input(getQueryInput(Stash))
+      .output(Stash)
       .query(({ input, ctx }) => (ctx.app.service.Core.getStash as any)(input, ctx)),
 
     createStash: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Stash)
+      .input(getQueryInput(Stash))
+      .output(Stash.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createStash as any)(input, ctx)),
 
     updateStash: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ stashId: z.string(), data: Stash.partial() }))
+      .input(getQueryInput(Stash))
+      .output(Stash.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateStash as any)(input, ctx)),
 
     // Stock Procedures
     getStock: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ stockId: z.string() }))
+      .input(getQueryInput(Stock))
+      .output(Stock)
       .query(({ input, ctx }) => (ctx.app.service.Core.getStock as any)(input, ctx)),
 
     createStock: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Stock)
+      .input(getQueryInput(Stock))
+      .output(Stock.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createStock as any)(input, ctx)),
 
     updateStock: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ stockId: z.string(), data: Stock.partial() }))
+      .input(getQueryInput(Stock))
+      .output(Stock.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateStock as any)(input, ctx)),
+
     // Suggestion Procedures
     getSuggestion: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ suggestionId: z.string() }))
+      .input(getQueryInput(Suggestion))
+      .output(Suggestion)
       .query(({ input, ctx }) => (ctx.app.service.Core.getSuggestion as any)(input, ctx)),
 
     createSuggestion: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Suggestion)
+      .input(getQueryInput(Suggestion))
+      .output(Suggestion.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createSuggestion as any)(input, ctx)),
 
     updateSuggestion: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ suggestionId: z.string(), data: Suggestion.partial() }))
+      .input(getQueryInput(Suggestion))
+      .output(Suggestion.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSuggestion as any)(input, ctx)),
 
     // Tag Procedures
     getTag: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ tagId: z.string() }))
+      .input(getQueryInput(Tag))
+      .output(Tag)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTag as any)(input, ctx)),
 
     createTag: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Tag)
+      .input(getQueryInput(Tag))
+      .output(Tag.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createTag as any)(input, ctx)),
 
     updateTag: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ tagId: z.string(), data: Tag.partial() }))
+      .input(getQueryInput(Tag))
+      .output(Tag.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateTag as any)(input, ctx)),
 
     // Team Procedures
     getTeam: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ teamId: z.string() }))
+      .input(getQueryInput(Team))
+      .output(Team)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTeam as any)(input, ctx)),
 
     createTeam: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Team)
+      .input(getQueryInput(Team))
+      .output(Team.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createTeam as any)(input, ctx)),
 
     updateTeam: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ teamId: z.string(), data: Team.partial() }))
+      .input(getQueryInput(Team))
+      .output(Team.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateTeam as any)(input, ctx)),
 
     // Tournament Procedures
     getTournament: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ tournamentId: z.string() }))
+      .input(getQueryInput(Tournament))
+      .output(Tournament)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTournament as any)(input, ctx)),
 
     createTournament: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Tournament)
+      .input(getQueryInput(Tournament))
+      .output(Tournament.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createTournament as any)(input, ctx)),
 
     updateTournament: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ tournamentId: z.string(), data: Tournament.partial() }))
+      .input(getQueryInput(Tournament))
+      .output(Tournament.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateTournament as any)(input, ctx)),
 
     // Trade Procedures
     getTrade: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ tradeId: z.string() }))
+      .input(getQueryInput(Trade))
+      .output(Trade)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTrade as any)(input, ctx)),
 
     createTrade: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Trade)
+      .input(getQueryInput(Trade))
+      .output(Trade.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createTrade as any)(input, ctx)),
 
     updateTrade: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ tradeId: z.string(), data: Trade.partial() }))
+      .input(getQueryInput(Trade))
+      .output(Trade.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateTrade as any)(input, ctx)),
 
     // Universe Procedures
     getUniverse: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ universeId: z.string() }))
+      .input(getQueryInput(Universe))
+      .output(Universe)
       .query(({ input, ctx }) => (ctx.app.service.Core.getUniverse as any)(input, ctx)),
 
     createUniverse: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Universe)
+      .input(getQueryInput(Universe))
+      .output(Universe.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createUniverse as any)(input, ctx)),
 
     updateUniverse: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ universeId: z.string(), data: Universe.partial() }))
+      .input(getQueryInput(Universe))
+      .output(Universe.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateUniverse as any)(input, ctx)),
 
     // Validator Procedures
     getValidator: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ validatorId: z.string() }))
+      .input(getQueryInput(Validator))
+      .output(Validator)
       .query(({ input, ctx }) => (ctx.app.service.Core.getValidator as any)(input, ctx)),
 
     createValidator: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Validator)
+      .input(getQueryInput(Validator))
+      .output(Validator.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createValidator as any)(input, ctx)),
 
     updateValidator: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ validatorId: z.string(), data: Validator.partial() }))
+      .input(getQueryInput(Validator))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateValidator as any)(input, ctx)),
 
     // Vote Procedures
     getVote: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ voteId: z.string() }))
+      .input(getQueryInput(Vote))
       .query(({ input, ctx }) => (ctx.app.service.Core.getVote as any)(input, ctx)),
 
     createVote: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Vote)
+      .input(getQueryInput(Vote))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createVote as any)(input, ctx)),
 
     updateVote: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ voteId: z.string(), data: Vote.partial() }))
+      .input(getQueryInput(Vote))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateVote as any)(input, ctx)),
 
     // WorldEvent Procedures
     getWorldEvent: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ worldEventId: z.string() }))
+      .input(getQueryInput(WorldEvent))
       .query(({ input, ctx }) => (ctx.app.service.Core.getWorldEvent as any)(input, ctx)),
 
     createWorldEvent: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(WorldEvent)
+      .input(getQueryInput(WorldEvent))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createWorldEvent as any)(input, ctx)),
 
     updateWorldEvent: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ worldEventId: z.string(), data: WorldEvent.partial() }))
+      .input(getQueryInput(WorldEvent))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateWorldEvent as any)(input, ctx)),
 
     info: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({}))
+      .input(z.any())
       .query(({ input, ctx }) => (ctx.app.service.Core.info as any)(input, ctx)),
 
     stats: procedure

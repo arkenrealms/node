@@ -1,5 +1,6 @@
 import Mongoose, { Types } from 'mongoose';
-import { z as zod } from 'zod';
+import { z as zod, ZodTypeAny, ZodLazy, ZodObject, ZodArray } from 'zod';
+import { AnyProcedure, inferProcedureOutput, AnyRouter, AnyTRPCClientTypes, TRPCRouterRecord } from '@trpc/server';
 
 export const z = zod;
 
@@ -50,62 +51,206 @@ export const Entity = z
 
 export type Entity = zod.infer<typeof Entity>;
 
-export const Query = z
-  .object({
-    skip: z.number().default(0).optional(),
-    take: z.number().default(10).optional(),
-    data: z.any(),
-    where: z.object({
-      id: z.object({ equals: z.string().optional() }).optional(),
-      key: z.object({ equals: z.string().optional() }).optional(),
-      name: z.object({ equals: z.string().optional() }).optional(),
-      email: z.object({ equals: z.string().optional() }).optional(),
-      status: z.object({ equals: z.string().optional() }).optional(),
-      OR: z
-        .tuple([
-          z.object({
-            title: z.string().optional(),
-          }),
-          z.object({
-            key: z.string().optional(),
-          }),
-          z.object({
-            name: z.string().optional(),
-          }),
-          z.object({
-            version: z.string().optional(),
-          }),
-        ])
-        .optional(),
-      AND: z
-        .tuple([
-          z.object({
-            title: z.string().optional(),
-          }),
-          z.object({
-            key: z.string().optional(),
-          }),
-          z.object({
-            name: z.string().optional(),
-          }),
-          z.object({
-            version: z.string().optional(),
-          }),
-          z.object({
-            status: z.object({ in: z.string().optional() }),
-          }),
-          z.object({
-            groupId: z.object({ in: z.string().optional() }),
-          }),
-        ])
-        .optional(),
-    }),
-    orderBy: z
-      .object({
-        name: z.enum(['asc', 'desc']).optional(),
-      })
-      .optional(),
-  })
-  .optional();
+const QueryFilterOperators = z.object({
+  equals: z.any().optional(),
+  not: z.any().optional(),
+  in: z.array(z.any()).optional(),
+  notIn: z.array(z.any()).optional(),
+  lt: z.any().optional(),
+  lte: z.any().optional(),
+  gt: z.any().optional(),
+  gte: z.any().optional(),
+  contains: z.string().optional(),
+  startsWith: z.string().optional(),
+  endsWith: z.string().optional(),
+  mode: z.enum(['default', 'insensitive']).optional(),
+});
 
-export type Query = zod.infer<typeof Query>;
+const QueryWhereSchema = z.lazy(() =>
+  z.object({
+    AND: z.array(QueryWhereSchema).optional(),
+    OR: z.array(QueryWhereSchema).optional(),
+    NOT: z.array(QueryWhereSchema).optional(),
+    id: QueryFilterOperators.optional(),
+    key: QueryFilterOperators.optional(),
+    name: QueryFilterOperators.optional(),
+    email: QueryFilterOperators.optional(),
+    status: QueryFilterOperators.optional(),
+  })
+);
+
+export const Query = z.object({
+  skip: z.number().default(0).optional(),
+  take: z.number().default(10).optional(),
+  cursor: z.record(z.any()).optional(),
+  where: QueryWhereSchema.optional(),
+  orderBy: z.record(z.enum(['asc', 'desc'])).optional(),
+  include: z.record(z.boolean()).optional(),
+  select: z.record(z.boolean()).optional(),
+});
+
+// Operators for filtering in a Prisma-like way
+type PrismaFilterOperators<T extends ZodTypeAny> = zod.ZodObject<
+  {
+    equals?: T;
+    not?: T;
+    in?: zod.ZodArray<T>;
+    notIn?: zod.ZodArray<T>;
+    lt?: T;
+    lte?: T;
+    gt?: T;
+    gte?: T;
+    contains?: zod.ZodString; // T extends zod.ZodString ? zod.ZodString : never;
+    startsWith?: zod.ZodString; // T extends zod.ZodString ? zod.ZodString : never;
+    endsWith?: zod.ZodString; // T extends zod.ZodString ? zod.ZodString : never;
+    mode?: zod.ZodString; // T extends zod.ZodString ? zod.ZodEnum<['default', 'insensitive']> : never;
+  },
+  'strip',
+  ZodTypeAny
+>;
+
+// Level 0: No AND, OR, NOT
+type PrismaWhereLevel0<T extends zod.ZodRawShape> = ZodObject<
+  {
+    [K in keyof T]?: PrismaFilterOperators<T[K]>;
+  },
+  'strip',
+  ZodTypeAny
+>;
+
+// Level 1: Includes AND, OR, NOT of Level 0
+type PrismaWhereLevel1<T extends zod.ZodRawShape> = ZodObject<
+  {
+    AND?: ZodArray<ZodLazy<PrismaWhereLevel0<T>>>;
+    OR?: ZodArray<ZodLazy<PrismaWhereLevel0<T>>>;
+    NOT?: ZodArray<ZodLazy<PrismaWhereLevel0<T>>>;
+  } & {
+    [K in keyof T]?: PrismaFilterOperators<T[K]>;
+  },
+  'strip',
+  ZodTypeAny
+>;
+
+// Level 2: Includes AND, OR, NOT of Level 1
+type PrismaWhereLevel2<T extends zod.ZodRawShape> = ZodObject<
+  {
+    AND?: ZodArray<ZodLazy<PrismaWhereLevel1<T>>>;
+    OR?: ZodArray<ZodLazy<PrismaWhereLevel1<T>>>;
+    NOT?: ZodArray<ZodLazy<PrismaWhereLevel1<T>>>;
+  } & {
+    [K in keyof T]?: PrismaFilterOperators<T[K]>;
+  },
+  'strip',
+  ZodTypeAny
+>;
+
+// Level 3: Includes AND, OR, NOT of Level 2
+type PrismaWhereLevel3<T extends zod.ZodRawShape> = ZodObject<
+  {
+    AND?: ZodArray<ZodLazy<PrismaWhereLevel2<T>>>;
+    OR?: ZodArray<ZodLazy<PrismaWhereLevel2<T>>>;
+    NOT?: ZodArray<ZodLazy<PrismaWhereLevel2<T>>>;
+  } & {
+    [K in keyof T]?: PrismaFilterOperators<T[K]>;
+  },
+  'strip',
+  ZodTypeAny
+>;
+
+// Level 4: Includes AND, OR, NOT of Level 3
+type PrismaWhereLevel4<T extends zod.ZodRawShape> = ZodObject<
+  {
+    AND?: ZodArray<ZodLazy<PrismaWhereLevel3<T>>>;
+    OR?: ZodArray<ZodLazy<PrismaWhereLevel3<T>>>;
+    NOT?: ZodArray<ZodLazy<PrismaWhereLevel3<T>>>;
+  } & {
+    [K in keyof T]?: PrismaFilterOperators<T[K]>;
+  },
+  'strip',
+  ZodTypeAny
+>;
+
+// Function to create a recursive schema up to level 4
+export const createPrismaWhereSchema = <T extends zod.ZodRawShape>(
+  modelSchema: zod.ZodObject<T>
+): PrismaWhereLevel4<T> => {
+  const fields = modelSchema.shape;
+
+  const fieldFilters = Object.fromEntries(
+    Object.entries(fields).map(([key, value]) => [
+      key,
+      zod
+        .object({
+          equals: value.optional(),
+          not: value.optional(),
+          in: zod.array(value).optional(),
+          notIn: zod.array(value).optional(),
+          lt: value.optional(),
+          lte: value.optional(),
+          gt: value.optional(),
+          gte: value.optional(),
+          contains: zod.string().optional(),
+          startsWith: zod.string().optional(),
+          endsWith: zod.string().optional(),
+          mode: zod.string().optional(),
+        })
+        .optional(),
+    ])
+  );
+
+  return zod.object({
+    AND: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))),
+    OR: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))),
+    NOT: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))),
+    ...fieldFilters,
+  }) as unknown as PrismaWhereLevel4<T>; // Explicit cast to PrismaWhereLevel4<T>
+};
+
+export const getQueryInput = <T extends zod.ZodRawShape>(
+  modelSchema?: zod.ZodObject<T>,
+  options: { partialData?: boolean } = {}
+) => {
+  const { partialData = false } = options;
+  const whereSchema = createPrismaWhereSchema(modelSchema);
+
+  const querySchema = zod.object({
+    skip: zod.number().default(0).optional(),
+    take: zod.number().default(10).optional(),
+    cursor: zod.record(zod.any()).optional(),
+    where: whereSchema.optional(),
+    orderBy: zod.record(zod.enum(['asc', 'desc'])).optional(),
+    include: zod.record(zod.boolean()).optional(),
+    select: zod.record(zod.boolean()).optional(),
+  });
+
+  const dataSchema = zod.object({
+    data: partialData ? modelSchema.partial() : modelSchema,
+  });
+
+  return querySchema.merge(dataSchema);
+};
+
+export type inferQuery<T extends zod.ZodRawShape> = zod.infer<ReturnType<typeof createPrismaWhereSchema<T>>>;
+
+export type GetInferenceHelpers<
+  TType extends 'input' | 'output',
+  TRoot extends AnyTRPCClientTypes,
+  TRecord extends TRPCRouterRecord
+> = {
+  [TKey in keyof TRecord]: TRecord[TKey] extends infer $Value
+    ? $Value extends TRPCRouterRecord
+      ? GetInferenceHelpers<TType, TRoot, $Value>
+      : $Value extends AnyProcedure
+      ? inferProcedureOutput<$Value> // inferTransformedProcedureOutput<TRoot, $Value>
+      : never
+    : never;
+};
+
+export type inferRouterOutputs<TRouter extends AnyRouter> = GetInferenceHelpers<
+  'output',
+  TRouter['_def']['_config']['$types'],
+  TRouter['_def']['record']
+>;
+
+// type SpecificOutput = Router['_def']['record']['createInterfaceDraft']['_def']['$types']['output'];
+// type TestOutput = RouterOutput['createInterfaceDraft'];

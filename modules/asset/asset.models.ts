@@ -10,17 +10,26 @@ export const Asset = mongo.createModel<Types.AssetDocument>(
     licenseId: { type: mongo.Schema.Types.ObjectId, ref: 'AssetLicense' },
     license: { type: mongo.Schema.Types.ObjectId, ref: 'AssetLicense' },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
-    // items: [{ type: mongo.Schema.Types.ObjectId, ref: 'Item' }],
+    ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' }, // Added ownerId
+    // skin: { type: String },
+    // transmuteCount: { type: Number },
+    // score: { type: Number },
   },
   {
     virtuals: [
       {
         name: 'items',
-        options: {
-          ref: 'Item',
-          localField: '_id',
-          foreignField: 'assetId',
-        },
+        ref: 'Item',
+        localField: '_id',
+        foreignField: 'assetId',
+      },
+      {
+        name: 'offers',
+        ref: 'Node',
+        localField: '_id',
+        foreignField: 'fromOfferId',
+        justOne: false,
+        match: { relationKey: 'offers' },
       },
     ],
   }

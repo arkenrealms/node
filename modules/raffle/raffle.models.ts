@@ -11,19 +11,15 @@ export const Raffle = mongo.createModel<Types.RaffleDocument>(
     virtuals: [
       {
         name: 'raffleRequirements',
-        options: {
-          ref: 'RaffleRequirement',
-          localField: '_id',
-          foreignField: 'raffleId',
-        },
+        ref: 'RaffleRequirement',
+        localField: '_id',
+        foreignField: 'raffleId',
       },
       {
         name: 'raffleEntries',
-        options: {
-          ref: 'RaffleEntry',
-          localField: '_id',
-          foreignField: 'raffleId',
-        },
+        ref: 'RaffleEntry',
+        localField: '_id',
+        foreignField: 'raffleId',
       },
     ],
   }

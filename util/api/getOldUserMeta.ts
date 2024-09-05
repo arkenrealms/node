@@ -1,6 +1,6 @@
 import fetch from 'axios';
 
-const api = 'https://envoy.arken.gg';
+const api = 'https://s1.envoy.arken.asi.sh';
 
 // const cache = {
 //   getUserMeta: {},

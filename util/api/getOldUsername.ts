@@ -1,6 +1,6 @@
 import fetch from 'axios';
 
-const profileApi = 'https://api.arken.gg';
+const profileApi = 'https://s1.relay.arken.asi.sh';
 
 const cache = {
   getUserAddressByUsername: {},

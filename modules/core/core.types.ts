@@ -145,8 +145,8 @@ export type RatingDocument = Rating & Document;
 export type Realm = z.infer<typeof schema.Realm>;
 export type RealmDocument = Realm & Document;
 
-export type RecordUpdate = z.infer<typeof schema.RecordUpdate>;
-export type RecordUpdateDocument = RecordUpdate & Document;
+export type Revision = z.infer<typeof schema.Revision>;
+export type RevisionDocument = Revision & Document;
 
 export type Referral = z.infer<typeof schema.Referral>;
 export type ReferralDocument = Referral & Document;
@@ -256,7 +256,7 @@ export type Mappings = {
   Question: Model<QuestionDocument>;
   Rating: Model<RatingDocument>;
   Realm: Model<RealmDocument>;
-  RecordUpdate: Model<RecordUpdateDocument>;
+  Revision: Model<RevisionDocument>;
   Referral: Model<ReferralDocument>;
   Review: Model<ReviewDocument>;
   Role: Model<RoleDocument>;

@@ -83,8 +83,14 @@ export interface Application {
   service: ApplicationServiceType;
 }
 
+export type RouterClient = {
+  socket: any;
+  roles: string[]
+}
+
 export type RouterContext = {
   app: Application;
+  client?: RouterClient;
   profile?: {
     roles: Array<{
       status: 'Paused' | 'Pending' | 'Active' | 'Archived';

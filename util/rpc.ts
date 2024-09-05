@@ -58,8 +58,8 @@ export const validateRequest = (t: any) =>
 
 export const hasRole = (role: string | string[], t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
-    console.log('hasRole', role, ctx.client.roles);
-    if (Array.isArray(role)) {
+    console.log('hasRole', role, ctx.client?.roles);
+    if (ctx.client?.roles?.length > 0 && Array.isArray(role)) {
       const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
       if (!hasAnyRole) {
         return { status: 0, message: `Not authorized. Missing one of the required roles: ${role.join(',')}` };
@@ -139,10 +139,10 @@ const isOnboarded = (t: any) =>
     return next({ ctx: { ...ctx, user } });
   });
 
-export const isFlagProtected = (flag: keyof FeatureAccess) =>
-  middleware(({ ctx, next }) => {
-    const features = getFeatureFlags(ctx);
-    if (!features[flag]) throw new TRPCError({ code: 'FORBIDDEN' });
+// export const isFlagProtected = (flag: keyof FeatureAccess) =>
+//   t.middleware(({ ctx, next }) => {
+//     const features = getFeatureFlags(ctx);
+//     if (!features[flag]) throw new TRPCError({ code: 'FORBIDDEN' });
 
-    return next();
-  });
+//     return next();
+//   });

@@ -1,49 +1,50 @@
 import Mongoose from 'mongoose';
 import crossFetch from 'cross-fetch';
+import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { escapeStringRegexp } from './db';
 import type { Query } from '../schema';
 
-interface FetchVariables {
+interface FetchQuery {
   [key: string]: any;
 }
 
-export function getFilter(variables: Query): Record<string, any> {
-  const query: Record<string, any> = {};
+export function getFilter(query: any): Record<string, any> {
+  const filter: Record<string, any> = {};
 
-  if (variables.where.id?.equals) {
+  if (query.where.id?.equals) {
   }
 
-  if (variables.where.email?.equals) {
-    query.email = variables.where.email.equals;
+  if (query.where.email?.equals) {
+    filter.email = query.where.email.equals;
   }
 
-  if (variables.where.key?.equals) {
-    query.key = variables.where.key.equals;
+  if (query.where.key?.equals) {
+    filter.key = query.where.key.equals;
   }
 
-  if (variables.where.name?.equals) {
-    query.name = variables.where.name.equals;
+  if (query.where.name?.equals) {
+    filter.name = query.where.name.equals;
   }
 
   const processOperator = (operator: any, condition: 'OR' | 'AND') => {
     Object.keys(operator).forEach((key) => {
       if (operator[key]?.contains) {
-        query[key] = ['key', 'name'].includes(key)
+        filter[key] = ['key', 'name'].includes(key)
           ? { $regex: escapeStringRegexp(operator[key].contains), $options: 'i' }
           : operator[key].contains;
       } else if (operator[key]?.in) {
-        query[key] = { $in: operator[key].in };
+        filter[key] = { $in: operator[key].in };
       }
     });
   };
 
-  variables.where.OR?.forEach((operator) => processOperator(operator, 'OR'));
-  variables.where.AND?.forEach((operator) => processOperator(operator, 'AND'));
+  query.where.OR?.forEach((operator) => processOperator(operator, 'OR'));
+  query.where.AND?.forEach((operator) => processOperator(operator, 'AND'));
 
-  return query;
+  return filter;
 }
 
-export async function fetch(url: string, variables: FetchVariables): Promise<any> {
+export async function fetch(url: string, query: FetchQuery): Promise<any> {
   const response = await crossFetch(url, {
     headers: {
       accept: '*/*',
@@ -57,7 +58,7 @@ export async function fetch(url: string, variables: FetchVariables): Promise<any
       'sec-fetch-site': 'same-site',
       'Referrer-Policy': 'strict-origin-when-cross-origin',
     },
-    body: JSON.stringify(variables),
+    body: JSON.stringify(query),
     method: 'POST',
   });
   return response.json();

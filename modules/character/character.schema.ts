@@ -72,7 +72,14 @@ export const CharacterTitle = Entity.merge(
 // CharacterFaction schema
 export const CharacterFaction = Entity.merge(
   z.object({
-    // Define fields for CharacterFaction here if needed
+    shortDescription: z.string(),
+    // "npcs": [],
+    // "areas": [24, 77],
+    // "activeFactionConflict": [9], // CharacterFaction list
+    // "passiveFactionConflict": [6], // CharacterFaction list
+    // "activeGuildConflict": [], // Team
+    // "areaConflict": [], // Area list
+    // "characters": [] // Character list
   })
 );
 

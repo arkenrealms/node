@@ -9,9 +9,9 @@ export type * from './chat.service';
 export type { RouterContext } from '../../types';
 
 export type ChatGroup = z.infer<typeof schema.ChatGroup>;
-export type ChatMessage = z.infer<typeof schema.ChatMessage>;
-
 export type ChatGroupDocument = ChatGroup & Document;
+
+export type ChatMessage = z.infer<typeof schema.ChatMessage>;
 export type ChatMessageDocument = ChatMessage & Document;
 
 export type Mappings = {

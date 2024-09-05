@@ -15,9 +15,9 @@ export class Service {
   // Interface Methods
   async getInterface(input: RouterInput['getInterface'], ctx: RouterContext): Promise<RouterOutput['getInterface']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.getInterface', input.query);
+    console.log('Interface.Service.getInterface', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const interfac = await ctx.app.model.Interface.findOne(filter).select('-meta').lean().exec();
     if (!interfac) throw new Error('Interface not found');
 
@@ -29,9 +29,9 @@ export class Service {
 
   async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.getInterfaces', input.query);
+    console.log('Interface.Service.getInterfaces', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const interfaces = await ctx.app.model.Interface.find(filter).select('-meta').lean().exec();
     const rolesOnUsers = await this.fetchRolesFromContext(ctx);
 
@@ -68,14 +68,36 @@ export class Service {
     return newInterface as InterfaceDocument;
   }
 
+  async createInterfaceDraft(
+    input: RouterInput['createInterfaceDraft'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createInterfaceDraft']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Interface.Service.createInterfaceDraft', input);
+
+    const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).lean().exec();
+    const version = existingInterface ? existingInterface.version + 1 : 1;
+
+    const newInterface = await ctx.app.model.Interface.create({
+      ...input.data,
+      status: input.data.status || 'Draft',
+      version,
+      createdDate: new Date(),
+    });
+
+    await ctx.app.service.Job.updateMetrics({}, ctx);
+
+    return newInterface as InterfaceDocument;
+  }
+
   async updateInterface(
     input: RouterInput['updateInterface'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateInterface']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.updateInterface', input.query);
+    console.log('Interface.Service.updateInterface', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     let interfac: any = await ctx.app.model.Interface.findOne(filter).lean().exec();
     if (!interfac) throw new Error('Interface does not exist');
 
@@ -106,9 +128,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['deleteInterface']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.deleteInterface', input.query);
+    console.log('Interface.Service.deleteInterface', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const interfac = await ctx.app.model.Interface.findOne(filter).lean().exec();
     if (!interfac) throw new Error('Interface does not exist');
 
@@ -121,15 +143,14 @@ export class Service {
     return interfac as InterfaceDocument;
   }
 
-  // InterfaceGroup Methods
   async getInterfaceGroup(
     input: RouterInput['getInterfaceGroup'],
     ctx: RouterContext
   ): Promise<RouterOutput['getInterfaceGroup']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.getInterfaceGroup', input.query);
+    console.log('Interface.Service.getInterfaceGroup', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const group = await ctx.app.model.InterfaceGroup.findOne(filter).lean().exec();
     if (!group) throw new Error('InterfaceGroup not found');
 
@@ -142,6 +163,20 @@ export class Service {
     // }
 
     return group as InterfaceGroupDocument;
+  }
+
+  async getInterfaceGroups(
+    input: RouterInput['getInterfaceGroups'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getInterfaceGroups']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Interface.Service.getInterfaceGroups', input);
+
+    const filter = getFilter(input);
+    const groups = await ctx.app.model.InterfaceGroup.find(filter).lean().exec();
+    if (!groups) throw new Error('InterfaceGroup not found');
+
+    return groups as InterfaceGroupDocument[];
   }
 
   async createInterfaceGroup(
@@ -161,9 +196,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateInterfaceGroup']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.updateInterfaceGroup', input.query);
+    console.log('Interface.Service.updateInterfaceGroup', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     await ctx.app.model.InterfaceGroup.updateOne(filter, input.data, {
       runValidators: true,
     }).exec();
@@ -179,9 +214,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getInterfaceComponent']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.getInterfaceComponent', input.query);
+    console.log('Interface.Service.getInterfaceComponent', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const component = await ctx.app.model.InterfaceComponent.findOne(filter).lean().exec();
     if (!component) throw new Error('InterfaceComponent not found');
 
@@ -220,9 +255,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateInterfaceComponent']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.updateInterfaceComponent', input.query);
+    console.log('Interface.Service.updateInterfaceComponent', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const data = Object.entries(input.data).reduce((acc, [key, value]: any) => {
       if (value?.set) acc[key] = value.set;
       return acc;

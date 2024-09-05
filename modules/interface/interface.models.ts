@@ -6,7 +6,7 @@ export const Interface = mongo.createModel<Types.InterfaceDocument>('Interface',
   submissions: [{ type: mongo.Schema.Types.ObjectId, ref: 'InterfaceSubmission' }],
   groupId: { type: mongo.Schema.Types.ObjectId, ref: 'InterfaceGroup', required: true },
   // commentsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'CommentsOnInterfaces' }],
-  // recordUpdatesOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'RecordUpdatesOnInterfaces' }],
+  // revisionsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'RevisionsOnInterfaces' }],
 });
 
 export const InterfaceGroup = mongo.createModel<Types.InterfaceGroupDocument>('InterfaceGroup', {});

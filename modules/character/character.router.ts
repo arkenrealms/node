@@ -17,6 +17,7 @@ import {
   CharacterFaction,
   CharacterNameChoice,
 } from './character.schema';
+import { Query, getQueryInput } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -190,7 +191,7 @@ export const createRouter = () =>
     getCharacterFaction: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ characterFactionId: z.string() }))
+      .input(getQueryInput(CharacterFaction))
       .query(({ input, ctx }) => (ctx.app.service.Character.getCharacterFaction as any)(input, ctx)),
 
     getCharacterFactions: procedure

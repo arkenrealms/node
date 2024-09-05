@@ -53,8 +53,12 @@ interface CustomSchemaOptions extends SchemaOptions {
   extend?: 'EntityFields' | 'CommonFields';
   indexes?: { [field: string]: any }[];
   virtuals?: {
-    name: string;
-    options?: { ref?: string; localField?: string; foreignField?: string; justOne?: boolean; through?: any };
+    name?: string;
+    ref?: string;
+    localField?: string;
+    foreignField?: string;
+    justOne?: boolean;
+    match?: any;
   }[];
   pre?: { method: PreHookMethod | RegExp; handler: (this: Document, next: any) => void }[];
 }
@@ -109,22 +113,25 @@ export function createSchema<T>(
 
   // Apply virtuals
   if (options.virtuals) {
+    const virtuals = {};
     options.virtuals.forEach((virtual) => {
-      const ref =
-        virtual.options?.ref || pluralize.singular(virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1));
-      const localField = virtual.options?.localField || '_id';
-      const foreignField = virtual.options?.foreignField || `${toCamelCase(name)}Id`; // Default foreignField
-      const justOne =
-        virtual.options?.justOne !== undefined ? virtual.options.justOne : !pluralize.isPlural(virtual.name);
+      const ref = virtual.ref || virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1);
+      const localField = virtual.localField || '_id';
+      const foreignField = virtual.foreignField || `${toCamelCase(name)}Id`; // Default foreignField
+      const justOne = virtual.justOne !== undefined ? virtual.justOne : !pluralize.isPlural(virtual.name);
+      const match = virtual.match || {};
 
-      schema.virtual(virtual.name, {
-        ref,
-        localField,
-        foreignField,
-        justOne,
-        ...virtual.options,
-      });
+      virtuals[virtual.name] = {
+        options: {
+          ref,
+          localField,
+          foreignField,
+          justOne,
+          match,
+        },
+      };
     });
+    schema.set('virtuals', virtuals);
   }
 
   // Apply pre middleware
@@ -137,14 +144,47 @@ export function createSchema<T>(
   return schema;
 }
 
+const modelMap: any = {};
+
 export function createModel<T extends Document>(
   key: string,
   schema: SchemaDefinition<T> = {} as SchemaDefinition<T>,
   options: CustomSchemaOptions = {}
 ) {
-  return new Model<T>(mongoose.model<T>(key, createSchema<T>(key, schema, options)));
+  const res = new Model<T>(mongoose.model<T>(key, createSchema<T>(key, schema, options)));
+  modelMap[key] = res;
+  return res;
 }
 
+// Proxy handler for dynamic relationship resolution
+const nodeProxyHandler = {
+  get(target, prop, receiver) {
+    if (Reflect.has(target, prop)) {
+      return Reflect.get(target, prop, receiver);
+    }
+
+    const fromRelation = prop.match(/^from([A-Z][a-zA-Z]+)$/);
+    const toRelation = prop.match(/^to([A-Z][a-zA-Z]+)$/);
+
+    if (fromRelation || toRelation) {
+      const relationName = (fromRelation || toRelation)[1];
+      const relationType = modelMap[relationName];
+
+      if (relationType) {
+        const relationIdField = fromRelation ? `from${relationName}Id` : `to${relationName}Id`;
+        const relationId = target[relationIdField];
+
+        if (relationId) {
+          return relationType.findById(relationId).exec();
+        }
+      }
+    }
+
+    return undefined;
+  },
+};
+
+// Model class with proxy methods
 export class Model<T extends Document> {
   protected model: MongooseModel<T>;
   protected schema: Schema;
@@ -158,16 +198,16 @@ export class Model<T extends Document> {
     this.schema = model.schema;
   }
 
-  aggregate(...props: any[]): any {
-    return this.model.aggregate(...props);
+  // Overridden exec method to wrap the result in a proxy
+  async exec(query: Query<T[], T>): Promise<any> {
+    const result = await query.lean().exec();
+    if (Array.isArray(result)) {
+      return result.map((doc) => new Proxy(doc, nodeProxyHandler));
+    }
+    return result ? new Proxy(result, nodeProxyHandler) : result;
   }
 
-  where(arg1: string, arg2?: any): Query<T[], T>;
-  where(arg1: object): Query<T[], T>;
-  where(arg1: string | object, arg2?: any): Query<T[], T> {
-    return this.model.where(arg1 as any, arg2);
-  }
-
+  // Override the find method to handle proxy
   find(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
@@ -178,14 +218,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
-    return this.model.find(filter, options);
+    return this.model.find(filter, projection, options);
   }
 
+  // Override the findOne method to handle proxy
   findOne(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
@@ -196,14 +232,19 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
-    return this.model.findOne(filter, options);
+    return this.model.findOne(filter, projection, options);
   }
 
+  // Override the findById method to handle proxy
+  findById(
+    id: Types.ObjectId | string,
+    projection?: ProjectionType<T> | null,
+    options?: QueryOptions
+  ): Query<T | null, T> {
+    return this.model.findById(id, projection, options);
+  }
+
+  // Override the findOneAndUpdate method to handle proxy
   findOneAndUpdate(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
@@ -214,54 +255,20 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
     return this.model.findOneAndUpdate(filter, update, options);
   }
 
+  // Override the findOneAndDelete method to handle proxy
   findOneAndDelete(filter: FilterQuery<T>, options?: QueryOptions): Query<T | null, T> {
-    // Add custom filtering logic based on your requirements
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
-      // @ts-ignore
-      filter.applicationId = this.filters.applicationId; // Ensure correct typing
-    }
-
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
-    // Call the original findOneAndDelete method
-    return this.model.findOneAndDelete(filter, options);
-  }
-
-  findAll(): Query<T[], T> {
-    return this.model.find();
-  }
-
-  findById(
-    id: Types.ObjectId | string,
-    projection?: ProjectionType<T> | null,
-    options?: QueryOptions
-  ): Query<T | null, T> {
-    const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
-
     if (!this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
-    return this.model.findOne(filter, projection, options);
+    return this.model.findOneAndDelete(filter, options);
   }
 
+  // Override the findByIdAndUpdate method to handle proxy
   findByIdAndUpdate(
     id: Types.ObjectId | string,
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
@@ -282,6 +289,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndUpdate(filter, update, options);
   }
 
+  // Override the findByIdAndDelete method to handle proxy
   findByIdAndDelete(id: Types.ObjectId | string, options?: QueryOptions): Query<T | null, T> {
     const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
 
@@ -290,37 +298,21 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
     return this.model.findOneAndDelete(filter, options);
   }
 
-  async upsert(
-    filter: FilterQuery<T> = {},
-    create: Partial<T> = {},
-    update: UpdateQuery<T> = {},
-    options: QueryOptions = {}
-  ): Promise<T> {
-    console.log('Trying to find model with filter', filter, options);
-    const res = await this.findOne(filter, null, options).exec();
-    console.log('Result of findOne', res);
-    if (res) {
-      await this.updateOne(filter, update, options).exec();
-      return await this.findOne(filter, null, options).exec();
-    } else {
-      return (await this.create(create)) as T;
-    }
-  }
-
+  // Override the create method to handle proxy
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
     if (!this.filterOmitModels.includes(this.model.modelName)) {
-      // @ts-ignore
-      doc.applicationId = this.filters.applicationId;
+      if (Array.isArray(doc)) {
+        // @ts-ignore
+        doc.forEach((d) => (d.applicationId = this.filters.applicationId));
+      } else {
+        // @ts-ignore
+        doc.applicationId = this.filters.applicationId;
+      }
     }
 
     // // @ts-ignore
@@ -354,68 +346,69 @@ export class Model<T extends Document> {
     return res;
   }
 
-  update(
-    filter: FilterQuery<T>,
-    update: UpdateQuery<T> | UpdateWithAggregationPipeline,
-    options?: QueryOptions
-  ): Query<UpdateWriteOpResult, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
-      // @ts-ignore
-      filter.applicationId = this.filters.applicationId;
-      // @ts-ignore
-      update.applicationId = this.filters.applicationId; // Ensure the update object includes applicationId
+  // Override the upsert method to handle proxy
+  async upsert(
+    filter: FilterQuery<T> = {},
+    create: Partial<T> = {},
+    update: UpdateQuery<T> = {},
+    options: QueryOptions = {}
+  ): Promise<T> {
+    const existing = await this.findOne(filter, null, options).exec();
+    if (existing) {
+      await this.updateOne(filter, update, options).exec();
+      return await this.findOne(filter, null, options).exec();
+    } else {
+      return this.create(create) as Promise<T>;
     }
-
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
-    // // @ts-ignore
-    // if (update.applicationId && typeof update.applicationId === 'string') {
-    //   // @ts-ignore
-    //   update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
-    // }
-    // @ts-ignore
-    return this.model.update(filter, update, options);
   }
 
   updateOne(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
-    options?: QueryOptions
+    options?: any
   ): Query<UpdateWriteOpResult, T> {
     if (!this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
       // @ts-ignore
-      update.applicationId = this.filters.applicationId; // Ensure the update object includes applicationId
+      update.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
-    // // @ts-ignore
-    // if (update.applicationId && typeof update.applicationId === 'string') {
-    //   // @ts-ignore
-    //   update.applicationId = new mongoose.Schema.Types.ObjectId(update.applicationId);
-    // }
-    // @ts-ignore
     return this.model.updateOne(filter, update, options);
   }
 
   updateMany(
     filter: FilterQuery<T>,
-    update: UpdateQuery<T> | UpdateWithAggregationPipeline, // Depending on use case
-    options?: QueryOptions
+    update: UpdateQuery<T> | UpdateWithAggregationPipeline,
+    options?: any
   ): Query<UpdateWriteOpResult, T> {
-    // @ts-ignore
+    if (!this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+
     return this.model.updateMany(filter, update, options);
   }
 
+  // Count documents method
   countDocuments(): any {
     return this.model.countDocuments();
+  }
+
+  // Method for handling aggregate
+  aggregate(...props: any[]): any {
+    return this.model.aggregate(...props);
+  }
+
+  // Method for handling where conditions
+  where(arg1: string, arg2?: any): Query<T[], T>;
+  where(arg1: object): Query<T[], T>;
+  where(arg1: string | object, arg2?: any): Query<T[], T> {
+    return this.model.where(arg1 as any, arg2);
+  }
+
+  // Find all documents method
+  findAll(): Query<T[], T> {
+    return this.model.find();
   }
 }

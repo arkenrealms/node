@@ -29,11 +29,7 @@ export const Application = Entity.merge(
 );
 
 // Badge Schema
-export const Badge = Entity.merge(
-  z.object({
-    value: z.string().min(1),
-  })
-);
+export const Badge = Entity.merge(z.object({}));
 
 // BattlePass Schema
 export const BattlePass = Entity.merge(z.object({}));
@@ -48,11 +44,7 @@ export const BiomeFeature = Entity.merge(z.object({}));
 export const Bounty = Entity.merge(z.object({}));
 
 // Collection Schema
-export const Collection = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Collection = Entity.merge(z.object({}));
 
 // Comment Schema
 export const Comment = Entity.merge(
@@ -68,7 +60,6 @@ export const Comment = Entity.merge(
 // Community Schema
 export const Community = Entity.merge(
   z.object({
-    value: z.string().optional(),
     ideas: z.array(ObjectId).optional(),
     products: z.array(ObjectId).optional(),
     projects: z.array(ObjectId).optional(),
@@ -112,16 +103,12 @@ export const Discussion = Entity.merge(
 export const Energy = Entity.merge(z.object({}));
 
 // Event Schema
-export const Event = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Event = Entity.merge(z.object({}));
 
 // File Schema
 export const File = Entity.merge(
   z.object({
-    value: z.string().optional(),
+    content: z.string().optional(),
     storageType: z.string().max(100).optional(),
     accessType: z.string().max(100).optional(),
   })
@@ -146,7 +133,6 @@ export const Guide = Entity.merge(
 // Idea Schema
 export const Idea = Entity.merge(
   z.object({
-    value: z.string().optional(),
     type: z.string().max(100).optional(),
     communityId: ObjectId.optional(),
   })
@@ -155,7 +141,6 @@ export const Idea = Entity.merge(
 // Leaderboard Schema
 export const Leaderboard = Entity.merge(
   z.object({
-    value: z.string().optional(),
     productId: ObjectId.optional(),
   })
 );
@@ -177,11 +162,7 @@ export const Lore = Entity.merge(
 );
 
 // Market Schema
-export const Market = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Market = Entity.merge(z.object({}));
 
 // Memory Schema
 export const Memory = Entity.merge(z.object({}));
@@ -223,11 +204,7 @@ export const Npc = Entity.merge(
 );
 
 // Offer Schema
-export const Offer = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Offer = Entity.merge(z.object({}));
 
 // Omniverse Schema
 export const Omniverse = Entity.merge(
@@ -237,23 +214,15 @@ export const Omniverse = Entity.merge(
 );
 
 // Order Schema
-export const Order = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Order = Entity.merge(z.object({}));
 
 // Payment Schema
-export const Payment = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Payment = Entity.merge(z.object({}));
 
 // Permission Schema
 export const Permission = Entity.merge(
   z.object({
-    permissionsOnRoles: z.array(ObjectId).optional(),
+    roles: z.array(ObjectId).optional(),
   })
 );
 
@@ -278,7 +247,7 @@ export const Poll = Entity.merge(z.object({}));
 // Project Schema
 export const Project = Entity.merge(
   z.object({
-    value: z.string().optional(),
+    content: z.string().optional(),
     contractStatus: z.string().default('Pending').optional(),
     parentId: ObjectId.optional(),
     realmId: ObjectId.optional(),
@@ -314,7 +283,6 @@ export const Question = Entity.merge(
 // Rating Schema
 export const Rating = Entity.merge(
   z.object({
-    value: z.string().optional(),
     votes: z.array(ObjectId).optional(),
     projects: z.array(ObjectId).optional(),
     comments: z.array(ObjectId).optional(),
@@ -322,21 +290,17 @@ export const Rating = Entity.merge(
 );
 
 // Realm Schema
-export const Realm = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
+export const Realm = Entity.merge(z.object({}));
 
-// RecordUpdate Schema
-export const RecordUpdate = Entity.merge(
+// Revision Schema
+export const Revision = Entity.merge(
   z.object({
     objectType: z.string().max(100),
     objectId: z.string().min(1),
     actionType: z.string().max(100),
     reason: z.string().max(100),
-    recordUpdatesOnForms: z.array(ObjectId).optional(),
-    recordUpdatesOnProfiles: z.array(ObjectId).optional(),
+    interfaces: z.array(ObjectId).optional(),
+    profiles: z.array(ObjectId).optional(),
   })
 );
 
@@ -361,8 +325,8 @@ export const Review = Entity.merge(
 export const Role = Entity.merge(
   z.object({
     value: z.string().optional(),
-    rolesOnProfiles: z.array(ObjectId).optional(),
-    permissionsOnRoles: z.array(ObjectId).optional(),
+    profiles: z.array(ObjectId).optional(),
+    permissions: z.array(ObjectId).optional(),
   })
 );
 
@@ -438,9 +402,12 @@ export const Tournament = Entity.merge(z.object({}));
 // Trade Schema
 export const Trade = Entity.merge(
   z.object({
-    chainId: ObjectId,
-    buyerId: ObjectId,
-    content: z.string().optional(),
+    chainId: ObjectId.optional(),
+    buyerId: ObjectId.optional(),
+    parentId: ObjectId.optional(),
+    productId: ObjectId.optional(),
+    sellerId: ObjectId.optional(),
+    tokenId: ObjectId.optional(),
   })
 );
 
@@ -453,7 +420,6 @@ export const Validator = Entity.merge(z.object({}));
 // Vote Schema
 export const Vote = Entity.merge(
   z.object({
-    value: z.string().optional(),
     ratingId: ObjectId.optional(),
   })
 );
