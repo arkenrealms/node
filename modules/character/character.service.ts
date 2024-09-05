@@ -201,7 +201,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Character.Service.getCharacterFaction', input.where.id);
 
-    const characterFaction = await ctx.app.model.CharacterFaction.findById(input.where.id).lean().exec();
+    const characterFaction = await ctx.app.model.CharacterFaction.findById(input.where.id.equals).lean().exec();
     if (!characterFaction) throw new Error('CharacterFaction not found');
 
     return characterFaction as CharacterFaction;

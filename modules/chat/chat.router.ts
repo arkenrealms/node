@@ -19,6 +19,12 @@ export const createRouter = () =>
       .input(z.object({ chatGroupId: z.string() }))
       .query(({ input, ctx }) => (ctx.app.service.Chat.getChatGroup as any)(input, ctx)),
 
+    getChatGroups: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ chatGroupId: z.string() }))
+      .query(({ input, ctx }) => (ctx.app.service.Chat.getChatGroup as any)(input, ctx)),
+
     createChatGroup: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
@@ -32,6 +38,12 @@ export const createRouter = () =>
       .mutation(({ input, ctx }) => (ctx.app.service.Chat.updateChatGroup as any)(input, ctx)),
 
     getChatMessage: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(z.object({ chatMessageId: z.string() }))
+      .query(({ input, ctx }) => (ctx.app.service.Chat.getChatMessage as any)(input, ctx)),
+
+    getChatMessages: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(z.object({ chatMessageId: z.string() }))

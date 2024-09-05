@@ -1,4 +1,4 @@
-export type * from './game.types';
+export type * as Types from './game.types';
 export * as models from './game.models';
 export * as schemas from './game.schema';
 export * from './game.router';

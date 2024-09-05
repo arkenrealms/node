@@ -151,6 +151,8 @@ export function createModel<T extends Document>(
   schema: SchemaDefinition<T> = {} as SchemaDefinition<T>,
   options: CustomSchemaOptions = {}
 ) {
+  if (modelMap[key]) return modelMap[key];
+
   const res = new Model<T>(mongoose.model<T>(key, createSchema<T>(key, schema, options)));
   modelMap[key] = res;
   return res;
