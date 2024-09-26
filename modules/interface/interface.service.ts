@@ -24,7 +24,7 @@ export class Service {
     if (!interfac.version) interfac.version = 1;
     if (!interfac.meta) interfac.meta = {};
 
-    return interfac as InterfaceDocument;
+    return { data: interfac as InterfaceDocument };
   }
 
   async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
@@ -40,10 +40,12 @@ export class Service {
       if (!interfac.meta) interfac.meta = {};
     }
 
-    return interfaces.filter((interfac) => {
-      const roles = [];
-      return this.hasPermission(roles, rolesOnUsers);
-    }) as InterfaceDocument[];
+    return {
+      data: interfaces.filter((interfac) => {
+        const roles = [];
+        return this.hasPermission(roles, rolesOnUsers);
+      }) as InterfaceDocument[],
+    };
   }
 
   async createInterface(
@@ -65,7 +67,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return newInterface as InterfaceDocument;
+    return { data: newInterface as InterfaceDocument };
   }
 
   async createInterfaceDraft(
@@ -87,7 +89,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return newInterface as InterfaceDocument;
+    return { data: newInterface as InterfaceDocument };
   }
 
   async updateInterface(
@@ -162,7 +164,7 @@ export class Service {
     //   });
     // }
 
-    return group as InterfaceGroupDocument;
+    return { data: group as InterfaceGroupDocument };
   }
 
   async getInterfaceGroups(
@@ -176,7 +178,7 @@ export class Service {
     const groups = await ctx.app.model.InterfaceGroup.find(filter).lean().exec();
     if (!groups) throw new Error('InterfaceGroup not found');
 
-    return groups as InterfaceGroupDocument[];
+    return { data: groups as InterfaceGroupDocument[] };
   }
 
   async createInterfaceGroup(
@@ -220,7 +222,7 @@ export class Service {
     const component = await ctx.app.model.InterfaceComponent.findOne(filter).lean().exec();
     if (!component) throw new Error('InterfaceComponent not found');
 
-    return component as InterfaceComponentDocument;
+    return { data: component as InterfaceComponentDocument };
   }
 
   async createInterfaceComponent(

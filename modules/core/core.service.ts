@@ -68,14 +68,45 @@ import type {
   Vote,
   WorldEvent,
 } from './core.types';
+import { getFilter } from '../../util/api';
 
 export class Service {
+  // Account Methods
+  async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
+    if (!input) throw new Error('Input should not be void');
+    console.log('Core.Service.authorize', input);
+
+    return {
+      status: 1,
+      data: {
+        token: 'aaa',
+        profile: {
+          name: 'zzz',
+        },
+        permissions: {
+          'Process Interfaces': true,
+          'Manage Interfaces': true,
+          'View Interfaces': true,
+          'Design Interfaces': true,
+          'Manage Users': true,
+          'View Users': true,
+          'Manage Submissions': true,
+          'View Submissions': true,
+          'Process Submissions': true,
+          // 'View Workflows': true,
+          'Manage Settings': true,
+          Deletion: true,
+        },
+      },
+    };
+  }
+
   // Account Methods
   async getAccount(input: RouterInput['getAccount'], ctx: RouterContext): Promise<RouterOutput['getAccount']> {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getAccount', input);
 
-    const account = await ctx.app.model.Account.findById(input.where.id.equals).lean().exec();
+    const account = await ctx.app.model.Account.findById(input.where.id.equals).exec();
     if (!account) throw new Error('Account not found');
 
     return account as Account;
@@ -84,7 +115,7 @@ export class Service {
   async getAccounts(ctx: RouterContext): Promise<RouterOutput['getAccounts']> {
     console.log('Core.Service.getAccounts');
 
-    const accounts = await ctx.app.model.Account.find().lean().exec();
+    const accounts = await ctx.app.model.Account.find().exec();
     return accounts as Account[];
   }
 
@@ -118,7 +149,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getAchievement', input);
 
-    const achievement = await ctx.app.model.Achievement.findById(input.where.id.equals).lean().exec();
+    const achievement = await ctx.app.model.Achievement.findById(input.where.id.equals).exec();
     if (!achievement) throw new Error('Achievement not found');
 
     return achievement as Achievement;
@@ -127,7 +158,7 @@ export class Service {
   async getAchievements(ctx: RouterContext): Promise<RouterOutput['getAchievements']> {
     console.log('Core.Service.getAchievements');
 
-    const achievements = await ctx.app.model.Achievement.find().lean().exec();
+    const achievements = await ctx.app.model.Achievement.find().exec();
     return achievements as Achievement[];
   }
 
@@ -160,14 +191,14 @@ export class Service {
   }
 
   async info(input: RouterInput['info'], ctx: RouterContext): Promise<RouterOutput['info']> {
-    if (!input) throw new Error('Input should not be void');
+    return { data: { version: '1.1.1' } };
   }
 
   async stats(input: RouterInput['stats'], ctx: RouterContext): Promise<RouterOutput['stats']> {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.stats');
 
-    const stats = await ctx.app.model.Stat.find().lean().exec();
+    const stats = await ctx.app.model.Stat.find().exec();
 
     return { data: stats as Stat[] };
   }
@@ -179,7 +210,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getAct', input);
 
-    const act = await ctx.app.model.Act.findById(input.where.id.equals).lean().exec();
+    const act = await ctx.app.model.Act.findById(input.where.id.equals).exec();
     if (!act) throw new Error('Act not found');
 
     return act as Act;
@@ -214,7 +245,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getAgent', input);
 
-    const agent = await ctx.app.model.Agent.findById(input.where.id.equals).lean().exec();
+    const agent = await ctx.app.model.Agent.findById(input.where.id.equals).exec();
     if (!agent) throw new Error('Agent not found');
 
     return agent as Agent;
@@ -252,7 +283,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getApplication', input);
 
-    const application = await ctx.app.model.Application.findById(input.where.id.equals).lean().exec();
+    const application = await ctx.app.model.Application.findById(input.where.id.equals).exec();
     if (!application) throw new Error('Application not found');
 
     return application as Application;
@@ -293,7 +324,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getBadge', input);
 
-    const badge = await ctx.app.model.Badge.findById(input.where.id.equals).lean().exec();
+    const badge = await ctx.app.model.Badge.findById(input.where.id.equals).exec();
     if (!badge) throw new Error('Badge not found');
 
     return badge as Badge;
@@ -324,7 +355,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getBattlePass', input);
 
-    const battlePass = await ctx.app.model.BattlePass.findById(input.where.id.equals).lean().exec();
+    const battlePass = await ctx.app.model.BattlePass.findById(input.where.id.equals).exec();
     if (!battlePass) throw new Error('BattlePass not found');
 
     return battlePass as BattlePass;
@@ -363,7 +394,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getBiome', input);
 
-    const biome = await ctx.app.model.Biome.findById(input.where.id.equals).lean().exec();
+    const biome = await ctx.app.model.Biome.findById(input.where.id.equals).exec();
     if (!biome) throw new Error('Biome not found');
 
     return biome as Biome;
@@ -397,7 +428,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getBiomeFeature', input);
 
-    const biomeFeature = await ctx.app.model.BiomeFeature.findById(input.where.id.equals).lean().exec();
+    const biomeFeature = await ctx.app.model.BiomeFeature.findById(input.where.id.equals).exec();
     if (!biomeFeature) throw new Error('BiomeFeature not found');
 
     return biomeFeature as BiomeFeature;
@@ -435,7 +466,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getCollection', input);
 
-    const collection = await ctx.app.model.Collection.findById(input.where.id.equals).lean().exec();
+    const collection = await ctx.app.model.Collection.findById(input.where.id.equals).exec();
     if (!collection) throw new Error('Collection not found');
 
     return collection as Collection;
@@ -474,7 +505,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getComment', input);
 
-    const comment = await ctx.app.model.Comment.findById(input.where.id.equals).lean().exec();
+    const comment = await ctx.app.model.Comment.findById(input.where.id.equals).exec();
     if (!comment) throw new Error('Comment not found');
 
     return comment as Comment;
@@ -507,7 +538,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getCommunity', input);
 
-    const community = await ctx.app.model.Community.findById(input.where.id.equals).lean().exec();
+    const community = await ctx.app.model.Community.findById(input.where.id.equals).exec();
     if (!community) throw new Error('Community not found');
 
     return community as Community;
@@ -546,7 +577,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getCompany', input);
 
-    const company = await ctx.app.model.Company.findById(input.where.id.equals).lean().exec();
+    const company = await ctx.app.model.Company.findById(input.where.id.equals).exec();
     if (!company) throw new Error('Company not found');
 
     return company as Company;
@@ -582,7 +613,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getConversation', input.where.id.equals);
 
-    const conversation = await ctx.app.model.Conversation.findById(input.where.id.equals).lean().exec();
+    const conversation = await ctx.app.model.Conversation.findById(input.where.id.equals).exec();
     if (!conversation) throw new Error('Conversation not found');
 
     return conversation as Conversation;
@@ -621,7 +652,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getData', input.where.id.equals);
 
-    const data = await ctx.app.model.Data.findById(input.where.id.equals).lean().exec();
+    const data = await ctx.app.model.Data.findById(input.where.id.equals).exec();
     if (!data) throw new Error('Data not found');
 
     return data as Data;
@@ -652,7 +683,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getDiscussion', input.where.id.equals);
 
-    const discussion = await ctx.app.model.Discussion.findById(input.where.id.equals).lean().exec();
+    const discussion = await ctx.app.model.Discussion.findById(input.where.id.equals).exec();
     if (!discussion) throw new Error('Discussion not found');
 
     return discussion as Discussion;
@@ -691,7 +722,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getEnergy', input);
 
-    const energy = await ctx.app.model.Energy.findById(input.where.id.equals).lean().exec();
+    const energy = await ctx.app.model.Energy.findById(input.where.id.equals).exec();
     if (!energy) throw new Error('Energy not found');
 
     return energy as Energy;
@@ -722,7 +753,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getEvent', input);
 
-    const event = await ctx.app.model.Event.findById(input.where.id.equals).lean().exec();
+    const event = await ctx.app.model.Event.findById(input.where.id.equals).exec();
     if (!event) throw new Error('Event not found');
 
     return event as Event;
@@ -752,7 +783,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getFile', input);
 
-    const file = await ctx.app.model.File.findById(input.where.id.equals).lean().exec();
+    const file = await ctx.app.model.File.findById(input.where.id.equals).exec();
     if (!file) throw new Error('File not found');
 
     return file as File;
@@ -783,7 +814,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getGalaxy', input);
 
-    const galaxy = await ctx.app.model.Galaxy.findById(input.where.id.equals).lean().exec();
+    const galaxy = await ctx.app.model.Galaxy.findById(input.where.id.equals).exec();
     if (!galaxy) throw new Error('Galaxy not found');
 
     return galaxy as Galaxy;
@@ -814,7 +845,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getGuide', input);
 
-    const guide = await ctx.app.model.Guide.findById(input.where.id.equals).lean().exec();
+    const guide = await ctx.app.model.Guide.findById(input.where.id.equals).exec();
     if (!guide) throw new Error('Guide not found');
 
     return guide as Guide;
@@ -845,7 +876,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getIdea', input);
 
-    const idea = await ctx.app.model.Idea.findById(input.where.id.equals).lean().exec();
+    const idea = await ctx.app.model.Idea.findById(input.where.id.equals).exec();
     if (!idea) throw new Error('Idea not found');
 
     return idea as Idea;
@@ -863,7 +894,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateIdea', input);
 
-    const updatedIdea = await ctx.app.model.Idea.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedIdea = await ctx.app.model.Idea.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedIdea) throw new Error('Idea update failed');
 
     return updatedIdea as Idea;
@@ -876,7 +907,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getLeaderboard', input);
 
-    const leaderboard = await ctx.app.model.Leaderboard.findById(input.where.id.equals).lean().exec();
+    const leaderboard = await ctx.app.model.Leaderboard.findById(input.where.id.equals).exec();
     if (!leaderboard) throw new Error('Leaderboard not found');
 
     return leaderboard as Leaderboard;
@@ -915,7 +946,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getLog', input);
 
-    const log = await ctx.app.model.Log.findById(input.where.id.equals).lean().exec();
+    const log = await ctx.app.model.Log.findById(input.where.id.equals).exec();
     if (!log) throw new Error('Log not found');
 
     return log as Log;
@@ -933,7 +964,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateLog', input);
 
-    const updatedLog = await ctx.app.model.Log.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedLog = await ctx.app.model.Log.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedLog) throw new Error('Log update failed');
 
     return updatedLog as Log;
@@ -944,7 +975,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getLore', input);
 
-    const lore = await ctx.app.model.Lore.findById(input.where.id.equals).lean().exec();
+    const lore = await ctx.app.model.Lore.findById(input.where.id.equals).exec();
     if (!lore) throw new Error('Lore not found');
 
     return lore as Lore;
@@ -962,7 +993,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateLore', input);
 
-    const updatedLore = await ctx.app.model.Lore.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedLore = await ctx.app.model.Lore.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedLore) throw new Error('Lore update failed');
 
     return updatedLore as Lore;
@@ -973,7 +1004,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getMemory', input);
 
-    const memory = await ctx.app.model.Memory.findById(input.where.id.equals).lean().exec();
+    const memory = await ctx.app.model.Memory.findById(input.where.id.equals).exec();
     if (!memory) throw new Error('Memory not found');
 
     return memory as Memory;
@@ -1003,7 +1034,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getMessage', input);
 
-    const message = await ctx.app.model.Message.findById(input.where.id.equals).lean().exec();
+    const message = await ctx.app.model.Message.findById(input.where.id.equals).exec();
     if (!message) throw new Error('Message not found');
 
     return message as Message;
@@ -1034,7 +1065,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getMetaverse', input);
 
-    const metaverse = await ctx.app.model.Metaverse.findById(input.where.id.equals).lean().exec();
+    const metaverse = await ctx.app.model.Metaverse.findById(input.where.id.equals).exec();
     if (!metaverse) throw new Error('Metaverse not found');
 
     return metaverse as Metaverse;
@@ -1076,7 +1107,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getNewsArticle', input);
 
-    const newsArticle = await ctx.app.model.NewsArticle.findById(input.where.id.equals).lean().exec();
+    const newsArticle = await ctx.app.model.NewsArticle.findById(input.where.id.equals).exec();
     if (!newsArticle) throw new Error('NewsArticle not found');
 
     return newsArticle as NewsArticle;
@@ -1115,7 +1146,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getNpc', input);
 
-    const npc = await ctx.app.model.Npc.findById(input.where.id.equals).lean().exec();
+    const npc = await ctx.app.model.Npc.findById(input.where.id.equals).exec();
     if (!npc) throw new Error('Npc not found');
 
     return npc as Npc;
@@ -1133,7 +1164,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateNpc', input);
 
-    const updatedNpc = await ctx.app.model.Npc.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedNpc = await ctx.app.model.Npc.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedNpc) throw new Error('Npc update failed');
 
     return updatedNpc as Npc;
@@ -1143,7 +1174,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getOffer', input);
 
-    const offer = await ctx.app.model.Offer.findById(input.where.id.equals).lean().exec();
+    const offer = await ctx.app.model.Offer.findById(input.where.id.equals).exec();
     if (!offer) throw new Error('Offer not found');
 
     return offer as Offer;
@@ -1174,7 +1205,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getOmniverse', input);
 
-    const omniverse = await ctx.app.model.Omniverse.findById(input.where.id.equals).lean().exec();
+    const omniverse = await ctx.app.model.Omniverse.findById(input.where.id.equals).exec();
     if (!omniverse) throw new Error('Omniverse not found');
 
     return omniverse as Omniverse;
@@ -1213,7 +1244,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getOrder', input);
 
-    const order = await ctx.app.model.Order.findById(input.where.id.equals).lean().exec();
+    const order = await ctx.app.model.Order.findById(input.where.id.equals).exec();
     if (!order) throw new Error('Order not found');
 
     return order as Order;
@@ -1244,7 +1275,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getPayment', input);
 
-    const payment = await ctx.app.model.Payment.findById(input.where.id.equals).lean().exec();
+    const payment = await ctx.app.model.Payment.findById(input.where.id.equals).exec();
     if (!payment) throw new Error('Payment not found');
 
     return payment as Payment;
@@ -1274,7 +1305,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getPermission', input);
 
-    const permission = await ctx.app.model.Permission.findById(input.where.id.equals).lean().exec();
+    const permission = await ctx.app.model.Permission.findById(input.where.id.equals).exec();
     if (!permission) throw new Error('Permission not found');
 
     return permission as Permission;
@@ -1313,7 +1344,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getPerson', input);
 
-    const person = await ctx.app.model.Person.findById(input.where.id.equals).lean().exec();
+    const person = await ctx.app.model.Person.findById(input.where.id.equals).exec();
     if (!person) throw new Error('Person not found');
 
     return person as Person;
@@ -1344,7 +1375,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getPlanet', input);
 
-    const planet = await ctx.app.model.Planet.findById(input.where.id.equals).lean().exec();
+    const planet = await ctx.app.model.Planet.findById(input.where.id.equals).exec();
     if (!planet) throw new Error('Planet not found');
 
     return planet as Planet;
@@ -1375,7 +1406,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getPoll', input);
 
-    const poll = await ctx.app.model.Poll.findById(input.where.id.equals).lean().exec();
+    const poll = await ctx.app.model.Poll.findById(input.where.id.equals).exec();
     if (!poll) throw new Error('Poll not found');
 
     return poll as Poll;
@@ -1393,7 +1424,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updatePoll', input);
 
-    const updatedPoll = await ctx.app.model.Poll.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedPoll = await ctx.app.model.Poll.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedPoll) throw new Error('Poll update failed');
 
     return updatedPoll as Poll;
@@ -1403,7 +1434,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getProject', input);
 
-    const project = await ctx.app.model.Project.findById(input.where.id.equals).lean().exec();
+    const project = await ctx.app.model.Project.findById(input.where.id.equals).exec();
     if (!project) throw new Error('Project not found');
 
     return project as Project;
@@ -1434,7 +1465,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getProposal', input);
 
-    const proposal = await ctx.app.model.Proposal.findById(input.where.id.equals).lean().exec();
+    const proposal = await ctx.app.model.Proposal.findById(input.where.id.equals).exec();
     if (!proposal) throw new Error('Proposal not found');
 
     return proposal as Proposal;
@@ -1471,7 +1502,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getQuest', input);
 
-    const quest = await ctx.app.model.Quest.findById(input.where.id.equals).lean().exec();
+    const quest = await ctx.app.model.Quest.findById(input.where.id.equals).exec();
     if (!quest) throw new Error('Quest not found');
 
     return quest as Quest;
@@ -1502,7 +1533,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getRating', input);
 
-    const rating = await ctx.app.model.Rating.findById(input.where.id.equals).lean().exec();
+    const rating = await ctx.app.model.Rating.findById(input.where.id.equals).exec();
     if (!rating) throw new Error('Rating not found');
 
     return rating as Rating;
@@ -1532,10 +1563,22 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getRealm', input);
 
-    const realm = await ctx.app.model.Realm.findById(input.where.id.equals).lean().exec();
+    const realm = await ctx.app.model.Realm.findById(input.where.id.equals).exec();
     if (!realm) throw new Error('Realm not found');
 
     return realm as Realm;
+  }
+
+  async getRealms(input: RouterInput['getRealms'], ctx: RouterContext): Promise<RouterOutput['getRealms']> {
+    console.log('Core.Service.getRealms', input);
+
+    const filter = getFilter(input);
+
+    filter.status = 'Active';
+
+    const realms = await ctx.app.model.Realm.find(filter).exec();
+    console.log('vvvv', realms);
+    return { data: realms as Realm[] };
   }
 
   async createRealm(input: RouterInput['createRealm'], ctx: RouterContext): Promise<RouterOutput['createRealm']> {
@@ -1563,7 +1606,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getRevision', input);
 
-    const revision = await ctx.app.model.Revision.findById(input.where.id.equals).lean().exec();
+    const revision = await ctx.app.model.Revision.findById(input.where.id.equals).exec();
     if (!revision) throw new Error('Revision not found');
 
     return revision as Revision;
@@ -1602,7 +1645,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getReferral', input);
 
-    const referral = await ctx.app.model.Referral.findById(input.where.id.equals).lean().exec();
+    const referral = await ctx.app.model.Referral.findById(input.where.id.equals).exec();
     if (!referral) throw new Error('Referral not found');
 
     return referral as Referral;
@@ -1639,7 +1682,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getReview', input);
 
-    const review = await ctx.app.model.Review.findById(input.where.id.equals).lean().exec();
+    const review = await ctx.app.model.Review.findById(input.where.id.equals).exec();
     if (!review) throw new Error('Review not found');
 
     return review as Review;
@@ -1668,7 +1711,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getRole', input);
 
-    const role = await ctx.app.model.Role.findById(input.where.id.equals).lean().exec();
+    const role = await ctx.app.model.Role.findById(input.where.id.equals).exec();
     if (!role) throw new Error('Role not found');
 
     return role as Role;
@@ -1686,7 +1729,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateRole', input);
 
-    const updatedRole = await ctx.app.model.Role.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedRole = await ctx.app.model.Role.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedRole) throw new Error('Role update failed');
 
     return updatedRole as Role;
@@ -1697,7 +1740,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getSeason', input);
 
-    const season = await ctx.app.model.Season.findById(input.where.id.equals).lean().exec();
+    const season = await ctx.app.model.Season.findById(input.where.id.equals).exec();
     if (!season) throw new Error('Season not found');
 
     return season as Season;
@@ -1728,10 +1771,22 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getServer', input);
 
-    const server = await ctx.app.model.Server.findById(input.where.id.equals).lean().exec();
+    const server = await ctx.app.model.Server.findById(input.where.id.equals).exec();
     if (!server) throw new Error('Server not found');
 
     return server as Server;
+  }
+
+  async getServers(input: RouterInput['getServers'], ctx: RouterContext): Promise<RouterOutput['getServers']> {
+    console.log('Core.Service.getServers', input);
+
+    const filter = getFilter(input);
+
+    filter.status = 'Active';
+
+    const servers = await ctx.app.model.Server.find(filter).exec();
+
+    return { data: servers as Server[] };
   }
 
   async createServer(input: RouterInput['createServer'], ctx: RouterContext): Promise<RouterOutput['createServer']> {
@@ -1759,7 +1814,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getSession', input);
 
-    const session = await ctx.app.model.Session.findById(input.where.id.equals).lean().exec();
+    const session = await ctx.app.model.Session.findById(input.where.id.equals).exec();
     if (!session) throw new Error('Session not found');
 
     return session as Session;
@@ -1792,7 +1847,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getSolarSystem', input);
 
-    const solarSystem = await ctx.app.model.SolarSystem.findById(input.where.id.equals).lean().exec();
+    const solarSystem = await ctx.app.model.SolarSystem.findById(input.where.id.equals).exec();
     if (!solarSystem) throw new Error('SolarSystem not found');
 
     return solarSystem as SolarSystem;
@@ -1831,7 +1886,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getStar', input);
 
-    const star = await ctx.app.model.Star.findById(input.where.id.equals).lean().exec();
+    const star = await ctx.app.model.Star.findById(input.where.id.equals).exec();
     if (!star) throw new Error('Star not found');
 
     return star as Star;
@@ -1849,7 +1904,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateStar', input);
 
-    const updatedStar = await ctx.app.model.Star.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedStar = await ctx.app.model.Star.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedStar) throw new Error('Star update failed');
 
     return updatedStar as Star;
@@ -1860,7 +1915,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getStash', input);
 
-    const stash = await ctx.app.model.Stash.findById(input.where.id.equals).lean().exec();
+    const stash = await ctx.app.model.Stash.findById(input.where.id.equals).exec();
     if (!stash) throw new Error('Stash not found');
 
     return stash as Stash;
@@ -1891,7 +1946,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getStock', input);
 
-    const stock = await ctx.app.model.Stock.findById(input.where.id.equals).lean().exec();
+    const stock = await ctx.app.model.Stock.findById(input.where.id.equals).exec();
     if (!stock) throw new Error('Stock not found');
 
     return stock as Stock;
@@ -1920,7 +1975,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getSuggestion', input);
 
-    const suggestion = await ctx.app.model.Suggestion.findById(input.where.id.equals).lean().exec();
+    const suggestion = await ctx.app.model.Suggestion.findById(input.where.id.equals).exec();
     if (!suggestion) throw new Error('Suggestion not found');
 
     return suggestion as Suggestion;
@@ -1959,7 +2014,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getTag', input);
 
-    const tag = await ctx.app.model.Tag.findById(input.where.id.equals).lean().exec();
+    const tag = await ctx.app.model.Tag.findById(input.where.id.equals).exec();
     if (!tag) throw new Error('Tag not found');
 
     return tag as Tag;
@@ -1977,7 +2032,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateTag', input);
 
-    const updatedTag = await ctx.app.model.Tag.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedTag = await ctx.app.model.Tag.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedTag) throw new Error('Tag update failed');
 
     return updatedTag as Tag;
@@ -1988,7 +2043,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getTeam', input);
 
-    const team = await ctx.app.model.Team.findById(input.where.id.equals).lean().exec();
+    const team = await ctx.app.model.Team.findById(input.where.id.equals).exec();
     if (!team) throw new Error('Team not found');
 
     return team as Team;
@@ -2006,7 +2061,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateTeam', input);
 
-    const updatedTeam = await ctx.app.model.Team.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedTeam = await ctx.app.model.Team.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedTeam) throw new Error('Team update failed');
 
     return updatedTeam as Team;
@@ -2017,7 +2072,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getTournament', input);
 
-    const tournament = await ctx.app.model.Tournament.findById(input.where.id.equals).lean().exec();
+    const tournament = await ctx.app.model.Tournament.findById(input.where.id.equals).exec();
     if (!tournament) throw new Error('Tournament not found');
 
     return tournament as Tournament;
@@ -2055,7 +2110,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getTrade', input);
 
-    const trade = await ctx.app.model.Trade.findById(input.where.id.equals).lean().exec();
+    const trade = await ctx.app.model.Trade.findById(input.where.id.equals).exec();
     if (!trade) throw new Error('Trade not found');
 
     return trade as Trade;
@@ -2086,7 +2141,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getUniverse', input);
 
-    const universe = await ctx.app.model.Universe.findById(input.where.id.equals).lean().exec();
+    const universe = await ctx.app.model.Universe.findById(input.where.id.equals).exec();
     if (!universe) throw new Error('Universe not found');
 
     return universe as Universe;
@@ -2123,7 +2178,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getValidator', input);
 
-    const validator = await ctx.app.model.Validator.findById(input.where.id.equals).lean().exec();
+    const validator = await ctx.app.model.Validator.findById(input.where.id.equals).exec();
     if (!validator) throw new Error('Validator not found');
 
     return validator as Validator;
@@ -2162,7 +2217,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getVote', input);
 
-    const vote = await ctx.app.model.Vote.findById(input.where.id.equals).lean().exec();
+    const vote = await ctx.app.model.Vote.findById(input.where.id.equals).exec();
     if (!vote) throw new Error('Vote not found');
 
     return vote as Vote;
@@ -2180,7 +2235,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.updateVote', input);
 
-    const updatedVote = await ctx.app.model.Vote.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const updatedVote = await ctx.app.model.Vote.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedVote) throw new Error('Vote update failed');
 
     return updatedVote as Vote;
@@ -2191,7 +2246,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getWorldEvent', input);
 
-    const worldEvent = await ctx.app.model.WorldEvent.findById(input.where.id.equals).lean().exec();
+    const worldEvent = await ctx.app.model.WorldEvent.findById(input.where.id.equals).exec();
     if (!worldEvent) throw new Error('WorldEvent not found');
 
     return worldEvent as WorldEvent;
@@ -2230,7 +2285,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Core.Service.getBounty', input);
 
-    const bounty = await ctx.app.model.Bounty.findById(input.where.id.equals).lean().exec();
+    const bounty = await ctx.app.model.Bounty.findById(input.where.id.equals).exec();
     if (!bounty) throw new Error('Bounty not found');
 
     return bounty as Bounty;

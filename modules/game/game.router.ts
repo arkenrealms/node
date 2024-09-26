@@ -1,9 +1,9 @@
 import { z as zod } from 'zod';
-import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
+import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
-import { Era } from './game.schema';
-import { Query } from '../../schema';
+import { Era, Game } from './game.schema';
+import { Query, getQueryInput, inferRouterOutputs } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -12,29 +12,37 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    getGames: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Game))
+      .output(z.object({ data: z.array(Game) }))
+      .query(({ input, ctx }) => (ctx.app.service.Game.getGames as any)(input, ctx)),
+
     // Era Procedures
     getEras: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query }))
+      .input(getQueryInput(Era))
+      .output(z.object({ data: z.array(Era) }))
       .query(({ input, ctx }) => (ctx.app.service.Game.getEras as any)(input, ctx)),
 
     createEra: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ data: Era.omit({ id: true }) }))
+      .input(getQueryInput(Era.omit({ id: true })))
       .mutation(({ input, ctx }) => (ctx.app.service.Game.createEra as any)(input, ctx)),
 
     updateEra: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query, data: Era.partial() }))
+      .input(getQueryInput(Era.partial()))
       .mutation(({ input, ctx }) => (ctx.app.service.Game.updateEra as any)(input, ctx)),
 
     deleteEra: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query }))
+      .input(getQueryInput(Era.partial()))
       .mutation(({ input, ctx }) => (ctx.app.service.Game.deleteEra as any)(input, ctx)),
   });
 

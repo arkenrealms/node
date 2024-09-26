@@ -82,6 +82,18 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    authorize: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          token: z.string().optional(),
+          loginAs: z.string().optional(),
+        })
+      )
+      // .output(Account)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.authorize as any)(input, ctx)),
+
     getAccount: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
@@ -1049,6 +1061,13 @@ export const createRouter = () =>
       .output(Realm)
       .query(({ input, ctx }) => (ctx.app.service.Core.getRealm as any)(input, ctx)),
 
+    getRealms: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Realm))
+      .output(z.object({ data: z.array(Realm) }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealms as any)(input, ctx)),
+
     createRealm: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
@@ -1178,6 +1197,13 @@ export const createRouter = () =>
       .input(getQueryInput(Server))
       .output(Server)
       .query(({ input, ctx }) => (ctx.app.service.Core.getServer as any)(input, ctx)),
+
+    getServers: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Server))
+      .output(z.object({ data: z.array(Server) }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getServers as any)(input, ctx)),
 
     createServer: procedure
       .use(hasRole('admin', t))

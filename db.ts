@@ -255,12 +255,14 @@ class Database {
     //   log('Mongoose connection disconnected');
     // });
 
-    process.on('SIGINT', () => {
+    process.on('SIGINT', async () => {
       // @ts-ignore
-      this.mongoose?.close(() => {
-        log('Mongoose connection disconnected through app termination');
-        process.exit(0);
-      });
+      if (this.mongoose?.connection)
+        // @ts-ignore
+        await this.mongoose.connection.close();
+
+      console.log('Mongoose connection disconnected through app termination');
+      process.exit(0);
     });
   }
 

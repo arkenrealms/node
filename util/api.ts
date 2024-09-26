@@ -11,6 +11,8 @@ interface FetchQuery {
 export function getFilter(query: any): Record<string, any> {
   const filter: Record<string, any> = {};
 
+  if (!query?.where) return filter;
+
   if (query.where.id?.equals) {
   }
 

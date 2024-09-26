@@ -1,22 +1,26 @@
-import { io } from 'socket.io-client'
-import { log } from '.'
+import { io, ManagerOptions, SocketOptions } from 'socket.io-client';
+import { log } from '.';
 
 export function emitAll(io, ...args) {
-  log('Emit All', ...args)
+  log('Emit All', ...args);
 
-  io.emit(...args)
+  io.emit(...args);
 }
 
 export function emitDirect(socket, ...args) {
-  log('Emit Direct', ...args)
+  log('Emit Direct', ...args);
 
-  if (!socket || !socket.emit) return
+  if (!socket || !socket.emit) return;
 
-  socket.emit(...args)
+  socket.emit(...args);
+}
+
+interface CustomSocketOptions extends Partial<ManagerOptions & SocketOptions> {
+  transports?: string[];
 }
 
 export function getClientSocket(endpoint) {
-  log('Connecting to', endpoint)
+  log('Connecting to', endpoint);
   return io(endpoint, {
     transports: ['websocket'],
     upgrade: false,
@@ -26,5 +30,5 @@ export function getClientSocket(endpoint) {
     // extraHeaders: {
     //   "my-custom-header": "1234"
     // }
-  })
+  } as CustomSocketOptions);
 }

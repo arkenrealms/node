@@ -1,3 +1,5 @@
+// mongo.ts
+
 import mongoose, {
   Types,
   Model as MongooseModel,
@@ -14,6 +16,8 @@ import mongoose, {
   ProjectionType,
   Collection,
 } from 'mongoose';
+
+import { VirtualType, HydratedDocument } from 'mongoose';
 
 export type { Mixed, ObjectIdSchemaDefinition, AnyArray, StringSchemaDefinition } from 'mongoose'; // Mixed type
 import pluralize from 'pluralize';
@@ -49,17 +53,23 @@ const EntityFields = {
 
 type PreHookMethod = keyof Query<any, any> | 'save' | 'validate';
 
+interface VirtualOptions<T = any> {
+  name: string;
+  ref?: string;
+  refPath?: string;
+  localField?: string;
+  foreignField?: string;
+  justOne?: boolean;
+  get?: (this: HydratedDocument<T>, value: any, virtual: VirtualType<T>) => any;
+  set?: (this: HydratedDocument<T>, value: any, virtual: VirtualType<T>) => void;
+  match?: any;
+  options?: any;
+}
+
 interface CustomSchemaOptions extends SchemaOptions {
   extend?: 'EntityFields' | 'CommonFields';
   indexes?: { [field: string]: any }[];
-  virtuals?: {
-    name?: string;
-    ref?: string;
-    localField?: string;
-    foreignField?: string;
-    justOne?: boolean;
-    match?: any;
-  }[];
+  virtuals?: VirtualOptions[];
   pre?: { method: PreHookMethod | RegExp; handler: (this: Document, next: any) => void }[];
 }
 
@@ -98,6 +108,15 @@ export function createSchema<T>(
     );
   }
 
+  schema.set('toJSON', {
+    virtuals: true, // Include virtual fields
+    versionKey: false, // Remove the __v version field
+    transform: (doc, ret) => {
+      ret.id = ret._id.toString(); // Assign _id to id
+      // delete ret._id; // Remove _id from the output
+    },
+  });
+
   // Apply indexes
   if (options.indexes) {
     options.indexes.forEach((index) => schema.index(index));
@@ -105,33 +124,41 @@ export function createSchema<T>(
     schema.index({ key: 1 });
     schema.index({ name: 1 });
     schema.index({ status: 1 });
-
-    // if (extend === 'EntityFields') {
-    //   schema.index({ applicationId: 1, key: 1 }, { unique: true } as IndexOptions);
-    // }
   }
 
   // Apply virtuals
   if (options.virtuals) {
-    const virtuals = {};
     options.virtuals.forEach((virtual) => {
-      const ref = virtual.ref || virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1);
-      const localField = virtual.localField || '_id';
-      const foreignField = virtual.foreignField || `${toCamelCase(name)}Id`; // Default foreignField
-      const justOne = virtual.justOne !== undefined ? virtual.justOne : !pluralize.isPlural(virtual.name);
-      const match = virtual.match || {};
-
-      virtuals[virtual.name] = {
-        options: {
-          ref,
-          localField,
-          foreignField,
-          justOne,
-          match,
-        },
+      const virtualOptions: any = {
+        localField: virtual.localField || '_id',
+        foreignField: virtual.foreignField || `${toCamelCase(name)}Id`,
+        justOne: virtual.justOne !== undefined ? virtual.justOne : !pluralize.isPlural(virtual.name),
       };
+
+      if (virtual.refPath) {
+        virtualOptions.refPath = virtual.refPath;
+      } else if (virtual.ref) {
+        virtualOptions.ref = virtual.ref;
+      }
+
+      if (virtual.options) {
+        virtualOptions.options = virtual.options;
+      }
+
+      if (virtual.match) {
+        virtualOptions.match = virtual.match;
+      }
+
+      const schemaVirtual = schema.virtual(virtual.name, virtualOptions);
+
+      if (virtual.get) {
+        schemaVirtual.get(virtual.get);
+      }
+
+      if (virtual.set) {
+        schemaVirtual.set(virtual.set);
+      }
     });
-    schema.set('virtuals', virtuals);
   }
 
   // Apply pre middleware
@@ -148,45 +175,18 @@ const modelMap: any = {};
 
 export function createModel<T extends Document>(
   key: string,
-  schema: SchemaDefinition<T> = {} as SchemaDefinition<T>,
+  schemaFields: SchemaDefinition<T> = {} as SchemaDefinition<T>,
   options: CustomSchemaOptions = {}
 ) {
   if (modelMap[key]) return modelMap[key];
 
-  const res = new Model<T>(mongoose.model<T>(key, createSchema<T>(key, schema, options)));
+  const schema = createSchema<T>(key, schemaFields, options);
+  const res = new Model<T>(mongoose.model<T>(key, schema));
   modelMap[key] = res;
   return res;
 }
 
-// Proxy handler for dynamic relationship resolution
-const nodeProxyHandler = {
-  get(target, prop, receiver) {
-    if (Reflect.has(target, prop)) {
-      return Reflect.get(target, prop, receiver);
-    }
-
-    const fromRelation = prop.match(/^from([A-Z][a-zA-Z]+)$/);
-    const toRelation = prop.match(/^to([A-Z][a-zA-Z]+)$/);
-
-    if (fromRelation || toRelation) {
-      const relationName = (fromRelation || toRelation)[1];
-      const relationType = modelMap[relationName];
-
-      if (relationType) {
-        const relationIdField = fromRelation ? `from${relationName}Id` : `to${relationName}Id`;
-        const relationId = target[relationIdField];
-
-        if (relationId) {
-          return relationType.findById(relationId).exec();
-        }
-      }
-    }
-
-    return undefined;
-  },
-};
-
-// Model class with proxy methods
+// Model class without proxy methods
 export class Model<T extends Document> {
   protected model: MongooseModel<T>;
   protected schema: Schema;
@@ -200,16 +200,42 @@ export class Model<T extends Document> {
     this.schema = model.schema;
   }
 
-  // Overridden exec method to wrap the result in a proxy
-  async exec(query: Query<T[], T>): Promise<any> {
-    const result = await query.lean().exec();
-    if (Array.isArray(result)) {
-      return result.map((doc) => new Proxy(doc, nodeProxyHandler));
+  populate(
+    docs: T | T[],
+    options: string | mongoose.PopulateOptions | string[] | mongoose.PopulateOptions[]
+  ): Promise<T | T[]> {
+    // If options is an array of strings, convert it to an array of PopulateOptions
+    if (Array.isArray(options) && typeof options[0] === 'string') {
+      options = (options as string[]).map((path) => ({ path }));
     }
-    return result ? new Proxy(result, nodeProxyHandler) : result;
+
+    return this.model.populate(docs, options as string | mongoose.PopulateOptions | mongoose.PopulateOptions[]);
   }
 
-  // Override the find method to handle proxy
+  // New method to directly access a related model
+  related(name: string) {
+    return mongoose.model(name);
+  }
+
+  // New method to get related documents via virtuals
+  findWithRelations(filter: FilterQuery<T> = {}, relations: string[] = [], options?: QueryOptions): Query<T[], T> {
+    return this.find(filter, null, options).populate(relations.join(' '));
+  }
+
+  findOneWithRelations(
+    filter: FilterQuery<T> = {},
+    relations: string[] = [],
+    options?: QueryOptions
+  ): Query<T | null, T> {
+    return this.findOne(filter, null, options).populate(relations.join(' '));
+  }
+
+  // Overridden exec method
+  async exec(query: Query<any, any>): Promise<any> {
+    return query.exec();
+  }
+
+  // Override the find method to include filters
   find(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
@@ -223,7 +249,7 @@ export class Model<T extends Document> {
     return this.model.find(filter, projection, options);
   }
 
-  // Override the findOne method to handle proxy
+  // Override the findOne method to include filters
   findOne(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
@@ -237,7 +263,7 @@ export class Model<T extends Document> {
     return this.model.findOne(filter, projection, options);
   }
 
-  // Override the findById method to handle proxy
+  // Override the findById method
   findById(
     id: Types.ObjectId | string,
     projection?: ProjectionType<T> | null,
@@ -246,7 +272,7 @@ export class Model<T extends Document> {
     return this.model.findById(id, projection, options);
   }
 
-  // Override the findOneAndUpdate method to handle proxy
+  // Override the findOneAndUpdate method to include filters
   findOneAndUpdate(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
@@ -260,7 +286,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndUpdate(filter, update, options);
   }
 
-  // Override the findOneAndDelete method to handle proxy
+  // Override the findOneAndDelete method to include filters
   findOneAndDelete(filter: FilterQuery<T>, options?: QueryOptions): Query<T | null, T> {
     if (!this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
@@ -270,7 +296,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndDelete(filter, options);
   }
 
-  // Override the findByIdAndUpdate method to handle proxy
+  // Override the findByIdAndUpdate method to include filters
   findByIdAndUpdate(
     id: Types.ObjectId | string,
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
@@ -283,15 +309,10 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    // if (filter.applicationId && typeof filter.applicationId === 'string') {
-    //   // @ts-ignore
-    //   filter.applicationId = new mongoose.Schema.Types.ObjectId(filter.applicationId);
-    // }
-
     return this.model.findOneAndUpdate(filter, update, options);
   }
 
-  // Override the findByIdAndDelete method to handle proxy
+  // Override the findByIdAndDelete method to include filters
   findByIdAndDelete(id: Types.ObjectId | string, options?: QueryOptions): Query<T | null, T> {
     const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
 
@@ -303,7 +324,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndDelete(filter, options);
   }
 
-  // Override the create method to handle proxy
+  // Override the create method to include filters
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
@@ -317,38 +338,10 @@ export class Model<T extends Document> {
       }
     }
 
-    // // @ts-ignore
-    // if (doc.applicationId && typeof doc.applicationId === 'string') {
-    //   // @ts-ignore
-    //   doc.applicationId = new mongoose.Schema.Types.ObjectId(doc.applicationId);
-    // }
-
-    const res = this.model.create(doc as T | T[]);
-
-    const createHandler = <U extends object>(path: string[] = []): ProxyHandler<U> => ({
-      // @ts-ignore
-      get: (target: U, key: keyof U): any => {
-        if (key === 'isProxy') return true;
-        if (typeof target[key] === 'object' && target[key] != null) {
-          // @ts-ignore
-          return new Proxy(target[key], createHandler([...path, key as string]));
-        }
-        return target[key];
-      },
-      // @ts-ignore
-      set: (target: U, key: keyof U, value: any): boolean => {
-        console.log(`Setting ${[...path, key]} to: `, value);
-        target[key] = value;
-        return true;
-      },
-    });
-
-    if ((res as any).meta) (res as any).meta = new Proxy((res as any).meta, createHandler<any>());
-
-    return res;
+    return this.model.create(doc as T | T[]);
   }
 
-  // Override the upsert method to handle proxy
+  // Override the upsert method to include filters
   async upsert(
     filter: FilterQuery<T> = {},
     create: Partial<T> = {},
@@ -358,12 +351,13 @@ export class Model<T extends Document> {
     const existing = await this.findOne(filter, null, options).exec();
     if (existing) {
       await this.updateOne(filter, update, options).exec();
-      return await this.findOne(filter, null, options).exec();
+      return (await this.findOne(filter, null, options).exec()) as T;
     } else {
       return this.create(create) as Promise<T>;
     }
   }
 
+  // Override the updateOne method to include filters
   updateOne(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
@@ -379,6 +373,7 @@ export class Model<T extends Document> {
     return this.model.updateOne(filter, update, options);
   }
 
+  // Override the updateMany method to include filters
   updateMany(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,

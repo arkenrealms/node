@@ -41,6 +41,7 @@ export type Common = zod.infer<typeof Common>;
 
 export const Entity = z
   .object({
+    id: z.string().min(24).max(24).trim().optional(),
     key: z.string().min(1).max(200).trim().optional(),
     name: z.string().min(1).max(200).trim().optional(),
     description: z.string().optional(),
@@ -199,15 +200,19 @@ export const createPrismaWhereSchema = <T extends zod.ZodRawShape>(
   );
 
   return zod.object({
-    AND: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))),
-    OR: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))),
-    NOT: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))),
+    AND: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))).optional(),
+    OR: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))).optional(),
+    NOT: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))).optional(),
     ...fieldFilters,
   }) as unknown as PrismaWhereLevel4<T>; // Explicit cast to PrismaWhereLevel4<T>
 };
 
+export const getQueryOutput = <T extends zod.ZodTypeAny>(data: T) => {
+  return z.object({ status: z.number(), data: data });
+};
+
 export const getQueryInput = <T extends zod.ZodRawShape>(
-  modelSchema?: zod.ZodObject<T>,
+  modelSchema: zod.ZodObject<T>,
   options: { partialData?: boolean } = {}
 ) => {
   const { partialData = false } = options;
@@ -224,10 +229,10 @@ export const getQueryInput = <T extends zod.ZodRawShape>(
   });
 
   const dataSchema = zod.object({
-    data: partialData ? modelSchema.partial() : modelSchema,
+    data: partialData ? modelSchema.partial().optional() : modelSchema.optional(),
   });
 
-  return querySchema.merge(dataSchema);
+  return zod.union([querySchema.merge(dataSchema), zod.undefined()]).optional();
 };
 
 export type inferQuery<T extends zod.ZodRawShape> = zod.infer<ReturnType<typeof createPrismaWhereSchema<T>>>;

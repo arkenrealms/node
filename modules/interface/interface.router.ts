@@ -3,7 +3,7 @@ import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
 import { Interface, InterfaceGroup, InterfaceComponent } from './interface.schema';
-import { Query, getQueryInput, inferRouterOutputs } from '../../schema';
+import { Query, getQueryInput, getQueryOutput, inferRouterOutputs } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -16,14 +16,14 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Interface))
-      .output(Interface)
+      .output(getQueryOutput(Interface))
       .query(({ input, ctx }) => (ctx.app.service.Interface.getInterface as any)(input, ctx)),
 
     getInterfaces: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Interface))
-      .output(Interface.array())
+      .output(getQueryOutput(z.array(Interface)))
       .query(({ input, ctx }) => (ctx.app.service.Interface.getInterfaces as any)(input, ctx)),
 
     createInterface: procedure
@@ -59,7 +59,7 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Interface))
-      .output(InterfaceGroup.array())
+      .output(z.object({ data: z.array(InterfaceGroup) }))
       .query(({ input, ctx }) => (ctx.app.service.Interface.getInterfaceGroups as any)(input, ctx)),
 
     createInterfaceGroup: procedure

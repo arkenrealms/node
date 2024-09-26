@@ -1,3 +1,5 @@
+// core.schema.ts
+
 import { z, ObjectId, Entity } from '../../schema';
 
 // Account Schema
@@ -51,9 +53,9 @@ export const Comment = Entity.merge(
   z.object({
     body: z.string().min(1),
     entity: ObjectId,
-    entityModel: z.enum(['NewsArticle', 'ChainToken']),
+    entityModel: z.string(), // Changed from enum to string
     text: z.string(),
-    ratingId: ObjectId,
+    ratingId: ObjectId.optional(),
   })
 );
 
@@ -271,6 +273,7 @@ export const Quest = Entity.merge(
   })
 );
 
+// Question Schema
 export const Question = Entity.merge(
   z.object({
     topics: z.array(z.unknown()).optional(),
@@ -290,7 +293,20 @@ export const Rating = Entity.merge(
 );
 
 // Realm Schema
-export const Realm = Entity.merge(z.object({}));
+export const Realm = Entity.merge(
+  z.object({
+    endpoint: z.string().max(100).optional(),
+    gameId: ObjectId,
+  })
+);
+
+// Referral Schema
+export const Referral = Entity.merge(
+  z.object({
+    recipientId: ObjectId.optional(),
+    senderId: ObjectId.optional(),
+  })
+);
 
 // Revision Schema
 export const Revision = Entity.merge(
@@ -301,16 +317,6 @@ export const Revision = Entity.merge(
     reason: z.string().max(100),
     interfaces: z.array(ObjectId).optional(),
     profiles: z.array(ObjectId).optional(),
-  })
-);
-
-// Referral Schema
-export const Referral = Entity.merge(
-  z.object({
-    recipientId: ObjectId,
-    senderId: ObjectId,
-    recipient: ObjectId.optional(),
-    sender: ObjectId.optional(),
   })
 );
 
@@ -336,7 +342,8 @@ export const Season = Entity.merge(z.object({}));
 // Server Schema
 export const Server = Entity.merge(
   z.object({
-    value: z.string().optional(),
+    endpoint: z.string().max(100),
+    realmId: ObjectId.optional(),
   })
 );
 
@@ -378,7 +385,7 @@ export const Stock = Entity.merge(
 // Suggestion Schema
 export const Suggestion = Entity.merge(
   z.object({
-    value: z.string().optional(),
+    content: z.string().optional(),
   })
 );
 
@@ -433,69 +440,89 @@ export const WorldEvent = Entity.merge(
   })
 );
 
-// Stat schema
+// Stat Schema
 export const Stat = Entity.merge(
   z.object({
     number: z.number().default(0),
   })
 );
 
+// Define the enum of model names
+export const ModelNames = z.enum([
+  'Account',
+  'Achievement',
+  'Act',
+  'Agent',
+  'Application',
+  'Badge',
+  'BattlePass',
+  'Biome',
+  'BiomeFeature',
+  'Bounty',
+  'Collection',
+  'Comment',
+  'Community',
+  'Company',
+  'Conversation',
+  'Data',
+  'Discussion',
+  'Energy',
+  'Event',
+  'File',
+  'Galaxy',
+  'Guide',
+  'Idea',
+  'Leaderboard',
+  'Log',
+  'Lore',
+  'Market',
+  'Memory',
+  'Message',
+  'Metaverse',
+  'NewsArticle',
+  'Npc',
+  'Offer',
+  'Omniverse',
+  'Order',
+  'Payment',
+  'Permission',
+  'Person',
+  'Planet',
+  'Poll',
+  'Project',
+  'Proposal',
+  'Quest',
+  'Question',
+  'Rating',
+  'Realm',
+  'Referral',
+  'Revision',
+  'Review',
+  'Role',
+  'Season',
+  'Server',
+  'Session',
+  'SolarSystem',
+  'Star',
+  'Stash',
+  'Stock',
+  'Suggestion',
+  'Tag',
+  'Team',
+  'Tournament',
+  'Trade',
+  'Universe',
+  'Validator',
+  'Vote',
+  'WorldEvent',
+  'Stat',
+]);
+
+// Node Schema for polymorphic relationships
 export const Node = z.object({
-  parentId: ObjectId,
   relationKey: z.string(),
-  relationType: z.string(),
-  fromAccountId: ObjectId.optional(),
-  toAccountId: ObjectId.optional(),
-  fromProfileId: ObjectId.optional(),
-  toProfileId: ObjectId.optional(),
-  fromBadgeId: ObjectId.optional(),
-  toBadgeId: ObjectId.optional(),
-  fromAchievementId: ObjectId.optional(),
-  toAchievementId: ObjectId.optional(),
-  fromIdeaId: ObjectId.optional(),
-  toIdeaId: ObjectId.optional(),
-  fromSuggestionId: ObjectId.optional(),
-  toSuggestionId: ObjectId.optional(),
-  fromProjectId: ObjectId.optional(),
-  toProjectId: ObjectId.optional(),
-  fromProductId: ObjectId.optional(),
-  toProductId: ObjectId.optional(),
-  fromAssetId: ObjectId.optional(),
-  toAssetId: ObjectId.optional(),
-  fromBountyId: ObjectId.optional(),
-  toBountyId: ObjectId.optional(),
-  fromRealmId: ObjectId.optional(),
-  toRealmId: ObjectId.optional(),
-  fromCommunityId: ObjectId.optional(),
-  toCommunityId: ObjectId.optional(),
-  fromCollectionId: ObjectId.optional(),
-  toCollectionId: ObjectId.optional(),
-  fromDiscussionId: ObjectId.optional(),
-  toDiscussionId: ObjectId.optional(),
-  fromMessageId: ObjectId.optional(),
-  toMessageId: ObjectId.optional(),
-  fromOfferId: ObjectId.optional(),
-  toOfferId: ObjectId.optional(),
-  fromLicenseId: ObjectId.optional(),
-  toLicenseId: ObjectId.optional(),
-  fromOrderId: ObjectId.optional(),
-  toOrderId: ObjectId.optional(),
-  fromRatingId: ObjectId.optional(),
-  toRatingId: ObjectId.optional(),
-  fromReviewId: ObjectId.optional(),
-  toReviewId: ObjectId.optional(),
-  fromTagId: ObjectId.optional(),
-  toTagId: ObjectId.optional(),
-  fromVoteId: ObjectId.optional(),
-  toVoteId: ObjectId.optional(),
-  fromLeaderboardId: ObjectId.optional(),
-  toLeaderboardId: ObjectId.optional(),
-  fromLogId: ObjectId.optional(),
-  toLogId: ObjectId.optional(),
-  fromFileId: ObjectId.optional(),
-  toFileId: ObjectId.optional(),
-  fromEventId: ObjectId.optional(),
-  toEventId: ObjectId.optional(),
-  fromServerId: ObjectId.optional(),
-  toServerId: ObjectId.optional(),
+  fromModel: ModelNames,
+  from: ObjectId,
+  toModel: ModelNames,
+  to: ObjectId,
 });

@@ -1,7 +1,10 @@
+// core.types.ts
+
 import { z } from 'zod';
 import * as schema from './core.schema';
 import { Document, Model } from '../../util/mongo';
 
+// Export types from other modules if necessary
 export type * from './core.router';
 export type * from './core.service';
 export type { RouterContext } from '../../types';
@@ -208,6 +211,9 @@ export type VoteDocument = Vote & Document;
 export type WorldEvent = z.infer<typeof schema.WorldEvent>;
 export type WorldEventDocument = WorldEvent & Document;
 
+export type Node = z.infer<typeof schema.Node>;
+export type NodeDocument = Node & Document;
+
 // Define model mappings
 export type Mappings = {
   Account: Model<AccountDocument>;
@@ -277,4 +283,5 @@ export type Mappings = {
   Validator: Model<ValidatorDocument>;
   Vote: Model<VoteDocument>;
   WorldEvent: Model<WorldEventDocument>;
+  Node: Model<NodeDocument>; // Added Node model mapping
 };

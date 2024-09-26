@@ -1,18 +1,24 @@
+// core.models.ts
+
 import * as mongo from '../../util/mongo';
 import type * as Types from './core.types';
 
+// Function to add tag virtuals using the Node model
 const addTagVirtuals = (modelName: string) => [
   {
+    name: 'tags',
     ref: 'Node',
     localField: '_id',
-    foreignField: `from${modelName}Id`,
+    foreignField: 'from',
     justOne: false,
-    match: { relationKey: 'tag' },
+    match: { relationKey: 'tag', fromModel: modelName },
   },
 ];
 
-const addApplicationVirtual = (modelName: string) => [
+// Function to add application virtual
+const addApplicationVirtual = () => [
   {
+    name: 'application',
     ref: 'Application',
     localField: 'applicationId',
     foreignField: '_id',
@@ -20,6 +26,7 @@ const addApplicationVirtual = (modelName: string) => [
   },
 ];
 
+// Omniverse Model
 export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
   'Omniverse',
   {
@@ -27,10 +34,11 @@ export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
   },
   {
     extend: 'CommonFields',
-    virtuals: [...addTagVirtuals('Omniverse'), ...addApplicationVirtual('Omniverse')],
+    virtuals: [...addTagVirtuals('Omniverse'), ...addApplicationVirtual()],
   }
 );
 
+// Metaverse Model
 export const Metaverse = mongo.createModel<Types.MetaverseDocument>(
   'Metaverse',
   {
@@ -39,14 +47,15 @@ export const Metaverse = mongo.createModel<Types.MetaverseDocument>(
   },
   {
     extend: 'CommonFields',
-    virtuals: [...addTagVirtuals('Metaverse'), ...addApplicationVirtual('Metaverse')],
+    virtuals: [...addTagVirtuals('Metaverse'), ...addApplicationVirtual()],
   }
 );
 
+// Application Model
 export const Application = mongo.createModel<Types.ApplicationDocument>(
   'Application',
   {
-    ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
+    ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Account' },
     metaverseId: { type: mongo.Schema.Types.ObjectId, ref: 'Metaverse' },
     name: { type: String, required: true },
     description: { type: String },
@@ -55,6 +64,8 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
     extend: 'CommonFields',
     indexes: [{ metaverseId: 1, name: 1, unique: true }],
     virtuals: [
+      ...addTagVirtuals('Application'),
+      ...addApplicationVirtual(),
       { name: 'agents' },
       { name: 'chain' },
       { name: 'account' },
@@ -166,12 +177,11 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
       { name: 'proposals' },
       { name: 'companies' },
       { name: 'people' },
-      ...addTagVirtuals('Application'),
-      ...addApplicationVirtual('Application'),
     ],
   }
 );
 
+// Account Model
 export const Account = mongo.createModel<Types.AccountDocument>(
   'Account',
   {
@@ -187,143 +197,162 @@ export const Account = mongo.createModel<Types.AccountDocument>(
     virtuals: [
       {
         name: 'profiles',
+        ref: 'Profile',
+        localField: '_id',
+        foreignField: 'accountId',
+        justOne: false,
       },
       ...addTagVirtuals('Account'),
-      ...addApplicationVirtual('Account'),
+      ...addApplicationVirtual(),
     ],
   }
 );
 
+// Achievement Model
 export const Achievement = mongo.createModel<Types.AchievementDocument>(
   'Achievement',
   {},
   {
-    virtuals: [...addTagVirtuals('Achievement'), ...addApplicationVirtual('Achievement')],
+    virtuals: [...addTagVirtuals('Achievement'), ...addApplicationVirtual()],
   }
 );
 
+// Act Model
 export const Act = mongo.createModel<Types.ActDocument>(
   'Act',
   {},
   {
-    virtuals: [...addTagVirtuals('Act'), ...addApplicationVirtual('Act')],
+    virtuals: [...addTagVirtuals('Act'), ...addApplicationVirtual()],
   }
 );
 
+// Agent Model
 export const Agent = mongo.createModel<Types.AgentDocument>(
   'Agent',
   {},
   {
-    virtuals: [...addTagVirtuals('Agent'), ...addApplicationVirtual('Agent')],
+    virtuals: [...addTagVirtuals('Agent'), ...addApplicationVirtual()],
   }
 );
 
+// Badge Model
 export const Badge = mongo.createModel<Types.BadgeDocument>(
   'Badge',
   {},
   {
-    virtuals: [...addTagVirtuals('Badge'), ...addApplicationVirtual('Badge')],
+    virtuals: [...addTagVirtuals('Badge'), ...addApplicationVirtual()],
   }
 );
 
+// BattlePass Model
 export const BattlePass = mongo.createModel<Types.BattlePassDocument>(
   'BattlePass',
   {},
   {
-    virtuals: [...addTagVirtuals('BattlePass'), ...addApplicationVirtual('BattlePass')],
+    virtuals: [...addTagVirtuals('BattlePass'), ...addApplicationVirtual()],
   }
 );
 
+// Biome Model
 export const Biome = mongo.createModel<Types.BiomeDocument>(
   'Biome',
   {},
   {
-    virtuals: [...addTagVirtuals('Biome'), ...addApplicationVirtual('Biome')],
+    virtuals: [...addTagVirtuals('Biome'), ...addApplicationVirtual()],
   }
 );
 
+// BiomeFeature Model
 export const BiomeFeature = mongo.createModel<Types.BiomeFeatureDocument>(
   'BiomeFeature',
   {},
   {
-    virtuals: [...addTagVirtuals('BiomeFeature'), ...addApplicationVirtual('BiomeFeature')],
+    virtuals: [...addTagVirtuals('BiomeFeature'), ...addApplicationVirtual()],
   }
 );
 
+// Bounty Model
 export const Bounty = mongo.createModel<Types.BountyDocument>(
   'Bounty',
   {},
   {
-    virtuals: [...addTagVirtuals('Bounty'), ...addApplicationVirtual('Bounty')],
+    virtuals: [...addTagVirtuals('Bounty'), ...addApplicationVirtual()],
   }
 );
 
+// Collection Model
 export const Collection = mongo.createModel<Types.CollectionDocument>(
   'Collection',
   {},
   {
-    virtuals: [...addTagVirtuals('Collection'), ...addApplicationVirtual('Collection')],
+    virtuals: [...addTagVirtuals('Collection'), ...addApplicationVirtual()],
   }
 );
 
+// Comment Model
 export const Comment = mongo.createModel<Types.CommentDocument>(
   'Comment',
   {
     body: { type: String, required: true },
-    entity: { type: mongo.Schema.Types.ObjectId, ref: 'Entity' },
-    entityModel: { type: String, enum: ['NewsArticle', 'ChainToken'] },
+    entity: { type: mongo.Schema.Types.ObjectId },
+    entityModel: { type: String },
     text: { type: String },
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
   },
   {
-    virtuals: [...addTagVirtuals('Comment'), ...addApplicationVirtual('Comment')],
+    virtuals: [...addTagVirtuals('Comment'), ...addApplicationVirtual()],
   }
 );
 
+// Community Model
 export const Community = mongo.createModel<Types.CommunityDocument>(
   'Community',
   {
-    ideas: { type: [mongo.Schema.Types.ObjectId], ref: 'Idea' },
-    products: { type: [mongo.Schema.Types.ObjectId], ref: 'Product' },
-    projects: { type: [mongo.Schema.Types.ObjectId], ref: 'Project' },
+    ideas: [{ type: mongo.Schema.Types.ObjectId, ref: 'Idea' }],
+    products: [{ type: mongo.Schema.Types.ObjectId, ref: 'Product' }],
+    projects: [{ type: mongo.Schema.Types.ObjectId, ref: 'Project' }],
   },
   {
-    virtuals: [...addTagVirtuals('Community'), ...addApplicationVirtual('Community')],
+    virtuals: [...addTagVirtuals('Community'), ...addApplicationVirtual()],
   }
 );
 
+// Company Model
 export const Company = mongo.createModel<Types.CompanyDocument>(
   'Company',
   {
     content: { type: String },
-    people: { type: [mongo.Schema.Types.ObjectId], ref: 'Person' },
+    people: [{ type: mongo.Schema.Types.ObjectId, ref: 'Person' }],
   },
   {
-    virtuals: [...addTagVirtuals('Company'), ...addApplicationVirtual('Company')],
+    virtuals: [...addTagVirtuals('Company'), ...addApplicationVirtual()],
   }
 );
 
+// Conversation Model
 export const Conversation = mongo.createModel<Types.ConversationDocument>(
   'Conversation',
   {
     userId: { type: mongo.Schema.Types.ObjectId, ref: 'User' },
-    messages: { type: [mongo.Schema.Types.Mixed] },
+    messages: [mongo.Schema.Types.Mixed],
   },
   {
-    virtuals: [...addTagVirtuals('Conversation'), ...addApplicationVirtual('Conversation')],
+    virtuals: [...addTagVirtuals('Conversation'), ...addApplicationVirtual()],
   }
 );
 
+// Data Model
 export const Data = mongo.createModel<Types.DataDocument>(
   'Data',
   {
     mod: { type: String, required: true },
   },
   {
-    virtuals: [...addTagVirtuals('Data'), ...addApplicationVirtual('Data')],
+    virtuals: [...addTagVirtuals('Data'), ...addApplicationVirtual()],
   }
 );
 
+// Discussion Model
 export const Discussion = mongo.createModel<Types.DiscussionDocument>(
   'Discussion',
   {
@@ -333,26 +362,29 @@ export const Discussion = mongo.createModel<Types.DiscussionDocument>(
     type: { type: String, default: 'Discussion' },
   },
   {
-    virtuals: [...addTagVirtuals('Discussion'), ...addApplicationVirtual('Discussion')],
+    virtuals: [...addTagVirtuals('Discussion'), ...addApplicationVirtual()],
   }
 );
 
+// Energy Model
 export const Energy = mongo.createModel<Types.EnergyDocument>(
   'Energy',
   {},
   {
-    virtuals: [...addTagVirtuals('Energy'), ...addApplicationVirtual('Energy')],
+    virtuals: [...addTagVirtuals('Energy'), ...addApplicationVirtual()],
   }
 );
 
+// Event Model
 export const Event = mongo.createModel<Types.EventDocument>(
   'Event',
   {},
   {
-    virtuals: [...addTagVirtuals('Event'), ...addApplicationVirtual('Event')],
+    virtuals: [...addTagVirtuals('Event'), ...addApplicationVirtual()],
   }
 );
 
+// File Model
 export const File = mongo.createModel<Types.FileDocument>(
   'File',
   {
@@ -361,32 +393,35 @@ export const File = mongo.createModel<Types.FileDocument>(
     accessType: { type: String, max: 100 },
   },
   {
-    virtuals: [...addTagVirtuals('File'), ...addApplicationVirtual('File')],
+    virtuals: [...addTagVirtuals('File'), ...addApplicationVirtual()],
   }
 );
 
+// Galaxy Model
 export const Galaxy = mongo.createModel<Types.GalaxyDocument>(
   'Galaxy',
   {
     universeId: { type: mongo.Schema.Types.ObjectId, ref: 'Universe' },
   },
   {
-    virtuals: [...addTagVirtuals('Galaxy'), ...addApplicationVirtual('Galaxy')],
+    virtuals: [...addTagVirtuals('Galaxy'), ...addApplicationVirtual()],
   }
 );
 
+// Guide Model
 export const Guide = mongo.createModel<Types.GuideDocument>(
   'Guide',
   {
     content: { type: String },
     gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game' },
-    attachments: { type: [mongo.Schema.Types.Mixed] },
+    attachments: [mongo.Schema.Types.Mixed],
   },
   {
-    virtuals: [...addTagVirtuals('Guide'), ...addApplicationVirtual('Guide')],
+    virtuals: [...addTagVirtuals('Guide'), ...addApplicationVirtual()],
   }
 );
 
+// Idea Model
 export const Idea = mongo.createModel<Types.IdeaDocument>(
   'Idea',
   {
@@ -394,58 +429,64 @@ export const Idea = mongo.createModel<Types.IdeaDocument>(
     communityId: { type: mongo.Schema.Types.ObjectId, ref: 'Community' },
   },
   {
-    virtuals: [...addTagVirtuals('Idea'), ...addApplicationVirtual('Idea')],
+    virtuals: [...addTagVirtuals('Idea'), ...addApplicationVirtual()],
   }
 );
 
+// Leaderboard Model
 export const Leaderboard = mongo.createModel<Types.LeaderboardDocument>(
   'Leaderboard',
   {
     productId: { type: mongo.Schema.Types.ObjectId, ref: 'Product' },
   },
   {
-    virtuals: [...addTagVirtuals('Leaderboard'), ...addApplicationVirtual('Leaderboard')],
+    virtuals: [...addTagVirtuals('Leaderboard'), ...addApplicationVirtual()],
   }
 );
 
+// Log Model
 export const Log = mongo.createModel<Types.LogDocument>(
   'Log',
   {
     mod: { type: String, required: true },
-    messages: { type: [mongo.Schema.Types.Mixed] },
-    tags: { type: [mongo.Schema.Types.Mixed] },
+    messages: [mongo.Schema.Types.Mixed],
+    // tags: [mongo.Schema.Types.Mixed],
   },
   {
-    virtuals: [...addTagVirtuals('Log'), ...addApplicationVirtual('Log')],
+    virtuals: [...addTagVirtuals('Log'), ...addApplicationVirtual()],
   }
 );
 
+// Lore Model
 export const Lore = mongo.createModel<Types.LoreDocument>(
   'Lore',
   {
     gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game' },
   },
   {
-    virtuals: [...addTagVirtuals('Lore'), ...addApplicationVirtual('Lore')],
+    virtuals: [...addTagVirtuals('Lore'), ...addApplicationVirtual()],
   }
 );
 
+// Market Model
 export const Market = mongo.createModel<Types.MarketDocument>(
   'Market',
   {},
   {
-    virtuals: [...addTagVirtuals('Market'), ...addApplicationVirtual('Market')],
+    virtuals: [...addTagVirtuals('Market'), ...addApplicationVirtual()],
   }
 );
 
+// Memory Model
 export const Memory = mongo.createModel<Types.MemoryDocument>(
   'Memory',
   {},
   {
-    virtuals: [...addTagVirtuals('Memory'), ...addApplicationVirtual('Memory')],
+    virtuals: [...addTagVirtuals('Memory'), ...addApplicationVirtual()],
   }
 );
 
+// Message Model
 export const Message = mongo.createModel<Types.MessageDocument>(
   'Message',
   {
@@ -454,13 +495,14 @@ export const Message = mongo.createModel<Types.MessageDocument>(
     replyToId: { type: mongo.Schema.Types.ObjectId, ref: 'Message' },
     parentId: { type: mongo.Schema.Types.ObjectId, ref: 'Message' },
     parent: { type: mongo.Schema.Types.ObjectId, ref: 'Message' },
-    messages: { type: [mongo.Schema.Types.ObjectId], ref: 'Message' },
+    messages: [{ type: mongo.Schema.Types.ObjectId, ref: 'Message' }],
   },
   {
-    virtuals: [...addTagVirtuals('Message'), ...addApplicationVirtual('Message')],
+    virtuals: [...addTagVirtuals('Message'), ...addApplicationVirtual()],
   }
 );
 
+// NewsArticle Model
 export const NewsArticle = mongo.createModel<Types.NewsArticleDocument>(
   'NewsArticle',
   {
@@ -468,10 +510,11 @@ export const NewsArticle = mongo.createModel<Types.NewsArticleDocument>(
     source: { type: String, required: true },
   },
   {
-    virtuals: [...addTagVirtuals('NewsArticle'), ...addApplicationVirtual('NewsArticle')],
+    virtuals: [...addTagVirtuals('NewsArticle'), ...addApplicationVirtual()],
   }
 );
 
+// Npc Model
 export const Npc = mongo.createModel<Types.NpcDocument>(
   'Npc',
   {
@@ -479,44 +522,49 @@ export const Npc = mongo.createModel<Types.NpcDocument>(
     characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character' },
   },
   {
-    virtuals: [...addTagVirtuals('Npc'), ...addApplicationVirtual('Npc')],
+    virtuals: [...addTagVirtuals('Npc'), ...addApplicationVirtual()],
   }
 );
 
+// Offer Model
 export const Offer = mongo.createModel<Types.OfferDocument>(
   'Offer',
   {},
   {
-    virtuals: [...addTagVirtuals('Offer'), ...addApplicationVirtual('Offer')],
+    virtuals: [...addTagVirtuals('Offer'), ...addApplicationVirtual()],
   }
 );
 
+// Order Model
 export const Order = mongo.createModel<Types.OrderDocument>(
   'Order',
   {},
   {
-    virtuals: [...addTagVirtuals('Order'), ...addApplicationVirtual('Order')],
+    virtuals: [...addTagVirtuals('Order'), ...addApplicationVirtual()],
   }
 );
 
+// Payment Model
 export const Payment = mongo.createModel<Types.PaymentDocument>(
   'Payment',
   {},
   {
-    virtuals: [...addTagVirtuals('Payment'), ...addApplicationVirtual('Payment')],
+    virtuals: [...addTagVirtuals('Payment'), ...addApplicationVirtual()],
   }
 );
 
+// Permission Model
 export const Permission = mongo.createModel<Types.PermissionDocument>(
   'Permission',
   {
-    roles: { type: [mongo.Schema.Types.ObjectId], ref: 'Role' },
+    roles: [{ type: mongo.Schema.Types.ObjectId, ref: 'Role' }],
   },
   {
-    virtuals: [...addTagVirtuals('Permission'), ...addApplicationVirtual('Permission')],
+    virtuals: [...addTagVirtuals('Permission'), ...addApplicationVirtual()],
   }
 );
 
+// Person Model
 export const Person = mongo.createModel<Types.PersonDocument>(
   'Person',
   {
@@ -524,28 +572,31 @@ export const Person = mongo.createModel<Types.PersonDocument>(
     companyId: { type: mongo.Schema.Types.ObjectId, ref: 'Company' },
   },
   {
-    virtuals: [...addTagVirtuals('Person'), ...addApplicationVirtual('Person')],
+    virtuals: [...addTagVirtuals('Person'), ...addApplicationVirtual()],
   }
 );
 
+// Planet Model
 export const Planet = mongo.createModel<Types.PlanetDocument>(
   'Planet',
   {
     solarSystemId: { type: mongo.Schema.Types.ObjectId, ref: 'SolarSystem' },
   },
   {
-    virtuals: [...addTagVirtuals('Planet'), ...addApplicationVirtual('Planet')],
+    virtuals: [...addTagVirtuals('Planet'), ...addApplicationVirtual()],
   }
 );
 
+// Poll Model
 export const Poll = mongo.createModel<Types.PollDocument>(
   'Poll',
   {},
   {
-    virtuals: [...addTagVirtuals('Poll'), ...addApplicationVirtual('Poll')],
+    virtuals: [...addTagVirtuals('Poll'), ...addApplicationVirtual()],
   }
 );
 
+// Project Model
 export const Project = mongo.createModel<Types.ProjectDocument>(
   'Project',
   {
@@ -558,256 +609,235 @@ export const Project = mongo.createModel<Types.ProjectDocument>(
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
   },
   {
-    virtuals: [...addTagVirtuals('Project'), ...addApplicationVirtual('Project')],
+    virtuals: [...addTagVirtuals('Project'), ...addApplicationVirtual()],
   }
 );
 
+// Proposal Model
 export const Proposal = mongo.createModel<Types.ProposalDocument>(
   'Proposal',
   {
     content: { type: String },
   },
   {
-    virtuals: [...addTagVirtuals('Proposal'), ...addApplicationVirtual('Proposal')],
+    virtuals: [...addTagVirtuals('Proposal'), ...addApplicationVirtual()],
   }
 );
 
+// Quest Model
 export const Quest = mongo.createModel<Types.QuestDocument>(
   'Quest',
   {
     type: { type: String, default: 'zone' },
   },
   {
-    virtuals: [...addTagVirtuals('Quest'), ...addApplicationVirtual('Quest')],
+    virtuals: [...addTagVirtuals('Quest'), ...addApplicationVirtual()],
   }
 );
 
+// Question Model
 export const Question = mongo.createModel<Types.QuestionDocument>(
   'Question',
   {
-    topics: { type: [mongo.Schema.Types.Mixed] },
+    topics: [mongo.Schema.Types.Mixed],
     text: { type: String, required: true },
     answer: { type: String, required: true },
     popularity: { type: Number },
   },
   {
-    virtuals: [...addTagVirtuals('Question'), ...addApplicationVirtual('Question')],
+    virtuals: [...addTagVirtuals('Question'), ...addApplicationVirtual()],
   }
 );
 
+// Rating Model
 export const Rating = mongo.createModel<Types.RatingDocument>(
   'Rating',
   {
-    votes: { type: [mongo.Schema.Types.ObjectId], ref: 'Vote' },
-    projects: { type: [mongo.Schema.Types.ObjectId], ref: 'Project' },
-    comments: { type: [mongo.Schema.Types.ObjectId], ref: 'Comment' },
+    votes: [{ type: mongo.Schema.Types.ObjectId, ref: 'Vote' }],
   },
   {
-    virtuals: [
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'vote' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'project' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'comment' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'idea' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'product' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'community' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'application' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'realm' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'team' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'tournament' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRatingId',
-        justOne: false,
-        match: { relationKey: 'trade' },
-      },
-      ...addTagVirtuals('Rating'),
-      ...addApplicationVirtual('Rating'),
-    ],
+    virtuals: [...addTagVirtuals('Rating'), ...addApplicationVirtual()],
   }
 );
 
+// Realm Model
 export const Realm = mongo.createModel<Types.RealmDocument>(
   'Realm',
-  {},
+  { gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game', required: true } },
   {
-    virtuals: [
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRealmId',
-        justOne: false,
-        match: { relationKey: 'server' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromRealmId',
-        justOne: false,
-        match: { relationKey: 'rating' },
-      },
-      ...addTagVirtuals('Realm'),
-      ...addApplicationVirtual('Realm'),
-    ],
+    virtuals: [...addTagVirtuals('Realm'), ...addApplicationVirtual()],
   }
 );
 
-export const Revision = mongo.createModel<Types.RevisionDocument>(
-  'Revision',
-  {
-    objectType: { type: String, max: 100, required: true },
-    objectId: { type: String, required: true },
-    actionType: { type: String, max: 100, required: true },
-    reason: { type: String, max: 100, required: true },
-    interfaces: { type: [mongo.Schema.Types.ObjectId], ref: 'Interface' },
-    profiles: { type: [mongo.Schema.Types.ObjectId], ref: 'Profile' },
-  },
-  {
-    virtuals: [...addTagVirtuals('Revision'), ...addApplicationVirtual('Revision')],
-  }
-);
-
+// Referral Model
 export const Referral = mongo.createModel<Types.ReferralDocument>(
   'Referral',
   {
     recipientId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
     senderId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
-    recipient: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
-    sender: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
   },
   {
-    virtuals: [...addTagVirtuals('Referral'), ...addApplicationVirtual('Referral')],
+    virtuals: [...addTagVirtuals('Referral'), ...addApplicationVirtual()],
   }
 );
 
+// Review Model
 export const Review = mongo.createModel<Types.ReviewDocument>(
   'Review',
   {
     value: { type: String },
   },
   {
-    virtuals: [...addTagVirtuals('Review'), ...addApplicationVirtual('Review')],
+    virtuals: [...addTagVirtuals('Review'), ...addApplicationVirtual()],
   }
 );
 
+// Role Model
 export const Role = mongo.createModel<Types.RoleDocument>(
   'Role',
   {
     value: { type: String },
-    profiles: { type: [mongo.Schema.Types.ObjectId], ref: 'Profile' },
-    permissions: { type: [mongo.Schema.Types.ObjectId], ref: 'Permission' },
+    profiles: [{ type: mongo.Schema.Types.ObjectId, ref: 'Profile' }],
+    permissions: [{ type: mongo.Schema.Types.ObjectId, ref: 'Permission' }],
   },
   {
-    virtuals: [...addTagVirtuals('Role'), ...addApplicationVirtual('Role')],
+    virtuals: [...addTagVirtuals('Role'), ...addApplicationVirtual()],
   }
 );
 
+// Season Model
 export const Season = mongo.createModel<Types.SeasonDocument>(
   'Season',
   {},
   {
-    virtuals: [...addTagVirtuals('Season'), ...addApplicationVirtual('Season')],
+    virtuals: [...addTagVirtuals('Season'), ...addApplicationVirtual()],
   }
 );
 
+// Server Model
 export const Server = mongo.createModel<Types.ServerDocument>(
   'Server',
   {
-    value: { type: String },
+    realmId: { type: mongo.Schema.Types.ObjectId, ref: 'Realm' },
   },
   {
-    virtuals: [...addTagVirtuals('Server'), ...addApplicationVirtual('Server')],
+    virtuals: [...addTagVirtuals('Server'), ...addApplicationVirtual()],
   }
 );
 
+// Session Model
 export const Session = mongo.createModel<Types.SessionDocument>(
   'Session',
   {
     expired: { type: Date, required: true },
   },
   {
-    virtuals: [...addTagVirtuals('Session'), ...addApplicationVirtual('Session')],
+    virtuals: [...addTagVirtuals('Session'), ...addApplicationVirtual()],
   }
 );
 
+// SolarSystem Model
 export const SolarSystem = mongo.createModel<Types.SolarSystemDocument>(
   'SolarSystem',
   {
     galaxyId: { type: mongo.Schema.Types.ObjectId, ref: 'Galaxy' },
   },
   {
-    virtuals: [...addTagVirtuals('SolarSystem'), ...addApplicationVirtual('SolarSystem')],
+    virtuals: [...addTagVirtuals('SolarSystem'), ...addApplicationVirtual()],
   }
 );
 
+// Star Model
 export const Star = mongo.createModel<Types.StarDocument>(
   'Star',
   {},
   {
-    virtuals: [...addTagVirtuals('Star'), ...addApplicationVirtual('Star')],
+    virtuals: [...addTagVirtuals('Star'), ...addApplicationVirtual()],
   }
 );
 
+// Stat Model
+export const Stat = mongo.createModel<Types.StatDocument>(
+  'Stat',
+  {
+    number: { type: Number, default: 0 },
+  },
+  {
+    virtuals: [...addTagVirtuals('Stat'), ...addApplicationVirtual()],
+  }
+);
+
+// Stash Model
+export const Stash = mongo.createModel<Types.StashDocument>(
+  'Stash',
+  {},
+  {
+    virtuals: [...addTagVirtuals('Stash'), ...addApplicationVirtual()],
+  }
+);
+
+// Stock Model
+export const Stock = mongo.createModel<Types.StockDocument>(
+  'Stock',
+  {
+    rank: { type: Number, min: 0 },
+    price: { type: Number, min: 0 },
+    hourChange: { type: Number },
+    dayChange: { type: Number },
+    weekChange: { type: Number },
+    marketCap: { type: Number, min: 0 },
+    volume: { type: Number, min: 0 },
+    ticker: { type: String },
+    unusualActivity: { type: Number, min: 0 },
+  },
+  {
+    virtuals: [...addTagVirtuals('Stock'), ...addApplicationVirtual()],
+  }
+);
+
+// Suggestion Model
+export const Suggestion = mongo.createModel<Types.SuggestionDocument>(
+  'Suggestion',
+  {
+    content: { type: String },
+  },
+  {
+    virtuals: [...addTagVirtuals('Suggestion'), ...addApplicationVirtual()],
+  }
+);
+
+// Tag Model
+export const Tag = mongo.createModel<Types.TagDocument>(
+  'Tag',
+  {
+    value: { type: String },
+  },
+  {
+    virtuals: [...addApplicationVirtual()],
+  }
+);
+
+// Team Model
+export const Team = mongo.createModel<Types.TeamDocument>(
+  'Team',
+  {
+    ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
+  },
+  {
+    virtuals: [...addTagVirtuals('Team'), ...addApplicationVirtual()],
+  }
+);
+
+// Tournament Model
+export const Tournament = mongo.createModel<Types.TournamentDocument>(
+  'Tournament',
+  {},
+  {
+    virtuals: [...addTagVirtuals('Tournament'), ...addApplicationVirtual()],
+  }
+);
+
+// Trade Model
 export const Trade = mongo.createModel<Types.TradeDocument>(
   'Trade',
   {
@@ -819,60 +849,33 @@ export const Trade = mongo.createModel<Types.TradeDocument>(
     tokenId: { type: mongo.Schema.Types.ObjectId, ref: 'ChainToken' },
   },
   {
-    virtuals: [
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'fromTradeId',
-        justOne: false,
-        match: { relationKey: 'tags' },
-      },
-      {
-        ref: 'Node',
-        localField: '_id',
-        foreignField: 'parentId',
-        justOne: true,
-      },
-      {
-        ref: 'Product',
-        localField: '_id',
-        foreignField: 'productId',
-        justOne: true,
-      },
-      {
-        ref: 'Profile',
-        localField: '_id',
-        foreignField: 'sellerId',
-        justOne: true,
-      },
-      {
-        ref: 'Profile',
-        localField: '_id',
-        foreignField: 'buyerId',
-        justOne: true,
-      },
-      {
-        ref: 'Chain',
-        localField: '_id',
-        foreignField: 'chainId',
-        justOne: true,
-      },
-      {
-        ref: 'ChainToken',
-        localField: '_id',
-        foreignField: 'tokenId',
-        justOne: true,
-      },
-      ...addTagVirtuals('Trade'),
-      ...addApplicationVirtual('Trade'),
-    ],
+    virtuals: [...addTagVirtuals('Trade'), ...addApplicationVirtual()],
   }
 );
 
+// Universe Model
+export const Universe = mongo.createModel<Types.UniverseDocument>(
+  'Universe',
+  {},
+  {
+    virtuals: [...addTagVirtuals('Universe'), ...addApplicationVirtual()],
+  }
+);
+
+// Validator Model
+export const Validator = mongo.createModel<Types.ValidatorDocument>(
+  'Validator',
+  {},
+  {
+    virtuals: [...addTagVirtuals('Validator'), ...addApplicationVirtual()],
+  }
+);
+
+// Vote Model
 export const Vote = mongo.createModel<Types.VoteDocument>(
   'Vote',
   {
-    ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating', optional: true },
+    ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
   },
   {
     virtuals: [
@@ -880,18 +883,50 @@ export const Vote = mongo.createModel<Types.VoteDocument>(
         name: 'parent',
         ref: 'Node',
         localField: '_id',
-        foreignField: 'parentId',
+        foreignField: 'from',
         justOne: true,
+        match: { fromModel: 'Vote' },
       },
       {
         name: 'owner',
         ref: 'Profile',
         localField: '_id',
-        foreignField: 'fromVoteId',
+        foreignField: '_id',
         justOne: true,
       },
       ...addTagVirtuals('Vote'),
-      ...addApplicationVirtual('Vote'),
+      ...addApplicationVirtual(),
+    ],
+  }
+);
+
+// WorldEvent Model
+export const WorldEvent = mongo.createModel<Types.WorldEventDocument>(
+  'WorldEvent',
+  {
+    text: { type: String, required: true },
+    importance: { type: Number },
+    // tags: [mongo.Schema.Types.Mixed],
+  },
+  {
+    virtuals: [...addTagVirtuals('World'), ...addTagVirtuals('WorldEvent'), ...addApplicationVirtual()],
+  }
+);
+
+// Node Model (for polymorphic relationships)
+export const Node = mongo.createModel<Types.NodeDocument>(
+  'Node',
+  {
+    relationKey: { type: String, required: true },
+    fromModel: { type: String, required: true },
+    from: { type: mongo.Schema.Types.ObjectId, required: true },
+    toModel: { type: String, required: true },
+    to: { type: mongo.Schema.Types.ObjectId, required: true },
+  },
+  {
+    indexes: [
+      { fromModel: 1, from: 1 },
+      { toModel: 1, to: 1 },
     ],
   }
 );
