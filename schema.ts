@@ -2,6 +2,8 @@ import Mongoose, { Types } from 'mongoose';
 import { z as zod, ZodTypeAny, ZodLazy, ZodObject, ZodArray } from 'zod';
 import { AnyProcedure, inferProcedureOutput, AnyRouter, AnyTRPCClientTypes, TRPCRouterRecord } from '@trpc/server';
 
+export type { inferRouterInputs } from '@trpc/server';
+
 export const z = zod;
 
 // @ts-ignore
@@ -12,6 +14,20 @@ export const ObjectId = z.union([
     message: 'Invalid ObjectId',
   }),
 ]);
+
+export const Anything = z.any();
+export const Nothing = z.object({});
+export const Signature = z.object({ hash: z.string(), address: z.string() });
+export const UnsignedData = z.object({ data: z.any() });
+export const SignedData = z.object({
+  data: z.any(),
+  signature: Signature,
+});
+
+export const AnyInput = z.any();
+export const OnlySignatureInput = z.object({ signature: Signature });
+export const NoDataOutput = z.object({ status: z.number() });
+export const AnyDataOutput = z.object({ data: z.any(), status: z.number() });
 
 export enum Status {
   Paused = 'Paused',
@@ -208,7 +224,7 @@ export const createPrismaWhereSchema = <T extends zod.ZodRawShape>(
 };
 
 export const getQueryOutput = <T extends zod.ZodTypeAny>(data: T) => {
-  return z.object({ status: z.number(), data: data });
+  return z.object({ status: z.number(), data: data, error: z.string().optional() });
 };
 
 export const getQueryInput = <T extends zod.ZodRawShape>(
@@ -218,21 +234,22 @@ export const getQueryInput = <T extends zod.ZodRawShape>(
   const { partialData = false } = options;
   const whereSchema = createPrismaWhereSchema(modelSchema);
 
-  const querySchema = zod.object({
-    skip: zod.number().default(0).optional(),
-    take: zod.number().default(10).optional(),
-    cursor: zod.record(zod.any()).optional(),
-    where: whereSchema.optional(),
-    orderBy: zod.record(zod.enum(['asc', 'desc'])).optional(),
-    include: zod.record(zod.boolean()).optional(),
-    select: zod.record(zod.boolean()).optional(),
-  });
+  const querySchema = z
+    .object({
+      data: partialData ? modelSchema.partial().optional() : modelSchema.optional(),
+      skip: z.number().default(0).optional(),
+      take: z.number().default(10).optional(),
+      cursor: z.record(z.any()).optional(),
+      where: whereSchema.optional(),
+      orderBy: z.record(z.enum(['asc', 'desc'])).optional(),
+      include: z.record(z.boolean()).optional(),
+      select: z.record(z.boolean()).optional(),
+    })
+    .partial();
 
-  const dataSchema = zod.object({
-    data: partialData ? modelSchema.partial().optional() : modelSchema.optional(),
-  });
-
-  return zod.union([querySchema.merge(dataSchema), zod.undefined()]).optional();
+  // Merge querySchema and dataSchema, making all fields optional
+  return zod.union([querySchema, zod.undefined()]);
+  // return querySchema.merge(dataSchema).partial();
 };
 
 export type inferQuery<T extends zod.ZodRawShape> = zod.infer<ReturnType<typeof createPrismaWhereSchema<T>>>;

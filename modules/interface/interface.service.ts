@@ -18,22 +18,25 @@ export class Service {
     console.log('Interface.Service.getInterface', input);
 
     const filter = getFilter(input);
-    const interfac = await ctx.app.model.Interface.findOne(filter).select('-meta').lean().exec();
+    const interfac = await ctx.app.model.Interface.findOne(filter).select('-meta').exec();
     if (!interfac) throw new Error('Interface not found');
 
     if (!interfac.version) interfac.version = 1;
     if (!interfac.meta) interfac.meta = {};
 
-    return { data: interfac as InterfaceDocument };
+    return {
+      status: 1,
+      data: interfac as InterfaceDocument,
+    };
   }
 
   async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.getInterfaces', input);
 
     const filter = getFilter(input);
-    const interfaces = await ctx.app.model.Interface.find(filter).select('-meta').lean().exec();
-    const rolesOnUsers = await this.fetchRolesFromContext(ctx);
+    console.log('Interface.Service.getInterfaces', input, filter);
+    const interfaces = await ctx.app.model.Interface.find(filter).select('-meta').exec();
+    const rolesOnUsers = ['Super User']; // await this.fetchRolesFromContext(ctx);
 
     for (const interfac of interfaces) {
       if (!interfac.version) interfac.version = 1;
@@ -41,6 +44,7 @@ export class Service {
     }
 
     return {
+      status: 1,
       data: interfaces.filter((interfac) => {
         const roles = [];
         return this.hasPermission(roles, rolesOnUsers);
@@ -53,9 +57,8 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createInterface']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.createInterface', input);
 
-    const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).lean().exec();
+    const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).exec();
     const version = existingInterface ? existingInterface.version + 1 : 1;
 
     const newInterface = await ctx.app.model.Interface.create({
@@ -67,7 +70,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { data: newInterface as InterfaceDocument };
+    return { status: 1, data: newInterface as InterfaceDocument };
   }
 
   async createInterfaceDraft(
@@ -77,7 +80,7 @@ export class Service {
     if (!input) throw new Error('Input should not be void');
     console.log('Interface.Service.createInterfaceDraft', input);
 
-    const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).lean().exec();
+    const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).exec();
     const version = existingInterface ? existingInterface.version + 1 : 1;
 
     const newInterface = await ctx.app.model.Interface.create({
@@ -89,7 +92,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { data: newInterface as InterfaceDocument };
+    return { status: 1, data: newInterface as InterfaceDocument };
   }
 
   async updateInterface(
@@ -100,13 +103,13 @@ export class Service {
     console.log('Interface.Service.updateInterface', input);
 
     const filter = getFilter(input);
-    let interfac: any = await ctx.app.model.Interface.findOne(filter).lean().exec();
+    let interfac: any = await ctx.app.model.Interface.findOne(filter).exec();
     if (!interfac) throw new Error('Interface does not exist');
 
     if (interfac.status === 'Published' || input.data.groupId) {
       await ctx.app.model.Interface.updateMany({ key: interfac.key, status: 'Draft' }, { status: 'Archived' }).exec();
       const version =
-        (await ctx.app.model.Interface.find({ key: interfac.key }).sort({ version: -1 }).lean().exec())[0].version + 1;
+        (await ctx.app.model.Interface.find({ key: interfac.key }).sort({ version: -1 }).exec())[0].version + 1;
 
       interfac = (await ctx.app.model.Interface.create({
         ...interfac,
@@ -117,12 +120,12 @@ export class Service {
       })) as InterfaceDocument;
     } else {
       await ctx.app.model.Interface.updateOne(filter, input.data).exec();
-      interfac = await ctx.app.model.Interface.findOne(filter).lean().exec();
+      interfac = await ctx.app.model.Interface.findOne(filter).exec();
     }
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return interfac as InterfaceDocument;
+    return { status: 1, data: interfac as InterfaceDocument };
   }
 
   async deleteInterface(
@@ -133,7 +136,7 @@ export class Service {
     console.log('Interface.Service.deleteInterface', input);
 
     const filter = getFilter(input);
-    const interfac = await ctx.app.model.Interface.findOne(filter).lean().exec();
+    const interfac = await ctx.app.model.Interface.findOne(filter).exec();
     if (!interfac) throw new Error('Interface does not exist');
 
     interfac.status = 'Archived';
@@ -142,7 +145,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return interfac as InterfaceDocument;
+    return { status: 1, data: interfac as InterfaceDocument };
   }
 
   async getInterfaceGroup(
@@ -153,7 +156,7 @@ export class Service {
     console.log('Interface.Service.getInterfaceGroup', input);
 
     const filter = getFilter(input);
-    const group = await ctx.app.model.InterfaceGroup.findOne(filter).lean().exec();
+    const group = await ctx.app.model.InterfaceGroup.findOne(filter).exec();
     if (!group) throw new Error('InterfaceGroup not found');
 
     if (!group.roles) group.roles = [];
@@ -164,21 +167,19 @@ export class Service {
     //   });
     // }
 
-    return { data: group as InterfaceGroupDocument };
+    return { status: 1, data: group as InterfaceGroupDocument };
   }
 
   async getInterfaceGroups(
     input: RouterInput['getInterfaceGroups'],
     ctx: RouterContext
   ): Promise<RouterOutput['getInterfaceGroups']> {
-    if (!input) throw new Error('Input should not be void');
     console.log('Interface.Service.getInterfaceGroups', input);
 
     const filter = getFilter(input);
-    const groups = await ctx.app.model.InterfaceGroup.find(filter).lean().exec();
-    if (!groups) throw new Error('InterfaceGroup not found');
+    const groups = await ctx.app.model.InterfaceGroup.find(filter).exec();
 
-    return { data: groups as InterfaceGroupDocument[] };
+    return { status: 1, data: groups as InterfaceGroupDocument[] };
   }
 
   async createInterfaceGroup(
@@ -190,7 +191,7 @@ export class Service {
 
     const newGroup = await ctx.app.model.InterfaceGroup.create(input.data);
 
-    return newGroup as InterfaceGroupDocument;
+    return { status: 1, data: newGroup as InterfaceGroupDocument };
   }
 
   async updateInterfaceGroup(
@@ -205,10 +206,10 @@ export class Service {
       runValidators: true,
     }).exec();
 
-    const updatedGroup = await ctx.app.model.InterfaceGroup.findOne(filter).lean().exec();
+    const updatedGroup = await ctx.app.model.InterfaceGroup.findOne(filter).exec();
     if (!updatedGroup) throw new Error('InterfaceGroup update failed');
 
-    return updatedGroup as InterfaceGroupDocument;
+    return { status: 1, data: updatedGroup as InterfaceGroupDocument };
   }
 
   async getInterfaceComponent(
@@ -219,10 +220,10 @@ export class Service {
     console.log('Interface.Service.getInterfaceComponent', input);
 
     const filter = getFilter(input);
-    const component = await ctx.app.model.InterfaceComponent.findOne(filter).lean().exec();
+    const component = await ctx.app.model.InterfaceComponent.findOne(filter).exec();
     if (!component) throw new Error('InterfaceComponent not found');
 
-    return { data: component as InterfaceComponentDocument };
+    return { status: 1, data: component as InterfaceComponentDocument };
   }
 
   async createInterfaceComponent(
@@ -249,7 +250,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return component as InterfaceComponentDocument;
+    return { status: 1, data: component as InterfaceComponentDocument };
   }
 
   async updateInterfaceComponent(
@@ -269,12 +270,12 @@ export class Service {
       runValidators: true,
     }).exec();
 
-    const updatedComponent = await ctx.app.model.InterfaceComponent.findOne(filter).lean().exec();
+    const updatedComponent = await ctx.app.model.InterfaceComponent.findOne(filter).exec();
     if (!updatedComponent) throw new Error('InterfaceComponent update failed');
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return updatedComponent as InterfaceComponentDocument;
+    return { status: 1, data: updatedComponent as InterfaceComponentDocument };
   }
 
   // Helper Methods
@@ -283,8 +284,6 @@ export class Service {
   }
 
   private hasPermission(roles: string[], rolesOnUsers: string[]): boolean {
-    return (
-      rolesOnUsers.includes('Super User') || roles.includes('Guest') || _.intersection(roles, rolesOnUsers).length > 0
-    );
+    return rolesOnUsers.includes('Super User') || _.intersection(roles, rolesOnUsers).length > 0;
   }
 }

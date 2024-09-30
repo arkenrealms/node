@@ -5,6 +5,11 @@ export const Interface = mongo.createModel<Types.InterfaceDocument>('Interface',
   key: { type: String, required: true },
   submissions: [{ type: mongo.Schema.Types.ObjectId, ref: 'InterfaceSubmission' }],
   groupId: { type: mongo.Schema.Types.ObjectId, ref: 'InterfaceGroup', required: true },
+  status: {
+    type: String,
+    default: 'Active', // Default value set here
+    enum: ['Paused', 'Pending', 'Active', 'Archived', 'Published', 'Draft'],
+  },
   // commentsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'CommentsOnInterfaces' }],
   // revisionsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'RevisionsOnInterfaces' }],
 });

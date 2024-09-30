@@ -403,6 +403,13 @@ export const Team = Entity.merge(
   })
 );
 
+// Party Schema
+export const Party = Entity.merge(
+  z.object({
+    targetArea: ObjectId.optional(),
+  })
+);
+
 // Tournament Schema
 export const Tournament = Entity.merge(z.object({}));
 
