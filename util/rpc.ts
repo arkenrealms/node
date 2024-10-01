@@ -7,9 +7,9 @@ export const customErrorFormatter = (t: any) =>
       return await next();
     } catch (error) {
       if (error instanceof TRPCError) {
-        return { status: 0, error: error.message };
+        return { status: 0, error };
       }
-      return { status: 0, error: 'An unexpected error occurred' };
+      return { status: 0, error: { code: 'UNKNOWN', message: 'An unexpected error occurred' } };
     }
   });
 
@@ -42,18 +42,49 @@ export const dummyTransformer: any = {
 };
 
 export const validateRequest = (t: any) =>
-  t.middleware(async ({ input, ctx, next }) => {
+  t.middleware(async ({ input, ctx, next }, arg2, arg3) => {
+    if (!ctx.app?.web3) {
+      throw new TRPCError({
+        code: 'INTERNAL_SERVER_ERROR',
+        message: 'App web3 not set.',
+      });
+    }
+
+    if (!input) {
+      throw new TRPCError({
+        code: 'BAD_REQUEST',
+        message: 'No input provided',
+      });
+    }
+
     const { signature, data } = input;
-    if (
-      !(await isValidRequest(ctx.app.web3, { signature: { address: signature.address, hash: signature.hash, data } }))
-    ) {
-      return { status: 5, message: 'Invalid request' };
+
+    // Validate presence of signature and data
+    if (!signature || !data) {
+      throw new TRPCError({
+        code: 'BAD_REQUEST',
+        message: 'Missing signature or data',
+      });
+    }
+
+    const isValid = await isValidRequest(ctx.app.web3, {
+      signature: {
+        address: signature.address,
+        hash: signature.hash,
+        data,
+      },
+    });
+
+    console.log('isValid', isValid);
+
+    if (!isValid) {
+      throw new TRPCError({
+        code: 'BAD_REQUEST',
+        message: 'Invalid request',
+      });
     }
 
     return next();
-    // return next({
-    //   rawInput: data,
-    // });
   });
 
 export const hasRole = (role: string | string[], t: any) =>

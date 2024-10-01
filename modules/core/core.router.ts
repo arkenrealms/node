@@ -1529,18 +1529,7 @@ export const createRouter = () =>
     stats: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(
-        z.object({
-          where: z.object({
-            createdDate: z.object({
-              gte: dateFromString.optional(),
-            }),
-          }),
-          orderBy: z.object({
-            number: z.enum(['asc', 'desc']),
-          }),
-        })
-      )
+      .input(getQueryInput(Stat))
       .query(({ input, ctx }) => (ctx.app.service.Core.stats as any)(input, ctx)),
   });
 
