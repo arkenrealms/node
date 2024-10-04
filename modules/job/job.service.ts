@@ -36,66 +36,66 @@ export class Service {
   }
 
   async updateMetrics(input: RouterInput['updateMetrics'], ctx: RouterContext): Promise<RouterOutput['updateMetrics']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Job.Service.updateMetrics');
+    // if (!input) throw new Error('Input should not be void');
+    // console.log('Job.Service.updateMetrics');
 
-    let latestRecord;
-    let latestNumber = 1;
+    // let latestRecord;
+    // let latestNumber = 1;
 
-    const { Stat, Interface, InterfaceComponent } = ctx.app.model;
+    // const { Stat, Interface, InterfaceComponent } = ctx.app.model;
 
-    try {
-      latestRecord = await Stat.findOne().sort({ number: -1 }).exec();
+    // try {
+    //   latestRecord = await Stat.findOne().sort({ number: -1 }).exec();
 
-      if (latestRecord) {
-        latestNumber = latestRecord.number;
+    //   if (latestRecord) {
+    //     latestNumber = latestRecord.number;
 
-        const dayAgo = dayjs().subtract(1, 'day');
+    //     const dayAgo = dayjs().subtract(1, 'day');
 
-        // Unset the latest record if it's older than one day, so a new one is created
-        if (!dayjs(latestRecord.createdDate).isAfter(dayAgo)) {
-          latestRecord = undefined;
-        }
-      }
-    } catch (e) {
-      console.log('Error getting latest stat record', e);
-    }
+    //     // Unset the latest record if it's older than one day, so a new one is created
+    //     if (!dayjs(latestRecord.createdDate).isAfter(dayAgo)) {
+    //       latestRecord = undefined;
+    //     }
+    //   }
+    // } catch (e) {
+    //   console.log('Error getting latest stat record', e);
+    // }
 
-    const TotalInterfaces = await Interface.countDocuments().exec();
-    const TotalInterfaceDrafted = await Interface.where({ status: 'Draft' }).countDocuments().exec();
-    const TotalInterfacePublished = await Interface.where({ status: 'Published' }).countDocuments().exec();
-    const TotalInterfacePaused = await Interface.where({ status: 'Paused' }).countDocuments().exec();
-    const TotalInterfaceFinished = await Interface.where({ status: 'Finished' }).countDocuments().exec();
-    const TotalInterfaceArchived = await Interface.where({ status: 'Archived' }).countDocuments().exec();
-    const TotalInterfaceSubmissions = 1; // Example static value, replace with actual logic if needed
-    const TotalInterfaceTemplates = await InterfaceComponent.countDocuments().exec();
+    // const TotalInterfaces = await Interface.countDocuments().exec();
+    // const TotalInterfaceDrafted = await Interface.where({ status: 'Draft' }).countDocuments().exec();
+    // const TotalInterfacePublished = await Interface.where({ status: 'Published' }).countDocuments().exec();
+    // const TotalInterfacePaused = await Interface.where({ status: 'Paused' }).countDocuments().exec();
+    // const TotalInterfaceFinished = await Interface.where({ status: 'Finished' }).countDocuments().exec();
+    // const TotalInterfaceArchived = await Interface.where({ status: 'Archived' }).countDocuments().exec();
+    // const TotalInterfaceSubmissions = 1; // Example static value, replace with actual logic if needed
+    // const TotalInterfaceTemplates = await InterfaceComponent.countDocuments().exec();
 
-    const meta = {
-      TotalInterfaces,
-      TotalInterfaceDrafted,
-      TotalInterfacePublished,
-      TotalInterfacePaused,
-      TotalInterfaceArchived,
-      TotalInterfaceFinished,
-      TotalInterfaceSubmissions,
-      TotalInterfaceTemplates,
-    };
+    // const meta = {
+    //   TotalInterfaces,
+    //   TotalInterfaceDrafted,
+    //   TotalInterfacePublished,
+    //   TotalInterfacePaused,
+    //   TotalInterfaceArchived,
+    //   TotalInterfaceFinished,
+    //   TotalInterfaceSubmissions,
+    //   TotalInterfaceTemplates,
+    // };
 
-    if (latestRecord) {
-      await Stat.updateOne(
-        { _id: latestRecord.id },
-        {
-          ...latestRecord.toObject(),
-          meta,
-        }
-      ).exec();
-    } else {
-      await Stat.create({
-        number: latestNumber + 1,
-        createdDate: new Date(),
-        meta,
-      });
-    }
+    // if (latestRecord) {
+    //   await Stat.updateOne(
+    //     { _id: latestRecord.id },
+    //     {
+    //       ...latestRecord.toObject(),
+    //       meta,
+    //     }
+    //   ).exec();
+    // } else {
+    //   await Stat.create({
+    //     number: latestNumber + 1,
+    //     createdDate: new Date(),
+    //     meta,
+    //   });
+    // }
 
     return { status: 1 };
   }

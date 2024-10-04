@@ -13,22 +13,96 @@ export const customErrorFormatter = (t: any) =>
     }
   });
 
-export const serialize = (object: any): string => {
-  return JSON.stringify(object, (key, value) => {
+// const obj = {
+//   name: "John",
+//   date: new Date(),
+//   data: new Uint8Array([1, 2, 3, 4]),
+//   set: new Set([1, 2, 3]),
+//   map: new Map([['key1', 'value1'], ['key2', 'value2']]),
+//   bigInt: BigInt(12345678901234567890),
+//   regex: /abc/i,
+// };
+
+// const serialized = serialize(obj);
+// console.log(serialized);
+
+// const deserialized = deserialize(serialized);
+// console.log(deserialized);
+export const serialize = (object) => {
+  const processValue = (value) => {
+    // Ensure Uint8Array objects are serialized correctly
     if (value instanceof Uint8Array) {
       return { _type: 'Uint8Array', data: Array.from(value) };
     }
+    // Ensure Date objects are serialized correctly with custom type indicator
+    if (value instanceof Date) {
+      return { _type: 'Date', data: value.toISOString() }; // Use custom serialization for Date
+    }
+    // Handle other types (Set, Map, BigInt, RegExp, etc.)
+    if (value instanceof Set) {
+      return { _type: 'Set', data: Array.from(value) };
+    }
+    if (value instanceof Map) {
+      return { _type: 'Map', data: Array.from(value.entries()) };
+    }
+    if (typeof value === 'bigint') {
+      return { _type: 'BigInt', data: value.toString() };
+    }
+    if (value instanceof RegExp) {
+      return { _type: 'RegExp', data: value.source, flags: value.flags };
+    }
+    // Recursively process arrays and objects
+    if (Array.isArray(value)) {
+      return value.map(processValue);
+    }
+    if (value && typeof value === 'object') {
+      return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
+    }
+    // Default behavior for other types
     return value;
-  });
+  };
+
+  const processedObject = processValue(object);
+  return JSON.stringify(processedObject);
 };
 
-export const deserialize = (string: string): any => {
-  return JSON.parse(string, (key, value) => {
-    if (value && value._type === 'Uint8Array') {
-      return new Uint8Array(value.data);
+export const deserialize = (jsonString) => {
+  const processValue = (value) => {
+    if (value && typeof value === 'object') {
+      if (value._type) {
+        switch (value._type) {
+          case 'Uint8Array':
+            return new Uint8Array(value.data);
+          case 'Date':
+            return new Date(value.data);
+          case 'Set':
+            return new Set(value.data.map(processValue));
+          case 'Map':
+            return new Map(value.data.map(([k, v]) => [k, processValue(v)]));
+          case 'BigInt':
+            return BigInt(value.data);
+          case 'RegExp':
+            return new RegExp(value.data, value.flags);
+          default:
+            // Unknown _type, return the value as is
+            return value;
+        }
+      } else {
+        // Recursively process objects and arrays
+        if (Array.isArray(value)) {
+          return value.map(processValue);
+        } else {
+          return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
+        }
+      }
+    } else {
+      // Return the value as is for primitives (string, number, boolean, null)
+      return value;
     }
-    return value;
-  });
+  };
+
+  const parsedObject = JSON.parse(jsonString);
+  return processValue(parsedObject);
 };
 
 export const transformer: any = {
