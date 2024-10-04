@@ -81,10 +81,11 @@ export const getAddress = (address) => {
 export function isValidRequest(web3, req) {
   log('Verifying', req);
   try {
-    const hashedData = md5(JSON.stringify(req.data));
+    // const hashedData = md5(JSON.stringify(req.signature.data));
     return (
+      // hashedData === req.signature.hash &&
       web3.eth.accounts.recover(req.signature.data, req.signature.hash).toLowerCase() ===
-        req.signature.address.toLowerCase() && hashedData === req.signature.data
+      req.signature.address.toLowerCase()
     );
   } catch (e) {
     logError(e);

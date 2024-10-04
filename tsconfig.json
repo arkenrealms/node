@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "ESNext",
     "lib": ["ES2020", "DOM"],
     "noImplicitAny": false,
     "outDir": "build",
@@ -21,7 +21,7 @@
     "allowSyntheticDefaultImports": true,
     "types": ["jest", "node"],
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["*"]
     },
     "baseUrl": "./",
     "allowJs": true,
@@ -30,13 +30,6 @@
     "noFallthroughCasesInSwitch": true,
     "noEmit": true
   },
-  "include": [
-    "./index.ts",
-    "config.ts",
-    "./types.ts",
-    "./styled.d.ts",
-    "components",
-    "hooks",
-  "util"],
+  "include": ["./index.ts", "config.ts", "./types.ts", "./styled.d.ts", "components", "hooks", "util"],
   "exclude": ["node_modules", "build"]
 }
