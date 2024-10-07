@@ -224,7 +224,7 @@ export const createPrismaWhereSchema = <T extends zod.ZodRawShape>(
 };
 
 export const getQueryOutput = <T extends zod.ZodTypeAny>(data: T) => {
-  return z.object({ status: z.number(), data: data, error: z.string().optional() });
+  return z.object({ status: z.number(), data: data.optional(), error: z.string().optional() });
 };
 
 export const getQueryInput = <T extends zod.ZodRawShape>(

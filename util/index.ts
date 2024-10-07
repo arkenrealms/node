@@ -42,7 +42,9 @@ export function logError(...msgs) {
     // jetpack.write(path.resolve('./public/data/errors.json'), JSON.stringify(errorLog, null, 2), { atomic: true });
   }
 
-  throw new Error(msgs.join('; '));
+  // console.log(msgs);
+
+  // throw new Error(msgs.join('; '));
 }
 
 export function log(...msgs) {

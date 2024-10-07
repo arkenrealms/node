@@ -66,7 +66,9 @@ export const serialize = (object) => {
   return JSON.stringify(processedObject);
 };
 
-export const deserialize = (jsonString) => {
+export const deserialize = (input) => {
+  if (typeof input !== 'string') return input;
+
   const processValue = (value) => {
     if (value && typeof value === 'object') {
       if (value._type) {
@@ -101,7 +103,7 @@ export const deserialize = (jsonString) => {
     }
   };
 
-  const parsedObject = JSON.parse(jsonString);
+  const parsedObject = JSON.parse(input);
   return processValue(parsedObject);
 };
 
