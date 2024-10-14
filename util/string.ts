@@ -1,3 +1,11 @@
+export function toTitleCase(str: string): string {
+  return str
+    .toLowerCase() // Convert entire string to lowercase first
+    .split(' ') // Split the string into an array of words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize first letter of each word
+    .join(' '); // Join the array of words back into a single string
+}
+
 export const toCamelCase = (str: string): string => {
   if (!str) return str;
 

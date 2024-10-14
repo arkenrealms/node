@@ -66,7 +66,9 @@ export const serialize = (object) => {
   return JSON.stringify(processedObject);
 };
 
-export const deserialize = (jsonString) => {
+export const deserialize = (input) => {
+  if (typeof input !== 'string') return input;
+
   const processValue = (value) => {
     if (value && typeof value === 'object') {
       if (value._type) {
@@ -101,7 +103,7 @@ export const deserialize = (jsonString) => {
     }
   };
 
-  const parsedObject = JSON.parse(jsonString);
+  const parsedObject = JSON.parse(input);
   return processValue(parsedObject);
 };
 
@@ -164,15 +166,17 @@ export const validateRequest = (t: any) =>
 export const hasRole = (role: string | string[], t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     console.log('hasRole', role, ctx.client?.roles);
-    if (ctx.client?.roles?.length > 0 && Array.isArray(role)) {
-      const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
-      if (!hasAnyRole) {
-        return { status: 0, message: `Not authorized. Missing one of the required roles: ${role.join(',')}` };
-      }
-    } else {
-      if (!ctx.client.roles.includes(role)) {
+    if (ctx.client?.roles?.length > 0) {
+      if (Array.isArray(role)) {
+        const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
+        if (!hasAnyRole) {
+          return { status: 0, message: `Not authorized. Missing one of the required roles: ${role.join(',')}` };
+        }
+      } else if (ctx.client.roles.includes(role)) {
         return { status: 0, message: `Not authorized. Missing role: ${role}` };
       }
+    } else {
+      return { status: 0, message: `Not authorized. Missing role: ${role}` };
     }
 
     return next();
