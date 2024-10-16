@@ -139,6 +139,8 @@ export function createSchema<T>(
         virtualOptions.refPath = virtual.refPath;
       } else if (virtual.ref) {
         virtualOptions.ref = virtual.ref;
+      } else {
+        virtualOptions.ref = pluralize.singular(virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1));
       }
 
       if (virtual.options) {

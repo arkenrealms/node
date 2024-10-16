@@ -65,7 +65,6 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
     indexes: [{ metaverseId: 1, name: 1, unique: true }],
     virtuals: [
       ...addTagVirtuals('Application'),
-      ...addApplicationVirtual(),
       { name: 'agents' },
       { name: 'chain' },
       { name: 'account' },
