@@ -189,8 +189,9 @@ type PrismaWhereLevel4<T extends zod.ZodRawShape> = ZodObject<
 
 // Function to create a recursive schema up to level 4
 export const createPrismaWhereSchema = <T extends zod.ZodRawShape>(
-  modelSchema: zod.ZodObject<T>
-): PrismaWhereLevel4<T> => {
+  modelSchema: zod.ZodObject<T>,
+  depth: number = 3
+): zod.ZodObject<any> => {
   const fields = modelSchema.shape;
 
   const fieldFilters = Object.fromEntries(
@@ -215,12 +216,19 @@ export const createPrismaWhereSchema = <T extends zod.ZodRawShape>(
     ])
   );
 
+  if (depth <= 0) {
+    // Base case: return schema without AND, OR, NOT to stop recursion
+    return zod.object({
+      ...fieldFilters,
+    });
+  }
+
   return zod.object({
-    AND: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))).optional(),
-    OR: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))).optional(),
-    NOT: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema))).optional(),
+    AND: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema, depth - 1))).optional(),
+    OR: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema, depth - 1))).optional(),
+    NOT: zod.array(zod.lazy(() => createPrismaWhereSchema(modelSchema, depth - 1))).optional(),
     ...fieldFilters,
-  }) as unknown as PrismaWhereLevel4<T>; // Explicit cast to PrismaWhereLevel4<T>
+  });
 };
 
 export const getQueryOutput = <T extends zod.ZodTypeAny>(data: T) => {
