@@ -56,29 +56,19 @@ export const CollectibleCard = mongo.createModel<Types.CollectibleCardDocument>(
 });
 
 export const Set = mongo.createModel<Types.SetDocument>('Set', {
-  series_id: { type: mongo.Schema.Types.ObjectId, ref: 'Series', required: true },
+  seriesId: { type: mongo.Schema.Types.ObjectId, ref: 'Series', required: true },
   name: { type: String, required: true, trim: true },
   language: { type: String, required: true, trim: true },
   live: { type: Boolean, default: false },
-  release_date: { type: String, required: true, trim: true },
-});
-
-export const Price = mongo.createModel<Types.PriceDocument>('Price', {
-  avg: { type: Number },
-  max: { type: Number },
-  min: { type: Number },
-  num_transactions: { type: Number },
-  source: { type: String, required: true },
-  updated_at: { type: String },
+  releaseDate: { type: String, required: true, trim: true },
 });
 
 export const Card = mongo.createModel<Types.CardDocument>('Card', {
-  set_id: { type: mongo.Schema.Types.ObjectId, ref: 'Set', required: true },
+  setId: { type: mongo.Schema.Types.ObjectId, ref: 'Set', required: true },
   name: { type: String, required: true, trim: true },
   language: { type: String, required: true, trim: true },
-  release_date: { type: String, required: true, trim: true },
-  card_id: { type: Number, required: true },
-  price: [{ type: Price.schema, required: true }],
+  releaseDate: { type: String, required: true, trim: true },
+  cardId: { type: Number, required: true },
 });
 
 export const Series = mongo.createModel<Types.SeriesDocument>('Series', {

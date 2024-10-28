@@ -62,35 +62,23 @@ export const CollectibleCard = Entity.merge(
   })
 );
 
-export const Price = Entity.merge(
-  z.object({
-    avg: z.number().or(z.string()).optional(),
-    max: z.number().or(z.string()).optional(),
-    min: z.number().or(z.string()).optional(),
-    num_transactions: z.number().optional(),
-    source: z.string(),
-    updated_at: z.string().or(z.string()).optional(),
-  })
-);
-
 export const Card = Entity.merge(
   z.object({
-    set_id: ObjectId,
+    setId: ObjectId,
     name: z.string(),
     language: z.string(),
-    release_date: z.string(),
-    card_id: z.number(),
-    price: z.array(Price),
+    releaseDate: z.string(),
+    cardId: z.number(),
   })
 );
 
 export const Set = Entity.merge(
   z.object({
-    series_id: ObjectId,
+    seriesId: ObjectId,
     name: z.string(),
     language: z.string(),
     live: z.boolean(),
-    release_date: z.string(),
+    releaseDate: z.string(),
     cards: z.array(Card).optional(),
   })
 );
