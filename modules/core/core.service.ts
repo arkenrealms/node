@@ -71,6 +71,15 @@ import type {
 import { getFilter } from '../../util/api';
 
 export class Service {
+  // async interact(input: RouterInput['interact'], ctx: RouterContext): Promise<RouterOutput['interact']> {
+  //   if (!input) throw new Error('Input should not be void');
+  //   console.log('Core.Service.interact', input);
+
+  //   return {
+  //     status: 1,
+  //   };
+  // }
+
   // Account Methods
   async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
     if (!input) throw new Error('Input should not be void');

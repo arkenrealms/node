@@ -285,3 +285,12 @@ export type Mappings = {
   WorldEvent: Model<WorldEventDocument>;
   Node: Model<NodeDocument>; // Added Node model mapping
 };
+
+export type Prefab = z.infer<typeof schema.Prefab>;
+export type PrefabDocument = Prefab & Document;
+
+export type Object = z.infer<typeof schema.Object>;
+export type ObjectDocument = Object & Document;
+
+export type ObjectInteraction = z.infer<typeof schema.ObjectInteraction>;
+export type ObjectInteractionDocument = ObjectInteraction & Document;
