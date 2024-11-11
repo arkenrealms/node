@@ -1,13 +1,40 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './character.types';
 
-export const Character = mongo.createModel<Types.CharacterDocument>('Character', {
-  teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team', required: false },
-  ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
-  ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating', required: false },
-  classId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterClass', required: false },
-  token: { type: String, required: true, trim: true },
-});
+export const Character = mongo.createModel<Types.CharacterDocument>(
+  'Character',
+  {
+    teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team', required: false },
+    ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+    ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating', required: false },
+    classId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterClass', required: false },
+    token: { type: String, required: true, trim: true },
+    // level: { type: Number, required: true },
+    // experience: { type: Number, required: true },
+    // gold: { type: Number, default: 0 },
+  },
+  {
+    extend: 'CommonFields',
+    // virtuals: [
+    //   ...addTagVirtuals('Character'),
+    //   ...addApplicationVirtual(),
+    //   {
+    //     name: 'inventory',
+    //     ref: 'Item',
+    //     localField: '_id',
+    //     foreignField: 'characterId',
+    //     justOne: false,
+    //   },
+    //   {
+    //     name: 'quests',
+    //     ref: 'Quest',
+    //     localField: '_id',
+    //     foreignField: 'characterId',
+    //     justOne: false,
+    //   },
+    // ],
+  }
+);
 
 export const CharacterAbility = mongo.createModel<Types.CharacterAbilityDocument>('CharacterAbility', {});
 

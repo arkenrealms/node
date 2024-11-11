@@ -533,3 +533,81 @@ export const Node = z.object({
   toModel: ModelNames,
   to: ObjectId,
 });
+
+export const Prefab = Entity.merge(
+  z.object({
+    name: z.string().min(1),
+    fbxPath: z.string().min(1),
+    customizationOptions: z.record(z.any()).optional(), // Allows flexibility for customizable properties
+    childPrefabs: z
+      .array(
+        z.object({
+          prefabId: ObjectId,
+          position: z.object({
+            x: z.number(),
+            y: z.number(),
+            z: z.number(),
+          }),
+          rotation: z
+            .object({
+              x: z.number(),
+              y: z.number(),
+              z: z.number(),
+            })
+            .optional(),
+          scale: z.number().positive().default(1),
+        })
+      )
+      .optional(),
+  })
+);
+
+export const Object = Entity.merge(
+  z.object({
+    prefabId: ObjectId,
+    playerId: ObjectId,
+    coordinates: z.object({
+      x: z.number(),
+      y: z.number(),
+      z: z.number(),
+    }),
+    rotation: z
+      .object({
+        x: z.number(),
+        y: z.number(),
+        z: z.number(),
+      })
+      .optional(),
+    scale: z.number().positive().default(1),
+    customizations: z.record(z.any()).optional(),
+    childInstances: z
+      .array(
+        z.object({
+          prefabId: ObjectId,
+          coordinates: z.object({
+            x: z.number(),
+            y: z.number(),
+            z: z.number(),
+          }),
+          rotation: z
+            .object({
+              x: z.number(),
+              y: z.number(),
+              z: z.number(),
+            })
+            .optional(),
+          scale: z.number().positive().default(1),
+        })
+      )
+      .optional(),
+  })
+);
+
+export const ObjectInteraction = Entity.merge(
+  z.object({
+    profileId: ObjectId,
+    objectId: ObjectId,
+    interactionType: z.enum(['Use', 'Fight', 'Open', 'Talk', 'Touch']),
+    outcome: z.record(z.any()).optional(),
+  })
+);

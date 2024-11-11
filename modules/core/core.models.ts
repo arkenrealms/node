@@ -3,28 +3,7 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './core.types';
 
-// Function to add tag virtuals using the Node model
-const addTagVirtuals = (modelName: string) => [
-  {
-    name: 'tags',
-    ref: 'Node',
-    localField: '_id',
-    foreignField: 'from',
-    justOne: false,
-    match: { relationKey: 'tag', fromModel: modelName },
-  },
-];
-
-// Function to add application virtual
-const addApplicationVirtual = () => [
-  {
-    name: 'application',
-    ref: 'Application',
-    localField: 'applicationId',
-    foreignField: '_id',
-    justOne: true,
-  },
-];
+const { addTagVirtuals, addApplicationVirtual } = mongo;
 
 // Omniverse Model
 export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
@@ -927,5 +906,69 @@ export const Node = mongo.createModel<Types.NodeDocument>(
       { fromModel: 1, from: 1 },
       { toModel: 1, to: 1 },
     ],
+  }
+);
+
+export const Prefab = mongo.createModel<Types.PrefabDocument>(
+  'Prefab',
+  {
+    name: { type: String, required: true },
+    fbxPath: { type: String, required: true },
+    customizationOptions: { type: mongo.Schema.Types.Mixed }, // e.g., color, scale range, etc.
+    childPrefabs: [
+      {
+        prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab' },
+        position: { type: mongo.Schema.Types.Mixed }, // Relative position within parent prefab
+        rotation: { type: mongo.Schema.Types.Mixed },
+        scale: { type: Number, default: 1.0 },
+      },
+    ],
+  },
+  {
+    extend: 'CommonFields',
+    virtuals: [...addTagVirtuals('Prefab'), ...addApplicationVirtual()],
+  }
+);
+
+export const Object = mongo.createModel<Types.ObjectDocument>(
+  'Object',
+  {
+    prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab', required: true },
+    // profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+    // worldCoordinates: {
+    //   x: { type: Number, required: true },
+    //   y: { type: Number, required: true },
+    //   z: { type: Number, required: true },
+    // },
+    rotation: { type: mongo.Schema.Types.Mixed },
+    scale: { type: Number, default: 1.0 },
+    customizations: { type: mongo.Schema.Types.Mixed },
+    childInstances: [
+      {
+        prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab' },
+        worldCoordinates: { type: mongo.Schema.Types.Mixed },
+        rotation: { type: mongo.Schema.Types.Mixed },
+        scale: { type: Number, default: 1.0 },
+      },
+    ],
+  },
+  {
+    extend: 'CommonFields',
+    virtuals: [...addTagVirtuals('Object'), ...addApplicationVirtual()],
+  }
+);
+
+export const ObjectInteraction = mongo.createModel<Types.ObjectInteractionDocument>(
+  'ObjectInteraction',
+  {
+    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+    objectId: { type: mongo.Schema.Types.ObjectId, ref: 'Object', required: true },
+    interactionType: { type: String, enum: ['use', 'fight', 'open', 'talk'], required: true },
+    outcome: { type: mongo.Schema.Types.Mixed },
+    // timestamp: { type: Date, default: Date.now },
+  },
+  {
+    extend: 'CommonFields',
+    virtuals: [...addTagVirtuals('Interaction'), ...addApplicationVirtual()],
   }
 );

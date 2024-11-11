@@ -411,3 +411,24 @@ export class Model<T extends Document> {
     return this.model.find();
   }
 }
+
+export const addTagVirtuals = (modelName: string) => [
+  {
+    name: 'tags',
+    ref: 'Node',
+    localField: '_id',
+    foreignField: 'from',
+    justOne: false,
+    match: { relationKey: 'tag', fromModel: modelName },
+  },
+];
+
+export const addApplicationVirtual = () => [
+  {
+    name: 'application',
+    ref: 'Application',
+    localField: 'applicationId',
+    foreignField: '_id',
+    justOne: true,
+  },
+];
