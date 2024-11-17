@@ -57,7 +57,7 @@ import {
   Review,
   Role,
   Season,
-  Server,
+  RealmShard,
   Session,
   SolarSystem,
   Star,
@@ -1191,33 +1191,33 @@ export const createRouter = () =>
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSeason as any)(input, ctx)),
 
     // Server Procedures
-    getServer: procedure
+    getRealmShard: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(Server)
-      .query(({ input, ctx }) => (ctx.app.service.Core.getServer as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(RealmShard)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmShard as any)(input, ctx)),
 
-    getServers: procedure
+    getRealmShards: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(z.object({ data: z.array(Server) }))
-      .query(({ input, ctx }) => (ctx.app.service.Core.getServers as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(z.object({ data: z.array(RealmShard) }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmShards as any)(input, ctx)),
 
-    createServer: procedure
+    createRealmShard: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(Server.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.createServer as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(RealmShard.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRealmShard as any)(input, ctx)),
 
-    updateServer: procedure
+    updateRealmShard: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(Server.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateServer as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(RealmShard.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmShard as any)(input, ctx)),
 
     // Session Procedures
     getSession: procedure

@@ -170,13 +170,13 @@ export const hasRole = (role: string | string[], t: any) =>
       if (Array.isArray(role)) {
         const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
         if (!hasAnyRole) {
-          return { status: 0, message: `Not authorized. Missing one of the required roles: ${role.join(',')}` };
+          return { status: 0, error: `Not authorized. Missing one of the required roles: ${role.join(',')}` };
         }
-      } else if (ctx.client.roles.includes(role)) {
-        return { status: 0, message: `Not authorized. Missing role: ${role}` };
+      } else if (!ctx.client.roles.includes(role)) {
+        return { status: 0, error: `Not authorized. Missing role: ${role}` };
       }
-    } else {
-      return { status: 0, message: `Not authorized. Missing role: ${role}` };
+    } else if (role) {
+      return { status: 0, error: `Not authorized. Role not setup: ${role}` };
     }
 
     return next();
@@ -186,7 +186,7 @@ export const validateSeer = (t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
     console.log('validateSeer', input);
     if (!ctx.client.isSeer) {
-      return { status: 0, message: 'Not authorized' };
+      return { status: 0, error: 'Not authorized' };
     }
     return next();
   });

@@ -51,7 +51,7 @@ import type {
   Review,
   Role,
   Season,
-  Server,
+  RealmShard,
   Session,
   SolarSystem,
   Star,
@@ -1583,7 +1583,7 @@ export class Service {
 
     const filter = getFilter(input);
 
-    filter.status = 'Active';
+    filter.status = 'Online';
 
     const realms = await ctx.app.model.Realm.find(filter).exec();
     console.log('vvvv', realms);
@@ -1775,47 +1775,56 @@ export class Service {
     return updatedSeason as Season;
   }
 
-  // Server Methods
-  async getServer(input: RouterInput['getServer'], ctx: RouterContext): Promise<RouterOutput['getServer']> {
+  // RealmShard Methods
+  async getRealmShard(input: RouterInput['getRealmShard'], ctx: RouterContext): Promise<RouterOutput['getRealmShard']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Core.Service.getServer', input);
+    console.log('Core.Service.getRealmShard', input);
 
-    const server = await ctx.app.model.Server.findById(input.where.id.equals).exec();
-    if (!server) throw new Error('Server not found');
+    const server = await ctx.app.model.RealmShard.findById(input.where.id.equals).exec();
+    if (!server) throw new Error('RealmShard not found');
 
-    return server as Server;
+    return server as RealmShard;
   }
 
-  async getServers(input: RouterInput['getServers'], ctx: RouterContext): Promise<RouterOutput['getServers']> {
-    console.log('Core.Service.getServers', input);
+  async getRealmShards(
+    input: RouterInput['getRealmShards'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getRealmShards']> {
+    console.log('Core.Service.getRealmShards', input);
 
     const filter = getFilter(input);
 
     filter.status = 'Active';
 
-    const servers = await ctx.app.model.Server.find(filter).exec();
+    const servers = await ctx.app.model.RealmShard.find(filter).exec();
 
-    return { data: servers as Server[] };
+    return { data: servers as RealmShard[] };
   }
 
-  async createServer(input: RouterInput['createServer'], ctx: RouterContext): Promise<RouterOutput['createServer']> {
+  async createRealmShard(
+    input: RouterInput['createRealmShard'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createRealmShard']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Core.Service.createServer', input);
+    console.log('Core.Service.createRealmShard', input);
 
-    const server = await ctx.app.model.Server.create(input);
-    return server as Server;
+    const server = await ctx.app.model.RealmShard.create(input);
+    return server as RealmShard;
   }
 
-  async updateServer(input: RouterInput['updateServer'], ctx: RouterContext): Promise<RouterOutput['updateServer']> {
+  async updateRealmShard(
+    input: RouterInput['updateRealmShard'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateRealmShard']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Core.Service.updateServer', input);
+    console.log('Core.Service.updateRealmShard', input);
 
-    const updatedServer = await ctx.app.model.Server.findByIdAndUpdate(input.where.id.equals, { new: true })
+    const updatedRealmShard = await ctx.app.model.RealmShard.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
       .exec();
-    if (!updatedServer) throw new Error('Server update failed');
+    if (!updatedRealmShard) throw new Error('RealmShard update failed');
 
-    return updatedServer as Server;
+    return updatedRealmShard as RealmShard;
   }
 
   // Session Methods

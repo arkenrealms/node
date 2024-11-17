@@ -71,7 +71,7 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
       { name: 'realms' },
       { name: 'reviews' },
       { name: 'roles' },
-      { name: 'gameServers' },
+      { name: 'realmShards' },
       { name: 'suggestions' },
       { name: 'tags' },
       { name: 'tokens' },
@@ -641,9 +641,15 @@ export const Rating = mongo.createModel<Types.RatingDocument>(
 // Realm Model
 export const Realm = mongo.createModel<Types.RealmDocument>(
   'Realm',
-  { gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game', required: true } },
   {
-    virtuals: [...addTagVirtuals('Realm'), ...addApplicationVirtual()],
+    endpoint: { type: String },
+    status: { type: String },
+    clientCount: { type: Number },
+    regionCode: { type: String },
+    gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game', required: true },
+  },
+  {
+    virtuals: [...addTagVirtuals('Realm'), ...addApplicationVirtual(), { name: 'realmShards' }],
   }
 );
 
@@ -692,14 +698,17 @@ export const Season = mongo.createModel<Types.SeasonDocument>(
   }
 );
 
-// Server Model
-export const Server = mongo.createModel<Types.ServerDocument>(
-  'Server',
+// RealmShard Model
+export const RealmShard = mongo.createModel<Types.RealmShardDocument>(
+  'RealmShard',
   {
     realmId: { type: mongo.Schema.Types.ObjectId, ref: 'Realm' },
+    endpoint: { type: String },
+    status: { type: String },
+    clientCount: { type: Number },
   },
   {
-    virtuals: [...addTagVirtuals('Server'), ...addApplicationVirtual()],
+    virtuals: [...addTagVirtuals('RealmShard'), ...addApplicationVirtual()],
   }
 );
 
