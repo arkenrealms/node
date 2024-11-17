@@ -3197,7 +3197,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: ['It seems to be a Guardian egg obtained from the Mage Isles in Second Wind.'],
+      description: ['It seems to be a Guardian egg obtained from the Mage Isles in Evolution Isles.'],
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -3244,7 +3244,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: ['It seems to be a powerful cube obtained from the Mage Isles in Second Wind.'],
+      description: ['It seems to be a powerful cube obtained from the Mage Isles in Evolution Isles.'],
       branches: {
         [Games.Raid.id]: {
           attributes: [
@@ -3299,7 +3299,9 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Second Wind.'],
+      description: [
+        'It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Evolution Isles.',
+      ],
       branches: {
         [Games.Raid.id]: {
           attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -3346,7 +3348,7 @@ export const itemData = {
         Date: 'October 1, 2021 - ?',
         'Max Supply': 'Unknown',
       },
-      description: 'It seems to be a Rune obtained from the Mage Isles in Second Wind.',
+      description: 'It seems to be a Rune obtained from the Mage Isles in Evolution Isles.',
       branches: {
         [Games.Raid.id]: {
           attributes: [
@@ -8612,7 +8614,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: ['It seems to be a Guardian egg obtained from the Mage Isles in Second Wind.'],
+    //     description: ['It seems to be a Guardian egg obtained from the Mage Isles in Evolution Isles.'],
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -8659,7 +8661,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: ['It seems to be a powerful cube obtained from the Mage Isles in Second Wind.'],
+    //     description: ['It seems to be a powerful cube obtained from the Mage Isles in Evolution Isles.'],
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
@@ -8706,7 +8708,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Second Wind.'],
+    //     description: ['It seems to be a trinket waiting to reveal itself, obtained from the Mage Isles in Evolution Isles.'],
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 3, max: 6, map: ItemRarityNameById }],
@@ -8753,7 +8755,7 @@ export const itemData = {
     //       Date: 'October 1, 2021 - ?',
     //       'Max Supply': 'Unknown',
     //     },
-    //     description: 'It seems to be a Rune obtained from the Mage Isles in Second Wind.',
+    //     description: 'It seems to be a Rune obtained from the Mage Isles in Evolution Isles.',
     //     branches: {
     //       [Games.Raid.id]: {
     //         attributes: [{ ...ItemAttributesByName[Games.Raid.id].Rarity, min: 2, max: 2, value: 2, map: ItemRarityNameById }],
