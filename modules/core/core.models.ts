@@ -170,7 +170,13 @@ export const Account = mongo.createModel<Types.AccountDocument>(
   {
     indexes: [
       { applicationId: 1, username: 1, unique: true },
-      { applicationId: 1, telegramUserId: 1, unique: true },
+      {
+        fields: { applicationId: 1, telegramUserId: 1 },
+        options: {
+          unique: true,
+          partialFilterExpression: { telegramUserId: { $exists: true } },
+        },
+      },
     ],
     virtuals: [
       {

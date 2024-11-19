@@ -5,7 +5,7 @@ import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import { dateFromString } from '../../util/zod';
 import type { RouterContext } from '../../types';
-import { Query, getQueryInput, inferRouterOutputs } from '../../schema';
+import { Query, getQueryInput, getQueryOutput, inferRouterOutputs } from '../../schema';
 import {
   Account,
   Achievement,
@@ -1065,7 +1065,7 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Realm))
-      .output(z.object({ data: z.array(Realm) }))
+      .output(z.array(Realm))
       .query(({ input, ctx }) => (ctx.app.service.Core.getRealms as any)(input, ctx)),
 
     createRealm: procedure
@@ -1202,7 +1202,7 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(RealmShard))
-      .output(z.object({ data: z.array(RealmShard) }))
+      .output(z.array(RealmShard))
       .query(({ input, ctx }) => (ctx.app.service.Core.getRealmShards as any)(input, ctx)),
 
     createRealmShard: procedure
@@ -1424,6 +1424,13 @@ export const createRouter = () =>
       .input(getQueryInput(Trade))
       .output(Trade)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTrade as any)(input, ctx)),
+
+    getTrades: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Trade))
+      .output(z.array(Trade))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.getTrades as any)(input, ctx)),
 
     createTrade: procedure
       .use(hasRole('admin', t))
