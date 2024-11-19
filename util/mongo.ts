@@ -243,7 +243,7 @@ export class Model<T extends Document> {
     projection?: ProjectionType<T> | null,
     options?: mongoose.QueryOptions
   ): Query<T[], T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -257,7 +257,7 @@ export class Model<T extends Document> {
     projection?: ProjectionType<T> | null,
     options?: QueryOptions
   ): Query<T | null, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -280,7 +280,7 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
     options?: QueryOptions & { new?: boolean }
   ): Query<T | null, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -290,7 +290,7 @@ export class Model<T extends Document> {
 
   // Override the findOneAndDelete method to include filters
   findOneAndDelete(filter: FilterQuery<T>, options?: QueryOptions): Query<T | null, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -330,7 +330,7 @@ export class Model<T extends Document> {
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       if (Array.isArray(doc)) {
         // @ts-ignore
         doc.forEach((d) => (d.applicationId = this.filters.applicationId));
@@ -365,7 +365,7 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
     options?: any
   ): Query<UpdateWriteOpResult, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
       // @ts-ignore
@@ -381,7 +381,7 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
     options?: any
   ): Query<UpdateWriteOpResult, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
