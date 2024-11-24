@@ -1,13 +1,5 @@
 import { z, ObjectId, Entity } from '../../schema';
 
-export const Item = Entity.merge(
-  z.object({
-    token: z.string().max(500).min(1),
-    assetId: ObjectId,
-    chainId: ObjectId,
-  })
-);
-
 export const ItemAttribute = Entity.merge(
   z.object({
     // Define fields for ItemAttribute here if needed
@@ -78,7 +70,34 @@ export const ItemTransmute = Entity.merge(
   z.object({
     token: z.string().max(500).min(1),
     assetId: ObjectId,
-    gameItemId: ObjectId,
+    itemId: ObjectId,
     chainId: ObjectId.optional(),
+  })
+);
+
+export const Item = Entity.merge(
+  z.object({
+    characterId: ObjectId.optional(),
+    assetId: ObjectId.optional(),
+    chainId: ObjectId.optional(),
+    materialId: ItemMaterial.optional(),
+    skinId: ItemSkin.optional(),
+    recipeId: ItemRecipe.optional(),
+    typeId: ItemType.optional(),
+    subTypeId: ItemSubType.optional(),
+    specificTypeId: ItemSpecificType.optional(),
+    rarityId: ItemRarity.optional(),
+    slotIds: z.array(ItemSlot.optional()),
+    setId: ItemSet.optional(),
+    attributes: z.array(ItemAttribute).optional(),
+    token: z.string().max(500).min(1).optional(),
+    quantity: z.number().int().nonnegative().default(1),
+    x: z.number().int().nonnegative().optional(),
+    y: z.number().int().nonnegative().optional(),
+    // properties: z.record(z.any()).optional(),
+    // type: z.string().default('bag'), // stash, bag, equipment, etc.
+    items: z.array(z.lazy(() => Item)).default([]),
+    capacity: z.number().int().nonnegative().default(60),
+    points: z.number().int().nonnegative().default(0),
   })
 );

@@ -1,6 +1,40 @@
 // module/character.schema.ts
 
 import { z, ObjectId, Entity } from '../../schema';
+import { Item } from '../item/item.schema';
+
+export const CharacterEquipment = Entity.merge(
+  z.object({
+    characterId: ObjectId,
+    leftHand: Item.optional(),
+    rightHand: Item.optional(),
+    head: Item.optional(),
+    pet: Item.optional(),
+    neck: Item.optional(),
+    legs: Item.optional(),
+    chest: Item.optional(),
+    waist: Item.optional(),
+    hands: Item.optional(),
+    wrists: Item.optional(),
+    shoulders: Item.optional(),
+    feet: Item.optional(),
+    finger1: Item.optional(),
+    finger2: Item.optional(),
+    trinket1: Item.optional(),
+    trinket2: Item.optional(),
+    trinket3: Item.optional(),
+    body: Item.optional(),
+    companion: Item.optional(),
+    mount: Item.optional(),
+  })
+);
+
+export const CharacterInventory = Entity.merge(
+  z.object({
+    characterId: ObjectId,
+    items: z.array(Item).default([]),
+  })
+);
 
 // Character schema
 export const Character = Entity.merge(
@@ -10,6 +44,11 @@ export const Character = Entity.merge(
     ratingId: ObjectId.optional(),
     classId: ObjectId.optional(),
     token: z.string().min(1),
+    points: z.number().default(0),
+    equipmentIndex: z.number().default(0),
+    equipment: z.array(CharacterEquipment).default([]),
+    inventoryIndex: z.number().default(0),
+    inventory: z.array(CharacterInventory).default([]),
   })
 );
 
