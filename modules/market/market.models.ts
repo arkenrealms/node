@@ -104,3 +104,17 @@ export const ETF = mongo.createModel<Types.ETFDocument>('ETF', {
   issuer: { type: mongo.Schema.Types.ObjectId, required: true },
   leverage: { type: Number, required: false },
 });
+
+export const StockSentiment = mongo.createModel<Types.StockSentimentDocument>('StockSentiment', {
+  ticker: { type: String, required: true },
+  sentiment: {
+    label: { type: String, required: true },
+    score: { type: Number, required: true },
+  },
+  context: { type: String, required: true },
+  confidence: { type: Number, required: true },
+});
+
+export const BigData = mongo.createModel<Types.BigDataDocument>('BigData', {
+  name: { type: String, required: false },
+});

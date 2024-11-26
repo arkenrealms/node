@@ -22,6 +22,8 @@ export type Stock = z.infer<typeof schema.Stock>;
 export type ChainToken = z.infer<typeof schema.ChainToken>;
 export type StockCompany = z.infer<typeof schema.StockCompany>;
 export type ETF = z.infer<typeof schema.ETF>;
+export type StockSentiment = z.infer<typeof schema.StockSentiment>;
+export type BigData = z.infer<typeof schema.BigData>;
 
 export type MarketDocument = Market & Document;
 export type MarketPairDocument = MarketPair & Document;
@@ -34,6 +36,8 @@ export type StockDocument = Stock & Document;
 export type ChainDocument = ChainToken & Document;
 export type StockCompanyDocument = StockCompany & Document;
 export type ETFDocument = ETF & Document;
+export type StockSentimentDocument = StockSentiment & Document;
+export type BigDataDocument = BigData & Document;
 
 export type Mappings = {
   Market: Model<MarketDocument>;
@@ -47,6 +51,8 @@ export type Mappings = {
   ChainToken: Model<ChainDocument>;
   Company: Model<StockCompanyDocument>;
   ETF: Model<ETFDocument>;
+  StockSentiment: Model<StockSentimentDocument>;
+  BigData: Model<BigDataDocument>;
 };
 
 export type RouterInput = inferRouterInputs<Router>;

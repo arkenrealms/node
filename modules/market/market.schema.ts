@@ -132,3 +132,22 @@ export const ETF = Entity.merge(
     sector: z.string().optional(), // Sector the ETF is focused on
   })
 );
+
+export const StockSentiment = Entity.merge(
+  z.object({
+    ticker: z.string(),
+    company: z.string(),
+    sentiment: z.object({
+      label: z.enum(['positive', 'neutral', 'negative']), // predefined sentiment labels
+      score: z.number().min(0).max(1), // sentiment score as a confidence percentage
+    }),
+    context: z.string(), // description of the sentiment's context
+    confidence: z.number().min(0).max(1), // overall confidence level for the analysis
+  })
+);
+
+export const BigData = Entity.merge(
+  z.object({
+    name: z.string(),
+  })
+);
