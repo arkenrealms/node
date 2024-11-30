@@ -1112,10 +1112,10 @@ const symbolMap = {
   DOL: 'DA',
   HEL: 'HAN',
   IO: 'ION',
-  LUM: 'LUPH',
+  LUM: 'LUX',
   KO: 'KA',
   FAL: 'FUS',
-  LEM: 'LEX',
+  LEM: 'LENI',
   PUL: 'PAI',
   UM: 'ULN',
   MAL: 'MOR',
@@ -1129,6 +1129,7 @@ const symbolMap = {
   JAH: 'JUA',
   CHAM: 'CHIN',
   ZOD: 'ZEL',
+  TATO: 'TATO',
 };
 
 function capitalizeFirstLetter(string) {

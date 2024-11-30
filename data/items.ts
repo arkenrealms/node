@@ -9937,7 +9937,7 @@ export const itemData = {
       attributes: [],
       description: ["An ancient rune used in magical craft. It's #16 in the Rune Codex."],
       details: {
-        Symbol: 'IO',
+        Symbol: 'ION',
         'Planned Distribution': 'Farmed',
         // 'Planned Date': 'TBA',
         // 'Planned Max Supply': 'TBA',
@@ -9961,7 +9961,7 @@ export const itemData = {
     },
     {
       id: 17,
-      name: 'Luph Rune',
+      name: 'Lux Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/LUM.png',
       value: '0',
@@ -9975,7 +9975,7 @@ export const itemData = {
       attributes: [],
       description: ["An ancient rune used in magical craft. It's #17 in the Rune Codex."],
       details: {
-        Symbol: 'LUM',
+        Symbol: 'LUX',
         'Planned Distribution': 'Farmed',
         // 'Planned Date': 'TBA',
         // 'Planned Max Supply': 'TBA',
@@ -10075,7 +10075,7 @@ export const itemData = {
     },
     {
       id: 20,
-      name: 'Lex Rune',
+      name: 'Leni Rune',
       category: ItemCategoriesType.RUNE,
       icon: process.env.REACT_APP_PUBLIC_URL + 'images/new-runes/LEM.png',
       value: '0',
@@ -10089,7 +10089,7 @@ export const itemData = {
       attributes: [],
       description: ["An ancient rune used in magical craft. It's #20 in the Rune Codex."],
       details: {
-        Symbol: 'LEM',
+        Symbol: 'LENI',
         'Planned Distribution': 'Farmed',
         // 'Planned Date': 'TBA',
         // 'Planned Max Supply': 'TBA',

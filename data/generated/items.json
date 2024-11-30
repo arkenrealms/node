@@ -48976,8 +48976,8 @@
   {
     "uuid": "recN1aeT0TPwAA",
     "id": 5016,
-    "name": "Luph Rune",
-    "link": "https://arken.gg/item/ex-rune",
+    "name": "Lux Rune",
+    "link": "https://arken.gg/item/lux-rune",
     "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
@@ -49034,7 +49034,7 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5017,
     "name": "Ka Rune",
-    "link": "https://arken.gg/item/ex-rune",
+    "link": "https://arken.gg/item/ka-rune",
     "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
@@ -49147,8 +49147,8 @@
   {
     "uuid": "recN1aeT0TPwAA",
     "id": 5019,
-    "name": "Lex Rune",
-    "link": "https://arken.gg/item/ex-rune",
+    "name": "Leni Rune",
+    "link": "https://arken.gg/item/leni-rune",
     "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
@@ -50003,7 +50003,7 @@
   {
     "uuid": "recN1aeT0TPwAA",
     "id": 5200,
-    "name": "Runic Reward Bag",
+    "name": "Runic Bag",
     "link": "https://arken.gg/item/reward-bag",
     "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
@@ -50043,6 +50043,111 @@
     "branches": {
       "1": {
         "attributes": [],
+        "perfection": []
+      },
+      "2": { "attributes": [], "perfection": [] },
+      "3": {
+        "attributes": [],
+        "perfection": []
+      },
+      "4": { "attributes": [], "perfection": [] },
+      "5": { "attributes": [], "perfection": [] }
+    },
+    "skills": [],
+    "materials": [],
+    "category": "accessory"
+  },
+  {
+    "uuid": "recN1aeT0TPwAA",
+    "id": 5201,
+    "name": "Token",
+    "link": "https://arken.gg/item/token",
+    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
+    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
+    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "value": "0",
+    "type": 18,
+    "subType": 63,
+    "specificType": 75,
+    "slots": [0],
+    "isPolled": false,
+    "isNew": false,
+    "isSecret": false,
+    "isUltraSecret": false,
+    "isPaused": false,
+    "isRetired": false,
+    "isDisabled": false,
+    "isCraftable": false,
+    "isEnabled": true,
+    "isEquipable": false,
+    "isUnequipable": false,
+    "isTradeable": true,
+    "isTransferable": true,
+    "isUpgradable": false,
+    "isPublishable": true,
+    "isRuneword": false,
+    "isSkinnable": false,
+    "createdDate": 0,
+    "hotness": 0,
+    "attributes": [],
+    "details": { "Type": "Ingredient", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "recipe": {
+      "requirement": []
+    },
+    "description": "An ingredient found near chains of blocks.",
+    "shortDescription": "",
+    "visualDescription": "",
+    "branches": {
+      "1": {
+        "attributes": [
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 140,
+            "name": "Symbol",
+            "displayName": "Symbol",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://arken.gg/item-attribute/symbol",
+            "isImplemented": false,
+            "paramTypes": ["value"],
+            "paramValues": ["0-999"],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "0-999",
+              "min": 0,
+              "max": 999,
+              "map": {
+                "1": "BUSD",
+                "2": "RXS"
+              }
+            }
+          },
+          {
+            "uuid": "recxVsY6QwDxQ1Plb",
+            "id": 141,
+            "name": "Address",
+            "displayName": "Address",
+            "isEnabled": true,
+            "game": 1,
+            "link": "https://arken.gg/item-attribute/address",
+            "isImplemented": false,
+            "paramTypes": ["value"],
+            "paramValues": ["0-999"],
+            "nature": "Neutral",
+            "description": "{parameter1}",
+            "explanation": "",
+            "param1": {
+              "spec": "0-999",
+              "min": 0,
+              "max": 999,
+              "map": {
+                "1": "0xe9e7cea3dedca5984780bafc599bd69add087d56"
+              }
+            }
+          }
+        ],
         "perfection": []
       },
       "2": { "attributes": [], "perfection": [] },
