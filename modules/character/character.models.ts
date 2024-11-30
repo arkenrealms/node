@@ -1,6 +1,8 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './character.types';
 
+const { addTagVirtuals, addApplicationVirtual } = mongo;
+
 // CharacterEquipment Schema
 const CharacterEquipment = new mongo.Schema(
   {
@@ -48,11 +50,19 @@ const CharacterInventory = new mongo.Schema(
   { _id: false }
 );
 
+// Add virtual for `item`
+CharacterEquipment.virtual('item', {
+  ref: 'Item',
+  localField: 'items.itemId',
+  foreignField: '_id',
+  justOne: true, // Assuming an `itemId` corresponds to one `Item`
+});
+
 export const Character = mongo.createModel<Types.CharacterDocument>(
   'Character',
   {
-    teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team', required: false },
-    ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+    // teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team', required: false, autopopulate: true },
+    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating', required: false },
     classId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterClass', required: false },
     token: { type: String, required: true, trim: true },
@@ -67,24 +77,33 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
   },
   {
     extend: 'CommonFields',
-    // virtuals: [
-    //   ...addTagVirtuals('Character'),
-    //   ...addApplicationVirtual(),
-    //   {
-    //     name: 'inventory',
-    //     ref: 'Item',
-    //     localField: '_id',
-    //     foreignField: 'characterId',
-    //     justOne: false,
-    //   },
-    //   {
-    //     name: 'quests',
-    //     ref: 'Quest',
-    //     localField: '_id',
-    //     foreignField: 'characterId',
-    //     justOne: false,
-    //   },
-    // ],
+    indexes: [{ points: 1 }, { token: 1 }],
+    virtuals: [
+      ...addTagVirtuals('Character'),
+      ...addApplicationVirtual(),
+      // {
+      //   name: 'team',
+      // },
+      {
+        name: 'profile',
+      },
+      {
+        name: 'rating',
+      },
+      {
+        name: 'class',
+      },
+      // {
+      //   name: 'inventory'
+      //   ref: 'ItemSlot',
+      //   localField: 'items.slotId',
+      //   foreignField: '_id',
+      //   justOne: true, // Assuming a `slotId` corresponds to one `ItemSlot`
+      // },
+      // {
+      //   name: 'quests'
+      // },
+    ],
   }
 );
 

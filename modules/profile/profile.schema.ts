@@ -50,7 +50,7 @@ const ServerDataSchema = z.object({
 // Profile schema for a user on a digital game platform
 export const Profile = Entity.merge(
   z.object({
-    accountId: ObjectId,
+    accountId: ObjectId.optional(), // TODO; fix?
     points: z.number().optional(),
     // currency: z.number().optional(),
     telegramUserId: z.number().optional(),
@@ -63,6 +63,7 @@ export const Profile = Entity.merge(
     signature: z.string().max(200).optional(),
     chainId: ObjectId.optional(),
     teamId: ObjectId.optional(),
+    characterId: ObjectId.optional(),
     isBanned: z.boolean().optional(),
     banExpireDate: z.date().optional(),
     banReason: z.string().optional(),
@@ -94,15 +95,8 @@ export const Profile = Entity.merge(
         })
       )
       .optional(),
-    characters: z
-      .array(
-        z.object({
-          characterId: ObjectId,
-          meta: z.any().optional(),
-          character: Character.optional(), // Added virtual field
-        })
-      )
-      .optional(),
+    character: Character.optional(),
+    characters: z.array(ObjectId.optional()).optional(),
     settings: z
       .object({
         privacy: z.enum(['public', 'private', 'friends-only']).default('public'),

@@ -108,7 +108,18 @@ export function createSchema<T>(
     );
   }
 
+  schema.plugin(require('mongoose-autopopulate'));
+
   schema.set('toJSON', {
+    virtuals: true, // Include virtual fields
+    versionKey: false, // Remove the __v version field
+    transform: (doc, ret) => {
+      ret.id = ret._id.toString(); // Assign _id to id
+      // delete ret._id; // Remove _id from the output
+    },
+  });
+
+  schema.set('toObject', {
     virtuals: true, // Include virtual fields
     versionKey: false, // Remove the __v version field
     transform: (doc, ret) => {
@@ -130,8 +141,8 @@ export function createSchema<T>(
   if (options.virtuals) {
     options.virtuals.forEach((virtual) => {
       const virtualOptions: any = {
-        localField: virtual.localField || '_id',
-        foreignField: virtual.foreignField || `${toCamelCase(name)}Id`,
+        localField: virtual.localField || `${toCamelCase(virtual.name)}Id`,
+        foreignField: virtual.foreignField || '_id',
         justOne: virtual.justOne !== undefined ? virtual.justOne : !pluralize.isPlural(virtual.name),
       };
 
@@ -150,6 +161,8 @@ export function createSchema<T>(
       if (virtual.match) {
         virtualOptions.match = virtual.match;
       }
+
+      if (collectionName === 'Item') console.log(virtualOptions);
 
       const schemaVirtual = schema.virtual(virtual.name, virtualOptions);
 
@@ -183,8 +196,11 @@ export function createModel<T extends Document>(
   if (modelMap[key]) return modelMap[key];
 
   const schema = createSchema<T>(key, schemaFields, options);
+
   const res = new Model<T>(mongoose.model<T>(key, schema));
+
   modelMap[key] = res;
+
   return res;
 }
 

@@ -116,7 +116,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAccount', input);
 
-    const account = await ctx.app.model.Account.findById(input.where.id.equals).exec();
+    const account = await ctx.app.model.Account.findOne(getFilter(input)).exec();
     if (!account) throw new Error('Account not found');
 
     return account as Account;
@@ -159,7 +159,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAchievement', input);
 
-    const achievement = await ctx.app.model.Achievement.findById(input.where.id.equals).exec();
+    const achievement = await ctx.app.model.Achievement.findOne(getFilter(input)).exec();
     if (!achievement) throw new Error('Achievement not found');
 
     return achievement as Achievement;
@@ -201,7 +201,7 @@ export class Service {
   }
 
   async info(input: RouterInput['info'], ctx: RouterContext): Promise<RouterOutput['info']> {
-    return { data: { version: '1.1.1' } };
+    return { version: '1.1.1' };
   }
 
   async stats(input: RouterInput['stats'], ctx: RouterContext): Promise<RouterOutput['stats']> {
@@ -210,7 +210,7 @@ export class Service {
 
     const stats = await ctx.app.model.Stat.find().exec();
 
-    return { data: stats as Stat[] };
+    return stats as Stat[];
   }
 
   // Act Methods
@@ -220,7 +220,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAct', input);
 
-    const act = await ctx.app.model.Act.findById(input.where.id.equals).exec();
+    const act = await ctx.app.model.Act.findOne(getFilter(input)).exec();
     if (!act) throw new Error('Act not found');
 
     return act as Act;
@@ -255,7 +255,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAgent', input);
 
-    const agent = await ctx.app.model.Agent.findById(input.where.id.equals).exec();
+    const agent = await ctx.app.model.Agent.findOne(getFilter(input)).exec();
     if (!agent) throw new Error('Agent not found');
 
     return agent as Agent;
@@ -293,7 +293,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getApplication', input);
 
-    const application = await ctx.app.model.Application.findById(input.where.id.equals).exec();
+    const application = await ctx.app.model.Application.findOne(getFilter(input)).exec();
     if (!application) throw new Error('Application not found');
 
     return application as Application;
@@ -334,7 +334,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBadge', input);
 
-    const badge = await ctx.app.model.Badge.findById(input.where.id.equals).exec();
+    const badge = await ctx.app.model.Badge.findOne(getFilter(input)).exec();
     if (!badge) throw new Error('Badge not found');
 
     return badge as Badge;
@@ -365,7 +365,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBattlePass', input);
 
-    const battlePass = await ctx.app.model.BattlePass.findById(input.where.id.equals).exec();
+    const battlePass = await ctx.app.model.BattlePass.findOne(getFilter(input)).exec();
     if (!battlePass) throw new Error('BattlePass not found');
 
     return battlePass as BattlePass;
@@ -404,7 +404,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBiome', input);
 
-    const biome = await ctx.app.model.Biome.findById(input.where.id.equals).exec();
+    const biome = await ctx.app.model.Biome.findOne(getFilter(input)).exec();
     if (!biome) throw new Error('Biome not found');
 
     return biome as Biome;
@@ -438,7 +438,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBiomeFeature', input);
 
-    const biomeFeature = await ctx.app.model.BiomeFeature.findById(input.where.id.equals).exec();
+    const biomeFeature = await ctx.app.model.BiomeFeature.findOne(getFilter(input)).exec();
     if (!biomeFeature) throw new Error('BiomeFeature not found');
 
     return biomeFeature as BiomeFeature;
@@ -476,7 +476,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getCollection', input);
 
-    const collection = await ctx.app.model.Collection.findById(input.where.id.equals).exec();
+    const collection = await ctx.app.model.Collection.findOne(getFilter(input)).exec();
     if (!collection) throw new Error('Collection not found');
 
     return collection as Collection;
@@ -515,7 +515,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getComment', input);
 
-    const comment = await ctx.app.model.Comment.findById(input.where.id.equals).exec();
+    const comment = await ctx.app.model.Comment.findOne(getFilter(input)).exec();
     if (!comment) throw new Error('Comment not found');
 
     return comment as Comment;
@@ -548,7 +548,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getCommunity', input);
 
-    const community = await ctx.app.model.Community.findById(input.where.id.equals).exec();
+    const community = await ctx.app.model.Community.findOne(getFilter(input)).exec();
     if (!community) throw new Error('Community not found');
 
     return community as Community;
@@ -587,7 +587,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getCompany', input);
 
-    const company = await ctx.app.model.Company.findById(input.where.id.equals).exec();
+    const company = await ctx.app.model.Company.findOne(getFilter(input)).exec();
     if (!company) throw new Error('Company not found');
 
     return company as Company;
@@ -623,7 +623,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getConversation', input.where.id.equals);
 
-    const conversation = await ctx.app.model.Conversation.findById(input.where.id.equals).exec();
+    const conversation = await ctx.app.model.Conversation.findOne(getFilter(input)).exec();
     if (!conversation) throw new Error('Conversation not found');
 
     return conversation as Conversation;
@@ -662,7 +662,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getData', input.where.id.equals);
 
-    const data = await ctx.app.model.Data.findById(input.where.id.equals).exec();
+    const data = await ctx.app.model.Data.findOne(getFilter(input)).exec();
     if (!data) throw new Error('Data not found');
 
     return data as Data;
@@ -693,7 +693,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getDiscussion', input.where.id.equals);
 
-    const discussion = await ctx.app.model.Discussion.findById(input.where.id.equals).exec();
+    const discussion = await ctx.app.model.Discussion.findOne(getFilter(input)).exec();
     if (!discussion) throw new Error('Discussion not found');
 
     return discussion as Discussion;
@@ -732,7 +732,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getEnergy', input);
 
-    const energy = await ctx.app.model.Energy.findById(input.where.id.equals).exec();
+    const energy = await ctx.app.model.Energy.findOne(getFilter(input)).exec();
     if (!energy) throw new Error('Energy not found');
 
     return energy as Energy;
@@ -763,7 +763,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getEvent', input);
 
-    const event = await ctx.app.model.Event.findById(input.where.id.equals).exec();
+    const event = await ctx.app.model.Event.findOne(getFilter(input)).exec();
     if (!event) throw new Error('Event not found');
 
     return event as Event;
@@ -793,7 +793,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getFile', input);
 
-    const file = await ctx.app.model.File.findById(input.where.id.equals).exec();
+    const file = await ctx.app.model.File.findOne(getFilter(input)).exec();
     if (!file) throw new Error('File not found');
 
     return file as File;
@@ -824,7 +824,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getGalaxy', input);
 
-    const galaxy = await ctx.app.model.Galaxy.findById(input.where.id.equals).exec();
+    const galaxy = await ctx.app.model.Galaxy.findOne(getFilter(input)).exec();
     if (!galaxy) throw new Error('Galaxy not found');
 
     return galaxy as Galaxy;
@@ -855,7 +855,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getGuide', input);
 
-    const guide = await ctx.app.model.Guide.findById(input.where.id.equals).exec();
+    const guide = await ctx.app.model.Guide.findOne(getFilter(input)).exec();
     if (!guide) throw new Error('Guide not found');
 
     return guide as Guide;
@@ -886,7 +886,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getIdea', input);
 
-    const idea = await ctx.app.model.Idea.findById(input.where.id.equals).exec();
+    const idea = await ctx.app.model.Idea.findOne(getFilter(input)).exec();
     if (!idea) throw new Error('Idea not found');
 
     return idea as Idea;
@@ -917,7 +917,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getLeaderboard', input);
 
-    const leaderboard = await ctx.app.model.Leaderboard.findById(input.where.id.equals).exec();
+    const leaderboard = await ctx.app.model.Leaderboard.findOne(getFilter(input)).exec();
     if (!leaderboard) throw new Error('Leaderboard not found');
 
     return leaderboard as Leaderboard;
@@ -956,7 +956,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getLog', input);
 
-    const log = await ctx.app.model.Log.findById(input.where.id.equals).exec();
+    const log = await ctx.app.model.Log.findOne(getFilter(input)).exec();
     if (!log) throw new Error('Log not found');
 
     return log as Log;
@@ -985,7 +985,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getLore', input);
 
-    const lore = await ctx.app.model.Lore.findById(input.where.id.equals).exec();
+    const lore = await ctx.app.model.Lore.findOne(getFilter(input)).exec();
     if (!lore) throw new Error('Lore not found');
 
     return lore as Lore;
@@ -1014,7 +1014,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getMemory', input);
 
-    const memory = await ctx.app.model.Memory.findById(input.where.id.equals).exec();
+    const memory = await ctx.app.model.Memory.findOne(getFilter(input)).exec();
     if (!memory) throw new Error('Memory not found');
 
     return memory as Memory;
@@ -1044,7 +1044,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getMessage', input);
 
-    const message = await ctx.app.model.Message.findById(input.where.id.equals).exec();
+    const message = await ctx.app.model.Message.findOne(getFilter(input)).exec();
     if (!message) throw new Error('Message not found');
 
     return message as Message;
@@ -1075,7 +1075,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getMetaverse', input);
 
-    const metaverse = await ctx.app.model.Metaverse.findById(input.where.id.equals).exec();
+    const metaverse = await ctx.app.model.Metaverse.findOne(getFilter(input)).exec();
     if (!metaverse) throw new Error('Metaverse not found');
 
     return metaverse as Metaverse;
@@ -1117,7 +1117,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getNewsArticle', input);
 
-    const newsArticle = await ctx.app.model.NewsArticle.findById(input.where.id.equals).exec();
+    const newsArticle = await ctx.app.model.NewsArticle.findOne(getFilter(input)).exec();
     if (!newsArticle) throw new Error('NewsArticle not found');
 
     return newsArticle as NewsArticle;
@@ -1156,7 +1156,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getNpc', input);
 
-    const npc = await ctx.app.model.Npc.findById(input.where.id.equals).exec();
+    const npc = await ctx.app.model.Npc.findOne(getFilter(input)).exec();
     if (!npc) throw new Error('Npc not found');
 
     return npc as Npc;
@@ -1184,7 +1184,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getOffer', input);
 
-    const offer = await ctx.app.model.Offer.findById(input.where.id.equals).exec();
+    const offer = await ctx.app.model.Offer.findOne(getFilter(input)).exec();
     if (!offer) throw new Error('Offer not found');
 
     return offer as Offer;
@@ -1215,7 +1215,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getOmniverse', input);
 
-    const omniverse = await ctx.app.model.Omniverse.findById(input.where.id.equals).exec();
+    const omniverse = await ctx.app.model.Omniverse.findOne(getFilter(input)).exec();
     if (!omniverse) throw new Error('Omniverse not found');
 
     return omniverse as Omniverse;
@@ -1254,7 +1254,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getOrder', input);
 
-    const order = await ctx.app.model.Order.findById(input.where.id.equals).exec();
+    const order = await ctx.app.model.Order.findOne(getFilter(input)).exec();
     if (!order) throw new Error('Order not found');
 
     return order as Order;
@@ -1285,7 +1285,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPayment', input);
 
-    const payment = await ctx.app.model.Payment.findById(input.where.id.equals).exec();
+    const payment = await ctx.app.model.Payment.findOne(getFilter(input)).exec();
     if (!payment) throw new Error('Payment not found');
 
     return payment as Payment;
@@ -1315,7 +1315,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPermission', input);
 
-    const permission = await ctx.app.model.Permission.findById(input.where.id.equals).exec();
+    const permission = await ctx.app.model.Permission.findOne(getFilter(input)).exec();
     if (!permission) throw new Error('Permission not found');
 
     return permission as Permission;
@@ -1354,7 +1354,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPerson', input);
 
-    const person = await ctx.app.model.Person.findById(input.where.id.equals).exec();
+    const person = await ctx.app.model.Person.findOne(getFilter(input)).exec();
     if (!person) throw new Error('Person not found');
 
     return person as Person;
@@ -1385,7 +1385,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPlanet', input);
 
-    const planet = await ctx.app.model.Planet.findById(input.where.id.equals).exec();
+    const planet = await ctx.app.model.Planet.findOne(getFilter(input)).exec();
     if (!planet) throw new Error('Planet not found');
 
     return planet as Planet;
@@ -1416,7 +1416,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPoll', input);
 
-    const poll = await ctx.app.model.Poll.findById(input.where.id.equals).exec();
+    const poll = await ctx.app.model.Poll.findOne(getFilter(input)).exec();
     if (!poll) throw new Error('Poll not found');
 
     return poll as Poll;
@@ -1444,7 +1444,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getProject', input);
 
-    const project = await ctx.app.model.Project.findById(input.where.id.equals).exec();
+    const project = await ctx.app.model.Project.findOne(getFilter(input)).exec();
     if (!project) throw new Error('Project not found');
 
     return project as Project;
@@ -1475,7 +1475,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getProposal', input);
 
-    const proposal = await ctx.app.model.Proposal.findById(input.where.id.equals).exec();
+    const proposal = await ctx.app.model.Proposal.findOne(getFilter(input)).exec();
     if (!proposal) throw new Error('Proposal not found');
 
     return proposal as Proposal;
@@ -1512,7 +1512,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getQuest', input);
 
-    const quest = await ctx.app.model.Quest.findById(input.where.id.equals).exec();
+    const quest = await ctx.app.model.Quest.findOne(getFilter(input)).exec();
     if (!quest) throw new Error('Quest not found');
 
     return quest as Quest;
@@ -1543,7 +1543,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRating', input);
 
-    const rating = await ctx.app.model.Rating.findById(input.where.id.equals).exec();
+    const rating = await ctx.app.model.Rating.findOne(getFilter(input)).exec();
     if (!rating) throw new Error('Rating not found');
 
     return rating as Rating;
@@ -1573,7 +1573,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRealm', input);
 
-    const realm = await ctx.app.model.Realm.findById(input.where.id.equals).exec();
+    const realm = await ctx.app.model.Realm.findOne(getFilter(input)).exec();
     if (!realm) throw new Error('Realm not found');
 
     return realm as Realm;
@@ -1645,7 +1645,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRevision', input);
 
-    const revision = await ctx.app.model.Revision.findById(input.where.id.equals).exec();
+    const revision = await ctx.app.model.Revision.findOne(getFilter(input)).exec();
     if (!revision) throw new Error('Revision not found');
 
     return revision as Revision;
@@ -1684,7 +1684,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getReferral', input);
 
-    const referral = await ctx.app.model.Referral.findById(input.where.id.equals).exec();
+    const referral = await ctx.app.model.Referral.findOne(getFilter(input)).exec();
     if (!referral) throw new Error('Referral not found');
 
     return referral as Referral;
@@ -1721,7 +1721,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getReview', input);
 
-    const review = await ctx.app.model.Review.findById(input.where.id.equals).exec();
+    const review = await ctx.app.model.Review.findOne(getFilter(input)).exec();
     if (!review) throw new Error('Review not found');
 
     return review as Review;
@@ -1750,7 +1750,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRole', input);
 
-    const role = await ctx.app.model.Role.findById(input.where.id.equals).exec();
+    const role = await ctx.app.model.Role.findOne(getFilter(input)).exec();
     if (!role) throw new Error('Role not found');
 
     return role as Role;
@@ -1779,7 +1779,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSeason', input);
 
-    const season = await ctx.app.model.Season.findById(input.where.id.equals).exec();
+    const season = await ctx.app.model.Season.findOne(getFilter(input)).exec();
     if (!season) throw new Error('Season not found');
 
     return season as Season;
@@ -1810,7 +1810,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRealmShard', input);
 
-    const server = await ctx.app.model.RealmShard.findById(input.where.id.equals).exec();
+    const server = await ctx.app.model.RealmShard.findOne(getFilter(input)).exec();
     if (!server) throw new Error('RealmShard not found');
 
     return server as RealmShard;
@@ -1862,7 +1862,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSession', input);
 
-    const session = await ctx.app.model.Session.findById(input.where.id.equals).exec();
+    const session = await ctx.app.model.Session.findOne(getFilter(input)).exec();
     if (!session) throw new Error('Session not found');
 
     return session as Session;
@@ -1895,7 +1895,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSolarSystem', input);
 
-    const solarSystem = await ctx.app.model.SolarSystem.findById(input.where.id.equals).exec();
+    const solarSystem = await ctx.app.model.SolarSystem.findOne(getFilter(input)).exec();
     if (!solarSystem) throw new Error('SolarSystem not found');
 
     return solarSystem as SolarSystem;
@@ -1934,7 +1934,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getStar', input);
 
-    const star = await ctx.app.model.Star.findById(input.where.id.equals).exec();
+    const star = await ctx.app.model.Star.findOne(getFilter(input)).exec();
     if (!star) throw new Error('Star not found');
 
     return star as Star;
@@ -1963,7 +1963,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getStash', input);
 
-    const stash = await ctx.app.model.Stash.findById(input.where.id.equals).exec();
+    const stash = await ctx.app.model.Stash.findOne(getFilter(input)).exec();
     if (!stash) throw new Error('Stash not found');
 
     return stash as Stash;
@@ -1994,7 +1994,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getStock', input);
 
-    const stock = await ctx.app.model.Stock.findById(input.where.id.equals).exec();
+    const stock = await ctx.app.model.Stock.findOne(getFilter(input)).exec();
     if (!stock) throw new Error('Stock not found');
 
     return stock as Stock;
@@ -2023,7 +2023,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSuggestion', input);
 
-    const suggestion = await ctx.app.model.Suggestion.findById(input.where.id.equals).exec();
+    const suggestion = await ctx.app.model.Suggestion.findOne(getFilter(input)).exec();
     if (!suggestion) throw new Error('Suggestion not found');
 
     return suggestion as Suggestion;
@@ -2062,7 +2062,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTag', input);
 
-    const tag = await ctx.app.model.Tag.findById(input.where.id.equals).exec();
+    const tag = await ctx.app.model.Tag.findOne(getFilter(input)).exec();
     if (!tag) throw new Error('Tag not found');
 
     return tag as Tag;
@@ -2091,10 +2091,24 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTeam', input);
 
-    const team = await ctx.app.model.Team.findById(input.where.id.equals).exec();
+    const filter = getFilter(input);
+    const team = await ctx.app.model.Team.findOne(filter).populate('profiles', 'profiles.characters');
     if (!team) throw new Error('Team not found');
 
     return team as Team;
+  }
+
+  async getTeams(input: RouterInput['getTeams'], ctx: RouterContext): Promise<RouterOutput['getTeams']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getTeams', input);
+
+    const filter = getFilter(input);
+    const teams = await ctx.app.model.Team.find(filter)
+      .skip(input.skip || 0)
+      .limit(input.take || 10)
+      .exec();
+
+    return teams as Team[];
   }
 
   async createTeam(input: RouterInput['createTeam'], ctx: RouterContext): Promise<RouterOutput['createTeam']> {
@@ -2120,7 +2134,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTournament', input);
 
-    const tournament = await ctx.app.model.Tournament.findById(input.where.id.equals).exec();
+    const tournament = await ctx.app.model.Tournament.findOne(getFilter(input)).exec();
     if (!tournament) throw new Error('Tournament not found');
 
     return tournament as Tournament;
@@ -2158,7 +2172,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTrade', input);
 
-    const trade = await ctx.app.model.Trade.findById(input.where.id.equals).exec();
+    const trade = await ctx.app.model.Trade.findOne(getFilter(input)).exec();
     if (!trade) throw new Error('Trade not found');
 
     return trade as Trade;
@@ -2167,7 +2181,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTrades', input);
 
-    const trade = await ctx.app.model.Trade.find().exec();
+    const trade = await ctx.app.model.Trade.find().limit(10).exec();
 
     return trade as Trade[];
   }
@@ -2197,7 +2211,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getUniverse', input);
 
-    const universe = await ctx.app.model.Universe.findById(input.where.id.equals).exec();
+    const universe = await ctx.app.model.Universe.findOne(getFilter(input)).exec();
     if (!universe) throw new Error('Universe not found');
 
     return universe as Universe;
@@ -2234,7 +2248,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getValidator', input);
 
-    const validator = await ctx.app.model.Validator.findById(input.where.id.equals).exec();
+    const validator = await ctx.app.model.Validator.findOne(getFilter(input)).exec();
     if (!validator) throw new Error('Validator not found');
 
     return validator as Validator;
@@ -2273,7 +2287,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getVote', input);
 
-    const vote = await ctx.app.model.Vote.findById(input.where.id.equals).exec();
+    const vote = await ctx.app.model.Vote.findOne(getFilter(input)).exec();
     if (!vote) throw new Error('Vote not found');
 
     return vote as Vote;
@@ -2302,7 +2316,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getWorldEvent', input);
 
-    const worldEvent = await ctx.app.model.WorldEvent.findById(input.where.id.equals).exec();
+    const worldEvent = await ctx.app.model.WorldEvent.findOne(getFilter(input)).exec();
     if (!worldEvent) throw new Error('WorldEvent not found');
 
     return worldEvent as WorldEvent;
@@ -2341,7 +2355,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBounty', input);
 
-    const bounty = await ctx.app.model.Bounty.findById(input.where.id.equals).exec();
+    const bounty = await ctx.app.model.Bounty.findOne(getFilter(input)).exec();
     if (!bounty) throw new Error('Bounty not found');
 
     return bounty as Bounty;

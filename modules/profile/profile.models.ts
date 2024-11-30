@@ -115,20 +115,20 @@ const SettingsSchema = new mongo.Schema(
   { _id: false }
 );
 
-const CharacterSubSchema = new mongo.Schema(
-  {
-    characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character', required: true },
-    meta: { type: mongo.Schema.Types.Mixed, default: {} },
-  },
-  { _id: false }
-);
+// const CharacterSubSchema = new mongo.Schema(
+//   {
+//     characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character', required: true, autopopulate: true },
+//     meta: { type: mongo.Schema.Types.Mixed, default: {} },
+//   },
+//   { _id: false }
+// );
 
-CharacterSubSchema.virtual('character', {
-  ref: 'Character', // The model to use
-  localField: 'characterId', // Find in `Character` where `_id` matches `characterId`
-  foreignField: '_id',
-  justOne: true, // Since `characterId` is a single reference
-});
+// CharacterSubSchema.virtual('character', {
+//   ref: 'Character', // The model to use
+//   localField: 'characterId', // Find in `Character` where `_id` matches `characterId`
+//   foreignField: '_id',
+//   justOne: true, // Since `characterId` is a single reference
+// });
 
 export const Profile = mongo.createModel<Types.ProfileDocument>(
   'Profile',
@@ -146,12 +146,12 @@ export const Profile = mongo.createModel<Types.ProfileDocument>(
     signature: { type: String, maxlength: 200 },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
     teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team' },
+    characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character' },
     isBanned: { type: Boolean },
     banExpireDate: { type: Date },
     banReason: { type: String },
     bio: { type: String },
     banner: { type: String },
-    characters: [CharacterSubSchema],
     friends: [
       {
         profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
@@ -164,8 +164,8 @@ export const Profile = mongo.createModel<Types.ProfileDocument>(
         meta: { type: mongo.Schema.Types.Mixed, default: {} },
       },
     ],
-    settings: { type: SettingsSchema },
-    stats: { type: StatsSchema },
+    settings: SettingsSchema,
+    stats: StatsSchema,
     achievements: [
       {
         achievementId: { type: mongo.Schema.Types.ObjectId, ref: 'Achievement', required: true },
@@ -175,7 +175,31 @@ export const Profile = mongo.createModel<Types.ProfileDocument>(
     ],
   },
   {
-    virtuals: [...addTagVirtuals('Profile'), ...addApplicationVirtual()],
+    virtuals: [
+      ...addTagVirtuals('Profile'),
+      ...addApplicationVirtual(),
+      {
+        name: 'character',
+      },
+      {
+        name: 'characters',
+        ref: 'Character',
+        localField: '_id',
+        foreignField: 'profileId',
+      },
+      {
+        name: 'chain',
+      },
+      {
+        name: 'role',
+      },
+      {
+        name: 'account',
+      },
+      {
+        name: 'team',
+      },
+    ],
     indexes: [
       { applicationId: 1, telegramUserId: 1, unique: true },
       { applicationId: 1, accountId: 1, name: 1, unique: true },

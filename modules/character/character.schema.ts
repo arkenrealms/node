@@ -39,8 +39,8 @@ export const CharacterInventory = Entity.merge(
 // Character schema
 export const Character = Entity.merge(
   z.object({
-    teamId: ObjectId.optional(),
-    ownerId: ObjectId,
+    // teamId: ObjectId.optional(),
+    profileId: ObjectId,
     ratingId: ObjectId.optional(),
     classId: ObjectId.optional(),
     token: z.string().min(1),

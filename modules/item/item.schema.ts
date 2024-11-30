@@ -30,6 +30,13 @@ export const ItemRarity = Entity.merge(
   })
 );
 
+export const ItemRank = Entity.merge(
+  z.object({
+    value: z.number(),
+    // Define fields for ItemRank here if needed
+  })
+);
+
 export const ItemType = Entity.merge(
   z.object({
     // Define fields for ItemType here if needed
@@ -86,6 +93,8 @@ export const Item = Entity.merge(
     typeId: ItemType.optional(),
     subTypeId: ItemSubType.optional(),
     specificTypeId: ItemSpecificType.optional(),
+    rankId: ItemRank.optional(),
+    rankValue: z.number(),
     rarityId: ItemRarity.optional(),
     slotIds: z.array(ItemSlot.optional()),
     setId: ItemSet.optional(),

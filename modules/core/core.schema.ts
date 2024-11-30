@@ -1,6 +1,7 @@
 // core.schema.ts
 
 import { z, ObjectId, Entity } from '../../schema';
+import { Profile } from '../profile/profile.schema';
 
 // Account Schema
 export const Account = Entity.merge(
@@ -406,6 +407,8 @@ export const Tag = Entity.merge(
 export const Team = Entity.merge(
   z.object({
     ratingId: ObjectId.optional(),
+    profiles: z.array(Profile).optional(),
+    points: z.number().optional().default(0),
   })
 );
 
@@ -422,11 +425,13 @@ export const Tournament = Entity.merge(z.object({}));
 // Trade Schema
 export const Trade = Entity.merge(
   z.object({
+    status: z.enum(['Paused', 'Pending', 'Active', 'Delisted', 'Sold']).default('Active'), // Default set in StatusEnum matches Mongoose
     chainId: ObjectId.optional(),
     buyerId: ObjectId.optional(),
     parentId: ObjectId.optional(),
     productId: ObjectId.optional(),
     sellerId: ObjectId.optional(),
+    itemId: ObjectId.optional(),
     tokenId: ObjectId.optional(),
   })
 );

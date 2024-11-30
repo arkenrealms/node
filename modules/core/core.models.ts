@@ -44,7 +44,7 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
     indexes: [{ metaverseId: 1, name: 1, unique: true }],
     virtuals: [
       ...addTagVirtuals('Application'),
-      { name: 'agents' },
+      { name: 'agents', ref: 'Agent', localField: '_id', foreignField: 'applicationId' },
       { name: 'chain' },
       { name: 'account' },
       { name: 'assets' },
@@ -163,13 +163,13 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
 export const Account = mongo.createModel<Types.AccountDocument>(
   'Account',
   {
-    username: { type: String, required: true },
+    username: { type: String },
     email: { type: String },
     telegramUserId: { type: Number },
   },
   {
     indexes: [
-      { applicationId: 1, username: 1, unique: true },
+      // { applicationId: 1, username: 1, unique: true },
       {
         fields: { applicationId: 1, telegramUserId: 1 },
         options: {
@@ -815,9 +815,19 @@ export const Team = mongo.createModel<Types.TeamDocument>(
   'Team',
   {
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
+    points: { type: Number, default: 0 },
   },
   {
-    virtuals: [...addTagVirtuals('Team'), ...addApplicationVirtual()],
+    virtuals: [
+      ...addTagVirtuals('Team'),
+      ...addApplicationVirtual(),
+      {
+        name: 'profiles',
+        ref: 'Profile',
+        localField: '_id',
+        foreignField: 'teamId',
+      },
+    ],
   }
 );
 
@@ -834,6 +844,11 @@ export const Tournament = mongo.createModel<Types.TournamentDocument>(
 export const Trade = mongo.createModel<Types.TradeDocument>(
   'Trade',
   {
+    status: {
+      type: String,
+      default: 'Active',
+      enum: ['Paused', 'Pending', 'Active', 'Delisted', 'Sold'],
+    },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
     buyerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
     parentId: { type: mongo.Schema.Types.ObjectId, ref: 'Trade' },

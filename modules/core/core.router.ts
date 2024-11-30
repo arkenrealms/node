@@ -1381,6 +1381,13 @@ export const createRouter = () =>
       .output(Team)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTeam as any)(input, ctx)),
 
+    getTeams: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Team))
+      .output(z.array(Team))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getTeams as any)(input, ctx)),
+
     createTeam: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
