@@ -1939,7 +1939,7 @@ export const itemData = {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -1968,7 +1968,7 @@ export const itemData = {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -1997,7 +1997,7 @@ export const itemData = {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -2026,7 +2026,7 @@ export const itemData = {
               description: `Access to Founder's Tavern (End of Time)`,
             },
             {
-              description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+              description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
             },
             {
               description: `Golden Cube Skin`,
@@ -6862,7 +6862,7 @@ export const itemData = {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -6891,7 +6891,7 @@ export const itemData = {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -6920,7 +6920,7 @@ export const itemData = {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,
@@ -6949,7 +6949,7 @@ export const itemData = {
     //             description: `Access to Founder's Tavern (End of Time)`,
     //           },
     //           {
-    //             description: `Every Rune in Heart of the Oasis (1 EL-ZOD)`,
+    //             description: `Every Rune in Heart of the Oasis (1 EX-ZENO)`,
     //           },
     //           {
     //             description: `Golden Cube Skin`,

@@ -76,7 +76,7 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
     // gold: { type: Number, default: 0 },
   },
   {
-    extend: 'CommonFields',
+    extend: 'EntityFields',
     indexes: [{ points: 1 }, { token: 1 }],
     virtuals: [
       ...addTagVirtuals('Character'),
@@ -114,6 +114,8 @@ export const CharacterAttribute = mongo.createModel<Types.CharacterAttributeDocu
 export const CharacterType = mongo.createModel<Types.CharacterTypeDocument>('CharacterType', {});
 
 export const CharacterClass = mongo.createModel<Types.CharacterClassDocument>('CharacterClass', {});
+
+export const CharacterFaction = mongo.createModel<Types.CharacterFactionDocument>('CharacterFaction', {});
 
 export const CharacterRace = mongo.createModel<Types.CharacterRaceDocument>('CharacterRace', {
   npcs: [{ type: mongo.Schema.Types.ObjectId, ref: 'Npc' }],

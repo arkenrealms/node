@@ -955,7 +955,7 @@ export const Prefab = mongo.createModel<Types.PrefabDocument>(
     ],
   },
   {
-    extend: 'CommonFields',
+    extend: 'EntityFields',
     virtuals: [...addTagVirtuals('Prefab'), ...addApplicationVirtual()],
   }
 );
@@ -983,7 +983,7 @@ export const Object = mongo.createModel<Types.ObjectDocument>(
     ],
   },
   {
-    extend: 'CommonFields',
+    extend: 'EntityFields',
     virtuals: [...addTagVirtuals('Object'), ...addApplicationVirtual()],
   }
 );
@@ -998,7 +998,7 @@ export const ObjectInteraction = mongo.createModel<Types.ObjectInteractionDocume
     // timestamp: { type: Date, default: Date.now },
   },
   {
-    extend: 'CommonFields',
+    extend: 'EntityFields',
     virtuals: [...addTagVirtuals('Interaction'), ...addApplicationVirtual()],
   }
 );

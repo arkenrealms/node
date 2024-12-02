@@ -836,7 +836,7 @@ export function normalizeItem(item: any) {
         if (branchIndex === 1) {
           for (const attributeIndex in item.branches[branchIndex].attributes) {
             const attribute = item.branches[branchIndex].attributes[attributeIndex];
-            if (attribute.param1.value !== undefined) {
+            if (attribute.param1?.value !== undefined) {
               if (!item.meta.attributes[attribute.id]) item.meta.attributes[attribute.id] = 0;
               item.meta.attributes[attribute.id] += attribute.param1.value;
             }
@@ -1102,7 +1102,7 @@ const symbolMap = {
   NEF: 'NEN',
   ETH: 'EVA',
   ITH: 'ISA',
-  TAL: 'TAI',
+  TAL: 'TATO',
   RAL: 'RO',
   ORT: 'ORE',
   THUL: 'THAL',
@@ -1128,8 +1128,7 @@ const symbolMap = {
   BER: 'BERU',
   JAH: 'JUA',
   CHAM: 'CHIN',
-  ZOD: 'ZEL',
-  TATO: 'TATO',
+  ZOD: 'ZENO',
 };
 
 function capitalizeFirstLetter(string) {

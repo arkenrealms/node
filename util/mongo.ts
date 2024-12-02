@@ -150,6 +150,8 @@ export function createSchema<T>(
         virtualOptions.refPath = virtual.refPath;
       } else if (virtual.ref) {
         virtualOptions.ref = virtual.ref;
+      } else if (schema.path(virtual.name + 'Id')) {
+        virtualOptions.ref = pluralize.singular(schema.path(virtual.name + 'Id').options.ref);
       } else {
         virtualOptions.ref = pluralize.singular(virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1));
       }
@@ -162,7 +164,7 @@ export function createSchema<T>(
         virtualOptions.match = virtual.match;
       }
 
-      if (collectionName === 'Item') console.log(virtualOptions);
+      if (collectionName === 'Game') console.log(schema, virtualOptions);
 
       const schemaVirtual = schema.virtual(virtual.name, virtualOptions);
 

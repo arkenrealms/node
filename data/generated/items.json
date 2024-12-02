@@ -27647,7 +27647,7 @@
               "value": 0
             },
             "param2": {
-              "spec": "Every Rune in Heart of the Oasis (1 EL-ZOD)",
+              "spec": "Every Rune in Heart of the Oasis (1 EX-ZENO)",
               "min": null,
               "max": null
             }
@@ -48406,7 +48406,7 @@
   {
     "uuid": "recN1aeT0TPwAA",
     "id": 5006,
-    "name": "Tai Rune",
+    "name": "Tato Rune",
     "link": "https://arken.gg/item/ex-rune",
     "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
@@ -49888,8 +49888,8 @@
   {
     "uuid": "recN1aeT0TPwAA",
     "id": 5032,
-    "name": "Zel Rune",
-    "link": "https://arken.gg/item/ex-rune",
+    "name": "Zeno Rune",
+    "link": "https://arken.gg/item/zeno-rune",
     "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
     "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
@@ -49942,64 +49942,6 @@
     "materials": [],
     "category": "accessory"
   },
-  {
-    "uuid": "recN1aeT0TPwAA",
-    "id": 5033,
-    "name": "Tato Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
-    "value": "0",
-    "type": 18,
-    "subType": 63,
-    "specificType": 73,
-    "slots": [0],
-    "isPolled": false,
-    "isNew": false,
-    "isSecret": false,
-    "isUltraSecret": false,
-    "isPaused": false,
-    "isRetired": false,
-    "isDisabled": false,
-    "isCraftable": false,
-    "isEnabled": true,
-    "isEquipable": false,
-    "isUnequipable": false,
-    "isTradeable": true,
-    "isTransferable": true,
-    "isUpgradable": false,
-    "isPublishable": true,
-    "isRuneword": false,
-    "isSkinnable": false,
-    "createdDate": 0,
-    "hotness": 0,
-    "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
-    "recipe": {
-      "requirement": []
-    },
-    "description": "An ingredient used in magical crafting.",
-    "shortDescription": "",
-    "visualDescription": "",
-    "branches": {
-      "1": {
-        "attributes": [],
-        "perfection": []
-      },
-      "2": { "attributes": [], "perfection": [] },
-      "3": {
-        "attributes": [],
-        "perfection": []
-      },
-      "4": { "attributes": [], "perfection": [] },
-      "5": { "attributes": [], "perfection": [] }
-    },
-    "skills": [],
-    "materials": [],
-    "category": "accessory"
-  },
-
   {
     "uuid": "recN1aeT0TPwAA",
     "id": 5200,

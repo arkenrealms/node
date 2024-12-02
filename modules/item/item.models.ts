@@ -30,7 +30,7 @@ export const Item = mongo.createModel<Types.ItemDocument>(
     points: { type: Number, integer: true, min: 0, default: 0 },
   },
   {
-    extend: 'CommonFields',
+    extend: 'EntityFields',
     indexes: [{ quantity: 1 }, { points: 1 }, { capacity: 1 }],
     virtuals: [
       ...addTagVirtuals('Item'),

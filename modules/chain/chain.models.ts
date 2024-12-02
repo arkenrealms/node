@@ -4,24 +4,26 @@ import type * as Types from './chain.types';
 export const Chain = mongo.createModel<Types.ChainDocument>('Chain', {
   content: { type: String, required: true },
   type: { type: String, maxlength: 100, required: true },
-  standard: { type: String, maxlength: 100, required: true },
 });
 
 export const ChainContract = mongo.createModel<Types.ChainContractDocument>('ChainContract', {
-  description: { type: String, required: true },
-  content: { type: String, required: true },
+  chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain', required: true },
+  content: { type: String },
+  address: { type: String },
   type: { type: String, maxlength: 100, required: true },
-  standard: { type: String, maxlength: 100, required: true },
+  standards: [{ type: mongo.Schema.Types.ObjectId, ref: 'AssetStandard', required: true }],
 });
 
 export const ChainToken = mongo.createModel<Types.ChainTokenDocument>(
   'ChainToken',
   {
+    chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain', required: true },
+    chainContractId: { type: mongo.Schema.Types.ObjectId, ref: 'ChainContract', required: true },
     rank: { type: Number, min: 0, default: 0 },
     description: { type: String, trim: true },
-    content: { type: String, required: true },
-    type: { type: String, maxlength: 100, required: true },
-    standard: { type: String, maxlength: 100, required: true },
+    address: { type: String },
+    content: { type: String },
+    decimals: { type: Number, default: 0 },
     price: { type: Number, min: 0, default: 0 },
     hourChange: { type: Number, default: 0 },
     dayChange: { type: Number, default: 0 },
