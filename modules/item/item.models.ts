@@ -6,9 +6,9 @@ const { addTagVirtuals, addApplicationVirtual } = mongo;
 export const Item = mongo.createModel<Types.ItemDocument>(
   'Item',
   {
-    token: { type: String, maxlength: 500, minlength: 1, required: false },
-    characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character', required: false },
-    assetId: { type: mongo.Schema.Types.ObjectId, ref: 'Asset', required: false },
+    token: { type: String, maxlength: 500, minlength: 1, required: true },
+    characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character', required: true },
+    assetId: { type: mongo.Schema.Types.ObjectId, ref: 'Asset', required: true },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain', required: false },
     materialId: { type: mongo.Schema.Types.ObjectId, ref: 'ItemMaterial', required: false },
     skinId: { type: mongo.Schema.Types.ObjectId, ref: 'ItemSkin', required: false },
