@@ -89,20 +89,13 @@ export interface Application {
 
 export type RouterClient = {
   socket: any;
-  roles: string[]
-}
+  roles: string[];
+};
 
 export type RouterContext = {
   app: Application;
   client?: RouterClient;
-  profile?: {
-    roles: Array<{
-      status: 'Paused' | 'Pending' | 'Active' | 'Archived';
-      role: {
-        name: string;
-      };
-    }>;
-  };
+  profile?: Profile.Types.Profile;
 };
 
 export interface Signature {

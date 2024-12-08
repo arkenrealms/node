@@ -67,6 +67,7 @@ export const Profile = Entity.merge(
     isBanned: z.boolean().optional(),
     banExpireDate: z.date().optional(),
     banReason: z.string().optional(),
+    mode: z.string().default('gamer').optional(),
 
     bio: z.string().optional(),
     banner: z.string().url().optional(), // URL to the user's banner image

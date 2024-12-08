@@ -34,7 +34,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Night Blade",
-      "Rune Word": "Tir El",
+      "Runeform": "Tyr Ex",
       "Distribution": ["Crafted"],
       "Date": "April 25, 2021 - June 3, 2021"
     },
@@ -116,7 +116,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -386,7 +386,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "War Sword",
-      "Rune Word": "Nef Eld Tir El",
+      "Runeform": "Nen Ex Tyr Ex",
       "Distribution": ["Crafted"],
       "Date": "April 25, 2021 - June 3, 2021"
     },
@@ -868,7 +868,7 @@
     "details": {
       "Type": "Helm",
       "Subtype": "Ancient Helm",
-      "Rune Word": "Nef Tir",
+      "Runeform": "Nen Tyr",
       "Distribution": ["Crafted"],
       "Date": "April 25, 2021 - June 3, 2021"
     },
@@ -1332,7 +1332,7 @@
     "details": {
       "Type": "Boot",
       "Subtype": "Astral Greaves",
-      "Rune Word": "Ith Eld Ral Tal",
+      "Runeform": "Isa Ex Ro Tato",
       "Distribution": ["Crafted"],
       "Date": "May 17, 2021 - X"
     },
@@ -1695,7 +1695,7 @@
     "details": {
       "Type": "Body Armor",
       "Subtype": "Templar Forge",
-      "Rune Word": "Tal Ort Thul Eld Nef",
+      "Runeform": "Tato Ore Thal Ex Nen",
       "Distribution": ["Crafted"],
       "Date": "May 24, 2021 - X"
     },
@@ -2059,7 +2059,7 @@
     "details": {
       "Type": "Glove",
       "Subtype": "Shadow Wraps",
-      "Rune Word": "Thul Ith Ort Ral",
+      "Runeform": "Thal Isa Ore Ro",
       "Distribution": ["Crafted"],
       "Date": "May 25, 2021 - June 25, 2021"
     },
@@ -2422,7 +2422,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Cloudstrike Sword",
-      "Rune Word": "Sol Ral Ith Eld Ort",
+      "Runeform": "Solo Ro Isa Ex Ore",
       "Distribution": ["Crafted"],
       "Date": "June 1, 2021 - Now"
     },
@@ -3027,7 +3027,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Sage Bow",
-      "Rune Word": "Sol Ith Nef El Ort",
+      "Runeform": "Solo Isa Nen Ex Ore",
       "Distribution": ["Crafted"],
       "Date": "June 1, 2021 - X"
     },
@@ -3627,7 +3627,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Dimensional Dagger",
-      "Rune Word": "Sol Thul Amn Ort",
+      "Runeform": "Solo Thal Ash Ore",
       "Distribution": ["Crafted"],
       "Date": "June 1, 2021 - X"
     },
@@ -4202,7 +4202,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Chrono Staff",
-      "Rune Word": "Sol Amn Ort Thul Ral",
+      "Runeform": "Solo Ash Ore Thal Ro",
       "Distribution": ["Crafted"],
       "Date": "June 1, 2021 - Now"
     },
@@ -4844,7 +4844,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Unknown Claw",
-      "Rune Word": "Shael Ith Dol Nef Sol",
+      "Runeform": "Sen Isa Da Nen Solo",
       "Distribution": ["Crafted"],
       "Date": "June 11, 2021 - X"
     },
@@ -5004,7 +5004,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "SOL-HEL",
+              "spec": "SOLO-HAN",
               "min": null,
               "max": null,
               "map": {}
@@ -5470,7 +5470,7 @@
     "details": {
       "Type": "Shield",
       "Subtype": "Blessed Vira Shield",
-      "Rune Word": "Shael Tir Dol Thul Nef",
+      "Runeform": "Sen Tyr Da Thal Nen",
       "Distribution": ["Crafted"],
       "Date": "June 11, 2021 - X"
     },
@@ -6026,7 +6026,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Worldstone Mace",
-      "Rune Word": "Dol Amn Thul Ral Tal",
+      "Runeform": "Da Ash Thal Ro Tato",
       "Distribution": ["Crafted"],
       "Date": "June 11, 2021 - Now"
     },
@@ -6186,7 +6186,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "SOL-HEL",
+              "spec": "SOLO-HAN",
               "min": null,
               "max": null,
               "map": {}
@@ -6666,7 +6666,7 @@
     "details": {
       "Type": "Helm",
       "Subtype": "Warden Helm",
-      "Rune Word": "Nef Tir Sol Ort",
+      "Runeform": "Nen Tyr Solo Ore",
       "Distribution": ["Crafted"],
       "Date": "June 3, 2021 - Now"
     },
@@ -7070,7 +7070,7 @@
     "details": {
       "Type": "Leg Armor",
       "Subtype": "Templar Chausses",
-      "Rune Word": "Dol Io Hel Lum",
+      "Runeform": "Da Ion Han Lux",
       "Distribution": ["Crafted"],
       "Date": "June 26, 2021 - Now"
     },
@@ -7544,7 +7544,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Moonlight Greatsword",
-      "Rune Word": "Zod Zod Zod Zod Zod",
+      "Runeform": "Zeno Zeno Zeno Zeno Zeno",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - Now"
     },
@@ -8220,7 +8220,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Templar Broadsword",
-      "Rune Word": "Dol Io Lum Shael Ko",
+      "Runeform": "Da Ion Lux Sen Ka",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - July 21, 2022"
     },
@@ -8773,7 +8773,7 @@
     "details": {
       "Type": "Glove",
       "Subtype": "Astral Gauntlets",
-      "Rune Word": "Ith Dol Ral Ko",
+      "Runeform": "Isa Da Ro Ka",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - July 21, 2022"
     },
@@ -9244,7 +9244,7 @@
     "details": {
       "Type": "WristArmor",
       "Subtype": "Templar Armguards",
-      "Rune Word": "El Tal Shael Hel",
+      "Runeform": "Ex Tato Sen Han",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - August 30, 2021"
     },
@@ -9720,7 +9720,7 @@
     "details": {
       "Type": "Belt",
       "Subtype": "Wyrmhide Belt",
-      "Rune Word": "El Io Hel Ral",
+      "Runeform": "Ex Ion Han Ro",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - Now"
     },
@@ -10148,7 +10148,7 @@
     "details": {
       "Type": "Ring",
       "Subtype": "Inscribed Archon Band",
-      "Rune Word": "Eld Amn Shael Io Zod",
+      "Runeform": "Ex Ash Sen Ion Zeno",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - Now"
     },
@@ -10744,7 +10744,7 @@
     "details": {
       "Type": "Ring",
       "Subtype": "Glimmering Band",
-      "Rune Word": "Lum Dol Io Dol Lum",
+      "Runeform": "Lux Da Ion Da Lux",
       "Distribution": ["Crafted"],
       "Date": "August 27, 2021 - Now"
     },
@@ -12084,7 +12084,7 @@
     "details": {
       "Type": "Helm",
       "Subtype": "Shadow Veil",
-      "Rune Word": "Zod Fal Lum Tir Lo",
+      "Runeform": "Zeno Fus Lux Tyr Lor",
       "Distribution": ["Crafted"],
       "Date": "October 31, 2021 - Now"
     },
@@ -12244,7 +12244,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -12599,7 +12599,7 @@
     "details": {
       "Type": "Body Armor",
       "Subtype": "Dragonforged Cuirass",
-      "Rune Word": "Fal Mal Pul Um Zod",
+      "Runeform": "Fus Val Pai Uln Zeno",
       "Distribution": ["Crafted"],
       "Date": "Jan 16, 2022 - Now"
     },
@@ -13886,7 +13886,7 @@
     "details": {
       "Type": "Body Armor",
       "Subtype": "Drakehide Vestments",
-      "Rune Word": "Pul Lo Um Zod",
+      "Runeform": "Pai Lor Uln Zeno",
       "Distribution": ["Crafted"],
       "Date": "Jan 16, 2022 - Now"
     },
@@ -14401,7 +14401,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Fanged Dagger",
-      "Rune Word": "Thul El Sol Hel Tir",
+      "Runeform": "Thal Ex Solo Han Tyr",
       "Distribution": ["Crafted"],
       "Date": "December 5, 2021 - Now"
     },
@@ -15539,7 +15539,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Soulreaver Scythe",
-      "Rune Word": "Mal Ist Zod Tal Eld",
+      "Runeform": "Val Isk Zeno Tato Ex",
       "Distribution": ["Crafted"],
       "Date": "Feb 21, 2022 - Now"
     },
@@ -15698,7 +15698,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -16093,7 +16093,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "LUM-IST",
+              "spec": "LUX-ISK",
               "min": null,
               "max": null,
               "map": {}
@@ -17525,7 +17525,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -17897,7 +17897,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -20049,7 +20049,7 @@
     "details": {
       "Type": "Boot",
       "Subtype": "Raider Boots",
-      "Rune Word": "Gul Lo Zod Ist",
+      "Runeform": "Gon Lor Zeno Isk",
       "Distribution": ["Crafted"],
       "Date": "July 13, 2022-July 21, 2022"
     },
@@ -20200,7 +20200,7 @@
             "description": "Random Exchange Target: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "ELD-NEF",
+              "spec": "ELM-NEN",
               "min": null,
               "max": null
             }
@@ -21265,7 +21265,7 @@
     "details": {
       "Type": "Ring",
       "Subtype": "Overwrought Iron Ring",
-      "Rune Word": "Pul Ith Mal Um Zod",
+      "Runeform": "Pai Isa Val Uln Zeno",
       "Distribution": ["Crafted"],
       "Date": "Jan 16, 2022 - Now"
     },
@@ -21425,7 +21425,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "NEF-ITH",
+              "spec": "NEN-ISA",
               "min": null,
               "max": null,
               "map": {}
@@ -22129,7 +22129,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Thirsting Edge",
-      "Rune Word": "Mal Um Zod Ist El",
+      "Runeform": "Mor Uln Zeno Isk Ex",
       "Distribution": ["Crafted"]
     },
     "recipe": {
@@ -22266,7 +22266,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -22627,7 +22627,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "AMN-SHAEL",
+              "spec": "ASH-SEN",
               "min": null,
               "max": null,
               "map": {}
@@ -23578,7 +23578,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "PUL-GUL",
+              "spec": "PAI-GON",
               "min": null,
               "max": null,
               "map": {}
@@ -24028,7 +24028,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "RAL-THUL",
+              "spec": "RO-THAL",
               "min": null,
               "max": null,
               "map": {}
@@ -25189,7 +25189,7 @@
             "description": "Random Exchange Target: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "AMN-LO",
+              "spec": "ASH-LOR",
               "min": null,
               "max": null
             }
@@ -26026,7 +26026,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "MAL-GUL",
+              "spec": "MOR-GON",
               "min": null,
               "max": null,
               "map": {}
@@ -27492,7 +27492,7 @@
     "recipe": {
       "requirement": []
     },
-    "description": "Founder's Cube will be redeemable for multiple benefits within Rune's ecosystem.",
+    "description": "Founder's Cube will be redeemable for multiple benefits within Arken Realms.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -27513,13 +27513,25 @@
             "description": "{parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "2",
-              "min": 2,
-              "max": 2,
-              "value": 2,
-              "map": {
-                "2": "Unique"
-              }
+              "spec": "0-999",
+              "isPercent": false,
+              "min": "0",
+              "max": "999"
+            },
+            "min": 2,
+            "max": 2,
+            "value": 2,
+            "map": {
+              "1": "Legendary",
+              "2": "Unique",
+              "3": "Mythic",
+              "4": "Epic",
+              "5": "Rare",
+              "6": "Magical",
+              "7": "Normal",
+              "8": "Set",
+              "9": "Quest",
+              "10": "Trash"
             }
           },
           {
@@ -27736,6 +27748,8 @@
     "image": "https://dl.airtable.com/.attachments/31aa2ffe51756c646155900059e04d1e/f3d08805/01207.png",
     "value": "0",
     "specificType": 195,
+    "type": 14,
+    "slots": [15, 16, 17],
     "isPolled": false,
     "isNew": false,
     "isSecret": false,
@@ -27964,7 +27978,9 @@
     "icon": "/images/items/01208.png",
     "image": "https://dl.airtable.com/.attachments/7350aefbc17a56beda6c83b4d1c9e43c/5a7eea28/01208.png",
     "value": "0",
+    "type": 14,
     "specificType": 196,
+    "slots": [15, 16, 17],
     "isPolled": false,
     "isNew": false,
     "isSecret": false,
@@ -28193,6 +28209,7 @@
     "icon": "/images/items/01209.png",
     "image": "https://dl.airtable.com/.attachments/e341f1b514cd363b305fe27ac4cfcc8f/3e7769f3/01209.png",
     "value": "0",
+    "type": 14,
     "specificType": 25,
     "slots": [15, 16, 17],
     "isPolled": false,
@@ -28596,7 +28613,7 @@
     "details": {
       "Type": "Consumable",
       "Subtype": "Scroll",
-      "Rune Word": "Zod",
+      "Runeform": "Zeno",
       "Distribution": ["Crafted"]
     },
     "recipe": {
@@ -29252,7 +29269,7 @@
     "details": {
       "Type": "Consumable",
       "Subtype": "Scroll",
-      "Rune Word": "Zod"
+      "Runeform": "Zeno"
     },
     "recipe": {
       "requirement": [
@@ -31288,7 +31305,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "SOL-HEL",
+              "spec": "SOLO-HAN",
               "min": null,
               "max": null,
               "map": {}
@@ -33500,7 +33517,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "LUM-IST",
+              "spec": "LUX-ISK",
               "min": null,
               "max": null,
               "map": {}
@@ -34265,7 +34282,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "EL-TIR",
+              "spec": "EX-TYR",
               "min": null,
               "max": null,
               "map": {}
@@ -39068,7 +39085,7 @@
             "description": "Harvest Fee Token: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "THUL-SOL",
+              "spec": "THAL-SOLO",
               "min": null,
               "max": null,
               "map": {}
@@ -40531,7 +40548,7 @@
             "description": "Random Exchange Target: {parameter1}",
             "explanation": "",
             "param1": {
-              "spec": "ELD-NEF",
+              "spec": "ELM-NEN",
               "min": null,
               "max": null
             }
@@ -48066,9 +48083,9 @@
     "id": 5000,
     "name": "Ex Rune",
     "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "icon": "/images/farms/ex.png",
+    "image": "/images/new-runes/EX.png",
+    "imageHigh": "/images/new-runes/EX.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48094,24 +48111,28 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "EX",
+      "Distribution": "Farmed",
+      "Date": "April 2, 2021 - April 9, 2021",
+      "Max Supply": "Burned to 40,000"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #1 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
-      "1": {
-        "attributes": [],
-        "perfection": []
-      },
+      "1": { "description": ["Used to craft items."], "attributes": [], "perfection": [] },
       "2": { "attributes": [], "perfection": [] },
       "3": {
         "attributes": [],
         "perfection": []
       },
-      "4": { "attributes": [], "perfection": [] },
+      "4": { "attributes": [], "perfection": [], "description": ["Unlock music player / extras."] },
       "5": { "attributes": [], "perfection": [] }
     },
     "skills": [],
@@ -48122,10 +48143,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5001,
     "name": "Elm Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/elm-rune",
+
+    "icon": "/images/farms/elm.png",
+    "image": "/images/new-runes/ELM.png",
+    "imageHigh": "/images/new-runes/ELM.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48151,11 +48173,19 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "ELM",
+      "Distribution": "Airdropped on RUNE characters",
+      "Date": "April 10, 2021",
+      "Max Supply": "40,000",
+      "Reward": "57 ELD"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #2 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48179,10 +48209,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5002,
     "name": "Tyr Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/tyr-rune",
+
+    "icon": "/images/farms/tyr.png",
+    "image": "/images/new-runes/TYR.png",
+    "imageHigh": "/images/new-runes/TYR.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48208,11 +48239,18 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "TYR",
+      "Planned Distribution": "farmed",
+      "Planned Date": "April 11, 2021 - April 16, 2021",
+      "Planned Max Supply": "Burned to 50,000"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #3 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48236,10 +48274,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5003,
     "name": "Nen Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/nen-rune",
+
+    "icon": "/images/farms/nen.png",
+    "image": "/images/new-runes/EX.png",
+    "imageHigh": "/images/new-runes/EX.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48265,11 +48304,18 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "NEN",
+      "Planned Distribution": "Farmed by ARKEN characters",
+      "Planned Date": "April 20, 2021 - April 26, 2021",
+      "Planned Max Supply": "Burned to 50,000"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #4 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48293,10 +48339,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5004,
     "name": "Eva Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/eva-rune",
+
+    "icon": "/images/farms/eva.png",
+    "image": "/images/new-runes/EVA.png",
+    "imageHigh": "/images/new-runes/EVA.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48322,11 +48369,18 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "EVA",
+      "Planned Distribution": "Airdropped on TIR holders",
+      "Planned Date": "TBA",
+      "Planned Max Supply": "TBD"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #5 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48350,10 +48404,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5005,
     "name": "Isa Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/isa-rune",
+
+    "icon": "/images/farms/isa.png",
+    "image": "/images/new-runes/ISA.png",
+    "imageHigh": "/images/new-runes/ISA.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48379,11 +48434,18 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "ISA",
+      "Planned Distribution": "Farmed",
+      "Planned Date": "April 26, 2021 - May 3, 2021",
+      "Planned Max Supply": "Burned to 50,000"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #6 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48407,10 +48469,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5006,
     "name": "Tato Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/tato-rune",
+
+    "icon": "/images/farms/tato.png",
+    "image": "/images/new-runes/EX.png",
+    "imageHigh": "/images/new-runes/EX.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48436,11 +48499,18 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "TATO",
+      "Planned Distribution": "Farmed",
+      "Planned Date": "May 3, 2021 - May 10, 2021",
+      "Planned Max Supply": "Burned to 50,000"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #7 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48464,10 +48534,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5007,
     "name": "Ro Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/ro-rune",
+
+    "icon": "/images/farms/ro.png",
+    "image": "/images/new-runes/RO.png",
+    "imageHigh": "/images/new-runes/RO.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48493,11 +48564,18 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "RO",
+      "Planned Distribution": "Farmed",
+      "Planned Date": "May 10, 2021 - May 17, 2021",
+      "Planned Max Supply": "Burned to 50,000"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #8 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48521,10 +48599,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5008,
     "name": "Ore Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/ore-rune",
+
+    "icon": "/images/farms/ore.png",
+    "image": "/images/new-runes/ORE.png",
+    "imageHigh": "/images/new-runes/ORE.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48550,11 +48629,17 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": {
+      "Type": "Rune",
+      "Subtype": "Ingredient",
+      "Symbol": "ORE",
+      "Distribution": ["Unknown"],
+      "Planned Distribution": "Farmed"
+    },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #9 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48578,10 +48663,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5009,
     "name": "Ash Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/ash-rune",
+
+    "icon": "/images/farms/ash.png",
+    "image": "/images/new-runes/ASH.png",
+    "imageHigh": "/images/new-runes/ASH.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48607,11 +48693,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "ASH", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #10 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48635,10 +48721,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5010,
     "name": "Sen Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/sen-rune",
+
+    "icon": "/images/farms/sen.png",
+    "image": "/images/new-runes/SEN.png",
+    "imageHigh": "/images/new-runes/SEN.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48664,11 +48751,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "SEN", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #11 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48692,10 +48779,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5011,
     "name": "Thal Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/thal-rune",
+
+    "icon": "/images/farms/thal.png",
+    "image": "/images/new-runes/THAL.png",
+    "imageHigh": "/images/new-runes/THAL.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48721,11 +48809,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "THAL", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #12 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48749,10 +48837,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5012,
     "name": "Solo Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/solo-rune",
+
+    "icon": "/images/farms/solo.png",
+    "image": "/images/new-runes/SOLO.png",
+    "imageHigh": "/images/new-runes/SOLO.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48778,11 +48867,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "SOLO", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #13 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48806,10 +48895,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5013,
     "name": "Da Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/da-rune",
+
+    "icon": "/images/farms/da.png",
+    "image": "/images/new-runes/DA.png",
+    "imageHigh": "/images/new-runes/DA.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48835,11 +48925,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "DA", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #14 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48863,10 +48953,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5014,
     "name": "Han Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/han-rune",
+
+    "icon": "/images/farms/han.png",
+    "image": "/images/new-runes/HAN.png",
+    "imageHigh": "/images/new-runes/HAN.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48892,11 +48983,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "HAN", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #15 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48920,10 +49011,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5015,
     "name": "Ion Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/ion-rune",
+
+    "icon": "/images/farms/ion.png",
+    "image": "/images/new-runes/ION.png",
+    "imageHigh": "/images/new-runes/ION.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -48949,11 +49041,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "ION", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #16 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -48978,9 +49070,10 @@
     "id": 5016,
     "name": "Lux Rune",
     "link": "https://arken.gg/item/lux-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+
+    "icon": "/images/farms/lux.png",
+    "image": "/images/new-runes/LUX.png",
+    "imageHigh": "/images/new-runes/LUX.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49006,11 +49099,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "LUX", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #17 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49035,9 +49128,10 @@
     "id": 5017,
     "name": "Ka Rune",
     "link": "https://arken.gg/item/ka-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+
+    "icon": "/images/farms/ka.png",
+    "image": "/images/new-runes/KA.png",
+    "imageHigh": "/images/new-runes/KA.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49063,11 +49157,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "KA", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #18 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49091,10 +49185,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5018,
     "name": "Fus Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/fus-rune",
+
+    "icon": "/images/farms/fus.png",
+    "image": "/images/new-runes/FUS.png",
+    "imageHigh": "/images/new-runes/FUS.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49120,11 +49215,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "FUS", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #19 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49149,9 +49244,10 @@
     "id": 5019,
     "name": "Leni Rune",
     "link": "https://arken.gg/item/leni-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+
+    "icon": "/images/farms/leni.png",
+    "image": "/images/new-runes/LENI.png",
+    "imageHigh": "/images/new-runes/LENI.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49177,11 +49273,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "LENI", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #20 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49205,10 +49301,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5020,
     "name": "Pai Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/pai-rune",
+
+    "icon": "/images/farms/pai.png",
+    "image": "/images/new-runes/PAI.png",
+    "imageHigh": "/images/new-runes/PAI.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49234,11 +49331,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "PAI", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #20 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49262,10 +49359,10 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5021,
     "name": "Uln Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/uln-rune",
+    "icon": "/images/farms/uln.png",
+    "image": "/images/new-runes/ULN.png",
+    "imageHigh": "/images/new-runes/ULN.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49291,11 +49388,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "ULN", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #21 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49319,10 +49416,10 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5022,
     "name": "Mor Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/mor-rune",
+    "icon": "/images/farms/mor.png",
+    "image": "/images/new-runes/MOR.png",
+    "imageHigh": "/images/new-runes/MOR.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49348,11 +49445,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "MOR", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #22 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49376,10 +49473,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5023,
     "name": "Isk Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/isk-rune",
+
+    "icon": "/images/farms/isk.png",
+    "image": "/images/new-runes/ISK.png",
+    "imageHigh": "/images/new-runes/ISK.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49405,11 +49503,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "ISK", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #23 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49433,10 +49531,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5024,
     "name": "Gon Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/gon-rune",
+
+    "icon": "/images/farms/gon.png",
+    "image": "/images/new-runes/GON.png",
+    "imageHigh": "/images/new-runes/GON.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49462,11 +49561,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "GON", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #24 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49490,10 +49589,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5025,
     "name": "Val Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/val-rune",
+
+    "icon": "/images/farms/val.png",
+    "image": "/images/new-runes/VAL.png",
+    "imageHigh": "/images/new-runes/VAL.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49519,11 +49619,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "VAL", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #25 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49547,10 +49647,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5026,
     "name": "Oh Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/oh-rune",
+
+    "icon": "/images/farms/oh.png",
+    "image": "/images/new-runes/OH.png",
+    "imageHigh": "/images/new-runes/OH.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49576,11 +49677,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "OH", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #26 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49604,10 +49705,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5027,
     "name": "Lor Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/lor-rune",
+
+    "icon": "/images/farms/lor.png",
+    "image": "/images/new-runes/LOR.png",
+    "imageHigh": "/images/new-runes/LOR.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49633,11 +49735,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "LOR", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #27 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49661,10 +49763,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5028,
     "name": "Su Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/su-rune",
+
+    "icon": "/images/farms/su.png",
+    "image": "/images/new-runes/SU.png",
+    "imageHigh": "/images/new-runes/SU.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49690,11 +49793,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "SU", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #28 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49718,10 +49821,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5029,
     "name": "Beru Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/beru-rune",
+
+    "icon": "/images/farms/beru.png",
+    "image": "/images/new-runes/BERU.png",
+    "imageHigh": "/images/new-runes/BERU.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49747,11 +49851,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "BERU", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #29 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49775,10 +49879,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5030,
     "name": "Jua Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/jua-rune",
+
+    "icon": "/images/farms/jua.png",
+    "image": "/images/new-runes/JUA.png",
+    "imageHigh": "/images/new-runes/JUA.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49804,11 +49909,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "JUA", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #30 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49832,10 +49937,11 @@
     "uuid": "recN1aeT0TPwAA",
     "id": 5031,
     "name": "Chin Rune",
-    "link": "https://arken.gg/item/ex-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+    "link": "https://arken.gg/item/chin-rune",
+
+    "icon": "/images/farms/chin.png",
+    "image": "/images/new-runes/CHIN.png",
+    "imageHigh": "/images/new-runes/CHIN.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49861,11 +49967,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "CHIN", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #31 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49890,9 +49996,10 @@
     "id": 5032,
     "name": "Zeno Rune",
     "link": "https://arken.gg/item/zeno-rune",
-    "icon": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "image": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/JPCAw9sqppXsx0VODCPGtQ/1ZLmc8RDK74MiM3qLk27ht5qAXknIyog33mPeJnZ6pHuepszCd03gctuUXa_zmRG4gXbzVaJHurmaLO7Ra6jXySoVnBVA6GQtEZbTcZdTME/tXHOagqlxWLQwTsKyQKg4gwyjpD4PpuG3IB_yFOzGCg",
-    "imageHigh": "https://v5.airtableusercontent.com/v1/15/15/1680415200000/yqgwQ2OLkTpHQoMGlY6PbQ/tbpXh_oNvuGP4RDChaXI-Wg-yXUv8eoB6WOouITPl3xAw9l2yRKmMlc5bJEvSsCcAsztrHidoG78HOJJRaUFW2bmEUToFGZnUUUIti8sCPo/X-ja_u0uZG-OYlcgiuX8bD6YpEEMMSjuCct3rcUtlG4",
+
+    "icon": "/images/farms/zeno.png",
+    "image": "/images/new-runes/ZENO.png",
+    "imageHigh": "/images/new-runes/ZENO.png",
     "value": "0",
     "type": 18,
     "subType": 63,
@@ -49918,11 +50025,11 @@
     "createdDate": 0,
     "hotness": 0,
     "attributes": [],
-    "details": { "Type": "Rune", "Subtype": "Ingredient", "Distribution": ["Unknown"] },
+    "details": { "Type": "Rune", "Subtype": "Ingredient", "Symbol": "ZENO", "Distribution": ["Unknown"] },
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient rune used in magical craft. It's #32 in the Rune Codex.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {
@@ -49979,7 +50086,7 @@
     "recipe": {
       "requirement": []
     },
-    "description": "An ingredient used in magical crafting.",
+    "description": "An ancient bag.",
     "shortDescription": "",
     "visualDescription": "",
     "branches": {

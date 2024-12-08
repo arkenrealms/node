@@ -12,6 +12,12 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    setProfileMode: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(z.string())
+      .mutation(({ input, ctx }) => (ctx.app.service.Profile.setProfileMode as any)(input, ctx)),
+
     // Profile endpoints
     getProfile: procedure
       .use(hasRole('guest', t))

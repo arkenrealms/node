@@ -174,7 +174,7 @@
       "link": "https://arken.gg/game/raids",
       "primaryColor": "red",
       "secondaryColor": "white",
-      "logoLink": "https://arken.gg/images/games/rune-raid-logo.png",
+      "logoLink": "/images/games/rune-raid-logo.png",
       "shortDescription": "Arken is an addicting dark fantasy RPG. Play and earn runes (crypto) battling players and AI. Use runes to craft gear (NFTs) to make your character more powerful.",
       "description": "The Future DeFi and Gaming Ecosystem\n\nHybrid gaming ecosystem which utilizes NFT game assets, seamless integration into a conventional game.\n",
       "storyline": "",
@@ -188,7 +188,7 @@
       "link": "https://arken.gg/game/evolution",
       "primaryColor": "blue",
       "secondaryColor": "grey",
-      "logoLink": "https://arken.gg/images/games/rune-evolution-logo.png",
+      "logoLink": "/images/games/rune-evolution-logo.png",
       "shortDescription": "",
       "description": "Evolution Isles is a web-based arena style game, comprised of 10+ game modes rotating every 5 minutes. You collect sprites to evolve your character to be able to beat other players, while trying to collect rewards scattered on the map. Each game mode puts a spin on the game play. Although it's easy to get started, the battle for glory is more difficult. It currently has 5+ servers covering the world.\n",
       "storyline": "You start a dragonling, new to the vibrant Mage Isles, in a world of might and magic. The isles are a dangerous place for a youngling, and you constantly need to flee to safety. Until one day, suddenly, you evolve, and find new strength to conquer your foes.\n",
@@ -201,7 +201,7 @@
       "link": "https://arken.gg/game/infinite",
       "primaryColor": "yellow",
       "secondaryColor": "white",
-      "logoLink": "https://arken.gg/images/games/rune-infinite-logo.png",
+      "logoLink": "/images/games/rune-infinite-logo.png",
       "shortDescription": "",
       "description": "Crush opponents while earning unique prizes in this fast-paced fantasy PvP brawler from Arken: a world-renowned crypto gaming company pushing NFT games to new horizons. Choose your class, customize your avatar, and collect unique NFTs playing the third game in Arken's ever-expanding metaverse. Test your mettle against players across the globe and rise above the rest as Champion of the Infinite Arena. \n",
       "storyline": "",
@@ -214,7 +214,7 @@
       "link": "https://arken.gg/game/guardians",
       "primaryColor": "green",
       "secondaryColor": "grey",
-      "logoLink": "https://arken.gg/images/games/rune-guardians-logo.png",
+      "logoLink": "/images/games/rune-guardians-logo.png",
       "shortDescription": "",
       "description": "Hatch unique pets, unlock special abilities, and raise your perfect Guardian in the newest digital pet NFT game from Arken. Grow and evolve your pets as you fight alongside them in Arken's expanding metaverse: from the Infinite Arena PvP brawler to the vast RPG of Sanctuary. With over 50 unique pet designs and nearly a trillion combinations: breed an epic companion that’s unique to you! Earn new and exclusive recipes, rewards, and abilities as you progress in this constantly evolving game, seamlessly integrated into Arken's flourishing ecosystem.\n",
       "storyline": "",
@@ -227,7 +227,7 @@
       "link": "https://arken.gg/game/sanctuary",
       "primaryColor": "orange",
       "secondaryColor": "grey",
-      "logoLink": "https://arken.gg/images/games/rune-sanctuary-logo.png",
+      "logoLink": "/images/games/rune-sanctuary-logo.png",
       "shortDescription": "",
       "description": "With the power of the Arkenverse Cube in your hands, you are tasked with saving Haerra from inevitable destruction. Immerse yourself in Arken's groundbreaking fantasy RPG as you customize your unique character and class, craft unique NFTs, and rise against the forces which seek to overwhelm Haerra. In Sanctuary, every choice you make has consequences. Do you have what it takes to save your world, or will you fall to ruin at the feet of the gods?\n",
       "storyline": "",
@@ -668,7 +668,7 @@
     "recpj7GTua1s3oOmM": {
       "uuid": "recpj7GTua1s3oOmM",
       "name": "Transmuting",
-      "text": "We all love crafting a Mythic, but in their quest for one some of our raiders have found themselves with quite the collection of weapons and armor that are just collecting dust, so what to do with them? Well, here at Rune we usually like to see things burn, but as those Runeforms are all rather special, the fire didn’t seem quite appropriate this time. So instead, we’ll just take them apart.\n\nWithin them, they tell a tale of mystical disenchanting powers that turn Runeforms back into runes. But rather than the runes used to craft the Runeform, you’ll receive LEM runes instead. As this process requires some degree of sorcery, items of a higher perfection will yield more LEM than more common ones. LEM can then be used to upgrade your other items, or for crafting more Runeforms.\n",
+      "text": "We all love crafting a Mythic, but in their quest for one some of our raiders have found themselves with quite the collection of weapons and armor that are just collecting dust, so what to do with them? Well, here at Rune we usually like to see things burn, but as those Runeforms are all rather special, the fire didn’t seem quite appropriate this time. So instead, we’ll just take them apart.\n\nWithin them, they tell a tale of mystical disenchanting powers that turn Runeforms back into runes. But rather than the runes used to craft the Runeform, you’ll receive LENI runes instead. As this process requires some degree of sorcery, items of a higher perfection will yield more LEM than more common ones. LEM can then be used to upgrade your other items, or for crafting more Runeforms.\n",
       "game": 1,
       "isEnabled": true,
       "attachments": []
@@ -724,7 +724,7 @@
       "details": {
         "Type": "Ring",
         "Subtype": "Inscribed Archon Band",
-        "Rune Word": "Eld Amn Shael Io Zod",
+        "Runeform": "Eld Amn Shael Io Zod",
         "Distribution": ["Crafted"],
         "Date": "August 27, 2021 - Now"
       },
@@ -1055,7 +1055,7 @@
       "details": {
         "Type": "Ring",
         "Subtype": "Glimmering Band",
-        "Rune Word": "Lum Dol Io Dol Lum",
+        "Runeform": "Lum Dol Io Dol Lum",
         "Distribution": ["Crafted"],
         "Date": "August 27, 2021 - Now"
       },
@@ -1752,7 +1752,7 @@
       "details": {
         "Type": "Ring",
         "Subtype": "Overwrought Iron Ring",
-        "Rune Word": "Pul Ith Mal Um Zod",
+        "Runeform": "Pul Ith Mal Um Zod",
         "Distribution": ["Crafted"],
         "Date": "Jan 16, 2022 - Now"
       },

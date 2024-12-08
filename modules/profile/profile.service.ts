@@ -3,6 +3,21 @@ import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
 
 export class Service {
+  async setProfileMode(
+    input: RouterInput['setProfileMode'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['setProfileMode']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Profile.Service.setProfileMode', input);
+
+    const profile = await ctx.app.model.Profile.findById(ctx.profile.id).exec();
+    if (!profile) throw new ARXError('NOT_FOUND');
+
+    profile.mode = input;
+
+    await profile.save();
+  }
+
   async getProfile(input: RouterInput['getProfile'], ctx: RouterContext): Promise<RouterOutput['getProfile']> {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Profile.Service.getProfile', input);

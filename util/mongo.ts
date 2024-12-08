@@ -164,7 +164,7 @@ export function createSchema<T>(
         virtualOptions.match = virtual.match;
       }
 
-      if (collectionName === 'Game') console.log(schema, virtualOptions);
+      // if (collectionName === 'Game') console.log(schema, virtualOptions);
 
       const schemaVirtual = schema.virtual(virtual.name, virtualOptions);
 

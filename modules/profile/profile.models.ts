@@ -152,6 +152,7 @@ export const Profile = mongo.createModel<Types.ProfileDocument>(
     banReason: { type: String },
     bio: { type: String },
     banner: { type: String },
+    mode: { type: String, default: 'gamer' },
     friends: [
       {
         profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },

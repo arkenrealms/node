@@ -9,7 +9,7 @@ export class Service {
     console.log('Core.Service.getGame', input, getFilter(input));
 
     const game = await ctx.app.model.Game.findOne(getFilter(input)).populate('stat').exec();
-    console.log(game);
+
     if (!game) throw new Error('Game not found');
 
     return game as Game;
