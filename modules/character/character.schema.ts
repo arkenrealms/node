@@ -48,13 +48,17 @@ export const Character = Entity.merge(
     guildId: ObjectId.optional(),
     token: z.string().min(1).optional(),
     points: z.number().default(0),
-    isNPC: z.boolean().default(false),
+    isPrimary: z.boolean().default(false),
     isBoss: z.boolean().default(false),
     isPlayer: z.boolean().default(false),
     equipmentIndex: z.number().default(0),
     equipment: z.array(CharacterEquipment).default([]),
     inventoryIndex: z.number().default(0),
     inventory: z.array(CharacterInventory).default([]),
+    energyIds: z.array(ObjectId).optional(),
+    areaIds: z.array(ObjectId).optional(),
+    typeIds: z.array(ObjectId).optional(),
+    itemMaterialIds: z.array(ObjectId).optional(),
   })
 );
 

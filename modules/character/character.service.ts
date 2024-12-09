@@ -29,6 +29,16 @@ export class Service {
     return character as Character;
   }
 
+  async getCharacters(input: RouterInput['getCharacters'], ctx: RouterContext): Promise<RouterOutput['getCharacters']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Character.Service.getCharacters', input);
+
+    const filter = getFilter(input);
+    const characters = await ctx.app.model.Character.find(filter).exec();
+
+    return characters as Character[];
+  }
+
   async getCharacterAbility(
     input: RouterInput['getCharacterAbility'],
     ctx: RouterContext

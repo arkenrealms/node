@@ -68,7 +68,7 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
     factionId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterFaction', required: false },
     genderId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterGender', required: false },
     guildId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterGuild', required: false },
-    isNPC: { type: Boolean, required: true, default: false },
+    isPrimary: { type: Boolean, required: true, default: false },
     isBoss: { type: Boolean, required: true, default: false },
     token: { type: String, required: true, trim: true },
     points: { type: Number, default: 0, required: true },
@@ -76,6 +76,10 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
     equipment: [{ type: CharacterEquipment, default: [] }],
     inventoryIndex: { type: Number, default: 0 },
     inventory: [{ type: CharacterInventory, default: [] }],
+    energyIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'Energy', required: false }],
+    areaIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'Area', required: false }],
+    typeIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'CharacterType', required: false }],
+    itemMaterialIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemMaterial', required: false }],
     // level: { type: Number, required: true },
     // experience: { type: Number, required: true },
     // gold: { type: Number, default: 0 },
@@ -89,6 +93,30 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
       // {
       //   name: 'team',
       // },
+      {
+        name: 'energies',
+        ref: 'Energy',
+        localField: 'energyIds',
+        foreignField: '_id',
+      },
+      {
+        name: 'areas',
+        ref: 'Area',
+        localField: 'areaIds',
+        foreignField: '_id',
+      },
+      {
+        name: 'types',
+        ref: 'CharacterType',
+        localField: 'typeIds',
+        foreignField: '_id',
+      },
+      {
+        name: 'itemMaterials',
+        ref: 'ItemMaterial',
+        localField: 'itemMaterialIds',
+        foreignField: '_id',
+      },
       {
         name: 'profile',
       },
@@ -107,7 +135,7 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
       {
         name: 'gender',
       },
-      { name: 'types', ref: 'CharacterType', localField: '_id', foreignField: 'characterId' },
+      // { name: 'types', ref: 'CharacterType', localField: '_id', foreignField: 'characterId' },
       // {
       //   name: 'inventory'
       //   ref: 'ItemSlot',
