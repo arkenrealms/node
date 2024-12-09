@@ -90,6 +90,7 @@ export interface Application {
 export type RouterClient = {
   socket: any;
   roles: string[];
+  profile?: Profile.Types.Profile;
 };
 
 export type RouterContext = {

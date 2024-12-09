@@ -103,6 +103,9 @@ export const Item = Entity.merge(
     quantity: z.number().int().nonnegative().default(1),
     x: z.number().int().nonnegative().optional(),
     y: z.number().int().nonnegative().optional(),
+    distribution: z
+      .enum(['Unknown', 'Found', 'Fundraiser', 'Claimed', 'Crafted', 'Airdrop', 'Reward', 'Farmed', 'Migration'])
+      .default('Unknown'),
     // properties: z.record(z.any()).optional(),
     // type: z.string().default('bag'), // stash, bag, equipment, etc.
     items: z.array(z.lazy(() => Item)).default([]),

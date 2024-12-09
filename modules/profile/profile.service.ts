@@ -10,7 +10,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Profile.Service.setProfileMode', input);
 
-    const profile = await ctx.app.model.Profile.findById(ctx.profile.id).exec();
+    const profile = await ctx.app.model.Profile.findById(ctx.client.profile.id).exec();
     if (!profile) throw new ARXError('NOT_FOUND');
 
     profile.mode = input;

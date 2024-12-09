@@ -62,9 +62,14 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
   'Character',
   {
     // teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team', required: false, autopopulate: true },
-    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating', required: false },
     classId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterClass', required: false },
+    raceId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterRace', required: false },
+    factionId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterFaction', required: false },
+    genderId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterGender', required: false },
+    guildId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterGuild', required: false },
+    isNPC: { type: Boolean, required: true, default: false },
+    isBoss: { type: Boolean, required: true, default: false },
     token: { type: String, required: true, trim: true },
     points: { type: Number, default: 0, required: true },
     equipmentIndex: { type: Number, default: 0 },
@@ -93,6 +98,16 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
       {
         name: 'class',
       },
+      {
+        name: 'race',
+      },
+      {
+        name: 'faction',
+      },
+      {
+        name: 'gender',
+      },
+      { name: 'types', ref: 'CharacterType', localField: '_id', foreignField: 'characterId' },
       // {
       //   name: 'inventory'
       //   ref: 'ItemSlot',
@@ -117,12 +132,12 @@ export const CharacterClass = mongo.createModel<Types.CharacterClassDocument>('C
 
 export const CharacterFaction = mongo.createModel<Types.CharacterFactionDocument>('CharacterFaction', {});
 
-export const CharacterRace = mongo.createModel<Types.CharacterRaceDocument>('CharacterRace', {
-  npcs: [{ type: mongo.Schema.Types.ObjectId, ref: 'Npc' }],
-});
+export const CharacterRace = mongo.createModel<Types.CharacterRaceDocument>('CharacterRace', {});
 
 export const CharacterGender = mongo.createModel<Types.CharacterGenderDocument>('CharacterGender', {});
 
 export const CharacterPersonality = mongo.createModel<Types.CharacterPersonalityDocument>('CharacterPersonality', {});
 
 export const CharacterTitle = mongo.createModel<Types.CharacterTitleDocument>('CharacterTitle', {});
+
+export const CharacterGuild = mongo.createModel<Types.CharacterGuildDocument>('CharacterGuild', {});

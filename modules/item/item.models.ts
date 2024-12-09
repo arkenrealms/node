@@ -23,6 +23,7 @@ export const Item = mongo.createModel<Types.ItemDocument>(
     setId: { type: mongo.Schema.Types.ObjectId, ref: 'ItemSet', required: false },
     attributes: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemAttribute', required: false }],
     quantity: { type: Number, integer: true, min: 0, default: 1 },
+    distribution: { type: String, default: 'Unknown' },
     x: { type: Number, integer: true, min: 0, required: false },
     y: { type: Number, integer: true, min: 0, required: false },
     items: [{ type: mongo.Schema.Types.ObjectId, ref: 'Item', default: [] }],
