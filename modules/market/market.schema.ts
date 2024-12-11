@@ -20,7 +20,7 @@ export const MarketExchange = Entity.merge(
 
 export const MarketAnalysis = Entity.merge(
   z.object({
-    action: z.enum(['buy', 'sell']), // buy or sell action
+    action: z.enum(['Buy', 'Sell']), // buy or sell action
     asset: z.string().min(1), // the asset being traded (e.g., oil, Bitcoin)
     signalType: z.string().min(1), // type of signal (e.g., news)
     confidence: z.number().min(0).max(100), // confidence level from 0 to 100
@@ -36,17 +36,15 @@ export const MarketAnalysis = Entity.merge(
   })
 );
 
-export const InvestorProfile = Entity.merge(
+export const MarketInvestor = Entity.merge(
   z.object({
-    name: z.string(),
     portfolios: z.array(ObjectId), // Array of ObjectId references to InvestmentPortfolio
     totalPnL: z.number().optional(), // Total profit and loss
   })
 );
 
-export const InvestmentPortfolio = Entity.merge(
+export const MarketInvestmentPortfolio = Entity.merge(
   z.object({
-    name: z.string(),
     categoryGoals: z.array(
       z.object({
         category: z.string(), // Category name
@@ -60,7 +58,7 @@ export const InvestmentPortfolio = Entity.merge(
   })
 );
 
-export const Investment = Entity.merge(
+export const MarketInvestment = Entity.merge(
   z.object({
     type: z.enum(['Stock', 'ChainToken']),
     category: z.enum(['Historically Safe', 'Economy Bull', 'Economy Bear', 'Custom']),
@@ -83,7 +81,7 @@ export const Investment = Entity.merge(
   })
 );
 
-export const Stock = Entity.merge(
+export const MarketStock = Entity.merge(
   z.object({
     ticker: z.string(),
     companyName: z.string(),
@@ -99,7 +97,7 @@ export const Stock = Entity.merge(
   })
 );
 
-export const ChainToken = Entity.merge(
+export const MarketToken = Entity.merge(
   z.object({
     symbol: z.string(),
     tokenName: z.string(),
@@ -107,9 +105,8 @@ export const ChainToken = Entity.merge(
   })
 );
 
-export const StockCompany = Entity.merge(
+export const MarketCompany = Entity.merge(
   z.object({
-    name: z.string(), // Company name, e.g., "Direxion"
     ticker: z.string(), // Primary ticker, if applicable
     type: z.enum(['Public Company', 'ETF Issuer', 'Both', 'Other']), // Categorize the company type
     country: z.string().optional(), // Country where the company is based
@@ -119,10 +116,9 @@ export const StockCompany = Entity.merge(
   })
 );
 
-export const ETF = Entity.merge(
+export const MarketETF = Entity.merge(
   z.object({
     ticker: z.string(),
-    name: z.string(), // Name of the ETF, e.g., "Direxion Daily Semiconductor Bull 3X Shares"
     issuer: ObjectId, // Reference to the Company issuing the ETF
     leverage: z.number().optional(), // Leverage factor if applicable (e.g., 3x)
     country: z.string().optional(), // Country where the ETF is based
@@ -133,7 +129,7 @@ export const ETF = Entity.merge(
   })
 );
 
-export const StockSentiment = Entity.merge(
+export const MarketStockSentiment = Entity.merge(
   z.object({
     ticker: z.string(),
     company: z.string(),
@@ -143,11 +139,5 @@ export const StockSentiment = Entity.merge(
     }),
     context: z.string(), // description of the sentiment's context
     confidence: z.number().min(0).max(1), // overall confidence level for the analysis
-  })
-);
-
-export const BigData = Entity.merge(
-  z.object({
-    name: z.string(),
   })
 );
