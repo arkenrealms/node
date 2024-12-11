@@ -15,15 +15,14 @@ export type Market = z.infer<typeof schema.Market>;
 export type MarketPair = z.infer<typeof schema.MarketPair>;
 export type MarketExchange = z.infer<typeof schema.MarketExchange>;
 export type MarketAnalysis = z.infer<typeof schema.MarketAnalysis>;
-export type InvestorProfile = z.infer<typeof schema.InvestorProfile>;
-export type InvestmentPortfolio = z.infer<typeof schema.InvestmentPortfolio>;
-export type Investment = z.infer<typeof schema.Investment>;
-export type Stock = z.infer<typeof schema.Stock>;
-export type ChainToken = z.infer<typeof schema.ChainToken>;
-export type StockCompany = z.infer<typeof schema.StockCompany>;
-export type ETF = z.infer<typeof schema.ETF>;
-export type StockSentiment = z.infer<typeof schema.StockSentiment>;
-export type BigData = z.infer<typeof schema.BigData>;
+export type InvestorProfile = z.infer<typeof schema.MarketInvestor>;
+export type InvestmentPortfolio = z.infer<typeof schema.MarketInvestmentPortfolio>;
+export type Investment = z.infer<typeof schema.MarketInvestment>;
+export type Stock = z.infer<typeof schema.MarketStock>;
+export type ChainToken = z.infer<typeof schema.MarketToken>;
+export type StockCompany = z.infer<typeof schema.MarketCompany>;
+export type ETF = z.infer<typeof schema.MarketETF>;
+export type StockSentiment = z.infer<typeof schema.MarketStockSentiment>;
 
 export type MarketDocument = Market & Document;
 export type MarketPairDocument = MarketPair & Document;
@@ -37,7 +36,6 @@ export type ChainDocument = ChainToken & Document;
 export type StockCompanyDocument = StockCompany & Document;
 export type ETFDocument = ETF & Document;
 export type StockSentimentDocument = StockSentiment & Document;
-export type BigDataDocument = BigData & Document;
 
 export type Mappings = {
   Market: Model<MarketDocument>;
@@ -52,7 +50,6 @@ export type Mappings = {
   Company: Model<StockCompanyDocument>;
   ETF: Model<ETFDocument>;
   StockSentiment: Model<StockSentimentDocument>;
-  BigData: Model<BigDataDocument>;
 };
 
 export type RouterInput = inferRouterInputs<Router>;
