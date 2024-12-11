@@ -54,3 +54,23 @@ export const CollectibleCard = mongo.createModel<Types.CollectibleCardDocument>(
   category: { type: String, trim: true },
   year: { type: Number },
 });
+
+export const Set = mongo.createModel<Types.SetDocument>('Set', {
+  seriesId: { type: mongo.Schema.Types.ObjectId, ref: 'Series', required: true },
+  name: { type: String, required: true, trim: true },
+  language: { type: String, required: true, trim: true },
+  live: { type: Boolean, default: false },
+  releaseDate: { type: String, required: true, trim: true },
+});
+
+export const Card = mongo.createModel<Types.CardDocument>('Card', {
+  setId: { type: mongo.Schema.Types.ObjectId, ref: 'Set', required: true },
+  name: { type: String, required: true, trim: true },
+  language: { type: String, required: true, trim: true },
+  releaseDate: { type: String, required: true, trim: true },
+  cardId: { type: Number, required: true },
+});
+
+export const Series = mongo.createModel<Types.SeriesDocument>('Series', {
+  name: { type: String, required: true, trim: true },
+});

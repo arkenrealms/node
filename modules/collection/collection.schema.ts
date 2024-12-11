@@ -61,3 +61,30 @@ export const CollectibleCard = Entity.merge(
     year: z.number().optional(),
   })
 );
+
+export const Card = Entity.merge(
+  z.object({
+    setId: ObjectId,
+    name: z.string(),
+    language: z.string(),
+    releaseDate: z.string(),
+    cardId: z.number(),
+  })
+);
+
+export const Set = Entity.merge(
+  z.object({
+    seriesId: ObjectId,
+    name: z.string(),
+    language: z.string(),
+    live: z.boolean(),
+    releaseDate: z.string(),
+    cards: z.array(Card).optional(),
+  })
+);
+
+export const Series = Entity.merge(
+  z.object({
+    name: z.string(),
+  })
+);
