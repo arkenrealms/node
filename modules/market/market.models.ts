@@ -29,27 +29,30 @@ export const MarketAnalysis = mongo.createModel<Types.MarketAnalysisDocument>('M
   },
 });
 
-export const InvestorProfile = mongo.createModel<Types.InvestorProfileDocument>('MarketInvestor', {
+export const MarketInvestor = mongo.createModel<Types.MarketInvestorDocument>('MarketInvestor', {
   name: { type: String, required: true },
   portfolios: { type: mongo.Schema.Types.ObjectId, required: true },
   totalPnL: { type: Number },
 });
 
-export const InvestmentPortfolio = mongo.createModel<Types.InvestmentPortfolioDocument>('MarketInvestmentPortfolio', {
-  name: { type: String, required: true },
-  categoryGoals: [
-    {
-      category: { type: String, required: true },
-      goalPercentage: { type: Number, required: true },
-      currentPnL: { type: Number },
-      historicalPnL: { type: Number },
-    },
-  ],
-  investments: { type: mongo.Schema.Types.ObjectId, required: true },
-  totalPnL: { type: Number },
-});
+export const MarketInvestmentPortfolio = mongo.createModel<Types.MarketInvestmentPortfolioDocument>(
+  'MarketInvestmentPortfolio',
+  {
+    name: { type: String, required: true },
+    categoryGoals: [
+      {
+        category: { type: String, required: true },
+        goalPercentage: { type: Number, required: true },
+        currentPnL: { type: Number },
+        historicalPnL: { type: Number },
+      },
+    ],
+    investments: { type: mongo.Schema.Types.ObjectId, required: true },
+    totalPnL: { type: Number },
+  }
+);
 
-export const Investment = mongo.createModel<Types.InvestmentDocument>('MarketInvestment', {
+export const MarketInvestment = mongo.createModel<Types.MarketInvestmentDocument>('MarketInvestment', {
   type: { type: String, required: true },
   amount: { type: Number, required: true },
   category: { type: String, required: true },
@@ -68,7 +71,7 @@ export const Investment = mongo.createModel<Types.InvestmentDocument>('MarketInv
   chainToken: { type: mongo.Schema.Types.ObjectId },
 });
 
-export const Stock = mongo.createModel<Types.StockDocument>('MarketStock', {
+export const MarketStock = mongo.createModel<Types.MarketStockDocument>('MarketStock', {
   ticker: { type: String, required: true },
   companyName: { type: String, required: true },
   companyId: { type: mongo.Schema.Types.ObjectId, required: true, ref: 'StockCompany' },
@@ -82,13 +85,13 @@ export const Stock = mongo.createModel<Types.StockDocument>('MarketStock', {
   dailyChangePercent: { type: Number },
 });
 
-export const ChainToken = mongo.createModel<Types.ChainDocument>('MarketToken', {
+export const MarketToken = mongo.createModel<Types.MarketTokenDocument>('MarketToken', {
   name: { type: String, required: true },
   symbol: { type: String, required: true },
   currentPrice: { type: Number, required: true },
 });
 
-export const StockCompany = mongo.createModel<Types.StockCompanyDocument>('MarketCompany', {
+export const MarketCompany = mongo.createModel<Types.MarketCompanyDocument>('MarketCompany', {
   name: { type: String, required: true },
   ticker: { type: String, required: true },
   country: { type: String, required: true },
@@ -98,14 +101,14 @@ export const StockCompany = mongo.createModel<Types.StockCompanyDocument>('Marke
   issuedETFs: [{ type: mongo.Schema.Types.ObjectId, ref: 'MarketETF' }],
 });
 
-export const ETF = mongo.createModel<Types.ETFDocument>('ETF', {
+export const MarketETF = mongo.createModel<Types.MarketETFDocument>('ETF', {
   name: { type: String, required: true },
   ticker: { type: String, required: true },
   issuer: { type: mongo.Schema.Types.ObjectId, required: true },
   leverage: { type: Number, required: false },
 });
 
-export const StockSentiment = mongo.createModel<Types.StockSentimentDocument>('MarketStockSentiment', {
+export const MarketStockSentiment = mongo.createModel<Types.MarketStockSentimentDocument>('MarketStockSentiment', {
   ticker: { type: String, required: true },
   sentiment: {
     label: { type: String, required: true },
