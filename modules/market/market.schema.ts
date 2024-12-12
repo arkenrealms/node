@@ -1,23 +1,5 @@
 import { z, Entity, ObjectId } from '../../schema';
 
-export const Market = Entity.merge(
-  z.object({
-    value: z.string().min(1),
-  })
-);
-
-export const MarketPair = Entity.merge(
-  z.object({
-    value: z.string().min(1),
-  })
-);
-
-export const MarketExchange = Entity.merge(
-  z.object({
-    value: z.string().optional(),
-  })
-);
-
 export const MarketAnalysis = Entity.merge(
   z.object({
     action: z.enum(['Buy', 'Sell']), // buy or sell action
@@ -38,8 +20,8 @@ export const MarketAnalysis = Entity.merge(
 
 export const MarketInvestor = Entity.merge(
   z.object({
-    portfolios: z.array(ObjectId), // Array of ObjectId references to InvestmentPortfolio
-    totalPnL: z.number().optional(), // Total profit and loss
+    portfolioIds: z.array(ObjectId), // Array of ObjectId references to InvestmentPortfolio
+    totalPnl: z.number().optional(), // Total profit and loss
   })
 );
 
@@ -49,12 +31,12 @@ export const MarketInvestmentPortfolio = Entity.merge(
       z.object({
         category: z.string(), // Category name
         goalPercentage: z.number(), // Goal percentage for this category
-        currentPnL: z.number().optional(), // Current P&L for this category
+        currentPnl: z.number().optional(), // Current P&L for this category
         historicalPnL: z.number().optional(), // Historical P&L for this category
       })
     ), // Array of categories with goal percentages and P&L tracking
-    investments: z.array(ObjectId), // Array of ObjectId references to Investment
-    totalPnL: z.number().optional(), // Total P&L for this portfolio
+    investmentIds: z.array(ObjectId), // Array of ObjectId references to Investment
+    totalPnl: z.number().optional(), // Total P&L for this portfolio
   })
 );
 
@@ -76,18 +58,17 @@ export const MarketInvestment = Entity.merge(
         })
       )
       .optional(), // Optional array for detailed transaction history
-    stock: ObjectId.optional(), // Reference to Stock if type is 'Stock'
-    chainToken: ObjectId.optional(), // Reference to ChainToken if type is 'ChainToken'
+    stockId: ObjectId.optional(), // Reference to Stock if type is 'Stock'
+    chainTokenId: ObjectId.optional(), // Reference to ChainToken if type is 'ChainToken'
   })
 );
 
 export const MarketStock = Entity.merge(
   z.object({
     ticker: z.string(),
-    companyName: z.string(),
     companyId: ObjectId,
     marketCap: z.number().optional(),
-    AUM: z.number().optional(),
+    aum: z.number().optional(),
     quoteType: z.string(),
     currentPrice: z.number(),
     dailyChange: z.number().optional(),
@@ -100,7 +81,6 @@ export const MarketStock = Entity.merge(
 export const MarketToken = Entity.merge(
   z.object({
     symbol: z.string(),
-    tokenName: z.string(),
     currentPrice: z.number(),
   })
 );
@@ -119,7 +99,7 @@ export const MarketCompany = Entity.merge(
 export const MarketETF = Entity.merge(
   z.object({
     ticker: z.string(),
-    issuer: ObjectId, // Reference to the Company issuing the ETF
+    issuerId: ObjectId, // Reference to the Company issuing the ETF
     leverage: z.number().optional(), // Leverage factor if applicable (e.g., 3x)
     country: z.string().optional(), // Country where the ETF is based
     currency: z.string().optional(), // Currency the ETF is traded in
@@ -132,12 +112,12 @@ export const MarketETF = Entity.merge(
 export const MarketStockSentiment = Entity.merge(
   z.object({
     ticker: z.string(),
-    company: z.string(),
+    companyId: ObjectId,
     sentiment: z.object({
-      label: z.enum(['positive', 'neutral', 'negative']), // predefined sentiment labels
+      label: z.enum(['Positive', 'Neutral', 'Negative']), // predefined sentiment labels
       score: z.number().min(0).max(1), // sentiment score as a confidence percentage
     }),
-    context: z.string(), // description of the sentiment's context
+    description: z.string(), // description of the sentiment's context
     confidence: z.number().min(0).max(1), // overall confidence level for the analysis
   })
 );
