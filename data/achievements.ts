@@ -132,10 +132,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Fought a battle in Second Wind'],
+        description: ['Fought a battle in Evolution Isles'],
       },
       2: {
-        description: 'Fought a battle in Second Wind',
+        description: 'Fought a battle in Evolution Isles',
       },
     },
   },
@@ -155,10 +155,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Killed more than 100 players in Second Wind'],
+        description: ['Killed more than 100 players in Evolution Isles'],
       },
       2: {
-        description: 'Killed more than 100 players in Second Wind',
+        description: 'Killed more than 100 players in Evolution Isles',
       },
     },
   },
@@ -178,10 +178,10 @@ export const achievementData = [
     },
     branches: {
       1: {
-        description: ['Been the Second Wind leader 25 games in a row'],
+        description: ['Been the Evolution Isles leader 25 games in a row'],
       },
       2: {
-        description: 'Been the Second Wind leader 25 games in a row',
+        description: 'Been the Evolution Isles leader 25 games in a row',
       },
     },
   },

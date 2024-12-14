@@ -26,12 +26,12 @@
 Clone the repo and install dependencies:
 
 ```bash
-git clone --depth 1 --branch main https://github.com/arken-engineering/node.git your-project-name
+git clone --depth 1 --branch main https://github.com/arkenrealms/node.git your-project-name
 cd your-project-name
 rush update
 ```
 
-**Having issues installing? See our [debugging guide](https://github.com/arken-engineering/node/issues/1)**
+**Having issues installing? See our [debugging guide](https://github.com/arkenrealms/node/issues/1)**
 
 ## Starting Development
 
@@ -88,15 +88,15 @@ and reduce the amount of code required to manage these relationships.
 - 🌐 [Arken Telegram](https://telegram.arken.gg)
 - 📺 [Arken Realms](https://arken.gg/)
 - 📖 [Return Portal](http://return.gg/portal)
-- 💻 [Return Portal Web](https://github.com/arken-engineering/portal-web)
-- 💻 [Return Portal UI](https://github.com/arken-engineering/portal-ui)
-- 🔗 [Arken Seer](https://github.com/arken-engineering/seer)
+- 💻 [Return Portal Web](https://github.com/arkenrealms/portal-web)
+- 💻 [Return Portal UI](https://github.com/arkenrealms/portal-ui)
+- 🔗 [Arken Seer](https://github.com/arkenrealms/seer)
 
 ## License
 
 [WTFFPL](LICENSE)
 
-[github-actions-status]: https://github.com/arken-engineering/node/workflows/Test/badge.svg
-[github-actions-url]: https://github.com/arken-engineering/node/actions
-[github-tag-image]: https://img.shields.io/github/tag/arken-engineering/node.svg?label=version
-[github-tag-url]: https://github.com/arken-engineering/node/releases/latest
+[github-actions-status]: https://github.com/arkenrealms/node/workflows/Test/badge.svg
+[github-actions-url]: https://github.com/arkenrealms/node/actions
+[github-tag-image]: https://img.shields.io/github/tag/arkenrealms/node.svg?label=version
+[github-tag-url]: https://github.com/arkenrealms/node/releases/latest

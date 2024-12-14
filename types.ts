@@ -1,4 +1,6 @@
 import { createRouter } from './router';
+
+// Imports
 import * as Area from './modules/area';
 import * as Asset from './modules/asset';
 import * as Chain from './modules/chain';
@@ -17,6 +19,7 @@ import * as Raffle from './modules/raffle';
 import * as Skill from './modules/skill';
 import * as Video from './modules/video';
 
+// Exports
 export * as Area from './modules/area';
 export * as Asset from './modules/asset';
 export * as Chain from './modules/chain';
@@ -34,6 +37,7 @@ export * as Profile from './modules/profile';
 export * as Raffle from './modules/raffle';
 export * as Skill from './modules/skill';
 export * as Video from './modules/video';
+
 export type * as Schema from './schema';
 
 export type Router = ReturnType<typeof createRouter>;
@@ -85,20 +89,13 @@ export interface Application {
 
 export type RouterClient = {
   socket: any;
-  roles: string[]
-}
+  roles: string[];
+};
 
 export type RouterContext = {
   app: Application;
   client?: RouterClient;
-  profile?: {
-    roles: Array<{
-      status: 'Paused' | 'Pending' | 'Active' | 'Archived';
-      role: {
-        name: string;
-      };
-    }>;
-  };
+  profile?: Profile.Types.Profile;
 };
 
 export interface Signature {

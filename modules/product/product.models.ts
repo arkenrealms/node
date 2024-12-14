@@ -4,9 +4,9 @@ import type * as Types from './product.types';
 export const Product = mongo.createModel<Types.ProductDocument>(
   'Product',
   {
-    shortDescription: { type: String, maxlength: 300, required: true },
-    content: { type: String, required: true },
-    communityId: { type: mongo.Schema.Types.ObjectId, ref: 'Community', required: true },
+    shortDescription: { type: String, maxlength: 300, required: false },
+    content: { type: String, required: false },
+    communityId: { type: mongo.Schema.Types.ObjectId, ref: 'Community', required: false },
     type: { type: String, default: 'game', maxlength: 100 },
     releaseDate: { type: Date },
 

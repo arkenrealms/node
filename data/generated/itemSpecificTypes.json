@@ -641,21 +641,27 @@
   {
     "uuid": "recKZgdEdp64CYkJh",
     "id": 73,
-    "link": "https://arken.gg/item-specific-type/",
+    "name": "Rune",
+    "link": "https://arken.gg/item-specific-type/rune",
+    "subType": 10,
     "items": [],
     "itemMaterials": []
   },
   {
     "uuid": "rec3fM8H0RAxJSaNE",
     "id": 74,
-    "link": "https://arken.gg/item-specific-type/",
+    "name": "Runic Bag",
+    "link": "https://arken.gg/item-specific-type/runic-bag",
+    "subType": 10,
     "items": [],
     "itemMaterials": []
   },
   {
     "uuid": "recrGSrMa5gimlmW0",
     "id": 75,
-    "link": "https://arken.gg/item-specific-type/",
+    "name": "Token",
+    "link": "https://arken.gg/item-specific-type/token",
+    "subType": 10,
     "items": [],
     "itemMaterials": []
   },

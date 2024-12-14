@@ -7,6 +7,8 @@ export type * from './character.service';
 export type { RouterContext } from '../../types';
 
 export type Character = z.infer<typeof schema.Character>;
+export type CharacterInventory = z.infer<typeof schema.CharacterInventory>;
+export type CharacterEquipment = z.infer<typeof schema.CharacterEquipment>;
 export type CharacterAbility = z.infer<typeof schema.CharacterAbility>;
 export type CharacterAttribute = z.infer<typeof schema.CharacterAttribute>;
 export type CharacterClass = z.infer<typeof schema.CharacterClass>;
@@ -18,6 +20,8 @@ export type CharacterRace = z.infer<typeof schema.CharacterRace>;
 export type CharacterTitle = z.infer<typeof schema.CharacterTitle>;
 export type CharacterType = z.infer<typeof schema.CharacterType>;
 
+export type CharacterEquipmentDocument = CharacterEquipment & Document;
+export type CharacterInventoryDocument = CharacterInventory & Document;
 export type CharacterDocument = Character & Document;
 export type CharacterAbilityDocument = CharacterAbility & Document;
 export type CharacterAttributeDocument = CharacterAttribute & Document;

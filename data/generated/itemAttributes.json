@@ -2552,6 +2552,48 @@
     "explanation": ""
   },
   {
+    "uuid": "recxVsY6QwDxQ1Plb",
+    "id": 140,
+    "name": "Symbol",
+    "displayName": "Symbol",
+    "isEnabled": true,
+    "game": 1,
+    "link": "https://arken.gg/item-attribute/symbol",
+    "isImplemented": false,
+    "paramTypes": ["value"],
+    "paramValues": ["0-999"],
+    "nature": "Neutral",
+    "description": "{parameter1}",
+    "explanation": "",
+    "param1": {
+      "spec": "0-999",
+      "isPercent": false,
+      "min": "0",
+      "max": "999"
+    }
+  },
+  {
+    "uuid": "recxVsY6QwDxQ1Plb",
+    "id": 141,
+    "name": "Address",
+    "displayName": "Address",
+    "isEnabled": true,
+    "game": 1,
+    "link": "https://arken.gg/item-attribute/address",
+    "isImplemented": false,
+    "paramTypes": ["value"],
+    "paramValues": ["0-999"],
+    "nature": "Neutral",
+    "description": "{parameter1}",
+    "explanation": "",
+    "param1": {
+      "spec": "0-999",
+      "isPercent": false,
+      "min": "0",
+      "max": "999"
+    }
+  },
+  {
     "uuid": "recfTz485YpfDL87Q",
     "id": 1001,
     "name": "PhysicalDamage",

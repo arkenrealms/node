@@ -108,7 +108,18 @@ export function createSchema<T>(
     );
   }
 
+  schema.plugin(require('mongoose-autopopulate'));
+
   schema.set('toJSON', {
+    virtuals: true, // Include virtual fields
+    versionKey: false, // Remove the __v version field
+    transform: (doc, ret) => {
+      ret.id = ret._id.toString(); // Assign _id to id
+      // delete ret._id; // Remove _id from the output
+    },
+  });
+
+  schema.set('toObject', {
     virtuals: true, // Include virtual fields
     versionKey: false, // Remove the __v version field
     transform: (doc, ret) => {
@@ -130,8 +141,8 @@ export function createSchema<T>(
   if (options.virtuals) {
     options.virtuals.forEach((virtual) => {
       const virtualOptions: any = {
-        localField: virtual.localField || '_id',
-        foreignField: virtual.foreignField || `${toCamelCase(name)}Id`,
+        localField: virtual.localField || `${toCamelCase(virtual.name)}Id`,
+        foreignField: virtual.foreignField || '_id',
         justOne: virtual.justOne !== undefined ? virtual.justOne : !pluralize.isPlural(virtual.name),
       };
 
@@ -139,6 +150,8 @@ export function createSchema<T>(
         virtualOptions.refPath = virtual.refPath;
       } else if (virtual.ref) {
         virtualOptions.ref = virtual.ref;
+      } else if (schema.path(virtual.name + 'Id')) {
+        virtualOptions.ref = pluralize.singular(schema.path(virtual.name + 'Id').options.ref);
       } else {
         virtualOptions.ref = pluralize.singular(virtual.name.charAt(0).toUpperCase() + virtual.name.slice(1));
       }
@@ -150,6 +163,8 @@ export function createSchema<T>(
       if (virtual.match) {
         virtualOptions.match = virtual.match;
       }
+
+      // if (collectionName === 'Game') console.log(schema, virtualOptions);
 
       const schemaVirtual = schema.virtual(virtual.name, virtualOptions);
 
@@ -183,8 +198,11 @@ export function createModel<T extends Document>(
   if (modelMap[key]) return modelMap[key];
 
   const schema = createSchema<T>(key, schemaFields, options);
+
   const res = new Model<T>(mongoose.model<T>(key, schema));
+
   modelMap[key] = res;
+
   return res;
 }
 
@@ -243,7 +261,7 @@ export class Model<T extends Document> {
     projection?: ProjectionType<T> | null,
     options?: mongoose.QueryOptions
   ): Query<T[], T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -257,7 +275,7 @@ export class Model<T extends Document> {
     projection?: ProjectionType<T> | null,
     options?: QueryOptions
   ): Query<T | null, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -280,7 +298,7 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
     options?: QueryOptions & { new?: boolean }
   ): Query<T | null, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -290,7 +308,7 @@ export class Model<T extends Document> {
 
   // Override the findOneAndDelete method to include filters
   findOneAndDelete(filter: FilterQuery<T>, options?: QueryOptions): Query<T | null, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -330,7 +348,7 @@ export class Model<T extends Document> {
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       if (Array.isArray(doc)) {
         // @ts-ignore
         doc.forEach((d) => (d.applicationId = this.filters.applicationId));
@@ -365,7 +383,7 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
     options?: any
   ): Query<UpdateWriteOpResult, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
       // @ts-ignore
@@ -381,7 +399,7 @@ export class Model<T extends Document> {
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
     options?: any
   ): Query<UpdateWriteOpResult, T> {
-    if (!this.filterOmitModels.includes(this.model.modelName)) {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
@@ -411,3 +429,24 @@ export class Model<T extends Document> {
     return this.model.find();
   }
 }
+
+export const addTagVirtuals = (modelName: string) => [
+  {
+    name: 'tags',
+    ref: 'Node',
+    localField: '_id',
+    foreignField: 'from',
+    justOne: false,
+    match: { relationKey: 'tag', fromModel: modelName },
+  },
+];
+
+export const addApplicationVirtual = () => [
+  {
+    name: 'application',
+    ref: 'Application',
+    localField: 'applicationId',
+    foreignField: '_id',
+    justOne: true,
+  },
+];

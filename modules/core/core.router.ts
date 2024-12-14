@@ -5,7 +5,7 @@ import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import { dateFromString } from '../../util/zod';
 import type { RouterContext } from '../../types';
-import { Query, getQueryInput, inferRouterOutputs } from '../../schema';
+import { Query, getQueryInput, getQueryOutput, inferRouterOutputs } from '../../schema';
 import {
   Account,
   Achievement,
@@ -57,7 +57,7 @@ import {
   Review,
   Role,
   Season,
-  Server,
+  RealmShard,
   Session,
   SolarSystem,
   Star,
@@ -1065,7 +1065,7 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Realm))
-      .output(z.object({ data: z.array(Realm) }))
+      .output(z.array(Realm))
       .query(({ input, ctx }) => (ctx.app.service.Core.getRealms as any)(input, ctx)),
 
     createRealm: procedure
@@ -1191,33 +1191,33 @@ export const createRouter = () =>
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSeason as any)(input, ctx)),
 
     // Server Procedures
-    getServer: procedure
+    getRealmShard: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(Server)
-      .query(({ input, ctx }) => (ctx.app.service.Core.getServer as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(RealmShard)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmShard as any)(input, ctx)),
 
-    getServers: procedure
+    getRealmShards: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(z.object({ data: z.array(Server) }))
-      .query(({ input, ctx }) => (ctx.app.service.Core.getServers as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(z.array(RealmShard))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmShards as any)(input, ctx)),
 
-    createServer: procedure
+    createRealmShard: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(Server.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.createServer as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(RealmShard.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRealmShard as any)(input, ctx)),
 
-    updateServer: procedure
+    updateRealmShard: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Server))
-      .output(Server.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateServer as any)(input, ctx)),
+      .input(getQueryInput(RealmShard))
+      .output(RealmShard.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmShard as any)(input, ctx)),
 
     // Session Procedures
     getSession: procedure
@@ -1381,6 +1381,13 @@ export const createRouter = () =>
       .output(Team)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTeam as any)(input, ctx)),
 
+    getTeams: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Team))
+      .output(z.array(Team))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getTeams as any)(input, ctx)),
+
     createTeam: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
@@ -1424,6 +1431,13 @@ export const createRouter = () =>
       .input(getQueryInput(Trade))
       .output(Trade)
       .query(({ input, ctx }) => (ctx.app.service.Core.getTrade as any)(input, ctx)),
+
+    getTrades: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Trade))
+      .output(z.array(Trade))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.getTrades as any)(input, ctx)),
 
     createTrade: procedure
       .use(hasRole('admin', t))

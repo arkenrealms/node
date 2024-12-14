@@ -3,28 +3,7 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './core.types';
 
-// Function to add tag virtuals using the Node model
-const addTagVirtuals = (modelName: string) => [
-  {
-    name: 'tags',
-    ref: 'Node',
-    localField: '_id',
-    foreignField: 'from',
-    justOne: false,
-    match: { relationKey: 'tag', fromModel: modelName },
-  },
-];
-
-// Function to add application virtual
-const addApplicationVirtual = () => [
-  {
-    name: 'application',
-    ref: 'Application',
-    localField: 'applicationId',
-    foreignField: '_id',
-    justOne: true,
-  },
-];
+const { addTagVirtuals, addApplicationVirtual } = mongo;
 
 // Omniverse Model
 export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
@@ -65,7 +44,7 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
     indexes: [{ metaverseId: 1, name: 1, unique: true }],
     virtuals: [
       ...addTagVirtuals('Application'),
-      { name: 'agents' },
+      { name: 'agents', ref: 'Agent', localField: '_id', foreignField: 'applicationId' },
       { name: 'chain' },
       { name: 'account' },
       { name: 'assets' },
@@ -92,7 +71,7 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
       { name: 'realms' },
       { name: 'reviews' },
       { name: 'roles' },
-      { name: 'gameServers' },
+      { name: 'realmShards' },
       { name: 'suggestions' },
       { name: 'tags' },
       { name: 'tokens' },
@@ -184,14 +163,20 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
 export const Account = mongo.createModel<Types.AccountDocument>(
   'Account',
   {
-    username: { type: String, required: true },
+    username: { type: String },
     email: { type: String },
     telegramUserId: { type: Number },
   },
   {
     indexes: [
-      { applicationId: 1, username: 1, unique: true },
-      { applicationId: 1, telegramUserId: 1, unique: true },
+      // { applicationId: 1, username: 1, unique: true },
+      {
+        fields: { applicationId: 1, telegramUserId: 1 },
+        options: {
+          unique: true,
+          partialFilterExpression: { telegramUserId: { $exists: true } },
+        },
+      },
     ],
     virtuals: [
       {
@@ -662,9 +647,15 @@ export const Rating = mongo.createModel<Types.RatingDocument>(
 // Realm Model
 export const Realm = mongo.createModel<Types.RealmDocument>(
   'Realm',
-  { gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game', required: true } },
   {
-    virtuals: [...addTagVirtuals('Realm'), ...addApplicationVirtual()],
+    endpoint: { type: String },
+    status: { type: String },
+    clientCount: { type: Number },
+    regionCode: { type: String },
+    gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game', required: true },
+  },
+  {
+    virtuals: [...addTagVirtuals('Realm'), ...addApplicationVirtual(), { name: 'realmShards' }],
   }
 );
 
@@ -713,14 +704,17 @@ export const Season = mongo.createModel<Types.SeasonDocument>(
   }
 );
 
-// Server Model
-export const Server = mongo.createModel<Types.ServerDocument>(
-  'Server',
+// RealmShard Model
+export const RealmShard = mongo.createModel<Types.RealmShardDocument>(
+  'RealmShard',
   {
     realmId: { type: mongo.Schema.Types.ObjectId, ref: 'Realm' },
+    endpoint: { type: String },
+    status: { type: String },
+    clientCount: { type: Number },
   },
   {
-    virtuals: [...addTagVirtuals('Server'), ...addApplicationVirtual()],
+    virtuals: [...addTagVirtuals('RealmShard'), ...addApplicationVirtual()],
   }
 );
 
@@ -821,9 +815,19 @@ export const Team = mongo.createModel<Types.TeamDocument>(
   'Team',
   {
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
+    points: { type: Number, default: 0 },
   },
   {
-    virtuals: [...addTagVirtuals('Team'), ...addApplicationVirtual()],
+    virtuals: [
+      ...addTagVirtuals('Team'),
+      ...addApplicationVirtual(),
+      {
+        name: 'profiles',
+        ref: 'Profile',
+        localField: '_id',
+        foreignField: 'teamId',
+      },
+    ],
   }
 );
 
@@ -840,6 +844,11 @@ export const Tournament = mongo.createModel<Types.TournamentDocument>(
 export const Trade = mongo.createModel<Types.TradeDocument>(
   'Trade',
   {
+    status: {
+      type: String,
+      default: 'Active',
+      enum: ['Paused', 'Pending', 'Active', 'Delisted', 'Sold'],
+    },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
     buyerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
     parentId: { type: mongo.Schema.Types.ObjectId, ref: 'Trade' },
@@ -927,5 +936,69 @@ export const Node = mongo.createModel<Types.NodeDocument>(
       { fromModel: 1, from: 1 },
       { toModel: 1, to: 1 },
     ],
+  }
+);
+
+export const Prefab = mongo.createModel<Types.PrefabDocument>(
+  'Prefab',
+  {
+    name: { type: String, required: true },
+    fbxPath: { type: String, required: true },
+    customizationOptions: { type: mongo.Schema.Types.Mixed }, // e.g., color, scale range, etc.
+    childPrefabs: [
+      {
+        prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab' },
+        position: { type: mongo.Schema.Types.Mixed }, // Relative position within parent prefab
+        rotation: { type: mongo.Schema.Types.Mixed },
+        scale: { type: Number, default: 1.0 },
+      },
+    ],
+  },
+  {
+    extend: 'EntityFields',
+    virtuals: [...addTagVirtuals('Prefab'), ...addApplicationVirtual()],
+  }
+);
+
+export const Object = mongo.createModel<Types.ObjectDocument>(
+  'Object',
+  {
+    prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab', required: true },
+    // profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+    // worldCoordinates: {
+    //   x: { type: Number, required: true },
+    //   y: { type: Number, required: true },
+    //   z: { type: Number, required: true },
+    // },
+    rotation: { type: mongo.Schema.Types.Mixed },
+    scale: { type: Number, default: 1.0 },
+    customizations: { type: mongo.Schema.Types.Mixed },
+    childInstances: [
+      {
+        prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab' },
+        worldCoordinates: { type: mongo.Schema.Types.Mixed },
+        rotation: { type: mongo.Schema.Types.Mixed },
+        scale: { type: Number, default: 1.0 },
+      },
+    ],
+  },
+  {
+    extend: 'EntityFields',
+    virtuals: [...addTagVirtuals('Object'), ...addApplicationVirtual()],
+  }
+);
+
+export const ObjectInteraction = mongo.createModel<Types.ObjectInteractionDocument>(
+  'ObjectInteraction',
+  {
+    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+    objectId: { type: mongo.Schema.Types.ObjectId, ref: 'Object', required: true },
+    interactionType: { type: String, enum: ['use', 'fight', 'open', 'talk'], required: true },
+    outcome: { type: mongo.Schema.Types.Mixed },
+    // timestamp: { type: Date, default: Date.now },
+  },
+  {
+    extend: 'EntityFields',
+    virtuals: [...addTagVirtuals('Interaction'), ...addApplicationVirtual()],
   }
 );

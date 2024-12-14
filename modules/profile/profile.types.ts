@@ -10,7 +10,6 @@ export type * from './profile.service';
 export type { RouterContext };
 
 export type Profile = z.infer<typeof schema.Profile>;
-
 export type ProfileDocument = Profile & Document;
 
 export type Mappings = {

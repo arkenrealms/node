@@ -163,8 +163,8 @@ export type RoleDocument = Role & Document;
 export type Season = z.infer<typeof schema.Season>;
 export type SeasonDocument = Season & Document;
 
-export type Server = z.infer<typeof schema.Server>;
-export type ServerDocument = Server & Document;
+export type RealmShard = z.infer<typeof schema.RealmShard>;
+export type RealmShardDocument = RealmShard & Document;
 
 export type Session = z.infer<typeof schema.Session>;
 export type SessionDocument = Session & Document;
@@ -267,7 +267,7 @@ export type Mappings = {
   Review: Model<ReviewDocument>;
   Role: Model<RoleDocument>;
   Season: Model<SeasonDocument>;
-  Server: Model<ServerDocument>;
+  RealmShard: Model<RealmShardDocument>;
   Session: Model<SessionDocument>;
   SolarSystem: Model<SolarSystemDocument>;
   Star: Model<StarDocument>;
@@ -285,3 +285,12 @@ export type Mappings = {
   WorldEvent: Model<WorldEventDocument>;
   Node: Model<NodeDocument>; // Added Node model mapping
 };
+
+export type Prefab = z.infer<typeof schema.Prefab>;
+export type PrefabDocument = Prefab & Document;
+
+export type Object = z.infer<typeof schema.Object>;
+export type ObjectDocument = Object & Document;
+
+export type ObjectInteraction = z.infer<typeof schema.ObjectInteraction>;
+export type ObjectInteractionDocument = ObjectInteraction & Document;

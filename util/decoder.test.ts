@@ -17,7 +17,7 @@ import {
 //     details: {
 //       Type: 'Sword',
 //       Subtype: 'Night Blade',
-//       'Rune Word': 'Tir El',
+//       'Runeform': 'Tir El',
 //       Distribution: 'Crafted',
 //       Date: 'April 20 - Now',
 //       'Max Supply': 'Unknown',
@@ -268,7 +268,7 @@ import {
 //     details: {
 //       Type: 'Claw',
 //       Subtype: 'Unknown',
-//       'Rune Word': 'Shael Ral Ith Nef Sol',
+//       'Runeform': 'Shael Ral Ith Nef Sol',
 //       Distribution: 'Crafted',
 //       Date: 'June 11, 2021 - Now',
 //       'Max Supply': 'Unknown',

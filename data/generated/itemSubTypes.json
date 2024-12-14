@@ -642,5 +642,32 @@
     "type": 25,
     "items": [1210],
     "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 65,
+    "name": "Bag",
+    "link": "https://arken.gg/item-sub-type/bag",
+    "type": 23,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 66,
+    "name": "Chest",
+    "link": "https://arken.gg/item-sub-type/chest",
+    "type": 23,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 67,
+    "name": "Rune",
+    "link": "https://arken.gg/item-sub-type/rune",
+    "type": 17,
+    "items": [],
+    "specificTypes": []
   }
 ]

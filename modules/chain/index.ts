@@ -1,5 +1,5 @@
 export * as Types from './chain.types';
-export * as models from './chain.models';
-export * as schemas from './chain.schema';
+export * as Models from './chain.models';
+export * as Schemas from './chain.schema';
 export * from './chain.router';
 export * from './chain.service';

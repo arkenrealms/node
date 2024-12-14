@@ -336,3 +336,65 @@ shuffle(remainingNames);
 export function randomName(): string {
   return remainingNames.pop()!;
 }
+
+// helper.ts
+
+export interface ParsedCookie {
+  name: string;
+  value: string;
+  domain: string;
+  path: string;
+  secure: boolean;
+  httpOnly?: boolean;
+  sameSite?: 'Strict' | 'Lax' | 'None';
+}
+
+/**
+ * Parses a document.cookie string into an array of unique cookie objects compatible with Puppeteer.
+ * Filters out non-essential and problematic cookies to prevent conflicts.
+ * @param cookieString - The raw cookie string from document.cookie
+ * @param url - The URL for which the cookies are valid (e.g., 'https://my.wealthsimple.com')
+ * @returns Array of parsed and unique cookies
+ */
+export function parseAndFilterCookies(cookieString: string, domain: string): ParsedCookie[] {
+  // Define non-essential and problematic cookies to exclude
+  const excludeCookies = new Set([
+    // '_ga',
+    // '_gcl_au',
+    // '_tt_enable_cookie',
+    // '_ttp',
+    // '_rdt_uuid',
+    // '_ScCbts',
+    // '_sctr',
+    // 'ajs_user_id',
+    // 'ajs_anonymous_id',
+    // '_dd_s',
+    // '_oauth2_access_v2', // Exclude this problematic cookie for now
+    // Add any other non-essential or problematic cookie names here
+  ]);
+
+  // Split the cookie string into individual cookies
+  const cookieArray = cookieString.split('; ').map((cookie) => {
+    const [name, ...rest] = cookie.split('=');
+    const value = rest.join('=');
+    return { name: decodeURIComponent(name), value: value }; // Do not decode value
+  });
+
+  // Filter out non-essential and problematic cookies
+  const essentialCookies = cookieArray.filter((cookie) => !excludeCookies.has(cookie.name));
+
+  // Eliminate duplicates by name, keeping last occurrence
+  const uniqueCookiesMap: Map<string, ParsedCookie> = new Map();
+
+  essentialCookies.forEach((cookie) => {
+    uniqueCookiesMap.set(cookie.name, {
+      name: cookie.name,
+      value: cookie.value,
+      domain: domain,
+      path: '/',
+      secure: true, // As per your tip
+    });
+  });
+
+  return Array.from(uniqueCookiesMap.values());
+}
