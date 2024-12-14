@@ -18,15 +18,13 @@ export const MarketAnalysis = mongo.createModel<Types.MarketAnalysisDocument>('M
 });
 
 export const MarketInvestor = mongo.createModel<Types.MarketInvestorDocument>('MarketInvestor', {
-  name: { type: String, required: true },
-  portfolioIds: { type: mongo.Schema.Types.ObjectId, required: true },
+  portfolioIds: [{ type: mongo.Schema.Types.ObjectId, required: true }],
   totalPnl: { type: Number },
 });
 
 export const MarketInvestmentPortfolio = mongo.createModel<Types.MarketInvestmentPortfolioDocument>(
   'MarketInvestmentPortfolio',
   {
-    name: { type: String, required: true },
     categoryGoals: [
       {
         category: { type: String, required: true },
@@ -35,7 +33,7 @@ export const MarketInvestmentPortfolio = mongo.createModel<Types.MarketInvestmen
         historicalPnL: { type: Number },
       },
     ],
-    investmentIds: { type: mongo.Schema.Types.ObjectId, required: true },
+    investmentIds: [{ type: mongo.Schema.Types.ObjectId, required: true }],
     totalPnl: { type: Number },
   }
 );
@@ -73,13 +71,11 @@ export const MarketStock = mongo.createModel<Types.MarketStockDocument>('MarketS
 });
 
 export const MarketToken = mongo.createModel<Types.MarketTokenDocument>('MarketToken', {
-  name: { type: String, required: true },
   symbol: { type: String, required: true },
   currentPrice: { type: Number, required: true },
 });
 
 export const MarketCompany = mongo.createModel<Types.MarketCompanyDocument>('MarketCompany', {
-  name: { type: String, required: true },
   ticker: { type: String, required: true },
   country: { type: String, required: true },
   industry: { type: String, required: true },
@@ -89,7 +85,6 @@ export const MarketCompany = mongo.createModel<Types.MarketCompanyDocument>('Mar
 });
 
 export const MarketETF = mongo.createModel<Types.MarketETFDocument>('ETF', {
-  name: { type: String, required: true },
   ticker: { type: String, required: true },
   issuerId: { type: mongo.Schema.Types.ObjectId, required: true },
   leverage: { type: Number, required: false },
@@ -102,6 +97,5 @@ export const MarketStockSentiment = mongo.createModel<Types.MarketStockSentiment
     label: { type: String, required: true },
     score: { type: Number, required: true },
   },
-  description: { type: String, required: true },
   confidence: { type: Number, required: true },
 });

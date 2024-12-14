@@ -34,13 +34,13 @@ export type MarketStockSentimentDocument = MarketStockSentiment & Document;
 export type Mappings = {
   MarketAnalysis: Model<MarketAnalysisDocument>;
   MarketInvestor: Model<MarketInvestorDocument>;
-  InvestmentPortfolio: Model<MarketInvestmentPortfolioDocument>;
-  Investment: Model<MarketInvestmentDocument>;
-  Stock: Model<MarketStockDocument>;
-  ChainToken: Model<MarketTokenDocument>;
-  Company: Model<MarketCompanyDocument>;
-  ETF: Model<MarketETFDocument>;
-  StockSentiment: Model<MarketStockSentimentDocument>;
+  MarketInvestmentPortfolio: Model<MarketInvestmentPortfolioDocument>;
+  MarketInvestment: Model<MarketInvestmentDocument>;
+  MarketStock: Model<MarketStockDocument>;
+  MarketToken: Model<MarketTokenDocument>;
+  MarketCompany: Model<MarketCompanyDocument>;
+  MarketETF: Model<MarketETFDocument>;
+  MarketStockSentiment: Model<MarketStockSentimentDocument>;
 };
 
 export type RouterInput = inferRouterInputs<Router>;
