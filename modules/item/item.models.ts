@@ -90,7 +90,14 @@ export const ItemSubType = mongo.createModel<Types.ItemSubTypeDocument>('ItemSub
 
 export const ItemSpecificType = mongo.createModel<Types.ItemSpecificTypeDocument>('ItemSpecificType', {});
 
-export const ItemAffix = mongo.createModel<Types.ItemAffixDocument>('ItemAffix', {});
+export const ItemAffix = mongo.createModel<Types.ItemAffixDocument>('ItemAffix', {
+  isPrefix: { type: Boolean, default: false },
+  isSuffix: { type: Boolean, default: false },
+  isTitle: { type: Boolean, default: false },
+  weight: { type: Number, min: 0, default: 1 },
+  typeIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemType', required: false }],
+  rarityIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemRarity', required: false }],
+});
 
 export const ItemRecipe = mongo.createModel<Types.ItemRecipeDocument>('ItemRecipe', {});
 

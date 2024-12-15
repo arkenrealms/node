@@ -21,9 +21,10 @@ import { getFilter } from '../../util/api';
 export class Service {
   async getCharacter(input: RouterInput['getCharacter'], ctx: RouterContext): Promise<RouterOutput['getCharacter']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacter', input.characterId);
+    console.log('Character.Service.getCharacter', input);
 
-    const character = await ctx.app.model.Character.findById(input.characterId).lean().exec();
+    const filter = getFilter(input);
+    const character = await ctx.app.model.Character.findById(filter.id).lean().exec();
     if (!character) throw new Error('Character not found');
 
     return character as Character;
@@ -44,9 +45,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterAbility']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterAbility', input.characterAbilityId);
+    console.log('Character.Service.getCharacterAbility', input);
 
-    const characterAbility = await ctx.app.model.CharacterAbility.findById(input.characterAbilityId).lean().exec();
+    const filter = getFilter(input);
+    const characterAbility = await ctx.app.model.CharacterAbility.findById(filter.id).lean().exec();
     if (!characterAbility) throw new Error('CharacterAbility not found');
 
     return characterAbility as CharacterAbility;
@@ -79,9 +81,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacter']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacter', input.characterId, input.data);
+    console.log('Character.Service.updateCharacter', input);
 
-    const updatedCharacter = await ctx.app.model.Character.findByIdAndUpdate(input.characterId, input.data, {
+    const filter = getFilter(input);
+    const updatedCharacter = await ctx.app.model.Character.findByIdAndUpdate(filter.id, input.data, {
       new: true,
     })
       .lean()
@@ -96,15 +99,12 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterAbility']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterAbility', input.characterAbilityId, input.data);
+    console.log('Character.Service.updateCharacterAbility', input);
 
-    const updatedCharacterAbility = await ctx.app.model.CharacterAbility.findByIdAndUpdate(
-      input.characterAbilityId,
-      input.data,
-      {
-        new: true,
-      }
-    )
+    const filter = getFilter(input);
+    const updatedCharacterAbility = await ctx.app.model.CharacterAbility.findByIdAndUpdate(filter.id, input.data, {
+      new: true,
+    })
       .lean()
       .exec();
     if (!updatedCharacterAbility) throw new Error('CharacterAbility update failed');
@@ -117,11 +117,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterAttribute']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterAttribute', input.characterAttributeId);
+    console.log('Character.Service.getCharacterAttribute', input);
 
-    const characterAttribute = await ctx.app.model.CharacterAttribute.findById(input.characterAttributeId)
-      .lean()
-      .exec();
+    const filter = getFilter(input);
+    const characterAttribute = await ctx.app.model.CharacterAttribute.findById(filter.id).lean().exec();
     if (!characterAttribute) throw new Error('CharacterAttribute not found');
 
     return characterAttribute as CharacterAttribute;
@@ -143,15 +142,12 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterAttribute']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterAttribute', input.characterAttributeId, input.data);
+    console.log('Character.Service.updateCharacterAttribute', input);
 
-    const updatedCharacterAttribute = await ctx.app.model.CharacterAttribute.findByIdAndUpdate(
-      input.characterAttributeId,
-      input.data,
-      {
-        new: true,
-      }
-    )
+    const filter = getFilter(input);
+    const updatedCharacterAttribute = await ctx.app.model.CharacterAttribute.findByIdAndUpdate(filter.id, input.data, {
+      new: true,
+    })
       .lean()
       .exec();
     if (!updatedCharacterAttribute) throw new Error('CharacterAttribute update failed');
@@ -164,9 +160,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterClass']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterClass', input.characterClassId);
+    console.log('Character.Service.getCharacterClass', input);
 
-    const characterClass = await ctx.app.model.CharacterClass.findById(input.characterClassId).lean().exec();
+    const characterClass = await ctx.app.model.CharacterClass.findById(getFilter(input).id).lean().exec();
     if (!characterClass) throw new Error('CharacterClass not found');
 
     return characterClass as CharacterClass;
@@ -188,10 +184,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterClass']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterClass', input.characterClassId, input.data);
+    console.log('Character.Service.updateCharacterClass', input);
 
     const updatedCharacterClass = await ctx.app.model.CharacterClass.findByIdAndUpdate(
-      input.characterClassId,
+      getFilter(input).id,
       input.data,
       {
         new: true,
@@ -247,10 +243,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterFaction']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterFaction', input.characterFactionId, input.data);
+    console.log('Character.Service.updateCharacterFaction', input);
 
     const updatedCharacterFaction = await ctx.app.model.CharacterFaction.findByIdAndUpdate(
-      input.characterFactionId,
+      getFilter(input).id,
       input.data,
       {
         new: true,
@@ -268,9 +264,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterGender']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterGender', input.characterGenderId);
+    console.log('Character.Service.getCharacterGender', input);
 
-    const characterGender = await ctx.app.model.CharacterGender.findById(input.characterGenderId).lean().exec();
+    const characterGender = await ctx.app.model.CharacterGender.findById(getFilter(input).id).lean().exec();
     if (!characterGender) throw new Error('CharacterGender not found');
 
     return characterGender as CharacterGender;
@@ -292,10 +288,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterGender']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterGender', input.characterGenderId, input.data);
+    console.log('Character.Service.updateCharacterGender', input);
 
     const updatedCharacterGender = await ctx.app.model.CharacterGender.findByIdAndUpdate(
-      input.characterGenderId,
+      getFilter(input).id,
       input.data,
       {
         new: true,
@@ -313,11 +309,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterNameChoice']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterNameChoice', input.characterNameChoiceId);
+    console.log('Character.Service.getCharacterNameChoice', input);
 
-    const characterNameChoice = await ctx.app.model.CharacterNameChoice.findById(input.characterNameChoiceId)
-      .lean()
-      .exec();
+    const characterNameChoice = await ctx.app.model.CharacterNameChoice.findById(getFilter(input).id).lean().exec();
     if (!characterNameChoice) throw new Error('CharacterNameChoice not found');
 
     return characterNameChoice as CharacterNameChoice;
@@ -339,10 +333,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterNameChoice']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterNameChoice', input.characterNameChoiceId, input.data);
+    console.log('Character.Service.updateCharacterNameChoice', input);
 
     const updatedCharacterNameChoice = await ctx.app.model.CharacterNameChoice.findByIdAndUpdate(
-      input.characterNameChoiceId,
+      getFilter(input).id,
       input.data,
       {
         new: true,
@@ -360,11 +354,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterPersonality']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterPersonality', input.characterPersonalityId);
+    console.log('Character.Service.getCharacterPersonality', input);
 
-    const characterPersonality = await ctx.app.model.CharacterPersonality.findById(input.characterPersonalityId)
-      .lean()
-      .exec();
+    const characterPersonality = await ctx.app.model.CharacterPersonality.findById(getFilter(input).id).lean().exec();
     if (!characterPersonality) throw new Error('CharacterPersonality not found');
 
     return characterPersonality as CharacterPersonality;
@@ -386,10 +378,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterPersonality']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterPersonality', input.characterPersonalityId, input.data);
+    console.log('Character.Service.updateCharacterPersonality', input);
 
     const updatedCharacterPersonality = await ctx.app.model.CharacterPersonality.findByIdAndUpdate(
-      input.characterPersonalityId,
+      getFilter(input).id,
       input.data,
       {
         new: true,
@@ -407,9 +399,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterRace']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterRace', input.characterRaceId);
+    console.log('Character.Service.getCharacterRace', input);
 
-    const characterRace = await ctx.app.model.CharacterRace.findById(input.characterRaceId).lean().exec();
+    const characterRace = await ctx.app.model.CharacterRace.findById(getFilter(input).id).lean().exec();
     if (!characterRace) throw new Error('CharacterRace not found');
 
     return characterRace as CharacterRace;
@@ -431,15 +423,11 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterRace']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterRace', input.characterRaceId, input.data);
+    console.log('Character.Service.updateCharacterRace', input);
 
-    const updatedCharacterRace = await ctx.app.model.CharacterRace.findByIdAndUpdate(
-      input.characterRaceId,
-      input.data,
-      {
-        new: true,
-      }
-    )
+    const updatedCharacterRace = await ctx.app.model.CharacterRace.findByIdAndUpdate(getFilter(input).id, input.data, {
+      new: true,
+    })
       .lean()
       .exec();
     if (!updatedCharacterRace) throw new Error('CharacterRace update failed');
@@ -452,9 +440,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterTitle']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterTitle', input.characterTitleId);
+    console.log('Character.Service.getCharacterTitle', input);
 
-    const characterTitle = await ctx.app.model.CharacterTitle.findById(input.characterTitleId).lean().exec();
+    const characterTitle = await ctx.app.model.CharacterTitle.findById(getFilter(input).id).lean().exec();
     if (!characterTitle) throw new Error('CharacterTitle not found');
 
     return characterTitle as CharacterTitle;
@@ -476,10 +464,10 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterTitle']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterTitle', input.characterTitleId, input.data);
+    console.log('Character.Service.updateCharacterTitle', input);
 
     const updatedCharacterTitle = await ctx.app.model.CharacterTitle.findByIdAndUpdate(
-      input.characterTitleId,
+      getFilter(input).id,
       input.data,
       {
         new: true,
@@ -497,9 +485,9 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getCharacterType']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacterType', input.characterTypeId);
+    console.log('Character.Service.getCharacterType', input);
 
-    const characterType = await ctx.app.model.CharacterType.findById(input.characterTypeId).lean().exec();
+    const characterType = await ctx.app.model.CharacterType.findById(getFilter(input).id).lean().exec();
     if (!characterType) throw new Error('CharacterType not found');
 
     return characterType as CharacterType;
@@ -521,15 +509,11 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCharacterType']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.updateCharacterType', input.characterTypeId, input.data);
+    console.log('Character.Service.updateCharacterType', input);
 
-    const updatedCharacterType = await ctx.app.model.CharacterType.findByIdAndUpdate(
-      input.characterTypeId,
-      input.data,
-      {
-        new: true,
-      }
-    )
+    const updatedCharacterType = await ctx.app.model.CharacterType.findByIdAndUpdate(getFilter(input).id, input.data, {
+      new: true,
+    })
       .lean()
       .exec();
     if (!updatedCharacterType) throw new Error('CharacterType update failed');

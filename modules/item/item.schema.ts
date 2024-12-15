@@ -57,7 +57,12 @@ export const ItemSpecificType = Entity.merge(
 
 export const ItemAffix = Entity.merge(
   z.object({
-    // Define fields for ItemAffix here if needed
+    isPrefix: z.boolean().default(false),
+    isSuffix: z.boolean().default(false),
+    isTitle: z.boolean().default(false),
+    weight: z.number().min(0).default(1),
+    typeIds: z.array(ObjectId).optional(),
+    rarityIds: z.array(ObjectId).optional(),
   })
 );
 

@@ -169,3 +169,5 @@ export const CharacterPersonality = mongo.createModel<Types.CharacterPersonality
 export const CharacterTitle = mongo.createModel<Types.CharacterTitleDocument>('CharacterTitle', {});
 
 export const CharacterGuild = mongo.createModel<Types.CharacterGuildDocument>('CharacterGuild', {});
+
+export const CharacterNameChoice = mongo.createModel<Types.CharacterNameChoiceDocument>('CharacterNameChoice', {});
