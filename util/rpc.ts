@@ -1,3 +1,4 @@
+import utf8 from 'utf8';
 import { TRPCError } from '@trpc/server';
 import { isValidRequest } from './web3';
 
@@ -32,6 +33,11 @@ export const customErrorFormatter = (t: any) =>
 // console.log(deserialized);
 export const serialize = (object) => {
   const processValue = (value) => {
+    // Support for ArrayBuffer
+    if (value instanceof ArrayBuffer) {
+      return { _type: 'ArrayBuffer', data: Array.from(new Uint8Array(value)) };
+    }
+
     // Ensure Uint8Array objects are serialized correctly
     if (value instanceof Uint8Array) {
       return { _type: 'Uint8Array', data: Array.from(value) };
@@ -69,44 +75,44 @@ export const serialize = (object) => {
 };
 
 export const deserialize = (input) => {
-  if (typeof input !== 'string') return input;
-
   const processValue = (value) => {
-    if (value && typeof value === 'object') {
-      if (value._type) {
-        switch (value._type) {
-          case 'Uint8Array':
-            return new Uint8Array(value.data);
-          case 'Date':
-            return new Date(value.data);
-          case 'Set':
-            return new Set(value.data.map(processValue));
-          case 'Map':
-            return new Map(value.data.map(([k, v]) => [k, processValue(v)]));
-          case 'BigInt':
-            return BigInt(value.data);
-          case 'RegExp':
-            return new RegExp(value.data, value.flags);
-          default:
-            // Unknown _type, return the value as is
-            return value;
-        }
-      } else {
-        // Recursively process objects and arrays
-        if (Array.isArray(value)) {
-          return value.map(processValue);
-        } else {
-          return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
-        }
+    if (!value || typeof value !== 'object') return value;
+
+    if (value instanceof ArrayBuffer) {
+      return JSON.parse(utf8.decode(String.fromCharCode.apply(null, new Uint8Array(value))));
+    }
+
+    if (value._type) {
+      switch (value._type || typeof value) {
+        case 'ArrayBuffer':
+          return Uint8Array.from(value.data).buffer;
+        case 'Uint8Array':
+          return new Uint8Array(value.data);
+        case 'Date':
+          return new Date(value.data);
+        case 'Set':
+          return new Set(value.data.map(processValue));
+        case 'Map':
+          return new Map(value.data.map(([k, v]) => [k, processValue(v)]));
+        case 'BigInt':
+          return BigInt(value.data);
+        case 'RegExp':
+          return new RegExp(value.data, value.flags);
+        default:
+          // Unknown _type, return the value as is
+          return value;
       }
     } else {
-      // Return the value as is for primitives (string, number, boolean, null)
-      return value;
+      // Recursively process objects and arrays
+      if (Array.isArray(value)) {
+        return value.map(processValue);
+      } else {
+        return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
+      }
     }
   };
 
-  const parsedObject = JSON.parse(input);
-  return processValue(parsedObject);
+  return processValue(typeof input === 'string' ? JSON.parse(input) : input);
 };
 
 export const transformer: any = {
