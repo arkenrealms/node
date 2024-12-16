@@ -31,7 +31,7 @@ export class Service {
     const asset = await ctx.app.model.Asset.create({
       uri: input.uri,
       type: input.type,
-      standard: input.standard,
+      standards: input.standards,
       licenseId: input.licenseId,
       chainId: input.chainId,
     });

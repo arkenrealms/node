@@ -1,14 +1,32 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './asset.types';
 
+export const AssetStandard = mongo.createModel<Types.AssetStandardDocument>(
+  'AssetStandard',
+  {
+    version: { type: String, required: false },
+    parentId: { type: mongo.Schema.Types.ObjectId, ref: 'AssetStandard', required: false },
+  },
+  {
+    virtuals: [
+      {
+        name: 'children',
+        ref: 'AssetStandard',
+        localField: '_id',
+        foreignField: 'parent',
+        justOne: false,
+      },
+    ],
+  }
+);
+
 export const Asset = mongo.createModel<Types.AssetDocument>(
   'Asset',
   {
     uri: { type: String, required: true },
     type: { type: String, maxlength: 100, required: true },
-    standard: { type: String, maxlength: 100, required: true },
+    standards: [{ type: mongo.Schema.Types.ObjectId, ref: 'AssetStandard', required: true }],
     licenseId: { type: mongo.Schema.Types.ObjectId, ref: 'AssetLicense' },
-    license: { type: mongo.Schema.Types.ObjectId, ref: 'AssetLicense' },
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
     ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' }, // Added ownerId
     // skin: { type: String },

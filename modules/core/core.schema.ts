@@ -1,6 +1,7 @@
 // core.schema.ts
 
 import { z, ObjectId, Entity } from '../../schema';
+import { Profile } from '../profile/profile.schema';
 
 // Account Schema
 export const Account = Entity.merge(
@@ -292,14 +293,6 @@ export const Rating = Entity.merge(
   })
 );
 
-// Realm Schema
-export const Realm = Entity.merge(
-  z.object({
-    endpoint: z.string().max(100).optional(),
-    gameId: ObjectId,
-  })
-);
-
 // Referral Schema
 export const Referral = Entity.merge(
   z.object({
@@ -339,11 +332,25 @@ export const Role = Entity.merge(
 // Season Schema
 export const Season = Entity.merge(z.object({}));
 
-// Server Schema
-export const Server = Entity.merge(
+// RealmShard Schema
+export const RealmShard = Entity.merge(
   z.object({
     endpoint: z.string().max(100),
     realmId: ObjectId.optional(),
+    status: z.string().default('Offline').optional(),
+    clientCount: z.number(),
+  })
+);
+
+// Realm Schema
+export const Realm = Entity.merge(
+  z.object({
+    endpoint: z.string().max(100).optional(),
+    realmShards: z.array(RealmShard).optional(),
+    gameId: ObjectId,
+    status: z.string().default('Offline').optional(),
+    clientCount: z.number(),
+    regionCode: z.string(),
   })
 );
 
@@ -400,6 +407,8 @@ export const Tag = Entity.merge(
 export const Team = Entity.merge(
   z.object({
     ratingId: ObjectId.optional(),
+    profiles: z.array(Profile).optional(),
+    points: z.number().optional().default(0),
   })
 );
 
@@ -416,11 +425,13 @@ export const Tournament = Entity.merge(z.object({}));
 // Trade Schema
 export const Trade = Entity.merge(
   z.object({
+    status: z.enum(['Paused', 'Pending', 'Active', 'Delisted', 'Sold']).default('Active'), // Default set in StatusEnum matches Mongoose
     chainId: ObjectId.optional(),
     buyerId: ObjectId.optional(),
     parentId: ObjectId.optional(),
     productId: ObjectId.optional(),
     sellerId: ObjectId.optional(),
+    itemId: ObjectId.optional(),
     tokenId: ObjectId.optional(),
   })
 );
@@ -507,7 +518,7 @@ export const ModelNames = z.enum([
   'Review',
   'Role',
   'Season',
-  'Server',
+  'RealmShard',
   'Session',
   'SolarSystem',
   'Star',

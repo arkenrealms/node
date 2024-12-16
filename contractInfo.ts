@@ -1,24 +1,24 @@
-export const MAINNET = 56
-export const TESTNET = 97
+export const MAINNET = 56;
+export const TESTNET = 97;
 
 export default {
-  dol: {
+  da: {
     [MAINNET]: '0x94F2E23c7422fa8c5A348a0E6D7C05b0a6C8a5b8',
     [TESTNET]: '',
   },
-  shael: {
+  sen: {
     [MAINNET]: '0x56DeFe2310109624c20c2E985c3AEa63b9718319',
     [TESTNET]: '',
   },
-  sol: {
+  solo: {
     [MAINNET]: '0x4ffd3b8ba90f5430cda7f4cc4c0a80df3cd0e495',
     [TESTNET]: '',
-    name: 'Sol',
+    name: 'Solo',
   },
-  amn: {
+  ash: {
     [MAINNET]: '0x346C03fe8BE489baAAc5CE67e817Ff11fb580F98',
     [TESTNET]: '',
-    name: 'Amn',
+    name: 'Ash',
   },
   raid: {
     [MAINNET]: '0xcfA857d6EC2F59b050D7296FbcA8a91D061451f3',
@@ -80,22 +80,20 @@ export default {
     [MAINNET]: '0x734a1e8848EF2490CC5F3D177b497be78BB3Dec0',
     [TESTNET]: '0x6bEf093fab1BeE45EA6b8dd60c4C3c3247Dd4E30',
   },
-
-  thulMasterChef: {
+  thalMasterChef: {
     [MAINNET]: '0xcfA857d6EC2F59b050D7296FbcA8a91D061451f3',
     [TESTNET]: '0x669a10A4F226Aa1DE1e7eA800e39ae9F9Bb88834',
   },
-  thul: {
+  thal: {
     [MAINNET]: '0x1fC5bffCf855B9D7897F1921363547681F6847Aa',
     [TESTNET]: '0xDf2c033005585e6eA99fa46513Ed5Ca8c0bb3178',
-    name: 'Thul',
+    name: 'Thal',
   },
-
-  ortMasterChef: {
+  oreMasterChef: {
     [MAINNET]: '0xcfA857d6EC2F59b050D7296FbcA8a91D061451f3',
     [TESTNET]: '0x669a10A4F226Aa1DE1e7eA800e39ae9F9Bb88834',
   },
-  ort: {
+  ore: {
     [MAINNET]: '0x33bc7539D83C1ADB95119A255134e7B584cd5c59',
     [TESTNET]: '',
   },
@@ -107,8 +105,7 @@ export default {
     [MAINNET]: '0xa9b9195b19963f2d72a7f56bad3705ba536cdb66',
     [TESTNET]: '',
   },
-
-  ralMasterChef: {
+  roMasterChef: {
     [MAINNET]: '0xcfA857d6EC2F59b050D7296FbcA8a91D061451f3',
     [TESTNET]: '0x669a10A4F226Aa1DE1e7eA800e39ae9F9Bb88834',
   },
@@ -132,12 +129,11 @@ export default {
     [MAINNET]: '0x1d892d0b6a95e097149c3986ea148debc31ca588',
     [TESTNET]: '0xBC3dE343771e2Bff1FDDb7b95Fca97c033745676',
   },
-  ral: {
+  ro: {
     [MAINNET]: '0x2F25DbD430CdbD1a6eC184c79C56C18918fcc97D',
     [TESTNET]: '0x82b608fbfee6dace78e9f99438d2b1cd29f868a6',
-    name: 'Ral',
+    name: 'Ro',
   },
-
   pancakeRouter: {
     [MAINNET]: '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F',
     [TESTNET]: '0xD99D1c33F9fC3444f8101754aBC46c52416550D1',
@@ -158,23 +154,23 @@ export default {
     [MAINNET]: '0xa49bc3441ccdd4abeaea8c42500709a5b8c94dcc',
     [TESTNET]: '',
   },
-  elMasterChef: {
+  exMasterChef: {
     [MAINNET]: '0x673c652b7c6af2ca0e29da4488a895495379d34a',
     [TESTNET]: '',
   },
-  tirMasterChef: {
+  tyrMasterChef: {
     [MAINNET]: '0xfa0235fe0f2b684221a18a0220ca30170455790c',
     [TESTNET]: '',
   },
-  nefMasterChef: {
+  nenMasterChef: {
     [MAINNET]: '0x6bf051ce847a0ebbc10fa22884c01d550bd40269',
     [TESTNET]: '',
   },
-  ithMasterChef: {
+  isaMasterChef: {
     [MAINNET]: '0xF2d858d63A8CfD674D78A558f52eaD5F2fA6Ab13',
     [TESTNET]: '',
   },
-  talMasterChef: {
+  tatoMasterChef: {
     [MAINNET]: '0x58DdaA668d1aDf32b7bdFcc4963105090Ca59540',
     [TESTNET]: '0x1cC1E76777C7Ea50DC4700e91193b81cC62CedA2',
   },
@@ -182,23 +178,23 @@ export default {
     [MAINNET]: '0x6246de258a6ed8e532b17417a884bbcb71c93f05',
     [TESTNET]: '',
   },
-  eldVoidAddress: {
+  elmVoidAddress: {
     [MAINNET]: '0xfa4ee9802bcfe6b84c48470e17380c4ed835b688',
     [TESTNET]: '',
   },
-  tirVoidAddress: {
+  tyrVoidAddress: {
     [MAINNET]: '0x1093c09a75036b6af3a89ea319a8157a7836f554',
     [TESTNET]: '',
   },
-  nefVoidAddress: {
+  nenVoidAddress: {
     [MAINNET]: '0x643ca0bec1e8497c4af667f58fa79bd12c8a43b4',
     [TESTNET]: '',
   },
-  ithVoidAddress: {
+  isaVoidAddress: {
     [MAINNET]: '0xE6e83aa19696F74f7f5467010066e2D432d327Aa',
     [TESTNET]: '',
   },
-  talVoidAddress: {
+  tatoVoidAddress: {
     [MAINNET]: '0x2C4792C6dc183e72BBb6e37B1A1C573037B2d238',
     [TESTNET]: '',
   },
@@ -322,107 +318,107 @@ export default {
     [MAINNET]: '0x6a90c6a06dd8f095cc5e9d45d890a4087b9a7938',
     [TESTNET]: '',
   },
-  el: {
+  ex: {
     [MAINNET]: '0x210c14fbecc2bd9b6231199470da12ad45f64d45',
     [TESTNET]: '0xdB86Eda889FcF36e93bbf0e94378a6A61A36Ca90',
   },
-  eld: {
+  elm: {
     [MAINNET]: '0xe00b8109bcb70b1edeb4cf87914efc2805020995',
     [TESTNET]: '0xe9bEd0Fc5768373218Fc66D5A42999Ced116109f',
   },
-  tir: {
+  tyr: {
     [MAINNET]: '0x125a3e00a9a11317d4d95349e68ba0bc744addc4',
     [TESTNET]: '0x424Ff1a249C0F5FBb5367A926BE7301bBc820aa6',
   },
-  nef: {
+  nen: {
     [MAINNET]: '0xef4f66506aaaeeff6d10775ad6f994105d8f11b4',
     [TESTNET]: '0x1D36e6AB16A16b8D25D6DA8Da5a61FcA6659B92C',
   },
-  eth: {
+  eva: {
     [MAINNET]: '0x919676B73a8d124597cBbA2E400f81Aa91Aa2450',
     [TESTNET]: '',
   },
-  ith: {
+  isa: {
     [MAINNET]: '0x098Afb73F809D8Fe145363F802113E3825d7490C',
     [TESTNET]: '0x472738038B2DeBC30fFd240d34689f957057BBfF',
   },
-  tal: {
+  tato: {
     [MAINNET]: '0x5DE72A6fca2144Aa134650bbEA92Cc919244F05D',
     [TESTNET]: '0x14c6AFcFc9C68922700DC8E3DC87e4FCFf044eCB',
   },
-  hel: {
+  han: {
     [MAINNET]: '0x0D3877152BaaC86D42A4123ABBeCd1178d784cC7',
     [TESTNET]: '',
   },
-  io: {
+  ion: {
     [MAINNET]: '0xa00672c2a70E4CD3919afc2043b4b46e95041425',
     [TESTNET]: '',
   },
-  lum: {
+  lux: {
     [MAINNET]: '0xD481F4eA902e207AAda9Fa093f80d50B19444253',
     [TESTNET]: '',
   },
-  ko: {
+  ka: {
     [MAINNET]: '0x2a74b7d7d44025Bcc344E7dA80d542e7b0586330',
     [TESTNET]: '',
   },
-  fal: {
+  fus: {
     [MAINNET]: '0xcd06c743a1628fB02C15946a56037CD7020F3Bd2',
     [TESTNET]: '',
   },
-  lem: {
+  leni: {
     [MAINNET]: '0xFF0682D330C7a6381214fa541d8D288dD0D098ED',
     [TESTNET]: '',
   },
-  pul: {
+  pai: {
     [MAINNET]: '0xfa3f14C55adaDDC2035083146c1cF768bD035E06',
     [TESTNET]: '',
   },
-  um: {
+  uln: {
     [MAINNET]: '0x7e8a6d548a68339481c500f2B56367698A9F7213',
     [TESTNET]: '',
   },
-  mal: {
+  mor: {
     [MAINNET]: '0xdfFeB26FbaCF79823C50a4e7DCF69378667c9941',
     [TESTNET]: '',
   },
-  ist: {
+  isk: {
     [MAINNET]: '0x90132915EbDe0CF93283D55AB3fBBA15449f95A9',
     [TESTNET]: '',
   },
-  gul: {
+  gon: {
     [MAINNET]: '0xa89805AB2ca5B70c89B74b3B0346a88a5B8eAc85',
     [TESTNET]: '',
   },
-  vex: {
+  val: {
     [MAINNET]: '0x60E3538610e9f4974A36670842044CB4936e5232',
     [TESTNET]: '',
   },
-  ohm: {
+  oh: {
     [MAINNET]: '0x9449D198AB998388a577D4eBfDa4656D9fa3468a',
     [TESTNET]: '',
   },
-  lo: {
+  lor: {
     [MAINNET]: '0x08fb6740Cc5170e48B2Ad8Cc07422d3302EF5e78',
     [TESTNET]: '',
   },
-  sur: {
+  su: {
     [MAINNET]: '0x191472E8E899E98048AeB82faa1AE4Ec3801b936',
     [TESTNET]: '',
   },
-  ber: {
+  beru: {
     [MAINNET]: '0x1656f8d69F2354a9989Fe705c0107190A4815287',
     [TESTNET]: '',
   },
-  jah: {
+  jua: {
     [MAINNET]: '0xBC996F2f6703cc13AA494F846A1c563A4A0f1A80',
     [TESTNET]: '',
   },
-  cham: {
+  chin: {
     [MAINNET]: '0xfb134f1721bc602Eb14148f89e1225dC7C93D8d4',
     [TESTNET]: '',
   },
-  zod: {
+  zeno: {
     [MAINNET]: '0x3e151ca82b3686f555c381530732df1cfc3c7890',
     [TESTNET]: '',
   },
@@ -466,4 +462,4 @@ export default {
     [MAINNET]: '0x000000000000000000000000000000000000dead',
     [TESTNET]: '',
   },
-}
+};

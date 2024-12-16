@@ -51,7 +51,7 @@ import type {
   Review,
   Role,
   Season,
-  Server,
+  RealmShard,
   Session,
   SolarSystem,
   Star,
@@ -68,11 +68,15 @@ import type {
   Vote,
   WorldEvent,
 } from './core.types';
+import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
 
 export class Service {
   // async interact(input: RouterInput['interact'], ctx: RouterContext): Promise<RouterOutput['interact']> {
-  //   if (!input) throw new Error('Input should not be void');
+  //   if (!input)       throw new TRPCError({
+  //   code: 'BAD_REQUEST',
+  //   message: 'No input provided',
+  // });
   //   console.log('Core.Service.interact', input);
 
   //   return {
@@ -82,40 +86,37 @@ export class Service {
 
   // Account Methods
   async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.authorize', input);
 
     return {
-      status: 1,
-      data: {
-        token: 'aaa',
-        profile: {
-          name: 'zzz',
-        },
-        permissions: {
-          'Process Interfaces': true,
-          'Manage Interfaces': true,
-          'View Interfaces': true,
-          'Design Interfaces': true,
-          'Manage Users': true,
-          'View Users': true,
-          'Manage Submissions': true,
-          'View Submissions': true,
-          'Process Submissions': true,
-          // 'View Workflows': true,
-          'Manage Settings': true,
-          Deletion: true,
-        },
+      token: 'aaa',
+      profile: {
+        name: 'zzz',
+      },
+      permissions: {
+        'Process Interfaces': true,
+        'Manage Interfaces': true,
+        'View Interfaces': true,
+        'Design Interfaces': true,
+        'Manage Users': true,
+        'View Users': true,
+        'Manage Submissions': true,
+        'View Submissions': true,
+        'Process Submissions': true,
+        // 'View Workflows': true,
+        'Manage Settings': true,
+        Deletion: true,
       },
     };
   }
 
   // Account Methods
   async getAccount(input: RouterInput['getAccount'], ctx: RouterContext): Promise<RouterOutput['getAccount']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAccount', input);
 
-    const account = await ctx.app.model.Account.findById(input.where.id.equals).exec();
+    const account = await ctx.app.model.Account.findOne(getFilter(input)).exec();
     if (!account) throw new Error('Account not found');
 
     return account as Account;
@@ -129,7 +130,7 @@ export class Service {
   }
 
   async createAccount(input: RouterInput['createAccount'], ctx: RouterContext): Promise<RouterOutput['createAccount']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createAccount', input);
 
     const account = await ctx.app.model.Account.create(input);
@@ -137,7 +138,7 @@ export class Service {
   }
 
   async updateAccount(input: RouterInput['updateAccount'], ctx: RouterContext): Promise<RouterOutput['updateAccount']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateAccount', input);
 
     const updatedAccount = await ctx.app.model.Account.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -155,10 +156,10 @@ export class Service {
     input: RouterInput['getAchievement'],
     ctx: RouterContext
   ): Promise<RouterOutput['getAchievement']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAchievement', input);
 
-    const achievement = await ctx.app.model.Achievement.findById(input.where.id.equals).exec();
+    const achievement = await ctx.app.model.Achievement.findOne(getFilter(input)).exec();
     if (!achievement) throw new Error('Achievement not found');
 
     return achievement as Achievement;
@@ -175,7 +176,7 @@ export class Service {
     input: RouterInput['createAchievement'],
     ctx: RouterContext
   ): Promise<RouterOutput['createAchievement']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createAchievement', input);
 
     const achievement = await ctx.app.model.Achievement.create(input);
@@ -186,7 +187,7 @@ export class Service {
     input: RouterInput['updateAchievement'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateAchievement']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateAchievement', input);
 
     const updatedAchievement = await ctx.app.model.Achievement.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -200,26 +201,26 @@ export class Service {
   }
 
   async info(input: RouterInput['info'], ctx: RouterContext): Promise<RouterOutput['info']> {
-    return { data: { version: '1.1.1' } };
+    return { version: '1.1.1' };
   }
 
   async stats(input: RouterInput['stats'], ctx: RouterContext): Promise<RouterOutput['stats']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.stats');
 
     const stats = await ctx.app.model.Stat.find().exec();
 
-    return { data: stats as Stat[] };
+    return stats as Stat[];
   }
 
   // Act Methods
 
   // Get Act
   async getAct(input: RouterInput['getAct'], ctx: RouterContext): Promise<RouterOutput['getAct']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAct', input);
 
-    const act = await ctx.app.model.Act.findById(input.where.id.equals).exec();
+    const act = await ctx.app.model.Act.findOne(getFilter(input)).exec();
     if (!act) throw new Error('Act not found');
 
     return act as Act;
@@ -227,7 +228,7 @@ export class Service {
 
   // Create Act
   async createAct(input: RouterInput['createAct'], ctx: RouterContext): Promise<RouterOutput['createAct']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createAct', input);
 
     const act = await ctx.app.model.Act.create(input);
@@ -236,7 +237,7 @@ export class Service {
 
   // Update Act
   async updateAct(input: RouterInput['updateAct'], ctx: RouterContext): Promise<RouterOutput['updateAct']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateAct', input);
 
     const updatedAct = await ctx.app.model.Act.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -251,10 +252,10 @@ export class Service {
 
   // Get Agent
   async getAgent(input: RouterInput['getAgent'], ctx: RouterContext): Promise<RouterOutput['getAgent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getAgent', input);
 
-    const agent = await ctx.app.model.Agent.findById(input.where.id.equals).exec();
+    const agent = await ctx.app.model.Agent.findOne(getFilter(input)).exec();
     if (!agent) throw new Error('Agent not found');
 
     return agent as Agent;
@@ -262,7 +263,7 @@ export class Service {
 
   // Create Agent
   async createAgent(input: RouterInput['createAgent'], ctx: RouterContext): Promise<RouterOutput['createAgent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createAgent', input);
 
     const agent = await ctx.app.model.Agent.create(input);
@@ -271,7 +272,7 @@ export class Service {
 
   // Update Agent
   async updateAgent(input: RouterInput['updateAgent'], ctx: RouterContext): Promise<RouterOutput['updateAgent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateAgent', input);
 
     const updatedAgent = await ctx.app.model.Agent.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -289,10 +290,10 @@ export class Service {
     input: RouterInput['getApplication'],
     ctx: RouterContext
   ): Promise<RouterOutput['getApplication']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getApplication', input);
 
-    const application = await ctx.app.model.Application.findById(input.where.id.equals).exec();
+    const application = await ctx.app.model.Application.findOne(getFilter(input)).exec();
     if (!application) throw new Error('Application not found');
 
     return application as Application;
@@ -303,7 +304,7 @@ export class Service {
     input: RouterInput['createApplication'],
     ctx: RouterContext
   ): Promise<RouterOutput['createApplication']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createApplication', input);
 
     const application = await ctx.app.model.Application.create(input);
@@ -315,7 +316,7 @@ export class Service {
     input: RouterInput['updateApplication'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateApplication']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateApplication', input);
 
     const updatedApplication = await ctx.app.model.Application.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -330,17 +331,17 @@ export class Service {
 
   // Badge Methods
   async getBadge(input: RouterInput['getBadge'], ctx: RouterContext): Promise<RouterOutput['getBadge']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBadge', input);
 
-    const badge = await ctx.app.model.Badge.findById(input.where.id.equals).exec();
+    const badge = await ctx.app.model.Badge.findOne(getFilter(input)).exec();
     if (!badge) throw new Error('Badge not found');
 
     return badge as Badge;
   }
 
   async createBadge(input: RouterInput['createBadge'], ctx: RouterContext): Promise<RouterOutput['createBadge']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createBadge', input);
 
     const badge = await ctx.app.model.Badge.create(input);
@@ -348,7 +349,7 @@ export class Service {
   }
 
   async updateBadge(input: RouterInput['updateBadge'], ctx: RouterContext): Promise<RouterOutput['updateBadge']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateBadge', input);
 
     const updatedBadge = await ctx.app.model.Badge.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -361,10 +362,10 @@ export class Service {
 
   // BattlePass Methods
   async getBattlePass(input: RouterInput['getBattlePass'], ctx: RouterContext): Promise<RouterOutput['getBattlePass']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBattlePass', input);
 
-    const battlePass = await ctx.app.model.BattlePass.findById(input.where.id.equals).exec();
+    const battlePass = await ctx.app.model.BattlePass.findOne(getFilter(input)).exec();
     if (!battlePass) throw new Error('BattlePass not found');
 
     return battlePass as BattlePass;
@@ -374,7 +375,7 @@ export class Service {
     input: RouterInput['createBattlePass'],
     ctx: RouterContext
   ): Promise<RouterOutput['createBattlePass']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createBattlePass', input);
 
     const battlePass = await ctx.app.model.BattlePass.create(input);
@@ -385,7 +386,7 @@ export class Service {
     input: RouterInput['updateBattlePass'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateBattlePass']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateBattlePass', input);
 
     const updatedBattlePass = await ctx.app.model.BattlePass.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -400,17 +401,17 @@ export class Service {
 
   // Biome Methods
   async getBiome(input: RouterInput['getBiome'], ctx: RouterContext): Promise<RouterOutput['getBiome']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBiome', input);
 
-    const biome = await ctx.app.model.Biome.findById(input.where.id.equals).exec();
+    const biome = await ctx.app.model.Biome.findOne(getFilter(input)).exec();
     if (!biome) throw new Error('Biome not found');
 
     return biome as Biome;
   }
 
   async createBiome(input: RouterInput['createBiome'], ctx: RouterContext): Promise<RouterOutput['createBiome']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createBiome', input);
 
     const biome = await ctx.app.model.Biome.create(input);
@@ -418,7 +419,7 @@ export class Service {
   }
 
   async updateBiome(input: RouterInput['updateBiome'], ctx: RouterContext): Promise<RouterOutput['updateBiome']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateBiome', input);
 
     const updatedBiome = await ctx.app.model.Biome.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -434,10 +435,10 @@ export class Service {
     input: RouterInput['getBiomeFeature'],
     ctx: RouterContext
   ): Promise<RouterOutput['getBiomeFeature']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBiomeFeature', input);
 
-    const biomeFeature = await ctx.app.model.BiomeFeature.findById(input.where.id.equals).exec();
+    const biomeFeature = await ctx.app.model.BiomeFeature.findOne(getFilter(input)).exec();
     if (!biomeFeature) throw new Error('BiomeFeature not found');
 
     return biomeFeature as BiomeFeature;
@@ -447,7 +448,7 @@ export class Service {
     input: RouterInput['createBiomeFeature'],
     ctx: RouterContext
   ): Promise<RouterOutput['createBiomeFeature']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createBiomeFeature', input);
 
     const biomeFeature = await ctx.app.model.BiomeFeature.create(input);
@@ -458,7 +459,7 @@ export class Service {
     input: RouterInput['updateBiomeFeature'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateBiomeFeature']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateBiomeFeature', input);
 
     const updatedBiomeFeature = await ctx.app.model.BiomeFeature.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -472,10 +473,10 @@ export class Service {
   }
   // Collection Methods
   async getCollection(input: RouterInput['getCollection'], ctx: RouterContext): Promise<RouterOutput['getCollection']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getCollection', input);
 
-    const collection = await ctx.app.model.Collection.findById(input.where.id.equals).exec();
+    const collection = await ctx.app.model.Collection.findOne(getFilter(input)).exec();
     if (!collection) throw new Error('Collection not found');
 
     return collection as Collection;
@@ -485,7 +486,7 @@ export class Service {
     input: RouterInput['createCollection'],
     ctx: RouterContext
   ): Promise<RouterOutput['createCollection']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createCollection', input);
 
     const collection = await ctx.app.model.Collection.create(input);
@@ -496,7 +497,7 @@ export class Service {
     input: RouterInput['updateCollection'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateCollection']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateCollection', input);
 
     const updatedCollection = await ctx.app.model.Collection.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -511,17 +512,17 @@ export class Service {
 
   // Comment Methods
   async getComment(input: RouterInput['getComment'], ctx: RouterContext): Promise<RouterOutput['getComment']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getComment', input);
 
-    const comment = await ctx.app.model.Comment.findById(input.where.id.equals).exec();
+    const comment = await ctx.app.model.Comment.findOne(getFilter(input)).exec();
     if (!comment) throw new Error('Comment not found');
 
     return comment as Comment;
   }
 
   async createComment(input: RouterInput['createComment'], ctx: RouterContext): Promise<RouterOutput['createComment']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createComment', input);
 
     const comment = await ctx.app.model.Comment.create(input);
@@ -529,7 +530,7 @@ export class Service {
   }
 
   async updateComment(input: RouterInput['updateComment'], ctx: RouterContext): Promise<RouterOutput['updateComment']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateComment', input);
 
     const updatedComment = await ctx.app.model.Comment.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -544,10 +545,10 @@ export class Service {
 
   // Community Methods
   async getCommunity(input: RouterInput['getCommunity'], ctx: RouterContext): Promise<RouterOutput['getCommunity']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getCommunity', input);
 
-    const community = await ctx.app.model.Community.findById(input.where.id.equals).exec();
+    const community = await ctx.app.model.Community.findOne(getFilter(input)).exec();
     if (!community) throw new Error('Community not found');
 
     return community as Community;
@@ -557,7 +558,7 @@ export class Service {
     input: RouterInput['createCommunity'],
     ctx: RouterContext
   ): Promise<RouterOutput['createCommunity']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createCommunity', input);
 
     const community = await ctx.app.model.Community.create(input);
@@ -568,7 +569,7 @@ export class Service {
     input: RouterInput['updateCommunity'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateCommunity']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateCommunity', input);
 
     const updatedCommunity = await ctx.app.model.Community.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -583,17 +584,17 @@ export class Service {
 
   // Company Methods
   async getCompany(input: RouterInput['getCompany'], ctx: RouterContext): Promise<RouterOutput['getCompany']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getCompany', input);
 
-    const company = await ctx.app.model.Company.findById(input.where.id.equals).exec();
+    const company = await ctx.app.model.Company.findOne(getFilter(input)).exec();
     if (!company) throw new Error('Company not found');
 
     return company as Company;
   }
 
   async createCompany(input: RouterInput['createCompany'], ctx: RouterContext): Promise<RouterOutput['createCompany']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createCompany', input);
 
     const company = await ctx.app.model.Company.create(input);
@@ -601,7 +602,7 @@ export class Service {
   }
 
   async updateCompany(input: RouterInput['updateCompany'], ctx: RouterContext): Promise<RouterOutput['updateCompany']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateCompany', input.where.id.equals, input.data);
 
     const updatedCompany = await ctx.app.model.Company.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -619,10 +620,10 @@ export class Service {
     input: RouterInput['getConversation'],
     ctx: RouterContext
   ): Promise<RouterOutput['getConversation']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getConversation', input.where.id.equals);
 
-    const conversation = await ctx.app.model.Conversation.findById(input.where.id.equals).exec();
+    const conversation = await ctx.app.model.Conversation.findOne(getFilter(input)).exec();
     if (!conversation) throw new Error('Conversation not found');
 
     return conversation as Conversation;
@@ -632,7 +633,7 @@ export class Service {
     input: RouterInput['createConversation'],
     ctx: RouterContext
   ): Promise<RouterOutput['createConversation']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createConversation', input);
 
     const conversation = await ctx.app.model.Conversation.create(input);
@@ -643,7 +644,7 @@ export class Service {
     input: RouterInput['updateConversation'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateConversation']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateConversation', input.where.id.equals, input.data);
 
     const updatedConversation = await ctx.app.model.Conversation.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -658,17 +659,17 @@ export class Service {
 
   // Data Methods
   async getData(input: RouterInput['getData'], ctx: RouterContext): Promise<RouterOutput['getData']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getData', input.where.id.equals);
 
-    const data = await ctx.app.model.Data.findById(input.where.id.equals).exec();
+    const data = await ctx.app.model.Data.findOne(getFilter(input)).exec();
     if (!data) throw new Error('Data not found');
 
     return data as Data;
   }
 
   async createData(input: RouterInput['createData'], ctx: RouterContext): Promise<RouterOutput['createData']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createData', input);
 
     const data = await ctx.app.model.Data.create(input);
@@ -676,7 +677,7 @@ export class Service {
   }
 
   async updateData(input: RouterInput['updateData'], ctx: RouterContext): Promise<RouterOutput['updateData']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateData', input.where.id.equals, input.data);
 
     const updatedData = await ctx.app.model.Data.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -689,10 +690,10 @@ export class Service {
 
   // Discussion Methods
   async getDiscussion(input: RouterInput['getDiscussion'], ctx: RouterContext): Promise<RouterOutput['getDiscussion']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getDiscussion', input.where.id.equals);
 
-    const discussion = await ctx.app.model.Discussion.findById(input.where.id.equals).exec();
+    const discussion = await ctx.app.model.Discussion.findOne(getFilter(input)).exec();
     if (!discussion) throw new Error('Discussion not found');
 
     return discussion as Discussion;
@@ -702,7 +703,7 @@ export class Service {
     input: RouterInput['createDiscussion'],
     ctx: RouterContext
   ): Promise<RouterOutput['createDiscussion']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createDiscussion', input);
 
     const discussion = await ctx.app.model.Discussion.create(input);
@@ -713,7 +714,7 @@ export class Service {
     input: RouterInput['updateDiscussion'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateDiscussion']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateDiscussion', input.where.id.equals, input.data);
 
     const updatedDiscussion = await ctx.app.model.Discussion.findByIdAndUpdate(input.where.id.equals, input.data, {
@@ -728,17 +729,17 @@ export class Service {
 
   // Energy Methods
   async getEnergy(input: RouterInput['getEnergy'], ctx: RouterContext): Promise<RouterOutput['getEnergy']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getEnergy', input);
 
-    const energy = await ctx.app.model.Energy.findById(input.where.id.equals).exec();
+    const energy = await ctx.app.model.Energy.findOne(getFilter(input)).exec();
     if (!energy) throw new Error('Energy not found');
 
     return energy as Energy;
   }
 
   async createEnergy(input: RouterInput['createEnergy'], ctx: RouterContext): Promise<RouterOutput['createEnergy']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createEnergy', input);
 
     const energy = await ctx.app.model.Energy.create(input);
@@ -746,7 +747,7 @@ export class Service {
   }
 
   async updateEnergy(input: RouterInput['updateEnergy'], ctx: RouterContext): Promise<RouterOutput['updateEnergy']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateEnergy', input);
 
     const updatedEnergy = await ctx.app.model.Energy.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -759,17 +760,17 @@ export class Service {
 
   // Event Methods
   async getEvent(input: RouterInput['getEvent'], ctx: RouterContext): Promise<RouterOutput['getEvent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getEvent', input);
 
-    const event = await ctx.app.model.Event.findById(input.where.id.equals).exec();
+    const event = await ctx.app.model.Event.findOne(getFilter(input)).exec();
     if (!event) throw new Error('Event not found');
 
     return event as Event;
   }
 
   async createEvent(input: RouterInput['createEvent'], ctx: RouterContext): Promise<RouterOutput['createEvent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createEvent', input);
 
     const event = await ctx.app.model.Event.create(input);
@@ -777,7 +778,7 @@ export class Service {
   }
 
   async updateEvent(input: RouterInput['updateEvent'], ctx: RouterContext): Promise<RouterOutput['updateEvent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateEvent', input);
 
     const updatedEvent = await ctx.app.model.Event.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -789,17 +790,17 @@ export class Service {
   }
   // File Methods
   async getFile(input: RouterInput['getFile'], ctx: RouterContext): Promise<RouterOutput['getFile']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getFile', input);
 
-    const file = await ctx.app.model.File.findById(input.where.id.equals).exec();
+    const file = await ctx.app.model.File.findOne(getFilter(input)).exec();
     if (!file) throw new Error('File not found');
 
     return file as File;
   }
 
   async createFile(input: RouterInput['createFile'], ctx: RouterContext): Promise<RouterOutput['createFile']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createFile', input);
 
     const file = await ctx.app.model.File.create(input);
@@ -807,7 +808,7 @@ export class Service {
   }
 
   async updateFile(input: RouterInput['updateFile'], ctx: RouterContext): Promise<RouterOutput['updateFile']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateFile', input);
 
     const updatedFile = await ctx.app.model.File.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
@@ -820,17 +821,17 @@ export class Service {
 
   // Galaxy Methods
   async getGalaxy(input: RouterInput['getGalaxy'], ctx: RouterContext): Promise<RouterOutput['getGalaxy']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getGalaxy', input);
 
-    const galaxy = await ctx.app.model.Galaxy.findById(input.where.id.equals).exec();
+    const galaxy = await ctx.app.model.Galaxy.findOne(getFilter(input)).exec();
     if (!galaxy) throw new Error('Galaxy not found');
 
     return galaxy as Galaxy;
   }
 
   async createGalaxy(input: RouterInput['createGalaxy'], ctx: RouterContext): Promise<RouterOutput['createGalaxy']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createGalaxy', input);
 
     const galaxy = await ctx.app.model.Galaxy.create(input);
@@ -838,7 +839,7 @@ export class Service {
   }
 
   async updateGalaxy(input: RouterInput['updateGalaxy'], ctx: RouterContext): Promise<RouterOutput['updateGalaxy']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateGalaxy', input);
 
     const updatedGalaxy = await ctx.app.model.Galaxy.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -851,17 +852,17 @@ export class Service {
 
   // Guide Methods
   async getGuide(input: RouterInput['getGuide'], ctx: RouterContext): Promise<RouterOutput['getGuide']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getGuide', input);
 
-    const guide = await ctx.app.model.Guide.findById(input.where.id.equals).exec();
+    const guide = await ctx.app.model.Guide.findOne(getFilter(input)).exec();
     if (!guide) throw new Error('Guide not found');
 
     return guide as Guide;
   }
 
   async createGuide(input: RouterInput['createGuide'], ctx: RouterContext): Promise<RouterOutput['createGuide']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createGuide', input);
 
     const guide = await ctx.app.model.Guide.create(input);
@@ -869,7 +870,7 @@ export class Service {
   }
 
   async updateGuide(input: RouterInput['updateGuide'], ctx: RouterContext): Promise<RouterOutput['updateGuide']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateGuide', input);
 
     const updatedGuide = await ctx.app.model.Guide.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -882,17 +883,17 @@ export class Service {
 
   // Idea Methods
   async getIdea(input: RouterInput['getIdea'], ctx: RouterContext): Promise<RouterOutput['getIdea']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getIdea', input);
 
-    const idea = await ctx.app.model.Idea.findById(input.where.id.equals).exec();
+    const idea = await ctx.app.model.Idea.findOne(getFilter(input)).exec();
     if (!idea) throw new Error('Idea not found');
 
     return idea as Idea;
   }
 
   async createIdea(input: RouterInput['createIdea'], ctx: RouterContext): Promise<RouterOutput['createIdea']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createIdea', input);
 
     const idea = await ctx.app.model.Idea.create(input);
@@ -900,7 +901,7 @@ export class Service {
   }
 
   async updateIdea(input: RouterInput['updateIdea'], ctx: RouterContext): Promise<RouterOutput['updateIdea']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateIdea', input);
 
     const updatedIdea = await ctx.app.model.Idea.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -913,10 +914,10 @@ export class Service {
     input: RouterInput['getLeaderboard'],
     ctx: RouterContext
   ): Promise<RouterOutput['getLeaderboard']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getLeaderboard', input);
 
-    const leaderboard = await ctx.app.model.Leaderboard.findById(input.where.id.equals).exec();
+    const leaderboard = await ctx.app.model.Leaderboard.findOne(getFilter(input)).exec();
     if (!leaderboard) throw new Error('Leaderboard not found');
 
     return leaderboard as Leaderboard;
@@ -926,7 +927,7 @@ export class Service {
     input: RouterInput['createLeaderboard'],
     ctx: RouterContext
   ): Promise<RouterOutput['createLeaderboard']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createLeaderboard', input);
 
     const leaderboard = await ctx.app.model.Leaderboard.create(input);
@@ -937,7 +938,7 @@ export class Service {
     input: RouterInput['updateLeaderboard'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateLeaderboard']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateLeaderboard', input);
 
     const updatedLeaderboard = await ctx.app.model.Leaderboard.findByIdAndUpdate(input.where.id.equals, {
@@ -952,17 +953,17 @@ export class Service {
 
   // Log Methods
   async getLog(input: RouterInput['getLog'], ctx: RouterContext): Promise<RouterOutput['getLog']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getLog', input);
 
-    const log = await ctx.app.model.Log.findById(input.where.id.equals).exec();
+    const log = await ctx.app.model.Log.findOne(getFilter(input)).exec();
     if (!log) throw new Error('Log not found');
 
     return log as Log;
   }
 
   async createLog(input: RouterInput['createLog'], ctx: RouterContext): Promise<RouterOutput['createLog']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createLog', input);
 
     const log = await ctx.app.model.Log.create(input);
@@ -970,7 +971,7 @@ export class Service {
   }
 
   async updateLog(input: RouterInput['updateLog'], ctx: RouterContext): Promise<RouterOutput['updateLog']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateLog', input);
 
     const updatedLog = await ctx.app.model.Log.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -981,17 +982,17 @@ export class Service {
 
   // Lore Methods
   async getLore(input: RouterInput['getLore'], ctx: RouterContext): Promise<RouterOutput['getLore']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getLore', input);
 
-    const lore = await ctx.app.model.Lore.findById(input.where.id.equals).exec();
+    const lore = await ctx.app.model.Lore.findOne(getFilter(input)).exec();
     if (!lore) throw new Error('Lore not found');
 
     return lore as Lore;
   }
 
   async createLore(input: RouterInput['createLore'], ctx: RouterContext): Promise<RouterOutput['createLore']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createLore', input);
 
     const lore = await ctx.app.model.Lore.create(input);
@@ -999,7 +1000,7 @@ export class Service {
   }
 
   async updateLore(input: RouterInput['updateLore'], ctx: RouterContext): Promise<RouterOutput['updateLore']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateLore', input);
 
     const updatedLore = await ctx.app.model.Lore.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -1010,17 +1011,17 @@ export class Service {
 
   // Memory Methods
   async getMemory(input: RouterInput['getMemory'], ctx: RouterContext): Promise<RouterOutput['getMemory']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getMemory', input);
 
-    const memory = await ctx.app.model.Memory.findById(input.where.id.equals).exec();
+    const memory = await ctx.app.model.Memory.findOne(getFilter(input)).exec();
     if (!memory) throw new Error('Memory not found');
 
     return memory as Memory;
   }
 
   async createMemory(input: RouterInput['createMemory'], ctx: RouterContext): Promise<RouterOutput['createMemory']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createMemory', input);
 
     const memory = await ctx.app.model.Memory.create(input);
@@ -1028,7 +1029,7 @@ export class Service {
   }
 
   async updateMemory(input: RouterInput['updateMemory'], ctx: RouterContext): Promise<RouterOutput['updateMemory']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateMemory', input);
 
     const updatedMemory = await ctx.app.model.Memory.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1040,17 +1041,17 @@ export class Service {
   }
   // Message Methods
   async getMessage(input: RouterInput['getMessage'], ctx: RouterContext): Promise<RouterOutput['getMessage']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getMessage', input);
 
-    const message = await ctx.app.model.Message.findById(input.where.id.equals).exec();
+    const message = await ctx.app.model.Message.findOne(getFilter(input)).exec();
     if (!message) throw new Error('Message not found');
 
     return message as Message;
   }
 
   async createMessage(input: RouterInput['createMessage'], ctx: RouterContext): Promise<RouterOutput['createMessage']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createMessage', input);
 
     const message = await ctx.app.model.Message.create(input);
@@ -1058,7 +1059,7 @@ export class Service {
   }
 
   async updateMessage(input: RouterInput['updateMessage'], ctx: RouterContext): Promise<RouterOutput['updateMessage']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateMessage', input);
 
     const updatedMessage = await ctx.app.model.Message.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1071,10 +1072,10 @@ export class Service {
 
   // Metaverse Methods
   async getMetaverse(input: RouterInput['getMetaverse'], ctx: RouterContext): Promise<RouterOutput['getMetaverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getMetaverse', input);
 
-    const metaverse = await ctx.app.model.Metaverse.findById(input.where.id.equals).exec();
+    const metaverse = await ctx.app.model.Metaverse.findOne(getFilter(input)).exec();
     if (!metaverse) throw new Error('Metaverse not found');
 
     return metaverse as Metaverse;
@@ -1084,7 +1085,7 @@ export class Service {
     input: RouterInput['createMetaverse'],
     ctx: RouterContext
   ): Promise<RouterOutput['createMetaverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createMetaverse', input);
 
     const metaverse = await ctx.app.model.Metaverse.create(input);
@@ -1095,7 +1096,7 @@ export class Service {
     input: RouterInput['updateMetaverse'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateMetaverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateMetaverse', input);
 
     const updatedMetaverse = await ctx.app.model.Metaverse.findByIdAndUpdate(input.where.id.equals, {
@@ -1113,10 +1114,10 @@ export class Service {
     input: RouterInput['getNewsArticle'],
     ctx: RouterContext
   ): Promise<RouterOutput['getNewsArticle']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getNewsArticle', input);
 
-    const newsArticle = await ctx.app.model.NewsArticle.findById(input.where.id.equals).exec();
+    const newsArticle = await ctx.app.model.NewsArticle.findOne(getFilter(input)).exec();
     if (!newsArticle) throw new Error('NewsArticle not found');
 
     return newsArticle as NewsArticle;
@@ -1126,7 +1127,7 @@ export class Service {
     input: RouterInput['createNewsArticle'],
     ctx: RouterContext
   ): Promise<RouterOutput['createNewsArticle']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createNewsArticle', input);
 
     const newsArticle = await ctx.app.model.NewsArticle.create(input);
@@ -1137,7 +1138,7 @@ export class Service {
     input: RouterInput['updateNewsArticle'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateNewsArticle']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateNewsArticle', input);
 
     const updatedNewsArticle = await ctx.app.model.NewsArticle.findByIdAndUpdate(input.where.id.equals, {
@@ -1152,17 +1153,17 @@ export class Service {
 
   // Npc Methods
   async getNpc(input: RouterInput['getNpc'], ctx: RouterContext): Promise<RouterOutput['getNpc']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getNpc', input);
 
-    const npc = await ctx.app.model.Npc.findById(input.where.id.equals).exec();
+    const npc = await ctx.app.model.Npc.findOne(getFilter(input)).exec();
     if (!npc) throw new Error('Npc not found');
 
     return npc as Npc;
   }
 
   async createNpc(input: RouterInput['createNpc'], ctx: RouterContext): Promise<RouterOutput['createNpc']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createNpc', input);
 
     const npc = await ctx.app.model.Npc.create(input);
@@ -1170,7 +1171,7 @@ export class Service {
   }
 
   async updateNpc(input: RouterInput['updateNpc'], ctx: RouterContext): Promise<RouterOutput['updateNpc']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateNpc', input);
 
     const updatedNpc = await ctx.app.model.Npc.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -1180,17 +1181,17 @@ export class Service {
   }
   // Offer Methods
   async getOffer(input: RouterInput['getOffer'], ctx: RouterContext): Promise<RouterOutput['getOffer']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getOffer', input);
 
-    const offer = await ctx.app.model.Offer.findById(input.where.id.equals).exec();
+    const offer = await ctx.app.model.Offer.findOne(getFilter(input)).exec();
     if (!offer) throw new Error('Offer not found');
 
     return offer as Offer;
   }
 
   async createOffer(input: RouterInput['createOffer'], ctx: RouterContext): Promise<RouterOutput['createOffer']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createOffer', input);
 
     const offer = await ctx.app.model.Offer.create(input);
@@ -1198,7 +1199,7 @@ export class Service {
   }
 
   async updateOffer(input: RouterInput['updateOffer'], ctx: RouterContext): Promise<RouterOutput['updateOffer']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateOffer', input);
 
     const updatedOffer = await ctx.app.model.Offer.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1211,10 +1212,10 @@ export class Service {
 
   // Omniverse Methods
   async getOmniverse(input: RouterInput['getOmniverse'], ctx: RouterContext): Promise<RouterOutput['getOmniverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getOmniverse', input);
 
-    const omniverse = await ctx.app.model.Omniverse.findById(input.where.id.equals).exec();
+    const omniverse = await ctx.app.model.Omniverse.findOne(getFilter(input)).exec();
     if (!omniverse) throw new Error('Omniverse not found');
 
     return omniverse as Omniverse;
@@ -1224,7 +1225,7 @@ export class Service {
     input: RouterInput['createOmniverse'],
     ctx: RouterContext
   ): Promise<RouterOutput['createOmniverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createOmniverse', input);
 
     const omniverse = await ctx.app.model.Omniverse.create(input);
@@ -1235,7 +1236,7 @@ export class Service {
     input: RouterInput['updateOmniverse'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateOmniverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateOmniverse', input);
 
     const updatedOmniverse = await ctx.app.model.Omniverse.findByIdAndUpdate(input.where.id.equals, {
@@ -1250,17 +1251,17 @@ export class Service {
 
   // Order Methods
   async getOrder(input: RouterInput['getOrder'], ctx: RouterContext): Promise<RouterOutput['getOrder']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getOrder', input);
 
-    const order = await ctx.app.model.Order.findById(input.where.id.equals).exec();
+    const order = await ctx.app.model.Order.findOne(getFilter(input)).exec();
     if (!order) throw new Error('Order not found');
 
     return order as Order;
   }
 
   async createOrder(input: RouterInput['createOrder'], ctx: RouterContext): Promise<RouterOutput['createOrder']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createOrder', input);
 
     const order = await ctx.app.model.Order.create(input);
@@ -1268,7 +1269,7 @@ export class Service {
   }
 
   async updateOrder(input: RouterInput['updateOrder'], ctx: RouterContext): Promise<RouterOutput['updateOrder']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateOrder', input);
 
     const updatedOrder = await ctx.app.model.Order.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1281,17 +1282,17 @@ export class Service {
 
   // Payment Methods
   async getPayment(input: RouterInput['getPayment'], ctx: RouterContext): Promise<RouterOutput['getPayment']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPayment', input);
 
-    const payment = await ctx.app.model.Payment.findById(input.where.id.equals).exec();
+    const payment = await ctx.app.model.Payment.findOne(getFilter(input)).exec();
     if (!payment) throw new Error('Payment not found');
 
     return payment as Payment;
   }
 
   async createPayment(input: RouterInput['createPayment'], ctx: RouterContext): Promise<RouterOutput['createPayment']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createPayment', input);
 
     const payment = await ctx.app.model.Payment.create(input);
@@ -1299,7 +1300,7 @@ export class Service {
   }
 
   async updatePayment(input: RouterInput['updatePayment'], ctx: RouterContext): Promise<RouterOutput['updatePayment']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updatePayment', input);
 
     const updatedPayment = await ctx.app.model.Payment.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1311,10 +1312,10 @@ export class Service {
   }
   // Permission Methods
   async getPermission(input: RouterInput['getPermission'], ctx: RouterContext): Promise<RouterOutput['getPermission']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPermission', input);
 
-    const permission = await ctx.app.model.Permission.findById(input.where.id.equals).exec();
+    const permission = await ctx.app.model.Permission.findOne(getFilter(input)).exec();
     if (!permission) throw new Error('Permission not found');
 
     return permission as Permission;
@@ -1324,7 +1325,7 @@ export class Service {
     input: RouterInput['createPermission'],
     ctx: RouterContext
   ): Promise<RouterOutput['createPermission']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createPermission', input);
 
     const permission = await ctx.app.model.Permission.create(input);
@@ -1335,7 +1336,7 @@ export class Service {
     input: RouterInput['updatePermission'],
     ctx: RouterContext
   ): Promise<RouterOutput['updatePermission']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updatePermission', input);
 
     const updatedPermission = await ctx.app.model.Permission.findByIdAndUpdate(input.where.id.equals, {
@@ -1350,17 +1351,17 @@ export class Service {
 
   // Person Methods
   async getPerson(input: RouterInput['getPerson'], ctx: RouterContext): Promise<RouterOutput['getPerson']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPerson', input);
 
-    const person = await ctx.app.model.Person.findById(input.where.id.equals).exec();
+    const person = await ctx.app.model.Person.findOne(getFilter(input)).exec();
     if (!person) throw new Error('Person not found');
 
     return person as Person;
   }
 
   async createPerson(input: RouterInput['createPerson'], ctx: RouterContext): Promise<RouterOutput['createPerson']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createPerson', input);
 
     const person = await ctx.app.model.Person.create(input);
@@ -1368,7 +1369,7 @@ export class Service {
   }
 
   async updatePerson(input: RouterInput['updatePerson'], ctx: RouterContext): Promise<RouterOutput['updatePerson']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updatePerson', input);
 
     const updatedPerson = await ctx.app.model.Person.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1381,17 +1382,17 @@ export class Service {
 
   // Planet Methods
   async getPlanet(input: RouterInput['getPlanet'], ctx: RouterContext): Promise<RouterOutput['getPlanet']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPlanet', input);
 
-    const planet = await ctx.app.model.Planet.findById(input.where.id.equals).exec();
+    const planet = await ctx.app.model.Planet.findOne(getFilter(input)).exec();
     if (!planet) throw new Error('Planet not found');
 
     return planet as Planet;
   }
 
   async createPlanet(input: RouterInput['createPlanet'], ctx: RouterContext): Promise<RouterOutput['createPlanet']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createPlanet', input);
 
     const planet = await ctx.app.model.Planet.create(input);
@@ -1399,7 +1400,7 @@ export class Service {
   }
 
   async updatePlanet(input: RouterInput['updatePlanet'], ctx: RouterContext): Promise<RouterOutput['updatePlanet']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updatePlanet', input);
 
     const updatedPlanet = await ctx.app.model.Planet.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1412,17 +1413,17 @@ export class Service {
 
   // Poll Methods
   async getPoll(input: RouterInput['getPoll'], ctx: RouterContext): Promise<RouterOutput['getPoll']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getPoll', input);
 
-    const poll = await ctx.app.model.Poll.findById(input.where.id.equals).exec();
+    const poll = await ctx.app.model.Poll.findOne(getFilter(input)).exec();
     if (!poll) throw new Error('Poll not found');
 
     return poll as Poll;
   }
 
   async createPoll(input: RouterInput['createPoll'], ctx: RouterContext): Promise<RouterOutput['createPoll']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createPoll', input);
 
     const poll = await ctx.app.model.Poll.create(input);
@@ -1430,7 +1431,7 @@ export class Service {
   }
 
   async updatePoll(input: RouterInput['updatePoll'], ctx: RouterContext): Promise<RouterOutput['updatePoll']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updatePoll', input);
 
     const updatedPoll = await ctx.app.model.Poll.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -1440,17 +1441,17 @@ export class Service {
   }
   // Project Methods
   async getProject(input: RouterInput['getProject'], ctx: RouterContext): Promise<RouterOutput['getProject']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getProject', input);
 
-    const project = await ctx.app.model.Project.findById(input.where.id.equals).exec();
+    const project = await ctx.app.model.Project.findOne(getFilter(input)).exec();
     if (!project) throw new Error('Project not found');
 
     return project as Project;
   }
 
   async createProject(input: RouterInput['createProject'], ctx: RouterContext): Promise<RouterOutput['createProject']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createProject', input);
 
     const project = await ctx.app.model.Project.create(input);
@@ -1458,7 +1459,7 @@ export class Service {
   }
 
   async updateProject(input: RouterInput['updateProject'], ctx: RouterContext): Promise<RouterOutput['updateProject']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateProject', input);
 
     const updatedProject = await ctx.app.model.Project.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1471,10 +1472,10 @@ export class Service {
 
   // Proposal Methods
   async getProposal(input: RouterInput['getProposal'], ctx: RouterContext): Promise<RouterOutput['getProposal']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getProposal', input);
 
-    const proposal = await ctx.app.model.Proposal.findById(input.where.id.equals).exec();
+    const proposal = await ctx.app.model.Proposal.findOne(getFilter(input)).exec();
     if (!proposal) throw new Error('Proposal not found');
 
     return proposal as Proposal;
@@ -1484,7 +1485,7 @@ export class Service {
     input: RouterInput['createProposal'],
     ctx: RouterContext
   ): Promise<RouterOutput['createProposal']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createProposal', input);
 
     const proposal = await ctx.app.model.Proposal.create(input);
@@ -1495,7 +1496,7 @@ export class Service {
     input: RouterInput['updateProposal'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateProposal']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateProposal', input);
 
     const updatedProposal = await ctx.app.model.Proposal.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1508,17 +1509,17 @@ export class Service {
 
   // Quest Methods
   async getQuest(input: RouterInput['getQuest'], ctx: RouterContext): Promise<RouterOutput['getQuest']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getQuest', input);
 
-    const quest = await ctx.app.model.Quest.findById(input.where.id.equals).exec();
+    const quest = await ctx.app.model.Quest.findOne(getFilter(input)).exec();
     if (!quest) throw new Error('Quest not found');
 
     return quest as Quest;
   }
 
   async createQuest(input: RouterInput['createQuest'], ctx: RouterContext): Promise<RouterOutput['createQuest']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createQuest', input);
 
     const quest = await ctx.app.model.Quest.create(input);
@@ -1526,7 +1527,7 @@ export class Service {
   }
 
   async updateQuest(input: RouterInput['updateQuest'], ctx: RouterContext): Promise<RouterOutput['updateQuest']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateQuest', input);
 
     const updatedQuest = await ctx.app.model.Quest.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1539,17 +1540,17 @@ export class Service {
 
   // Rating Methods
   async getRating(input: RouterInput['getRating'], ctx: RouterContext): Promise<RouterOutput['getRating']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRating', input);
 
-    const rating = await ctx.app.model.Rating.findById(input.where.id.equals).exec();
+    const rating = await ctx.app.model.Rating.findOne(getFilter(input)).exec();
     if (!rating) throw new Error('Rating not found');
 
     return rating as Rating;
   }
 
   async createRating(input: RouterInput['createRating'], ctx: RouterContext): Promise<RouterOutput['createRating']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createRating', input);
 
     const rating = await ctx.app.model.Rating.create(input);
@@ -1557,7 +1558,7 @@ export class Service {
   }
 
   async updateRating(input: RouterInput['updateRating'], ctx: RouterContext): Promise<RouterOutput['updateRating']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateRating', input);
 
     const updatedRating = await ctx.app.model.Rating.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1569,10 +1570,10 @@ export class Service {
   }
   // Realm Methods
   async getRealm(input: RouterInput['getRealm'], ctx: RouterContext): Promise<RouterOutput['getRealm']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRealm', input);
 
-    const realm = await ctx.app.model.Realm.findById(input.where.id.equals).exec();
+    const realm = await ctx.app.model.Realm.findOne(getFilter(input)).exec();
     if (!realm) throw new Error('Realm not found');
 
     return realm as Realm;
@@ -1583,15 +1584,33 @@ export class Service {
 
     const filter = getFilter(input);
 
-    filter.status = 'Active';
+    filter.status = 'Online';
 
-    const realms = await ctx.app.model.Realm.find(filter).exec();
+    let realms: Realm[] = await ctx.app.model.Realm.find(filter).exec();
     console.log('vvvv', realms);
-    return { data: realms as Realm[] };
+
+    realms = [
+      {
+        status: 'Online',
+        clientCount: 11,
+        regionCode: 'EU',
+        endpoint: 'localhost:7020',
+        gameId: '673996aec43266df5f966da6',
+        realmShards: [
+          {
+            status: 'Online',
+            clientCount: 11,
+            endpoint: 'localhost:7020',
+          },
+        ],
+      },
+    ];
+
+    return realms;
   }
 
   async createRealm(input: RouterInput['createRealm'], ctx: RouterContext): Promise<RouterOutput['createRealm']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createRealm', input);
 
     const realm = await ctx.app.model.Realm.create(input);
@@ -1599,8 +1618,19 @@ export class Service {
   }
 
   async updateRealm(input: RouterInput['updateRealm'], ctx: RouterContext): Promise<RouterOutput['updateRealm']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateRealm', input);
+
+    //   const data = {};
+
+    //   if (!this.realms[input.data.realmId]) this.realms[input.data.realmId] = {};
+
+    //   const realm: Arken.Core.Types.Realm = this.realms[input.data.realmId];
+
+    //   realm.status = input.data.status;
+    //   realm.clientCount = input.data.clientCount;
+    //   realm.regionCode = input.data.regionCode;
+    //   realm.realmShards = input.data.realmShards;
 
     const updatedRealm = await ctx.app.model.Realm.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1612,10 +1642,10 @@ export class Service {
 
   // Revision Methods
   async getRevision(input: RouterInput['getRevision'], ctx: RouterContext): Promise<RouterOutput['getRevision']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRevision', input);
 
-    const revision = await ctx.app.model.Revision.findById(input.where.id.equals).exec();
+    const revision = await ctx.app.model.Revision.findOne(getFilter(input)).exec();
     if (!revision) throw new Error('Revision not found');
 
     return revision as Revision;
@@ -1625,7 +1655,7 @@ export class Service {
     input: RouterInput['createRevision'],
     ctx: RouterContext
   ): Promise<RouterOutput['createRevision']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createRevision', input);
 
     const revision = await ctx.app.model.Revision.create(input);
@@ -1636,7 +1666,7 @@ export class Service {
     input: RouterInput['updateRevision'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateRevision']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateRevision', input);
 
     const updatedRevision = await ctx.app.model.Revision.findByIdAndUpdate(input.where.id.equals, {
@@ -1651,10 +1681,10 @@ export class Service {
 
   // Referral Methods
   async getReferral(input: RouterInput['getReferral'], ctx: RouterContext): Promise<RouterOutput['getReferral']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getReferral', input);
 
-    const referral = await ctx.app.model.Referral.findById(input.where.id.equals).exec();
+    const referral = await ctx.app.model.Referral.findOne(getFilter(input)).exec();
     if (!referral) throw new Error('Referral not found');
 
     return referral as Referral;
@@ -1664,7 +1694,7 @@ export class Service {
     input: RouterInput['createReferral'],
     ctx: RouterContext
   ): Promise<RouterOutput['createReferral']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createReferral', input);
 
     const referral = await ctx.app.model.Referral.create(input);
@@ -1675,7 +1705,7 @@ export class Service {
     input: RouterInput['updateReferral'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateReferral']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateReferral', input);
 
     const updatedReferral = await ctx.app.model.Referral.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1688,17 +1718,17 @@ export class Service {
 
   // Review Methods
   async getReview(input: RouterInput['getReview'], ctx: RouterContext): Promise<RouterOutput['getReview']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getReview', input);
 
-    const review = await ctx.app.model.Review.findById(input.where.id.equals).exec();
+    const review = await ctx.app.model.Review.findOne(getFilter(input)).exec();
     if (!review) throw new Error('Review not found');
 
     return review as Review;
   }
 
   async createReview(input: RouterInput['createReview'], ctx: RouterContext): Promise<RouterOutput['createReview']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createReview', input);
 
     const review = await ctx.app.model.Review.create(input);
@@ -1706,7 +1736,7 @@ export class Service {
   }
 
   async updateReview(input: RouterInput['updateReview'], ctx: RouterContext): Promise<RouterOutput['updateReview']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateReview', input);
 
     const updatedReview = await ctx.app.model.Review.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1717,17 +1747,17 @@ export class Service {
     return updatedReview as Review;
   } // Role Methods
   async getRole(input: RouterInput['getRole'], ctx: RouterContext): Promise<RouterOutput['getRole']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRole', input);
 
-    const role = await ctx.app.model.Role.findById(input.where.id.equals).exec();
+    const role = await ctx.app.model.Role.findOne(getFilter(input)).exec();
     if (!role) throw new Error('Role not found');
 
     return role as Role;
   }
 
   async createRole(input: RouterInput['createRole'], ctx: RouterContext): Promise<RouterOutput['createRole']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createRole', input);
 
     const role = await ctx.app.model.Role.create(input);
@@ -1735,7 +1765,7 @@ export class Service {
   }
 
   async updateRole(input: RouterInput['updateRole'], ctx: RouterContext): Promise<RouterOutput['updateRole']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateRole', input);
 
     const updatedRole = await ctx.app.model.Role.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -1746,17 +1776,17 @@ export class Service {
 
   // Season Methods
   async getSeason(input: RouterInput['getSeason'], ctx: RouterContext): Promise<RouterOutput['getSeason']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSeason', input);
 
-    const season = await ctx.app.model.Season.findById(input.where.id.equals).exec();
+    const season = await ctx.app.model.Season.findOne(getFilter(input)).exec();
     if (!season) throw new Error('Season not found');
 
     return season as Season;
   }
 
   async createSeason(input: RouterInput['createSeason'], ctx: RouterContext): Promise<RouterOutput['createSeason']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createSeason', input);
 
     const season = await ctx.app.model.Season.create(input);
@@ -1764,7 +1794,7 @@ export class Service {
   }
 
   async updateSeason(input: RouterInput['updateSeason'], ctx: RouterContext): Promise<RouterOutput['updateSeason']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateSeason', input);
 
     const updatedSeason = await ctx.app.model.Season.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1775,62 +1805,71 @@ export class Service {
     return updatedSeason as Season;
   }
 
-  // Server Methods
-  async getServer(input: RouterInput['getServer'], ctx: RouterContext): Promise<RouterOutput['getServer']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Core.Service.getServer', input);
+  // RealmShard Methods
+  async getRealmShard(input: RouterInput['getRealmShard'], ctx: RouterContext): Promise<RouterOutput['getRealmShard']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getRealmShard', input);
 
-    const server = await ctx.app.model.Server.findById(input.where.id.equals).exec();
-    if (!server) throw new Error('Server not found');
+    const server = await ctx.app.model.RealmShard.findOne(getFilter(input)).exec();
+    if (!server) throw new Error('RealmShard not found');
 
-    return server as Server;
+    return server as RealmShard;
   }
 
-  async getServers(input: RouterInput['getServers'], ctx: RouterContext): Promise<RouterOutput['getServers']> {
-    console.log('Core.Service.getServers', input);
+  async getRealmShards(
+    input: RouterInput['getRealmShards'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getRealmShards']> {
+    console.log('Core.Service.getRealmShards', input);
 
     const filter = getFilter(input);
 
     filter.status = 'Active';
 
-    const servers = await ctx.app.model.Server.find(filter).exec();
+    const servers = await ctx.app.model.RealmShard.find(filter).exec();
 
-    return { data: servers as Server[] };
+    return servers as RealmShard[];
   }
 
-  async createServer(input: RouterInput['createServer'], ctx: RouterContext): Promise<RouterOutput['createServer']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Core.Service.createServer', input);
+  async createRealmShard(
+    input: RouterInput['createRealmShard'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createRealmShard']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.createRealmShard', input);
 
-    const server = await ctx.app.model.Server.create(input);
-    return server as Server;
+    const server = await ctx.app.model.RealmShard.create(input);
+    return server as RealmShard;
   }
 
-  async updateServer(input: RouterInput['updateServer'], ctx: RouterContext): Promise<RouterOutput['updateServer']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Core.Service.updateServer', input);
+  async updateRealmShard(
+    input: RouterInput['updateRealmShard'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateRealmShard']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.updateRealmShard', input);
 
-    const updatedServer = await ctx.app.model.Server.findByIdAndUpdate(input.where.id.equals, { new: true })
+    const updatedRealmShard = await ctx.app.model.RealmShard.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
       .exec();
-    if (!updatedServer) throw new Error('Server update failed');
+    if (!updatedRealmShard) throw new Error('RealmShard update failed');
 
-    return updatedServer as Server;
+    return updatedRealmShard as RealmShard;
   }
 
   // Session Methods
   async getSession(input: RouterInput['getSession'], ctx: RouterContext): Promise<RouterOutput['getSession']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSession', input);
 
-    const session = await ctx.app.model.Session.findById(input.where.id.equals).exec();
+    const session = await ctx.app.model.Session.findOne(getFilter(input)).exec();
     if (!session) throw new Error('Session not found');
 
     return session as Session;
   }
 
   async createSession(input: RouterInput['createSession'], ctx: RouterContext): Promise<RouterOutput['createSession']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createSession', input);
 
     const session = await ctx.app.model.Session.create(input);
@@ -1838,7 +1877,7 @@ export class Service {
   }
 
   async updateSession(input: RouterInput['updateSession'], ctx: RouterContext): Promise<RouterOutput['updateSession']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateSession', input);
 
     const updatedSession = await ctx.app.model.Session.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1853,10 +1892,10 @@ export class Service {
     input: RouterInput['getSolarSystem'],
     ctx: RouterContext
   ): Promise<RouterOutput['getSolarSystem']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSolarSystem', input);
 
-    const solarSystem = await ctx.app.model.SolarSystem.findById(input.where.id.equals).exec();
+    const solarSystem = await ctx.app.model.SolarSystem.findOne(getFilter(input)).exec();
     if (!solarSystem) throw new Error('SolarSystem not found');
 
     return solarSystem as SolarSystem;
@@ -1866,7 +1905,7 @@ export class Service {
     input: RouterInput['createSolarSystem'],
     ctx: RouterContext
   ): Promise<RouterOutput['createSolarSystem']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createSolarSystem', input);
 
     const solarSystem = await ctx.app.model.SolarSystem.create(input);
@@ -1877,7 +1916,7 @@ export class Service {
     input: RouterInput['updateSolarSystem'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateSolarSystem']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateSolarSystem', input);
 
     const updatedSolarSystem = await ctx.app.model.SolarSystem.findByIdAndUpdate(input.where.id.equals, {
@@ -1892,17 +1931,17 @@ export class Service {
 
   // Star Methods
   async getStar(input: RouterInput['getStar'], ctx: RouterContext): Promise<RouterOutput['getStar']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getStar', input);
 
-    const star = await ctx.app.model.Star.findById(input.where.id.equals).exec();
+    const star = await ctx.app.model.Star.findOne(getFilter(input)).exec();
     if (!star) throw new Error('Star not found');
 
     return star as Star;
   }
 
   async createStar(input: RouterInput['createStar'], ctx: RouterContext): Promise<RouterOutput['createStar']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createStar', input);
 
     const star = await ctx.app.model.Star.create(input);
@@ -1910,7 +1949,7 @@ export class Service {
   }
 
   async updateStar(input: RouterInput['updateStar'], ctx: RouterContext): Promise<RouterOutput['updateStar']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateStar', input);
 
     const updatedStar = await ctx.app.model.Star.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -1921,17 +1960,17 @@ export class Service {
 
   // Stash Methods
   async getStash(input: RouterInput['getStash'], ctx: RouterContext): Promise<RouterOutput['getStash']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getStash', input);
 
-    const stash = await ctx.app.model.Stash.findById(input.where.id.equals).exec();
+    const stash = await ctx.app.model.Stash.findOne(getFilter(input)).exec();
     if (!stash) throw new Error('Stash not found');
 
     return stash as Stash;
   }
 
   async createStash(input: RouterInput['createStash'], ctx: RouterContext): Promise<RouterOutput['createStash']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createStash', input);
 
     const stash = await ctx.app.model.Stash.create(input);
@@ -1939,7 +1978,7 @@ export class Service {
   }
 
   async updateStash(input: RouterInput['updateStash'], ctx: RouterContext): Promise<RouterOutput['updateStash']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateStash', input);
 
     const updatedStash = await ctx.app.model.Stash.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1952,17 +1991,17 @@ export class Service {
 
   // Stock Methods
   async getStock(input: RouterInput['getStock'], ctx: RouterContext): Promise<RouterOutput['getStock']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getStock', input);
 
-    const stock = await ctx.app.model.Stock.findById(input.where.id.equals).exec();
+    const stock = await ctx.app.model.Stock.findOne(getFilter(input)).exec();
     if (!stock) throw new Error('Stock not found');
 
     return stock as Stock;
   }
 
   async createStock(input: RouterInput['createStock'], ctx: RouterContext): Promise<RouterOutput['createStock']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createStock', input);
 
     const stock = await ctx.app.model.Stock.create(input);
@@ -1970,7 +2009,7 @@ export class Service {
   }
 
   async updateStock(input: RouterInput['updateStock'], ctx: RouterContext): Promise<RouterOutput['updateStock']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateStock', input);
 
     const updatedStock = await ctx.app.model.Stock.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -1981,10 +2020,10 @@ export class Service {
     return updatedStock as Stock;
   } // Suggestion Methods
   async getSuggestion(input: RouterInput['getSuggestion'], ctx: RouterContext): Promise<RouterOutput['getSuggestion']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getSuggestion', input);
 
-    const suggestion = await ctx.app.model.Suggestion.findById(input.where.id.equals).exec();
+    const suggestion = await ctx.app.model.Suggestion.findOne(getFilter(input)).exec();
     if (!suggestion) throw new Error('Suggestion not found');
 
     return suggestion as Suggestion;
@@ -1994,7 +2033,7 @@ export class Service {
     input: RouterInput['createSuggestion'],
     ctx: RouterContext
   ): Promise<RouterOutput['createSuggestion']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createSuggestion', input);
 
     const suggestion = await ctx.app.model.Suggestion.create(input);
@@ -2005,7 +2044,7 @@ export class Service {
     input: RouterInput['updateSuggestion'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateSuggestion']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateSuggestion', input);
 
     const updatedSuggestion = await ctx.app.model.Suggestion.findByIdAndUpdate(input.where.id.equals, {
@@ -2020,17 +2059,17 @@ export class Service {
 
   // Tag Methods
   async getTag(input: RouterInput['getTag'], ctx: RouterContext): Promise<RouterOutput['getTag']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTag', input);
 
-    const tag = await ctx.app.model.Tag.findById(input.where.id.equals).exec();
+    const tag = await ctx.app.model.Tag.findOne(getFilter(input)).exec();
     if (!tag) throw new Error('Tag not found');
 
     return tag as Tag;
   }
 
   async createTag(input: RouterInput['createTag'], ctx: RouterContext): Promise<RouterOutput['createTag']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createTag', input);
 
     const tag = await ctx.app.model.Tag.create(input);
@@ -2038,7 +2077,7 @@ export class Service {
   }
 
   async updateTag(input: RouterInput['updateTag'], ctx: RouterContext): Promise<RouterOutput['updateTag']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateTag', input);
 
     const updatedTag = await ctx.app.model.Tag.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -2049,17 +2088,31 @@ export class Service {
 
   // Team Methods
   async getTeam(input: RouterInput['getTeam'], ctx: RouterContext): Promise<RouterOutput['getTeam']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTeam', input);
 
-    const team = await ctx.app.model.Team.findById(input.where.id.equals).exec();
+    const filter = getFilter(input);
+    const team = await ctx.app.model.Team.findOne(filter).populate('profiles', 'profiles.characters');
     if (!team) throw new Error('Team not found');
 
     return team as Team;
   }
 
+  async getTeams(input: RouterInput['getTeams'], ctx: RouterContext): Promise<RouterOutput['getTeams']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getTeams', input);
+
+    const filter = getFilter(input);
+    const teams = await ctx.app.model.Team.find(filter)
+      .skip(input.skip || 0)
+      .limit(input.take || 10)
+      .exec();
+
+    return teams as Team[];
+  }
+
   async createTeam(input: RouterInput['createTeam'], ctx: RouterContext): Promise<RouterOutput['createTeam']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createTeam', input);
 
     const team = await ctx.app.model.Team.create(input);
@@ -2067,7 +2120,7 @@ export class Service {
   }
 
   async updateTeam(input: RouterInput['updateTeam'], ctx: RouterContext): Promise<RouterOutput['updateTeam']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateTeam', input);
 
     const updatedTeam = await ctx.app.model.Team.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -2078,10 +2131,10 @@ export class Service {
 
   // Tournament Methods
   async getTournament(input: RouterInput['getTournament'], ctx: RouterContext): Promise<RouterOutput['getTournament']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTournament', input);
 
-    const tournament = await ctx.app.model.Tournament.findById(input.where.id.equals).exec();
+    const tournament = await ctx.app.model.Tournament.findOne(getFilter(input)).exec();
     if (!tournament) throw new Error('Tournament not found');
 
     return tournament as Tournament;
@@ -2091,7 +2144,7 @@ export class Service {
     input: RouterInput['createTournament'],
     ctx: RouterContext
   ): Promise<RouterOutput['createTournament']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createTournament', input);
 
     const tournament = await ctx.app.model.Tournament.create(input);
@@ -2102,7 +2155,7 @@ export class Service {
     input: RouterInput['updateTournament'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateTournament']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateTournament', input);
 
     const updatedTournament = await ctx.app.model.Tournament.findByIdAndUpdate(input.where.id.equals, {
@@ -2116,17 +2169,25 @@ export class Service {
   }
   // Trade Methods
   async getTrade(input: RouterInput['getTrade'], ctx: RouterContext): Promise<RouterOutput['getTrade']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getTrade', input);
 
-    const trade = await ctx.app.model.Trade.findById(input.where.id.equals).exec();
+    const trade = await ctx.app.model.Trade.findOne(getFilter(input)).exec();
     if (!trade) throw new Error('Trade not found');
 
     return trade as Trade;
   }
+  async getTrades(input: RouterInput['getTrades'], ctx: RouterContext): Promise<RouterOutput['getTrades']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getTrades', input);
+
+    const trade = await ctx.app.model.Trade.find().limit(10).exec();
+
+    return trade as Trade[];
+  }
 
   async createTrade(input: RouterInput['createTrade'], ctx: RouterContext): Promise<RouterOutput['createTrade']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createTrade', input);
 
     const trade = await ctx.app.model.Trade.create(input);
@@ -2134,7 +2195,7 @@ export class Service {
   }
 
   async updateTrade(input: RouterInput['updateTrade'], ctx: RouterContext): Promise<RouterOutput['updateTrade']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateTrade', input);
 
     const updatedTrade = await ctx.app.model.Trade.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -2147,10 +2208,10 @@ export class Service {
 
   // Universe Methods
   async getUniverse(input: RouterInput['getUniverse'], ctx: RouterContext): Promise<RouterOutput['getUniverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getUniverse', input);
 
-    const universe = await ctx.app.model.Universe.findById(input.where.id.equals).exec();
+    const universe = await ctx.app.model.Universe.findOne(getFilter(input)).exec();
     if (!universe) throw new Error('Universe not found');
 
     return universe as Universe;
@@ -2160,7 +2221,7 @@ export class Service {
     input: RouterInput['createUniverse'],
     ctx: RouterContext
   ): Promise<RouterOutput['createUniverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createUniverse', input);
 
     const universe = await ctx.app.model.Universe.create(input);
@@ -2171,7 +2232,7 @@ export class Service {
     input: RouterInput['updateUniverse'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateUniverse']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateUniverse', input);
 
     const updatedUniverse = await ctx.app.model.Universe.findByIdAndUpdate(input.where.id.equals, { new: true })
@@ -2184,10 +2245,10 @@ export class Service {
 
   // Validator Methods
   async getValidator(input: RouterInput['getValidator'], ctx: RouterContext): Promise<RouterOutput['getValidator']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getValidator', input);
 
-    const validator = await ctx.app.model.Validator.findById(input.where.id.equals).exec();
+    const validator = await ctx.app.model.Validator.findOne(getFilter(input)).exec();
     if (!validator) throw new Error('Validator not found');
 
     return validator as Validator;
@@ -2197,7 +2258,7 @@ export class Service {
     input: RouterInput['createValidator'],
     ctx: RouterContext
   ): Promise<RouterOutput['createValidator']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createValidator', input);
 
     const validator = await ctx.app.model.Validator.create(input);
@@ -2208,7 +2269,7 @@ export class Service {
     input: RouterInput['updateValidator'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateValidator']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateValidator', input);
 
     const updatedValidator = await ctx.app.model.Validator.findByIdAndUpdate(input.where.id.equals, {
@@ -2223,17 +2284,17 @@ export class Service {
 
   // Vote Methods
   async getVote(input: RouterInput['getVote'], ctx: RouterContext): Promise<RouterOutput['getVote']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getVote', input);
 
-    const vote = await ctx.app.model.Vote.findById(input.where.id.equals).exec();
+    const vote = await ctx.app.model.Vote.findOne(getFilter(input)).exec();
     if (!vote) throw new Error('Vote not found');
 
     return vote as Vote;
   }
 
   async createVote(input: RouterInput['createVote'], ctx: RouterContext): Promise<RouterOutput['createVote']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createVote', input);
 
     const vote = await ctx.app.model.Vote.create(input);
@@ -2241,7 +2302,7 @@ export class Service {
   }
 
   async updateVote(input: RouterInput['updateVote'], ctx: RouterContext): Promise<RouterOutput['updateVote']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateVote', input);
 
     const updatedVote = await ctx.app.model.Vote.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
@@ -2252,10 +2313,10 @@ export class Service {
 
   // WorldEvent Methods
   async getWorldEvent(input: RouterInput['getWorldEvent'], ctx: RouterContext): Promise<RouterOutput['getWorldEvent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getWorldEvent', input);
 
-    const worldEvent = await ctx.app.model.WorldEvent.findById(input.where.id.equals).exec();
+    const worldEvent = await ctx.app.model.WorldEvent.findOne(getFilter(input)).exec();
     if (!worldEvent) throw new Error('WorldEvent not found');
 
     return worldEvent as WorldEvent;
@@ -2265,7 +2326,7 @@ export class Service {
     input: RouterInput['createWorldEvent'],
     ctx: RouterContext
   ): Promise<RouterOutput['createWorldEvent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createWorldEvent', input);
 
     const worldEvent = await ctx.app.model.WorldEvent.create(input);
@@ -2276,7 +2337,7 @@ export class Service {
     input: RouterInput['updateWorldEvent'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateWorldEvent']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateWorldEvent', input);
 
     const updatedWorldEvent = await ctx.app.model.WorldEvent.findByIdAndUpdate(input.where.id.equals, {
@@ -2291,10 +2352,10 @@ export class Service {
 
   // Get Bounty
   async getBounty(input: RouterInput['getBounty'], ctx: RouterContext): Promise<RouterOutput['getBounty']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getBounty', input);
 
-    const bounty = await ctx.app.model.Bounty.findById(input.where.id.equals).exec();
+    const bounty = await ctx.app.model.Bounty.findOne(getFilter(input)).exec();
     if (!bounty) throw new Error('Bounty not found');
 
     return bounty as Bounty;
@@ -2302,7 +2363,7 @@ export class Service {
 
   // Create Bounty
   async createBounty(input: RouterInput['createBounty'], ctx: RouterContext): Promise<RouterOutput['createBounty']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.createBounty', input);
 
     const bounty = await ctx.app.model.Bounty.create(input);
@@ -2311,7 +2372,7 @@ export class Service {
 
   // Update Bounty
   async updateBounty(input: RouterInput['updateBounty'], ctx: RouterContext): Promise<RouterOutput['updateBounty']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateBounty', input);
 
     const updatedBounty = await ctx.app.model.Bounty.findByIdAndUpdate(input.where.id.equals, { new: true })

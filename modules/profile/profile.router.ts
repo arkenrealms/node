@@ -1,9 +1,9 @@
 import { z as zod } from 'zod';
-import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
+import { initTRPC, inferRouterInputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
 import { Profile } from './profile.schema';
-import { Query } from '../../schema';
+import { Query, getQueryInput, getQueryOutput, inferRouterOutputs } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -12,23 +12,39 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    setProfileMode: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(z.string())
+      .mutation(({ input, ctx }) => (ctx.app.service.Profile.setProfileMode as any)(input, ctx)),
+
     // Profile endpoints
     getProfile: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query }))
+      .input(getQueryInput(Profile))
+      .output(Profile)
       .query(({ input, ctx }) => (ctx.app.service.Profile.getProfile as any)(input, ctx)),
+
+    getProfiles: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Profile))
+      .output(z.array(Profile))
+      .query(({ input, ctx }) => (ctx.app.service.Profile.getProfiles as any)(input, ctx)),
 
     createProfile: procedure
       .use(hasRole('user', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ data: Profile }))
+      .input(getQueryInput(Profile))
+      .output(Profile)
       .mutation(({ input, ctx }) => (ctx.app.service.Profile.createProfile as any)(input, ctx)),
 
     updateProfile: procedure
       .use(hasRole('user', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query, data: Profile.partial() }))
+      .input(getQueryInput(Profile))
+      .output(Profile)
       .mutation(({ input, ctx }) => (ctx.app.service.Profile.updateProfile as any)(input, ctx)),
 
     getProfileStats: procedure

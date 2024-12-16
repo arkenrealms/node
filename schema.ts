@@ -239,7 +239,7 @@ export const getQueryInput = <T extends zod.ZodRawShape>(
   modelSchema: zod.ZodObject<T>,
   options: { partialData?: boolean } = {}
 ) => {
-  const { partialData = false } = options;
+  const { partialData = true } = options;
   const whereSchema = createPrismaWhereSchema(modelSchema);
 
   const querySchema = z

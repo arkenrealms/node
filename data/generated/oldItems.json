@@ -35,7 +35,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Night Blade",
-      "Rune Word": "Tir El",
+      "Runeform": "Tir El",
       "Distribution": "Crafted",
       "Date": "April 25, 2021 - June 3, 2021",
       "Max Supply": "Unknown"
@@ -359,7 +359,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "War Sword",
-      "Rune Word": "Nef Eld Tir El",
+      "Runeform": "Nef Eld Tir El",
       "Distribution": "Crafted",
       "Date": "April 25, 2021 - June 3, 2021"
     },
@@ -768,7 +768,7 @@
     "details": {
       "Type": "Helm",
       "Subtype": "Ancient Helm",
-      "Rune Word": "Nef Tir",
+      "Runeform": "Nef Tir",
       "Distribution": "Crafted",
       "Date": "April 25, 2021 - June 3, 2021"
     },
@@ -1198,7 +1198,7 @@
     "details": {
       "Type": "Boot",
       "Subtype": "Astral Greaves",
-      "Rune Word": "Ith Eld Ral Tal",
+      "Runeform": "Ith Eld Ral Tal",
       "Distribution": "Crafted",
       "Date": "May 17, 2021 - Now"
     },
@@ -1562,7 +1562,7 @@
     "details": {
       "Type": "Body Armor",
       "Subtype": "Templar Forge",
-      "Rune Word": "Tal Ort Thul Eld Nef",
+      "Runeform": "Tal Ort Thul Eld Nef",
       "Distribution": "Crafted",
       "Date": "May 24, 2021 - Now"
     },
@@ -1918,7 +1918,7 @@
     "details": {
       "Type": "Glove",
       "Subtype": "Shadow Wraps",
-      "Rune Word": "Thul Ith Ort Ral",
+      "Runeform": "Thul Ith Ort Ral",
       "Distribution": "Crafted",
       "Date": "May 25, 2021 - June 25, 2021"
     },
@@ -2260,7 +2260,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Cloudstrike Sword",
-      "Rune Word": "Sol Ral Ith Eld Ort",
+      "Runeform": "Sol Ral Ith Eld Ort",
       "Distribution": "Crafted",
       "Date": "June 1, 2021 - Now"
     },
@@ -2855,7 +2855,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Sage Bow",
-      "Rune Word": "Sol Ith Nef El Ort",
+      "Runeform": "Sol Ith Nef El Ort",
       "Distribution": "Crafted",
       "Date": "June 1, 2021 - Now"
     },
@@ -3407,7 +3407,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Dimensional Dagger",
-      "Rune Word": "Sol Thul Amn Ort",
+      "Runeform": "Sol Thul Amn Ort",
       "Distribution": "Crafted",
       "Date": "June 1, 2021 - Now"
     },
@@ -3932,7 +3932,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Chrono Staff",
-      "Rune Word": "Sol Amn Ort Thul Ral",
+      "Runeform": "Sol Amn Ort Thul Ral",
       "Distribution": "Crafted",
       "Date": "June 1, 2021 - Now"
     },
@@ -4515,7 +4515,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Unknown Claw",
-      "Rune Word": "Shael Ith Dol Nef Sol",
+      "Runeform": "Shael Ith Dol Nef Sol",
       "Distribution": "Crafted",
       "Date": "June 11, 2021 - Now"
     },
@@ -5590,7 +5590,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Worldstone Mace",
-      "Rune Word": "Dol Amn Thul Ral Tal",
+      "Runeform": "Dol Amn Thul Ral Tal",
       "Distribution": "Crafted",
       "Date": "June 11, 2021 - Now"
     },
@@ -6160,7 +6160,7 @@
     "details": {
       "Type": "Helm",
       "Subtype": "Warden Helm",
-      "Rune Word": "Nef Tir Sol Ort",
+      "Runeform": "Nef Tir Sol Ort",
       "Distribution": "Crafted",
       "Date": "June 3, 2021 - Now"
     },
@@ -6520,7 +6520,7 @@
     "details": {
       "Type": "Leg Armor",
       "Subtype": "Templar Chausses",
-      "Rune Word": "Dol Io Hel Lum",
+      "Runeform": "Dol Io Hel Lum",
       "Distribution": "Crafted",
       "Date": "June 26, 2021 - Now"
     },
@@ -6967,7 +6967,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Moonlight Greatsword",
-      "Rune Word": "Zod Zod Zod Zod Zod",
+      "Runeform": "Zod Zod Zod Zod Zod",
       "Distribution": "Crafted",
       "Date": "August 27, 2021 - Now"
     },
@@ -8174,7 +8174,7 @@
     "details": {
       "Type": "Glove",
       "Subtype": "Astral Gauntlets",
-      "Rune Word": "Ith Dol Ral Ko",
+      "Runeform": "Ith Dol Ral Ko",
       "Distribution": "Crafted",
       "Date": "August 27, 2021 - Now"
     },
@@ -9960,7 +9960,7 @@
     "details": {
       "Type": "Ring",
       "Subtype": "Glimmering Band",
-      "Rune Word": "Lum Dol Io Dol Lum",
+      "Runeform": "Lum Dol Io Dol Lum",
       "Distribution": "Crafted",
       "Date": "August 27, 2021 - Now"
     },
@@ -11626,7 +11626,7 @@
     "details": {
       "Type": "Body Armor",
       "Subtype": "Dragonforged Cuirass",
-      "Rune Word": "Fal Mal Pul Um Zod"
+      "Runeform": "Fal Mal Pul Um Zod"
     },
     "recipe": {
       "requirement": [
@@ -12849,7 +12849,7 @@
     "details": {
       "Type": "Body Armor",
       "Subtype": "Drakehide Vestments",
-      "Rune Word": "Pul Lo Um Zod"
+      "Runeform": "Pul Lo Um Zod"
     },
     "recipe": {
       "requirement": [
@@ -14303,7 +14303,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Soulreaver Scythe",
-      "Rune Word": "Mal Ist Zod Tal Eld"
+      "Runeform": "Mal Ist Zod Tal Eld"
     },
     "recipe": {
       "requirement": [
@@ -15196,7 +15196,7 @@
     "details": {
       "Type": "Ring",
       "Subtype": "Darkblood Band",
-      "Rune Word": "SOL OHM UM LO"
+      "Runeform": "SOL OHM UM LO"
     },
     "recipe": {
       "requirement": [
@@ -15398,7 +15398,7 @@
       "Type": "Ring",
       "Subtype": "Prism Band",
       "Distribution": ["Crafted"],
-      "Rune Word": "IST IST IST IST IST"
+      "Runeform": "IST IST IST IST IST"
     },
     "recipe": {
       "requirement": [
@@ -16035,7 +16035,7 @@
     "details": {
       "Type": "Two-Handed Weapon",
       "Subtype": "Ancestral Axe",
-      "Rune Word": "Ral Ist Zod Mal Um"
+      "Runeform": "Ral Ist Zod Mal Um"
     },
     "recipe": {
       "requirement": [
@@ -16775,7 +16775,7 @@
     "details": {
       "Type": "Boot",
       "Subtype": "Sol Battlemage Footwraps",
-      "Rune Word": "Gul Ist Zod Um"
+      "Runeform": "Gul Ist Zod Um"
     },
     "recipe": {
       "requirement": [
@@ -18453,7 +18453,7 @@
     "details": {
       "Type": "Boot",
       "Subtype": "Raider Boots",
-      "Rune Word": "Gul Lo Zod Ist"
+      "Runeform": "Gul Lo Zod Ist"
     },
     "recipe": {
       "requirement": [
@@ -18800,7 +18800,7 @@
     "details": {
       "Type": "Leg Armor",
       "Subtype": "Sol Battlemage Leggings",
-      "Rune Word": "Tal Ith Zod Gul Ort"
+      "Runeform": "Tal Ith Zod Gul Ort"
     },
     "recipe": {
       "requirement": [
@@ -19672,7 +19672,7 @@
     "details": {
       "Type": "Ring",
       "Subtype": "Overwrought Iron Ring",
-      "Rune Word": "Pul Ith Mal Um Zod"
+      "Runeform": "Pul Ith Mal Um Zod"
     },
     "recipe": {
       "requirement": [
@@ -20517,7 +20517,7 @@
     "details": {
       "Type": "One-Handed Weapon",
       "Subtype": "Thirsting Edge",
-      "Rune Word": "Mal Um Zod Ist El"
+      "Runeform": "Mal Um Zod Ist El"
     },
     "recipe": {
       "requirement": [

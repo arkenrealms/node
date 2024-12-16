@@ -24,10 +24,7 @@ export class Service {
     if (!interfac.version) interfac.version = 1;
     if (!interfac.meta) interfac.meta = {};
 
-    return {
-      status: 1,
-      data: interfac as InterfaceDocument,
-    };
+    return interfac as InterfaceDocument;
   }
 
   async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
@@ -43,13 +40,10 @@ export class Service {
       if (!interfac.meta) interfac.meta = {};
     }
 
-    return {
-      status: 1,
-      data: interfaces.filter((interfac) => {
-        const roles = [];
-        return this.hasPermission(roles, rolesOnUsers);
-      }) as InterfaceDocument[],
-    };
+    return interfaces.filter((interfac) => {
+      const roles = [];
+      return this.hasPermission(roles, rolesOnUsers);
+    }) as InterfaceDocument[];
   }
 
   async createInterface(
@@ -70,7 +64,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { status: 1, data: newInterface as InterfaceDocument };
+    return newInterface as InterfaceDocument;
   }
 
   async createInterfaceDraft(
@@ -92,7 +86,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { status: 1, data: newInterface as InterfaceDocument };
+    return newInterface as InterfaceDocument;
   }
 
   async updateInterface(
@@ -125,7 +119,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { status: 1, data: interfac as InterfaceDocument };
+    return interfac as InterfaceDocument;
   }
 
   async deleteInterface(
@@ -145,7 +139,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { status: 1, data: interfac as InterfaceDocument };
+    return interfac as InterfaceDocument;
   }
 
   async getInterfaceGroup(
@@ -167,7 +161,7 @@ export class Service {
     //   });
     // }
 
-    return { status: 1, data: group as InterfaceGroupDocument };
+    return group as InterfaceGroupDocument;
   }
 
   async getInterfaceGroups(
@@ -179,7 +173,7 @@ export class Service {
     const filter = getFilter(input);
     const groups = await ctx.app.model.InterfaceGroup.find(filter).exec();
 
-    return { status: 1, data: groups as InterfaceGroupDocument[] };
+    return groups as InterfaceGroupDocument[];
   }
 
   async createInterfaceGroup(
@@ -191,7 +185,7 @@ export class Service {
 
     const newGroup = await ctx.app.model.InterfaceGroup.create(input.data);
 
-    return { status: 1, data: newGroup as InterfaceGroupDocument };
+    return newGroup as InterfaceGroupDocument;
   }
 
   async updateInterfaceGroup(
@@ -209,7 +203,7 @@ export class Service {
     const updatedGroup = await ctx.app.model.InterfaceGroup.findOne(filter).exec();
     if (!updatedGroup) throw new Error('InterfaceGroup update failed');
 
-    return { status: 1, data: updatedGroup as InterfaceGroupDocument };
+    return updatedGroup as InterfaceGroupDocument;
   }
 
   async getInterfaceComponent(
@@ -223,7 +217,7 @@ export class Service {
     const component = await ctx.app.model.InterfaceComponent.findOne(filter).exec();
     if (!component) throw new Error('InterfaceComponent not found');
 
-    return { status: 1, data: component as InterfaceComponentDocument };
+    return component as InterfaceComponentDocument;
   }
 
   async createInterfaceComponent(
@@ -250,7 +244,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { status: 1, data: component as InterfaceComponentDocument };
+    return component as InterfaceComponentDocument;
   }
 
   async updateInterfaceComponent(
@@ -275,7 +269,7 @@ export class Service {
 
     await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return { status: 1, data: updatedComponent as InterfaceComponentDocument };
+    return updatedComponent as InterfaceComponentDocument;
   }
 
   // Helper Methods
