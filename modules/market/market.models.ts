@@ -1,6 +1,18 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './market.types';
 
+export const Market = mongo.createModel<Types.MarketDocument>('Market', {
+  value: { type: String, required: true },
+});
+
+export const MarketPair = mongo.createModel<Types.MarketPairDocument>('MarketPair', {
+  value: { type: String, required: true },
+});
+
+export const MarketExchange = mongo.createModel<Types.MarketExchangeDocument>('MarketExchange', {
+  value: { type: String },
+});
+
 export const MarketAnalysis = mongo.createModel<Types.MarketAnalysisDocument>('MarketAnalysis', {
   action: { type: String, required: true },
   asset: { type: String, required: true },

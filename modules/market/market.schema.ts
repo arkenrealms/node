@@ -1,5 +1,23 @@
 import { z, Entity, ObjectId } from '../../schema';
 
+export const Market = Entity.merge(
+  z.object({
+    value: z.string(),
+  })
+);
+
+export const MarketPair = Entity.merge(
+  z.object({
+    value: z.string(),
+  })
+);
+
+export const MarketExchange = Entity.merge(
+  z.object({
+    value: z.string(),
+  })
+);
+
 export const MarketAnalysis = Entity.merge(
   z.object({
     action: z.enum(['Buy', 'Sell']), // buy or sell action
@@ -117,7 +135,6 @@ export const MarketStockSentiment = Entity.merge(
       label: z.enum(['Positive', 'Neutral', 'Negative']), // predefined sentiment labels
       score: z.number().min(0).max(1), // sentiment score as a confidence percentage
     }),
-    description: z.string(), // description of the sentiment's context
     confidence: z.number().min(0).max(1), // overall confidence level for the analysis
   })
 );
