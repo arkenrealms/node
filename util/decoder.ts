@@ -7,9 +7,9 @@ import {
   itemData,
   ItemRarity,
   ItemRarityNameById,
-} from '../data/items';
-import { ItemsMainCategoriesType } from '../data/items.type';
-import ProbabilityCache from '../data/probabilityCache';
+} from '../legacy/data/items';
+import { ItemsMainCategoriesType } from '../legacy/data/items.type';
+import ProbabilityCache from '../legacy/data/probabilityCache';
 import { average, randInt } from './math';
 
 const useLocalStorage = false;

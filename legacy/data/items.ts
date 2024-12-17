@@ -1,4 +1,4 @@
-import { removeTimezoneOffset } from '../util/time';
+import { removeTimezoneOffset } from '../../util/time';
 import ItemAttributes from './generated/itemAttributes.json';
 import generatedItems from './generated/items.json';
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type';
