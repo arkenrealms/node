@@ -1,0 +1,673 @@
+[
+  {
+    "uuid": "rech4COvTjWSRYY00",
+    "id": 1,
+    "name": "Sword",
+    "link": "https://arken.gg/item-sub-type/sword",
+    "min": 5,
+    "max": 15,
+    "type": 1,
+    "items": [1, 2, 22, 2045, 2046, 182, 209, 612, 2153],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rechStVZABOJis6lp",
+    "id": 2,
+    "name": "Mace",
+    "link": "https://arken.gg/item-sub-type/mace",
+    "min": 5,
+    "max": 15,
+    "type": 1,
+    "items": [16],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recaUSp0CjxC1X9Sh",
+    "id": 3,
+    "name": "Axe",
+    "link": "https://arken.gg/item-sub-type/axe",
+    "min": 5,
+    "max": 15,
+    "type": 1,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recacz887evqmeKCH",
+    "id": 4,
+    "name": "Polearm",
+    "link": "https://arken.gg/item-sub-type/polearm",
+    "min": 10,
+    "max": 25,
+    "speed": -5,
+    "range": 10,
+    "type": 2,
+    "items": [49],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recBgYcWQTl9MtFTi",
+    "id": 5,
+    "name": "Dagger",
+    "link": "https://arken.gg/item-sub-type/dagger",
+    "min": 6,
+    "max": 12,
+    "speed": 8,
+    "range": -5,
+    "type": 1,
+    "items": [12, 35, 2052],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recaVljFsKi1zqlkj",
+    "id": 6,
+    "name": "Claw",
+    "link": "https://arken.gg/item-sub-type/claw",
+    "min": 6,
+    "max": 12,
+    "speed": 8,
+    "range": -5,
+    "type": 1,
+    "items": [14],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recYicqGFESHyVeDd",
+    "id": 7,
+    "name": "Staff",
+    "link": "https://arken.gg/item-sub-type/staff",
+    "min": 8,
+    "max": 18,
+    "speed": -5,
+    "range": 30,
+    "type": 2,
+    "items": [13, 45, 615, 620, 2023, 2032],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recCupgOtfTk74fjA",
+    "id": 8,
+    "name": "Bow",
+    "link": "https://arken.gg/item-sub-type/bow",
+    "min": 10,
+    "max": 20,
+    "speed": -5,
+    "range": 50,
+    "type": 2,
+    "items": [11, 2000, 241, 634],
+    "specificTypes": []
+  },
+  {
+    "uuid": "receVCsXSJytQX8ju",
+    "id": 9,
+    "name": "Shield",
+    "link": "https://arken.gg/item-sub-type/shield",
+    "min": 5,
+    "max": 10,
+    "type": 3,
+    "items": [15, 33],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recoTZJzKQNBiUbOo",
+    "id": 10,
+    "name": "Helm",
+    "link": "https://arken.gg/item-sub-type/helm",
+    "min": 2,
+    "max": 5,
+    "type": 5,
+    "items": [3, 19, 30, 39, 54, 617, 622, 625, 627, 637, 2016],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recw4djCsoJxOfeHd",
+    "id": 11,
+    "name": "Relic",
+    "link": "https://arken.gg/item-sub-type/relic",
+    "min": 0,
+    "max": 0,
+    "type": 18,
+    "items": [4],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec9L4WFpz3WPredg",
+    "id": 12,
+    "name": "Boots",
+    "link": "https://arken.gg/item-sub-type/boots",
+    "min": 5,
+    "max": 8,
+    "type": 11,
+    "items": [5, 55, 38, 46, 616, 640],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recgtaMCufXQ0Ylvp",
+    "id": 13,
+    "name": "Body Armor",
+    "link": "https://arken.gg/item-sub-type/body-armor",
+    "min": 10,
+    "max": 20,
+    "type": 7,
+    "items": [6, 31, 34, 53, 222, 47, 303, 624, 629, 632, 638, 2036],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recPwEeW5KoBR0UDF",
+    "id": 14,
+    "name": "Ring",
+    "link": "https://arken.gg/item-sub-type/ring",
+    "min": 0,
+    "max": 0,
+    "weight": 0.01,
+    "type": 12,
+    "items": [26, 27, 40, 41, 110, 112, 2154, 618, 2001, 2015],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recgqk6Zd74h7EM5C",
+    "id": 15,
+    "name": "Gloves",
+    "link": "https://arken.gg/item-sub-type/gloves",
+    "min": 2,
+    "max": 5,
+    "type": 9,
+    "items": [7, 23, 240, 633, 2021, 2010],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec4OsqItf5gCGmux",
+    "id": 16,
+    "name": "Leggings",
+    "link": "https://arken.gg/item-sub-type/leggings",
+    "min": 5,
+    "max": 15,
+    "type": 8,
+    "items": [20, 56, 630],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recLp9RXIQdG2AQKF",
+    "id": 17,
+    "name": "Amulet",
+    "link": "https://arken.gg/item-sub-type/amulet",
+    "min": 0,
+    "max": 0,
+    "type": 13,
+    "items": [28, 109, 29, 2027, 2029, 2033],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec3OaVx029IeQpUo",
+    "id": 18,
+    "name": "Greatsword",
+    "link": "https://arken.gg/item-sub-type/greatsword",
+    "min": 12,
+    "max": 20,
+    "speed": 0,
+    "range": 5,
+    "type": 2,
+    "items": [10, 21],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recXqaN45EDUeGdvp",
+    "id": 19,
+    "name": "Twinblade",
+    "link": "https://arken.gg/item-sub-type/twinblade",
+    "min": 12,
+    "max": 20,
+    "speed": 0,
+    "range": 0,
+    "type": 2,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recNMFa3Idxp4kOX7",
+    "id": 20,
+    "name": "Scythe",
+    "link": "https://arken.gg/item-sub-type/scythe",
+    "min": 10,
+    "max": 20,
+    "speed": 0,
+    "range": 5,
+    "type": 2,
+    "items": [37],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recy5JkgpwwJoaGIE",
+    "id": 21,
+    "name": "Infused Bracelets",
+    "link": "https://arken.gg/item-sub-type/infused-bracelets",
+    "min": 8,
+    "max": 18,
+    "speed": 8,
+    "range": -1,
+    "type": 2,
+    "items": [264],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recxtExhPuoRCxCBd",
+    "id": 22,
+    "name": "Chakram",
+    "link": "https://arken.gg/item-sub-type/chakram",
+    "min": 6,
+    "max": 12,
+    "speed": 0,
+    "range": 15,
+    "type": 1,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recCVz7HcrGkIc94r",
+    "id": 23,
+    "name": "Throwing Weapon",
+    "link": "https://arken.gg/item-sub-type/throwing-weapon",
+    "min": 5,
+    "max": 10,
+    "speed": 5,
+    "range": 30,
+    "type": 1,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recgf8FpMWXAx9IUT",
+    "id": 24,
+    "name": "Bracers",
+    "link": "https://arken.gg/item-sub-type/bracers",
+    "type": 24,
+    "items": [24, 42, 2019],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recKrwz5aPr3aS7AM",
+    "id": 25,
+    "name": "Belt",
+    "link": "https://arken.gg/item-sub-type/belt",
+    "type": 10,
+    "items": [25],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recotg0GglibLK4ml",
+    "id": 26,
+    "name": "Tome",
+    "link": "https://arken.gg/item-sub-type/tome",
+    "type": 3,
+    "items": [36],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recfcwcXkD8ODJk4V",
+    "id": 27,
+    "name": "Orb",
+    "link": "https://arken.gg/item-sub-type/orb",
+    "type": 1,
+    "items": [2035, 2004],
+    "specificTypes": []
+  },
+  {
+    "uuid": "reccMxCtTxiN2Ffbm",
+    "id": 28,
+    "name": "Javelins",
+    "link": "https://arken.gg/item-sub-type/javelins",
+    "type": 1,
+    "items": [2037],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec9OyKsxtX7QUklv",
+    "id": 29,
+    "name": "Trinket",
+    "link": "https://arken.gg/item-sub-type/trinket",
+    "type": 14,
+    "items": [32, 1204, 1200, 1201, 1203],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recMqaey2pK60prPU",
+    "id": 30,
+    "name": "Wand",
+    "link": "https://arken.gg/item-sub-type/wand",
+    "type": 1,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "reciAnEK7kiHiCJuS",
+    "id": 31,
+    "name": "Codex",
+    "link": "https://arken.gg/item-sub-type/codex",
+    "type": 14,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recmFBlcatAzNx3o2",
+    "id": 32,
+    "name": "Medallion",
+    "link": "https://arken.gg/item-sub-type/medallion",
+    "type": 14,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recOT2X6cfY9H1lkD",
+    "id": 33,
+    "name": "Memorabilia",
+    "link": "https://arken.gg/item-sub-type/memorabilia",
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec9fIZN4zuu8SJaW",
+    "id": 34,
+    "name": "Hammer",
+    "link": "https://arken.gg/item-sub-type/hammer",
+    "type": 2,
+    "items": [48, 43],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recqYJKmzRRtHZDpn",
+    "id": 35,
+    "name": "Greataxe",
+    "link": "https://arken.gg/item-sub-type/greataxe",
+    "type": 2,
+    "items": [44],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recmuyRrHOiYKrGYO",
+    "id": 36,
+    "name": "Consumable",
+    "link": "https://arken.gg/item-sub-type/consumable",
+    "type": 15,
+    "items": [1100, 1211, 1300],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recttYjEoCNPFsGxS",
+    "id": 37,
+    "name": "Battle Pet",
+    "link": "https://arken.gg/item-sub-type/battle-pet",
+    "type": 6,
+    "items": [3000, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recUppeUiupFMqiRr",
+    "id": 38,
+    "name": "Chain Weapon",
+    "link": "https://arken.gg/item-sub-type/chain-weapon",
+    "type": 1,
+    "items": [628],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recqwpTY2yuWJidvG",
+    "id": 39,
+    "name": "Cloak",
+    "link": "https://arken.gg/item-sub-type/cloak",
+    "type": 50,
+    "items": [631],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recWzy1mLMQUtmoZ8",
+    "id": 40,
+    "name": "Quiver",
+    "link": "https://arken.gg/item-sub-type/quiver",
+    "type": 4,
+    "items": [635],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recVfVnTKj4Czo4RS",
+    "id": 41,
+    "name": "Crossbow",
+    "link": "https://arken.gg/item-sub-type/crossbow",
+    "type": 1,
+    "items": [639],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recyuX1L7NJGxXfWQ",
+    "id": 42,
+    "name": "Sash",
+    "link": "https://arken.gg/item-sub-type/sash",
+    "type": 10,
+    "items": [2034, 2013],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec8i3oNswNJJjDQX",
+    "id": 43,
+    "name": "Heavy Belt",
+    "link": "https://arken.gg/item-sub-type/heavy-belt",
+    "type": 10,
+    "items": [2026],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec2Fgd8IJBDW3MJL",
+    "id": 44,
+    "name": "Heavy Boots",
+    "link": "https://arken.gg/item-sub-type/heavy-boots",
+    "type": 11,
+    "items": [2038],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recv9Oi0iNAHjubXy",
+    "id": 45,
+    "name": "Light Armor",
+    "link": "https://arken.gg/item-sub-type/light-armor",
+    "type": 7,
+    "items": [2039, 2043],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recd0qrHKcZll1QQ0",
+    "id": 46,
+    "name": "Plated Armor",
+    "link": "https://arken.gg/item-sub-type/plated-armor",
+    "type": 7,
+    "items": [2030, 2040, 2042, 2051],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recHxWdxRpPXPqqNd",
+    "id": 47,
+    "name": "Medium Armor",
+    "link": "https://arken.gg/item-sub-type/medium-armor",
+    "type": 7,
+    "items": [2041],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recGNoIVGG3Z9eidi",
+    "id": 48,
+    "name": "Cloth Armor",
+    "link": "https://arken.gg/item-sub-type/cloth-armor",
+    "type": 7,
+    "items": [2044],
+    "specificTypes": []
+  },
+  {
+    "uuid": "reccJ7hZ7tcLQtWSl",
+    "id": 49,
+    "name": "Light Boots",
+    "link": "https://arken.gg/item-sub-type/light-boots",
+    "type": 11,
+    "items": [2047, 2008, 2011, 2022],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec42pEeo2GrOga2s",
+    "id": 50,
+    "name": "Medium Shield",
+    "link": "https://arken.gg/item-sub-type/medium-shield",
+    "type": 3,
+    "items": [2048, 2007],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recM184kE6vLiC2KY",
+    "id": 51,
+    "name": "Plated Helm",
+    "link": "https://arken.gg/item-sub-type/plated-helm",
+    "type": 5,
+    "items": [2049, 2050],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recgORJRJLCTDMxrl",
+    "id": 52,
+    "name": "Battle Axe",
+    "link": "https://arken.gg/item-sub-type/battle-axe",
+    "type": 2,
+    "items": [2054],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recx3NgQAxwV65ANL",
+    "id": 53,
+    "name": "Ring",
+    "link": "https://arken.gg/item-sub-type/ring",
+    "type": 12,
+    "items": [2017, 2018, 2020, 2028],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recvIEiz2uBh3wvu3",
+    "id": 54,
+    "name": "Light Helm",
+    "link": "https://arken.gg/item-sub-type/light-helm",
+    "type": 5,
+    "items": [2002, 2014, 2031],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec46f4FNCFWzSKC5",
+    "id": 55,
+    "name": "Hood",
+    "link": "https://arken.gg/item-sub-type/hood",
+    "type": 5,
+    "items": [2003],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec1uWWXNeJrE1nRI",
+    "id": 56,
+    "name": "Plated Boots",
+    "link": "https://arken.gg/item-sub-type/plated-boots",
+    "type": 11,
+    "items": [2005],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recAi9g7c4nMtd43H",
+    "id": 57,
+    "name": "Light Gloves",
+    "link": "https://arken.gg/item-sub-type/light-gloves",
+    "type": 9,
+    "items": [2009],
+    "specificTypes": []
+  },
+  {
+    "uuid": "rec4h7TtqYjiFQeXR",
+    "id": 58,
+    "name": "Gauntlets",
+    "link": "https://arken.gg/item-sub-type/gauntlets",
+    "type": 9,
+    "items": [2006],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recvZWTzgNHf1cu0s",
+    "id": 59,
+    "name": "Scale Mail",
+    "link": "https://arken.gg/item-sub-type/scale-mail",
+    "type": 7,
+    "items": [2012],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recdeP4fMoXk1tDOF",
+    "id": 60,
+    "name": "Circlet",
+    "link": "https://arken.gg/item-sub-type/circlet",
+    "type": 5,
+    "items": [2024],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recNF62Je6ySfmybf",
+    "id": 61,
+    "name": "Kite Shield",
+    "link": "https://arken.gg/item-sub-type/kite-shield",
+    "type": 3,
+    "items": [2025],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recY9F2JqXbFh3HpI",
+    "id": 62,
+    "name": "Scroll",
+    "link": "https://arken.gg/item-sub-type/scroll",
+    "type": 25,
+    "items": [1212, 1202],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recExrvadjSF1PWui",
+    "id": 63,
+    "name": "Ingredient",
+    "link": "https://arken.gg/item-sub-type/ingredient",
+    "type": 18,
+    "items": [3011, 1205],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 64,
+    "name": "Ticket",
+    "link": "https://arken.gg/item-sub-type/ticket",
+    "type": 25,
+    "items": [1210],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 65,
+    "name": "Bag",
+    "link": "https://arken.gg/item-sub-type/bag",
+    "type": 23,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 66,
+    "name": "Chest",
+    "link": "https://arken.gg/item-sub-type/chest",
+    "type": 23,
+    "items": [],
+    "specificTypes": []
+  },
+  {
+    "uuid": "recO3yL0AuKY0RqVa",
+    "id": 67,
+    "name": "Rune",
+    "link": "https://arken.gg/item-sub-type/rune",
+    "type": 17,
+    "items": [],
+    "specificTypes": []
+  }
+]

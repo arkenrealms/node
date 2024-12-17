@@ -375,3 +375,55 @@ export class ARXError extends Error {
     }
   }
 }
+
+// /**
+//  * Unprotected procedure
+//  **/
+// const isAcceptableOrigin = t.middleware(({ ctx: { user, acceptableOrigin }, next }) => {
+//   if (!acceptableOrigin)
+//     throw new TRPCError({
+//       code: 'UNAUTHORIZED',
+//       message: 'Please use the public API instead: https://docs.arken.gg',
+//     });
+//   return next({ ctx: { user, acceptableOrigin } });
+// });
+
+// export const enforceClientVersion = t.middleware(async ({ next, ctx }) => {
+//   // if (await needsUpdate(ctx.req)) {
+//   //   throw new TRPCError({
+//   //     code: 'PRECONDITION_FAILED',
+//   //     message: 'Update required',
+//   //     cause: 'Please refresh your browser to get the latest version of the app',
+//   //   });
+//   // }
+//   const result = await next();
+//   //   if (await needsUpdate(ctx.req)) {
+//   //     ctx.res?.setHeader('x-update-required', 'true');
+//   //     ctx.cache.edgeTTL = 0;
+//   //   }
+//   return result;
+// });
+
+// export const publicProcedure = t.procedure.use(isAcceptableOrigin).use(enforceClientVersion);
+
+// /**
+//  * Protected procedure
+//  **/
+// export const protectedProcedure = publicProcedure.use(isAuthed);
+
+// /**
+//  * Moderator procedure
+//  **/
+// export const moderatorProcedure = protectedProcedure.use(isMod);
+
+// /**
+//  * Guarded procedure to prevent users from making actions
+//  * based on muted/banned properties
+//  */
+// export const guardedProcedure = protectedProcedure.use(isMuted);
+
+// /**
+//  * Verified procedure to prevent users from making actions
+//  * if they haven't completed the onboarding process
+//  */
+// export const verifiedProcedure = protectedProcedure.use(isOnboarded);

@@ -1,0 +1,6960 @@
+[
+  {
+    "uuid": "reccwDTYoyvIgnasy",
+    "id": 1,
+    "name": "Wolf",
+    "types": [
+      9
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "\n"
+  },
+  {
+    "uuid": "rec75WjP6NyB340Jd",
+    "id": 2,
+    "name": "Dendroid",
+    "types": [
+      null
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Dendroids, also called ‘Awakened Trees,’ are a rare form of creature found deep in the Elysium wilderness. They are often isolated and avoid any sort of contact with humanoids unless provoked. Sometimes, small bands of dendroids form. As a group, they are slightly more aggressive, sometimes even driving humanoid settlers out of their area of the woods.\n"
+  },
+  {
+    "uuid": "reczKacoUZUmhNggp",
+    "id": 3,
+    "name": "Dire Wolf",
+    "types": [
+      9
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Dire wolves are scattered about the Elysium woodlands, though they are more common in the northern reaches of the region. Dire wolves are the most feared of the Elysium beasts: faster, stronger, more intelligent, and far more aggressive than the average wolf. Dire wolf packs are known to move into areas and drive out the human populace there, though dire wolves frequently travel alone or in pairs rather than in packs.\n"
+  },
+  {
+    "uuid": "recZXcM0azfEDBcmA",
+    "id": 4,
+    "name": "Great Wyrm",
+    "types": [
+      9
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      8,
+      34
+    ],
+    "shortDescription": "",
+    "description": "Great Wyrms are rare and colossal worms that grow to nearly 6 feet wide and 80 feet in length. Heard long before they are seen, Great Wyrms burrow deep beneath the ground, creating a tumultuous earthquake sound as they approach. There are several types of Great Wyrms in Elysium, though the most common are Frost Wyrms and Woodland Wyrms. Although usually skittish of human societies, their territories dwindle by the year and sightings of them have become more frequent.\n"
+  },
+  {
+    "uuid": "recQWUmcCnCdnRoJt",
+    "id": 5,
+    "name": "Griffon",
+    "types": [
+      9
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Griffons are majestic, feathered creatures. Although known to be common mounts for the Elysium mages, who breed and train them, wild griffons are rarely seen. Griffons live on high peaks and plateaus, preferring to build their nests as far as possible from humanoid life.\n"
+  },
+  {
+    "uuid": "rec41PbCZKVCYbob0",
+    "id": 6,
+    "name": "Lycanthrope",
+    "types": [
+      5,
+      9
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Whether the result of foul magical experimentation or a natural phenomenon, lycanthropes are fairly common in Elysium. Wild lycanthropes are often aggressive and target traveling merchants, killing the traders while in beast form and stealing their wares for the later use of their human form. As such, there is a large market for mercenary protection in Elysium as traders will offer large sums for quality protection.\n"
+  },
+  {
+    "uuid": "recqcbhQP8TPJiNpw",
+    "id": 7,
+    "name": "Wyvern",
+    "types": [
+      2
+    ],
+    "areas": [
+      9
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Wyverns look similar to small dragons from afar, however, a closer inspection will reveal a number of key differences. Even full-grown wyverns never grow much larger than 15 feet in length, and the head, neck, and jaw are much more thin, elongated, and sinewy. In addition, wyverns are bipedal, although their wings are tipped with a single talon used for ripping and tearing. Though smaller and lacking the breath weapon characteristic of dragons, the wyvern is still an incredibly dangerous creature and few travelers unfortunate enough to encounter one have lived to tell the tale.\n"
+  },
+  {
+    "uuid": "rec8ijVw8kFVlEQVI",
+    "id": 8,
+    "name": "Eldritch Dendroid",
+    "types": [
+      null,
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      37
+    ],
+    "shortDescription": "",
+    "description": "Eldritch Plants are a variety of plants infected with the corrupted druidic magic of the area. These plants gain a limited amount of sentience and, above all else, a hunger for warm flesh. Few Eldritch Plants can move, instead relying upon blending into the rest of the forest. However some, like Eldritch Dendroids and Eldritch Weeds, can stalk their prey for miles, waiting for the right time to strike.\n"
+  },
+  {
+    "uuid": "recNfZXQR0u3gY7l9",
+    "id": 9,
+    "name": "Eldritch Weeds",
+    "types": [
+      null,
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Eldritch Plants are a variety of plants infected with the corrupted druidic magic of the area. These plants gain a limited amount of sentience and, above all else, a hunger for warm flesh. Few Eldritch Plants can move, instead relying upon blending into the rest of the forest. However some, like Eldritch Dendroids and Eldritch Weeds, can stalk their prey for miles, waiting for the right time to strike.\n"
+  },
+  {
+    "uuid": "recsOmuCTlG6Uj2cZ",
+    "id": 10,
+    "name": "Eldritch Flower",
+    "types": [
+      null,
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Eldritch Plants are a variety of plants infected with the corrupted druidic magic of the area. These plants gain a limited amount of sentience and, above all else, a hunger for warm flesh. Few Eldritch Plants can move, instead relying upon blending into the rest of the forest. However some, like Eldritch Dendroids and Eldritch Weeds, can stalk their prey for miles, waiting for the right time to strike.\n"
+  },
+  {
+    "uuid": "rec4jBh5a35CJRFJF",
+    "id": 11,
+    "name": "Eldritch Mushroom",
+    "types": [
+      null,
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Eldritch Plants are a variety of plants infected with the corrupted druidic magic of the area. These plants gain a limited amount of sentience and, above all else, a hunger for warm flesh. Few Eldritch Plants can move, instead relying upon blending into the rest of the forest. However some, like Eldritch Dendroids and Eldritch Weeds, can stalk their prey for miles, waiting for the right time to strike.\n"
+  },
+  {
+    "uuid": "rec3ELvJA2NnEASrZ",
+    "id": 12,
+    "name": "Eldritch Moss",
+    "types": [
+      null,
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Eldritch Plants are a variety of plants infected with the corrupted druidic magic of the area. These plants gain a limited amount of sentience and, above all else, a hunger for warm flesh. Few Eldritch Plants can move, instead relying upon blending into the rest of the forest. However some, like Eldritch Dendroids and Eldritch Weeds, can stalk their prey for miles, waiting for the right time to strike.\n"
+  },
+  {
+    "uuid": "rec3TWhV8XCAWCFfv",
+    "id": 13,
+    "name": "Shadow Crawler",
+    "types": [
+      9
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      22,
+      32
+    ],
+    "shortDescription": "",
+    "description": "Shadow Crawlers have two sinewy arms at their torso, a vaguely humanoid head with two glowing white eyes, and a long snake-like body that trails behind the creature. A Shadow Crawler uses its two arms to skitter about, dragging itself through dense woodlands at an incredible speed. Its humanoid-esque mouth unhinges to consume prey, lined with rows of dark and glassy teeth.\n"
+  },
+  {
+    "uuid": "recSaX1fm6v7TxMd6",
+    "id": 14,
+    "name": "Blight Bear",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recGbIioSMamSF0mU",
+    "id": 15,
+    "name": "Blight Wolf",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recSTDg52DKdsopKz",
+    "id": 16,
+    "name": "Blight Eagle",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recGtKOWRTLzvq0xZ",
+    "id": 17,
+    "name": "Blight Squirrel",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recOH6Z25nJcYQBAP",
+    "id": 18,
+    "name": "Blight Elk",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recVUdANfRx0wvG3F",
+    "id": 19,
+    "name": "Blight Boar",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recSUl3VII9Uec5t4",
+    "id": 20,
+    "name": "Blight Badger",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "rec80vMiKJJp1VYOv",
+    "id": 21,
+    "name": "Blight Snake",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      22,
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "recM0b3IkJ5KgBpyP",
+    "id": 22,
+    "name": "Blight Owl",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "rec9SHOxnjcI9Lbzk",
+    "id": 23,
+    "name": "Blight Ram",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      32
+    ],
+    "shortDescription": "",
+    "description": "Blight Beasts resemble their ‘normal’ cousins, such as rams, bears, or wolves, but they are hulking in size, with gray and flaking flesh wreathed in misting shadows. Their bodies are often covered with strange boils and their mouths froth with dark, oily foam. They are erratic and unpredictable, but almost always hostile.\n"
+  },
+  {
+    "uuid": "rec012znLooVw5fyb",
+    "id": 24,
+    "name": "Hexwood Wight",
+    "types": [
+      4
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Wights are undead humanoids that are twisted by vengeful nature spirits. Undead druids will often become wights. Wights care for the creatures and plants of their area, but will viciously slaughter anything it deems an ‘outsider’ to the area. Hexwood Wights are exclusive to the Hexwood, and their unique features include branch-and-stick-like bones, rotted cobweb and fur garb, and colored glowing elements.\n"
+  },
+  {
+    "uuid": "recCD8Z3UNAHAMoFa",
+    "id": 25,
+    "name": "Skittering Hive",
+    "types": [
+      9
+    ],
+    "areas": [
+      75
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      17
+    ],
+    "shortDescription": "",
+    "description": "Skittering Hives are large spider-like creatures with bulbous backs covered in swelled boils. Each of these boils is an egg sack, while the creature holding the dozens of sacks is the Hive Mother. Given its natural course, Skittering Hives consume its Hive Mother for sustenance, and some of the offspring will become new Hives. When attacked, however, a boil will explode every time the Hive Mother is struck, and dozens of smaller spiders will break out and attack.\n"
+  },
+  {
+    "uuid": "recHq4liINTmGHKkJ",
+    "id": 26,
+    "name": "Fehzulae",
+    "types": [
+      null
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "In their true form, these fay creatures appear like large floating green spores, glowing as they drift about. However, they’re most commonly found embodying and animating inanimate objects: like rocks, trees, and other plants. As such, they’re often mistaken as elementals or dendroids, though an astute observer would note the glowing emerald eyes and the sparkling green energy effusing from their host object.\n"
+  },
+  {
+    "uuid": "recyzB7OqU9JOPp6J",
+    "id": 27,
+    "name": "Fayhelm Troll",
+    "types": [
+      16
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Though trolls exist all over Haerra, none are quite as feared and hated as Fayhelm Trolls. These humanoid-esque creatures of stony green, brown, and gray skin are naturally aggressive and extremely difficult to kill. With natural regenerative properties, nearly impenetrable skin, and massive claws used for piercing and rending: trolls rampage the forests with little competition save for the humanoids. Undergrowth grows rampant on Fayhelm troll bodies, feeding off them like moist soil. As such, fully grown Fayhelm trolls–disguised with flowering mushrooms, grass, and bushes–can remain undetected until you’re nearly on top of them.\n"
+  },
+  {
+    "uuid": "recMrfJnoLaXoPnjG",
+    "id": 28,
+    "name": "Kyuss",
+    "types": [
+      9
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Kyussa are large feline creatures with silver-green fur, adapted to traverse forest undergrowth and canopy unnoticed. With long black claws and razor-sharp ebony teeth, the Kyussa fortunately avoid humanoids for the most part, preferring to feast on the smaller creatures of the Feywild. Kyussa will only attack humanoids if threatened, and often avoid killing creatures they don’t intend to eat. Instead Kyussa will cripple their opponents, lacerating their arms or legs until they no longer pose a threat.\n"
+  },
+  {
+    "uuid": "recINVRfZLTjlHy4y",
+    "id": 29,
+    "name": "Iggus",
+    "types": [
+      null
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "These reclusive fay dwell in the most distant reaches of Fayhelm, building their homes in the forest ponds and marshes. Iggus are vaguely humanoid in appearance, with limbs of gnarled wood draped in moss and lichen. Their elongated faces are covered with tubercles–or warts–and shifting blue-green gills. Iggus eat fish and other aquatic animals, using their extremely long, tendril-like fingers to pluck creatures from the depths. Iggus will avoid other creatures–especially humanoids–at all costs, submerging themselves to avoid detection.\n"
+  },
+  {
+    "uuid": "recO59U4UwvcHPUVy",
+    "id": 30,
+    "name": "Siig Python",
+    "types": [
+      9
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "These giant, brightly colored pythons have legs like those of a crocodile in addition to their slithering scaled body. Siig Pythons live in calm rivers and ponds, often shaded by trees. For the most part, these deadly predators lay in shallow waters, waiting to strike unsuspecting passersby. When they attack, Siig Pythons can stretch open their jaws nearly ten feet, enabling them to swallow humanoids and other large creatures whole.\n"
+  },
+  {
+    "uuid": "rec11Wp8fJY43AZbX",
+    "id": 31,
+    "name": "Vine Wolf",
+    "types": [
+      9
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "The vine wolf only vaguely resembles its wolven cousin, appearing like a large dog made of mossen fur and tangled vines. The vine wolf’s most distinguishing feature is its tongue: a thorned vine ranging up to ten feet in length. The vine wolf’s lower jaw is large and bulbous, used to hold its vine tongue when coiled up. Vine wolves use their tongues for all manner of things, from piercing prey to grappling creatures to digging their warrens in the forest ground.\n"
+  },
+  {
+    "uuid": "receBvUza1s9ulMdP",
+    "id": 32,
+    "name": "Rhiceratops",
+    "types": [
+      9
+    ],
+    "areas": [
+      19
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "A massive creature of thundering hooves and stone-like flesh, the rhiceratops combines the physical features of a rhinoceros and a triceratops. Plated by both thick skin and shield-like frills to guard its head and neck, the rhiceratops uses both horn and hoof to kill its foes. Usually not ones for combat, however, rhiceratops graze the vast plains and foothills of Newerth, feeding off the vegetation there.\n"
+  },
+  {
+    "uuid": "reccNJvScVQgHPZeO",
+    "id": 33,
+    "name": "Troll Boar",
+    "types": [
+      9
+    ],
+    "areas": [
+      19
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "These wild boars function similarly to trolls, though they are not related in any way. With thick skin, regenerative properties, and warts and boils covering their bodies, these beasts are highly aggressive. Troll boars mainly dwell in the hilly marshes north of Westmarsh, though subspecies are spread all across Newerth. Nocturnal creatures by nature, troll boars hunt at night, mainly preying on sleeping animals.\n"
+  },
+  {
+    "uuid": "recDTvqb6fx7K5oi2",
+    "id": 34,
+    "name": "Roc",
+    "types": [
+      9
+    ],
+    "areas": [
+      19
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "As the largest flying creatures on Haerra, rocs are both admired for their majesty and feared for their ferocity. With an adult’s wingspan ranging from 100 to 150 feet, these gigantic birds of prey can fortunately be seen from many miles away. Largely native to the hills, deserts, and mountains of Newerth, rocs are on the verge of extinction, with only a few spotted each year. Preferring to feast on the larger beasts of Newerth–such as rhiceratops and mammoth oxen–humanoids are often considered too small to be worth the effort. As such, unless travelling in large groups or bearing magic-imbued objects like runes or worldstone shards, rocs rarely attack humanoids.\n"
+  },
+  {
+    "uuid": "recje4np8jL3LElwR",
+    "id": 35,
+    "name": "Mammoth Ox",
+    "types": [
+      9
+    ],
+    "areas": [
+      19
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Combining the size and horns of a mammoth with the temperament and shaggy hide of a musk ox, mammoth oxen are fairly harmless despite their size. Docile and slow, the sweeping horns extending from either side of their heads are exclusively used for defense. Mammoth oxen roam the vast plains of Newerth, feeding off the plentiful and delicious grass there.\n"
+  },
+  {
+    "uuid": "rec4e1wf8e8ohxcDa",
+    "id": 36,
+    "name": "Earth Golem",
+    "types": [
+      null
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      1,
+      23,
+      35,
+      36
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recTm2G18pbQgTuan",
+    "id": 37,
+    "name": "Rock Golem",
+    "types": [
+      null
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      1,
+      23,
+      35,
+      36
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recosKzzSUzSMFQlO",
+    "id": 38,
+    "name": "Owlbear",
+    "types": [
+      9
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdF2g2pebgmAx6x",
+    "id": 39,
+    "name": "Giant Toad",
+    "types": [
+      9
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYnfNLyo5jjQm4g",
+    "id": 40,
+    "name": "Gem Dragon",
+    "types": [
+      2
+    ],
+    "areas": [
+      90
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      7,
+      16,
+      19
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec3hySkHJsPXMwq2",
+    "id": 41,
+    "name": "Crystal Golem",
+    "types": [
+      null
+    ],
+    "areas": [
+      90
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      7,
+      16
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recWVWB2sKbRtQ8rf",
+    "id": 42,
+    "name": "Sand Wyrm",
+    "types": [
+      9
+    ],
+    "areas": [
+      52,
+      63
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      8,
+      34
+    ],
+    "shortDescription": "",
+    "description": "Great Wyrms are rare and colossal worms that grow to nearly 6 feet wide and 80 feet in length. Heard long before they are seen, Great Wyrms burrow deep beneath the ground, creating a tumultuous earthquake sound as they approach. Sand Wyrms are known as the Kings of the Desert, feared in all societies and languages that span the deserts of Haerra. Unlike other types of Great Wyrms, Sand Wyrms do not fear humanoid civilization. As such, a single Sand Wyrm can wreak irreparable havoc on a city, turning a thriving metropolis into rubble and dust.\n"
+  },
+  {
+    "uuid": "recpFvmZmMPBOdaws",
+    "id": 43,
+    "name": "Zild Rats",
+    "types": [
+      9
+    ],
+    "areas": [
+      52
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Zild Rats are the eternal bane of many deep-desert societies. They resemble naked mole-rats, however they stand on two legs and can grow over three feet tall. Most terrifying, their mouths contain several rows of razor-sharp teeth, capped by two massive saber-teeth extending from the upper gums. Zild Rats travel in swarms, and repopulate extremely quickly. If Zild Rats infest a settlement and aren’t dealt with quickly enough, they will take over the entire area within a matter of weeks.\n"
+  },
+  {
+    "uuid": "recUrgelR3D4Bo6Q1",
+    "id": 44,
+    "name": "Chimera",
+    "types": [
+      9
+    ],
+    "areas": [
+      52
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFx06fjwwxaU64c",
+    "id": 45,
+    "name": "Chimeron",
+    "types": [
+      9
+    ],
+    "areas": [
+      52
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      30
+    ],
+    "shortDescription": "",
+    "description": "Often thought of as a 'lesser chimera,' these mutant creatures have the head and torso of a mangy wolf, with the haunches and hind legs of a giant scorpion. Extending out behind them are two gigantic scorpion tails, capped with vicious stingers the size of a human head. Feral and vicious, chimerons stalk the scarce prey of the Copper Desert highlands, waiting to pounce on even the scrawniest bit of flesh.\n"
+  },
+  {
+    "uuid": "rec72X5UBhQnnRJVw",
+    "id": 46,
+    "name": "Silk Crawler",
+    "types": [
+      9,
+      8
+    ],
+    "areas": [
+      91
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      20
+    ],
+    "shortDescription": "",
+    "description": "Silk Crawlers are deadly at all stages of life, from pupae--large, multi-eyed white sacks dragging themselves along the threads towards any prey they can leech from--to grown adults: towering spider-like creatures with four slender, razor-sharp legs and bloodstained mandibles. \n"
+  },
+  {
+    "uuid": "recdY8BB0nwvbyBle",
+    "id": 47,
+    "name": "Phoenix",
+    "types": [
+      null
+    ],
+    "areas": [
+      52,
+      63,
+      51
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      26
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recAgI45Ip5Y44D2m",
+    "id": 48,
+    "name": "Glowfly",
+    "types": [
+      8
+    ],
+    "areas": [
+      9,
+      55
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      28
+    ],
+    "shortDescription": "",
+    "description": "Once fully suffused with arcane energy, the glowflies that fill the skies of the Mage Isles begin to produce a powder called Glowfly Powder. It has become a popular tool among magic users seeking to quickly restore their stores of mana.\n"
+  },
+  {
+    "uuid": "rec6R1ALfu3EN4rTZ",
+    "id": 49,
+    "name": "Lich",
+    "types": [
+      4
+    ],
+    "areas": [
+      291
+    ],
+    "factions": [],
+    "npcs": [
+      43
+    ],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "Extremely powerful, undead mages who would sacrifice everything to cheat death and continue their arcane practice.\n"
+  },
+  {
+    "uuid": "recmv1pAMyj7gwa2H",
+    "id": 50,
+    "name": "Skeletal Adder",
+    "types": [
+      4
+    ],
+    "areas": [
+      7
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      11
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recOgF2g3BmIHh7y8",
+    "id": 51,
+    "name": "Stench Crawler",
+    "types": [
+      9
+    ],
+    "areas": [
+      7
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      12
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recL87QJEnRhrUns3",
+    "id": 52,
+    "name": "Unicorn",
+    "types": [
+      null
+    ],
+    "areas": [
+      8,
+      54
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectbP0EvxAXbbaBr",
+    "id": 53,
+    "name": "Harpy",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recAGXfJQjrD7zZbe",
+    "id": 54,
+    "name": "Leviathan",
+    "types": [
+      2,
+      9
+    ],
+    "areas": [
+      86
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      33
+    ],
+    "shortDescription": "A massive, wingless creature of draconic origins, with both land and water capabilities.",
+    "description": ""
+  },
+  {
+    "uuid": "recHoB96CBDhUx4O2",
+    "id": 55,
+    "name": "Basilisk",
+    "types": [
+      2
+    ],
+    "areas": [
+      8,
+      75,
+      74,
+      7
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      40
+    ],
+    "shortDescription": "",
+    "description": "Native to forests with dense undergrowth, basilisks thrive in darkness. One of the stealthiest animals in Haerra, these large creatures slither through the shadows, camouflaged by glassy scales that reflect light and slide soundlessly across most surfaces.\n"
+  },
+  {
+    "uuid": "reclK8gIFVzycggmn",
+    "id": 56,
+    "name": "Succubus",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      10
+    ],
+    "itemMaterials": [],
+    "shortDescription": "The female seductresses under Elyra's control.",
+    "description": ""
+  },
+  {
+    "uuid": "rec5VTrYG7Y41WPrm",
+    "id": 57,
+    "name": "Incubus",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "The male seducers under Elyra's control.",
+    "description": ""
+  },
+  {
+    "uuid": "recwZ287Vq5pMU5Lu",
+    "id": 58,
+    "name": "Shadow",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      12
+    ],
+    "itemMaterials": [],
+    "shortDescription": "Vague, shadowy echoes of chaospawn.",
+    "description": ""
+  },
+  {
+    "uuid": "recdVPgV4u3fRxBih",
+    "id": 59,
+    "name": "Mutant Flesh",
+    "types": [
+      3,
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      8
+    ],
+    "itemMaterials": [],
+    "shortDescription": "The flesh creations of Qorrekh",
+    "description": ""
+  },
+  {
+    "uuid": "recQG65K6FOKJpDrU",
+    "id": 60,
+    "name": "Fallen Astralyte",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      9
+    ],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recfmGIURvbbzr3ZX",
+    "id": 61,
+    "name": "Fiend",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      13
+    ],
+    "itemMaterials": [],
+    "shortDescription": "Your classic demons. Red / pale red skinned, with horns, hooves, and sometimes dark, leathery wings.",
+    "description": ""
+  },
+  {
+    "uuid": "recyh4Px7YkslQNPt",
+    "id": 62,
+    "name": "Mutant Construct",
+    "types": [
+      3,
+      6
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      22
+    ],
+    "itemMaterials": [],
+    "shortDescription": "The artificial creations of Qorrekh",
+    "description": ""
+  },
+  {
+    "uuid": "recLFRZOzZkrp4nBh",
+    "id": 63,
+    "name": "Depraved",
+    "types": [
+      3,
+      15
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [
+      11
+    ],
+    "itemMaterials": [],
+    "shortDescription": "Ungodly and aberrant chaospawn (alt name: Profane)",
+    "description": ""
+  },
+  {
+    "uuid": "recd2nc6GEPw5cjLU",
+    "id": 64,
+    "name": "Fleshling",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recPdrj2btP25z1Cx",
+    "id": 65,
+    "name": "Imp",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec81PQO0irnHPvAE",
+    "id": 66,
+    "name": "Oni",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recGGqrf9hxMBhJHS",
+    "id": 67,
+    "name": "Faceless One",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec36FU0PQJ9dAGi6",
+    "id": 68,
+    "name": "Wendigo",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwHt0k0Gb5moO2w",
+    "id": 69,
+    "name": "Drowned",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Aquatic/amphibious chaospawn. Shkaiviid (Lounjakt's twin soul), is a Drowned.",
+    "description": ""
+  },
+  {
+    "uuid": "recYWUk7yS0USD49G",
+    "id": 70,
+    "name": "Pact Lord",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Summoner type, summons Pactlings",
+    "description": ""
+  },
+  {
+    "uuid": "recdUOIRoiknmWnHL",
+    "id": 71,
+    "name": "Pactlings",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Small tatted chaospawn (see Pact Lord ref. image)",
+    "description": ""
+  },
+  {
+    "uuid": "recGv0FVWi2hcyQxA",
+    "id": 72,
+    "name": "Kudu",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recUTpEdxdrFFqcSC",
+    "id": 73,
+    "name": "Silek Conjurer",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Spellcaster type chaospawn",
+    "description": ""
+  },
+  {
+    "uuid": "rec5XbktSjnhAg6PC",
+    "id": 74,
+    "name": "Dreadmaw",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recDTGjDquGzmoxsV",
+    "id": 75,
+    "name": "Hellhound",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczvH2H8oryMHdhi",
+    "id": 76,
+    "name": "Skinner",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recKo8RVEw3nNYYnc",
+    "id": 77,
+    "name": "Tarantulon",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recHvP0XvLhMAOZO7",
+    "id": 78,
+    "name": "Deathspinner",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recMzfE5Hc5E97SAL",
+    "id": 79,
+    "name": "Dermal Mound",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec0JobxpwRLo7b1Y",
+    "id": 80,
+    "name": "Vile Crustacean",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recF1iviHsj3OEm4T",
+    "id": 81,
+    "name": "Plague Slave",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJl359HCyu9TNhi",
+    "id": 82,
+    "name": "Hellboar",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recKKJseyfYJb0e18",
+    "id": 83,
+    "name": "Wrath Slasher",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recgIqWTkIAEebLrl",
+    "id": 84,
+    "name": "Dreadtusker",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclKJ5wenoI44tM6",
+    "id": 85,
+    "name": "Dread Cavalry",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpB6ROPrsbEqJM1",
+    "id": 86,
+    "name": "Plagueball",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recs35aRL8iPfWXZK",
+    "id": 87,
+    "name": "Chatter",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechdQKoML46QMaGp",
+    "id": 88,
+    "name": "Fleshfeaster",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechCDSrnZOwR2oUK",
+    "id": 89,
+    "name": "Lichen Reaver",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recScWGPhaKW4oE0E",
+    "id": 90,
+    "name": "Ravisher",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpgJfiAmlTLraTe",
+    "id": 91,
+    "name": "Lashworm",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFNorqWo2rT8o1v",
+    "id": 92,
+    "name": "Whipsnake",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczXtD0qgi2AsJsv",
+    "id": 93,
+    "name": "Flail Eel",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec7MuVUezV306RSS",
+    "id": 94,
+    "name": "Flayerpede",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recU3ccMEzOeKchEE",
+    "id": 95,
+    "name": "Brainorb",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recuwLtKMWHEF271L",
+    "id": 96,
+    "name": "Darkorb",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVhCbr74k5KESPO",
+    "id": 97,
+    "name": "Chaos Naga",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reccen7drMoYXPqLB",
+    "id": 98,
+    "name": "Grim Widow",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Female drider (Spider woman)?",
+    "description": ""
+  },
+  {
+    "uuid": "recXfl8kSkp758qal",
+    "id": 99,
+    "name": "Crawling Doom",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclmVen75uLXSHGY",
+    "id": 100,
+    "name": "Vile Webling",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recC9UtwoghWzu7MN",
+    "id": 101,
+    "name": "Kitsune",
+    "types": [
+      null
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recacO1PTSggimIQ2",
+    "id": 102,
+    "name": "Etherstag",
+    "types": [
+      null
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpCHb5TemBxlAHs",
+    "id": 103,
+    "name": "Shade",
+    "types": [
+      4
+    ],
+    "areas": [
+      82,
+      81
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFFG2QLDEqukFmv",
+    "id": 104,
+    "name": "Runelynx",
+    "types": [
+      9
+    ],
+    "areas": [
+      8
+    ],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "like the concept art but a big lynx. Colors vary.",
+    "description": ""
+  },
+  {
+    "uuid": "rec8QLe2GCnpq2FkA",
+    "id": 105,
+    "name": "Automation",
+    "types": [
+      6
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Golem-esque creatures created by futuristic steampunk kilran artificers. SELF-DESTRUCT ON DEATH. Appear in Time Gate 3",
+    "description": ""
+  },
+  {
+    "uuid": "recLizMvYfh4Ci47i",
+    "id": 106,
+    "name": "Steamshell",
+    "types": [
+      null,
+      6
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Basically steampunk mech suits, operated by humanoids (mainly kilrans). Appear in Time Gate 3",
+    "description": ""
+  },
+  {
+    "uuid": "rec9nOe1F6dvqGSn4",
+    "id": 107,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reccYOkLPITb9Vtrk",
+    "id": 108,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recN5Avrc6eZLqFDP",
+    "id": 109,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "receGwkgpRAaPk5hq",
+    "id": 110,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recu53kKSq0IqQRAn",
+    "id": 111,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec2xbwoT0tv915ij",
+    "id": 112,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec9T9ygM1hbq1GJQ",
+    "id": 113,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recm80HlkkbMG07YB",
+    "id": 114,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSZsr1SqQnq0hmg",
+    "id": 115,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechvzJjzfbpe2X4I",
+    "id": 116,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recvgf9KlFA4M7Aqp",
+    "id": 117,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec4z7BYLSoJvzzC0",
+    "id": 118,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmURldmjolk6KBU",
+    "id": 119,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recCBZDwOlscKlCeh",
+    "id": 120,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recyo1uqrnuvhbl1m",
+    "id": 121,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXVW7uZnmhq18dF",
+    "id": 122,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recKoEpxDsQBvu08w",
+    "id": 123,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recvnNJWp2ZMr7DSs",
+    "id": 124,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVyp3s9xGc6Tcp2",
+    "id": 125,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recq06TxQZQvnkzsB",
+    "id": 126,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpYIeNAPoxdkcOn",
+    "id": 127,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recnUQBSlE8NSMb9N",
+    "id": 128,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recfDMI7oTLiC1ZFf",
+    "id": 129,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recD6ywj5DShkFhZB",
+    "id": 130,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLkVk9Uhp9DkFpI",
+    "id": 131,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recyGfAGpLfxccq6g",
+    "id": 132,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbaAS2pHJny4ik5",
+    "id": 133,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdS9YWfetPRraMC",
+    "id": 134,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrjOtxxdWoVrKaM",
+    "id": 135,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclSQ1cOYDWJuhaf",
+    "id": 136,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechXPHKUe08BndCl",
+    "id": 137,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectxLEYfU6qk91fi",
+    "id": 138,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwAyj318JX2jMC2",
+    "id": 139,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recUtdveTNN0ixUSt",
+    "id": 140,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recplnZtS3LOTUcM7",
+    "id": 141,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec3ycqqlp9NJlW5e",
+    "id": 142,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSkD4iB8muk5tJi",
+    "id": 143,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclKMCMlVTWw66a5",
+    "id": 144,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recMyXEVelgNv5U4t",
+    "id": 145,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbo3RvOHt9eHTTg",
+    "id": 146,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwJ7XOqnef7XmRo",
+    "id": 147,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recG5bipW3YVFYF5t",
+    "id": 148,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recNadHWA2GZrEvKb",
+    "id": 149,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recaRBbBBD2AJzpcj",
+    "id": 150,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recPvCv8KG2NXtY2L",
+    "id": 151,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpwcsa1uZqQ8SSn",
+    "id": 152,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLufyZMYmQ9YJwi",
+    "id": 153,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recyT5F9SRK58ONSx",
+    "id": 154,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec1yO9TsEs8oAQON",
+    "id": 155,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recEGjrI2PZ87a2Gn",
+    "id": 156,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recqQ15JI5WEGguKt",
+    "id": 157,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recRhqQxbKJydea9v",
+    "id": 158,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec07SA1oez2gsV8y",
+    "id": 159,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recHVgOwLG9uY6r2L",
+    "id": 160,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrFrxMH3hiQOrrf",
+    "id": 161,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recBbosp10zLNdIXQ",
+    "id": 162,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recnz150ty2gsP0Bc",
+    "id": 163,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reccKvezX3ulgLloo",
+    "id": 164,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec4LZknkjz3GxbKC",
+    "id": 165,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLPsgD7mlzVQ9pY",
+    "id": 166,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwGNvZsjUAfiAD0",
+    "id": 167,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recUV5t5P9EQ9tzLW",
+    "id": 168,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec2P6IX5yeGt9Jsn",
+    "id": 169,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec3yad2hJO20kBQf",
+    "id": 170,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVJXbA3JwHlWzWG",
+    "id": 171,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recMDAF85XZ0ioVVQ",
+    "id": 172,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYimoCA7sdtY0BS",
+    "id": 173,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rech4S87hFX8lHt3t",
+    "id": 174,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclYrCiEvqyfVlvz",
+    "id": 175,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recz5cfYaU76Vqv6F",
+    "id": 176,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxJYbJxxSXAgQ42",
+    "id": 177,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recoUzQ6yVfzeck8C",
+    "id": 178,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbwxHuR8tW2MvgP",
+    "id": 179,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec97LAW585tZB6sR",
+    "id": 180,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recHSdsiSX6TZmjv4",
+    "id": 181,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLVlliIYMNnDVBj",
+    "id": 182,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recn6742H9jSHXnxO",
+    "id": 183,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recMD2CClSA604Ew1",
+    "id": 184,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recI8J8g6RuDXbsrc",
+    "id": 185,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmrmaQO5h4TtvGW",
+    "id": 186,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXDGACrjASs8dWl",
+    "id": 187,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recnynOK1r61ESmEM",
+    "id": 188,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recct0yNVB9828I3F",
+    "id": 189,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJiK8ryJq1doigl",
+    "id": 190,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recX3h9Q3480xj0SZ",
+    "id": 191,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec53bX6lV1cuZpMM",
+    "id": 192,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectGvCZsmAjeB6MQ",
+    "id": 193,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpXfGvqCAcuIjFS",
+    "id": 194,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reck9eGtOiIV1DOAC",
+    "id": 195,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec8n4vRhcXIhasyJ",
+    "id": 196,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recOXXWsDlJZNPIul",
+    "id": 197,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectz6SzmH6TVShfa",
+    "id": 198,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrAQMNunuGX7nQZ",
+    "id": 199,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSCPR1s4kkIz5Ze",
+    "id": 200,
+    "name": "Demon Wolf",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recI7E1jME3TxYCsj",
+    "id": 201,
+    "name": "Zombie",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rech8whq1BJ6D7YaD",
+    "id": 202,
+    "name": "Demon",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recPYdn1fXoBbOx8m",
+    "id": 203,
+    "name": "Daedra",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recN4KEdp1uOE7gUb",
+    "id": 204,
+    "name": "Fiend",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recY7HuYTlLHEqu5P",
+    "id": 205,
+    "name": "Imp",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbPvXrZUIJZukqY",
+    "id": 206,
+    "name": "Mephit",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrYVpwNiHFB6gqc",
+    "id": 207,
+    "name": "Bat",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recW8t2RSeFmU8Zci",
+    "id": 208,
+    "name": "Beast",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJRRrwY99P6aQY7",
+    "id": 209,
+    "name": "Spider",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recRzcB8oGb8bJU6H",
+    "id": 210,
+    "name": "Minotaur",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recfLQJGNXcG9RTy3",
+    "id": 211,
+    "name": "Undead",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recMkH3iPXUO1jEFY",
+    "id": 212,
+    "name": "Skeleton",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbTuYspjcReX9py",
+    "id": 213,
+    "name": "Skeleton Archer",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recvUpAMeKpQJfW6a",
+    "id": 214,
+    "name": "Skeleton Warrior",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recO5xwr9tmJtSgkN",
+    "id": 215,
+    "name": "Skeleton Ranger",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recfVTvgdTQQyPjrl",
+    "id": 216,
+    "name": "Skeleton Assassin",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczmXtsMd7WBHkHD",
+    "id": 217,
+    "name": "Skeleton Knight",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXAVfmqaMutd9JV",
+    "id": 218,
+    "name": "Skeleton Mage",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJkctGt8a5ui4DW",
+    "id": 219,
+    "name": "Skeleton Scout",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recBTPtfHffPxM4mc",
+    "id": 220,
+    "name": "Skeleton Champion",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recH3JpsIY2UTIEZX",
+    "id": 221,
+    "name": "Zombie",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recTV3KVJ5LgGmvfb",
+    "id": 222,
+    "name": "Ghoul",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmXrJQ1lrA002Oj",
+    "id": 223,
+    "name": "Crypt",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recNU2AUcFfL7oVR8",
+    "id": 224,
+    "name": "Mummy",
+    "types": [
+      4
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmjXuWSOYM94rCR",
+    "id": 225,
+    "name": "Scorpion",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwJtsNXyQ05a7Du",
+    "id": 226,
+    "name": "Abellisk",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdPdQnLMy1E62LR",
+    "id": 227,
+    "name": "Abellisk Lord",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFkJu4xOEXdezib",
+    "id": 228,
+    "name": "Golem",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwBN4ZbULd3Q0Zw",
+    "id": 229,
+    "name": "Stygian",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recT6YNCOJlraMHMG",
+    "id": 230,
+    "name": "Dark Specter",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recofJ7a1g5dObiRp",
+    "id": 231,
+    "name": "Shadow",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recccEkdSqj4XxuDn",
+    "id": 232,
+    "name": "Acilyte     ",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recgmXWf3pk6UPi9P",
+    "id": 233,
+    "name": "Twant         ",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recoHwXjQYMCEd0qI",
+    "id": 234,
+    "name": "Carnivus     ",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recPu1iZ3tm49Lm08",
+    "id": 235,
+    "name": "Dryad         ",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recPV6EfQNxTTItJN",
+    "id": 236,
+    "name": "Arawn",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwOuyAI5FUtNDAk",
+    "id": 237,
+    "name": "Tethra",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recjWETdLEnSp6ZsI",
+    "id": 238,
+    "name": "Vanth",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechiHY5JAZ6z4Rso",
+    "id": 239,
+    "name": "Siren",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec1ToALrBgI7FUlf",
+    "id": 240,
+    "name": "Drask",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recchbUOHkzEvf6yY",
+    "id": 241,
+    "name": "Shaman",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec8xB1aTVL32yKhf",
+    "id": 242,
+    "name": "Gargoyle",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLg4OBcold8l2oU",
+    "id": 243,
+    "name": "Wraith",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec22HYMGueH4r9EY",
+    "id": 244,
+    "name": "Spirit",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recwnevF6dLIKTGe2",
+    "id": 245,
+    "name": "Giant Spider",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec49Ub9Jk9mq0Iu3",
+    "id": 246,
+    "name": "Baboon",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZqCADw2DBz3k1a",
+    "id": 247,
+    "name": "**** Zealot",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrc8Z62hTClCesk",
+    "id": 248,
+    "name": "**** Priest",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recg8f3RhoC72SZ6Y",
+    "id": 249,
+    "name": "Stygian",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recn0HceW5BjqVD56",
+    "id": 250,
+    "name": "Horde",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recv322yPeSjN0BNH",
+    "id": 251,
+    "name": "Darkling",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLjgsEVGDWSTwnr",
+    "id": 252,
+    "name": "Horrid",
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpdsCeCt01LBMtO",
+    "id": 253,
+    "name": "Wolf",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recRJamFKB1JxfS1z",
+    "id": 254,
+    "name": "Scarab Beetle",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recvc52hwwU5mHrG3",
+    "id": 255,
+    "name": "Drake",
+    "types": [
+      2
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec8McGOsnp9Ie2zC",
+    "id": 256,
+    "name": "Dark Drake",
+    "types": [
+      2
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recleBXziUFhgQeq9",
+    "id": 257,
+    "name": "Bone Dragon",
+    "types": [
+      2
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recKeTB1jz9oQFKkY",
+    "id": 258,
+    "name": "Dragon",
+    "types": [
+      2
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [
+      3,
+      4,
+      5,
+      14
+    ],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recuekMAMDMpgInwi",
+    "id": 259,
+    "name": "Rock Golem",
+    "types": [
+      null
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLKWs06yHrPk5u3",
+    "id": 260,
+    "name": "Forest Troll",
+    "types": [
+      null
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec0lVFFaE2rFYVkE",
+    "id": 261,
+    "name": "Bear",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recc43wsA0QEG6g9p",
+    "id": 262,
+    "name": "Griffon",
+    "types": [
+      null
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZ1wO7nmlZRRfOf",
+    "id": 263,
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec5jz0DwF2rph32B",
+    "id": 264,
+    "name": "Serpent",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec31S7e8LpnRvlCX",
+    "id": 265,
+    "name": "Succubus",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recOfkCdSEeMZO7iG",
+    "id": 266,
+    "name": "Imp",
+    "types": [
+      3
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLtVFntPx4Slcei",
+    "id": 267,
+    "name": "Dire Wolf",
+    "types": [
+      9
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recnxaOjGCVEzgjSo",
+    "id": 268,
+    "name": "Android",
+    "types": [
+      null,
+      6
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec5BZlSOitMuWILy",
+    "id": 269,
+    "name": "Bulu",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Lu Bu from Dynasty Warriors",
+    "description": ""
+  },
+  {
+    "uuid": "recHdLBQn1Sc18zgj",
+    "id": 270,
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Link",
+    "description": ""
+  },
+  {
+    "uuid": "recalDAYzqHCieg6Y",
+    "id": 271,
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Luigi",
+    "description": ""
+  },
+  {
+    "uuid": "recppLiTMVEGL2voz",
+    "id": 272,
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "R2D2",
+    "description": ""
+  },
+  {
+    "uuid": "recVDvbL1D8RNs1yY",
+    "id": 273,
+    "types": [
+      1
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Yoda",
+    "description": ""
+  },
+  {
+    "uuid": "recZfgw8806kqiASS",
+    "id": 274,
+    "name": "Uledus",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "Samus",
+    "description": ""
+  },
+  {
+    "uuid": "recqimmNA7YUb2HZc",
+    "id": 275,
+    "name": "Hodor",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recCwL4vnPtN0rwpL",
+    "id": 276,
+    "name": "Ash?",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recaMEmneidJzVLqY",
+    "id": 277,
+    "name": "Bran xxx",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec23shy7d9yyJxzS",
+    "id": 278,
+    "name": "Mercius",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectQ0spqEVb9pQNj",
+    "id": 279,
+    "name": "Midave",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec4RcKqRa1cnJfj0",
+    "id": 280,
+    "name": "Mideva?",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec5evz3j47ilzalm",
+    "id": 281,
+    "name": "Arya",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczcJWEFo9eOuDmZ",
+    "id": 282,
+    "name": "Veric ",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQsrhxILccUQndp",
+    "id": 283,
+    "name": "Vhell",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXPyDnxt94KPJVj",
+    "id": 284,
+    "name": "Crit Odin",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXHQYz0g4UuFUIr",
+    "id": 285,
+    "name": "Gaiwen",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reckUnDN3HmOE5l7n",
+    "id": 286,
+    "name": "Talic",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVvxyckJIJKScIJ",
+    "id": 287,
+    "name": "Meric ",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechtiy8nl47BVeW1",
+    "id": 288,
+    "name": "Barnan",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmI7I6M6eAhmqQn",
+    "id": 289,
+    "name": "Mordot",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSalh6d0yG1i73Y",
+    "id": 290,
+    "name": "Lucife",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recd7vA5bVYOR4C2d",
+    "id": 291,
+    "name": "Cyrus",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZ5OVp10yk0lHNT",
+    "id": 292,
+    "name": "Zaryn",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQ1MwnO6WoTdKj5",
+    "id": 293,
+    "name": "Arlandir",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recE5DaM6K2UjWOBy",
+    "id": 294,
+    "name": "Kira",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recgjYVpNK3U539tz",
+    "id": 295,
+    "name": "Zalmordal",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recsSgXNxOtW8D0Xn",
+    "id": 296,
+    "name": "Vulras",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec7jtyxlXa3UylG4",
+    "id": 297,
+    "name": "Vanoln",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYLCTh6pG6Ftr15",
+    "id": 298,
+    "name": "Oren",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recffzO3j78v0pN4S",
+    "id": 299,
+    "name": "Meldoc",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recWUSAnvCKe3LxIq",
+    "id": 300,
+    "name": "Tycardeus",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recyKiXFUFhqKinj2",
+    "id": 301,
+    "name": "The Prophet",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFjXaSgmPVp5wF9",
+    "id": 302,
+    "name": "Isaac",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recTpwgMKNPOGy1Nn",
+    "id": 303,
+    "name": "Thonos",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXUvfxq47V30e4Z",
+    "id": 304,
+    "name": "Lycan",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrDKNioJOcQm7Gp",
+    "id": 305,
+    "name": "Ailuran",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxyGQPjOs2AYuZ7",
+    "id": 306,
+    "name": "Arkan",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec43XVJdA64rGyg8",
+    "id": 307,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYG8InP0T2MoCy8",
+    "id": 308,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recoUUwl4TTrSK3ak",
+    "id": 309,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLjZPI3cIfnbd0G",
+    "id": 310,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQl9btPSu5CvcMz",
+    "id": 311,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recnndC7i60R1LLiX",
+    "id": 312,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxBf5VbsEsLXEuh",
+    "id": 313,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recoacUHbHpznpgJ0",
+    "id": 314,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recgQ0PuiGJQy6Ul1",
+    "id": 315,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxwVFqxPk8RX5Fy",
+    "id": 316,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recj9AUyrrG6D7CmQ",
+    "id": 317,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recjvxAndugudxTa8",
+    "id": 318,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQh1gRnFzyBqYff",
+    "id": 319,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recp3DWloK2xfQfYD",
+    "id": 320,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmMSjU5ovOUQoDm",
+    "id": 321,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec6VgXuMlIg2tHbq",
+    "id": 322,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recWPE6oItUaeY2rP",
+    "id": 323,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxkS3YJla912HGg",
+    "id": 324,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recuSdUvfBQfRGMni",
+    "id": 325,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recBl93gpoCTBfFgA",
+    "id": 326,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recOzBuGYENGRpAIF",
+    "id": 327,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec0C0PYXN5OcrkRI",
+    "id": 328,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec7cgvzyvWLrzE5k",
+    "id": 329,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXh1JefRc4VBjya",
+    "id": 330,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechlWonInopw4EnF",
+    "id": 331,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFifuOKM1TmyKq8",
+    "id": 332,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec2cR1IDwfj6lWi6",
+    "id": 333,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recncv8hEtIsa98Vn",
+    "id": 334,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVnREh0rIWvs60S",
+    "id": 335,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec0m0psKrx8h1T2Z",
+    "id": 336,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZZtTOM3xyqy7ek",
+    "id": 337,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recNMDeIMIx33Fg82",
+    "id": 338,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recUSgL0BugYkESXv",
+    "id": 339,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recIqMdFGE0fWon92",
+    "id": 340,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recuU1RSnXgPWMZPP",
+    "id": 341,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxjRZnq2BMkzINc",
+    "id": 342,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recelgPgyYV5p8GJI",
+    "id": 343,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVzSBZSTCWWt6uS",
+    "id": 344,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rece4cZf0TIdmW9Dw",
+    "id": 345,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recfLkBQKELYsfDGn",
+    "id": 346,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recC8LmwS0Y6O0Gk4",
+    "id": 347,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec7hKvjnlVkmOWMC",
+    "id": 348,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recW8esTnN8uBps0u",
+    "id": 349,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recAMMeG975dppxY3",
+    "id": 350,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJYHJ4zFjmxA9AZ",
+    "id": 351,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbUmspBklgkwaHM",
+    "id": 352,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recoA1YLqBUnwdWEE",
+    "id": 353,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recCXGokXF9plhjMJ",
+    "id": 354,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recN5BgIHkERSPjSZ",
+    "id": 355,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reca2gyaZ0pntJt93",
+    "id": 356,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "kratos",
+    "description": ""
+  },
+  {
+    "uuid": "recf0REa2PQUaI1jB",
+    "id": 357,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec1DJNdtu2nnw5qa",
+    "id": 358,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recDKDzMwAdx3JG4Z",
+    "id": 359,
+    "name": "Swordsman",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "personality": "aggressive",
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recek8o3Rp8ozFrds",
+    "id": 360,
+    "name": "Aggorian Swordsman",
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recOrotOWHqCONIfW",
+    "id": 361,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recNuZXMMxsqGkAm8",
+    "id": 362,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQoZjh5bIeO7uvF",
+    "id": 363,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec1MeYOHkCPp2jeP",
+    "id": 364,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJWcNVrSNBjk6Xb",
+    "id": 365,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJqwplx9prHeo4G",
+    "id": 366,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechGbBsTD0Pe0Xja",
+    "id": 367,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec21RpCh99VJ6dlh",
+    "id": 368,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec4TYTOKK3ly1BFb",
+    "id": 369,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZZuMorlAGz48Ic",
+    "id": 370,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJ3OeDwxV11fVOX",
+    "id": 371,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reccl2Go9nwc4jz2k",
+    "id": 372,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec95K4aGhZffVntu",
+    "id": 373,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recH3OoZhQujjANah",
+    "id": 374,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recWvnL37GQS3CioA",
+    "id": 375,
+    "name": "Hell Recluse",
+    "types": [
+      8
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recnCRI8uE8nPnrkJ",
+    "id": 376,
+    "name": "Tarantulon",
+    "types": [
+      8
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recKHWtfIHfVMH1I5",
+    "id": 377,
+    "name": "Deathspinner",
+    "types": [
+      8
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmxphGiYs8kLcIk",
+    "id": 378,
+    "name": "Octoslayer",
+    "types": [
+      8
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recMPzm8MDQK2tU7K",
+    "id": 379,
+    "name": "War Crawler",
+    "types": [
+      8
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reciACT8IKo79odWn",
+    "id": 380,
+    "name": "Saber Spider",
+    "types": [
+      8
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZElnYyXgQ5hPtd",
+    "id": 381,
+    "name": "Hellboar",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recOAfWRlTXeoLsyE",
+    "id": 382,
+    "name": "Pig Demon",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recRps6wnOneUX4Q2",
+    "id": 383,
+    "name": "Dreadtusker",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec8ySGxX1hoJVT5G",
+    "id": 384,
+    "name": "Swine Warrior",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec4ePhKRjeukRx9e",
+    "id": 385,
+    "name": "Plagueball",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reckUqnlnynHSOK3X",
+    "id": 386,
+    "name": "Chatter",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recAz3XJJPa9RNIp6",
+    "id": 387,
+    "name": "Fleshfeaster",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reckbW0Iyxn5Gc9jz",
+    "id": 388,
+    "name": "Gobbler",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec86mCiPXPGcX84V",
+    "id": 389,
+    "name": "Ravisher",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recGHwjwrFnYeta8S",
+    "id": 390,
+    "name": "Lashworm",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recKJccyEueBsPYiV",
+    "id": 391,
+    "name": "Whipsnake",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec147Y2SYVXADcSC",
+    "id": 392,
+    "name": "Flail Eel",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recp744ou538yaPST",
+    "id": 393,
+    "name": "Flayerpede",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVWWGiThnWtNzUO",
+    "id": 394,
+    "name": "Brainorb",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSXCwF7WpbgKsvJ",
+    "id": 395,
+    "name": "Darkorb",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSP0p0QOriunZxB",
+    "id": 396,
+    "name": "Mentorb",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec9Sw9qow5qhYXfE",
+    "id": 397,
+    "name": "Grim Widow",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recApbXb6P73JITli",
+    "id": 398,
+    "name": "Crawling Doom",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recTGZNgCdXg9EBWn",
+    "id": 399,
+    "name": "Vile Webling",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxmnlkQ8d9P3k5G",
+    "id": 400,
+    "name": "Death Pod",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recPLHB0Ew4iXZktM",
+    "id": 401,
+    "name": "Firebat",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpBeddIsbma6B8b",
+    "id": 402,
+    "name": "Abomination",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQSEc5TyelJsJkm",
+    "id": 403,
+    "name": "Creep",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recFpeCdm7DKpbbSG",
+    "id": 404,
+    "name": "Dermal Mound",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recORv97Qu6TfOfjZ",
+    "id": 405,
+    "name": "Hacked Demon",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXPJKHA3VgAMBLO",
+    "id": 406,
+    "name": "Storm Hopper",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec1dihdqItwieZeu",
+    "id": 407,
+    "name": "Resheph",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recWb9sNy8PKNnbuK",
+    "id": 408,
+    "name": "Tynged",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recVH1GcJJzURVXpG",
+    "id": 409,
+    "name": "Adramelech",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczwtlFGmjEgr5Kz",
+    "id": 410,
+    "name": "Eurynome",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec9FRWPRxH9dbhoY",
+    "id": 411,
+    "name": "Tarqeq",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recEtEbRUzN4HWVPk",
+    "id": 412,
+    "name": "Kundalini",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recx018bwEmokev8X",
+    "id": 413,
+    "name": "Quaoar",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdfbZlYdIbiwU22",
+    "id": 414,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recZggohwuaXv1uj5",
+    "id": 415,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reciaLQLb0JbZP10a",
+    "id": 416,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec8aKKHybjdWq9wq",
+    "id": 417,
+    "name": "Carcosa",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reckoi97rMXFCdGOE",
+    "id": 418,
+    "name": "Cassilda",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recyd5KkiqpvF3tx0",
+    "id": 419,
+    "name": "Wolfsangel",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec2Q7EJgae3VPlB5",
+    "id": 420,
+    "name": "Derweze",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXHx59RQqbmYwxx",
+    "id": 421,
+    "name": "Cecaelia",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recK0oe6oIZFkCXQw",
+    "id": 422,
+    "name": "Linga Sharira",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recn3dTQhtonyqxIk",
+    "id": 423,
+    "name": "Herfjotur",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recqez4H996CscBTu",
+    "id": 424,
+    "name": "Brocken",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec598TBqjBHKKnlo",
+    "id": 425,
+    "name": "Falcon",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec1pW25wPWpb411h",
+    "id": 426,
+    "name": "Riot",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recCJHxdq65vp3pYd",
+    "id": 427,
+    "name": "Jokulmorder",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdROMtdEB5HLkvM",
+    "id": 428,
+    "name": "Eventide",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recN0KZ4SEwQ1i8H9",
+    "id": 429,
+    "name": "Eos",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recD1ZCSf9WGMEt6j",
+    "id": 430,
+    "name": "Machefer",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXbZbytSReqU6Jb",
+    "id": 431,
+    "name": "Greisen",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec08PTGeXa20o667",
+    "id": 432,
+    "name": "Amanita",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recGSNPfGIy8yUmNS",
+    "id": 433,
+    "name": "Hemlock",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recWn6J8PzpmuygJA",
+    "id": 434,
+    "name": "Mkodos",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recq4tyDU1GdM2KxB",
+    "id": 435,
+    "name": "Rotundjere",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reccPDxWZK20AsUIu",
+    "id": 436,
+    "name": "Vertigo",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec9yy2bYpD0Nnd8s",
+    "id": 437,
+    "name": "Jaguar",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recr7xiAluJsMmjua",
+    "id": 438,
+    "name": "Eris",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recJxobK0MJmwsEkQ",
+    "id": 439,
+    "name": "Triton",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recfdFtl5eGDs7BTk",
+    "id": 440,
+    "name": "Skarn",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLP2QaFalDDX5TU",
+    "id": 441,
+    "name": "Cacofiend",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclSh7goxJbMiU59",
+    "id": 442,
+    "name": "Cambion",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdWb4xTU8TPDDqn",
+    "id": 443,
+    "name": "Wight",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recB2DLUEAzGWJSKY",
+    "id": 444,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczP84Y6HHLwj3dY",
+    "id": 445,
+    "name": "Nyx",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reczLfPGqJ3sFyuhE",
+    "id": 446,
+    "name": "Brood Spawner",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recR9aO04ERkpqyrP",
+    "id": 447,
+    "name": "Hivehost",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recnNlQ7uzoXlWg48",
+    "id": 448,
+    "name": "Ice Clan",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recFXoq2gO0611lLr",
+    "id": 449,
+    "name": "Bronze Shaman",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recklu0Hg6AwWmfuC",
+    "id": 450,
+    "name": "Broodswarm",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recyqHwQbWp3JA2pU",
+    "id": 451,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recCAxoIAT2qPs3KV",
+    "id": 452,
+    "name": "Bloodfire Rogue",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recEvMQ1DBmbSbriu",
+    "id": 453,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recOglAMSkfirwuRa",
+    "id": 454,
+    "name": "Dive Bomber",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": "dia\n"
+  },
+  {
+    "uuid": "recppO9mPIy7AlvTb",
+    "id": 455,
+    "name": "Sequoia",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbJLTfZVCGDh6XG",
+    "id": 456,
+    "name": "Crystal Witch",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recyYWO3YXUWt3yTf",
+    "id": 457,
+    "name": "High Priestess",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechlLuaXP18y8Ckd",
+    "id": 458,
+    "name": "Magma Demon",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSeqXQEWJcGCwx3",
+    "id": 459,
+    "name": "Lava Lord",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYSjts5TEJ4DjxX",
+    "id": 460,
+    "name": "Sacred Fire Knight",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdrTkGzEFu9rHz4",
+    "id": 461,
+    "name": "Henchman Elite",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "receqQC9M1XGlVUAE",
+    "id": 462,
+    "name": "Bonadea",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recGk2i6scIm27wd7",
+    "id": 463,
+    "name": "Faunus",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmkKPuiDq4m6P1z",
+    "id": 464,
+    "name": "Aegipan",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec6REbNgvaEABXn8",
+    "id": 465,
+    "name": "Iambe",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSG7POUkLN35ZSc",
+    "id": 466,
+    "name": "Fawkes",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recm8UR3mRK05FeBL",
+    "id": 467,
+    "name": "Shamo",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYUZjxpctH6j55x",
+    "id": 468,
+    "name": "Amok",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdkCZ5ZlvJFNW6I",
+    "id": 469,
+    "name": "Gharaniq",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recYmbrb2MJl89BSI",
+    "id": 470,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechhMJaTVgMZZu7z",
+    "id": 471,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclCfrr0D5VXEqUI",
+    "id": 472,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec9HOGjTQ3n04KKI",
+    "id": 473,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recUatMl0V7l67NqH",
+    "id": 474,
+    "name": "Edea",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recgKoQLXW2lslJ7U",
+    "id": 475,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recHxyepciJc2pn8H",
+    "id": 476,
+    "name": "Iwa",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec4uJnw5UlBszArD",
+    "id": 477,
+    "name": "Rephaim",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec0pTUCacsnFw4yk",
+    "id": 478,
+    "name": "Anak",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recijNW5R6gZSRpe4",
+    "id": 479,
+    "name": "Paaliaq",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recmF6y0euc5e6KPb",
+    "id": 480,
+    "name": "Lyrannikin",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recqe0EVUMRffrBId",
+    "id": 481,
+    "name": "Hornet",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recxPTFCp5YP6xbIX",
+    "id": 482,
+    "name": "Brawl",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec0GowB2wpvyAz9p",
+    "id": 483,
+    "name": "Melusina",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recf1bOob8FOD4tDe",
+    "id": 484,
+    "name": "Lorelei",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpeOrVmMCi8pnsY",
+    "id": 485,
+    "name": "Seawitch",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reckzePlwEuaL1mIG",
+    "id": 486,
+    "name": "Sirara",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recsNyA2VPRIcz6Sv",
+    "id": 487,
+    "name": "Tia Dalma",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recW3qEkDxguo9Bjf",
+    "id": 488,
+    "name": "Atlacamani",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recNwZRNaCYFDoCJY",
+    "id": 489,
+    "name": "Takfir",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recsxOUPkPizJ5rz3",
+    "id": 490,
+    "name": "Carabosse",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdIHog3BlqAZ51T",
+    "id": 491,
+    "name": "Freybug",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recQdGYE4urJrbHkR",
+    "id": 492,
+    "name": "Hermanubis",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpgpIbEiaKaxKHX",
+    "id": 493,
+    "name": "Shaheeda",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recLCPT5rfW2YF2p0",
+    "id": 494,
+    "name": "Oniwaka",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recHZcZnIor9WWquG",
+    "id": 495,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reclQnU6w4i0twZbl",
+    "id": 496,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reccRmVsrUHaUiu64",
+    "id": 497,
+    "name": "Lycourgos",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recRahvlDyJHFtpJU",
+    "id": 498,
+    "name": "Helot",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recILM9xyob7RJzdf",
+    "id": 499,
+    "name": "Gilgamesh",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recp7vIZgB2zvvqch",
+    "id": 500,
+    "name": "Krypteia",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recSdIzgihDoOjC7k",
+    "id": 501,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recdifiLZk3sPPRgV",
+    "id": 502,
+    "name": "Zodiac",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectrulAuvz2UwgOM",
+    "id": 503,
+    "name": "Orchid",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recjDn5p9CefILnWa",
+    "id": 504,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recsThCsKwxQfautk",
+    "id": 505,
+    "name": "Spectre",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recEbHAECLuEqPiCi",
+    "id": 506,
+    "name": "Rhea",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recrd61xRmNq7Sq7J",
+    "id": 507,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "personality": "id: 1",
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "reci0X02hPKF4Ytcj",
+    "id": 508,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recO61tXJUSzf8NmV",
+    "id": 509,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recP76wDW8O1hBJQC",
+    "id": 510,
+    "types": [
+      5
+    ],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recqDDg5fiRGyiJRd",
+    "id": 511,
+    "name": "Slaanesh",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recHdU6ICGkcZhJoT",
+    "id": 512,
+    "name": "Tzeentch",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec5oOKvoTFzx3SlR",
+    "id": 513,
+    "name": "Snowsquall",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recDRTigpzIsB60TV",
+    "id": 514,
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recDsGVfpnNeB6ubK",
+    "id": 515,
+    "name": "Styx",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recoeJrXyVpdjO0Fo",
+    "id": 516,
+    "name": "Tower's Defense",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recqBW4Ah8Pniyrhp",
+    "id": 517,
+    "name": "Tower's Denial",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recbtPfnOuOv4KDvz",
+    "id": 518,
+    "name": "Tower's Rush",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recR1GeL1eMfx8G9E",
+    "id": 519,
+    "name": "Tower's Push",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recuOxRE8PduWHbdb",
+    "id": 520,
+    "name": "Tower's Wall",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rec8bVYg4ttrPdu2W",
+    "id": 521,
+    "name": "Atlatl",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recXuhaSooZVeyymE",
+    "id": 522,
+    "name": "Raid",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recpSjcbV3lj4a5Be",
+    "id": 523,
+    "name": "Hastata",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rectYJMiBAC4MIDZk",
+    "id": 524,
+    "name": "HasteZ",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "recghZDKFy9t8iX0X",
+    "id": 525,
+    "name": "Hastilude",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rect3CT8asXdyYqvM",
+    "id": 526,
+    "name": "Hastur",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rech1HFqg8trX4pLB",
+    "id": 527,
+    "name": "Hastin",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  },
+  {
+    "uuid": "rechw0XltNV1KFoai",
+    "id": 528,
+    "name": "Phoenix",
+    "types": [],
+    "areas": [],
+    "factions": [],
+    "npcs": [],
+    "itemMaterials": [],
+    "shortDescription": "",
+    "description": ""
+  }
+]

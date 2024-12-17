@@ -1,0 +1,767 @@
+[
+  {
+    "uuid": "recrGMJHI1dP1xFJT",
+    "id": 1,
+    "name": "Strength",
+    "isManual": true,
+    "value": 0,
+    "description": "While being a key stat for armor/weapon requirements also gives the following bonuses, Attack power, Stamina Recovery rate Carry weight, and overall Stamina.\n"
+  },
+  {
+    "uuid": "reconLjKtCXsGSdHw",
+    "id": 2,
+    "name": "Intelligence",
+    "isManual": true,
+    "value": 0,
+    "description": "Being a requirement for a small amount of items, also has bonuses other than that of being able to wield those weapons Stamina, Mana, Mana recovery rate.\n"
+  },
+  {
+    "uuid": "recFS6vyxnwh2ynSw",
+    "id": 3,
+    "name": "Agility",
+    "isManual": true,
+    "value": 0,
+    "description": "Agility is needed for many bows, also affects your characters Accuracy, Projectile damage ( arrow, spear, etc. ) and defense.\n"
+  },
+  {
+    "uuid": "rec48jdKWOscQUucr",
+    "id": 4,
+    "name": "Vitality",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recITR8yeIaltYhNJ",
+    "id": 5,
+    "name": "Base Health",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recMfZnQm5OgLcq8X",
+    "id": 6,
+    "name": "Base Energy",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "rectHc8mloWeGB9VA",
+    "id": 7,
+    "name": "Stamina",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recCCz8WSwQf8dJ4w",
+    "id": 8,
+    "name": "Movement Speed",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recS4j06onhtlaWKu",
+    "id": 9,
+    "name": "Light Radius",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recKXyb3H59HR8mJw",
+    "id": 10,
+    "name": "Attack Speed",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recWqHoUVELagBh3z",
+    "id": 11,
+    "name": "Cast Speed",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recWOSjnEVf5sjQuP",
+    "id": 12,
+    "name": "Luck",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recy4OHdjQvIbSHEf",
+    "id": 13,
+    "name": "Accuracy",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recAGAeftv2hzvWhZ",
+    "id": 14,
+    "name": "Time Hops",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recSBW58VdwuoxAPi",
+    "id": 15,
+    "name": "Time Played",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recPBgWZCbSSfvRTV",
+    "id": 16,
+    "name": "Mana Per Hit",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recsiuAIiBtHoeljp",
+    "id": 17,
+    "name": "Chance to Inflict a Piercing Hit",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recBRIeMgLAJ1MVZ1",
+    "id": 18,
+    "name": "Critical Hit Chance",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recoGQ62rnd96B7ju",
+    "id": 19,
+    "name": "Critical Hit Damage",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "rec7nShEO79jhoNag",
+    "id": 20,
+    "name": "Defense",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recDli8Bopltrw3Kb",
+    "id": 21,
+    "name": "Extra Gold from Kills",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recUj0Y6CLhRR8PDs",
+    "id": 22,
+    "name": "Damage Reduction",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "reckBBOsQQEyQ5gVf",
+    "id": 23,
+    "name": "Warp Count",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recfTosuL5hBsW7wP",
+    "id": 24,
+    "name": "Death Count",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "rec2R8W4yHIDZv3Bg",
+    "id": 25,
+    "name": "Kill Count",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recGnJRAsbluurZBa",
+    "id": 26,
+    "name": "Chickens Kicked",
+    "isManual": true,
+    "value": 0,
+    "description": ""
+  },
+  {
+    "uuid": "recNj2GI5jFmp8S31",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recmVaCrYmJ5kOpEV",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rec60rt9DZIavFXMN",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recLpxEqHN0uKaY53",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rectV7PIzEWP5rQFb",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recv80FgAk4kXDJGl",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recEXE8VBtLT3Hh2j",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recN0bwWN6VYCEtdi",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recKBzk7tLeKmLeaq",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recR7m6iQui15xLA9",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recT81vFDHMvYtQy6",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "reczhx2v7mD1owJd6",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recYStmZg7QUp5dSs",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rec65Juf6Zg7PBE4n",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "rec5MswHiI6zo5YkG",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recA8EC9xB6NDLPNd",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recpaLZmyv3JFl2a6",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recpcMjNRqwO5cKXB",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recq3GWYwrKzxRrDN",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recEkp4jOkrtj3Dbp",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "reccEit79r4HTUZ6l",
+    "isManual": false,
+    "description": ""
+  },
+  {
+    "uuid": "recq7EHnJODIbGDQw",
+    "id": 28,
+    "name": "Maximum Health",
+    "key": "MaxHealth",
+    "games": [3]
+  },
+  {
+    "uuid": "recIM3BaWli8z3zh3",
+    "id": 29,
+    "name": "Current Health",
+    "key": "CurrentHealth",
+    "games": [3]
+  },
+  {
+    "uuid": "recwNt359yxRX9oH5",
+    "id": 30,
+    "name": "Maximum Energy",
+    "key": "MaxEnergy",
+    "games": [3]
+  },
+  {
+    "uuid": "recCDiaqYKvAnXLLh",
+    "id": 31,
+    "name": "Current Health",
+    "key": "CurrentEnergy",
+    "games": [3]
+  },
+  {
+    "uuid": "recqGgr4vf9Iai9wo",
+    "id": 32,
+    "name": "{damageType} Damage",
+    "key": "Damage",
+    "params": ["damageType?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recA7iIWYXbhnL4lE",
+    "id": 33,
+    "key": "Defense",
+    "games": [3]
+  },
+  {
+    "uuid": "recF1wA7v2oKaoXzZ",
+    "id": 34,
+    "name": "{damageType} Resistance",
+    "key": "Resistance",
+    "params": ["damageType?"],
+    "games": [3]
+  },
+  {
+    "uuid": "reczImuCItClAr0Z6",
+    "id": 35,
+    "key": "Vitality",
+    "games": [3]
+  },
+  {
+    "uuid": "recI52ugEQmsXqmRt",
+    "id": 36,
+    "key": "Intelligence",
+    "games": [3]
+  },
+  {
+    "uuid": "recf6H5uDxGwczFnp",
+    "id": 37,
+    "key": "Strength",
+    "games": [3]
+  },
+  {
+    "uuid": "recVCjdLdhZ0kWvk3",
+    "id": 38,
+    "key": "Dexterity",
+    "games": [3]
+  },
+  {
+    "uuid": "recZyKzZP9xJgnVvS",
+    "id": 39,
+    "key": "Luck",
+    "games": [3]
+  },
+  {
+    "uuid": "recKpJZ7lyX218bCg",
+    "id": 40,
+    "name": "Health Regeneration",
+    "key": "HealthRegen",
+    "games": [3]
+  },
+  {
+    "uuid": "recPjSS0WkdtsArnU",
+    "id": 41,
+    "name": "Energy Regeneration",
+    "key": "EnergyRegen",
+    "games": [3]
+  },
+  {
+    "uuid": "rec564E3EsbxLWrjW",
+    "id": 42,
+    "name": "Energy Cost",
+    "key": "EnergyCost",
+    "games": [3]
+  },
+  {
+    "uuid": "recgqjwZRoYWRHejS",
+    "id": 43,
+    "name": "Cooldown Time",
+    "key": "CooldownTime",
+    "games": [3]
+  },
+  {
+    "uuid": "recoOyUIyMEn58HA9",
+    "id": 44,
+    "name": "Attack Speed",
+    "key": "AttackSpeed",
+    "games": [3]
+  },
+  {
+    "uuid": "recMQ5aQVylJNXmE5",
+    "id": 45,
+    "name": "Cast Speed",
+    "key": "CastSpeed",
+    "games": [3]
+  },
+  {
+    "uuid": "recpq01yOkTg8JkJq",
+    "id": 46,
+    "name": "Movement Speed",
+    "key": "MovementSpeed",
+    "games": [3]
+  },
+  {
+    "uuid": "recqUD7JiRCaHLrOz",
+    "id": 47,
+    "name": "Critical Hit Chance",
+    "key": "CriticalHitChance",
+    "games": [3]
+  },
+  {
+    "uuid": "rec8YX4csiaH6C12Z",
+    "id": 48,
+    "name": "Critical Hit Multiplier",
+    "key": "CriticalHitMultiplier",
+    "games": [3]
+  },
+  {
+    "uuid": "recJ0qYBqglykItTR",
+    "id": 49,
+    "name": "${isIncluded(ailment) ? Chance to Inflict {ailment} : Chance to Inflict Ailment",
+    "key": "AilmentChance",
+    "params": ["ailment?"],
+    "games": [3]
+  },
+  {
+    "uuid": "rectQ6RKesSFlskjX",
+    "id": 50,
+    "name": "${isIncluded(ailment) ? Duration of {ailment} : Ailment Duration}",
+    "key": "AilmentDuration",
+    "params": ["ailment?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recLqmp8FbO6TgruI",
+    "id": 51,
+    "name": "${isIncluded(ailment) ? Strength of {ailment} Effects : Ailment Effect Strength",
+    "key": "AilmentStrength",
+    "params": ["ailment?"],
+    "games": [3]
+  },
+  {
+    "uuid": "reckEtxzhWr0HFvaW",
+    "id": 52,
+    "name": "${isIncluded(ailment) ? Resistance to {ailment} : Resistance to Ailment Effects",
+    "key": "AilmentResistance",
+    "params": ["ailment?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recOXYXtELZhXQknn",
+    "id": 54,
+    "key": "Poise",
+    "games": [3]
+  },
+  {
+    "uuid": "recGQeb0Dibwj1PVu",
+    "id": 55,
+    "name": "Magic Find",
+    "key": "MagicFind",
+    "games": [3]
+  },
+  {
+    "uuid": "reczqX8LwzUI6oRJi",
+    "id": 56,
+    "name": "{damageType} Reflect",
+    "key": "Reflect",
+    "params": ["damageType?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recB623r8WmF2PpTk",
+    "id": 57,
+    "name": "${isIncluded(damageType) ? {damageType} Absorb to {fillTarget} : Damage Absorption to {fillTarget}",
+    "key": "Absorb",
+    "params": ["fillTarget", "damageType?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recJXrnj8kmiA5LUU",
+    "id": 58,
+    "name": "Magic Find",
+    "key": "MagicFind",
+    "games": [3]
+  },
+  {
+    "uuid": "recQV7LCUalSeytNz",
+    "id": 59,
+    "name": "Damage Variance",
+    "key": "BaseDamageVariance",
+    "games": [3]
+  },
+  {
+    "uuid": "recBaQGMIwa3s3Hsg",
+    "id": 60,
+    "name": "Maximum Damage",
+    "key": "MinDamageOffset",
+    "games": [3]
+  },
+  {
+    "uuid": "recTPgsSp2u4qXDwW",
+    "id": 61,
+    "name": "Minimum Damage",
+    "key": "MaxDamageOffset",
+    "games": [3]
+  },
+  {
+    "uuid": "recoBztJloa1etYsJ",
+    "id": 62,
+    "name": "${isIncluded(damageType) ? {damageType} Armor Penetration : Armor Penetration",
+    "key": "ArmorPenetration",
+    "params": ["damageType?"],
+    "games": [3]
+  },
+  {
+    "uuid": "rec4DL01wKSIM0v7k",
+    "id": 63,
+    "name": "Dodge Chance",
+    "key": "DodgeChance",
+    "games": [3]
+  },
+  {
+    "uuid": "recsno4oKF631hxWO",
+    "id": 64,
+    "name": "Experience Gain",
+    "key": "ExperienceGain",
+    "games": [3]
+  },
+  {
+    "uuid": "recYLEm0PVovatHqc",
+    "id": 65,
+    "key": "Class",
+    "games": [3]
+  },
+  {
+    "uuid": "recP8KM6HGe9vMipP",
+    "id": 66,
+    "name": "Skill Points",
+    "key": "SkillPoints",
+    "games": [3]
+  },
+  {
+    "uuid": "rec8d7xmDHyyVnIME",
+    "id": 67,
+    "key": "Rank",
+    "games": [3]
+  },
+  {
+    "uuid": "recCDryGm9v5KztVJ",
+    "id": 68,
+    "name": "${isIncluded(rewardableAction & rewardableItemType) ? {rewardableItemType} Reward for {rewardableAction} : isIncluded(rewardableAction) ? Rewards for {rewardableAction} : isIncluded(rewardableItemType) ? {rewardableItemType} Rewards : Rewards}",
+    "key": "RewardRate",
+    "params": ["rewardableAction?", "rewardableItemType?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recPWs5cfw9NL7oqb",
+    "id": 69,
+    "name": "Life Steal",
+    "key": "LifeSteal",
+    "games": [3]
+  },
+  {
+    "uuid": "recebUTeW8tSTxkJd",
+    "id": 70,
+    "name": "Energy Steal",
+    "key": "EnergySteal",
+    "games": [3]
+  },
+  {
+    "uuid": "recdvgf3zTntHFWkJ",
+    "id": 71,
+    "name": "Light Emission",
+    "key": "LightEmission",
+    "params": ["color?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recBUeo3anXFBm7TJ",
+    "id": 72,
+    "name": "Effect Radius",
+    "key": "EffectRadius",
+    "games": [3]
+  },
+  {
+    "uuid": "recCY2kxmjS9X9F3S",
+    "id": 73,
+    "name": "Effect Duration",
+    "key": "EffectDuration",
+    "params": ["effect?"],
+    "games": [3]
+  },
+  {
+    "uuid": "recl9cuOtQaCFKz8F",
+    "id": 72,
+    "name": "Carry Weight",
+    "key": "CarryWeight",
+    "games": []
+  },
+  {
+    "uuid": "recJGKVHkjPGxarwg",
+    "id": 73,
+    "key": "Stamina",
+    "games": []
+  },
+  {
+    "uuid": "recv20PujRXW6gXAM",
+    "id": 74,
+    "name": "Item Drop Amount",
+    "key": "ItemDropAmount",
+    "games": []
+  },
+  {
+    "uuid": "recVJfVcSW1G0FoK0",
+    "id": 75,
+    "name": "Item Drop Type",
+    "key": "ItemDropType",
+    "games": []
+  },
+  {
+    "uuid": "rec0t0BwfHAfmxsFz",
+    "id": 76,
+    "name": "Item Drop Rarity",
+    "key": "ItemDropRarity",
+    "games": []
+  },
+  {
+    "uuid": "recczu67gHQqM4TqN",
+    "id": 77,
+    "name": "Physical",
+    "key": "Physical",
+    "games": []
+  },
+  {
+    "uuid": "recnsO5xsnnsjF7Sc",
+    "id": 78,
+    "name": "Lightning",
+    "key": "Lightning",
+    "games": []
+  },
+  {
+    "uuid": "recPruIkbNu7mxdNS",
+    "id": 79,
+    "name": "Fire",
+    "key": "Fire",
+    "games": []
+  },
+  {
+    "uuid": "recbz8lpBeitOecQZ",
+    "id": 80,
+    "name": "Cold",
+    "key": "Cold",
+    "games": []
+  },
+  {
+    "uuid": "receXfDnafAV5DwOI",
+    "id": 81,
+    "name": "Base Stamina",
+    "key": "BaseStamina",
+    "games": []
+  },
+  {
+    "uuid": "recTHv5iu8IYfTkpZ",
+    "id": 82,
+    "name": "Attack Rating",
+    "key": "AttackRating",
+    "games": []
+  },
+  {
+    "uuid": "recgnUBLnx5etIhu9",
+    "id": 83,
+    "name": "Backpack Gold Limit",
+    "key": "BackpackGoldLimit",
+    "games": []
+  },
+  {
+    "uuid": "recY2TueUYcKa59bn",
+    "id": 84,
+    "name": "Chest Gold Limit",
+    "key": "ChestGoldLimit",
+    "games": []
+  },
+  {
+    "uuid": "rec0CbcvUZAwkkEI1",
+    "id": 85,
+    "name": "Stamina Used",
+    "key": "StaminaUsed",
+    "games": []
+  },
+  {
+    "uuid": "recs3X7KlUPktqGHj",
+    "id": 86,
+    "name": "MaxRoomSize",
+    "key": "MaxRoomSize",
+    "games": []
+  },
+  {
+    "uuid": "recQRXNLjostMWjmj",
+    "id": 87,
+    "name": "RoomCreationQueue",
+    "key": "RoomCreationQueue",
+    "games": []
+  },
+  {
+    "uuid": "recOLBCps97jfEKUF",
+    "id": 88,
+    "name": "FallDamage",
+    "key": "FallDamage",
+    "games": []
+  },
+  {
+    "uuid": "recUlgqu5i0mrrfvp",
+    "games": []
+  },
+  {
+    "uuid": "recyPSJ2pjUhgugyn",
+    "games": []
+  },
+  {
+    "uuid": "recP8zdWAhhNt4RNk",
+    "games": []
+  },
+  {
+    "uuid": "recXbs1rtZEQDty32",
+    "games": []
+  }
+]
