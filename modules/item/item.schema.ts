@@ -57,7 +57,12 @@ export const ItemSpecificType = Entity.merge(
 
 export const ItemAffix = Entity.merge(
   z.object({
-    // Define fields for ItemAffix here if needed
+    isPrefix: z.boolean().default(false),
+    isSuffix: z.boolean().default(false),
+    isTitle: z.boolean().default(false),
+    weight: z.number().min(0).default(1),
+    typeIds: z.array(ObjectId).optional(),
+    rarityIds: z.array(ObjectId).optional(),
   })
 );
 
@@ -103,6 +108,9 @@ export const Item = Entity.merge(
     quantity: z.number().int().nonnegative().default(1),
     x: z.number().int().nonnegative().optional(),
     y: z.number().int().nonnegative().optional(),
+    distribution: z
+      .enum(['Unknown', 'Found', 'Fundraiser', 'Claimed', 'Crafted', 'Airdrop', 'Reward', 'Farmed', 'Migration'])
+      .default('Unknown'),
     // properties: z.record(z.any()).optional(),
     // type: z.string().default('bag'), // stash, bag, equipment, etc.
     items: z.array(z.lazy(() => Item)).default([]),

@@ -39,7 +39,8 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.updateGame', input);
 
-    const updatedGame = await ctx.app.model.Game.findByIdAndUpdate(input.where.id.equals, { new: true }).lean().exec();
+    const filter = getFilter(input);
+    const updatedGame = await ctx.app.model.Game.findByIdAndUpdate(filter.id, { new: true }).lean().exec();
     if (!updatedGame) throw new Error('Game update failed');
 
     return updatedGame as Game;

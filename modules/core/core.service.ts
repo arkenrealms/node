@@ -89,11 +89,13 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.authorize', input);
 
+    ctx.client.profile = await ctx.app.model.Profile.findOne({
+      name: 'Hashwarp',
+    }).exec();
+
     return {
       token: 'aaa',
-      profile: {
-        name: 'zzz',
-      },
+      profile: ctx.client.profile.toJSON(),
       permissions: {
         'Process Interfaces': true,
         'Manage Interfaces': true,

@@ -11,3 +11,4 @@ export const AreaLandmark = mongo.createModel<Types.AreaLandmarkDocument>('AreaL
 });
 
 export const AreaType = mongo.createModel<Types.AreaTypeDocument>('AreaType', {});
+export const AreaNameChoice = mongo.createModel<Types.AreaNameChoiceDocument>('AreaNameChoice', {});

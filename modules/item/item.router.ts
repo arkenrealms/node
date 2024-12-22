@@ -1,9 +1,8 @@
-// module/item.router.ts
-
 import { z as zod } from 'zod';
-import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
+import { initTRPC } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
+import { Query, getQueryInput, inferRouterOutputs, inferRouterInputs } from '../../schema';
 import {
   Item,
   ItemAttribute,
@@ -29,38 +28,50 @@ export const createRouter = () =>
   router({
     getItem: procedure
       .use(hasRole('guest', t))
+      .input(getQueryInput(Item))
+      .output(Item)
+      .query(({ input, ctx }) => (ctx.app.service.Item.getItem as any)(input, ctx)),
+
+    getItems: procedure
+      .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ itemId: z.string() }))
+      .input(getQueryInput(Item))
+      .output(z.array(Item))
       .query(({ input, ctx }) => (ctx.app.service.Item.getItem as any)(input, ctx)),
 
     createItem: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(Item)
+      .input(getQueryInput(Item))
+      .output(Item.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.createItem as any)(input, ctx)),
 
     updateItem: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ itemId: z.string(), data: Item.partial() }))
+      .input(getQueryInput(Item))
+      .output(Item.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.updateItem as any)(input, ctx)),
 
     getItemAttribute: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ itemAttributeId: z.string() }))
+      .input(getQueryInput(ItemAttribute))
+      .output(ItemAttribute)
       .query(({ input, ctx }) => (ctx.app.service.Item.getItemAttribute as any)(input, ctx)),
 
     createItemAttribute: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(ItemAttribute)
+      .input(getQueryInput(ItemAttribute))
+      .output(ItemAttribute.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.createItemAttribute as any)(input, ctx)),
 
     updateItemAttribute: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ itemAttributeId: z.string(), data: ItemAttribute.partial() }))
+      .input(getQueryInput(ItemAttribute))
+      .output(ItemAttribute.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.updateItemAttribute as any)(input, ctx)),
 
     // Add more procedures for other entities like ItemMaterial, ItemSet, ItemSlot, ItemRarity, etc.
@@ -68,19 +79,22 @@ export const createRouter = () =>
     getItemTransmute: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ itemTransmuteId: z.string() }))
+      .input(getQueryInput(ItemTransmute))
+      .output(ItemTransmute)
       .query(({ input, ctx }) => (ctx.app.service.Item.getItemTransmute as any)(input, ctx)),
 
     createItemTransmute: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(ItemTransmute)
+      .input(getQueryInput(ItemTransmute))
+      .output(ItemTransmute.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.createItemTransmute as any)(input, ctx)),
 
     updateItemTransmute: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ itemTransmuteId: z.string(), data: ItemTransmute.partial() }))
+      .input(getQueryInput(ItemTransmute))
+      .output(ItemTransmute.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Item.updateItemTransmute as any)(input, ctx)),
   });
 

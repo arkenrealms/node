@@ -1,3 +1,4 @@
+import utf8 from 'utf8';
 import { TRPCError } from '@trpc/server';
 import { isValidRequest } from './web3';
 
@@ -32,6 +33,11 @@ export const customErrorFormatter = (t: any) =>
 // console.log(deserialized);
 export const serialize = (object) => {
   const processValue = (value) => {
+    // Support for ArrayBuffer
+    if (value instanceof ArrayBuffer) {
+      return { _type: 'ArrayBuffer', data: Array.from(new Uint8Array(value)) };
+    }
+
     // Ensure Uint8Array objects are serialized correctly
     if (value instanceof Uint8Array) {
       return { _type: 'Uint8Array', data: Array.from(value) };
@@ -69,44 +75,44 @@ export const serialize = (object) => {
 };
 
 export const deserialize = (input) => {
-  if (typeof input !== 'string') return input;
-
   const processValue = (value) => {
-    if (value && typeof value === 'object') {
-      if (value._type) {
-        switch (value._type) {
-          case 'Uint8Array':
-            return new Uint8Array(value.data);
-          case 'Date':
-            return new Date(value.data);
-          case 'Set':
-            return new Set(value.data.map(processValue));
-          case 'Map':
-            return new Map(value.data.map(([k, v]) => [k, processValue(v)]));
-          case 'BigInt':
-            return BigInt(value.data);
-          case 'RegExp':
-            return new RegExp(value.data, value.flags);
-          default:
-            // Unknown _type, return the value as is
-            return value;
-        }
-      } else {
-        // Recursively process objects and arrays
-        if (Array.isArray(value)) {
-          return value.map(processValue);
-        } else {
-          return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
-        }
+    if (!value || typeof value !== 'object') return value;
+
+    if (value instanceof ArrayBuffer) {
+      return JSON.parse(utf8.decode(String.fromCharCode.apply(null, new Uint8Array(value))));
+    }
+
+    if (value._type) {
+      switch (value._type || typeof value) {
+        case 'ArrayBuffer':
+          return Uint8Array.from(value.data).buffer;
+        case 'Uint8Array':
+          return new Uint8Array(value.data);
+        case 'Date':
+          return new Date(value.data);
+        case 'Set':
+          return new Set(value.data.map(processValue));
+        case 'Map':
+          return new Map(value.data.map(([k, v]) => [k, processValue(v)]));
+        case 'BigInt':
+          return BigInt(value.data);
+        case 'RegExp':
+          return new RegExp(value.data, value.flags);
+        default:
+          // Unknown _type, return the value as is
+          return value;
       }
     } else {
-      // Return the value as is for primitives (string, number, boolean, null)
-      return value;
+      // Recursively process objects and arrays
+      if (Array.isArray(value)) {
+        return value.map(processValue);
+      } else {
+        return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
+      }
     }
   };
 
-  const parsedObject = JSON.parse(input);
-  return processValue(parsedObject);
+  return processValue(typeof input === 'string' ? JSON.parse(input) : input);
 };
 
 export const transformer: any = {
@@ -369,3 +375,55 @@ export class ARXError extends Error {
     }
   }
 }
+
+// /**
+//  * Unprotected procedure
+//  **/
+// const isAcceptableOrigin = t.middleware(({ ctx: { user, acceptableOrigin }, next }) => {
+//   if (!acceptableOrigin)
+//     throw new TRPCError({
+//       code: 'UNAUTHORIZED',
+//       message: 'Please use the public API instead: https://docs.arken.gg',
+//     });
+//   return next({ ctx: { user, acceptableOrigin } });
+// });
+
+// export const enforceClientVersion = t.middleware(async ({ next, ctx }) => {
+//   // if (await needsUpdate(ctx.req)) {
+//   //   throw new TRPCError({
+//   //     code: 'PRECONDITION_FAILED',
+//   //     message: 'Update required',
+//   //     cause: 'Please refresh your browser to get the latest version of the app',
+//   //   });
+//   // }
+//   const result = await next();
+//   //   if (await needsUpdate(ctx.req)) {
+//   //     ctx.res?.setHeader('x-update-required', 'true');
+//   //     ctx.cache.edgeTTL = 0;
+//   //   }
+//   return result;
+// });
+
+// export const publicProcedure = t.procedure.use(isAcceptableOrigin).use(enforceClientVersion);
+
+// /**
+//  * Protected procedure
+//  **/
+// export const protectedProcedure = publicProcedure.use(isAuthed);
+
+// /**
+//  * Moderator procedure
+//  **/
+// export const moderatorProcedure = protectedProcedure.use(isMod);
+
+// /**
+//  * Guarded procedure to prevent users from making actions
+//  * based on muted/banned properties
+//  */
+// export const guardedProcedure = protectedProcedure.use(isMuted);
+
+// /**
+//  * Verified procedure to prevent users from making actions
+//  * if they haven't completed the onboarding process
+//  */
+// export const verifiedProcedure = protectedProcedure.use(isOnboarded);

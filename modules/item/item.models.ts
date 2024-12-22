@@ -23,6 +23,7 @@ export const Item = mongo.createModel<Types.ItemDocument>(
     setId: { type: mongo.Schema.Types.ObjectId, ref: 'ItemSet', required: false },
     attributes: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemAttribute', required: false }],
     quantity: { type: Number, integer: true, min: 0, default: 1 },
+    distribution: { type: String, default: 'Unknown' },
     x: { type: Number, integer: true, min: 0, required: false },
     y: { type: Number, integer: true, min: 0, required: false },
     items: [{ type: mongo.Schema.Types.ObjectId, ref: 'Item', default: [] }],
@@ -89,7 +90,14 @@ export const ItemSubType = mongo.createModel<Types.ItemSubTypeDocument>('ItemSub
 
 export const ItemSpecificType = mongo.createModel<Types.ItemSpecificTypeDocument>('ItemSpecificType', {});
 
-export const ItemAffix = mongo.createModel<Types.ItemAffixDocument>('ItemAffix', {});
+export const ItemAffix = mongo.createModel<Types.ItemAffixDocument>('ItemAffix', {
+  isPrefix: { type: Boolean, default: false },
+  isSuffix: { type: Boolean, default: false },
+  isTitle: { type: Boolean, default: false },
+  weight: { type: Number, min: 0, default: 1 },
+  typeIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemType', required: false }],
+  rarityIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'ItemRarity', required: false }],
+});
 
 export const ItemRecipe = mongo.createModel<Types.ItemRecipeDocument>('ItemRecipe', {});
 

@@ -39,16 +39,26 @@ export const CharacterInventory = Entity.merge(
 // Character schema
 export const Character = Entity.merge(
   z.object({
-    // teamId: ObjectId.optional(),
-    profileId: ObjectId,
+    profileId: ObjectId.optional(),
     ratingId: ObjectId.optional(),
     classId: ObjectId.optional(),
-    token: z.string().min(1),
+    raceId: ObjectId.optional(),
+    factionId: ObjectId.optional(),
+    genderId: ObjectId.optional(),
+    guildId: ObjectId.optional(),
+    token: z.string().min(1).optional(),
     points: z.number().default(0),
+    isPrimary: z.boolean().default(false),
+    isBoss: z.boolean().default(false),
+    isPlayer: z.boolean().default(false),
     equipmentIndex: z.number().default(0),
     equipment: z.array(CharacterEquipment).default([]),
     inventoryIndex: z.number().default(0),
     inventory: z.array(CharacterInventory).default([]),
+    energyIds: z.array(ObjectId).optional(),
+    areaIds: z.array(ObjectId).optional(),
+    typeIds: z.array(ObjectId).optional(),
+    itemMaterialIds: z.array(ObjectId).optional(),
   })
 );
 
@@ -126,5 +136,12 @@ export const CharacterFaction = Entity.merge(
 export const CharacterNameChoice = Entity.merge(
   z.object({
     // Define fields for CharacterNameChoice here if needed
+  })
+);
+
+// CharacterGuild schema
+export const CharacterGuild = Entity.merge(
+  z.object({
+    // Define fields for CharacterGuild here if needed
   })
 );

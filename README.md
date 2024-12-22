@@ -18,7 +18,7 @@
 ## Introduction
 
 <p>
-  Welcome to Arken Node, designed for Arken Realms by the Arken Engineering open initiative. Arken Node uses TypeScript.
+  Welcome to Arken Node, designed for the Arken Realms open initiative. Arken Node uses TypeScript.
 </p>
 
 ## Install
@@ -94,7 +94,7 @@ and reduce the amount of code required to manage these relationships.
 
 ## License
 
-[WTFFPL](LICENSE)
+[MIT](LICENSE)
 
 [github-actions-status]: https://github.com/arkenrealms/node/workflows/Test/badge.svg
 [github-actions-url]: https://github.com/arkenrealms/node/actions
