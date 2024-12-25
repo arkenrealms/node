@@ -87,6 +87,7 @@ export const createRouter = () =>
       .use(customErrorFormatter(t))
       .input(
         z.object({
+          address: z.string(),
           token: z.string().optional(),
           loginAs: z.string().optional(),
         })

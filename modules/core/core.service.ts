@@ -70,6 +70,7 @@ import type {
 } from './core.types';
 import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
+import { isValidRequest, getSignedRequest } from '../../util/web3';
 
 export class Service {
   // async interact(input: RouterInput['interact'], ctx: RouterContext): Promise<RouterOutput['interact']> {
@@ -87,28 +88,34 @@ export class Service {
   // Account Methods
   async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
     if (!input) throw new ARXError('NO_INPUT');
+
     console.log('Core.Service.authorize', input);
 
     ctx.client.profile = await ctx.app.model.Profile.findOne({
-      name: 'Hashwarp',
+      address: input.address,
     }).exec();
 
+    if (!ctx.client.profile) throw new Error('Profile not found');
+
+    // Validate token
+    const isValid = await isValidRequest(ctx.app.web3, {
+      signature: {
+        address: input.address,
+        hash: input.token,
+        data: 'evolution',
+      },
+    });
+
+    if (!isValid) throw new Error('Invalid signature');
+
     return {
-      token: 'aaa',
+      token: input.token,
       profile: ctx.client.profile.toJSON(),
       permissions: {
-        'Process Interfaces': true,
-        'Manage Interfaces': true,
+        'Create Interfaces': true,
         'View Interfaces': true,
-        'Design Interfaces': true,
-        'Manage Users': true,
-        'View Users': true,
-        'Manage Submissions': true,
-        'View Submissions': true,
-        'Process Submissions': true,
-        // 'View Workflows': true,
-        'Manage Settings': true,
-        Deletion: true,
+        'Delete Interfaces': true,
+        'Update Interfaces': true,
       },
     };
   }
