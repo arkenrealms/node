@@ -103,7 +103,7 @@ export class Service {
       signature: {
         address: input.address,
         hash: input.token,
-        data: input.data || md5(JSON.stringify('evolution')),
+        data: input.data || 'evolution',
       },
     });
 

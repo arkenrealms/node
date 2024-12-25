@@ -96,11 +96,11 @@ export function isValidRequest(web3, req) {
 export async function getSignedRequest(web3, secret, data) {
   log('Signing', data);
   try {
-    const hashedData = md5(JSON.stringify(data));
+    //const hashedData = md5(JSON.stringify(data));
     return {
       address: secret.address,
-      hash: (await web3.eth.accounts.sign(hashedData, secret.key)).signature,
-      data: hashedData,
+      hash: (await web3.eth.accounts.sign(data, secret.key)).signature,
+      data,
     };
   } catch (e) {
     logError(e);
