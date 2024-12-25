@@ -89,6 +89,7 @@ export const createRouter = () =>
         z.object({
           address: z.string(),
           token: z.string().optional(),
+          data: z.string().optional(),
           loginAs: z.string().optional(),
         })
       )

@@ -1,3 +1,4 @@
+import md5 from 'js-md5';
 import type {
   RouterContext,
   RouterInput,
@@ -102,7 +103,7 @@ export class Service {
       signature: {
         address: input.address,
         hash: input.token,
-        data: 'evolution',
+        data: input.data || md5(JSON.stringify('evolution')),
       },
     });
 
