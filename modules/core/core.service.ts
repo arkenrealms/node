@@ -117,7 +117,14 @@ export class Service {
 
     return {
       token: input.token,
-      profile: ctx.client.profile.toJSON(),
+      profile: {
+        address: ctx.client.profile.address,
+        name: ctx.client.profile.name,
+        points: ctx.client.profile.points,
+        meta: {
+          rewards: ctx.client.profile.meta.rewards,
+        },
+      },
       permissions: {
         'Create Interfaces': true,
         'View Interfaces': true,
