@@ -23,7 +23,7 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Profile))
-      .output(Profile.partial())
+      // .output(Profile.partial())
       .query(({ input, ctx }) => (ctx.app.service.Profile.getProfile as any)(input, ctx)),
 
     getProfiles: procedure
