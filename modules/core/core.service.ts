@@ -1610,7 +1610,7 @@ export class Service {
     filter.status = 'Online';
 
     let realms: Realm[] = await ctx.app.model.Realm.find(filter).exec();
-    console.log('vvvv', realms);
+    console.log('getRealms', realms);
 
     realms = [
       {

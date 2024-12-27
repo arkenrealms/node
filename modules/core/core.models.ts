@@ -816,6 +816,7 @@ export const Team = mongo.createModel<Types.TeamDocument>(
   {
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
     points: { type: Number, default: 0 },
+    memberCount: { type: Number, default: 0 },
   },
   {
     virtuals: [

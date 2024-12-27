@@ -409,6 +409,7 @@ export const Team = Entity.merge(
     ratingId: ObjectId.optional(),
     profiles: z.array(Profile).optional(),
     points: z.number().optional().default(0),
+    memberCount: z.number().optional().default(0),
   })
 );
 

@@ -85,7 +85,7 @@ export type ApplicationModelType = Partial<
 export interface Application {
   model: ApplicationModelType;
   service: ApplicationServiceType;
-  web3: any;
+  web3?: any;
 }
 
 export type RouterClient = {

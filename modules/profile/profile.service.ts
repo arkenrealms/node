@@ -10,12 +10,9 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Profile.Service.setProfileMode', input);
 
-    const profile = await ctx.app.model.Profile.findById(ctx.client.profile.id).exec();
-    if (!profile) throw new ARXError('NOT_FOUND');
+    ctx.client.profile.mode = input;
 
-    profile.mode = input;
-
-    await profile.save();
+    await ctx.client.profile.save();
   }
 
   async getProfile(input: RouterInput['getProfile'], ctx: RouterContext): Promise<RouterOutput['getProfile']> {

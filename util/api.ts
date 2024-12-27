@@ -9,12 +9,12 @@ interface FetchQuery {
 }
 
 export function getFilter(query: any): Record<string, any> {
-  const filter: Record<string, any> = {
-  };
+  const filter: Record<string, any> = {};
 
   if (!query?.where) return filter;
 
   if (query.where.id?.equals) {
+    filter.id = query.where.id.equals;
   }
 
   if (query.where.email?.equals) {
@@ -27,6 +27,10 @@ export function getFilter(query: any): Record<string, any> {
 
   if (query.where.name?.equals) {
     filter.name = query.where.name.equals;
+  }
+
+  if (query.where.address?.equals) {
+    filter.address = query.where.address.equals;
   }
 
   const processOperator = (operator: any, condition: 'OR' | 'AND') => {
