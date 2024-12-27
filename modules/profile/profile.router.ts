@@ -23,7 +23,7 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Profile))
-      .output(Profile)
+      .output(Profile.partial())
       .query(({ input, ctx }) => (ctx.app.service.Profile.getProfile as any)(input, ctx)),
 
     getProfiles: procedure
@@ -37,14 +37,14 @@ export const createRouter = () =>
       .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Profile))
-      .output(Profile)
+      .output(Profile.partial())
       .mutation(({ input, ctx }) => (ctx.app.service.Profile.createProfile as any)(input, ctx)),
 
     updateProfile: procedure
       .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Profile))
-      .output(Profile)
+      .output(Profile.partial())
       .mutation(({ input, ctx }) => (ctx.app.service.Profile.updateProfile as any)(input, ctx)),
 
     getProfileStats: procedure
