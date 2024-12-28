@@ -118,6 +118,7 @@ export class Service {
     return {
       token: input.token,
       profile: {
+        id: ctx.client.profile._id,
         address: ctx.client.profile.address,
         name: ctx.client.profile.name,
         points: ctx.client.profile.points,
