@@ -118,10 +118,14 @@ export class Service {
     return {
       token: input.token,
       profile: {
-        id: ctx.client.profile._id,
+        id: ctx.client.profile.id,
         address: ctx.client.profile.address,
         name: ctx.client.profile.name,
         points: ctx.client.profile.points,
+        status: ctx.client.profile.status,
+        isBanned: ctx.client.profile.isBanned,
+        banExpireDate: ctx.client.profile.banExpireDate,
+        banReason: ctx.client.profile.banReason,
         meta: {
           rewards: ctx.client.profile.meta.rewards,
         },
@@ -131,6 +135,7 @@ export class Service {
         'View Interfaces': true,
         'Delete Interfaces': true,
         'Update Interfaces': true,
+        'Distribute Rewards': false,
       },
     };
   }
