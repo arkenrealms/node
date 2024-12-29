@@ -2,6 +2,7 @@
 
 import { z, ObjectId, Entity } from '../../schema';
 import { Profile } from '../profile/profile.schema';
+import { ProfileDocument } from '../profile/profile.types';
 
 // Account Schema
 export const Account = Entity.merge(
@@ -220,7 +221,14 @@ export const Omniverse = Entity.merge(
 export const Order = Entity.merge(z.object({}));
 
 // Payment Schema
-export const Payment = Entity.merge(z.object({}));
+export const Payment = Entity.merge(
+  z.object({
+    owner: Profile.optional(),
+    status: z
+      .enum(['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided'])
+      .default('Submitted'),
+  })
+);
 
 // Permission Schema
 export const Permission = Entity.merge(

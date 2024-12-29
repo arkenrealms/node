@@ -1,6 +1,7 @@
 // core.types.ts
 
 import { z } from 'zod';
+import { HydratedDocument } from 'mongoose';
 import * as schema from './core.schema';
 import { Document, Model } from '../../util/mongo';
 
@@ -116,7 +117,7 @@ export type Order = z.infer<typeof schema.Order>;
 export type OrderDocument = Order & Document;
 
 export type Payment = z.infer<typeof schema.Payment>;
-export type PaymentDocument = Payment & Document;
+export type PaymentDocument = HydratedDocument<Payment>;
 
 export type Permission = z.infer<typeof schema.Permission>;
 export type PermissionDocument = Permission & Document;

@@ -531,9 +531,15 @@ export const Order = mongo.createModel<Types.OrderDocument>(
 // Payment Model
 export const Payment = mongo.createModel<Types.PaymentDocument>(
   'Payment',
-  {},
   {
-    virtuals: [...addTagVirtuals('Payment'), ...addApplicationVirtual()],
+    status: {
+      type: String,
+      default: 'Submitted',
+      enum: ['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided'],
+    },
+  },
+  {
+    virtuals: [{ name: 'owner' }, ...addTagVirtuals('Payment'), ...addApplicationVirtual()],
   }
 );
 

@@ -92,14 +92,8 @@ export class Service {
 
     console.log('Core.Service.authorize', input);
 
-    ctx.client.profile = await ctx.app.model.Profile.findOne({
-      address: input.address,
-    }).exec();
-
-    if (!ctx.client.profile) throw new Error('Profile not found');
-
     // Validate token
-    const isValid = await isValidRequest(ctx.app.web3, {
+    const isValid = await isValidRequest(ctx.app.web3.bsc, {
       signature: {
         address: input.address,
         hash: input.token,
@@ -109,11 +103,20 @@ export class Service {
 
     if (!isValid) throw new Error('Invalid signature');
 
+    ctx.client.profile = await ctx.app.model.Profile.findOne({
+      address: input.address,
+    });
+
+    if (!ctx.client.profile) throw new Error('Profile not found');
+
     if (input.address === '0xDfA8f768d82D719DC68E12B199090bDc3691fFc7') {
       if (!ctx.client.roles) ctx.client.roles = [];
 
+      ctx.client.roles.push('mod');
       ctx.client.roles.push('admin');
     }
+
+    ctx.client.roles.push('user');
 
     return {
       token: input.token,

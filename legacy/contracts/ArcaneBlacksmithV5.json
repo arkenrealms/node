@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "ArcaneBlacksmithV5",
-  "sourceName": "src/ArcaneBlacksmithV5.sol",
+  "contractName": "ArcaneBlacksmith",
+  "sourceName": "src/ArcaneBlacksmith.sol",
   "abi": [
     {
       "inputs": [

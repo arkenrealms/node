@@ -108,14 +108,15 @@ export function createSchema<T>(
     );
   }
 
-  schema.plugin(require('mongoose-autopopulate'));
+  // schema.plugin(require('mongoose-autopopulate'));
 
   schema.set('toJSON', {
     virtuals: true, // Include virtual fields
     versionKey: false, // Remove the __v version field
     transform: (doc, ret) => {
       ret.id = ret._id.toString(); // Assign _id to id
-      // delete ret._id; // Remove _id from the output
+      delete ret._id; // Remove _id from the output
+      return ret;
     },
   });
 
@@ -124,7 +125,8 @@ export function createSchema<T>(
     versionKey: false, // Remove the __v version field
     transform: (doc, ret) => {
       ret.id = ret._id.toString(); // Assign _id to id
-      // delete ret._id; // Remove _id from the output
+      delete ret._id; // Remove _id from the output
+      return ret;
     },
   });
 
@@ -188,7 +190,7 @@ export function createSchema<T>(
   return schema;
 }
 
-const modelMap: any = {};
+const modelMap: Record<string, Model<any>> = {};
 
 export function createModel<T extends Document>(
   key: string,
@@ -219,6 +221,11 @@ export class Model<T extends Document> {
     this.collection = model.collection;
     this.schema = model.schema;
   }
+
+  // toJSON() {
+  //   // @ts-ignore
+  //   return this.model.toJSON();
+  // }
 
   populate(
     docs: T | T[],
@@ -251,7 +258,7 @@ export class Model<T extends Document> {
   }
 
   // Overridden exec method
-  async exec(query: Query<any, any>): Promise<any> {
+  async exec(query: Query<any, T>): Promise<any> {
     return query.exec();
   }
 
