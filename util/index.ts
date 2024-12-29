@@ -95,7 +95,8 @@ export function removeDupes(list) {
   });
 }
 
-export const toLong = (x) => ethers.utils.parseEther(x + '');
+export const toLong = (x, decimals = 16) =>
+  decimals === 16 ? ethers.utils.parseEther(x + '') : ethers.utils.parseUnits(x + '', decimals);
 export const toShort = (x) => round(parseFloat(ethers.utils.formatEther(x)), 4);
 
 let updatingGit = false;

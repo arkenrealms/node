@@ -1095,7 +1095,7 @@ export function getTokenIdFromItem(item, rand = 1, extra = 0) {
   return `1${pad(version, 3)}${pad(item.id, 5)}${pad(item.type, 2)}${attrs}`;
 }
 
-const symbolMap = {
+export const symbolMap = {
   EL: 'EX',
   ELD: 'ELM',
   TIR: 'TYR',
