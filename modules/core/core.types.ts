@@ -59,6 +59,9 @@ export type ConversationDocument = Conversation & Document;
 export type Data = z.infer<typeof schema.Data>;
 export type DataDocument = Data & Document;
 
+export type Meta = z.infer<typeof schema.Meta>;
+export type MetaDocument = Meta & Document;
+
 export type Discussion = z.infer<typeof schema.Discussion>;
 export type DiscussionDocument = Discussion & Document;
 

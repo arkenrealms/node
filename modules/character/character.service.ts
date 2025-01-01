@@ -19,6 +19,24 @@ import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
 
 export class Service {
+  async exchangeCharacterItem(
+    input: RouterInput['exchangeCharacterItem'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['exchangeCharacterItem']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Character.Service.exchangeCharacterItem', input);
+
+    const filter = getFilter(input);
+    const character = await ctx.app.model.Character.findById(filter.characterId);
+    if (!character) throw new Error('Character not found');
+
+    // find the item on character
+    // see if the current player has the required item
+    // do the exchange
+
+    return character as Character;
+  }
+
   async getCharacter(input: RouterInput['getCharacter'], ctx: RouterContext): Promise<RouterOutput['getCharacter']> {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Character.Service.getCharacter', input);

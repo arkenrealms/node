@@ -93,6 +93,9 @@ export const Data = Entity.merge(
   })
 );
 
+// Meta Schema
+export const Meta = Entity.merge(z.object({}));
+
 // Discussion Schema
 export const Discussion = Entity.merge(
   z.object({
@@ -225,7 +228,7 @@ export const Payment = Entity.merge(
   z.object({
     owner: Profile.optional(),
     status: z
-      .enum(['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided'])
+      .enum(['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided', 'Completed'])
       .default('Submitted'),
   })
 );

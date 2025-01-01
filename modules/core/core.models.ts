@@ -336,6 +336,14 @@ export const Data = mongo.createModel<Types.DataDocument>(
   }
 );
 
+export const Meta = mongo.createModel<Types.DataDocument>(
+  'Meta',
+  {},
+  {
+    virtuals: [...addTagVirtuals('Meta'), ...addApplicationVirtual()],
+  }
+);
+
 // Discussion Model
 export const Discussion = mongo.createModel<Types.DiscussionDocument>(
   'Discussion',
@@ -535,7 +543,7 @@ export const Payment = mongo.createModel<Types.PaymentDocument>(
     status: {
       type: String,
       default: 'Submitted',
-      enum: ['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided'],
+      enum: ['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided', 'Completed'],
     },
   },
   {

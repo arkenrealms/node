@@ -26,6 +26,17 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    exchangeCharacterItem: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          characterId: z.string(),
+          itemId: z.string(),
+        })
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Character.exchangeCharacterItem as any)(input, ctx)),
+
     getCharacter: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))

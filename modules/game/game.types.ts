@@ -13,6 +13,9 @@ export type GameDocument = Game & Document;
 export type GameStat = z.infer<typeof schema.GameStat>;
 export type GameStatDocument = GameStat & Document;
 
+export type GameRound = z.infer<typeof schema.GameRound>;
+export type GameRoundDocument = GameRound & Document;
+
 export type Era = z.infer<typeof schema.Era>;
 export type EraDocument = Era & Document;
 
@@ -20,5 +23,6 @@ export type EraDocument = Era & Document;
 export type Mappings = {
   Game: Model<GameDocument>;
   GameStat: Model<GameStatDocument>;
+  GameRound: Model<GameRoundDocument>;
   Era: Model<EraDocument>;
 };
