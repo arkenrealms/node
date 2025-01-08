@@ -49,7 +49,7 @@ export async function iterateBlocks(app, name, address, fromBlock, toBlock, even
 
     log(name, 'Iterating block', fromBlock, 'to', toBlock2, 'eventually', toBlock, 'for', event.topics);
 
-    const logs = await app.ethersProvider.getLogs(filter);
+    const logs = await app.ethersProvider.bsc.getLogs(filter);
 
     for (let i = 0; i < logs.length; i++) {
       await processLog(logs[i], false);

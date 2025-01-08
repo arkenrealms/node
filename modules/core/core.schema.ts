@@ -81,8 +81,9 @@ export const Company = Entity.merge(
 // Conversation Schema
 export const Conversation = Entity.merge(
   z.object({
-    userId: ObjectId.optional(),
+    profileId: ObjectId.optional(),
     messages: z.array(z.unknown()).optional(),
+    isLocked: z.boolean().default(true),
   })
 );
 
@@ -177,12 +178,14 @@ export const Memory = Entity.merge(z.object({}));
 // Message Schema
 export const Message = Entity.merge(
   z.object({
+    conversationId: ObjectId.optional(),
     content: z.string().optional(),
     type: z.string().max(100).optional(),
     replyToId: ObjectId.optional(),
     parentId: ObjectId.optional(),
     parent: ObjectId.optional(),
-    messages: z.array(ObjectId).optional(),
+    messageIds: z.array(ObjectId).optional(),
+    // messages: z.array(ObjectId).optional(),
   })
 );
 
@@ -418,7 +421,8 @@ export const Tag = Entity.merge(
 export const Team = Entity.merge(
   z.object({
     ratingId: ObjectId.optional(),
-    profiles: z.array(Profile).optional(),
+    profiles: z.array(Profile).optional(), // TODO: convert to 'members'
+    limit: z.number().optional().default(50),
     points: z.number().optional().default(0),
     memberCount: z.number().optional().default(0),
   })
@@ -428,6 +432,23 @@ export const Team = Entity.merge(
 export const Party = Entity.merge(
   z.object({
     targetArea: ObjectId.optional(),
+    limit: z.number().default(6),
+    isPublic: z.boolean().default(true),
+    isVisibleToEnemies: z.boolean().default(true),
+    isApprovalRequired: z.boolean().default(true),
+    isNonLeaderInviteAllowed: z.boolean().default(false),
+    isCombatEnabled: z.boolean().default(true),
+    isMergeEnabled: z.boolean().default(false),
+    isRejoinEnabled: z.boolean().default(false),
+    itemDistribution: z.enum(['Random', 'Personal']),
+    leaderId: ObjectId.optional(),
+    powerRequired: z.number(),
+    levelRequired: z.number(),
+    approvalMethod: z.enum(['Auto Accept', 'Approval Required']),
+    memberIds: z.array(ObjectId).optional(),
+    assistantIds: z.array(ObjectId).optional(), // have control over party even if not in party
+    pendingMemberIds: z.array(ObjectId).optional(),
+    blockedMemberIds: z.array(ObjectId).optional(),
   })
 );
 

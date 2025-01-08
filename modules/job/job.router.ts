@@ -35,7 +35,7 @@ export const createRouter = () =>
     updateMetrics: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query }).optional())
+      .input(z.any())
       .mutation(({ input, ctx }) => (ctx.app.service.Job.updateMetrics as any)(input, ctx)),
   });
 

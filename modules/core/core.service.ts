@@ -129,6 +129,7 @@ export class Service {
         isBanned: ctx.client.profile.isBanned,
         banExpireDate: ctx.client.profile.banExpireDate,
         banReason: ctx.client.profile.banReason,
+        mode: ctx.client.profile.mode,
         meta: {
           rewards: ctx.client.profile.meta.rewards,
         },
@@ -240,9 +241,9 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.stats');
 
-    const stats = await ctx.app.model.Stat.find().exec();
+    const stats = await ctx.app.model.Stat.find().sort({ number: -1 }).limit(1).exec();
 
-    return stats as Stat[];
+    return stats.map((stat) => stat.toObject()) as Stat[];
   }
 
   // Act Methods

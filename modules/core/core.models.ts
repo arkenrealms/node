@@ -317,8 +317,9 @@ export const Company = mongo.createModel<Types.CompanyDocument>(
 export const Conversation = mongo.createModel<Types.ConversationDocument>(
   'Conversation',
   {
-    userId: { type: mongo.Schema.Types.ObjectId, ref: 'User' },
-    messages: [mongo.Schema.Types.Mixed],
+    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
+    isLocked: { type: Boolean, default: true },
+    // messages: [mongo.Schema.Types.Mixed],
   },
   {
     virtuals: [...addTagVirtuals('Conversation'), ...addApplicationVirtual()],
@@ -486,8 +487,8 @@ export const Message = mongo.createModel<Types.MessageDocument>(
     type: { type: String, max: 100 },
     replyToId: { type: mongo.Schema.Types.ObjectId, ref: 'Message' },
     parentId: { type: mongo.Schema.Types.ObjectId, ref: 'Message' },
-    parent: { type: mongo.Schema.Types.ObjectId, ref: 'Message' },
-    messages: [{ type: mongo.Schema.Types.ObjectId, ref: 'Message' }],
+    conversationId: { type: mongo.Schema.Types.ObjectId, ref: 'Conversation' },
+    // messages: [{ type: mongo.Schema.Types.ObjectId, ref: 'Message' }],
   },
   {
     virtuals: [...addTagVirtuals('Message'), ...addApplicationVirtual()],

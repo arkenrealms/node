@@ -31,27 +31,40 @@ export const customErrorFormatter = (t: any) =>
 
 // const deserialized = deserialize(serialized);
 // console.log(deserialized);
-export const serialize = (object) => {
-  const processValue = (value) => {
-    // Support for ArrayBuffer
+// Define TypeScript types for serialization
+type Serializable =
+  | string
+  | number
+  | boolean
+  | null
+  | Serializable[]
+  | { [key: string]: Serializable }
+  | SerializedSpecialTypes;
+
+interface SerializedSpecialTypes {
+  _type: string;
+  data: any;
+  flags?: string; // For RegExp
+}
+
+// Serialize function
+export const serialize = <T>(object: T): string => {
+  const processValue = (value: any): Serializable => {
+    // Handle special types with _type indicators
     if (value instanceof ArrayBuffer) {
       return { _type: 'ArrayBuffer', data: Array.from(new Uint8Array(value)) };
     }
-
-    // Ensure Uint8Array objects are serialized correctly
     if (value instanceof Uint8Array) {
       return { _type: 'Uint8Array', data: Array.from(value) };
     }
-    // Ensure Date objects are serialized correctly with custom type indicator
     if (value instanceof Date) {
-      return { _type: 'Date', data: value.toISOString() }; // Use custom serialization for Date
+      return { _type: 'Date', data: value.toISOString() };
     }
-    // Handle other types (Set, Map, BigInt, RegExp, etc.)
     if (value instanceof Set) {
-      return { _type: 'Set', data: Array.from(value) };
+      return { _type: 'Set', data: Array.from(value).map(processValue) };
     }
     if (value instanceof Map) {
-      return { _type: 'Map', data: Array.from(value.entries()) };
+      return { _type: 'Map', data: Array.from(value.entries()).map(([k, v]) => [k, processValue(v)]) };
     }
     if (typeof value === 'bigint') {
       return { _type: 'BigInt', data: value.toString() };
@@ -59,16 +72,15 @@ export const serialize = (object) => {
     if (value instanceof RegExp) {
       return { _type: 'RegExp', data: value.source, flags: value.flags };
     }
-    // Recursively process arrays and objects
+    // Recursively process arrays and objects without intermediate serialization
     if (Array.isArray(value)) {
-      return JSON.parse(JSON.stringify(value)).map(processValue);
+      return value.map(processValue);
     }
     if (value && typeof value === 'object') {
-      return Object.fromEntries(
-        Object.entries(JSON.parse(JSON.stringify(value))).map(([k, v]) => [k, processValue(v)])
-      );
+      const entries = Object.entries(value).map(([k, v]) => [k, processValue(v)]);
+      return Object.fromEntries(entries);
     }
-    // Default behavior for other types
+    // Default behavior for primitive types
     return value;
   };
 
@@ -76,16 +88,13 @@ export const serialize = (object) => {
   return JSON.stringify(processedObject);
 };
 
-export const deserialize = (input) => {
-  const processValue = (value) => {
+// Deserialize function
+export const deserialize = <T>(input: string | Serializable): T => {
+  const processValue = (value: any): any => {
     if (!value || typeof value !== 'object') return value;
 
-    if (value instanceof ArrayBuffer) {
-      return JSON.parse(utf8.decode(String.fromCharCode.apply(null, new Uint8Array(value))));
-    }
-
     if (value._type) {
-      switch (value._type || typeof value) {
+      switch (value._type) {
         case 'ArrayBuffer':
           return Uint8Array.from(value.data).buffer;
         case 'Uint8Array':
@@ -95,7 +104,7 @@ export const deserialize = (input) => {
         case 'Set':
           return new Set(value.data.map(processValue));
         case 'Map':
-          return new Map(value.data.map(([k, v]) => [k, processValue(v)]));
+          return new Map(value.data.map(([k, v]: [any, any]) => [k, processValue(v)]));
         case 'BigInt':
           return BigInt(value.data);
         case 'RegExp':
@@ -104,17 +113,19 @@ export const deserialize = (input) => {
           // Unknown _type, return the value as is
           return value;
       }
+    } else if (Array.isArray(value)) {
+      return value.map(processValue);
     } else {
-      // Recursively process objects and arrays
-      if (Array.isArray(value)) {
-        return value.map(processValue);
-      } else {
-        return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, processValue(v)]));
+      const obj: any = {};
+      for (const [k, v] of Object.entries(value)) {
+        obj[k] = processValue(v);
       }
+      return obj;
     }
   };
 
-  return processValue(typeof input === 'string' ? JSON.parse(input) : input);
+  const parsedInput = typeof input === 'string' ? JSON.parse(input) : input;
+  return processValue(parsedInput) as T;
 };
 
 export const transformer: any = {
