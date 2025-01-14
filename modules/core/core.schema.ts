@@ -231,7 +231,19 @@ export const Payment = Entity.merge(
   z.object({
     owner: Profile.optional(),
     status: z
-      .enum(['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided', 'Completed'])
+      .enum([
+        'Archived',
+        'Processing',
+        'Failed',
+        'Submitted',
+        'Denied',
+        'Processed',
+        'Voided',
+        'Completed',
+        'Refunding',
+        'Refunded',
+        'Expired',
+      ])
       .default('Submitted'),
   })
 );
@@ -431,24 +443,28 @@ export const Team = Entity.merge(
 // Party Schema
 export const Party = Entity.merge(
   z.object({
-    targetArea: ObjectId.optional(),
+    targetAreaId: ObjectId.optional(),
     limit: z.number().default(6),
     isPublic: z.boolean().default(true),
     isVisibleToEnemies: z.boolean().default(true),
-    isApprovalRequired: z.boolean().default(true),
+    isApprovalRequired: z.boolean().default(false),
     isNonLeaderInviteAllowed: z.boolean().default(false),
     isCombatEnabled: z.boolean().default(true),
+    isFriendlyFireEnabled: z.boolean().default(true),
+    isLocalQuestShared: z.boolean().default(true),
+    isGlobalQuestShared: z.boolean().default(true),
     isMergeEnabled: z.boolean().default(false),
     isRejoinEnabled: z.boolean().default(false),
     itemDistribution: z.enum(['Random', 'Personal']),
     leaderId: ObjectId.optional(),
-    powerRequired: z.number(),
-    levelRequired: z.number(),
+    powerRequired: z.number().default(1),
+    levelRequired: z.number().default(1),
     approvalMethod: z.enum(['Auto Accept', 'Approval Required']),
     memberIds: z.array(ObjectId).optional(),
     assistantIds: z.array(ObjectId).optional(), // have control over party even if not in party
     pendingMemberIds: z.array(ObjectId).optional(),
     blockedMemberIds: z.array(ObjectId).optional(),
+    members: z.array(Profile).optional().default([]),
   })
 );
 
@@ -536,6 +552,7 @@ export const ModelNames = z.enum([
   'Omniverse',
   'Order',
   'Payment',
+  'Party',
   'Permission',
   'Person',
   'Planet',

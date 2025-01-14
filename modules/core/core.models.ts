@@ -544,7 +544,19 @@ export const Payment = mongo.createModel<Types.PaymentDocument>(
     status: {
       type: String,
       default: 'Submitted',
-      enum: ['Archived', 'Processing', 'Failed', 'Submitted', 'Denied', 'Processed', 'Voided', 'Completed'],
+      enum: [
+        'Archived',
+        'Processing',
+        'Failed',
+        'Submitted',
+        'Denied',
+        'Processed',
+        'Voided',
+        'Completed',
+        'Refunding',
+        'Refunded',
+        'Expired',
+      ],
     },
   },
   {
@@ -1016,5 +1028,54 @@ export const ObjectInteraction = mongo.createModel<Types.ObjectInteractionDocume
   {
     extend: 'EntityFields',
     virtuals: [...addTagVirtuals('Interaction'), ...addApplicationVirtual()],
+  }
+);
+
+// Party Model
+export const Party = mongo.createModel<Types.PartyDocument>(
+  'Party',
+  {
+    targetAreaId: { type: mongo.Schema.Types.ObjectId, ref: 'Area', required: false }, // Adjust 'Area' to actual collection if known
+    limit: { type: Number, default: 6 },
+    isPublic: { type: Boolean, default: true },
+    isVisibleToEnemies: { type: Boolean, default: true },
+    isApprovalRequired: { type: Boolean, default: false },
+    isNonLeaderInviteAllowed: { type: Boolean, default: false },
+    isCombatEnabled: { type: Boolean, default: true },
+    isFriendlyFireEnabled: { type: Boolean, default: true },
+    isLocalQuestShared: { type: Boolean, default: true },
+    isGlobalQuestShared: { type: Boolean, default: true },
+    isMergeEnabled: { type: Boolean, default: false },
+    isRejoinEnabled: { type: Boolean, default: false },
+    itemDistribution: {
+      type: String,
+      enum: ['Random', 'Personal'],
+      required: true,
+    },
+    leaderId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: false }, // Adjust 'Profile' to actual collection if known
+    powerRequired: { type: Number, required: true, default: 1 },
+    levelRequired: { type: Number, required: true, default: 1 },
+    approvalMethod: {
+      type: String,
+      enum: ['Auto Accept', 'Approval Required'],
+      required: true,
+    },
+    memberIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'Profile' }], // Adjust 'Profile' if necessary
+    assistantIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'Profile' }],
+    pendingMemberIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'Profile' }],
+    blockedMemberIds: [{ type: mongo.Schema.Types.ObjectId, ref: 'Profile' }],
+  },
+  {
+    virtuals: [
+      { name: 'owner' },
+      {
+        name: 'members',
+        ref: 'Profile',
+        localField: '_id',
+        foreignField: 'partyId',
+      },
+      ...addTagVirtuals('Party'),
+      ...addApplicationVirtual(),
+    ],
   }
 );

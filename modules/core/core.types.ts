@@ -119,6 +119,9 @@ export type OmniverseDocument = Omniverse & Document;
 export type Order = z.infer<typeof schema.Order>;
 export type OrderDocument = Order & Document;
 
+export type Party = z.infer<typeof schema.Party>;
+export type PartyDocument = Party & Document;
+
 export type Payment = z.infer<typeof schema.Payment>;
 export type PaymentDocument = HydratedDocument<Payment>;
 
@@ -256,6 +259,7 @@ export type Mappings = {
   Omniverse: Model<OmniverseDocument>;
   Order: Model<OrderDocument>;
   Payment: Model<PaymentDocument>;
+  Party: Model<PartyDocument>;
   Permission: Model<PermissionDocument>;
   Person: Model<PersonDocument>;
   Planet: Model<PlanetDocument>;

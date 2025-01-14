@@ -51,6 +51,7 @@ const ServerDataSchema = z.object({
 export const Profile = Entity.merge(
   z.object({
     accountId: ObjectId.optional(), // TODO; fix?
+    partyId: ObjectId.optional(),
     points: z.number().optional(),
     // currency: z.number().optional(),
     telegramUserId: z.number().optional(),

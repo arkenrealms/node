@@ -38,6 +38,7 @@ import type {
   Omniverse,
   Order,
   Payment,
+  Party,
   Permission,
   Person,
   Planet,

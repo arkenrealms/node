@@ -147,6 +147,7 @@ export const Profile = mongo.createModel<Types.ProfileDocument>(
     chainId: { type: mongo.Schema.Types.ObjectId, ref: 'Chain' },
     teamId: { type: mongo.Schema.Types.ObjectId, ref: 'Team' },
     characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character' },
+    partyId: { type: mongo.Schema.Types.ObjectId, ref: 'Party' },
     isBanned: { type: Boolean },
     banExpireDate: { type: Date },
     banReason: { type: String },
