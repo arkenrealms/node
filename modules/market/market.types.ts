@@ -23,6 +23,7 @@ export type MarketToken = z.infer<typeof schema.MarketToken>;
 export type MarketCompany = z.infer<typeof schema.MarketCompany>;
 export type MarketETF = z.infer<typeof schema.MarketETF>;
 export type MarketStockSentiment = z.infer<typeof schema.MarketStockSentiment>;
+export type MarketListing = z.infer<typeof schema.MarketListing>;
 
 export type MarketDocument = Market & Document;
 export type MarketPairDocument = MarketPair & Document;
@@ -36,6 +37,7 @@ export type MarketTokenDocument = MarketToken & Document;
 export type MarketCompanyDocument = MarketCompany & Document;
 export type MarketETFDocument = MarketETF & Document;
 export type MarketStockSentimentDocument = MarketStockSentiment & Document;
+export type MarketListingDocument = MarketListing & Document;
 
 export type Mappings = {
   Market: Model<MarketDocument>;
@@ -50,6 +52,7 @@ export type Mappings = {
   MarketCompany: Model<MarketCompanyDocument>;
   MarketETF: Model<MarketETFDocument>;
   MarketStockSentiment: Model<MarketStockSentimentDocument>;
+  MarketListing: Model<MarketListingDocument>;
 };
 
 export type RouterInput = inferRouterInputs<Router>;
