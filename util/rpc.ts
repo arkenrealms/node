@@ -93,7 +93,10 @@ export const deserialize = <T>(input: string | Serializable): T => {
   const processValue = (value: any): any => {
     if (!value || typeof value !== 'object') return value;
 
-    if (value._type) {
+    if (value.byteLength) {
+      const decoder = new TextDecoder('utf-8');
+      return JSON.parse(decoder.decode(value));
+    } else if (value._type) {
       switch (value._type) {
         case 'ArrayBuffer':
           return Uint8Array.from(value.data).buffer;
