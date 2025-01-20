@@ -5,11 +5,19 @@ import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
 import { Market, MarketPair, MarketExchange, MarketListing } from './market.schema';
+import { Query, getQueryInput, getQueryOutput } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
 export const router = t.router;
 export const procedure = t.procedure;
+
+const MarketListingsInput = z.object({
+  category: z.string().optional(),
+  status: z.string().optional(),
+  exchange: z.string().optional(),
+  sellerId: z.string().optional(),
+});
 
 export const createRouter = () =>
   router({
@@ -70,38 +78,31 @@ export const createRouter = () =>
     getMarketListing: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ listingId: z.string() }))
+      .input(getQueryInput(z.object({ listingId: z.string() })))
       .query(({ input, ctx }) => (ctx.app.service.Market.getMarketListing as any)(input, ctx)),
 
     createMarketListing: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
-      .input(MarketListing)
+      .input(getQueryInput(MarketListing))
       .mutation(({ input, ctx }) => (ctx.app.service.Market.createMarketListing as any)(input, ctx)),
 
     updateMarketListing: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ listingId: z.string(), data: MarketListing.partial() }))
+      .input(getQueryInput(MarketListing.partial()))
       .mutation(({ input, ctx }) => (ctx.app.service.Market.updateMarketListing as any)(input, ctx)),
 
     deleteMarketListing: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ listingId: z.string() }))
+      .input(getQueryInput(z.object({ listingId: z.string() })))
       .mutation(({ input, ctx }) => (ctx.app.service.Market.deleteMarketListing as any)(input, ctx)),
 
     getMarketListings: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(
-        z.object({
-          category: z.string().optional(),
-          status: z.string().optional(),
-          exchange: z.string().optional(),
-          sellerId: z.string().optional(),
-        })
-      )
+      .input(getQueryInput(MarketListingsInput))
       .query(({ input, ctx }) => (ctx.app.service.Market.getMarketListings as any)(input, ctx)),
   });
 

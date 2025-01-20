@@ -10,6 +10,8 @@ import type {
   RouterInput,
   RouterOutput,
 } from './market.types';
+import { getFilter } from '../../util/api';
+import { ARXError } from '../../util/rpc';
 
 export class Service {
   async getMarket(input: RouterInput['getMarket'], ctx: RouterContext): Promise<RouterOutput['getMarket']> {
@@ -125,10 +127,10 @@ export class Service {
     input: RouterInput['getMarketListing'],
     ctx: RouterContext
   ): Promise<RouterOutput['getMarketListing']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('MarketListingService.getMarketListing', input.listingId);
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.getMarketListing', input);
 
-    const listing = await ctx.app.model.MarketListing.findById(input.listingId).lean().exec();
+    const listing = await ctx.app.model.MarketListing.findOne(getFilter(input)).exec();
     if (!listing) throw new Error('MarketListing not found');
 
     return listing as MarketListing;
@@ -138,7 +140,7 @@ export class Service {
     input: RouterInput['createMarketListing'],
     ctx: RouterContext
   ): Promise<RouterOutput['createMarketListing']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
     console.log('Market.Service.createMarketListing', input);
 
     const marketListing = await ctx.app.model.MarketListing.create(input);
@@ -149,10 +151,10 @@ export class Service {
     input: RouterInput['updateMarketListing'],
     ctx: RouterContext
   ): Promise<RouterOutput['updateMarketListing']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('MarketListingService.updateMarketListing', input.listingId, input.data);
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.updateMarketListing', input);
 
-    const updatedListing = await ctx.app.model.MarketListing.findByIdAndUpdate(input.listingId, input.data, {
+    const updatedListing = await ctx.app.model.MarketListing.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
     })
       .lean()
@@ -166,10 +168,10 @@ export class Service {
     input: RouterInput['deleteMarketListing'],
     ctx: RouterContext
   ): Promise<RouterOutput['deleteMarketListing']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('MarketListingService.deleteMarketListing', input.listingId);
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.deleteMarketListing', input);
 
-    const deletedListing = await ctx.app.model.MarketListing.findByIdAndDelete(input.listingId).lean().exec();
+    const deletedListing = await ctx.app.model.MarketListing.findByIdAndDelete(input.where.id.quals).lean().exec();
     if (!deletedListing) throw new Error('MarketListing deletion failed');
 
     return deletedListing as MarketListing;
@@ -184,7 +186,7 @@ export class Service {
     },
     ctx: RouterContext
   ): Promise<RouterOutput['getMarketListings']> {
-    console.log('MarketListingService.getMarketListings', input);
+    console.log('Market.Service.getMarketListings', input);
 
     const query: Record<string, any> = {};
     if (input.category) query.category = input.category;

@@ -143,12 +143,12 @@ export const MarketListing = Entity.merge(
   z.object({
     price: z.number(),
     currency: z.string(),
-    quantityAvailable: z.number(),
+    quantity: z.number(),
     exchange: z.string(),
     sellerId: ObjectId,
     marketId: ObjectId,
     category: z.enum(['Stock', 'ChainToken']),
-    status: z.enum(['active', 'closed', 'withdrawn', 'expired']),
+    status: z.enum(['Active', 'Closed', 'Withdrawn', 'Expired']),
     expiryDate: z.date().optional(),
   })
 );

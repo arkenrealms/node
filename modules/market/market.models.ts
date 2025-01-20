@@ -114,8 +114,8 @@ export const MarketStockSentiment = mongo.createModel<Types.MarketStockSentiment
 });
 
 export const MarketListing = mongo.createModel<Types.MarketListingDocument>('MarketListing', {
-  sellerId: { type: mongo.Schema.Types.ObjectId, required: true, ref: 'MarketInvestor' },
-  quantityAvailable: { type: Number, required: true },
+  sellerId: { type: mongo.Schema.Types.ObjectId, required: true, ref: 'Profile' },
+  quantity: { type: Number, required: true },
   currency: { type: String, required: true },
   exchange: { type: String, required: true },
   marketId: { type: mongo.Schema.Types.ObjectId, required: true, ref: 'MarketStock' },
