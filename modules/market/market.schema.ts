@@ -138,3 +138,17 @@ export const MarketStockSentiment = Entity.merge(
     confidence: z.number().min(0).max(1), // overall confidence level for the analysis
   })
 );
+
+export const MarketListing = Entity.merge(
+  z.object({
+    price: z.number(),
+    currency: z.string(),
+    quantity: z.number(),
+    exchange: z.string(),
+    sellerId: ObjectId,
+    marketId: ObjectId,
+    category: z.enum(['Stock', 'ChainToken']),
+    status: z.enum(['Active', 'Closed', 'Withdrawn', 'Expired']),
+    expiryDate: z.date().optional(),
+  })
+);
