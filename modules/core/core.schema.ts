@@ -450,6 +450,7 @@ export const Party = Entity.merge(
     isApprovalRequired: z.boolean().default(false),
     isNonLeaderInviteAllowed: z.boolean().default(false),
     isCombatEnabled: z.boolean().default(true),
+    isDisbandEnabled: z.boolean().default(false),
     isFriendlyFireEnabled: z.boolean().default(true),
     isLocalQuestShared: z.boolean().default(true),
     isGlobalQuestShared: z.boolean().default(true),
@@ -504,6 +505,15 @@ export const WorldEvent = Entity.merge(
     text: z.string().min(1),
     importance: z.number().optional(),
     tags: z.array(z.unknown()).optional(),
+  })
+);
+
+// WorldRecord Schema
+export const WorldRecord = Entity.merge(
+  z.object({
+    gameId: ObjectId.optional(),
+    holderId: ObjectId,
+    score: z.number().default(0),
   })
 );
 
@@ -583,6 +593,7 @@ export const ModelNames = z.enum([
   'Validator',
   'Vote',
   'WorldEvent',
+  'WorldRecord',
   'Stat',
 ]);
 

@@ -72,6 +72,7 @@ import {
   Validator,
   Vote,
   WorldEvent,
+  WorldRecord,
   Stat,
 } from './core.schema';
 
@@ -1535,6 +1536,25 @@ export const createRouter = () =>
       .use(customErrorFormatter(t))
       .input(getQueryInput(WorldEvent))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateWorldEvent as any)(input, ctx)),
+
+    // WorldRecord Procedures
+    getWorldRecord: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(WorldRecord))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getWorldRecord as any)(input, ctx)),
+
+    createWorldRecord: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(WorldRecord))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createWorldRecord as any)(input, ctx)),
+
+    updateWorldRecord: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(WorldRecord))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateWorldRecord as any)(input, ctx)),
 
     info: procedure
       .use(hasRole('guest', t))

@@ -69,6 +69,7 @@ import type {
   Validator,
   Vote,
   WorldEvent,
+  WorldRecord,
 } from './core.types';
 import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
@@ -2382,6 +2383,48 @@ export class Service {
     if (!updatedWorldEvent) throw new Error('WorldEvent update failed');
 
     return updatedWorldEvent as WorldEvent;
+  }
+
+  // WorldRecord Methods
+  async getWorldRecord(
+    input: RouterInput['getWorldRecord'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getWorldRecord']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getWorldRecord', input);
+
+    const worldRecord = await ctx.app.model.WorldRecord.findOne(getFilter(input)).exec();
+    if (!worldRecord) throw new Error('WorldRecord not found');
+
+    return worldRecord as WorldRecord;
+  }
+
+  async createWorldRecord(
+    input: RouterInput['createWorldRecord'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createWorldRecord']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.createWorldRecord', input);
+
+    const worldRecord = await ctx.app.model.WorldRecord.create(input);
+    return worldRecord as WorldRecord;
+  }
+
+  async updateWorldRecord(
+    input: RouterInput['updateWorldRecord'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateWorldRecord']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.updateWorldRecord', input);
+
+    const updatedWorldRecord = await ctx.app.model.WorldRecord.findByIdAndUpdate(input.where.id.equals, {
+      new: true,
+    })
+      .lean()
+      .exec();
+    if (!updatedWorldRecord) throw new Error('WorldRecord update failed');
+
+    return updatedWorldRecord as WorldRecord;
   }
 
   // Get Bounty

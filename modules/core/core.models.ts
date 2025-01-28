@@ -945,7 +945,30 @@ export const WorldEvent = mongo.createModel<Types.WorldEventDocument>(
     // tags: [mongo.Schema.Types.Mixed],
   },
   {
-    virtuals: [...addTagVirtuals('World'), ...addTagVirtuals('WorldEvent'), ...addApplicationVirtual()],
+    virtuals: [...addTagVirtuals('WorldEvent'), ...addApplicationVirtual()],
+  }
+);
+
+// WorldRecord Model
+export const WorldRecord = mongo.createModel<Types.WorldRecordDocument>(
+  'WorldRecord',
+  {
+    holderId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
+    score: { type: Number },
+    // tags: [mongo.Schema.Types.Mixed],
+  },
+  {
+    virtuals: [
+      {
+        name: 'holder',
+        ref: 'Profile',
+        localField: '_id',
+        foreignField: '_id',
+        justOne: true,
+      },
+      ...addTagVirtuals('WorldRecord'),
+      ...addApplicationVirtual(),
+    ],
   }
 );
 

@@ -7,3 +7,7 @@ export function convert(num: any, digits = 0) {
 
   return res;
 }
+
+export function chance(probability: number) {
+  return Math.random() < probability / 100;
+}

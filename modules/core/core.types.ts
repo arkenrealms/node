@@ -218,6 +218,9 @@ export type VoteDocument = Vote & Document;
 export type WorldEvent = z.infer<typeof schema.WorldEvent>;
 export type WorldEventDocument = WorldEvent & Document;
 
+export type WorldRecord = z.infer<typeof schema.WorldRecord>;
+export type WorldRecordDocument = WorldRecord & Document;
+
 export type Node = z.infer<typeof schema.Node>;
 export type NodeDocument = Node & Document;
 
@@ -291,6 +294,7 @@ export type Mappings = {
   Validator: Model<ValidatorDocument>;
   Vote: Model<VoteDocument>;
   WorldEvent: Model<WorldEventDocument>;
+  WorldRecord: Model<WorldRecordDocument>;
   Node: Model<NodeDocument>; // Added Node model mapping
 };
 
