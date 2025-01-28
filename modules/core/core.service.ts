@@ -71,8 +71,10 @@ import type {
   WorldEvent,
   WorldRecord,
 } from './core.types';
+import { ProfileDocument } from '../profile/profile.types';
 import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
+import { Model } from '../../util/mongo';
 import { isValidRequest, getSignedRequest } from '../../util/web3';
 
 export class Service {
@@ -105,7 +107,7 @@ export class Service {
 
     if (!isValid) throw new Error('Invalid signature');
 
-    ctx.client.profile = await ctx.app.model.Profile.findOne({
+    ctx.client.profile = await ctx.app.model.Profile.findOneProxy({
       address: input.address,
     });
 
@@ -134,6 +136,11 @@ export class Service {
         mode: ctx.client.profile.mode,
         meta: {
           rewards: ctx.client.profile.meta.rewards,
+          evolution: {
+            settings: {
+              zoom: ctx.client.profile.meta?.evolution?.settings?.zoom || 0.7,
+            },
+          },
         },
       },
       permissions: {

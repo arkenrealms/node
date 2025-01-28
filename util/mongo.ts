@@ -216,6 +216,8 @@ export class Model<T extends Document> {
   public filterOmitModels: string[] = ['Omniverse', 'Metaverse', 'Application'];
   public collection: Collection;
 
+  private docSaveQueue = new WeakMap<Document, Promise<T>>();
+
   constructor(model: MongooseModel<T>) {
     this.model = model;
     this.collection = model.collection;
@@ -435,6 +437,47 @@ export class Model<T extends Document> {
   findAll(): Query<T[], T> {
     return this.model.find();
   }
+
+  async findOneProxy(
+    filter: FilterQuery<T> = {},
+    projection?: ProjectionType<T> | null,
+    options?: QueryOptions
+  ): Promise<(T & Record<string, any>) | null> {
+    // Use your normal findOne to get the doc
+    const doc = await this.findOne(filter, projection, options);
+    if (!doc) return null;
+
+    // Return a doc+model merged proxy
+    return createDocProxy(doc, this);
+  }
+  /**
+   * saveQueued(doc):
+   *   - If there's an existing in-flight save promise for the same doc, wait until that finishes.
+   *   - Then call doc.save().
+   *   - Store this new save promise in the WeakMap so future calls chain onto it.
+   */
+  public async saveQueued(doc: T): Promise<T> {
+    const existingPromise = this.docSaveQueue.get(doc) ?? Promise.resolve<T>(doc);
+
+    // Chain a new promise onto the existing one
+    const newSavePromise = existingPromise
+      .then(async () => {
+        // By the time we reach here, previous saves are done.
+        return await doc.save(); // Mongoose's normal doc.save()
+      })
+      .catch((err) => {
+        // If the previous promise was rejected, propagate the error
+        // but remove from the queue so a later call can try again
+        this.docSaveQueue.delete(doc);
+        throw err;
+      });
+
+    // Store the new promise in the queue
+    this.docSaveQueue.set(doc, newSavePromise);
+
+    // Return the doc once the new promise completes
+    return newSavePromise;
+  }
 }
 
 export const addTagVirtuals = (modelName: string) => [
@@ -457,3 +500,37 @@ export const addApplicationVirtual = () => [
     justOne: true,
   },
 ];
+
+export function createDocProxy<T extends Document>(doc: T, modelWrapper: Model<T>) {
+  return new Proxy(doc as T & Record<string, any>, {
+    get(target, prop, receiver) {
+      // 1. If the property exists on the doc itself (fields, doc methods, etc.)
+      if (prop in target) {
+        return Reflect.get(target, prop, receiver);
+      }
+
+      // 2. Otherwise, if the property is in your Model wrapper, return that
+      if (prop in modelWrapper) {
+        const val = Reflect.get(modelWrapper, prop, modelWrapper);
+        // If it's a function (like saveQueued), bind it or adapt it
+        if (typeof val === 'function') {
+          // For example, if we want `proxyDoc.saveQueued()` to automatically
+          // call modelWrapper.saveQueued(doc), we can do:
+          if (prop === 'saveQueued') {
+            return function (...args: any[]) {
+              // automatically pass `doc` as the first arg
+              // @ts-ignore
+              return modelWrapper.saveQueued(doc, ...args);
+            };
+          }
+          // Otherwise just bind the method normally
+          return val.bind(modelWrapper);
+        }
+        return val;
+      }
+
+      // 3. If not on doc or modelWrapper, return undefined
+      return undefined;
+    },
+  });
+}
