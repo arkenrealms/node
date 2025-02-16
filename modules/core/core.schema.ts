@@ -447,6 +447,7 @@ export const Party = Entity.merge(
     limit: z.number().default(6),
     isPublic: z.boolean().default(true),
     isVisibleToEnemies: z.boolean().default(true),
+    isAlliesOnly: z.boolean().default(false),
     isApprovalRequired: z.boolean().default(false),
     isNonLeaderInviteAllowed: z.boolean().default(false),
     isCombatEnabled: z.boolean().default(true),

@@ -139,6 +139,7 @@ export class Service {
           evolution: {
             settings: {
               zoom: ctx.client.profile.meta?.evolution?.settings?.zoom || 0.7,
+              opacity: ctx.client.profile.meta?.evolution?.settings?.opacity || 1,
             },
           },
         },

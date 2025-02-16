@@ -23,6 +23,9 @@ export class Service {
     const profile = await ctx.app.model.Profile.findOne(filter).lean().exec();
     if (!profile) throw new ARXError('NOT_FOUND');
 
+    // @ts-ignore
+    if (profile?.meta?.market?.trades) delete profile?.meta?.market?.trades;
+
     return profile as Profile;
   }
 
