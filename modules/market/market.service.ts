@@ -4,11 +4,14 @@ import type {
   Market,
   MarketPair,
   MarketExchange,
+  MarketListing,
   RouterContext,
   Router,
   RouterInput,
   RouterOutput,
 } from './market.types';
+import { getFilter } from '../../util/api';
+import { ARXError } from '../../util/rpc';
 
 export class Service {
   async getMarket(input: RouterInput['getMarket'], ctx: RouterContext): Promise<RouterOutput['getMarket']> {
@@ -118,5 +121,80 @@ export class Service {
     if (!updatedMarketExchange) throw new Error('MarketExchange update failed');
 
     return updatedMarketExchange as MarketExchange;
+  }
+
+  async getMarketListing(
+    input: RouterInput['getMarketListing'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getMarketListing']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.getMarketListing', input);
+
+    const listing = await ctx.app.model.MarketListing.findOne(getFilter(input)).exec();
+    if (!listing) throw new Error('MarketListing not found');
+
+    return listing as MarketListing;
+  }
+
+  async createMarketListing(
+    input: RouterInput['createMarketListing'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createMarketListing']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.createMarketListing', input);
+
+    const marketListing = await ctx.app.model.MarketListing.create(input);
+    return marketListing as MarketListing;
+  }
+
+  async updateMarketListing(
+    input: RouterInput['updateMarketListing'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateMarketListing']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.updateMarketListing', input);
+
+    const updatedListing = await ctx.app.model.MarketListing.findByIdAndUpdate(input.where.id.equals, input.data, {
+      new: true,
+    })
+      .lean()
+      .exec();
+    if (!updatedListing) throw new Error('MarketListing update failed');
+
+    return updatedListing as MarketListing;
+  }
+
+  async deleteMarketListing(
+    input: RouterInput['deleteMarketListing'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['deleteMarketListing']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Market.Service.deleteMarketListing', input);
+
+    const deletedListing = await ctx.app.model.MarketListing.findByIdAndDelete(input.where.id.quals).lean().exec();
+    if (!deletedListing) throw new Error('MarketListing deletion failed');
+
+    return deletedListing as MarketListing;
+  }
+
+  async getMarketListings(
+    input: {
+      category?: string;
+      status?: string;
+      exchange?: string;
+      sellerId?: string;
+    },
+    ctx: RouterContext
+  ): Promise<RouterOutput['getMarketListings']> {
+    console.log('Market.Service.getMarketListings', input);
+
+    const query: Record<string, any> = {};
+    if (input.category) query.category = input.category;
+    if (input.status) query.status = input.status;
+    if (input.exchange) query.exchange = input.exchange;
+    if (input.sellerId) query.sellerId = input.sellerId;
+
+    const listings = await ctx.app.model.MarketListing.find(query).lean().exec();
+    return listings as MarketListing[];
   }
 }
