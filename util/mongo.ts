@@ -38,6 +38,8 @@ const CommonFields = {
   },
   data: { type: Object, default: {} }, // Default value set here
   meta: { type: Object, default: {} }, // Default value set here
+  merkleLeaf: { type: String },
+  merkleIndex: { type: Number },
   createdById: { type: Schema.Types.ObjectId, ref: 'Profile' },
   editedById: { type: Schema.Types.ObjectId, ref: 'Profile' },
   deletedById: { type: Schema.Types.ObjectId, ref: 'Profile' },

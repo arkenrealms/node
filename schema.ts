@@ -42,15 +42,17 @@ export type Meta = {
 
 export const Common = z.object({
   id: ObjectId.optional(),
+  meta: z.any(), // Default value set here matches Mongoose
+  data: z.any(), // Default value set here matches Mongoose
+  status: z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active'), // Default set in StatusEnum matches Mongoose
+  merkleLeaf: z.string().optional(),
+  merkleIndex: z.number().optional(),
   createdById: ObjectId.optional(),
   editedById: ObjectId.optional(),
   deletedById: ObjectId.optional(),
   createdDate: z.date().default(() => new Date()), // Default matches Mongoose
   updatedDate: z.date().optional(),
   deletedDate: z.date().optional(),
-  meta: z.any(), // Default value set here matches Mongoose
-  data: z.any(), // Default value set here matches Mongoose
-  status: z.enum(['Paused', 'Pending', 'Active', 'Archived']).default('Active'), // Default set in StatusEnum matches Mongoose
 });
 
 export type Common = zod.infer<typeof Common>;

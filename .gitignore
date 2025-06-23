@@ -5,6 +5,8 @@ build
 *.db
 *.db.*
 coverage
+witness.wtns
+
 
 node_modules/
 dist

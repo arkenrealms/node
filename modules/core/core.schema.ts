@@ -4,6 +4,22 @@ import { z, ObjectId, Entity } from '../../schema';
 import { Profile } from '../profile/profile.schema';
 import { ProfileDocument } from '../profile/profile.types';
 
+export const MerkleTree = Entity.merge(
+  z.object({
+    name: z.string().min(1).max(200).trim().default('global'),
+    root: z.string(),
+    depth: z.number().default(16), // log2(#leaves)
+  })
+);
+
+export const MerkleNode = Entity.merge(
+  z.object({
+    level: z.number(), // 0 = leaves, up to max depth
+    index: z.number(), // position within that level
+    hash: z.string(), // keccak256 hash
+  })
+);
+
 // Account Schema
 export const Account = Entity.merge(
   z.object({

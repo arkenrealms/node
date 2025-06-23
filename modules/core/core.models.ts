@@ -5,6 +5,26 @@ import type * as Types from './core.types';
 
 const { addTagVirtuals, addApplicationVirtual } = mongo;
 
+// MerkleTree Model
+export const MerkleTree = mongo.createModel<Types.MerkleTreeDocument>(
+  'MerkleTree',
+  {},
+  {
+    extend: 'CommonFields',
+    virtuals: [...addTagVirtuals('MerkleTree'), ...addApplicationVirtual()],
+  }
+);
+
+// MerkleNode Model
+export const MerkleNode = mongo.createModel<Types.MerkleNodeDocument>(
+  'MerkleNode',
+  {},
+  {
+    extend: 'CommonFields',
+    virtuals: [...addTagVirtuals('MerkleNode'), ...addApplicationVirtual()],
+  }
+);
+
 // Omniverse Model
 export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
   'Omniverse',

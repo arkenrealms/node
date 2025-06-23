@@ -10,6 +10,12 @@ export type * from './core.router';
 export type * from './core.service';
 export type { RouterContext } from '../../types';
 
+export type MerkleTree = z.infer<typeof schema.MerkleTree>;
+export type MerkleTreeDocument = MerkleTree & Document;
+
+export type MerkleNode = z.infer<typeof schema.MerkleNode>;
+export type MerkleNodeDocument = MerkleNode & Document;
+
 // Define all core types from schemas
 export type Account = z.infer<typeof schema.Account>;
 export type AccountDocument = Account & Document;

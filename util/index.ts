@@ -218,20 +218,23 @@ export function binaryAgent(str) {
 }
 
 export function decodePayload(msg) {
-  // @ts-ignore
-  let json = binaryAgent(msg); //String.fromCharCode.apply(null, new Uint8Array(msg));
-
   try {
+    if (typeof msg === 'object') return msg;
+
+    // @ts-ignore
+    let json = binaryAgent(msg); //String.fromCharCode.apply(null, new Uint8Array(msg));
+    // else if (Buffer.isBuffer(msg)) json = msg.toString();
+
     // explicitly decode the String as UTF-8 for Unicode
     //   https://github.com/mathiasbynens/utf8.js
     // json = utf8.decode(json)
     // const buffer = Buffer.from(json, "binary");
-    const data = JSON.parse(json);
+    if (typeof json === 'string') return JSON.parse(json);
 
-    return data;
+    return json;
   } catch (err) {
     // ...
-    console.log(err);
+    console.log(err, msg);
   }
 }
 
