@@ -1643,7 +1643,7 @@ export class Service {
           {
             status: 'Online',
             clientCount: 1,
-            endpoint: 'evolution-realm-1.arken.gg',
+            endpoint: 'evolution-realm-shard-1.arken.gg',
           },
         ],
       },
