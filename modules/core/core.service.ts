@@ -1635,15 +1635,15 @@ export class Service {
     realms = [
       {
         status: 'Online',
-        clientCount: 11,
+        clientCount: 1,
         regionCode: 'EU',
-        endpoint: 'localhost:7020',
+        endpoint: 'evolution-realm-1.arken.gg',
         gameId: '673996aec43266df5f966da6',
         realmShards: [
           {
             status: 'Online',
-            clientCount: 11,
-            endpoint: 'localhost:7020',
+            clientCount: 1,
+            endpoint: 'evolution-realm-1.arken.gg',
           },
         ],
       },
