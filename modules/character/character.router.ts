@@ -41,22 +41,22 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Character))
-      .output(Character)
+      // .output(Character)
       .query(({ input, ctx }) => (ctx.app.service.Character.getCharacter as any)(input, ctx)),
 
     getCharacters: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Character))
-      .output(z.array(Character))
-      .query(({ input, ctx }) => (ctx.app.service.Character.getCharacter as any)(input, ctx)),
+      // .output(z.array(Character))
+      .query(({ input, ctx }) => (ctx.app.service.Character.getCharacters as any)(input, ctx)),
 
-    createCharacter: procedure
+    saveCharacters: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Character))
-      .output(Character.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Character.createCharacter as any)(input, ctx)),
+      // .output(z.array(Character.pick({ id: true })))
+      .mutation(({ input, ctx }) => (ctx.app.service.Character.saveCharacters as any)(input, ctx)),
 
     updateCharacter: procedure
       .use(hasRole('admin', t))

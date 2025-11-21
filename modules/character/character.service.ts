@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import type {
   Character,
   CharacterAbility,
@@ -42,20 +43,28 @@ export class Service {
     console.log('Character.Service.getCharacter', input);
 
     const filter = getFilter(input);
-    const character = await ctx.app.model.Character.findById(filter.id).lean().exec();
+    // @ts-ignore
+    const character = await ctx.app.model.Character.findOne(filter).asJSON();
     if (!character) throw new Error('Character not found');
-
+    console.log('charactercharactercharacter', character);
     return character as Character;
   }
 
   async getCharacters(input: RouterInput['getCharacters'], ctx: RouterContext): Promise<RouterOutput['getCharacters']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.getCharacters', input);
 
     const filter = getFilter(input);
-    const characters = await ctx.app.model.Character.find(filter).exec();
 
-    return characters as Character[];
+    const limit = input.limit ?? 50;
+    const skip = input.skip ?? 0;
+
+    const [items, total] = await Promise.all([
+      // @ts-ignore
+      ctx.app.model.Character.find(filter).skip(skip).limit(limit).asJSON(),
+      ctx.app.model.Character.find(filter).countDocuments().exec(),
+    ]);
+
+    return { items, total };
   }
 
   async getCharacterAbility(
@@ -72,15 +81,71 @@ export class Service {
     return characterAbility as CharacterAbility;
   }
 
-  async createCharacter(
-    input: RouterInput['createCharacter'],
+  async saveCharacters(
+    input: RouterInput['saveCharacters'],
     ctx: RouterContext
-  ): Promise<RouterOutput['createCharacter']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    console.log('Character.Service.createCharacter', input);
+  ): Promise<RouterOutput['saveCharacters']> {
+    // if (!ctx.client?.roles?.includes('admin')) throw new Error('Not authorized');
+    // current profile id = ctx.client.profile.id
+    // current application = ctx.application.id
 
-    const character = await ctx.app.model.Character.create(input);
-    return character as Character;
+    if (!input || !Array.isArray(input) || input.length === 0) throw new ARXError('NO_INPUT');
+
+    const items: any[] = [];
+
+    for (const raw of input) {
+      // Allow id or _id; do not mutate original
+      const { id, _id, ...rest } = raw as any;
+      const existingId: string | mongoose.Types.ObjectId | undefined =
+        typeof id === 'string' || id instanceof mongoose.Types.ObjectId
+          ? (id as any)
+          : _id instanceof mongoose.Types.ObjectId || typeof _id === 'string'
+          ? (_id as any)
+          : undefined;
+
+      // Make sure we scope by applicationId if your models enforce it
+      // (many of your models do this via filters.applicationId)
+      if (ctx.app?.model?.Character?.filters?.applicationId && !rest.applicationId) {
+        rest.applicationId = ctx.app.model.Character.filters.applicationId;
+      }
+
+      // Optional: default/normalize key from name if missing
+      if (!rest.key && typeof rest.name === 'string') {
+        rest.key = String(rest.name)
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-');
+      }
+
+      let saved: any;
+
+      if (existingId) {
+        // applyJsonToDoc(ctx.app.model.Character.schema, doc, jsonFromClient);
+
+        // Update existing
+        saved = await ctx.app.model.Character.findByIdAndUpdate(
+          existingId,
+          { $set: rest },
+          { new: true, upsert: true, setDefaultsOnInsert: true }
+        )
+          .lean()
+          .exec();
+      } else {
+        // Create new
+        saved = await ctx.app.model.Character.create(rest);
+        // If you prefer consistent lean objects:
+        saved = saved?.toObject?.() ?? saved;
+      }
+
+      items.push(saved);
+    }
+
+    const total = await ctx.app.model.Character.find().countDocuments().exec();
+
+    return { items, total };
+    // return out as any; // RouterOutput['saveCharacters']
   }
 
   async createCharacterAbility(
