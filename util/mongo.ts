@@ -27,7 +27,572 @@ export { z } from 'zod';
 export { Schema } from 'mongoose';
 export { Document } from 'mongoose';
 
+type PreHookMethod = keyof Query<any, any> | 'save' | 'validate';
+
+interface VirtualOptions<T = any> {
+  name: string;
+  ref?: string;
+  refPath?: string;
+  localField?: string;
+  foreignField?: string;
+  justOne?: boolean;
+  get?: (this: HydratedDocument<T>, value: any, virtual: VirtualType<T>) => any;
+  set?: (this: HydratedDocument<T>, value: any, virtual: VirtualType<T>) => void;
+  match?: any;
+  options?: any;
+}
+
+function isObjectId(val: any): boolean {
+  return val instanceof mongoose.Types.ObjectId || (val && typeof val === 'object' && val._bsontype === 'ObjectID');
+}
+
+function isPlainObject(val: any): boolean {
+  return (
+    val !== null && typeof val === 'object' && !Array.isArray(val) && Object.getPrototypeOf(val) === Object.prototype
+  );
+}
+
+/**
+ * Returns a *new* object / array, does not mutate the input.
+ * - Root: `_id` (ObjectId) → `id: string`, and `_id` is removed
+ * - Nested objects: if they have `_id` as ObjectId, it becomes a string; `id` is also added
+ * - Any field that is an ObjectId anywhere in the tree becomes a string
+ */
+function deepNormalizeIds(value: any, isRoot = false): any {
+  // Primitive or null → return as-is
+  if (value === null || typeof value !== 'object') {
+    return value;
+  }
+
+  // ObjectId → string
+  if (isObjectId(value)) {
+    return value.toString();
+  }
+
+  // Arrays → map
+  if (Array.isArray(value)) {
+    return value.map((item) => deepNormalizeIds(item, false));
+  }
+
+  // Non-plain objects (Date, Map, mongoose docs, etc.) → leave as-is
+  if (!isPlainObject(value)) {
+    return value;
+  }
+
+  // Plain object: build a new object
+  const out: any = {};
+
+  for (const [key, val] of Object.entries(value)) {
+    out[key] = deepNormalizeIds(val, false);
+  }
+
+  // Handle _id on this object (after children are normalized)
+  if ('_id' in out) {
+    const idStr = out._id.toString();
+
+    if (!out.id) {
+      out.id = idStr;
+    }
+
+    delete out._id;
+  }
+
+  return out;
+}
+
+export function addIdTransformHelpers<T>(schema: Schema<T>) {
+  // toJSON / toObject for non-lean docs
+  schema.set('toJSON', {
+    virtuals: true,
+    versionKey: false,
+    transform: (_doc, ret) => {
+      return deepNormalizeIds(ret, true);
+    },
+  });
+
+  schema.set('toObject', {
+    virtuals: true,
+    versionKey: false,
+    transform: (_doc, ret) => {
+      return deepNormalizeIds(ret, true);
+    },
+  });
+
+  // Query helper for lean() use-cases
+  (schema.query as any).asJSON = async function () {
+    const res = await (this as mongoose.Query<any, any>).lean().exec();
+
+    if (Array.isArray(res)) {
+      return res.map((doc) => deepNormalizeIds(doc, true));
+    }
+
+    return deepNormalizeIds(res, true);
+  };
+}
+
+function applyJsonValueFromSchema(schemaPath: any, value: any) {
+  if (!schemaPath) return value;
+
+  // Simple scalar ObjectId field
+  if (schemaPath.instance === 'ObjectId' && typeof value === 'string') {
+    // @ts-ignore
+    return new mongoose.Types.ObjectId(value);
+  }
+
+  // Array of ObjectId (or array of subdocs) – naive handling
+  if (schemaPath.$embeddedSchemaType && schemaPath.$embeddedSchemaType.instance === 'ObjectId') {
+    if (Array.isArray(value)) {
+      // @ts-ignore
+      return value.map((v) => (typeof v === 'string' ? new mongoose.Types.ObjectId(v) : v));
+    }
+  }
+
+  return value;
+}
+
+/**
+ * Mutates `target` (Mongoose doc or plain object) in-place based on `json`,
+ * using `schema` to convert string IDs back into ObjectIds where needed.
+ */
+function applyJsonToTarget(schema: Schema, target: any, json: any, pathPrefix = '', isRoot = false) {
+  if (!json || typeof json !== 'object') return;
+
+  for (const [key, value] of Object.entries(json)) {
+    // we treat top-level `id` as synthetic; don't reassign _id on existing docs
+    if (isRoot && key === 'id') {
+      continue;
+    }
+
+    const fullPath = pathPrefix ? `${pathPrefix}.${key}` : key;
+    const schemaPath: any = schema.path(fullPath);
+
+    if (Array.isArray(value)) {
+      const arr: any[] = [];
+      for (const item of value) {
+        if (item && typeof item === 'object' && !Array.isArray(item)) {
+          const child: any = {};
+          applyJsonToTarget(schema, child, item, fullPath, false);
+          arr.push(child);
+        } else {
+          arr.push(applyJsonValueFromSchema(schemaPath, item));
+        }
+      }
+      target[key] = arr;
+    } else if (value && typeof value === 'object') {
+      const child = target[key] ?? {};
+      target[key] = child;
+      applyJsonToTarget(schema, child, value, fullPath, false);
+    } else {
+      target[key] = applyJsonValueFromSchema(schemaPath, value);
+    }
+  }
+}
+
+/**
+ * Public helper: apply JSON (from .asJSON/.toJSON) back onto a doc or plain object.
+ * - Will NOT change _id on existing docs (we skip root `id`)
+ * - Converts strings → ObjectId for fields whose schema type is ObjectId
+ */
+export function applyJsonToDoc<T = any>(schema: Schema, target: T, json: any): T {
+  applyJsonToTarget(schema, target as any, json, '', true);
+  return target;
+}
+
+// ---------------------------------------------------------------------------
+// Ontology / Cluster layer
+// ---------------------------------------------------------------------------
+
+const MIN_CLUSTER_TAG_SCORE = 0.3; // below this = low-confidence match (with tags)
+const CLUSTER_AMBIGUITY_DELTA = 0.2; // if top-2 scores are too close, log ambiguity
+
+export interface WeightedTag {
+  key: string;
+  weight: number; // 0..1, 1 = strongest
+}
+
+export interface PkEntry {
+  field: string; // e.g. 'token', 'characterId', 'assetId'
+  type: 'string' | 'number' | 'objectId' | 'boolean';
+  s?: string; // string-ish
+  n?: number; // numeric
+  o?: Types.ObjectId; // ObjectId
+}
+
+export interface ClusterDoc extends Document {
+  kind: string; // modelName, e.g. 'Item'
+  applicationId?: Types.ObjectId;
+
+  keys: string[];
+  primaryKey?: string;
+
+  tags: WeightedTag[];
+
+  currentId?: Types.ObjectId;
+  currentRevision?: number;
+
+  pk: PkEntry[];
+
+  createdDate: Date;
+  updatedDate: Date;
+}
+
+const ClusterSchema = new Schema<ClusterDoc>(
+  {
+    kind: {
+      type: String,
+      required: true,
+      index: true,
+      trim: true,
+    },
+
+    applicationId: { type: Schema.Types.ObjectId, ref: 'Application', index: true },
+
+    keys: {
+      type: [String],
+      default: [],
+      index: true,
+    } as any,
+
+    primaryKey: { type: String, index: true },
+
+    tags: {
+      type: [
+        {
+          key: { type: String, required: true },
+          weight: {
+            type: Number,
+            min: 0,
+            max: 1,
+            default: 1, // 1.0 = strong / core tag
+          },
+        },
+      ],
+      default: [],
+    } as any,
+
+    currentId: { type: Schema.Types.ObjectId },
+    currentRevision: { type: Number, default: 0 },
+
+    pk: {
+      type: [
+        {
+          field: { type: String, required: true },
+          type: {
+            type: String,
+            enum: ['string', 'number', 'objectId', 'boolean'],
+            required: true,
+          },
+          s: { type: String },
+          n: { type: Number },
+          o: { type: Schema.Types.ObjectId },
+        },
+      ],
+      default: [],
+    } as any,
+
+    createdDate: { type: Date, default: Date.now },
+    updatedDate: { type: Date, default: Date.now },
+  },
+  {
+    collection: 'Cluster',
+  }
+);
+
+// Unique: one cluster per (kind, applicationId, primaryKey)
+ClusterSchema.index({ kind: 1, applicationId: 1, primaryKey: 1 }, { unique: true, sparse: true });
+
+// Multikey indexes over pk entries
+ClusterSchema.index({ kind: 1, applicationId: 1, 'pk.field': 1, 'pk.s': 1 });
+ClusterSchema.index({ kind: 1, applicationId: 1, 'pk.field': 1, 'pk.n': 1 });
+ClusterSchema.index({ kind: 1, applicationId: 1, 'pk.field': 1, 'pk.o': 1 });
+
+addIdTransformHelpers(ClusterSchema as any);
+
+export const ClusterModel = mongoose.model<ClusterDoc>('Cluster', ClusterSchema);
+
+// ---------- ontology helpers -----------------------------------------------
+
+function normalizeAppId(appId?: any): Types.ObjectId | undefined {
+  if (!appId) return undefined;
+  if (isObjectId(appId)) return appId as Types.ObjectId;
+
+  try {
+    // Force the "hex string" overload, not the deprecated number overload
+    const str = String(appId);
+    return new (mongoose.Types.ObjectId as any)(str);
+  } catch {
+    return undefined;
+  }
+}
+
+function getPkFields(schema: Schema): string[] {
+  const schemaAny = schema as any;
+  const fromOptions = schemaAny.options?.pkFields as string[] | undefined;
+  if (fromOptions && fromOptions.length) return fromOptions;
+  return ['key', 'name', 'token'];
+}
+
+function getKeyFields(schema: Schema): string[] {
+  const schemaAny = schema as any;
+  const fromOptions = schemaAny.options?.keyFields as string[] | undefined;
+  if (fromOptions && fromOptions.length) return fromOptions;
+  return ['key', 'name', 'token'];
+}
+
+// Build pk entries from a doc using pkFields + schema types
+function toPkEntriesFromDoc(doc: any, schema: Schema): PkEntry[] {
+  const pkEntries: PkEntry[] = [];
+  const pkFields = getPkFields(schema);
+
+  for (const field of pkFields) {
+    const value = doc[field];
+    if (value === undefined || value === null) continue;
+
+    const schemaPath: any = schema.path(field);
+    const entry: PkEntry = { field, type: 'string' };
+
+    if (!schemaPath) {
+      entry.s = String(value);
+    } else if (schemaPath.instance === 'ObjectId') {
+      entry.type = 'objectId';
+      const oid = isObjectId(value) ? (value as Types.ObjectId) : new (mongoose.Types.ObjectId as any)(value as any);
+      entry.o = oid;
+      entry.s = oid.toString();
+    } else if (schemaPath.instance === 'Number') {
+      entry.type = 'number';
+      entry.n = Number(value);
+      entry.s = String(entry.n);
+    } else if (schemaPath.instance === 'Boolean') {
+      entry.type = 'boolean';
+      entry.s = value ? 'true' : 'false';
+    } else {
+      entry.type = 'string';
+      entry.s = String(value);
+    }
+
+    pkEntries.push(entry);
+  }
+
+  return pkEntries;
+}
+
+// Build keys (aliases) from doc using keyFields
+function buildKeysFromDoc(doc: any, schema: Schema): string[] {
+  const keys: string[] = [];
+  const keyFields = getKeyFields(schema);
+
+  for (const field of keyFields) {
+    const v = doc[field];
+    if (typeof v === 'string' && v.trim()) {
+      if (!keys.includes(v)) keys.push(v);
+    }
+  }
+
+  return keys;
+}
+
+// Extract pk conditions (pk.elemMatch) from a filter
+function buildPkConditionsFromFilter(filter: any, schema: Schema): { pkConditions: any[]; rawTags: any[] } {
+  const pkConditions: any[] = [];
+  const pkFields = getPkFields(schema);
+
+  const rawTags = (filter.tags || []) as any[];
+
+  for (const [field, value] of Object.entries(filter)) {
+    if (field === '_id' || field === 'applicationId' || field === 'tags') continue;
+    if (!pkFields.includes(field)) continue;
+
+    const schemaPath: any = schema.path(field);
+    const cond: any = { field };
+
+    if (!schemaPath) {
+      cond.type = 'string';
+      cond.s = String(value);
+    } else if (schemaPath.instance === 'ObjectId') {
+      cond.type = 'objectId';
+      if (isObjectId(value)) {
+        cond.o = value as Types.ObjectId;
+      } else {
+        const str = String(value);
+        cond.o = new (mongoose.Types.ObjectId as any)(str);
+      }
+    } else if (schemaPath.instance === 'Number') {
+      cond.type = 'number';
+      cond.n = Number(value);
+    } else if (schemaPath.instance === 'Boolean') {
+      cond.type = 'boolean';
+      cond.s = value ? 'true' : 'false';
+    } else {
+      cond.type = 'string';
+      cond.s = String(value);
+    }
+
+    pkConditions.push(cond);
+  }
+
+  return { pkConditions, rawTags };
+}
+
+// Upsert or update a cluster for an entity doc.
+// - Respects revision: cluster.currentRevision only moves forward.
+export async function upsertClusterForEntity(kind: string, schema: Schema, doc: any): Promise<ClusterDoc> {
+  const appId = normalizeAppId(doc.applicationId);
+  const keys = buildKeysFromDoc(doc, schema);
+  const primaryKey = keys[0];
+
+  const pkEntries = toPkEntriesFromDoc(doc, schema);
+
+  const query: any = { kind };
+  if (appId) query.applicationId = appId;
+  if (primaryKey) query.primaryKey = primaryKey;
+
+  let cluster = await ClusterModel.findOne(query).exec();
+
+  const docRevision = typeof doc.revision === 'number' && !Number.isNaN(doc.revision) ? doc.revision : 1;
+
+  if (!cluster) {
+    cluster = new ClusterModel({
+      kind,
+      applicationId: appId,
+      keys,
+      primaryKey,
+      tags: [], // will merge from doc.tags below
+      pk: pkEntries,
+      currentId: doc._id,
+      currentRevision: docRevision,
+    });
+  } else {
+    // merge keys
+    const keySet = new Set(cluster.keys || []);
+    for (const k of keys) keySet.add(k);
+    cluster.keys = Array.from(keySet);
+
+    // merge pk entries by (field,type)
+    const pkMap = new Map<string, PkEntry>();
+    for (const entry of cluster.pk || []) {
+      pkMap.set(`${entry.field}:${entry.type}`, entry);
+    }
+    for (const entry of pkEntries) {
+      pkMap.set(`${entry.field}:${entry.type}`, entry);
+    }
+    cluster.pk = Array.from(pkMap.values());
+
+    // only advance currentId if revision is newer
+    if (!cluster.currentRevision || docRevision > cluster.currentRevision) {
+      cluster.currentId = doc._id;
+      cluster.currentRevision = docRevision;
+    }
+
+    if (primaryKey) cluster.primaryKey = primaryKey;
+  }
+
+  // merge tags (WeightedTag) from doc.tags / doc.meta.tags
+  const existingTagMap = new Map<string, number>();
+  for (const t of cluster.tags || []) {
+    const w = typeof t.weight === 'number' ? t.weight : 1;
+    existingTagMap.set(t.key, Math.max(0, Math.min(1, w)));
+  }
+
+  const rawTags = (doc.tags || doc.meta?.tags || []) as any[];
+  for (const t of rawTags) {
+    let key: string;
+    let weight = 1;
+    if (typeof t === 'string') {
+      key = t;
+    } else if (t && typeof t === 'object') {
+      key = t.key ?? t.name ?? String(t);
+      if (typeof t.weight === 'number') {
+        weight = Math.max(0, Math.min(1, t.weight));
+      }
+    } else {
+      key = String(t);
+    }
+    const existing = existingTagMap.get(key) ?? 0;
+    existingTagMap.set(key, Math.max(existing, weight));
+  }
+
+  cluster.tags = Array.from(existingTagMap.entries()).map(([key, weight]) => ({
+    key,
+    weight,
+  }));
+
+  cluster.updatedDate = new Date();
+  await cluster.save();
+
+  // link back to entity if it supports clusterId
+  if ('clusterId' in doc && !doc.clusterId) {
+    doc.clusterId = cluster._id;
+  }
+
+  return cluster;
+}
+
+// Resolve clusters for a filter (PK + tags), with scores.
+export async function resolveClustersForFilter(
+  kind: string,
+  schema: Schema,
+  applicationId: Types.ObjectId | string | undefined,
+  filter: any
+): Promise<(ClusterDoc & { score?: number })[]> {
+  const appId = normalizeAppId(applicationId);
+
+  const { pkConditions, rawTags } = buildPkConditionsFromFilter(filter, schema);
+  const tagKeys = rawTags.map((t: any) => (typeof t === 'string' ? t : t.key ?? t.name ?? String(t)));
+
+  const baseMatch: any = { kind };
+  if (appId) baseMatch.applicationId = appId;
+
+  const and: any[] = [];
+
+  for (const cond of pkConditions) {
+    and.push({
+      pk: { $elemMatch: cond },
+    });
+  }
+
+  if (and.length) {
+    baseMatch.$and = and;
+  }
+
+  const pipeline: any[] = [{ $match: baseMatch }];
+
+  const hasTags = tagKeys.length > 0;
+  if (hasTags) {
+    // clusters must share at least one tag
+    pipeline[0].$match['tags.key'] = { $in: tagKeys };
+    pipeline.push({
+      $addFields: {
+        score: {
+          $sum: {
+            $map: {
+              input: '$tags',
+              as: 't',
+              in: {
+                $cond: [{ $in: ['$$t.key', tagKeys] }, '$$t.weight', 0],
+              },
+            },
+          },
+        },
+      },
+    });
+    pipeline.push({ $sort: { score: -1, updatedDate: -1 } });
+  } else {
+    pipeline.push({ $sort: { updatedDate: -1 } });
+  }
+
+  const clusters = await ClusterModel.aggregate(pipeline).exec();
+  return clusters as any;
+}
+
+// ---------------------------------------------------------------------------
+// Schema & model helpers
+// ---------------------------------------------------------------------------
+
 const CommonFields = {
+  // Ontology / cluster linkage + revision
+  clusterId: { type: Schema.Types.ObjectId, ref: 'Cluster', index: true },
+  revision: { type: Number, default: 1 },
+
   key: { type: String, minlength: 1, maxlength: 200, trim: true },
   name: { type: String },
   description: { type: String },
@@ -53,26 +618,15 @@ const EntityFields = {
   ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
 };
 
-type PreHookMethod = keyof Query<any, any> | 'save' | 'validate';
-
-interface VirtualOptions<T = any> {
-  name: string;
-  ref?: string;
-  refPath?: string;
-  localField?: string;
-  foreignField?: string;
-  justOne?: boolean;
-  get?: (this: HydratedDocument<T>, value: any, virtual: VirtualType<T>) => any;
-  set?: (this: HydratedDocument<T>, value: any, virtual: VirtualType<T>) => void;
-  match?: any;
-  options?: any;
-}
-
 interface CustomSchemaOptions extends SchemaOptions {
   extend?: 'EntityFields' | 'CommonFields';
   indexes?: { [field: string]: any }[];
   virtuals?: VirtualOptions[];
   pre?: { method: PreHookMethod | RegExp; handler: (this: Document, next: any) => void }[];
+
+  // Ontology config
+  pkFields?: string[];
+  keyFields?: string[];
 }
 
 export function createSchema<T>(
@@ -85,6 +639,15 @@ export function createSchema<T>(
 
   let schema: Schema<T>;
 
+  const schemaOptions: any = {
+    timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
+    collection: collectionName,
+  };
+
+  // propagate ontology config into schema.options
+  if (options.pkFields) schemaOptions.pkFields = options.pkFields;
+  if (options.keyFields) schemaOptions.keyFields = options.keyFields;
+
   if (extend === 'EntityFields') {
     schema = new Schema<T>(
       {
@@ -92,10 +655,7 @@ export function createSchema<T>(
         ...EntityFields,
         ...customFields,
       } as SchemaDefinition<T>,
-      {
-        timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-        collection: collectionName,
-      }
+      schemaOptions
     );
   } else {
     schema = new Schema<T>(
@@ -103,10 +663,7 @@ export function createSchema<T>(
         ...CommonFields,
         ...customFields,
       } as SchemaDefinition<T>,
-      {
-        timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-        collection: collectionName,
-      }
+      schemaOptions
     );
   }
 
@@ -131,6 +688,8 @@ export function createSchema<T>(
       return ret;
     },
   });
+
+  addIdTransformHelpers(schema);
 
   // Apply indexes
   if (options.indexes) {
@@ -167,8 +726,6 @@ export function createSchema<T>(
       if (virtual.match) {
         virtualOptions.match = virtual.match;
       }
-
-      // if (collectionName === 'Game') console.log(schema, virtualOptions);
 
       const schemaVirtual = schema.virtual(virtual.name, virtualOptions);
 
@@ -210,7 +767,10 @@ export function createModel<T extends Document>(
   return res;
 }
 
-// Model class without proxy methods
+// ---------------------------------------------------------------------------
+// Model wrapper
+// ---------------------------------------------------------------------------
+
 export class Model<T extends Document> {
   protected model: MongooseModel<T>;
   protected schema: Schema;
@@ -226,10 +786,160 @@ export class Model<T extends Document> {
     this.schema = model.schema;
   }
 
-  // toJSON() {
-  //   // @ts-ignore
-  //   return this.model.toJSON();
-  // }
+  private get kind(): string {
+    return this.model.modelName;
+  }
+
+  private isClusterEnabled(): boolean {
+    const name = this.model.modelName;
+    if (name === 'Cluster') return false;
+    return !this.filterOmitModels.includes(name);
+  }
+
+  // Wrap a query so that exec() does ontology resolution for find/findOne
+  private wrapQueryWithCluster(q: Query<any, T>, isFindOne: boolean): Query<any, T> {
+    if (!this.isClusterEnabled()) return q;
+
+    const wrapper = this;
+    const rawExec = q.exec;
+
+    q.exec = async function execWithCluster(this: any, ...args: any[]) {
+      const op = this.op; // 'find', 'findOne', etc.
+      if (op !== 'find' && op !== 'findOne') {
+        return rawExec.apply(this, args);
+      }
+
+      let filter = this.getFilter ? this.getFilter() : this._conditions || {};
+      filter = { ...filter }; // clone so we don't mutate the original object outside
+
+      // direct _id-only with no tags: skip cluster
+      const hasIdOnly =
+        filter &&
+        Object.keys(filter).length === 1 &&
+        Object.prototype.hasOwnProperty.call(filter, '_id') &&
+        !Object.prototype.hasOwnProperty.call(filter, 'tags');
+
+      if (hasIdOnly) {
+        return rawExec.apply(this, args);
+      }
+
+      // get pk/tags presence
+      const { pkConditions, rawTags } = buildPkConditionsFromFilter(filter, wrapper.schema);
+      const hasPk = pkConditions.length > 0;
+      const hasTags = rawTags.length > 0;
+
+      // If no pk fields and no tags, don't do ontology resolution
+      if (!hasPk && !hasTags) {
+        return rawExec.apply(this, args);
+      }
+
+      // Figure out applicationId
+      const applicationId =
+        filter.applicationId ??
+        (wrapper.filterOmitModels.includes(wrapper.kind) ? undefined : wrapper.filters.applicationId);
+
+      try {
+        const clusters = await resolveClustersForFilter(wrapper.kind, wrapper.schema, applicationId as any, filter);
+
+        if (!clusters.length) {
+          // Fallback: raw query, then backfill Cluster
+          const res = await rawExec.apply(this, args);
+          if (res) {
+            if (Array.isArray(res)) {
+              for (const doc of res) {
+                if (doc && wrapper.isClusterEnabled()) {
+                  await upsertClusterForEntity(wrapper.kind, wrapper.schema, (doc as any).toObject?.() ?? doc);
+                }
+              }
+            } else if (wrapper.isClusterEnabled()) {
+              await upsertClusterForEntity(wrapper.kind, wrapper.schema, (res as any).toObject?.() ?? res);
+            }
+          }
+          return res;
+        }
+
+        const best = clusters[0];
+        const bestScore = typeof best.score === 'number' ? best.score : 0;
+        const secondScore =
+          clusters.length > 1 && typeof clusters[1].score === 'number' ? (clusters[1].score as number) : 0;
+
+        if (hasTags && bestScore < MIN_CLUSTER_TAG_SCORE) {
+          console.warn('[Cluster] low-confidence resolution', {
+            model: wrapper.kind,
+            filter,
+            bestClusterId: best._id?.toString(),
+            bestScore,
+          });
+
+          const res = await rawExec.apply(this, args);
+          if (res) {
+            if (Array.isArray(res)) {
+              for (const doc of res) {
+                if (doc && wrapper.isClusterEnabled()) {
+                  await upsertClusterForEntity(wrapper.kind, wrapper.schema, (doc as any).toObject?.() ?? doc);
+                }
+              }
+            } else if (wrapper.isClusterEnabled()) {
+              await upsertClusterForEntity(wrapper.kind, wrapper.schema, (res as any).toObject?.() ?? res);
+            }
+          }
+          return res;
+        }
+
+        if (hasTags && Math.abs(bestScore - secondScore) < CLUSTER_AMBIGUITY_DELTA && clusters.length > 1) {
+          console.warn('[Cluster] ambiguous resolution', {
+            model: wrapper.kind,
+            filter,
+            bestClusterId: best._id?.toString(),
+            bestScore,
+            secondScore,
+            candidateIds: clusters.slice(0, 3).map((c) => c._id?.toString()),
+          });
+        }
+
+        if (isFindOne) {
+          if (!best.currentId) {
+            const res = await rawExec.apply(this, args);
+            if (res && wrapper.isClusterEnabled()) {
+              await upsertClusterForEntity(wrapper.kind, wrapper.schema, (res as any).toObject?.() ?? res);
+            }
+            return res;
+          }
+
+          const newFilter: any = { _id: best.currentId };
+          if (applicationId) newFilter.applicationId = applicationId;
+          this._conditions = newFilter;
+          return rawExec.apply(this, args);
+        } else {
+          const ids = clusters.map((c) => c.currentId).filter((id): id is Types.ObjectId => !!id);
+
+          if (!ids.length) {
+            const res = await rawExec.apply(this, args);
+            if (res && Array.isArray(res) && wrapper.isClusterEnabled()) {
+              for (const doc of res) {
+                await upsertClusterForEntity(wrapper.kind, wrapper.schema, (doc as any).toObject?.() ?? doc);
+              }
+            }
+            return res;
+          }
+
+          const newFilter: any = { _id: { $in: ids } };
+          if (applicationId) newFilter.applicationId = applicationId;
+          this._conditions = newFilter;
+          return rawExec.apply(this, args);
+        }
+      } catch (err) {
+        console.warn('[Cluster] error during ontology resolution, falling back', {
+          model: wrapper.kind,
+          filter,
+          error: (err as Error).message,
+        });
+        return rawExec.apply(this, args);
+      }
+    };
+
+    return q;
+  }
 
   populate(
     docs: T | T[],
@@ -261,12 +971,12 @@ export class Model<T extends Document> {
     return this.findOne(filter, null, options).populate(relations.join(' '));
   }
 
-  // Overridden exec method
+  // Overridden exec method (raw)
   async exec(query: Query<any, T>): Promise<any> {
     return query.exec();
   }
 
-  // Override the find method to include filters
+  // Cluster-aware find: returns Query, ontology resolution happens in exec()
   find(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
@@ -276,11 +986,11 @@ export class Model<T extends Document> {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
-
-    return this.model.find(filter, projection, options);
+    const q = this.model.find(filter, projection, options);
+    return this.wrapQueryWithCluster(q, false);
   }
 
-  // Override the findOne method to include filters
+  // Cluster-aware findOne: returns Query, ontology resolution happens in exec()
   findOne(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
@@ -290,11 +1000,24 @@ export class Model<T extends Document> {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
     }
-
-    return this.model.findOne(filter, projection, options);
+    const q = this.model.findOne(filter, projection, options);
+    return this.wrapQueryWithCluster(q, true);
   }
 
-  // Override the findById method
+  // Raw find (no cluster) if you ever need it
+  findRaw(
+    filter: FilterQuery<T> = {},
+    projection?: ProjectionType<T> | null,
+    options?: mongoose.QueryOptions
+  ): Query<T[], T> {
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
+      // @ts-ignore
+      filter.applicationId = this.filters.applicationId;
+    }
+    return this.model.find(filter, projection, options);
+  }
+
+  // Override the findById method (raw, no ontology)
   findById(
     id: Types.ObjectId | string,
     projection?: ProjectionType<T> | null,
@@ -303,7 +1026,7 @@ export class Model<T extends Document> {
     return this.model.findById(id, projection, options);
   }
 
-  // Override the findOneAndUpdate method to include filters
+  // Override the findOneAndUpdate method to include filters (raw)
   findOneAndUpdate(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
@@ -317,7 +1040,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndUpdate(filter, update, options);
   }
 
-  // Override the findOneAndDelete method to include filters
+  // Override the findOneAndDelete method to include filters (raw)
   findOneAndDelete(filter: FilterQuery<T>, options?: QueryOptions): Query<T | null, T> {
     if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
@@ -327,7 +1050,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndDelete(filter, options);
   }
 
-  // Override the findByIdAndUpdate method to include filters
+  // Override the findByIdAndUpdate method to include filters (raw)
   findByIdAndUpdate(
     id: Types.ObjectId | string,
     update: UpdateQuery<T> | mongoose.UpdateWithAggregationPipeline,
@@ -343,7 +1066,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndUpdate(filter, update, options);
   }
 
-  // Override the findByIdAndDelete method to include filters
+  // Override the findByIdAndDelete method to include filters (raw)
   findByIdAndDelete(id: Types.ObjectId | string, options?: QueryOptions): Query<T | null, T> {
     const filter: FilterQuery<T> = { _id: id } as FilterQuery<T>;
 
@@ -355,7 +1078,7 @@ export class Model<T extends Document> {
     return this.model.findOneAndDelete(filter, options);
   }
 
-  // Override the create method to include filters
+  // Cluster-aware create: insert entity, upsert Cluster, set currentId/currentRevision, link clusterId
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
@@ -369,7 +1092,24 @@ export class Model<T extends Document> {
       }
     }
 
-    return this.model.create(doc as T | T[]);
+    const p = this.model.create(doc as any) as Promise<T | T[]>;
+
+    if (!this.isClusterEnabled()) {
+      return p;
+    }
+
+    return p.then(async (res: any) => {
+      const docsArray = Array.isArray(res) ? res : [res];
+      for (const d of docsArray) {
+        const plain = d.toObject ? d.toObject() : d;
+        const cluster = await upsertClusterForEntity(this.kind, this.schema, plain);
+        if ('clusterId' in d && !d.clusterId) {
+          d.clusterId = cluster._id;
+          await d.save();
+        }
+      }
+      return res;
+    });
   }
 
   // Override the upsert method to include filters
@@ -388,7 +1128,7 @@ export class Model<T extends Document> {
     }
   }
 
-  // Override the updateOne method to include filters
+  // Override the updateOne method to include filters (raw)
   updateOne(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
@@ -404,7 +1144,7 @@ export class Model<T extends Document> {
     return this.model.updateOne(filter, update, options);
   }
 
-  // Override the updateMany method to include filters
+  // Override the updateMany method to include filters (raw)
   updateMany(
     filter: FilterQuery<T>,
     update: UpdateQuery<T> | UpdateWithAggregationPipeline,
@@ -423,19 +1163,19 @@ export class Model<T extends Document> {
     return this.model.countDocuments();
   }
 
-  // Method for handling aggregate
+  // Method for handling aggregate (raw)
   aggregate(...props: any[]): any {
     return this.model.aggregate(...props);
   }
 
-  // Method for handling where conditions
+  // Method for handling where conditions (raw)
   where(arg1: string, arg2?: any): Query<T[], T>;
   where(arg1: object): Query<T[], T>;
   where(arg1: string | object, arg2?: any): Query<T[], T> {
     return this.model.where(arg1 as any, arg2);
   }
 
-  // Find all documents method
+  // Find all documents method (raw)
   findAll(): Query<T[], T> {
     return this.model.find();
   }
@@ -445,13 +1185,13 @@ export class Model<T extends Document> {
     projection?: ProjectionType<T> | null,
     options?: QueryOptions
   ): Promise<(T & Record<string, any>) | null> {
-    // Use your normal findOne to get the doc
-    const doc = await this.findOne(filter, projection, options);
+    const doc = await this.findOne(filter, projection, options).exec();
     if (!doc) return null;
 
     // Return a doc+model merged proxy
     return createDocProxy(doc, this);
   }
+
   /**
    * saveQueued(doc):
    *   - If there's an existing in-flight save promise for the same doc, wait until that finishes.
@@ -481,6 +1221,10 @@ export class Model<T extends Document> {
     return newSavePromise;
   }
 }
+
+// ---------------------------------------------------------------------------
+// Virtual helpers & proxies
+// ---------------------------------------------------------------------------
 
 export const addTagVirtuals = (modelName: string) => [
   {
