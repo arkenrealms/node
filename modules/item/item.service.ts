@@ -34,12 +34,27 @@ export class Service {
 
   async getItems(input: RouterInput['getItems'], ctx: RouterContext): Promise<RouterOutput['getItems']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Item.Service.getItems', input);
-
     const filter = getFilter(input);
-    const item = await ctx.app.model.Item.find(filter).exec();
 
-    return item as Item;
+    // Optional ordering so $first picks the right representative per token
+    const sortStage = {
+      $sort: {
+        updatedAt: -1, // or createdAt, or anything that establishes “latest”
+        _id: -1, // tiebreaker for stable results
+      },
+    };
+
+    const pipeline: any[] = [
+      { $match: filter },
+      sortStage,
+      { $group: { _id: '$token', doc: { $first: '$$ROOT' } } },
+      { $replaceRoot: { newRoot: '$doc' } },
+      { $skip: input.skip || 0 },
+      { $limit: input.limit || 10 },
+    ];
+
+    const items = await ctx.app.model.Item.aggregate(pipeline).exec();
+    return items as Item[];
   }
 
   async createItem(input: RouterInput['createItem'], ctx: RouterContext): Promise<RouterOutput['createItem']> {

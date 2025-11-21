@@ -36,8 +36,8 @@ export const createRouter = () =>
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Item))
-      .output(z.array(Item))
-      .query(({ input, ctx }) => (ctx.app.service.Item.getItem as any)(input, ctx)),
+      // .output(z.array(Item))
+      .query(({ input, ctx }) => (ctx.app.service.Item.getItems as any)(input, ctx)),
 
     createItem: procedure
       .use(hasRole('admin', t))
