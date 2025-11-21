@@ -167,6 +167,12 @@ export const createRouter = () =>
       .output(Act)
       .query(({ input, ctx }) => (ctx.app.service.Core.getAct as any)(input, ctx)),
 
+    getActs: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Act))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getActs as any)(input, ctx)),
+
     createAct: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
@@ -493,6 +499,13 @@ export const createRouter = () =>
       .input(getQueryInput(Energy))
       .output(Energy)
       .query(({ input, ctx }) => (ctx.app.service.Core.getEnergy as any)(input, ctx)),
+
+    getEnergies: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Energy))
+      // .output(Energy)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getEnergies as any)(input, ctx)),
 
     createEnergy: procedure
       .use(hasRole('admin', t))

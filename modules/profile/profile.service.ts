@@ -37,7 +37,7 @@ export class Service {
     // const profiles = await ctx.app.model.Profile.find(filter).populate('character', 'characters').exec();
 
     const profiles = await ctx.app.model.Profile.aggregate([
-      { $limit: input.take || 10 },
+      { $limit: input.limit || 10 },
       {
         $lookup: {
           from: 'Character',

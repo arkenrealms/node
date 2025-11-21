@@ -111,7 +111,7 @@ export class Service {
       address: input.address,
     });
 
-    if (!ctx.client.profile) throw new Error('Profile not found');
+    if (!ctx.client.profile) throw new Error('Profile not found: ' + input.address);
 
     if (input.address === '0xDfA8f768d82D719DC68E12B199090bDc3691fFc7') {
       if (!ctx.client.roles) ctx.client.roles = [];
@@ -267,6 +267,22 @@ export class Service {
     if (!act) throw new Error('Act not found');
 
     return act as Act;
+  }
+
+  async getActs(input: RouterInput['getActs'], ctx: RouterContext): Promise<RouterOutput['getActs']> {
+    if (!input) throw new ARXError('NO_INPUT');
+
+    const filter = getFilter(input);
+
+    const limit = input.limit ?? 50;
+    const skip = input.skip ?? 0;
+
+    const [items, total] = await Promise.all([
+      ctx.app.model.Act.find(filter).skip(skip).limit(limit).lean().exec(),
+      ctx.app.model.Act.find(filter).countDocuments().exec(),
+    ]);
+
+    return { items, total };
   }
 
   // Create Act
@@ -779,6 +795,23 @@ export class Service {
     if (!energy) throw new Error('Energy not found');
 
     return energy as Energy;
+  }
+
+  async getEnergies(input: RouterInput['getEnergies'], ctx: RouterContext): Promise<RouterOutput['getEnergies']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getEnergies', input);
+
+    const filter = getFilter(input);
+
+    const limit = input.limit ?? 50;
+    const skip = input.skip ?? 0;
+
+    const [items, total] = await Promise.all([
+      ctx.app.model.Energy.find(filter).skip(skip).limit(limit).lean().exec(),
+      ctx.app.model.Energy.find(filter).countDocuments().exec(),
+    ]);
+
+    return { items, total };
   }
 
   async createEnergy(input: RouterInput['createEnergy'], ctx: RouterContext): Promise<RouterOutput['createEnergy']> {
