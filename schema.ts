@@ -248,7 +248,7 @@ export const getQueryInput = <T extends zod.ZodRawShape>(
     .object({
       data: partialData ? modelSchema.partial().optional() : modelSchema.optional(),
       skip: z.number().default(0).optional(),
-      take: z.number().default(10).optional(),
+      limit: z.number().default(10).optional(),
       cursor: z.record(z.any()).optional(),
       where: whereSchema.optional(),
       orderBy: z.record(z.enum(['asc', 'desc'])).optional(),

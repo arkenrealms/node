@@ -93,14 +93,24 @@ export const deserialize = <T>(input: string | Serializable): T => {
   const processValue = (value: any): any => {
     if (!value || typeof value !== 'object') return value;
 
+    const type =
+      value._type ||
+      (!['Object', 'Array', 'Date'].includes(value.constructor.name) ? value.constructor.name : undefined);
+
     if (value.byteLength) {
       const decoder = new TextDecoder('utf-8');
       return JSON.parse(decoder.decode(value));
-    } else if (value._type) {
-      switch (value._type) {
+    } else if (value.constructor?.name === 'Object' && value.buffer) {
+      console.log('deserialized result', 55555, type);
+
+      return processValue(value.buffer);
+    } else if (type) {
+      switch (type) {
         case 'ArrayBuffer':
           return Uint8Array.from(value.data).buffer;
         case 'Uint8Array':
+          console.log('deserialized result', 55555, type);
+
           return new Uint8Array(value.data);
         case 'Date':
           return new Date(value.data);
@@ -121,6 +131,7 @@ export const deserialize = <T>(input: string | Serializable): T => {
     } else {
       const obj: any = {};
       for (const [k, v] of Object.entries(value)) {
+        // console.log(55555, k, v);
         obj[k] = processValue(v);
       }
       return obj;
@@ -158,7 +169,7 @@ export const validateRequest = (t: any) =>
       throw new ARXError('BAD_REQUEST', 'Missing signature or data');
     }
 
-    const isValid = await isValidRequest(ctx.app.web3.bsc, {
+    const isValid = await isValidRequest(ctx.app.web3, {
       signature: {
         address: signature.address,
         hash: signature.hash,
@@ -177,22 +188,21 @@ export const validateRequest = (t: any) =>
 
 export const hasRole = (role: string | string[], t: any) =>
   t.middleware(async ({ input, ctx, next }) => {
-    console.log('hasRole', role, ctx.client?.roles);
-
     // if (!ctx.client?.profile) throw new ARXError('INTERNAL_SERVER_ERROR', `Not authorized. Missing profile.`);
 
-    if (Array.isArray(role)) {
-      const hasAnyRole = role.some((r) => ctx.client.roles.includes(r));
-      if (!hasAnyRole) {
-        throw new ARXError(
-          'INTERNAL_SERVER_ERROR',
-          `Not authorized. Missing one of the required roles: ${role.join(',')}`
-        );
-      }
-    } else if (role && !ctx.client.roles.includes(role)) {
-      throw new ARXError('INTERNAL_SERVER_ERROR', `Not authorized. Missing role: ${role}`);
-    }
+    const roles: string[] = ctx.client?.roles ?? [];
+    console.log('hasRole', role, roles);
 
+    const has = Array.isArray(role) ? role.some((r) => roles.includes(r)) : roles.includes(role);
+
+    if (!has) {
+      throw new ARXError(
+        'FORBIDDEN',
+        Array.isArray(role)
+          ? `Not authorized. Missing one of: ${role.join(', ')}`
+          : `Not authorized. Missing role: ${role}`
+      );
+    }
     return next();
   });
 

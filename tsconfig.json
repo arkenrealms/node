@@ -25,11 +25,21 @@
     },
     "baseUrl": "./",
     "allowJs": true,
-    "declaration": false,
+    "declaration": true,
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
-    "noEmit": true
+    "noEmit": false,
+    "composite": true
   },
-  "include": ["./index.ts", "config.ts", "./types.ts", "./styled.d.ts", "components", "hooks", "util"],
+  "include": [
+    "./index.ts",
+    "config.ts",
+    "./types.ts",
+    "./styled.d.ts",
+    "components",
+    "hooks",
+    "util",
+    "util/types/mongo.d.ts"
+  ],
   "exclude": ["node_modules", "build"]
 }

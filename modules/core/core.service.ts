@@ -2236,7 +2236,7 @@ export class Service {
     console.log('Core.Service.getTeam', input);
 
     const filter = getFilter(input);
-    const team = await ctx.app.model.Team.findOne(filter).populate('profiles', 'profiles.characters');
+    const team = await ctx.app.model.Team.findOne(filter).exec();
     if (!team) throw new Error('Team not found');
 
     return team as Team;
@@ -2249,7 +2249,7 @@ export class Service {
     const filter = getFilter(input);
     const teams = await ctx.app.model.Team.find(filter)
       .skip(input.skip || 0)
-      .limit(input.take || 10)
+      .limit(input.limit || 10)
       .exec();
 
     return teams as Team[];
