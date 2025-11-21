@@ -1,5 +1,6 @@
 import type { Area, AreaLandmark, AreaType, RouterInput, RouterOutput, RouterContext } from './area.types';
 import { getFilter } from '../../util/api';
+import { ARXError } from '../../util/rpc';
 
 export class Service {
   async getArea(input: RouterInput['getArea'], ctx: RouterContext): Promise<RouterOutput['getArea']> {
@@ -11,6 +12,22 @@ export class Service {
     if (!area) throw new Error('Area not found');
 
     return area as Area;
+  }
+
+  async getAreas(input: RouterInput['getAreas'], ctx: RouterContext): Promise<RouterOutput['getAreas']> {
+    if (!input) throw new ARXError('NO_INPUT');
+
+    const filter = getFilter(input);
+
+    const limit = input.limit ?? 50;
+    const skip = input.skip ?? 0;
+
+    const [items, total] = await Promise.all([
+      ctx.app.model.Area.find(filter).skip(skip).limit(limit).lean().exec(),
+      ctx.app.model.Area.find(filter).countDocuments().exec(),
+    ]);
+
+    return { items, total };
   }
 
   async getAreaLandmark(

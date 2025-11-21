@@ -1,9 +1,9 @@
 import { z as zod } from 'zod';
-import { initTRPC, inferRouterInputs, inferRouterOutputs } from '@trpc/server';
+import { initTRPC } from '@trpc/server';
 import { customErrorFormatter, hasRole } from '../../util/rpc';
 import type { RouterContext } from '../../types';
 import { Area, AreaLandmark, AreaType } from './area.schema';
-import { Query } from '../../schema';
+import { Query, getQueryInput, inferRouterOutputs, inferRouterInputs } from '../../schema';
 
 export const z = zod;
 export const t = initTRPC.context<RouterContext>().create();
@@ -17,6 +17,12 @@ export const createRouter = () =>
       .use(customErrorFormatter(t))
       .input(z.object({ query: Query }))
       .query(({ input, ctx }) => (ctx.app.service.Area.getArea as any)(input, ctx)),
+
+    getAreas: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Area))
+      .query(({ input, ctx }) => (ctx.app.service.Area.getAreas as any)(input, ctx)),
 
     createArea: procedure
       .use(hasRole('admin', t))
