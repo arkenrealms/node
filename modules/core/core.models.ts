@@ -531,7 +531,6 @@ export const NewsArticle = mongo.createModel<Types.NewsArticleDocument>(
 export const Npc = mongo.createModel<Types.NpcDocument>(
   'Npc',
   {
-    characterRaceId: { type: mongo.Schema.Types.ObjectId, ref: 'CharacterRace' },
     characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character' },
   },
   {
@@ -702,7 +701,37 @@ export const Realm = mongo.createModel<Types.RealmDocument>(
     gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game', required: true },
   },
   {
-    virtuals: [...addTagVirtuals('Realm'), ...addApplicationVirtual(), { name: 'realmShards' }],
+    virtuals: [
+      ...addTagVirtuals('Realm'),
+      ...addApplicationVirtual(),
+      { name: 'realmShards' },
+      { name: 'realmTraits' },
+      { name: 'realmEvents' },
+    ],
+  }
+);
+
+// RealmEvent Model
+export const RealmEvent = mongo.createModel<Types.RealmEventDocument>(
+  'RealmEvent',
+  {
+    description: { type: String, required: true },
+    startDate: { type: Date, required: false },
+    endDate: { type: Date, required: false },
+  },
+  {
+    virtuals: [...addTagVirtuals('RealmEvent'), ...addApplicationVirtual()],
+  }
+);
+
+// RealmTrait Model
+export const RealmTrait = mongo.createModel<Types.RealmTraitDocument>(
+  'RealmTrait',
+  {
+    description: { type: String, required: true },
+  },
+  {
+    virtuals: [...addTagVirtuals('RealmTrait'), ...addApplicationVirtual()],
   }
 );
 

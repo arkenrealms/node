@@ -161,6 +161,15 @@ export type RatingDocument = Rating & Document;
 export type Realm = z.infer<typeof schema.Realm>;
 export type RealmDocument = Realm & Document;
 
+export type RealmEvent = z.infer<typeof schema.RealmEvent>;
+export type RealmEventDocument = RealmEvent & Document;
+
+export type RealmShard = z.infer<typeof schema.RealmShard>;
+export type RealmShardDocument = RealmShard & Document;
+
+export type RealmTrait = z.infer<typeof schema.RealmTrait>;
+export type RealmTraitDocument = RealmTrait & Document;
+
 export type Revision = z.infer<typeof schema.Revision>;
 export type RevisionDocument = Revision & Document;
 
@@ -175,9 +184,6 @@ export type RoleDocument = Role & Document;
 
 export type Season = z.infer<typeof schema.Season>;
 export type SeasonDocument = Season & Document;
-
-export type RealmShard = z.infer<typeof schema.RealmShard>;
-export type RealmShardDocument = RealmShard & Document;
 
 export type Session = z.infer<typeof schema.Session>;
 export type SessionDocument = Session & Document;
@@ -279,12 +285,13 @@ export type Mappings = {
   Question: Model<QuestionDocument>;
   Rating: Model<RatingDocument>;
   Realm: Model<RealmDocument>;
+  RealmEvent: Model<RealmEventDocument>;
+  RealmShard: Model<RealmShardDocument>;
   Revision: Model<RevisionDocument>;
   Referral: Model<ReferralDocument>;
   Review: Model<ReviewDocument>;
   Role: Model<RoleDocument>;
   Season: Model<SeasonDocument>;
-  RealmShard: Model<RealmShardDocument>;
   Session: Model<SessionDocument>;
   SolarSystem: Model<SolarSystemDocument>;
   Star: Model<StarDocument>;

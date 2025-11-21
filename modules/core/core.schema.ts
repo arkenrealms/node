@@ -384,11 +384,29 @@ export const RealmShard = Entity.merge(
   })
 );
 
+// RealmTrait Schema
+export const RealmTrait = Entity.merge(
+  z.object({
+    description: z.string().optional(),
+  })
+);
+
+// RealmEvent Schema
+export const RealmEvent = Entity.merge(
+  z.object({
+    description: z.string().optional(),
+    startDate: z.date().optional(),
+    endDate: z.date().optional(),
+  })
+);
+
 // Realm Schema
 export const Realm = Entity.merge(
   z.object({
     endpoint: z.string().max(100).optional(),
     realmShards: z.array(RealmShard).optional(),
+    realmEvents: z.array(RealmEvent).optional(),
+    realmTraits: z.array(RealmTrait).optional(),
     gameId: ObjectId,
     status: z.string().default('Offline').optional(),
     clientCount: z.number(),

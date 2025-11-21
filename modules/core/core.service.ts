@@ -48,12 +48,13 @@ import type {
   Quest,
   Rating,
   Realm,
+  RealmEvent,
+  RealmShard,
   Revision,
   Referral,
   Review,
   Role,
   Season,
-  RealmShard,
   Session,
   SolarSystem,
   Star,
@@ -1644,6 +1645,7 @@ export class Service {
 
     return updatedRating as Rating;
   }
+
   // Realm Methods
   async getRealm(input: RouterInput['getRealm'], ctx: RouterContext): Promise<RouterOutput['getRealm']> {
     if (!input) throw new ARXError('NO_INPUT');
@@ -1714,6 +1716,70 @@ export class Service {
     if (!updatedRealm) throw new Error('Realm update failed');
 
     return updatedRealm as Realm;
+  }
+
+  // RealmEvent Methods
+  async getRealmEvent(input: RouterInput['getRealmEvent'], ctx: RouterContext): Promise<RouterOutput['getRealmEvent']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.getRealmEvent', input);
+
+    const realmEvent = await ctx.app.model.RealmEvent.findOne(getFilter(input)).exec();
+    if (!realmEvent) throw new Error('RealmEvent not found');
+
+    return realmEvent as RealmEvent;
+  }
+
+  async getRealmEvents(
+    input: RouterInput['getRealmEvents'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getRealmEvents']> {
+    console.log('Core.Service.getRealmEvents', input);
+
+    const filter = getFilter(input);
+
+    filter.status = 'Online';
+
+    let realmEvents: RealmEvent[] = await ctx.app.model.RealmEvent.find(filter).exec();
+    console.log('getRealmEvents', realmEvents);
+
+    return realmEvents;
+  }
+
+  async createRealmEvent(
+    input: RouterInput['createRealmEvent'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createRealmEvent']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.createRealmEvent', input);
+
+    const realmEvent = await ctx.app.model.RealmEvent.create(input);
+    return realmEvent as RealmEvent;
+  }
+
+  async updateRealmEvent(
+    input: RouterInput['updateRealmEvent'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateRealmEvent']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.updateRealmEvent', input);
+
+    //   const data = {};
+
+    //   if (!this.realms[input.data.realmId]) this.realms[input.data.realmId] = {};
+
+    //   const realm: Arken.Core.Types.RealmEvent = this.realms[input.data.realmId];
+
+    //   realm.status = input.data.status;
+    //   realm.clientCount = input.data.clientCount;
+    //   realm.regionCode = input.data.regionCode;
+    //   realm.realmShards = input.data.realmShards;
+
+    const updatedRealmEvent = await ctx.app.model.RealmEvent.findByIdAndUpdate(input.where.id.equals, { new: true })
+      .lean()
+      .exec();
+    if (!updatedRealmEvent) throw new Error('RealmEvent update failed');
+
+    return updatedRealmEvent as RealmEvent;
   }
 
   // Revision Methods
@@ -1821,7 +1887,9 @@ export class Service {
     if (!updatedReview) throw new Error('Review update failed');
 
     return updatedReview as Review;
-  } // Role Methods
+  }
+
+  // Role Methods
   async getRole(input: RouterInput['getRole'], ctx: RouterContext): Promise<RouterOutput['getRole']> {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Core.Service.getRole', input);

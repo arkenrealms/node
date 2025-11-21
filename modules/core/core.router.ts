@@ -52,12 +52,13 @@ import {
   Quest,
   Rating,
   Realm,
+  RealmEvent,
+  RealmShard,
   Revision,
   Referral,
   Review,
   Role,
   Season,
-  RealmShard,
   Session,
   SolarSystem,
   Star,
@@ -1206,7 +1207,7 @@ export const createRouter = () =>
       .output(Season.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateSeason as any)(input, ctx)),
 
-    // Server Procedures
+    // RealmShard Procedures
     getRealmShard: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
@@ -1234,6 +1235,35 @@ export const createRouter = () =>
       .input(getQueryInput(RealmShard))
       .output(RealmShard.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmShard as any)(input, ctx)),
+
+    // RealmEvent Procedures
+    getRealmEvent: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(RealmEvent)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmEvent as any)(input, ctx)),
+
+    getRealmEvents: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(z.array(RealmEvent))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmEvents as any)(input, ctx)),
+
+    createRealmEvent: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(RealmEvent.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRealmEvent as any)(input, ctx)),
+
+    updateRealmEvent: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(RealmEvent.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmEvent as any)(input, ctx)),
 
     // Session Procedures
     getSession: procedure
