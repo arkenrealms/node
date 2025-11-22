@@ -9,7 +9,7 @@
     "clean": "del-cli ./dist && make-dir ./dist",
     "dist": "npm-run-all clean tsc:*",
     "publish": "npm publish --access=public",
-    "test": "jest --coverage --config=jest.unit.config.js",
+    "test": "jest --detectOpenHandles --forceExit --coverage --verbose --config jest.unit.config.js",
     "test:watch": "jest --watch --collect-coverage --config=jest.unit.config.js",
     "tsc:1": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && cp ./contracts/* ./build/contracts && cp ./data/generated/* ./build/data/generated && NODE_ENV=production tsc"
   },

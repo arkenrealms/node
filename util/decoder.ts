@@ -18,16 +18,26 @@ const useLoki = true;
 
 let tokenCache = {};
 
-const dbCon = new loki('arken.db', {
+// Detect test / Jest
+const isTestEnv = process.env.NODE_ENV === 'test' || (typeof process !== 'undefined' && !!process.env.JEST_WORKER_ID);
+
+// Loki options
+const lokiOptions: any = {
   adapter:
     typeof window !== 'undefined'
       ? new IncrementalIndexedDBAdapter()
-      : new (require('lokijs/src/loki-fs-structured-adapter'))(), // typeof indexedDB !== 'undefined'
-  autoload: true,
-  autoloadCallback: databaseInitialize,
-  autosave: true,
-  autosaveInterval: 4000,
-});
+      : new (require('lokijs/src/loki-fs-structured-adapter'))(),
+};
+
+// 🔑 Disable autosave (and thus the interval) in tests
+if (!isTestEnv) {
+  lokiOptions.autoload = true;
+  lokiOptions.autoloadCallback = databaseInitialize;
+  lokiOptions.autosave = true;
+  lokiOptions.autosaveInterval = 4000;
+}
+
+const dbCon = new loki('arken.db', lokiOptions);
 
 const db = {
   config: undefined,
