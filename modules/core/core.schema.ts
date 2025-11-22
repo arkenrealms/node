@@ -14,9 +14,10 @@ export const MerkleTree = Entity.merge(
 
 export const MerkleNode = Entity.merge(
   z.object({
+    treeId: ObjectId,
     level: z.number(), // 0 = leaves, up to max depth
     index: z.number(), // position within that level
-    hash: z.string(), // keccak256 hash
+    hash: z.string(), // Poseidon hash
   })
 );
 
@@ -716,5 +717,58 @@ export const ObjectInteraction = Entity.merge(
     objectId: ObjectId,
     interactionType: z.enum(['Use', 'Fight', 'Open', 'Talk', 'Touch']),
     outcome: z.record(z.any()).optional(),
+  })
+);
+
+export const SeerEvent = Entity.merge(
+  z.object({
+    // Which model this event is about, e.g. "Character", "Item", "Zone", etc.
+    kind: z.string().min(1),
+
+    // Logical operation over that model
+    operation: z.enum(['create', 'update', 'delete']),
+
+    // ID of the affected record (Mongo _id as string)
+    recordId: z.string().min(1),
+
+    // Application scoping (optional)
+    applicationId: ObjectId.optional(),
+
+    // Full payload for this version (we keep it generic / untyped here)
+    payload: z.unknown(),
+
+    // Monotonically increasing sequence number for ordering
+    seq: z.number().int(),
+
+    // When the event occurred
+    timestamp: z.date(),
+  })
+);
+
+export const SeerPayload = Entity.merge(
+  z.object({
+    // Which seer node / wallet this payload came from
+    fromSeer: z.string().min(1),
+
+    // Optional app scope (if you ever shard per app)
+    applicationId: ObjectId.optional(),
+
+    // Batch of SeerEvent-like objects (kept generic to avoid cross-module coupling)
+    events: z.array(z.unknown()).default([]),
+
+    // Hash of events as used in your zk circuit
+    eventsHash: z.string().min(1),
+
+    // Merkle root representing this batch / state
+    merkleRoot: z.string().min(1),
+
+    // Groth16 proof object
+    proof: z.unknown(),
+
+    // Groth16 public signals
+    publicSignals: z.unknown(),
+
+    // Optional createdAt, mirrors the Mongo date field
+    createdAt: z.date().optional(),
   })
 );

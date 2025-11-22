@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import keccak256 from 'keccak256';
 import type {
   Character,
   CharacterAbility,
@@ -17,7 +18,21 @@ import type {
   RouterContext,
 } from './character.types';
 import { ARXError } from '../../util/rpc';
+import { getNextSeq, hashEvents } from '../../util/mongo';
+import { updateLeafWithProof } from '../../util/merkle';
 import { getFilter } from '../../util/api';
+
+const TREE_DEPTH = 16;
+const TREE_SIZE = 1 << TREE_DEPTH;
+const LOCAL_SEER_ID = process.env.SEER_NODE_WALLET ?? 'seer-node-1';
+
+// Deterministic mapping from (kind, recordId) -> Merkle leaf index
+function computeLeafIndex(kind: string, recordId: string): number {
+  const h = keccak256(`${kind}:${recordId}`).toString('hex');
+  const first8 = h.slice(0, 8); // 32 bits
+  const n = parseInt(first8, 16);
+  return n % TREE_SIZE;
+}
 
 export class Service {
   async exchangeCharacterItem(
@@ -85,31 +100,31 @@ export class Service {
     input: RouterInput['saveCharacters'],
     ctx: RouterContext
   ): Promise<RouterOutput['saveCharacters']> {
-    // if (!ctx.client?.roles?.includes('admin')) throw new Error('Not authorized');
-    // current profile id = ctx.client.profile.id
-    // current application = ctx.application.id
-
-    if (!input || !Array.isArray(input) || input.length === 0) throw new ARXError('NO_INPUT');
+    if (!input || !Array.isArray(input) || input.length === 0) {
+      throw new ARXError('NO_INPUT');
+    }
 
     const items: any[] = [];
+    const events: any[] = [];
+    const payloads: any[] = [];
 
     for (const raw of input) {
       // Allow id or _id; do not mutate original
       const { id, _id, ...rest } = raw as any;
-      const existingId: string | mongoose.Types.ObjectId | undefined =
+
+      const previousId: string | mongoose.Types.ObjectId | undefined =
         typeof id === 'string' || id instanceof mongoose.Types.ObjectId
           ? (id as any)
           : _id instanceof mongoose.Types.ObjectId || typeof _id === 'string'
           ? (_id as any)
           : undefined;
 
-      // Make sure we scope by applicationId if your models enforce it
-      // (many of your models do this via filters.applicationId)
+      // Scope by applicationId if the Character model uses applicationId filters
       if (ctx.app?.model?.Character?.filters?.applicationId && !rest.applicationId) {
         rest.applicationId = ctx.app.model.Character.filters.applicationId;
       }
 
-      // Optional: default/normalize key from name if missing
+      // Derive key from name if missing
       if (!rest.key && typeof rest.name === 'string') {
         rest.key = String(rest.name)
           .trim()
@@ -119,33 +134,83 @@ export class Service {
           .replace(/-+/g, '-');
       }
 
-      let saved: any;
-
-      if (existingId) {
-        // applyJsonToDoc(ctx.app.model.Character.schema, doc, jsonFromClient);
-
-        // Update existing
-        saved = await ctx.app.model.Character.findByIdAndUpdate(
-          existingId,
-          { $set: rest },
-          { new: true, upsert: true, setDefaultsOnInsert: true }
-        )
-          .lean()
-          .exec();
-      } else {
-        // Create new
-        saved = await ctx.app.model.Character.create(rest);
-        // If you prefer consistent lean objects:
-        saved = saved?.toObject?.() ?? saved;
-      }
+      // IMMUTABLE: always create a new Character document
+      const doc = await ctx.app.model.Character.create(rest);
+      const saved = doc?.toObject?.() ?? doc;
 
       items.push(saved);
+
+      // Logical operation type (even though storage is immutable)
+      const op: 'create' | 'update' = previousId ? 'update' : 'create';
+
+      const event = {
+        kind: 'Character',
+        operation: op,
+        recordId: saved.id.toString(), // new doc id
+        applicationId: saved.applicationId,
+        payload: {
+          ...saved,
+          previousId: previousId ? previousId.toString() : null,
+        },
+        timestamp: new Date(),
+      };
+
+      events.push(event);
+
+      // -----------------------------------------------------------------------
+      // Merkle + zkSNARK for this Character
+      // -----------------------------------------------------------------------
+
+      const leafIndex = computeLeafIndex('Character', saved.id.toString());
+
+      // Poseidon-based Merkle update + zkSNARK proof using UpdateLeaf(16)
+      const merkleUpdate = await updateLeafWithProof(leafIndex, {
+        kind: 'Character',
+        id: saved.id.toString(),
+        status: saved.status,
+        key: saved.key,
+        applicationId: saved.applicationId,
+      });
+
+      // Build SeerPayload (one per character for now; you can batch later)
+      payloads.push({
+        fromSeer: LOCAL_SEER_ID,
+        applicationId: saved.applicationId,
+        events: [event],
+        eventsHash: hashEvents([event]),
+        merkleRoot: merkleUpdate.newRoot,
+        proof: merkleUpdate.proof,
+        publicSignals: merkleUpdate.publicSignals,
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // Persist SeerEvents with monotonic seq
+    // -------------------------------------------------------------------------
+
+    if (events.length > 0) {
+      const lastEvent = await ctx.app.model.SeerEvent.findOne().sort({ seq: -1 }).lean().exec();
+      const baseSeq = (lastEvent?.seq ?? 0) + 1;
+
+      const docsToInsert = events.map((ev, idx) => ({
+        ...ev,
+        seq: baseSeq + idx,
+      }));
+
+      await ctx.app.model.SeerEvent.create(docsToInsert);
+    }
+
+    // -------------------------------------------------------------------------
+    // Persist SeerPayloads for cross-seer sync
+    // -------------------------------------------------------------------------
+
+    if (payloads.length > 0) {
+      await ctx.app.model.SeerPayload.create(payloads);
     }
 
     const total = await ctx.app.model.Character.find().countDocuments().exec();
 
     return { items, total };
-    // return out as any; // RouterOutput['saveCharacters']
   }
 
   async createCharacterAbility(

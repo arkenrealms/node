@@ -3,12 +3,15 @@
 import * as mongo from '../../util/mongo';
 import type * as Types from './core.types';
 
-const { addTagVirtuals, addApplicationVirtual } = mongo;
+const { createModel, addTagVirtuals, addApplicationVirtual } = mongo;
 
 // MerkleTree Model
-export const MerkleTree = mongo.createModel<Types.MerkleTreeDocument>(
+export const MerkleTree = createModel<Types.MerkleTreeDocument>(
   'MerkleTree',
-  {},
+  {
+    root: { type: String, required: true, default: '0x' + '0'.repeat(64) },
+    depth: { type: Number, required: true, default: 16 }, // log2(#leaves)
+  },
   {
     extend: 'CommonFields',
     virtuals: [...addTagVirtuals('MerkleTree'), ...addApplicationVirtual()],
@@ -16,17 +19,23 @@ export const MerkleTree = mongo.createModel<Types.MerkleTreeDocument>(
 );
 
 // MerkleNode Model
-export const MerkleNode = mongo.createModel<Types.MerkleNodeDocument>(
+export const MerkleNode = createModel<Types.MerkleNodeDocument>(
   'MerkleNode',
-  {},
+  {
+    treeId: { type: mongo.Schema.Types.ObjectId, ref: 'MerkleTree', required: true },
+    level: { type: Number, required: true }, // 0 = leaves
+    index: { type: Number, required: true }, // position in level
+    hash: { type: String, required: true },
+  },
   {
     extend: 'CommonFields',
+    indexes: [{ treeId: 1, level: 1, index: 1 }],
     virtuals: [...addTagVirtuals('MerkleNode'), ...addApplicationVirtual()],
   }
 );
 
 // Omniverse Model
-export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
+export const Omniverse = createModel<Types.OmniverseDocument>(
   'Omniverse',
   {
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
@@ -38,7 +47,7 @@ export const Omniverse = mongo.createModel<Types.OmniverseDocument>(
 );
 
 // Metaverse Model
-export const Metaverse = mongo.createModel<Types.MetaverseDocument>(
+export const Metaverse = createModel<Types.MetaverseDocument>(
   'Metaverse',
   {
     omniverseId: { type: mongo.Schema.Types.ObjectId, ref: 'Omniverse', required: true },
@@ -51,7 +60,7 @@ export const Metaverse = mongo.createModel<Types.MetaverseDocument>(
 );
 
 // Application Model
-export const Application = mongo.createModel<Types.ApplicationDocument>(
+export const Application = createModel<Types.ApplicationDocument>(
   'Application',
   {
     ownerId: { type: mongo.Schema.Types.ObjectId, ref: 'Account' },
@@ -180,7 +189,7 @@ export const Application = mongo.createModel<Types.ApplicationDocument>(
 );
 
 // Account Model
-export const Account = mongo.createModel<Types.AccountDocument>(
+export const Account = createModel<Types.AccountDocument>(
   'Account',
   {
     username: { type: String },
@@ -213,7 +222,7 @@ export const Account = mongo.createModel<Types.AccountDocument>(
 );
 
 // Achievement Model
-export const Achievement = mongo.createModel<Types.AchievementDocument>(
+export const Achievement = createModel<Types.AchievementDocument>(
   'Achievement',
   {},
   {
@@ -222,7 +231,7 @@ export const Achievement = mongo.createModel<Types.AchievementDocument>(
 );
 
 // Act Model
-export const Act = mongo.createModel<Types.ActDocument>(
+export const Act = createModel<Types.ActDocument>(
   'Act',
   {},
   {
@@ -231,7 +240,7 @@ export const Act = mongo.createModel<Types.ActDocument>(
 );
 
 // Agent Model
-export const Agent = mongo.createModel<Types.AgentDocument>(
+export const Agent = createModel<Types.AgentDocument>(
   'Agent',
   {},
   {
@@ -240,7 +249,7 @@ export const Agent = mongo.createModel<Types.AgentDocument>(
 );
 
 // Badge Model
-export const Badge = mongo.createModel<Types.BadgeDocument>(
+export const Badge = createModel<Types.BadgeDocument>(
   'Badge',
   {},
   {
@@ -249,7 +258,7 @@ export const Badge = mongo.createModel<Types.BadgeDocument>(
 );
 
 // BattlePass Model
-export const BattlePass = mongo.createModel<Types.BattlePassDocument>(
+export const BattlePass = createModel<Types.BattlePassDocument>(
   'BattlePass',
   {},
   {
@@ -258,7 +267,7 @@ export const BattlePass = mongo.createModel<Types.BattlePassDocument>(
 );
 
 // Biome Model
-export const Biome = mongo.createModel<Types.BiomeDocument>(
+export const Biome = createModel<Types.BiomeDocument>(
   'Biome',
   {},
   {
@@ -267,7 +276,7 @@ export const Biome = mongo.createModel<Types.BiomeDocument>(
 );
 
 // BiomeFeature Model
-export const BiomeFeature = mongo.createModel<Types.BiomeFeatureDocument>(
+export const BiomeFeature = createModel<Types.BiomeFeatureDocument>(
   'BiomeFeature',
   {},
   {
@@ -276,7 +285,7 @@ export const BiomeFeature = mongo.createModel<Types.BiomeFeatureDocument>(
 );
 
 // Bounty Model
-export const Bounty = mongo.createModel<Types.BountyDocument>(
+export const Bounty = createModel<Types.BountyDocument>(
   'Bounty',
   {},
   {
@@ -285,7 +294,7 @@ export const Bounty = mongo.createModel<Types.BountyDocument>(
 );
 
 // Collection Model
-export const Collection = mongo.createModel<Types.CollectionDocument>(
+export const Collection = createModel<Types.CollectionDocument>(
   'Collection',
   {},
   {
@@ -294,7 +303,7 @@ export const Collection = mongo.createModel<Types.CollectionDocument>(
 );
 
 // Comment Model
-export const Comment = mongo.createModel<Types.CommentDocument>(
+export const Comment = createModel<Types.CommentDocument>(
   'Comment',
   {
     body: { type: String, required: true },
@@ -309,7 +318,7 @@ export const Comment = mongo.createModel<Types.CommentDocument>(
 );
 
 // Community Model
-export const Community = mongo.createModel<Types.CommunityDocument>(
+export const Community = createModel<Types.CommunityDocument>(
   'Community',
   {
     ideas: [{ type: mongo.Schema.Types.ObjectId, ref: 'Idea' }],
@@ -322,7 +331,7 @@ export const Community = mongo.createModel<Types.CommunityDocument>(
 );
 
 // Company Model
-export const Company = mongo.createModel<Types.CompanyDocument>(
+export const Company = createModel<Types.CompanyDocument>(
   'Company',
   {
     content: { type: String },
@@ -334,7 +343,7 @@ export const Company = mongo.createModel<Types.CompanyDocument>(
 );
 
 // Conversation Model
-export const Conversation = mongo.createModel<Types.ConversationDocument>(
+export const Conversation = createModel<Types.ConversationDocument>(
   'Conversation',
   {
     profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
@@ -347,7 +356,7 @@ export const Conversation = mongo.createModel<Types.ConversationDocument>(
 );
 
 // Data Model
-export const Data = mongo.createModel<Types.DataDocument>(
+export const Data = createModel<Types.DataDocument>(
   'Data',
   {
     mod: { type: String, required: true },
@@ -357,7 +366,7 @@ export const Data = mongo.createModel<Types.DataDocument>(
   }
 );
 
-export const Meta = mongo.createModel<Types.DataDocument>(
+export const Meta = createModel<Types.DataDocument>(
   'Meta',
   {},
   {
@@ -366,7 +375,7 @@ export const Meta = mongo.createModel<Types.DataDocument>(
 );
 
 // Discussion Model
-export const Discussion = mongo.createModel<Types.DiscussionDocument>(
+export const Discussion = createModel<Types.DiscussionDocument>(
   'Discussion',
   {
     content: { type: String },
@@ -380,7 +389,7 @@ export const Discussion = mongo.createModel<Types.DiscussionDocument>(
 );
 
 // Energy Model
-export const Energy = mongo.createModel<Types.EnergyDocument>(
+export const Energy = createModel<Types.EnergyDocument>(
   'Energy',
   {},
   {
@@ -389,7 +398,7 @@ export const Energy = mongo.createModel<Types.EnergyDocument>(
 );
 
 // Event Model
-export const Event = mongo.createModel<Types.EventDocument>(
+export const Event = createModel<Types.EventDocument>(
   'Event',
   {},
   {
@@ -398,7 +407,7 @@ export const Event = mongo.createModel<Types.EventDocument>(
 );
 
 // File Model
-export const File = mongo.createModel<Types.FileDocument>(
+export const File = createModel<Types.FileDocument>(
   'File',
   {
     content: { type: String },
@@ -411,7 +420,7 @@ export const File = mongo.createModel<Types.FileDocument>(
 );
 
 // Galaxy Model
-export const Galaxy = mongo.createModel<Types.GalaxyDocument>(
+export const Galaxy = createModel<Types.GalaxyDocument>(
   'Galaxy',
   {
     universeId: { type: mongo.Schema.Types.ObjectId, ref: 'Universe' },
@@ -422,7 +431,7 @@ export const Galaxy = mongo.createModel<Types.GalaxyDocument>(
 );
 
 // Guide Model
-export const Guide = mongo.createModel<Types.GuideDocument>(
+export const Guide = createModel<Types.GuideDocument>(
   'Guide',
   {
     content: { type: String },
@@ -435,7 +444,7 @@ export const Guide = mongo.createModel<Types.GuideDocument>(
 );
 
 // Idea Model
-export const Idea = mongo.createModel<Types.IdeaDocument>(
+export const Idea = createModel<Types.IdeaDocument>(
   'Idea',
   {
     type: { type: String, max: 100 },
@@ -447,7 +456,7 @@ export const Idea = mongo.createModel<Types.IdeaDocument>(
 );
 
 // Leaderboard Model
-export const Leaderboard = mongo.createModel<Types.LeaderboardDocument>(
+export const Leaderboard = createModel<Types.LeaderboardDocument>(
   'Leaderboard',
   {
     productId: { type: mongo.Schema.Types.ObjectId, ref: 'Product' },
@@ -458,7 +467,7 @@ export const Leaderboard = mongo.createModel<Types.LeaderboardDocument>(
 );
 
 // Log Model
-export const Log = mongo.createModel<Types.LogDocument>(
+export const Log = createModel<Types.LogDocument>(
   'Log',
   {
     mod: { type: String, required: true },
@@ -471,7 +480,7 @@ export const Log = mongo.createModel<Types.LogDocument>(
 );
 
 // Lore Model
-export const Lore = mongo.createModel<Types.LoreDocument>(
+export const Lore = createModel<Types.LoreDocument>(
   'Lore',
   {
     gameId: { type: mongo.Schema.Types.ObjectId, ref: 'Game' },
@@ -482,7 +491,7 @@ export const Lore = mongo.createModel<Types.LoreDocument>(
 );
 
 // Market Model
-export const Market = mongo.createModel<Types.MarketDocument>(
+export const Market = createModel<Types.MarketDocument>(
   'Market',
   {},
   {
@@ -491,7 +500,7 @@ export const Market = mongo.createModel<Types.MarketDocument>(
 );
 
 // Memory Model
-export const Memory = mongo.createModel<Types.MemoryDocument>(
+export const Memory = createModel<Types.MemoryDocument>(
   'Memory',
   {},
   {
@@ -500,7 +509,7 @@ export const Memory = mongo.createModel<Types.MemoryDocument>(
 );
 
 // Message Model
-export const Message = mongo.createModel<Types.MessageDocument>(
+export const Message = createModel<Types.MessageDocument>(
   'Message',
   {
     content: { type: String },
@@ -516,7 +525,7 @@ export const Message = mongo.createModel<Types.MessageDocument>(
 );
 
 // NewsArticle Model
-export const NewsArticle = mongo.createModel<Types.NewsArticleDocument>(
+export const NewsArticle = createModel<Types.NewsArticleDocument>(
   'NewsArticle',
   {
     href: { type: String, required: true },
@@ -528,7 +537,7 @@ export const NewsArticle = mongo.createModel<Types.NewsArticleDocument>(
 );
 
 // Npc Model
-export const Npc = mongo.createModel<Types.NpcDocument>(
+export const Npc = createModel<Types.NpcDocument>(
   'Npc',
   {
     characterId: { type: mongo.Schema.Types.ObjectId, ref: 'Character' },
@@ -539,7 +548,7 @@ export const Npc = mongo.createModel<Types.NpcDocument>(
 );
 
 // Offer Model
-export const Offer = mongo.createModel<Types.OfferDocument>(
+export const Offer = createModel<Types.OfferDocument>(
   'Offer',
   {},
   {
@@ -548,7 +557,7 @@ export const Offer = mongo.createModel<Types.OfferDocument>(
 );
 
 // Order Model
-export const Order = mongo.createModel<Types.OrderDocument>(
+export const Order = createModel<Types.OrderDocument>(
   'Order',
   {},
   {
@@ -557,7 +566,7 @@ export const Order = mongo.createModel<Types.OrderDocument>(
 );
 
 // Payment Model
-export const Payment = mongo.createModel<Types.PaymentDocument>(
+export const Payment = createModel<Types.PaymentDocument>(
   'Payment',
   {
     status: {
@@ -584,7 +593,7 @@ export const Payment = mongo.createModel<Types.PaymentDocument>(
 );
 
 // Permission Model
-export const Permission = mongo.createModel<Types.PermissionDocument>(
+export const Permission = createModel<Types.PermissionDocument>(
   'Permission',
   {
     roles: [{ type: mongo.Schema.Types.ObjectId, ref: 'Role' }],
@@ -595,7 +604,7 @@ export const Permission = mongo.createModel<Types.PermissionDocument>(
 );
 
 // Person Model
-export const Person = mongo.createModel<Types.PersonDocument>(
+export const Person = createModel<Types.PersonDocument>(
   'Person',
   {
     content: { type: String },
@@ -607,7 +616,7 @@ export const Person = mongo.createModel<Types.PersonDocument>(
 );
 
 // Planet Model
-export const Planet = mongo.createModel<Types.PlanetDocument>(
+export const Planet = createModel<Types.PlanetDocument>(
   'Planet',
   {
     solarSystemId: { type: mongo.Schema.Types.ObjectId, ref: 'SolarSystem' },
@@ -618,7 +627,7 @@ export const Planet = mongo.createModel<Types.PlanetDocument>(
 );
 
 // Poll Model
-export const Poll = mongo.createModel<Types.PollDocument>(
+export const Poll = createModel<Types.PollDocument>(
   'Poll',
   {},
   {
@@ -627,7 +636,7 @@ export const Poll = mongo.createModel<Types.PollDocument>(
 );
 
 // Project Model
-export const Project = mongo.createModel<Types.ProjectDocument>(
+export const Project = createModel<Types.ProjectDocument>(
   'Project',
   {
     content: { type: String },
@@ -644,7 +653,7 @@ export const Project = mongo.createModel<Types.ProjectDocument>(
 );
 
 // Proposal Model
-export const Proposal = mongo.createModel<Types.ProposalDocument>(
+export const Proposal = createModel<Types.ProposalDocument>(
   'Proposal',
   {
     content: { type: String },
@@ -655,7 +664,7 @@ export const Proposal = mongo.createModel<Types.ProposalDocument>(
 );
 
 // Quest Model
-export const Quest = mongo.createModel<Types.QuestDocument>(
+export const Quest = createModel<Types.QuestDocument>(
   'Quest',
   {
     type: { type: String, default: 'zone' },
@@ -666,7 +675,7 @@ export const Quest = mongo.createModel<Types.QuestDocument>(
 );
 
 // Question Model
-export const Question = mongo.createModel<Types.QuestionDocument>(
+export const Question = createModel<Types.QuestionDocument>(
   'Question',
   {
     topics: [mongo.Schema.Types.Mixed],
@@ -680,7 +689,7 @@ export const Question = mongo.createModel<Types.QuestionDocument>(
 );
 
 // Rating Model
-export const Rating = mongo.createModel<Types.RatingDocument>(
+export const Rating = createModel<Types.RatingDocument>(
   'Rating',
   {
     votes: [{ type: mongo.Schema.Types.ObjectId, ref: 'Vote' }],
@@ -691,7 +700,7 @@ export const Rating = mongo.createModel<Types.RatingDocument>(
 );
 
 // Realm Model
-export const Realm = mongo.createModel<Types.RealmDocument>(
+export const Realm = createModel<Types.RealmDocument>(
   'Realm',
   {
     endpoint: { type: String },
@@ -712,7 +721,7 @@ export const Realm = mongo.createModel<Types.RealmDocument>(
 );
 
 // RealmEvent Model
-export const RealmEvent = mongo.createModel<Types.RealmEventDocument>(
+export const RealmEvent = createModel<Types.RealmEventDocument>(
   'RealmEvent',
   {
     description: { type: String, required: true },
@@ -725,7 +734,7 @@ export const RealmEvent = mongo.createModel<Types.RealmEventDocument>(
 );
 
 // RealmTrait Model
-export const RealmTrait = mongo.createModel<Types.RealmTraitDocument>(
+export const RealmTrait = createModel<Types.RealmTraitDocument>(
   'RealmTrait',
   {
     description: { type: String, required: true },
@@ -736,7 +745,7 @@ export const RealmTrait = mongo.createModel<Types.RealmTraitDocument>(
 );
 
 // Referral Model
-export const Referral = mongo.createModel<Types.ReferralDocument>(
+export const Referral = createModel<Types.ReferralDocument>(
   'Referral',
   {
     recipientId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
@@ -748,7 +757,7 @@ export const Referral = mongo.createModel<Types.ReferralDocument>(
 );
 
 // Review Model
-export const Review = mongo.createModel<Types.ReviewDocument>(
+export const Review = createModel<Types.ReviewDocument>(
   'Review',
   {
     value: { type: String },
@@ -759,7 +768,7 @@ export const Review = mongo.createModel<Types.ReviewDocument>(
 );
 
 // Role Model
-export const Role = mongo.createModel<Types.RoleDocument>(
+export const Role = createModel<Types.RoleDocument>(
   'Role',
   {
     value: { type: String },
@@ -772,7 +781,7 @@ export const Role = mongo.createModel<Types.RoleDocument>(
 );
 
 // Season Model
-export const Season = mongo.createModel<Types.SeasonDocument>(
+export const Season = createModel<Types.SeasonDocument>(
   'Season',
   {},
   {
@@ -781,7 +790,7 @@ export const Season = mongo.createModel<Types.SeasonDocument>(
 );
 
 // RealmShard Model
-export const RealmShard = mongo.createModel<Types.RealmShardDocument>(
+export const RealmShard = createModel<Types.RealmShardDocument>(
   'RealmShard',
   {
     realmId: { type: mongo.Schema.Types.ObjectId, ref: 'Realm' },
@@ -795,7 +804,7 @@ export const RealmShard = mongo.createModel<Types.RealmShardDocument>(
 );
 
 // Session Model
-export const Session = mongo.createModel<Types.SessionDocument>(
+export const Session = createModel<Types.SessionDocument>(
   'Session',
   {
     expired: { type: Date, required: true },
@@ -806,7 +815,7 @@ export const Session = mongo.createModel<Types.SessionDocument>(
 );
 
 // SolarSystem Model
-export const SolarSystem = mongo.createModel<Types.SolarSystemDocument>(
+export const SolarSystem = createModel<Types.SolarSystemDocument>(
   'SolarSystem',
   {
     galaxyId: { type: mongo.Schema.Types.ObjectId, ref: 'Galaxy' },
@@ -817,7 +826,7 @@ export const SolarSystem = mongo.createModel<Types.SolarSystemDocument>(
 );
 
 // Star Model
-export const Star = mongo.createModel<Types.StarDocument>(
+export const Star = createModel<Types.StarDocument>(
   'Star',
   {},
   {
@@ -826,7 +835,7 @@ export const Star = mongo.createModel<Types.StarDocument>(
 );
 
 // Stat Model
-export const Stat = mongo.createModel<Types.StatDocument>(
+export const Stat = createModel<Types.StatDocument>(
   'Stat',
   {
     number: { type: Number, default: 0 },
@@ -837,7 +846,7 @@ export const Stat = mongo.createModel<Types.StatDocument>(
 );
 
 // Stash Model
-export const Stash = mongo.createModel<Types.StashDocument>(
+export const Stash = createModel<Types.StashDocument>(
   'Stash',
   {},
   {
@@ -846,7 +855,7 @@ export const Stash = mongo.createModel<Types.StashDocument>(
 );
 
 // Stock Model
-export const Stock = mongo.createModel<Types.StockDocument>(
+export const Stock = createModel<Types.StockDocument>(
   'Stock',
   {
     rank: { type: Number, min: 0 },
@@ -865,7 +874,7 @@ export const Stock = mongo.createModel<Types.StockDocument>(
 );
 
 // Suggestion Model
-export const Suggestion = mongo.createModel<Types.SuggestionDocument>(
+export const Suggestion = createModel<Types.SuggestionDocument>(
   'Suggestion',
   {
     content: { type: String },
@@ -876,7 +885,7 @@ export const Suggestion = mongo.createModel<Types.SuggestionDocument>(
 );
 
 // Tag Model
-export const Tag = mongo.createModel<Types.TagDocument>(
+export const Tag = createModel<Types.TagDocument>(
   'Tag',
   {
     value: { type: String },
@@ -887,7 +896,7 @@ export const Tag = mongo.createModel<Types.TagDocument>(
 );
 
 // Team Model
-export const Team = mongo.createModel<Types.TeamDocument>(
+export const Team = createModel<Types.TeamDocument>(
   'Team',
   {
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
@@ -909,7 +918,7 @@ export const Team = mongo.createModel<Types.TeamDocument>(
 );
 
 // Tournament Model
-export const Tournament = mongo.createModel<Types.TournamentDocument>(
+export const Tournament = createModel<Types.TournamentDocument>(
   'Tournament',
   {},
   {
@@ -918,7 +927,7 @@ export const Tournament = mongo.createModel<Types.TournamentDocument>(
 );
 
 // Trade Model
-export const Trade = mongo.createModel<Types.TradeDocument>(
+export const Trade = createModel<Types.TradeDocument>(
   'Trade',
   {
     status: {
@@ -939,7 +948,7 @@ export const Trade = mongo.createModel<Types.TradeDocument>(
 );
 
 // Universe Model
-export const Universe = mongo.createModel<Types.UniverseDocument>(
+export const Universe = createModel<Types.UniverseDocument>(
   'Universe',
   {},
   {
@@ -948,7 +957,7 @@ export const Universe = mongo.createModel<Types.UniverseDocument>(
 );
 
 // Validator Model
-export const Validator = mongo.createModel<Types.ValidatorDocument>(
+export const Validator = createModel<Types.ValidatorDocument>(
   'Validator',
   {},
   {
@@ -957,7 +966,7 @@ export const Validator = mongo.createModel<Types.ValidatorDocument>(
 );
 
 // Vote Model
-export const Vote = mongo.createModel<Types.VoteDocument>(
+export const Vote = createModel<Types.VoteDocument>(
   'Vote',
   {
     ratingId: { type: mongo.Schema.Types.ObjectId, ref: 'Rating' },
@@ -986,7 +995,7 @@ export const Vote = mongo.createModel<Types.VoteDocument>(
 );
 
 // WorldEvent Model
-export const WorldEvent = mongo.createModel<Types.WorldEventDocument>(
+export const WorldEvent = createModel<Types.WorldEventDocument>(
   'WorldEvent',
   {
     text: { type: String, required: true },
@@ -999,7 +1008,7 @@ export const WorldEvent = mongo.createModel<Types.WorldEventDocument>(
 );
 
 // WorldRecord Model
-export const WorldRecord = mongo.createModel<Types.WorldRecordDocument>(
+export const WorldRecord = createModel<Types.WorldRecordDocument>(
   'WorldRecord',
   {
     holderId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
@@ -1022,7 +1031,7 @@ export const WorldRecord = mongo.createModel<Types.WorldRecordDocument>(
 );
 
 // Node Model (for polymorphic relationships)
-export const Node = mongo.createModel<Types.NodeDocument>(
+export const Node = createModel<Types.NodeDocument>(
   'Node',
   {
     relationKey: { type: String, required: true },
@@ -1039,7 +1048,7 @@ export const Node = mongo.createModel<Types.NodeDocument>(
   }
 );
 
-export const Prefab = mongo.createModel<Types.PrefabDocument>(
+export const Prefab = createModel<Types.PrefabDocument>(
   'Prefab',
   {
     name: { type: String, required: true },
@@ -1060,7 +1069,7 @@ export const Prefab = mongo.createModel<Types.PrefabDocument>(
   }
 );
 
-export const Object = mongo.createModel<Types.ObjectDocument>(
+export const Object = createModel<Types.ObjectDocument>(
   'Object',
   {
     prefabId: { type: mongo.Schema.Types.ObjectId, ref: 'Prefab', required: true },
@@ -1088,7 +1097,7 @@ export const Object = mongo.createModel<Types.ObjectDocument>(
   }
 );
 
-export const ObjectInteraction = mongo.createModel<Types.ObjectInteractionDocument>(
+export const ObjectInteraction = createModel<Types.ObjectInteractionDocument>(
   'ObjectInteraction',
   {
     profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
@@ -1104,7 +1113,7 @@ export const ObjectInteraction = mongo.createModel<Types.ObjectInteractionDocume
 );
 
 // Party Model
-export const Party = mongo.createModel<Types.PartyDocument>(
+export const Party = createModel<Types.PartyDocument>(
   'Party',
   {
     targetAreaId: { type: mongo.Schema.Types.ObjectId, ref: 'Area', required: false }, // Adjust 'Area' to actual collection if known
@@ -1149,5 +1158,54 @@ export const Party = mongo.createModel<Types.PartyDocument>(
       ...addTagVirtuals('Party'),
       ...addApplicationVirtual(),
     ],
+  }
+);
+
+export const SeerEvent = mongo.createModel<Types.SeerEventDocument>(
+  'SeerEvent',
+  {
+    kind: { type: String, required: true }, // model name: 'Character', 'Item', etc.
+    operation: {
+      type: String,
+      enum: ['create', 'update', 'delete'],
+      required: true,
+    },
+    recordId: { type: String, required: true },
+    applicationId: { type: mongo.Schema.Types.ObjectId, ref: 'Application' },
+
+    // ✅ this is the important fix: schema *object* with `type: Mixed`
+    payload: { type: mongo.Schema.Types.Mixed, required: true },
+
+    seq: { type: Number, required: true, index: true },
+    timestamp: { type: Date, default: Date.now, index: true },
+  },
+  {
+    extend: 'CommonFields', // or 'EntityFields' if you want applicationId/ownerId, but you already have applicationId above
+    indexes: [{ seq: 1 }, { timestamp: 1 }],
+  }
+);
+
+export const SeerPayload = mongo.createModel<Types.SeerPayloadDocument>(
+  'SeerPayload',
+  {
+    fromSeer: { type: String, required: true },
+    applicationId: { type: mongo.Schema.Types.ObjectId, ref: 'Application' },
+
+    // list of raw events we snapshot
+    // TS doesn't love `[Mixed]`, so we cast this field only
+    events: {
+      type: [mongo.Schema.Types.Mixed],
+      default: [],
+    } as any,
+
+    eventsHash: { type: String, required: true },
+    merkleRoot: { type: String, required: true },
+
+    proof: { type: mongo.Schema.Types.Mixed, required: true },
+    publicSignals: { type: [String], default: [] },
+  },
+  {
+    extend: 'CommonFields',
+    indexes: [{ createdDate: 1 }],
   }
 );

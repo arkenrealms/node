@@ -114,7 +114,10 @@ export class Service {
 
     if (!ctx.client.profile) throw new Error('Profile not found: ' + input.address);
 
-    if (input.address === '0xDfA8f768d82D719DC68E12B199090bDc3691fFc7') {
+    if (
+      input.address === '0xDfA8f768d82D719DC68E12B199090bDc3691fFc7' || // realm
+      input.address === '0x81F8C054667046171C0EAdC73063Da557a828d6f' // seer
+    ) {
       if (!ctx.client.roles) ctx.client.roles = [];
 
       ctx.client.roles.push('mod');
@@ -153,6 +156,24 @@ export class Service {
         'Distribute Rewards': false,
       },
     };
+  }
+
+  async syncGetPayloadsSince(
+    input: RouterInput['syncGetPayloadsSince'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['syncGetPayloadsSince']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Core.Service.syncGetPayloadsSince', input);
+
+    const sinceDate = new Date(input.since);
+
+    const payloads = await ctx.app.model.SeerPayload.find({
+      createdAt: { $gt: sinceDate },
+    })
+      .lean()
+      .exec();
+
+    return { payloads };
   }
 
   // Account Methods

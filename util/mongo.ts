@@ -16,6 +16,7 @@ import mongoose, {
   ProjectionType,
   Collection,
 } from 'mongoose';
+import crypto from 'crypto';
 
 import { VirtualType, HydratedDocument } from 'mongoose';
 
@@ -50,6 +51,33 @@ function isPlainObject(val: any): boolean {
   return (
     val !== null && typeof val === 'object' && !Array.isArray(val) && Object.getPrototypeOf(val) === Object.prototype
   );
+}
+// ---------------------------------------------------------------------------
+// Hash helper for zk / event batching
+// ---------------------------------------------------------------------------
+export function hashEvents(events: any[]): string {
+  const raw = JSON.stringify(events);
+  return crypto.createHash('sha256').update(raw).digest('hex');
+}
+
+// ---------------------------------------------------------------------------
+// Simple global sequence generator for SeerEvent.seq
+// ---------------------------------------------------------------------------
+interface CounterDocument extends Document {
+  key: string;
+  value: number;
+}
+
+const CounterSchema = new Schema<CounterDocument>({
+  key: { type: String, required: true, unique: true },
+  value: { type: Number, required: true, default: 0 },
+});
+
+const CounterModel = mongoose.model<CounterDocument>('SeerCounter', CounterSchema);
+
+export async function getNextSeq(key: string = 'seerEvent'): Promise<number> {
+  const doc = await CounterModel.findOneAndUpdate({ key }, { $inc: { value: 1 } }, { upsert: true, new: true }).exec();
+  return doc.value;
 }
 
 /**
@@ -618,6 +646,11 @@ const EntityFields = {
   ownerId: { type: Schema.Types.ObjectId, ref: 'Profile' },
 };
 
+interface CacheConfig {
+  enabled?: boolean;
+  ttlMs?: number;
+}
+
 interface CustomSchemaOptions extends SchemaOptions {
   extend?: 'EntityFields' | 'CommonFields';
   indexes?: { [field: string]: any }[];
@@ -627,6 +660,9 @@ interface CustomSchemaOptions extends SchemaOptions {
   // Ontology config
   pkFields?: string[];
   keyFields?: string[];
+
+  // Per-model cache configuration
+  cache?: CacheConfig;
 }
 
 export function createSchema<T>(
@@ -640,6 +676,7 @@ export function createSchema<T>(
   let schema: Schema<T>;
 
   const schemaOptions: any = {
+    minimize: false,
     timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
     collection: collectionName,
   };
@@ -760,7 +797,8 @@ export function createModel<T extends Document>(
 
   const schema = createSchema<T>(key, schemaFields, options);
 
-  const res = new Model<T>(mongoose.model<T>(key, schema));
+  // NEW: pass cache config to Model
+  const res = new Model<T>(mongoose.model<T>(key, schema), { cache: options.cache });
 
   modelMap[key] = res;
 
@@ -768,8 +806,51 @@ export function createModel<T extends Document>(
 }
 
 // ---------------------------------------------------------------------------
+// zkSNARK verification hook (pluggable)
+// ---------------------------------------------------------------------------
+
+export type ZkProofPayload = {
+  walletAddress: string; // address that "owns" this operation
+  proof: any; // zk proof blob
+  publicSignals?: any; // optional public inputs from the circuit
+};
+
+export type ZkVerifyContext = {
+  kind: string; // model name, e.g. 'Item'
+  operation: 'create' | 'update';
+  filter?: any;
+  update?: any;
+  doc?: any; // doc(s) being created, for createWithProof
+};
+
+export type ZkVerifier = (payload: ZkProofPayload, ctx: ZkVerifyContext) => Promise<boolean> | boolean;
+
+let globalZkVerifier: ZkVerifier | null = null;
+
+// Call this during app bootstrap to plug in your real zk verifier.
+export function setZkVerifier(verifier: ZkVerifier) {
+  globalZkVerifier = verifier;
+}
+
+async function verifyZkOrThrow(payload: ZkProofPayload, ctx: ZkVerifyContext): Promise<void> {
+  if (!globalZkVerifier) {
+    // If no verifier is registered, treat as "no zk enforcement" (or throw if you want hard fail).
+    return;
+  }
+
+  const ok = await globalZkVerifier(payload, ctx);
+  if (!ok) {
+    throw new Error('Invalid zk proof for operation');
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Model wrapper
 // ---------------------------------------------------------------------------
+
+type ModelConfig = {
+  cache?: CacheConfig;
+};
 
 export class Model<T extends Document> {
   protected model: MongooseModel<T>;
@@ -780,14 +861,48 @@ export class Model<T extends Document> {
 
   private docSaveQueue = new WeakMap<Document, Promise<T>>();
 
-  constructor(model: MongooseModel<T>) {
+  // NEW: cache config + store
+  private cacheConfig: { enabled: boolean; ttlMs: number };
+  private cache = new Map<string, { doc: T; fetchedAt: number }>();
+
+  constructor(model: MongooseModel<T>, config: ModelConfig = {}) {
     this.model = model;
     this.collection = model.collection;
     this.schema = model.schema;
+
+    this.cacheConfig = {
+      enabled: config.cache?.enabled ?? false,
+      ttlMs: config.cache?.ttlMs ?? 60_000, // default 60s
+    };
   }
 
   private get kind(): string {
     return this.model.modelName;
+  }
+
+  private buildCacheKey(id: Types.ObjectId | string, applicationId?: any): string {
+    const appId = normalizeAppId(applicationId);
+    const appKey = appId ? appId.toString() : 'global';
+    const idStr = typeof id === 'string' ? id : id.toString();
+    return `${appKey}:${idStr}`;
+  }
+
+  private getFromCache(key: string): T | null {
+    if (!this.cacheConfig.enabled) return null;
+    const entry = this.cache.get(key);
+    if (!entry) return null;
+
+    if (Date.now() - entry.fetchedAt > this.cacheConfig.ttlMs) {
+      this.cache.delete(key);
+      return null;
+    }
+
+    return entry.doc;
+  }
+
+  private setCache(key: string, doc: T): void {
+    if (!this.cacheConfig.enabled) return;
+    this.cache.set(key, { doc, fetchedAt: Date.now() });
   }
 
   private isClusterEnabled(): boolean {
@@ -810,9 +925,9 @@ export class Model<T extends Document> {
       }
 
       let filter = this.getFilter ? this.getFilter() : this._conditions || {};
-      filter = { ...filter }; // clone so we don't mutate the original object outside
+      filter = { ...filter }; // clone
 
-      // direct _id-only with no tags: skip cluster
+      // direct _id-only with no tags: try cache first, skip cluster
       const hasIdOnly =
         filter &&
         Object.keys(filter).length === 1 &&
@@ -820,7 +935,60 @@ export class Model<T extends Document> {
         !Object.prototype.hasOwnProperty.call(filter, 'tags');
 
       if (hasIdOnly) {
-        return rawExec.apply(this, args);
+        const appId =
+          filter.applicationId ??
+          (wrapper.filterOmitModels.includes(wrapper.kind) ? undefined : wrapper.filters.applicationId);
+
+        const idCond = filter._id;
+
+        // Attempt cache lookup
+        if (wrapper.cacheConfig.enabled && idCond) {
+          if (op === 'findOne') {
+            if (!idCond.$in && !idCond.$nin && typeof idCond !== 'object') {
+              const key = wrapper.buildCacheKey(idCond, appId);
+              const cached = wrapper.getFromCache(key);
+              if (cached) return cached;
+            }
+          } else if (op === 'find') {
+            if (idCond && typeof idCond === 'object' && '$in' in idCond) {
+              const ids: any[] = idCond.$in || [];
+              const results: any[] = [];
+              let allHit = true;
+
+              for (const id of ids) {
+                const key = wrapper.buildCacheKey(id, appId);
+                const cached = wrapper.getFromCache(key);
+                if (!cached) {
+                  allHit = false;
+                  break;
+                }
+                results.push(cached);
+              }
+
+              if (allHit) {
+                return results;
+              }
+            }
+          }
+        }
+
+        // No cache hit, fallback to DB and then populate cache (for simple cases)
+        const res = await rawExec.apply(this, args);
+
+        if (wrapper.cacheConfig.enabled && res) {
+          if (op === 'findOne' && res && !Array.isArray(res)) {
+            const key = wrapper.buildCacheKey(res._id, appId);
+            wrapper.setCache(key, res);
+          } else if (op === 'find' && Array.isArray(res)) {
+            for (const d of res) {
+              if (!d || !d._id) continue;
+              const key = wrapper.buildCacheKey(d._id, appId);
+              wrapper.setCache(key, d);
+            }
+          }
+        }
+
+        return res;
       }
 
       // get pk/tags presence
@@ -909,7 +1077,22 @@ export class Model<T extends Document> {
           const newFilter: any = { _id: best.currentId };
           if (applicationId) newFilter.applicationId = applicationId;
           this._conditions = newFilter;
-          return rawExec.apply(this, args);
+
+          // Try cache with resolved _id
+          if (wrapper.cacheConfig.enabled) {
+            const key = wrapper.buildCacheKey(best.currentId, applicationId);
+            const cached = wrapper.getFromCache(key);
+            if (cached) return cached;
+          }
+
+          const res = await rawExec.apply(this, args);
+
+          if (res && wrapper.cacheConfig.enabled) {
+            const key = wrapper.buildCacheKey(best.currentId, applicationId);
+            wrapper.setCache(key, res);
+          }
+
+          return res;
         } else {
           const ids = clusters.map((c) => c.currentId).filter((id): id is Types.ObjectId => !!id);
 
@@ -926,7 +1109,36 @@ export class Model<T extends Document> {
           const newFilter: any = { _id: { $in: ids } };
           if (applicationId) newFilter.applicationId = applicationId;
           this._conditions = newFilter;
-          return rawExec.apply(this, args);
+
+          // Optional: serve from cache if we have all ids cached
+          if (wrapper.cacheConfig.enabled) {
+            const results: T[] = [];
+            let allHit = true;
+
+            for (const id of ids) {
+              const key = wrapper.buildCacheKey(id, applicationId);
+              const cached = wrapper.getFromCache(key);
+              if (!cached) {
+                allHit = false;
+                break;
+              }
+              results.push(cached);
+            }
+
+            if (allHit) return results;
+          }
+
+          const res = await rawExec.apply(this, args);
+
+          if (res && Array.isArray(res) && wrapper.cacheConfig.enabled) {
+            for (const d of res) {
+              if (!d || !d._id) continue;
+              const key = wrapper.buildCacheKey(d._id, applicationId);
+              wrapper.setCache(key, d);
+            }
+          }
+
+          return res;
         }
       } catch (err) {
         console.warn('[Cluster] error during ontology resolution, falling back', {
@@ -976,32 +1188,56 @@ export class Model<T extends Document> {
     return query.exec();
   }
 
+  private applyDefaultFilters(filter: FilterQuery<T> = {}): FilterQuery<T> {
+    const f: any = { ...filter };
+
+    // applicationId scoping for most models
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
+      if (f.applicationId === undefined) {
+        f.applicationId = this.filters.applicationId;
+      }
+    }
+
+    // Default: ignore archived records, unless caller explicitly set status
+    if (this.schema.path('status') && f.status === undefined) {
+      f.status = { $ne: 'Archived' } as any;
+    }
+
+    return f;
+  }
+
   // Cluster-aware find: returns Query, ontology resolution happens in exec()
+  // Override the find method to include filters
   find(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
     options?: mongoose.QueryOptions
   ): Query<T[], T> {
-    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
-      // @ts-ignore
-      filter.applicationId = this.filters.applicationId;
-    }
-    const q = this.model.find(filter, projection, options);
-    return this.wrapQueryWithCluster(q, false);
+    const finalFilter = this.applyDefaultFilters(filter);
+    console.log('find', finalFilter);
+    return this.model.find(finalFilter, projection, options);
   }
 
-  // Cluster-aware findOne: returns Query, ontology resolution happens in exec()
+  // Override the findOne method to include filters
   findOne(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
     options?: QueryOptions
   ): Query<T | null, T> {
-    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
-      // @ts-ignore
-      filter.applicationId = this.filters.applicationId;
-    }
-    const q = this.model.findOne(filter, projection, options);
-    return this.wrapQueryWithCluster(q, true);
+    const finalFilter = this.applyDefaultFilters(filter);
+    console.log('findOne', finalFilter);
+    return this.model.findOne(finalFilter, projection, options);
+  }
+
+  // Override the findById method so it also ignores Archived by default
+  findById(
+    id: Types.ObjectId | string,
+    projection?: ProjectionType<T> | null,
+    options?: QueryOptions
+  ): Query<T | null, T> {
+    const filter: any = { _id: id };
+    const finalFilter = this.applyDefaultFilters(filter);
+    return this.model.findOne(finalFilter, projection, options);
   }
 
   // Raw find (no cluster) if you ever need it
@@ -1015,15 +1251,6 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
     return this.model.find(filter, projection, options);
-  }
-
-  // Override the findById method (raw, no ontology)
-  findById(
-    id: Types.ObjectId | string,
-    projection?: ProjectionType<T> | null,
-    options?: QueryOptions
-  ): Query<T | null, T> {
-    return this.model.findById(id, projection, options);
   }
 
   // Override the findOneAndUpdate method to include filters (raw)
@@ -1078,7 +1305,6 @@ export class Model<T extends Document> {
     return this.model.findOneAndDelete(filter, options);
   }
 
-  // Cluster-aware create: insert entity, upsert Cluster, set currentId/currentRevision, link clusterId
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
@@ -1106,6 +1332,13 @@ export class Model<T extends Document> {
         if ('clusterId' in d && !d.clusterId) {
           d.clusterId = cluster._id;
           await d.save();
+        }
+
+        // NEW: seed cache
+        if (this.cacheConfig.enabled && d._id) {
+          const appId = (d as any).applicationId ?? this.filters.applicationId;
+          const key = this.buildCacheKey(d._id, appId);
+          this.setCache(key, d);
         }
       }
       return res;
@@ -1219,6 +1452,38 @@ export class Model<T extends Document> {
 
     // Return the doc once the new promise completes
     return newSavePromise;
+  }
+
+  // -------------------------------------------------------------------------
+  // zkSNARK-aware helpers
+  // -------------------------------------------------------------------------
+
+  async createWithProof(doc: Partial<T>, proof: ZkProofPayload): Promise<T>;
+  async createWithProof(docs: Partial<T>[], proof: ZkProofPayload): Promise<T[]>;
+  async createWithProof(docOrDocs: Partial<T> | Partial<T>[], proof: ZkProofPayload): Promise<T | T[]> {
+    await verifyZkOrThrow(proof, {
+      kind: this.kind,
+      operation: 'create',
+      doc: docOrDocs,
+    });
+
+    return this.create(docOrDocs as any);
+  }
+
+  async updateOneWithProof(
+    filter: FilterQuery<T>,
+    update: UpdateQuery<T> | UpdateWithAggregationPipeline,
+    proof: ZkProofPayload,
+    options?: any
+  ): Promise<UpdateWriteOpResult> {
+    await verifyZkOrThrow(proof, {
+      kind: this.kind,
+      operation: 'update',
+      filter,
+      update,
+    });
+
+    return this.updateOne(filter, update, options).exec();
   }
 }
 

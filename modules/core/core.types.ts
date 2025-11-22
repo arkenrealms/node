@@ -236,6 +236,21 @@ export type WorldRecordDocument = WorldRecord & Document;
 export type Node = z.infer<typeof schema.Node>;
 export type NodeDocument = Node & Document;
 
+export type Prefab = z.infer<typeof schema.Prefab>;
+export type PrefabDocument = Prefab & Document;
+
+export type Object = z.infer<typeof schema.Object>;
+export type ObjectDocument = Object & Document;
+
+export type ObjectInteraction = z.infer<typeof schema.ObjectInteraction>;
+export type ObjectInteractionDocument = ObjectInteraction & Document;
+
+export type SeerEvent = z.infer<typeof schema.SeerEvent>;
+export type SeerEventDocument = SeerEvent & Document;
+
+export type SeerPayload = z.infer<typeof schema.SeerPayload>;
+export type SeerPayloadDocument = SeerPayload & Document;
+
 // Define model mappings
 export type Mappings = {
   Account: Model<AccountDocument>;
@@ -270,6 +285,8 @@ export type Mappings = {
   Metaverse: Model<MetaverseDocument>;
   NewsArticle: Model<NewsArticleDocument>;
   Npc: Model<NpcDocument>;
+  Object: Model<ObjectDocument>;
+  ObjectInteraction: Model<ObjectInteractionDocument>;
   Offer: Model<OfferDocument>;
   Omniverse: Model<OmniverseDocument>;
   Order: Model<OrderDocument>;
@@ -279,6 +296,7 @@ export type Mappings = {
   Person: Model<PersonDocument>;
   Planet: Model<PlanetDocument>;
   Poll: Model<PollDocument>;
+  Prefab: Model<PrefabDocument>;
   Project: Model<ProjectDocument>;
   Proposal: Model<ProposalDocument>;
   Quest: Model<QuestDocument>;
@@ -292,6 +310,8 @@ export type Mappings = {
   Review: Model<ReviewDocument>;
   Role: Model<RoleDocument>;
   Season: Model<SeasonDocument>;
+  SeerEvent: Model<SeerEventDocument>;
+  SeerPayload: Model<SeerPayloadDocument>;
   Session: Model<SessionDocument>;
   SolarSystem: Model<SolarSystemDocument>;
   Star: Model<StarDocument>;
@@ -310,12 +330,3 @@ export type Mappings = {
   WorldRecord: Model<WorldRecordDocument>;
   Node: Model<NodeDocument>; // Added Node model mapping
 };
-
-export type Prefab = z.infer<typeof schema.Prefab>;
-export type PrefabDocument = Prefab & Document;
-
-export type Object = z.infer<typeof schema.Object>;
-export type ObjectDocument = Object & Document;
-
-export type ObjectInteraction = z.infer<typeof schema.ObjectInteraction>;
-export type ObjectInteractionDocument = ObjectInteraction & Document;

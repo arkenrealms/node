@@ -84,6 +84,14 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    syncGetPayloadsSince: procedure
+      .input(
+        z.object({
+          since: z.string().datetime(),
+        })
+      )
+      .query(({ input, ctx }) => (ctx.app.service.Core.syncGetPayloadsSince as any)(input, ctx)),
+
     authorize: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))

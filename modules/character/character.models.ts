@@ -86,6 +86,7 @@ export const Character = mongo.createModel<Types.CharacterDocument>(
   },
   {
     extend: 'EntityFields',
+    cache: { enabled: true, ttlMs: 5 * 60 * 1000 },
     indexes: [{ points: 1 }, { token: 1 }],
     virtuals: [
       ...addTagVirtuals('Character'),
