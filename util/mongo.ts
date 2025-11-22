@@ -1016,11 +1016,11 @@ export class Model<T extends Document> {
             if (Array.isArray(res)) {
               for (const doc of res) {
                 if (doc && wrapper.isClusterEnabled()) {
-                  await upsertClusterForEntity(wrapper.kind, wrapper.schema, (doc as any).toObject?.() ?? doc);
+                  await upsertClusterForEntity(wrapper.kind, wrapper.schema, doc);
                 }
               }
             } else if (wrapper.isClusterEnabled()) {
-              await upsertClusterForEntity(wrapper.kind, wrapper.schema, (res as any).toObject?.() ?? res);
+              await upsertClusterForEntity(wrapper.kind, wrapper.schema, res);
             }
           }
           return res;
@@ -1044,11 +1044,11 @@ export class Model<T extends Document> {
             if (Array.isArray(res)) {
               for (const doc of res) {
                 if (doc && wrapper.isClusterEnabled()) {
-                  await upsertClusterForEntity(wrapper.kind, wrapper.schema, (doc as any).toObject?.() ?? doc);
+                  await upsertClusterForEntity(wrapper.kind, wrapper.schema, doc);
                 }
               }
             } else if (wrapper.isClusterEnabled()) {
-              await upsertClusterForEntity(wrapper.kind, wrapper.schema, (res as any).toObject?.() ?? res);
+              await upsertClusterForEntity(wrapper.kind, wrapper.schema, res);
             }
           }
           return res;
@@ -1069,7 +1069,7 @@ export class Model<T extends Document> {
           if (!best.currentId) {
             const res = await rawExec.apply(this, args);
             if (res && wrapper.isClusterEnabled()) {
-              await upsertClusterForEntity(wrapper.kind, wrapper.schema, (res as any).toObject?.() ?? res);
+              await upsertClusterForEntity(wrapper.kind, wrapper.schema, res);
             }
             return res;
           }
@@ -1100,7 +1100,7 @@ export class Model<T extends Document> {
             const res = await rawExec.apply(this, args);
             if (res && Array.isArray(res) && wrapper.isClusterEnabled()) {
               for (const doc of res) {
-                await upsertClusterForEntity(wrapper.kind, wrapper.schema, (doc as any).toObject?.() ?? doc);
+                await upsertClusterForEntity(wrapper.kind, wrapper.schema, doc);
               }
             }
             return res;
@@ -1327,8 +1327,8 @@ export class Model<T extends Document> {
     return p.then(async (res: any) => {
       const docsArray = Array.isArray(res) ? res : [res];
       for (const d of docsArray) {
-        const plain = d.toObject ? d.toObject() : d;
-        const cluster = await upsertClusterForEntity(this.kind, this.schema, plain);
+        // Pass the raw Mongoose document so _id, applicationId, revision, etc. are intact
+        const cluster = await upsertClusterForEntity(this.kind, this.schema, d);
         if ('clusterId' in d && !d.clusterId) {
           d.clusterId = cluster._id;
           await d.save();
