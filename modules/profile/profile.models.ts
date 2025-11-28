@@ -1,3 +1,5 @@
+// profile.models.ts
+//
 import * as mongo from '../../util/mongo';
 import type * as Types from './profile.types';
 
@@ -105,6 +107,8 @@ const StatsSchema = new mongo.Schema(
 
 const SettingsSchema = new mongo.Schema(
   {
+    warp: { type: mongo.Schema.Types.Mixed, default: {} },
+    designer: { type: mongo.Schema.Types.Mixed, default: {} },
     privacy: {
       type: String,
       enum: ['public', 'private', 'friends-only'],

@@ -1,6 +1,7 @@
 import type { Profile, RouterContext, RouterInput, RouterOutput } from './profile.types';
 import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
+import { deepMerge } from '../../util/object';
 
 export class Service {
   async setProfileMode(
@@ -106,7 +107,7 @@ export class Service {
     const filter = getFilter(input);
     const updatedProfile: Profile = await ctx.app.model.Profile.findOneAndUpdate(
       filter,
-      { settings: input.settings },
+      { settings: deepMerge(ctx.client.profile.settings, input.settings) },
       { new: true }
     )
       .lean()

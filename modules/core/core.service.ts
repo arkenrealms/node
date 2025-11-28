@@ -72,9 +72,11 @@ import type {
   WorldEvent,
   WorldRecord,
 } from './core.types';
-import { ProfileDocument } from '../profile/profile.types';
+import { Profile } from '../profile/profile.types';
 import { ARXError } from '../../util/rpc';
 import { getFilter } from '../../util/api';
+import { log, logError } from '../../util';
+import { deepMerge } from '../../util/object';
 import { Model } from '../../util/mongo';
 import { isValidRequest, getSignedRequest } from '../../util/web3';
 
@@ -84,18 +86,47 @@ export class Service {
   //   code: 'BAD_REQUEST',
   //   message: 'No input provided',
   // });
-  //   console.log('Core.Service.interact', input);
+  //   log('Core.Service.interact', input);
 
   //   return {
   //     status: 1,
   //   };
   // }
 
+  async updateSettings(
+    input: RouterInput['updateSettings'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateSettings']> {
+    if (!ctx.client.profile) return;
+
+    type ProfileSettings = NonNullable<Profile['settings']>;
+
+    // 👇 These must be real keys of ProfileSettings or TS will error
+    const validKeys = ['warp', 'designer'] as const satisfies readonly (keyof ProfileSettings)[];
+
+    type ValidKey = (typeof validKeys)[number];
+
+    const incoming = input as Record<string, any>;
+
+    for (const key of Object.keys(incoming) as ValidKey[]) {
+      if (!validKeys.includes(key)) continue;
+      const prev = ctx.client.profile.settings[key] || {};
+      ctx.client.profile.settings[key] = deepMerge(prev, incoming[key]);
+    }
+
+    // If settings is Mixed/Map, make sure Mongoose knows it changed:
+    ctx.client.profile.markModified('settings');
+
+    await ctx.client.profile.save(); // writes to DB and keeps this doc in sync
+
+    return ctx.client.profile.settings as RouterOutput['updateSettings'];
+  }
+
   // Account Methods
   async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
     if (!input) throw new ARXError('NO_INPUT');
 
-    console.log('Core.Service.authorize', input);
+    log('Core.Service.authorize', input);
 
     // Validate token
     const isValid = await isValidRequest(ctx.app.web3.bsc, {
@@ -108,7 +139,7 @@ export class Service {
 
     if (!isValid) throw new Error('Invalid signature');
 
-    ctx.client.profile = await ctx.app.model.Profile.findOneProxy({
+    ctx.client.profile = await ctx.app.model.Profile.findOne({
       address: input.address,
     });
 
@@ -138,6 +169,7 @@ export class Service {
         banExpireDate: ctx.client.profile.banExpireDate,
         banReason: ctx.client.profile.banReason,
         mode: ctx.client.profile.mode,
+        settings: ctx.client.profile.settings,
         meta: {
           rewards: ctx.client.profile.meta.rewards,
           evolution: {
@@ -163,7 +195,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['syncGetPayloadsSince']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.syncGetPayloadsSince', input);
+    log('Core.Service.syncGetPayloadsSince', input);
 
     const sinceDate = new Date(input.since);
 
@@ -179,7 +211,7 @@ export class Service {
   // Account Methods
   async getAccount(input: RouterInput['getAccount'], ctx: RouterContext): Promise<RouterOutput['getAccount']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getAccount', input);
+    log('Core.Service.getAccount', input);
 
     const account = await ctx.app.model.Account.findOne(getFilter(input)).exec();
     if (!account) throw new Error('Account not found');
@@ -188,7 +220,7 @@ export class Service {
   }
 
   async getAccounts(ctx: RouterContext): Promise<RouterOutput['getAccounts']> {
-    console.log('Core.Service.getAccounts');
+    log('Core.Service.getAccounts');
 
     const accounts = await ctx.app.model.Account.find().exec();
     return accounts as Account[];
@@ -196,7 +228,7 @@ export class Service {
 
   async createAccount(input: RouterInput['createAccount'], ctx: RouterContext): Promise<RouterOutput['createAccount']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createAccount', input);
+    log('Core.Service.createAccount', input);
 
     const account = await ctx.app.model.Account.create(input);
     return account as Account;
@@ -204,7 +236,7 @@ export class Service {
 
   async updateAccount(input: RouterInput['updateAccount'], ctx: RouterContext): Promise<RouterOutput['updateAccount']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateAccount', input);
+    log('Core.Service.updateAccount', input);
 
     const updatedAccount = await ctx.app.model.Account.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -222,7 +254,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getAchievement']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getAchievement', input);
+    log('Core.Service.getAchievement', input);
 
     const achievement = await ctx.app.model.Achievement.findOne(getFilter(input)).exec();
     if (!achievement) throw new Error('Achievement not found');
@@ -231,7 +263,7 @@ export class Service {
   }
 
   async getAchievements(ctx: RouterContext): Promise<RouterOutput['getAchievements']> {
-    console.log('Core.Service.getAchievements');
+    log('Core.Service.getAchievements');
 
     const achievements = await ctx.app.model.Achievement.find().exec();
     return achievements as Achievement[];
@@ -242,7 +274,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createAchievement']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createAchievement', input);
+    log('Core.Service.createAchievement', input);
 
     const achievement = await ctx.app.model.Achievement.create(input);
     return achievement as Achievement;
@@ -253,7 +285,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateAchievement']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateAchievement', input);
+    log('Core.Service.updateAchievement', input);
 
     const updatedAchievement = await ctx.app.model.Achievement.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -271,7 +303,7 @@ export class Service {
 
   async stats(input: RouterInput['stats'], ctx: RouterContext): Promise<RouterOutput['stats']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.stats');
+    log('Core.Service.stats');
 
     const stats = await ctx.app.model.Stat.find().sort({ number: -1 }).limit(1).exec();
 
@@ -283,7 +315,7 @@ export class Service {
   // Get Act
   async getAct(input: RouterInput['getAct'], ctx: RouterContext): Promise<RouterOutput['getAct']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getAct', input);
+    log('Core.Service.getAct', input);
 
     const act = await ctx.app.model.Act.findOne(getFilter(input)).exec();
     if (!act) throw new Error('Act not found');
@@ -310,7 +342,7 @@ export class Service {
   // Create Act
   async createAct(input: RouterInput['createAct'], ctx: RouterContext): Promise<RouterOutput['createAct']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createAct', input);
+    log('Core.Service.createAct', input);
 
     const act = await ctx.app.model.Act.create(input);
     return act as Act;
@@ -319,7 +351,7 @@ export class Service {
   // Update Act
   async updateAct(input: RouterInput['updateAct'], ctx: RouterContext): Promise<RouterOutput['updateAct']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateAct', input);
+    log('Core.Service.updateAct', input);
 
     const updatedAct = await ctx.app.model.Act.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -334,7 +366,7 @@ export class Service {
   // Get Agent
   async getAgent(input: RouterInput['getAgent'], ctx: RouterContext): Promise<RouterOutput['getAgent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getAgent', input);
+    log('Core.Service.getAgent', input);
 
     const agent = await ctx.app.model.Agent.findOne(getFilter(input)).exec();
     if (!agent) throw new Error('Agent not found');
@@ -345,7 +377,7 @@ export class Service {
   // Create Agent
   async createAgent(input: RouterInput['createAgent'], ctx: RouterContext): Promise<RouterOutput['createAgent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createAgent', input);
+    log('Core.Service.createAgent', input);
 
     const agent = await ctx.app.model.Agent.create(input);
     return agent as Agent;
@@ -354,7 +386,7 @@ export class Service {
   // Update Agent
   async updateAgent(input: RouterInput['updateAgent'], ctx: RouterContext): Promise<RouterOutput['updateAgent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateAgent', input);
+    log('Core.Service.updateAgent', input);
 
     const updatedAgent = await ctx.app.model.Agent.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -372,7 +404,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getApplication']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getApplication', input);
+    log('Core.Service.getApplication', input);
 
     const application = await ctx.app.model.Application.findOne(getFilter(input)).exec();
     if (!application) throw new Error('Application not found');
@@ -386,7 +418,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createApplication']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createApplication', input);
+    log('Core.Service.createApplication', input);
 
     const application = await ctx.app.model.Application.create(input);
     return application as Application;
@@ -398,7 +430,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateApplication']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateApplication', input);
+    log('Core.Service.updateApplication', input);
 
     const updatedApplication = await ctx.app.model.Application.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -413,7 +445,7 @@ export class Service {
   // Badge Methods
   async getBadge(input: RouterInput['getBadge'], ctx: RouterContext): Promise<RouterOutput['getBadge']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getBadge', input);
+    log('Core.Service.getBadge', input);
 
     const badge = await ctx.app.model.Badge.findOne(getFilter(input)).exec();
     if (!badge) throw new Error('Badge not found');
@@ -423,7 +455,7 @@ export class Service {
 
   async createBadge(input: RouterInput['createBadge'], ctx: RouterContext): Promise<RouterOutput['createBadge']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createBadge', input);
+    log('Core.Service.createBadge', input);
 
     const badge = await ctx.app.model.Badge.create(input);
     return badge as Badge;
@@ -431,7 +463,7 @@ export class Service {
 
   async updateBadge(input: RouterInput['updateBadge'], ctx: RouterContext): Promise<RouterOutput['updateBadge']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateBadge', input);
+    log('Core.Service.updateBadge', input);
 
     const updatedBadge = await ctx.app.model.Badge.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -444,7 +476,7 @@ export class Service {
   // BattlePass Methods
   async getBattlePass(input: RouterInput['getBattlePass'], ctx: RouterContext): Promise<RouterOutput['getBattlePass']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getBattlePass', input);
+    log('Core.Service.getBattlePass', input);
 
     const battlePass = await ctx.app.model.BattlePass.findOne(getFilter(input)).exec();
     if (!battlePass) throw new Error('BattlePass not found');
@@ -457,7 +489,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createBattlePass']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createBattlePass', input);
+    log('Core.Service.createBattlePass', input);
 
     const battlePass = await ctx.app.model.BattlePass.create(input);
     return battlePass as BattlePass;
@@ -468,7 +500,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateBattlePass']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateBattlePass', input);
+    log('Core.Service.updateBattlePass', input);
 
     const updatedBattlePass = await ctx.app.model.BattlePass.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -483,7 +515,7 @@ export class Service {
   // Biome Methods
   async getBiome(input: RouterInput['getBiome'], ctx: RouterContext): Promise<RouterOutput['getBiome']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getBiome', input);
+    log('Core.Service.getBiome', input);
 
     const biome = await ctx.app.model.Biome.findOne(getFilter(input)).exec();
     if (!biome) throw new Error('Biome not found');
@@ -493,7 +525,7 @@ export class Service {
 
   async createBiome(input: RouterInput['createBiome'], ctx: RouterContext): Promise<RouterOutput['createBiome']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createBiome', input);
+    log('Core.Service.createBiome', input);
 
     const biome = await ctx.app.model.Biome.create(input);
     return biome as Biome;
@@ -501,7 +533,7 @@ export class Service {
 
   async updateBiome(input: RouterInput['updateBiome'], ctx: RouterContext): Promise<RouterOutput['updateBiome']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateBiome', input);
+    log('Core.Service.updateBiome', input);
 
     const updatedBiome = await ctx.app.model.Biome.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -517,7 +549,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getBiomeFeature']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getBiomeFeature', input);
+    log('Core.Service.getBiomeFeature', input);
 
     const biomeFeature = await ctx.app.model.BiomeFeature.findOne(getFilter(input)).exec();
     if (!biomeFeature) throw new Error('BiomeFeature not found');
@@ -530,7 +562,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createBiomeFeature']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createBiomeFeature', input);
+    log('Core.Service.createBiomeFeature', input);
 
     const biomeFeature = await ctx.app.model.BiomeFeature.create(input);
     return biomeFeature as BiomeFeature;
@@ -541,7 +573,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateBiomeFeature']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateBiomeFeature', input);
+    log('Core.Service.updateBiomeFeature', input);
 
     const updatedBiomeFeature = await ctx.app.model.BiomeFeature.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -555,7 +587,7 @@ export class Service {
   // Collection Methods
   async getCollection(input: RouterInput['getCollection'], ctx: RouterContext): Promise<RouterOutput['getCollection']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getCollection', input);
+    log('Core.Service.getCollection', input);
 
     const collection = await ctx.app.model.Collection.findOne(getFilter(input)).exec();
     if (!collection) throw new Error('Collection not found');
@@ -568,7 +600,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createCollection']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createCollection', input);
+    log('Core.Service.createCollection', input);
 
     const collection = await ctx.app.model.Collection.create(input);
     return collection as Collection;
@@ -579,7 +611,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCollection']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateCollection', input);
+    log('Core.Service.updateCollection', input);
 
     const updatedCollection = await ctx.app.model.Collection.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -594,7 +626,7 @@ export class Service {
   // Comment Methods
   async getComment(input: RouterInput['getComment'], ctx: RouterContext): Promise<RouterOutput['getComment']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getComment', input);
+    log('Core.Service.getComment', input);
 
     const comment = await ctx.app.model.Comment.findOne(getFilter(input)).exec();
     if (!comment) throw new Error('Comment not found');
@@ -604,7 +636,7 @@ export class Service {
 
   async createComment(input: RouterInput['createComment'], ctx: RouterContext): Promise<RouterOutput['createComment']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createComment', input);
+    log('Core.Service.createComment', input);
 
     const comment = await ctx.app.model.Comment.create(input);
     return comment as Comment;
@@ -612,7 +644,7 @@ export class Service {
 
   async updateComment(input: RouterInput['updateComment'], ctx: RouterContext): Promise<RouterOutput['updateComment']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateComment', input);
+    log('Core.Service.updateComment', input);
 
     const updatedComment = await ctx.app.model.Comment.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -627,7 +659,7 @@ export class Service {
   // Community Methods
   async getCommunity(input: RouterInput['getCommunity'], ctx: RouterContext): Promise<RouterOutput['getCommunity']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getCommunity', input);
+    log('Core.Service.getCommunity', input);
 
     const community = await ctx.app.model.Community.findOne(getFilter(input)).exec();
     if (!community) throw new Error('Community not found');
@@ -640,7 +672,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createCommunity']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createCommunity', input);
+    log('Core.Service.createCommunity', input);
 
     const community = await ctx.app.model.Community.create(input);
     return community as Community;
@@ -651,7 +683,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateCommunity']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateCommunity', input);
+    log('Core.Service.updateCommunity', input);
 
     const updatedCommunity = await ctx.app.model.Community.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -666,7 +698,7 @@ export class Service {
   // Company Methods
   async getCompany(input: RouterInput['getCompany'], ctx: RouterContext): Promise<RouterOutput['getCompany']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getCompany', input);
+    log('Core.Service.getCompany', input);
 
     const company = await ctx.app.model.Company.findOne(getFilter(input)).exec();
     if (!company) throw new Error('Company not found');
@@ -676,7 +708,7 @@ export class Service {
 
   async createCompany(input: RouterInput['createCompany'], ctx: RouterContext): Promise<RouterOutput['createCompany']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createCompany', input);
+    log('Core.Service.createCompany', input);
 
     const company = await ctx.app.model.Company.create(input);
     return company as Company;
@@ -684,7 +716,7 @@ export class Service {
 
   async updateCompany(input: RouterInput['updateCompany'], ctx: RouterContext): Promise<RouterOutput['updateCompany']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateCompany', input.where.id.equals, input.data);
+    log('Core.Service.updateCompany', input.where.id.equals, input.data);
 
     const updatedCompany = await ctx.app.model.Company.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -702,7 +734,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getConversation']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getConversation', input.where.id.equals);
+    log('Core.Service.getConversation', input.where.id.equals);
 
     const conversation = await ctx.app.model.Conversation.findOne(getFilter(input)).exec();
     if (!conversation) throw new Error('Conversation not found');
@@ -715,7 +747,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createConversation']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createConversation', input);
+    log('Core.Service.createConversation', input);
 
     const conversation = await ctx.app.model.Conversation.create(input);
     return conversation as Conversation;
@@ -726,7 +758,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateConversation']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateConversation', input.where.id.equals, input.data);
+    log('Core.Service.updateConversation', input.where.id.equals, input.data);
 
     const updatedConversation = await ctx.app.model.Conversation.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -741,7 +773,7 @@ export class Service {
   // Data Methods
   async getData(input: RouterInput['getData'], ctx: RouterContext): Promise<RouterOutput['getData']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getData', input.where.id.equals);
+    log('Core.Service.getData', input.where.id.equals);
 
     const data = await ctx.app.model.Data.findOne(getFilter(input)).exec();
     if (!data) throw new Error('Data not found');
@@ -751,7 +783,7 @@ export class Service {
 
   async createData(input: RouterInput['createData'], ctx: RouterContext): Promise<RouterOutput['createData']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createData', input);
+    log('Core.Service.createData', input);
 
     const data = await ctx.app.model.Data.create(input);
     return data as Data;
@@ -759,7 +791,7 @@ export class Service {
 
   async updateData(input: RouterInput['updateData'], ctx: RouterContext): Promise<RouterOutput['updateData']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateData', input.where.id.equals, input.data);
+    log('Core.Service.updateData', input.where.id.equals, input.data);
 
     const updatedData = await ctx.app.model.Data.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -772,7 +804,7 @@ export class Service {
   // Discussion Methods
   async getDiscussion(input: RouterInput['getDiscussion'], ctx: RouterContext): Promise<RouterOutput['getDiscussion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getDiscussion', input.where.id.equals);
+    log('Core.Service.getDiscussion', input.where.id.equals);
 
     const discussion = await ctx.app.model.Discussion.findOne(getFilter(input)).exec();
     if (!discussion) throw new Error('Discussion not found');
@@ -785,7 +817,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createDiscussion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createDiscussion', input);
+    log('Core.Service.createDiscussion', input);
 
     const discussion = await ctx.app.model.Discussion.create(input);
     return discussion as Discussion;
@@ -796,7 +828,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateDiscussion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateDiscussion', input.where.id.equals, input.data);
+    log('Core.Service.updateDiscussion', input.where.id.equals, input.data);
 
     const updatedDiscussion = await ctx.app.model.Discussion.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
@@ -811,7 +843,7 @@ export class Service {
   // Energy Methods
   async getEnergy(input: RouterInput['getEnergy'], ctx: RouterContext): Promise<RouterOutput['getEnergy']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getEnergy', input);
+    log('Core.Service.getEnergy', input);
 
     const energy = await ctx.app.model.Energy.findOne(getFilter(input)).exec();
     if (!energy) throw new Error('Energy not found');
@@ -821,7 +853,7 @@ export class Service {
 
   async getEnergies(input: RouterInput['getEnergies'], ctx: RouterContext): Promise<RouterOutput['getEnergies']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getEnergies', input);
+    log('Core.Service.getEnergies', input);
 
     const filter = getFilter(input);
 
@@ -838,7 +870,7 @@ export class Service {
 
   async createEnergy(input: RouterInput['createEnergy'], ctx: RouterContext): Promise<RouterOutput['createEnergy']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createEnergy', input);
+    log('Core.Service.createEnergy', input);
 
     const energy = await ctx.app.model.Energy.create(input);
     return energy as Energy;
@@ -846,7 +878,7 @@ export class Service {
 
   async updateEnergy(input: RouterInput['updateEnergy'], ctx: RouterContext): Promise<RouterOutput['updateEnergy']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateEnergy', input);
+    log('Core.Service.updateEnergy', input);
 
     const updatedEnergy = await ctx.app.model.Energy.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -859,7 +891,7 @@ export class Service {
   // Event Methods
   async getEvent(input: RouterInput['getEvent'], ctx: RouterContext): Promise<RouterOutput['getEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getEvent', input);
+    log('Core.Service.getEvent', input);
 
     const event = await ctx.app.model.Event.findOne(getFilter(input)).exec();
     if (!event) throw new Error('Event not found');
@@ -869,7 +901,7 @@ export class Service {
 
   async createEvent(input: RouterInput['createEvent'], ctx: RouterContext): Promise<RouterOutput['createEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createEvent', input);
+    log('Core.Service.createEvent', input);
 
     const event = await ctx.app.model.Event.create(input);
     return event as Event;
@@ -877,7 +909,7 @@ export class Service {
 
   async updateEvent(input: RouterInput['updateEvent'], ctx: RouterContext): Promise<RouterOutput['updateEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateEvent', input);
+    log('Core.Service.updateEvent', input);
 
     const updatedEvent = await ctx.app.model.Event.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -889,7 +921,7 @@ export class Service {
   // File Methods
   async getFile(input: RouterInput['getFile'], ctx: RouterContext): Promise<RouterOutput['getFile']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getFile', input);
+    log('Core.Service.getFile', input);
 
     const file = await ctx.app.model.File.findOne(getFilter(input)).exec();
     if (!file) throw new Error('File not found');
@@ -899,7 +931,7 @@ export class Service {
 
   async createFile(input: RouterInput['createFile'], ctx: RouterContext): Promise<RouterOutput['createFile']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createFile', input);
+    log('Core.Service.createFile', input);
 
     const file = await ctx.app.model.File.create(input);
     return file as File;
@@ -907,7 +939,7 @@ export class Service {
 
   async updateFile(input: RouterInput['updateFile'], ctx: RouterContext): Promise<RouterOutput['updateFile']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateFile', input);
+    log('Core.Service.updateFile', input);
 
     const updatedFile = await ctx.app.model.File.findByIdAndUpdate(input.where.id.equals, input.data, { new: true })
       .lean()
@@ -920,7 +952,7 @@ export class Service {
   // Galaxy Methods
   async getGalaxy(input: RouterInput['getGalaxy'], ctx: RouterContext): Promise<RouterOutput['getGalaxy']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getGalaxy', input);
+    log('Core.Service.getGalaxy', input);
 
     const galaxy = await ctx.app.model.Galaxy.findOne(getFilter(input)).exec();
     if (!galaxy) throw new Error('Galaxy not found');
@@ -930,7 +962,7 @@ export class Service {
 
   async createGalaxy(input: RouterInput['createGalaxy'], ctx: RouterContext): Promise<RouterOutput['createGalaxy']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createGalaxy', input);
+    log('Core.Service.createGalaxy', input);
 
     const galaxy = await ctx.app.model.Galaxy.create(input);
     return galaxy as Galaxy;
@@ -938,7 +970,7 @@ export class Service {
 
   async updateGalaxy(input: RouterInput['updateGalaxy'], ctx: RouterContext): Promise<RouterOutput['updateGalaxy']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateGalaxy', input);
+    log('Core.Service.updateGalaxy', input);
 
     const updatedGalaxy = await ctx.app.model.Galaxy.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -951,7 +983,7 @@ export class Service {
   // Guide Methods
   async getGuide(input: RouterInput['getGuide'], ctx: RouterContext): Promise<RouterOutput['getGuide']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getGuide', input);
+    log('Core.Service.getGuide', input);
 
     const guide = await ctx.app.model.Guide.findOne(getFilter(input)).exec();
     if (!guide) throw new Error('Guide not found');
@@ -961,7 +993,7 @@ export class Service {
 
   async createGuide(input: RouterInput['createGuide'], ctx: RouterContext): Promise<RouterOutput['createGuide']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createGuide', input);
+    log('Core.Service.createGuide', input);
 
     const guide = await ctx.app.model.Guide.create(input);
     return guide as Guide;
@@ -969,7 +1001,7 @@ export class Service {
 
   async updateGuide(input: RouterInput['updateGuide'], ctx: RouterContext): Promise<RouterOutput['updateGuide']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateGuide', input);
+    log('Core.Service.updateGuide', input);
 
     const updatedGuide = await ctx.app.model.Guide.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -982,7 +1014,7 @@ export class Service {
   // Idea Methods
   async getIdea(input: RouterInput['getIdea'], ctx: RouterContext): Promise<RouterOutput['getIdea']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getIdea', input);
+    log('Core.Service.getIdea', input);
 
     const idea = await ctx.app.model.Idea.findOne(getFilter(input)).exec();
     if (!idea) throw new Error('Idea not found');
@@ -992,7 +1024,7 @@ export class Service {
 
   async createIdea(input: RouterInput['createIdea'], ctx: RouterContext): Promise<RouterOutput['createIdea']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createIdea', input);
+    log('Core.Service.createIdea', input);
 
     const idea = await ctx.app.model.Idea.create(input);
     return idea as Idea;
@@ -1000,7 +1032,7 @@ export class Service {
 
   async updateIdea(input: RouterInput['updateIdea'], ctx: RouterContext): Promise<RouterOutput['updateIdea']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateIdea', input);
+    log('Core.Service.updateIdea', input);
 
     const updatedIdea = await ctx.app.model.Idea.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedIdea) throw new Error('Idea update failed');
@@ -1013,7 +1045,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getLeaderboard']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getLeaderboard', input);
+    log('Core.Service.getLeaderboard', input);
 
     const leaderboard = await ctx.app.model.Leaderboard.findOne(getFilter(input)).exec();
     if (!leaderboard) throw new Error('Leaderboard not found');
@@ -1026,7 +1058,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createLeaderboard']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createLeaderboard', input);
+    log('Core.Service.createLeaderboard', input);
 
     const leaderboard = await ctx.app.model.Leaderboard.create(input);
     return leaderboard as Leaderboard;
@@ -1037,7 +1069,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateLeaderboard']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateLeaderboard', input);
+    log('Core.Service.updateLeaderboard', input);
 
     const updatedLeaderboard = await ctx.app.model.Leaderboard.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -1052,36 +1084,36 @@ export class Service {
   // Log Methods
   async getLog(input: RouterInput['getLog'], ctx: RouterContext): Promise<RouterOutput['getLog']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getLog', input);
+    log('Core.Service.getLog', input);
 
-    const log = await ctx.app.model.Log.findOne(getFilter(input)).exec();
-    if (!log) throw new Error('Log not found');
+    const item = await ctx.app.model.Log.findOne(getFilter(input)).exec();
+    if (!item) throw new Error('Log not found');
 
-    return log as Log;
+    return item as Log;
   }
 
   async createLog(input: RouterInput['createLog'], ctx: RouterContext): Promise<RouterOutput['createLog']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createLog', input);
+    log('Core.Service.createLog', input);
 
-    const log = await ctx.app.model.Log.create(input);
-    return log as Log;
+    const item = await ctx.app.model.Log.create(input);
+    return item as Log;
   }
 
   async updateLog(input: RouterInput['updateLog'], ctx: RouterContext): Promise<RouterOutput['updateLog']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateLog', input);
+    log('Core.Service.updateLog', input);
 
-    const updatedLog = await ctx.app.model.Log.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
-    if (!updatedLog) throw new Error('Log update failed');
+    const item = await ctx.app.model.Log.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
+    if (!item) throw new Error('Log update failed');
 
-    return updatedLog as Log;
+    return item as Log;
   }
 
   // Lore Methods
   async getLore(input: RouterInput['getLore'], ctx: RouterContext): Promise<RouterOutput['getLore']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getLore', input);
+    log('Core.Service.getLore', input);
 
     const lore = await ctx.app.model.Lore.findOne(getFilter(input)).exec();
     if (!lore) throw new Error('Lore not found');
@@ -1091,7 +1123,7 @@ export class Service {
 
   async createLore(input: RouterInput['createLore'], ctx: RouterContext): Promise<RouterOutput['createLore']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createLore', input);
+    log('Core.Service.createLore', input);
 
     const lore = await ctx.app.model.Lore.create(input);
     return lore as Lore;
@@ -1099,7 +1131,7 @@ export class Service {
 
   async updateLore(input: RouterInput['updateLore'], ctx: RouterContext): Promise<RouterOutput['updateLore']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateLore', input);
+    log('Core.Service.updateLore', input);
 
     const updatedLore = await ctx.app.model.Lore.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedLore) throw new Error('Lore update failed');
@@ -1110,7 +1142,7 @@ export class Service {
   // Memory Methods
   async getMemory(input: RouterInput['getMemory'], ctx: RouterContext): Promise<RouterOutput['getMemory']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getMemory', input);
+    log('Core.Service.getMemory', input);
 
     const memory = await ctx.app.model.Memory.findOne(getFilter(input)).exec();
     if (!memory) throw new Error('Memory not found');
@@ -1120,7 +1152,7 @@ export class Service {
 
   async createMemory(input: RouterInput['createMemory'], ctx: RouterContext): Promise<RouterOutput['createMemory']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createMemory', input);
+    log('Core.Service.createMemory', input);
 
     const memory = await ctx.app.model.Memory.create(input);
     return memory as Memory;
@@ -1128,7 +1160,7 @@ export class Service {
 
   async updateMemory(input: RouterInput['updateMemory'], ctx: RouterContext): Promise<RouterOutput['updateMemory']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateMemory', input);
+    log('Core.Service.updateMemory', input);
 
     const updatedMemory = await ctx.app.model.Memory.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1140,7 +1172,7 @@ export class Service {
   // Message Methods
   async getMessage(input: RouterInput['getMessage'], ctx: RouterContext): Promise<RouterOutput['getMessage']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getMessage', input);
+    log('Core.Service.getMessage', input);
 
     const message = await ctx.app.model.Message.findOne(getFilter(input)).exec();
     if (!message) throw new Error('Message not found');
@@ -1150,7 +1182,7 @@ export class Service {
 
   async createMessage(input: RouterInput['createMessage'], ctx: RouterContext): Promise<RouterOutput['createMessage']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createMessage', input);
+    log('Core.Service.createMessage', input);
 
     const message = await ctx.app.model.Message.create(input);
     return message as Message;
@@ -1158,7 +1190,7 @@ export class Service {
 
   async updateMessage(input: RouterInput['updateMessage'], ctx: RouterContext): Promise<RouterOutput['updateMessage']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateMessage', input);
+    log('Core.Service.updateMessage', input);
 
     const updatedMessage = await ctx.app.model.Message.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1171,7 +1203,7 @@ export class Service {
   // Metaverse Methods
   async getMetaverse(input: RouterInput['getMetaverse'], ctx: RouterContext): Promise<RouterOutput['getMetaverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getMetaverse', input);
+    log('Core.Service.getMetaverse', input);
 
     const metaverse = await ctx.app.model.Metaverse.findOne(getFilter(input)).exec();
     if (!metaverse) throw new Error('Metaverse not found');
@@ -1184,7 +1216,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createMetaverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createMetaverse', input);
+    log('Core.Service.createMetaverse', input);
 
     const metaverse = await ctx.app.model.Metaverse.create(input);
     return metaverse as Metaverse;
@@ -1195,7 +1227,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateMetaverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateMetaverse', input);
+    log('Core.Service.updateMetaverse', input);
 
     const updatedMetaverse = await ctx.app.model.Metaverse.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -1213,7 +1245,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getNewsArticle']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getNewsArticle', input);
+    log('Core.Service.getNewsArticle', input);
 
     const newsArticle = await ctx.app.model.NewsArticle.findOne(getFilter(input)).exec();
     if (!newsArticle) throw new Error('NewsArticle not found');
@@ -1226,7 +1258,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createNewsArticle']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createNewsArticle', input);
+    log('Core.Service.createNewsArticle', input);
 
     const newsArticle = await ctx.app.model.NewsArticle.create(input);
     return newsArticle as NewsArticle;
@@ -1237,7 +1269,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateNewsArticle']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateNewsArticle', input);
+    log('Core.Service.updateNewsArticle', input);
 
     const updatedNewsArticle = await ctx.app.model.NewsArticle.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -1252,7 +1284,7 @@ export class Service {
   // Npc Methods
   async getNpc(input: RouterInput['getNpc'], ctx: RouterContext): Promise<RouterOutput['getNpc']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getNpc', input);
+    log('Core.Service.getNpc', input);
 
     const npc = await ctx.app.model.Npc.findOne(getFilter(input)).exec();
     if (!npc) throw new Error('Npc not found');
@@ -1262,7 +1294,7 @@ export class Service {
 
   async createNpc(input: RouterInput['createNpc'], ctx: RouterContext): Promise<RouterOutput['createNpc']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createNpc', input);
+    log('Core.Service.createNpc', input);
 
     const npc = await ctx.app.model.Npc.create(input);
     return npc as Npc;
@@ -1270,7 +1302,7 @@ export class Service {
 
   async updateNpc(input: RouterInput['updateNpc'], ctx: RouterContext): Promise<RouterOutput['updateNpc']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateNpc', input);
+    log('Core.Service.updateNpc', input);
 
     const updatedNpc = await ctx.app.model.Npc.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedNpc) throw new Error('Npc update failed');
@@ -1280,7 +1312,7 @@ export class Service {
   // Offer Methods
   async getOffer(input: RouterInput['getOffer'], ctx: RouterContext): Promise<RouterOutput['getOffer']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getOffer', input);
+    log('Core.Service.getOffer', input);
 
     const offer = await ctx.app.model.Offer.findOne(getFilter(input)).exec();
     if (!offer) throw new Error('Offer not found');
@@ -1290,7 +1322,7 @@ export class Service {
 
   async createOffer(input: RouterInput['createOffer'], ctx: RouterContext): Promise<RouterOutput['createOffer']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createOffer', input);
+    log('Core.Service.createOffer', input);
 
     const offer = await ctx.app.model.Offer.create(input);
     return offer as Offer;
@@ -1298,7 +1330,7 @@ export class Service {
 
   async updateOffer(input: RouterInput['updateOffer'], ctx: RouterContext): Promise<RouterOutput['updateOffer']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateOffer', input);
+    log('Core.Service.updateOffer', input);
 
     const updatedOffer = await ctx.app.model.Offer.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1311,7 +1343,7 @@ export class Service {
   // Omniverse Methods
   async getOmniverse(input: RouterInput['getOmniverse'], ctx: RouterContext): Promise<RouterOutput['getOmniverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getOmniverse', input);
+    log('Core.Service.getOmniverse', input);
 
     const omniverse = await ctx.app.model.Omniverse.findOne(getFilter(input)).exec();
     if (!omniverse) throw new Error('Omniverse not found');
@@ -1324,7 +1356,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createOmniverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createOmniverse', input);
+    log('Core.Service.createOmniverse', input);
 
     const omniverse = await ctx.app.model.Omniverse.create(input);
     return omniverse as Omniverse;
@@ -1335,7 +1367,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateOmniverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateOmniverse', input);
+    log('Core.Service.updateOmniverse', input);
 
     const updatedOmniverse = await ctx.app.model.Omniverse.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -1350,7 +1382,7 @@ export class Service {
   // Order Methods
   async getOrder(input: RouterInput['getOrder'], ctx: RouterContext): Promise<RouterOutput['getOrder']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getOrder', input);
+    log('Core.Service.getOrder', input);
 
     const order = await ctx.app.model.Order.findOne(getFilter(input)).exec();
     if (!order) throw new Error('Order not found');
@@ -1360,7 +1392,7 @@ export class Service {
 
   async createOrder(input: RouterInput['createOrder'], ctx: RouterContext): Promise<RouterOutput['createOrder']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createOrder', input);
+    log('Core.Service.createOrder', input);
 
     const order = await ctx.app.model.Order.create(input);
     return order as Order;
@@ -1368,7 +1400,7 @@ export class Service {
 
   async updateOrder(input: RouterInput['updateOrder'], ctx: RouterContext): Promise<RouterOutput['updateOrder']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateOrder', input);
+    log('Core.Service.updateOrder', input);
 
     const updatedOrder = await ctx.app.model.Order.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1381,7 +1413,7 @@ export class Service {
   // Payment Methods
   async getPayment(input: RouterInput['getPayment'], ctx: RouterContext): Promise<RouterOutput['getPayment']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getPayment', input);
+    log('Core.Service.getPayment', input);
 
     const payment = await ctx.app.model.Payment.findOne(getFilter(input)).exec();
     if (!payment) throw new Error('Payment not found');
@@ -1391,7 +1423,7 @@ export class Service {
 
   async createPayment(input: RouterInput['createPayment'], ctx: RouterContext): Promise<RouterOutput['createPayment']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createPayment', input);
+    log('Core.Service.createPayment', input);
 
     const payment = await ctx.app.model.Payment.create(input);
     return payment as Payment;
@@ -1399,7 +1431,7 @@ export class Service {
 
   async updatePayment(input: RouterInput['updatePayment'], ctx: RouterContext): Promise<RouterOutput['updatePayment']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updatePayment', input);
+    log('Core.Service.updatePayment', input);
 
     const updatedPayment = await ctx.app.model.Payment.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1411,7 +1443,7 @@ export class Service {
   // Permission Methods
   async getPermission(input: RouterInput['getPermission'], ctx: RouterContext): Promise<RouterOutput['getPermission']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getPermission', input);
+    log('Core.Service.getPermission', input);
 
     const permission = await ctx.app.model.Permission.findOne(getFilter(input)).exec();
     if (!permission) throw new Error('Permission not found');
@@ -1424,7 +1456,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createPermission']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createPermission', input);
+    log('Core.Service.createPermission', input);
 
     const permission = await ctx.app.model.Permission.create(input);
     return permission as Permission;
@@ -1435,7 +1467,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updatePermission']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updatePermission', input);
+    log('Core.Service.updatePermission', input);
 
     const updatedPermission = await ctx.app.model.Permission.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -1450,7 +1482,7 @@ export class Service {
   // Person Methods
   async getPerson(input: RouterInput['getPerson'], ctx: RouterContext): Promise<RouterOutput['getPerson']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getPerson', input);
+    log('Core.Service.getPerson', input);
 
     const person = await ctx.app.model.Person.findOne(getFilter(input)).exec();
     if (!person) throw new Error('Person not found');
@@ -1460,7 +1492,7 @@ export class Service {
 
   async createPerson(input: RouterInput['createPerson'], ctx: RouterContext): Promise<RouterOutput['createPerson']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createPerson', input);
+    log('Core.Service.createPerson', input);
 
     const person = await ctx.app.model.Person.create(input);
     return person as Person;
@@ -1468,7 +1500,7 @@ export class Service {
 
   async updatePerson(input: RouterInput['updatePerson'], ctx: RouterContext): Promise<RouterOutput['updatePerson']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updatePerson', input);
+    log('Core.Service.updatePerson', input);
 
     const updatedPerson = await ctx.app.model.Person.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1481,7 +1513,7 @@ export class Service {
   // Planet Methods
   async getPlanet(input: RouterInput['getPlanet'], ctx: RouterContext): Promise<RouterOutput['getPlanet']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getPlanet', input);
+    log('Core.Service.getPlanet', input);
 
     const planet = await ctx.app.model.Planet.findOne(getFilter(input)).exec();
     if (!planet) throw new Error('Planet not found');
@@ -1491,7 +1523,7 @@ export class Service {
 
   async createPlanet(input: RouterInput['createPlanet'], ctx: RouterContext): Promise<RouterOutput['createPlanet']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createPlanet', input);
+    log('Core.Service.createPlanet', input);
 
     const planet = await ctx.app.model.Planet.create(input);
     return planet as Planet;
@@ -1499,7 +1531,7 @@ export class Service {
 
   async updatePlanet(input: RouterInput['updatePlanet'], ctx: RouterContext): Promise<RouterOutput['updatePlanet']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updatePlanet', input);
+    log('Core.Service.updatePlanet', input);
 
     const updatedPlanet = await ctx.app.model.Planet.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1512,7 +1544,7 @@ export class Service {
   // Poll Methods
   async getPoll(input: RouterInput['getPoll'], ctx: RouterContext): Promise<RouterOutput['getPoll']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getPoll', input);
+    log('Core.Service.getPoll', input);
 
     const poll = await ctx.app.model.Poll.findOne(getFilter(input)).exec();
     if (!poll) throw new Error('Poll not found');
@@ -1522,7 +1554,7 @@ export class Service {
 
   async createPoll(input: RouterInput['createPoll'], ctx: RouterContext): Promise<RouterOutput['createPoll']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createPoll', input);
+    log('Core.Service.createPoll', input);
 
     const poll = await ctx.app.model.Poll.create(input);
     return poll as Poll;
@@ -1530,7 +1562,7 @@ export class Service {
 
   async updatePoll(input: RouterInput['updatePoll'], ctx: RouterContext): Promise<RouterOutput['updatePoll']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updatePoll', input);
+    log('Core.Service.updatePoll', input);
 
     const updatedPoll = await ctx.app.model.Poll.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedPoll) throw new Error('Poll update failed');
@@ -1540,7 +1572,7 @@ export class Service {
   // Project Methods
   async getProject(input: RouterInput['getProject'], ctx: RouterContext): Promise<RouterOutput['getProject']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getProject', input);
+    log('Core.Service.getProject', input);
 
     const project = await ctx.app.model.Project.findOne(getFilter(input)).exec();
     if (!project) throw new Error('Project not found');
@@ -1550,7 +1582,7 @@ export class Service {
 
   async createProject(input: RouterInput['createProject'], ctx: RouterContext): Promise<RouterOutput['createProject']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createProject', input);
+    log('Core.Service.createProject', input);
 
     const project = await ctx.app.model.Project.create(input);
     return project as Project;
@@ -1558,7 +1590,7 @@ export class Service {
 
   async updateProject(input: RouterInput['updateProject'], ctx: RouterContext): Promise<RouterOutput['updateProject']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateProject', input);
+    log('Core.Service.updateProject', input);
 
     const updatedProject = await ctx.app.model.Project.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1571,7 +1603,7 @@ export class Service {
   // Proposal Methods
   async getProposal(input: RouterInput['getProposal'], ctx: RouterContext): Promise<RouterOutput['getProposal']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getProposal', input);
+    log('Core.Service.getProposal', input);
 
     const proposal = await ctx.app.model.Proposal.findOne(getFilter(input)).exec();
     if (!proposal) throw new Error('Proposal not found');
@@ -1584,7 +1616,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createProposal']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createProposal', input);
+    log('Core.Service.createProposal', input);
 
     const proposal = await ctx.app.model.Proposal.create(input);
     return proposal as Proposal;
@@ -1595,7 +1627,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateProposal']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateProposal', input);
+    log('Core.Service.updateProposal', input);
 
     const updatedProposal = await ctx.app.model.Proposal.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1608,7 +1640,7 @@ export class Service {
   // Quest Methods
   async getQuest(input: RouterInput['getQuest'], ctx: RouterContext): Promise<RouterOutput['getQuest']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getQuest', input);
+    log('Core.Service.getQuest', input);
 
     const quest = await ctx.app.model.Quest.findOne(getFilter(input)).exec();
     if (!quest) throw new Error('Quest not found');
@@ -1618,7 +1650,7 @@ export class Service {
 
   async createQuest(input: RouterInput['createQuest'], ctx: RouterContext): Promise<RouterOutput['createQuest']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createQuest', input);
+    log('Core.Service.createQuest', input);
 
     const quest = await ctx.app.model.Quest.create(input);
     return quest as Quest;
@@ -1626,7 +1658,7 @@ export class Service {
 
   async updateQuest(input: RouterInput['updateQuest'], ctx: RouterContext): Promise<RouterOutput['updateQuest']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateQuest', input);
+    log('Core.Service.updateQuest', input);
 
     const updatedQuest = await ctx.app.model.Quest.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1639,7 +1671,7 @@ export class Service {
   // Rating Methods
   async getRating(input: RouterInput['getRating'], ctx: RouterContext): Promise<RouterOutput['getRating']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getRating', input);
+    log('Core.Service.getRating', input);
 
     const rating = await ctx.app.model.Rating.findOne(getFilter(input)).exec();
     if (!rating) throw new Error('Rating not found');
@@ -1649,7 +1681,7 @@ export class Service {
 
   async createRating(input: RouterInput['createRating'], ctx: RouterContext): Promise<RouterOutput['createRating']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createRating', input);
+    log('Core.Service.createRating', input);
 
     const rating = await ctx.app.model.Rating.create(input);
     return rating as Rating;
@@ -1657,7 +1689,7 @@ export class Service {
 
   async updateRating(input: RouterInput['updateRating'], ctx: RouterContext): Promise<RouterOutput['updateRating']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateRating', input);
+    log('Core.Service.updateRating', input);
 
     const updatedRating = await ctx.app.model.Rating.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1670,7 +1702,7 @@ export class Service {
   // Realm Methods
   async getRealm(input: RouterInput['getRealm'], ctx: RouterContext): Promise<RouterOutput['getRealm']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getRealm', input);
+    log('Core.Service.getRealm', input);
 
     const realm = await ctx.app.model.Realm.findOne(getFilter(input)).exec();
     if (!realm) throw new Error('Realm not found');
@@ -1679,7 +1711,7 @@ export class Service {
   }
 
   async getRealms(input: RouterInput['getRealms'], ctx: RouterContext): Promise<RouterOutput['getRealms']> {
-    console.log('Core.Service.getRealms', input);
+    log('Core.Service.getRealms', input);
 
     const filter = getFilter(input);
 
@@ -1710,7 +1742,7 @@ export class Service {
 
   async createRealm(input: RouterInput['createRealm'], ctx: RouterContext): Promise<RouterOutput['createRealm']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createRealm', input);
+    log('Core.Service.createRealm', input);
 
     const realm = await ctx.app.model.Realm.create(input);
     return realm as Realm;
@@ -1718,7 +1750,7 @@ export class Service {
 
   async updateRealm(input: RouterInput['updateRealm'], ctx: RouterContext): Promise<RouterOutput['updateRealm']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateRealm', input);
+    log('Core.Service.updateRealm', input);
 
     //   const data = {};
 
@@ -1742,7 +1774,7 @@ export class Service {
   // RealmEvent Methods
   async getRealmEvent(input: RouterInput['getRealmEvent'], ctx: RouterContext): Promise<RouterOutput['getRealmEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getRealmEvent', input);
+    log('Core.Service.getRealmEvent', input);
 
     const realmEvent = await ctx.app.model.RealmEvent.findOne(getFilter(input)).exec();
     if (!realmEvent) throw new Error('RealmEvent not found');
@@ -1754,7 +1786,7 @@ export class Service {
     input: RouterInput['getRealmEvents'],
     ctx: RouterContext
   ): Promise<RouterOutput['getRealmEvents']> {
-    console.log('Core.Service.getRealmEvents', input);
+    log('Core.Service.getRealmEvents', input);
 
     const filter = getFilter(input);
 
@@ -1771,7 +1803,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createRealmEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createRealmEvent', input);
+    log('Core.Service.createRealmEvent', input);
 
     const realmEvent = await ctx.app.model.RealmEvent.create(input);
     return realmEvent as RealmEvent;
@@ -1782,7 +1814,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateRealmEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateRealmEvent', input);
+    log('Core.Service.updateRealmEvent', input);
 
     //   const data = {};
 
@@ -1806,7 +1838,7 @@ export class Service {
   // Revision Methods
   async getRevision(input: RouterInput['getRevision'], ctx: RouterContext): Promise<RouterOutput['getRevision']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getRevision', input);
+    log('Core.Service.getRevision', input);
 
     const revision = await ctx.app.model.Revision.findOne(getFilter(input)).exec();
     if (!revision) throw new Error('Revision not found');
@@ -1819,7 +1851,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createRevision']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createRevision', input);
+    log('Core.Service.createRevision', input);
 
     const revision = await ctx.app.model.Revision.create(input);
     return revision as Revision;
@@ -1830,7 +1862,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateRevision']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateRevision', input);
+    log('Core.Service.updateRevision', input);
 
     const updatedRevision = await ctx.app.model.Revision.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -1845,7 +1877,7 @@ export class Service {
   // Referral Methods
   async getReferral(input: RouterInput['getReferral'], ctx: RouterContext): Promise<RouterOutput['getReferral']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getReferral', input);
+    log('Core.Service.getReferral', input);
 
     const referral = await ctx.app.model.Referral.findOne(getFilter(input)).exec();
     if (!referral) throw new Error('Referral not found');
@@ -1858,7 +1890,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createReferral']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createReferral', input);
+    log('Core.Service.createReferral', input);
 
     const referral = await ctx.app.model.Referral.create(input);
     return referral as Referral;
@@ -1869,7 +1901,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateReferral']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateReferral', input);
+    log('Core.Service.updateReferral', input);
 
     const updatedReferral = await ctx.app.model.Referral.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1882,7 +1914,7 @@ export class Service {
   // Review Methods
   async getReview(input: RouterInput['getReview'], ctx: RouterContext): Promise<RouterOutput['getReview']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getReview', input);
+    log('Core.Service.getReview', input);
 
     const review = await ctx.app.model.Review.findOne(getFilter(input)).exec();
     if (!review) throw new Error('Review not found');
@@ -1892,7 +1924,7 @@ export class Service {
 
   async createReview(input: RouterInput['createReview'], ctx: RouterContext): Promise<RouterOutput['createReview']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createReview', input);
+    log('Core.Service.createReview', input);
 
     const review = await ctx.app.model.Review.create(input);
     return review as Review;
@@ -1900,7 +1932,7 @@ export class Service {
 
   async updateReview(input: RouterInput['updateReview'], ctx: RouterContext): Promise<RouterOutput['updateReview']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateReview', input);
+    log('Core.Service.updateReview', input);
 
     const updatedReview = await ctx.app.model.Review.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1913,7 +1945,7 @@ export class Service {
   // Role Methods
   async getRole(input: RouterInput['getRole'], ctx: RouterContext): Promise<RouterOutput['getRole']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getRole', input);
+    log('Core.Service.getRole', input);
 
     const role = await ctx.app.model.Role.findOne(getFilter(input)).exec();
     if (!role) throw new Error('Role not found');
@@ -1923,7 +1955,7 @@ export class Service {
 
   async createRole(input: RouterInput['createRole'], ctx: RouterContext): Promise<RouterOutput['createRole']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createRole', input);
+    log('Core.Service.createRole', input);
 
     const role = await ctx.app.model.Role.create(input);
     return role as Role;
@@ -1931,7 +1963,7 @@ export class Service {
 
   async updateRole(input: RouterInput['updateRole'], ctx: RouterContext): Promise<RouterOutput['updateRole']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateRole', input);
+    log('Core.Service.updateRole', input);
 
     const updatedRole = await ctx.app.model.Role.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedRole) throw new Error('Role update failed');
@@ -1942,7 +1974,7 @@ export class Service {
   // Season Methods
   async getSeason(input: RouterInput['getSeason'], ctx: RouterContext): Promise<RouterOutput['getSeason']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getSeason', input);
+    log('Core.Service.getSeason', input);
 
     const season = await ctx.app.model.Season.findOne(getFilter(input)).exec();
     if (!season) throw new Error('Season not found');
@@ -1952,7 +1984,7 @@ export class Service {
 
   async createSeason(input: RouterInput['createSeason'], ctx: RouterContext): Promise<RouterOutput['createSeason']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createSeason', input);
+    log('Core.Service.createSeason', input);
 
     const season = await ctx.app.model.Season.create(input);
     return season as Season;
@@ -1960,7 +1992,7 @@ export class Service {
 
   async updateSeason(input: RouterInput['updateSeason'], ctx: RouterContext): Promise<RouterOutput['updateSeason']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateSeason', input);
+    log('Core.Service.updateSeason', input);
 
     const updatedSeason = await ctx.app.model.Season.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -1973,7 +2005,7 @@ export class Service {
   // RealmShard Methods
   async getRealmShard(input: RouterInput['getRealmShard'], ctx: RouterContext): Promise<RouterOutput['getRealmShard']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getRealmShard', input);
+    log('Core.Service.getRealmShard', input);
 
     const server = await ctx.app.model.RealmShard.findOne(getFilter(input)).exec();
     if (!server) throw new Error('RealmShard not found');
@@ -1985,7 +2017,7 @@ export class Service {
     input: RouterInput['getRealmShards'],
     ctx: RouterContext
   ): Promise<RouterOutput['getRealmShards']> {
-    console.log('Core.Service.getRealmShards', input);
+    log('Core.Service.getRealmShards', input);
 
     const filter = getFilter(input);
 
@@ -2001,7 +2033,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createRealmShard']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createRealmShard', input);
+    log('Core.Service.createRealmShard', input);
 
     const server = await ctx.app.model.RealmShard.create(input);
     return server as RealmShard;
@@ -2012,7 +2044,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateRealmShard']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateRealmShard', input);
+    log('Core.Service.updateRealmShard', input);
 
     const updatedRealmShard = await ctx.app.model.RealmShard.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -2025,7 +2057,7 @@ export class Service {
   // Session Methods
   async getSession(input: RouterInput['getSession'], ctx: RouterContext): Promise<RouterOutput['getSession']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getSession', input);
+    log('Core.Service.getSession', input);
 
     const session = await ctx.app.model.Session.findOne(getFilter(input)).exec();
     if (!session) throw new Error('Session not found');
@@ -2035,7 +2067,7 @@ export class Service {
 
   async createSession(input: RouterInput['createSession'], ctx: RouterContext): Promise<RouterOutput['createSession']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createSession', input);
+    log('Core.Service.createSession', input);
 
     const session = await ctx.app.model.Session.create(input);
     return session as Session;
@@ -2043,7 +2075,7 @@ export class Service {
 
   async updateSession(input: RouterInput['updateSession'], ctx: RouterContext): Promise<RouterOutput['updateSession']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateSession', input);
+    log('Core.Service.updateSession', input);
 
     const updatedSession = await ctx.app.model.Session.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -2058,7 +2090,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getSolarSystem']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getSolarSystem', input);
+    log('Core.Service.getSolarSystem', input);
 
     const solarSystem = await ctx.app.model.SolarSystem.findOne(getFilter(input)).exec();
     if (!solarSystem) throw new Error('SolarSystem not found');
@@ -2071,7 +2103,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createSolarSystem']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createSolarSystem', input);
+    log('Core.Service.createSolarSystem', input);
 
     const solarSystem = await ctx.app.model.SolarSystem.create(input);
     return solarSystem as SolarSystem;
@@ -2082,7 +2114,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateSolarSystem']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateSolarSystem', input);
+    log('Core.Service.updateSolarSystem', input);
 
     const updatedSolarSystem = await ctx.app.model.SolarSystem.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -2097,7 +2129,7 @@ export class Service {
   // Star Methods
   async getStar(input: RouterInput['getStar'], ctx: RouterContext): Promise<RouterOutput['getStar']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getStar', input);
+    log('Core.Service.getStar', input);
 
     const star = await ctx.app.model.Star.findOne(getFilter(input)).exec();
     if (!star) throw new Error('Star not found');
@@ -2107,7 +2139,7 @@ export class Service {
 
   async createStar(input: RouterInput['createStar'], ctx: RouterContext): Promise<RouterOutput['createStar']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createStar', input);
+    log('Core.Service.createStar', input);
 
     const star = await ctx.app.model.Star.create(input);
     return star as Star;
@@ -2115,7 +2147,7 @@ export class Service {
 
   async updateStar(input: RouterInput['updateStar'], ctx: RouterContext): Promise<RouterOutput['updateStar']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateStar', input);
+    log('Core.Service.updateStar', input);
 
     const updatedStar = await ctx.app.model.Star.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedStar) throw new Error('Star update failed');
@@ -2126,7 +2158,7 @@ export class Service {
   // Stash Methods
   async getStash(input: RouterInput['getStash'], ctx: RouterContext): Promise<RouterOutput['getStash']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getStash', input);
+    log('Core.Service.getStash', input);
 
     const stash = await ctx.app.model.Stash.findOne(getFilter(input)).exec();
     if (!stash) throw new Error('Stash not found');
@@ -2136,7 +2168,7 @@ export class Service {
 
   async createStash(input: RouterInput['createStash'], ctx: RouterContext): Promise<RouterOutput['createStash']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createStash', input);
+    log('Core.Service.createStash', input);
 
     const stash = await ctx.app.model.Stash.create(input);
     return stash as Stash;
@@ -2144,7 +2176,7 @@ export class Service {
 
   async updateStash(input: RouterInput['updateStash'], ctx: RouterContext): Promise<RouterOutput['updateStash']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateStash', input);
+    log('Core.Service.updateStash', input);
 
     const updatedStash = await ctx.app.model.Stash.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -2157,7 +2189,7 @@ export class Service {
   // Stock Methods
   async getStock(input: RouterInput['getStock'], ctx: RouterContext): Promise<RouterOutput['getStock']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getStock', input);
+    log('Core.Service.getStock', input);
 
     const stock = await ctx.app.model.Stock.findOne(getFilter(input)).exec();
     if (!stock) throw new Error('Stock not found');
@@ -2167,7 +2199,7 @@ export class Service {
 
   async createStock(input: RouterInput['createStock'], ctx: RouterContext): Promise<RouterOutput['createStock']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createStock', input);
+    log('Core.Service.createStock', input);
 
     const stock = await ctx.app.model.Stock.create(input);
     return stock as Stock;
@@ -2175,7 +2207,7 @@ export class Service {
 
   async updateStock(input: RouterInput['updateStock'], ctx: RouterContext): Promise<RouterOutput['updateStock']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateStock', input);
+    log('Core.Service.updateStock', input);
 
     const updatedStock = await ctx.app.model.Stock.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -2186,7 +2218,7 @@ export class Service {
   } // Suggestion Methods
   async getSuggestion(input: RouterInput['getSuggestion'], ctx: RouterContext): Promise<RouterOutput['getSuggestion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getSuggestion', input);
+    log('Core.Service.getSuggestion', input);
 
     const suggestion = await ctx.app.model.Suggestion.findOne(getFilter(input)).exec();
     if (!suggestion) throw new Error('Suggestion not found');
@@ -2199,7 +2231,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createSuggestion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createSuggestion', input);
+    log('Core.Service.createSuggestion', input);
 
     const suggestion = await ctx.app.model.Suggestion.create(input);
     return suggestion as Suggestion;
@@ -2210,7 +2242,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateSuggestion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateSuggestion', input);
+    log('Core.Service.updateSuggestion', input);
 
     const updatedSuggestion = await ctx.app.model.Suggestion.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -2225,7 +2257,7 @@ export class Service {
   // Tag Methods
   async getTag(input: RouterInput['getTag'], ctx: RouterContext): Promise<RouterOutput['getTag']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getTag', input);
+    log('Core.Service.getTag', input);
 
     const tag = await ctx.app.model.Tag.findOne(getFilter(input)).exec();
     if (!tag) throw new Error('Tag not found');
@@ -2235,7 +2267,7 @@ export class Service {
 
   async createTag(input: RouterInput['createTag'], ctx: RouterContext): Promise<RouterOutput['createTag']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createTag', input);
+    log('Core.Service.createTag', input);
 
     const tag = await ctx.app.model.Tag.create(input);
     return tag as Tag;
@@ -2243,7 +2275,7 @@ export class Service {
 
   async updateTag(input: RouterInput['updateTag'], ctx: RouterContext): Promise<RouterOutput['updateTag']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateTag', input);
+    log('Core.Service.updateTag', input);
 
     const updatedTag = await ctx.app.model.Tag.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedTag) throw new Error('Tag update failed');
@@ -2254,7 +2286,7 @@ export class Service {
   // Team Methods
   async getTeam(input: RouterInput['getTeam'], ctx: RouterContext): Promise<RouterOutput['getTeam']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getTeam', input);
+    log('Core.Service.getTeam', input);
 
     const filter = getFilter(input);
     const team = await ctx.app.model.Team.findOne(filter).exec();
@@ -2265,7 +2297,7 @@ export class Service {
 
   async getTeams(input: RouterInput['getTeams'], ctx: RouterContext): Promise<RouterOutput['getTeams']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getTeams', input);
+    log('Core.Service.getTeams', input);
 
     const filter = getFilter(input);
     const teams = await ctx.app.model.Team.find(filter)
@@ -2278,7 +2310,7 @@ export class Service {
 
   async createTeam(input: RouterInput['createTeam'], ctx: RouterContext): Promise<RouterOutput['createTeam']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createTeam', input);
+    log('Core.Service.createTeam', input);
 
     const team = await ctx.app.model.Team.create(input);
     return team as Team;
@@ -2286,7 +2318,7 @@ export class Service {
 
   async updateTeam(input: RouterInput['updateTeam'], ctx: RouterContext): Promise<RouterOutput['updateTeam']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateTeam', input);
+    log('Core.Service.updateTeam', input);
 
     const updatedTeam = await ctx.app.model.Team.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedTeam) throw new Error('Team update failed');
@@ -2297,7 +2329,7 @@ export class Service {
   // Tournament Methods
   async getTournament(input: RouterInput['getTournament'], ctx: RouterContext): Promise<RouterOutput['getTournament']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getTournament', input);
+    log('Core.Service.getTournament', input);
 
     const tournament = await ctx.app.model.Tournament.findOne(getFilter(input)).exec();
     if (!tournament) throw new Error('Tournament not found');
@@ -2310,7 +2342,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createTournament']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createTournament', input);
+    log('Core.Service.createTournament', input);
 
     const tournament = await ctx.app.model.Tournament.create(input);
     return tournament as Tournament;
@@ -2321,7 +2353,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateTournament']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateTournament', input);
+    log('Core.Service.updateTournament', input);
 
     const updatedTournament = await ctx.app.model.Tournament.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -2335,7 +2367,7 @@ export class Service {
   // Trade Methods
   async getTrade(input: RouterInput['getTrade'], ctx: RouterContext): Promise<RouterOutput['getTrade']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getTrade', input);
+    log('Core.Service.getTrade', input);
 
     const trade = await ctx.app.model.Trade.findOne(getFilter(input)).exec();
     if (!trade) throw new Error('Trade not found');
@@ -2344,7 +2376,7 @@ export class Service {
   }
   async getTrades(input: RouterInput['getTrades'], ctx: RouterContext): Promise<RouterOutput['getTrades']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getTrades', input);
+    log('Core.Service.getTrades', input);
 
     const trade = await ctx.app.model.Trade.find().limit(10).exec();
 
@@ -2353,7 +2385,7 @@ export class Service {
 
   async createTrade(input: RouterInput['createTrade'], ctx: RouterContext): Promise<RouterOutput['createTrade']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createTrade', input);
+    log('Core.Service.createTrade', input);
 
     const trade = await ctx.app.model.Trade.create(input);
     return trade as Trade;
@@ -2361,7 +2393,7 @@ export class Service {
 
   async updateTrade(input: RouterInput['updateTrade'], ctx: RouterContext): Promise<RouterOutput['updateTrade']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateTrade', input);
+    log('Core.Service.updateTrade', input);
 
     const updatedTrade = await ctx.app.model.Trade.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -2374,7 +2406,7 @@ export class Service {
   // Universe Methods
   async getUniverse(input: RouterInput['getUniverse'], ctx: RouterContext): Promise<RouterOutput['getUniverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getUniverse', input);
+    log('Core.Service.getUniverse', input);
 
     const universe = await ctx.app.model.Universe.findOne(getFilter(input)).exec();
     if (!universe) throw new Error('Universe not found');
@@ -2387,7 +2419,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createUniverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createUniverse', input);
+    log('Core.Service.createUniverse', input);
 
     const universe = await ctx.app.model.Universe.create(input);
     return universe as Universe;
@@ -2398,7 +2430,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateUniverse']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateUniverse', input);
+    log('Core.Service.updateUniverse', input);
 
     const updatedUniverse = await ctx.app.model.Universe.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()
@@ -2411,7 +2443,7 @@ export class Service {
   // Validator Methods
   async getValidator(input: RouterInput['getValidator'], ctx: RouterContext): Promise<RouterOutput['getValidator']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getValidator', input);
+    log('Core.Service.getValidator', input);
 
     const validator = await ctx.app.model.Validator.findOne(getFilter(input)).exec();
     if (!validator) throw new Error('Validator not found');
@@ -2424,7 +2456,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createValidator']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createValidator', input);
+    log('Core.Service.createValidator', input);
 
     const validator = await ctx.app.model.Validator.create(input);
     return validator as Validator;
@@ -2435,7 +2467,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateValidator']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateValidator', input);
+    log('Core.Service.updateValidator', input);
 
     const updatedValidator = await ctx.app.model.Validator.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -2450,7 +2482,7 @@ export class Service {
   // Vote Methods
   async getVote(input: RouterInput['getVote'], ctx: RouterContext): Promise<RouterOutput['getVote']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getVote', input);
+    log('Core.Service.getVote', input);
 
     const vote = await ctx.app.model.Vote.findOne(getFilter(input)).exec();
     if (!vote) throw new Error('Vote not found');
@@ -2460,7 +2492,7 @@ export class Service {
 
   async createVote(input: RouterInput['createVote'], ctx: RouterContext): Promise<RouterOutput['createVote']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createVote', input);
+    log('Core.Service.createVote', input);
 
     const vote = await ctx.app.model.Vote.create(input);
     return vote as Vote;
@@ -2468,7 +2500,7 @@ export class Service {
 
   async updateVote(input: RouterInput['updateVote'], ctx: RouterContext): Promise<RouterOutput['updateVote']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateVote', input);
+    log('Core.Service.updateVote', input);
 
     const updatedVote = await ctx.app.model.Vote.findByIdAndUpdate(input.where.id.equals, { new: true }).exec();
     if (!updatedVote) throw new Error('Vote update failed');
@@ -2479,7 +2511,7 @@ export class Service {
   // WorldEvent Methods
   async getWorldEvent(input: RouterInput['getWorldEvent'], ctx: RouterContext): Promise<RouterOutput['getWorldEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getWorldEvent', input);
+    log('Core.Service.getWorldEvent', input);
 
     const worldEvent = await ctx.app.model.WorldEvent.findOne(getFilter(input)).exec();
     if (!worldEvent) throw new Error('WorldEvent not found');
@@ -2492,7 +2524,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createWorldEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createWorldEvent', input);
+    log('Core.Service.createWorldEvent', input);
 
     const worldEvent = await ctx.app.model.WorldEvent.create(input);
     return worldEvent as WorldEvent;
@@ -2503,7 +2535,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateWorldEvent']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateWorldEvent', input);
+    log('Core.Service.updateWorldEvent', input);
 
     const updatedWorldEvent = await ctx.app.model.WorldEvent.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -2521,7 +2553,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getWorldRecord']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getWorldRecord', input);
+    log('Core.Service.getWorldRecord', input);
 
     const worldRecord = await ctx.app.model.WorldRecord.findOne(getFilter(input)).exec();
     if (!worldRecord) throw new Error('WorldRecord not found');
@@ -2534,7 +2566,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['createWorldRecord']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createWorldRecord', input);
+    log('Core.Service.createWorldRecord', input);
 
     const worldRecord = await ctx.app.model.WorldRecord.create(input);
     return worldRecord as WorldRecord;
@@ -2545,7 +2577,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateWorldRecord']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateWorldRecord', input);
+    log('Core.Service.updateWorldRecord', input);
 
     const updatedWorldRecord = await ctx.app.model.WorldRecord.findByIdAndUpdate(input.where.id.equals, {
       new: true,
@@ -2560,7 +2592,7 @@ export class Service {
   // Get Bounty
   async getBounty(input: RouterInput['getBounty'], ctx: RouterContext): Promise<RouterOutput['getBounty']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.getBounty', input);
+    log('Core.Service.getBounty', input);
 
     const bounty = await ctx.app.model.Bounty.findOne(getFilter(input)).exec();
     if (!bounty) throw new Error('Bounty not found');
@@ -2571,7 +2603,7 @@ export class Service {
   // Create Bounty
   async createBounty(input: RouterInput['createBounty'], ctx: RouterContext): Promise<RouterOutput['createBounty']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.createBounty', input);
+    log('Core.Service.createBounty', input);
 
     const bounty = await ctx.app.model.Bounty.create(input);
     return bounty as Bounty;
@@ -2580,7 +2612,7 @@ export class Service {
   // Update Bounty
   async updateBounty(input: RouterInput['updateBounty'], ctx: RouterContext): Promise<RouterOutput['updateBounty']> {
     if (!input) throw new ARXError('NO_INPUT');
-    console.log('Core.Service.updateBounty', input);
+    log('Core.Service.updateBounty', input);
 
     const updatedBounty = await ctx.app.model.Bounty.findByIdAndUpdate(input.where.id.equals, { new: true })
       .lean()

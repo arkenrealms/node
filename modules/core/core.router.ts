@@ -92,6 +92,12 @@ export const createRouter = () =>
       )
       .query(({ input, ctx }) => (ctx.app.service.Core.syncGetPayloadsSince as any)(input, ctx)),
 
+    updateSettings: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(z.any())
+      .query(({ input, ctx }) => (ctx.app.service.Core.updateSettings as any)(input, ctx)),
+
     authorize: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))

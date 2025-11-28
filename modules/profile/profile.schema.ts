@@ -1,3 +1,5 @@
+// profile.schema.ts
+//
 import { z, ObjectId, Entity } from '../../schema';
 import { Character } from '../character/character.schema';
 import { Achievement, Badge } from '../core/core.schema';
@@ -101,6 +103,8 @@ export const Profile = Entity.merge(
     characters: z.array(ObjectId.optional()).optional(),
     settings: z
       .object({
+        warp: z.any().default({}),
+        designer: z.any().default({}),
         privacy: z.enum(['public', 'private', 'friends-only']).default('public'),
         notifications: z.boolean().default(true),
       })

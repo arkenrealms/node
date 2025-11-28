@@ -1,3 +1,5 @@
+// profile.types.ts
+//
 import { z } from 'zod';
 import * as schema from './profile.schema';
 import { Document, Model } from '../../util/mongo';
