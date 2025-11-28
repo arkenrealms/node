@@ -318,6 +318,17 @@ export const ipHashFromSocket = (socket) => {
   return hash;
 };
 
+export * as physics from './physics';
+export * as number from './number';
+export * as object from './object';
+export * as api from './api';
+export * as string from './string';
+export * as web3 from './web3';
+export * as math from './math';
+export * as db from './db';
+export * as time from './time';
+export * as config from './config';
+
 export default {
   objects,
   api,

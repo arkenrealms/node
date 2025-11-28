@@ -1,3 +1,5 @@
+// node/util/rpc.ts
+//
 import utf8 from 'utf8';
 import { TRPCError } from '@trpc/server';
 import { isValidRequest } from './web3';
@@ -48,40 +50,73 @@ interface SerializedSpecialTypes {
 }
 
 // Serialize function
+// Serialize function
 export const serialize = <T>(object: T): string => {
-  const processValue = (value: any): Serializable => {
-    // Handle special types with _type indicators
+  const seen = new WeakSet<object>();
+
+  const processValue = (value: any): any => {
+    // Fast-path primitives
+    if (
+      value === null ||
+      value === undefined ||
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      typeof value === 'boolean'
+    ) {
+      return value;
+    }
+
+    // Special scalar-ish types
+    if (typeof value === 'bigint') {
+      return { _type: 'BigInt', data: value.toString() };
+    }
+    if (value instanceof Date) {
+      return { _type: 'Date', data: value.toISOString() };
+    }
+    if (value instanceof RegExp) {
+      return { _type: 'RegExp', data: value.source, flags: value.flags };
+    }
     if (value instanceof ArrayBuffer) {
       return { _type: 'ArrayBuffer', data: Array.from(new Uint8Array(value)) };
     }
     if (value instanceof Uint8Array) {
       return { _type: 'Uint8Array', data: Array.from(value) };
     }
-    if (value instanceof Date) {
-      return { _type: 'Date', data: value.toISOString() };
-    }
     if (value instanceof Set) {
       return { _type: 'Set', data: Array.from(value).map(processValue) };
     }
     if (value instanceof Map) {
-      return { _type: 'Map', data: Array.from(value.entries()).map(([k, v]) => [k, processValue(v)]) };
+      return {
+        _type: 'Map',
+        data: Array.from(value.entries()).map(([k, v]) => [k, processValue(v)]),
+      };
     }
-    if (typeof value === 'bigint') {
-      return { _type: 'BigInt', data: value.toString() };
+
+    // From here on we're dealing with objects/arrays
+    if (typeof value !== 'object') {
+      return value;
     }
-    if (value instanceof RegExp) {
-      return { _type: 'RegExp', data: value.source, flags: value.flags };
+
+    // Cycle detection
+    if (seen.has(value as object)) {
+      return '[Circular]';
     }
-    // Recursively process arrays and objects without intermediate serialization
+    seen.add(value as object);
+
+    // Normalize Mongoose documents (root or nested)
+    // Mongoose docs have $__ and toJSON/toObject
+    if ((value as any).$__ && typeof (value as any).toJSON === 'function') {
+      return processValue((value as any).toJSON());
+    }
+
+    // Arrays (including Mongoose arrays / document arrays)
     if (Array.isArray(value)) {
-      return value.map(processValue);
+      return (value as any[]).map((item) => processValue(item));
     }
-    if (value && typeof value === 'object') {
-      const entries = Object.entries(value).map(([k, v]) => [k, processValue(v)]);
-      return Object.fromEntries(entries);
-    }
-    // Default behavior for primitive types
-    return value;
+
+    // Plain-ish objects
+    const entries = Object.entries(value).map(([k, v]) => [k, processValue(v)]);
+    return Object.fromEntries(entries);
   };
 
   const processedObject = processValue(object);
