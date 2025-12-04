@@ -62,6 +62,9 @@ export type CompanyDocument = Company & Document;
 export type Conversation = z.infer<typeof schema.Conversation>;
 export type ConversationDocument = Conversation & Document;
 
+export type ConversationMessage = z.infer<typeof schema.ConversationMessage>;
+export type ConversationMessageDocument = ConversationMessage & Document;
+
 export type Data = z.infer<typeof schema.Data>;
 export type DataDocument = Data & Document;
 
@@ -268,6 +271,7 @@ export type Mappings = {
   Community: Model<CommunityDocument>;
   Company: Model<CompanyDocument>;
   Conversation: Model<ConversationDocument>;
+  ConversationMessage: Model<ConversationMessageDocument>;
   Data: Model<DataDocument>;
   Discussion: Model<DiscussionDocument>;
   Energy: Model<EnergyDocument>;

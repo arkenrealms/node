@@ -1,4 +1,4 @@
-// core.models.ts
+// node/modules/core/core.models.ts
 
 import * as mongo from '../../util/mongo';
 import type * as Types from './core.types';
@@ -13,7 +13,7 @@ export const MerkleTree = createModel<Types.MerkleTreeDocument>(
     depth: { type: Number, required: true, default: 16 }, // log2(#leaves)
   },
   {
-    extend: 'CommonFields',
+    // extend: 'CommonFields',
     virtuals: [...addTagVirtuals('MerkleTree'), ...addApplicationVirtual()],
   }
 );
@@ -28,7 +28,7 @@ export const MerkleNode = createModel<Types.MerkleNodeDocument>(
     hash: { type: String, required: true },
   },
   {
-    extend: 'CommonFields',
+    // extend: 'CommonFields',
     indexes: [{ treeId: 1, level: 1, index: 1 }],
     virtuals: [...addTagVirtuals('MerkleNode'), ...addApplicationVirtual()],
   }
@@ -348,10 +348,27 @@ export const Conversation = createModel<Types.ConversationDocument>(
   {
     profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
     isLocked: { type: Boolean, default: true },
-    // messages: [mongo.Schema.Types.Mixed],
+    messages: [{ type: mongo.Schema.Types.ObjectId, ref: 'ConversationMessage' }],
   },
   {
+    // extend: 'CommonFields',
     virtuals: [...addTagVirtuals('Conversation'), ...addApplicationVirtual()],
+  }
+);
+
+export const ConversationMessage = createModel<Types.ConversationMessageDocument>(
+  'ConversationMessage',
+  {
+    conversationId: { type: mongo.Schema.Types.ObjectId, ref: 'Conversation', required: true },
+    role: { type: String, enum: ['user', 'assistant'], required: true }, // 'user' for human, 'assistant' for AI
+    content: { type: String, required: true },
+    replyToId: { type: mongo.Schema.Types.ObjectId, ref: 'ConversationMessage' }, // For threaded replies
+    metadata: { type: mongo.Schema.Types.Mixed }, // Optional AI-specific data, e.g., tokens used, model version
+  },
+  {
+    // extend: 'CommonFields',
+    indexes: [{ conversationId: 1 }],
+    virtuals: [...addTagVirtuals('ConversationMessage'), ...addApplicationVirtual()],
   }
 );
 
@@ -1180,7 +1197,7 @@ export const SeerEvent = mongo.createModel<Types.SeerEventDocument>(
     timestamp: { type: Date, default: Date.now, index: true },
   },
   {
-    extend: 'CommonFields', // or 'EntityFields' if you want applicationId/ownerId, but you already have applicationId above
+    // extend: 'CommonFields', // or 'EntityFields' if you want applicationId/ownerId, but you already have applicationId above
     indexes: [{ seq: 1 }, { timestamp: 1 }],
   }
 );
@@ -1205,7 +1222,7 @@ export const SeerPayload = mongo.createModel<Types.SeerPayloadDocument>(
     publicSignals: { type: [String], default: [] },
   },
   {
-    extend: 'CommonFields',
+    // extend: 'CommonFields',
     indexes: [{ createdDate: 1 }],
   }
 );

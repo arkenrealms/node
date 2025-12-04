@@ -1,4 +1,4 @@
-// module/core.router.ts
+// node/module/core/core.router.ts
 
 import { z as zod } from 'zod';
 import { initTRPC, inferRouterInputs } from '@trpc/server';
@@ -22,6 +22,7 @@ import {
   Community,
   Company,
   Conversation,
+  ConversationMessage,
   Data,
   Discussion,
   Energy,
@@ -97,6 +98,19 @@ export const createRouter = () =>
       .use(customErrorFormatter(t))
       .input(z.any())
       .query(({ input, ctx }) => (ctx.app.service.Core.updateSettings as any)(input, ctx)),
+
+    ask: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          messages: z.any(),
+          // role: 'user' | 'assistant' | 'system';
+          // content: string;
+        })
+      )
+      // .output(Account)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.ask as any)(input, ctx)),
 
     authorize: procedure
       .use(hasRole('guest', t))
@@ -450,18 +464,61 @@ export const createRouter = () =>
       .query(({ input, ctx }) => (ctx.app.service.Core.getConversation as any)(input, ctx)),
 
     createConversation: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Conversation))
-      .output(Conversation.pick({ id: true }))
+      .output(Conversation.pick({ id: true, name: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversation as any)(input, ctx)),
 
     updateConversation: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Conversation))
       .output(Conversation.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversation as any)(input, ctx)),
+
+    deleteConversation: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Conversation))
+      // .output(Conversation.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.deleteConversation as any)(input, ctx)),
+
+    getConversations: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Conversation))
+      .output(z.object({ items: z.array(Conversation), total: z.number() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversations as any)(input, ctx)),
+    // ConversationMessage Procedures
+    getConversationMessage: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      .output(ConversationMessage)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversationMessage as any)(input, ctx)),
+
+    getConversationMessages: procedure
+      .use(hasRole('user', t)) // was 'guest', 'user' is usually what you want
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      .output(z.object({ items: z.array(ConversationMessage), total: z.number() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversationMessages as any)(input, ctx)),
+
+    createConversationMessage: procedure
+      .use(hasRole('user', t)) // was 'admin'
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      // better: return the full message (or pick what you care about)
+      .output(ConversationMessage)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversationMessage as any)(input, ctx)),
+
+    updateConversationMessage: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      .output(ConversationMessage.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversationMessage as any)(input, ctx)),
 
     // Data Procedures
     getData: procedure
@@ -1113,6 +1170,35 @@ export const createRouter = () =>
       .output(Realm.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealm as any)(input, ctx)),
 
+    // RealmEvent Procedures
+    getRealmEvent: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(RealmEvent)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmEvent as any)(input, ctx)),
+
+    getRealmEvents: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(z.array(RealmEvent))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmEvents as any)(input, ctx)),
+
+    createRealmEvent: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(RealmEvent.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRealmEvent as any)(input, ctx)),
+
+    updateRealmEvent: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(RealmEvent))
+      .output(RealmEvent.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmEvent as any)(input, ctx)),
+
     // Revision Procedures
     getRevision: procedure
       .use(hasRole('guest', t))
@@ -1249,35 +1335,6 @@ export const createRouter = () =>
       .input(getQueryInput(RealmShard))
       .output(RealmShard.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmShard as any)(input, ctx)),
-
-    // RealmEvent Procedures
-    getRealmEvent: procedure
-      .use(hasRole('guest', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(RealmEvent))
-      .output(RealmEvent)
-      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmEvent as any)(input, ctx)),
-
-    getRealmEvents: procedure
-      .use(hasRole('guest', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(RealmEvent))
-      .output(z.array(RealmEvent))
-      .query(({ input, ctx }) => (ctx.app.service.Core.getRealmEvents as any)(input, ctx)),
-
-    createRealmEvent: procedure
-      .use(hasRole('admin', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(RealmEvent))
-      .output(RealmEvent.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.createRealmEvent as any)(input, ctx)),
-
-    updateRealmEvent: procedure
-      .use(hasRole('admin', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(RealmEvent))
-      .output(RealmEvent.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateRealmEvent as any)(input, ctx)),
 
     // Session Procedures
     getSession: procedure

@@ -1,4 +1,4 @@
-// core.schema.ts
+// node/modules/core/core.schema.ts
 
 import { z, ObjectId, Entity } from '../../schema';
 import { Profile } from '../profile/profile.schema';
@@ -99,8 +99,19 @@ export const Company = Entity.merge(
 export const Conversation = Entity.merge(
   z.object({
     profileId: ObjectId.optional(),
-    messages: z.array(z.unknown()).optional(),
+    messages: z.array(ObjectId).optional(),
     isLocked: z.boolean().default(true),
+  })
+);
+
+// ConversationMessage Schema
+export const ConversationMessage = Entity.merge(
+  z.object({
+    conversationId: ObjectId,
+    role: z.enum(['user', 'assistant']),
+    content: z.string(),
+    replyToId: ObjectId.optional(),
+    metadata: z.record(z.any()).optional(),
   })
 );
 
@@ -577,6 +588,7 @@ export const ModelNames = z.enum([
   'Community',
   'Company',
   'Conversation',
+  'ConversationMessage',
   'Data',
   'Discussion',
   'Energy',
@@ -732,7 +744,7 @@ export const SeerEvent = Entity.merge(
     recordId: z.string().min(1),
 
     // Application scoping (optional)
-    applicationId: ObjectId.optional(),
+    // applicationId: ObjectId.optional(),
 
     // Full payload for this version (we keep it generic / untyped here)
     payload: z.unknown(),
@@ -751,7 +763,7 @@ export const SeerPayload = Entity.merge(
     fromSeer: z.string().min(1),
 
     // Optional app scope (if you ever shard per app)
-    applicationId: ObjectId.optional(),
+    // applicationId: ObjectId.optional(),
 
     // Batch of SeerEvent-like objects (kept generic to avoid cross-module coupling)
     events: z.array(z.unknown()).default([]),
