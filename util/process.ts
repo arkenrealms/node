@@ -15,7 +15,7 @@ export function catchExceptions(kill = false) {
       logError(reason + '. Unhandled Rejection at Promise:' + p);
     })
     .on('uncaughtException', (err) => {
-      console.log(err, 'Uncaught Exception thrown');
+      console.log('Uncaught Exception thrown', err);
       // logError(err + ". Uncaught Exception thrown" + err.stack)
       if (kill) {
         process.exit(1);

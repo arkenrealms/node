@@ -1308,6 +1308,7 @@ export class Model<T extends Document> {
   create(doc: Partial<T>): Promise<T>;
   create(doc: Partial<T>[]): Promise<T[]>;
   create(doc: Partial<T> | Partial<T>[]): Promise<T | T[]> {
+    console.log('create', this.filters.applicationId);
     if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       if (Array.isArray(doc)) {
         // @ts-ignore
@@ -1484,6 +1485,62 @@ export class Model<T extends Document> {
     });
 
     return this.updateOne(filter, update, options).exec();
+  }
+
+  // ---------------------------------------------------------------------------
+  // JSON helpers (normalize ids, hide asJSON typings from callers)
+  // ---------------------------------------------------------------------------
+
+  /**
+   * Find many docs and return normalized JSON (id instead of _id, ObjectIds → string).
+   * This hides the mongoose Query/asJSON typing from callers.
+   */
+  async findJSON(
+    filter: FilterQuery<T> = {},
+    projection?: ProjectionType<T> | null,
+    options?: QueryOptions
+  ): Promise<any[]> {
+    // Use the same default filter logic (applicationId, status != Archived)
+    const q = this.find(filter, projection, options) as any;
+
+    // If query helper asJSON exists, use it
+    if (typeof q.asJSON === 'function') {
+      return q.asJSON();
+    }
+
+    // Fallback: lean() + deepNormalizeIds
+    const res = await q.lean().exec();
+    if (Array.isArray(res)) {
+      return res.map((doc: any) => deepNormalizeIds(doc, true));
+    }
+    return [];
+  }
+
+  /**
+   * Find one doc and return normalized JSON (or null).
+   */
+  async findOneJSON(
+    filter: FilterQuery<T> = {},
+    projection?: ProjectionType<T> | null,
+    options?: QueryOptions
+  ): Promise<any | null> {
+    const q = this.findOne(filter, projection, options) as any;
+
+    if (typeof q.asJSON === 'function') {
+      return q.asJSON();
+    }
+
+    const res = await q.lean().exec();
+    if (!res) return null;
+    return deepNormalizeIds(res, true);
+  }
+
+  /**
+   * Count documents with the same default filter behavior (applicationId, status != Archived).
+   */
+  async countDocumentsFiltered(filter: FilterQuery<T> = {}): Promise<number> {
+    const finalFilter = this.applyDefaultFilters(filter);
+    return this.model.countDocuments(finalFilter).exec();
   }
 }
 

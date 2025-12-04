@@ -1,11 +1,21 @@
 import 'mongoose';
+import type { Query as MongooseQuery, QueryWithHelpers as MongooseQueryWithHelpers } from 'mongoose';
 
 declare module 'mongoose' {
-  interface Query<ResultType, DocType, THelpers = {}, RawDocType = DocType, TQueryOp = any, TInitialDoc = RawDocType> {
-    /**
-     * Runs the query as lean(), converts `_id` -> string `id`,
-     * and returns the same ResultType shape.
-     */
-    asJSON(this: Query<ResultType, DocType, THelpers, RawDocType, TQueryOp, TInitialDoc>): Promise<ResultType>;
+  // Mongoose 8+ Query generic signature
+  interface Query<ResultType, DocType, THelpers = {}, RawDocType = DocType, QueryOp = any, DocTypeFromQuery = DocType> {
+    asJSON(): Promise<any>;
+  }
+
+  // Some APIs use QueryWithHelpers, so augment that too to be safe
+  interface QueryWithHelpers<
+    ResultType,
+    DocType,
+    THelpers = {},
+    RawDocType = DocType,
+    QueryOp = any,
+    DocTypeFromQuery = DocType
+  > {
+    asJSON(): Promise<any>;
   }
 }
