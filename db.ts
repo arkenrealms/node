@@ -201,6 +201,10 @@ class Database {
         retryWrites: false,
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        ssl: false,
+        tls: false,
+        serverSelectionTimeoutMS: 5000,
+        directConnection: true,
       } as ConnectOptions)
       .then((conn) => conn.connection);
 
