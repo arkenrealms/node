@@ -112,14 +112,54 @@ export class Service {
     ctx.client.profile.markModified('settings');
     await ctx.client.profile.save(); // writes to DB and keeps this doc in sync
     return ctx.client.profile.settings as RouterOutput['updateSettings'];
-  }
+  } // Core.Service.ts (or wherever this class lives)
+
   async ask(input: RouterInput['ask'], ctx: RouterContext): Promise<RouterOutput['ask']> {
     if (!input) throw new ARXError('NO_INPUT');
     log('Core.Service.ask', input);
-    return {
+
+    // Expecting: { conversationId, messages: [{ role, content, ... }, ...], ... }
+    const { conversationId, messages } = input.data;
+
+    if (!conversationId) {
+      throw new Error('NO_CONVERSATION_ID');
+    }
+
+    if (!Array.isArray(messages) || messages.length === 0) {
+      throw new Error('NO_MESSAGES');
+    }
+
+    // Take the last message as the "new" user message
+    const lastMessage = messages[messages.length - 1];
+    if (!lastMessage?.content) {
+      throw new Error('NO_MESSAGE_CONTENT');
+    }
+
+    const userRole = lastMessage.role || 'user';
+
+    // 1) Persist the user message
+    await ctx.app.model.ConversationMessage.create({
+      conversationId,
+      role: userRole,
+      content: lastMessage.content,
+    });
+
+    // 2) Call your real LLM / agent here (for now it's a stub)
+    //    You can replace this block with your actual LLM call later.
+    const assistantReply: RouterOutput['ask'] = {
       content: 'Request success.',
       role: 'assistant',
     };
+
+    // 3) Persist the assistant reply
+    await ctx.app.model.ConversationMessage.create({
+      conversationId,
+      role: assistantReply.role,
+      content: assistantReply.content,
+    });
+
+    // 4) Return reply for streaming / UI
+    return assistantReply;
   }
   // Account Methods
   async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
@@ -602,6 +642,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getConversations']> {
     if (!input) throw new ARXError('NO_INPUT');
+    if (input.limit !== 100) throw new ARXError('NO_INPUT');
     const filter = getFilter(input);
     const limit = input.limit ?? 50;
     const skip = input.skip ?? 0;
@@ -691,7 +732,7 @@ export class Service {
   ): Promise<RouterOutput['createConversationMessage']> {
     if (!input) throw new ARXError('NO_INPUT');
     log('Core.Service.createConversationMessage', input);
-    const conversationMessage = await ctx.app.model.ConversationMessage.create(input);
+    const conversationMessage = await ctx.app.model.ConversationMessage.create(input.data);
     return conversationMessage as ConversationMessage;
   }
   async updateConversationMessage(

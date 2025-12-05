@@ -104,9 +104,12 @@ export const createRouter = () =>
       .use(customErrorFormatter(t))
       .input(
         z.object({
-          messages: z.any(),
-          // role: 'user' | 'assistant' | 'system';
-          // content: string;
+          data: z.object({
+            conversationId: z.string(),
+            messages: z.any(),
+            // role: 'user' | 'assistant' | 'system';
+            // content: string;
+          }),
         })
       )
       // .output(Account)
