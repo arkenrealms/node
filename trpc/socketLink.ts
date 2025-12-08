@@ -1,4 +1,4 @@
-// trpc/socketLink.ts
+// arken/packages/node/trpc/socketLink.ts
 
 import { TRPCClientError, type TRPCLink, createTRPCProxyClient } from '@trpc/client';
 import { observable } from '@trpc/server/observable';
@@ -112,15 +112,25 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
             timeout,
             resolve: (response: any) => {
               clearTimeout(timeout);
+
               if (response.error) {
-                const err =
+                // Build a TRPCClientError from the raw error
+                const baseErr =
                   response.error instanceof TRPCClientError
                     ? response.error
                     : new TRPCClientError<any>(
                         typeof response.error === 'string' ? response.error : JSON.stringify(response.error)
                       );
-                notifyTRPCError(err);
-                observer.error(err as any);
+
+                // 🔹 Attach the socket id (request id) onto the error's data
+                const errAny = baseErr as any;
+                errAny.data = {
+                  ...(errAny.data || {}),
+                  reqId: response.id ?? uuid,
+                };
+
+                notifyTRPCError(baseErr);
+                observer.error(baseErr as any);
               } else {
                 const result: any = deserialize(response.result);
                 observer.next({
@@ -129,12 +139,29 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
                 } as any);
                 observer.complete();
               }
+
               delete client.ioCallbacks[uuid];
             },
+
             reject: (error: any) => {
               clearTimeout(timeout);
-              notifyTRPCError(error);
-              observer.error(error as any);
+
+              // Optional: also wrap and tag internal errors with reqId=uuid
+              let err: any = error;
+              if (!(error instanceof TRPCClientError)) {
+                err =
+                  typeof error === 'string'
+                    ? new TRPCClientError<any>(error)
+                    : new TRPCClientError<any>(JSON.stringify(error));
+              }
+
+              err.data = {
+                ...(err.data || {}),
+                reqId: uuid,
+              };
+
+              notifyTRPCError(err);
+              observer.error(err as any);
               delete client.ioCallbacks[uuid];
             },
           };
@@ -251,21 +278,34 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
               timeout,
               resolve: (pack: any) => {
                 clearTimeout(timeout);
+
                 if (pack.error) {
-                  const err =
+                  // Build error and tag with reqId (socket/trpc id)
+                  const baseErr =
                     pack.error instanceof TRPCClientError
                       ? (pack.error as any)
                       : (new TRPCClientError<any>(
                           typeof pack.error === 'string' ? pack.error : JSON.stringify(pack.error)
                         ) as any);
-                  observer.error(err);
+
+                  (baseErr as any).data = {
+                    ...((baseErr as any).data || {}),
+                    reqId: pack.id ?? uuid,
+                  };
+
+                  observer.error(baseErr);
                 } else {
                   const result: any = deserialize(pack.result);
                   // expect `{ status, data }` from server
                   if (result?.status !== 1) {
-                    observer.error(
-                      new TRPCClientError<any>(`${logPrefix}: status error ${JSON.stringify(result)}`) as any
-                    );
+                    const statusErr = new TRPCClientError<any>(
+                      `${logPrefix}: status error ${JSON.stringify(result)}`
+                    ) as any;
+                    statusErr.data = {
+                      ...(statusErr.data || {}),
+                      reqId: pack.id ?? uuid,
+                    };
+                    observer.error(statusErr);
                   } else {
                     // 👈 IMPORTANT: wrap in { result: { data } } so query() resolves to `data`
                     observer.next({
@@ -276,11 +316,26 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
                     observer.complete();
                   }
                 }
+
                 delete client.ioCallbacks[uuid];
               },
               reject: (error: any) => {
                 clearTimeout(timeout);
-                observer.error(error as any);
+
+                let err: any = error;
+                if (!(error instanceof TRPCClientError)) {
+                  err =
+                    typeof error === 'string'
+                      ? new TRPCClientError<any>(error)
+                      : new TRPCClientError<any>(JSON.stringify(error));
+                }
+
+                err.data = {
+                  ...(err.data || {}),
+                  reqId: uuid,
+                };
+
+                observer.error(err as any);
                 delete client.ioCallbacks[uuid];
               },
             };
