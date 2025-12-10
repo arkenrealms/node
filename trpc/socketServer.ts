@@ -1,4 +1,4 @@
-// src/trpc/socketServer.ts
+// arken/packages/node/src/trpc/socketServer.ts
 
 import type { AnyRouter } from '@trpc/server';
 import { serialize, deserialize } from '../util/rpc';
@@ -41,7 +41,11 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
 
       socket.emit('trpcResponse', { id, result: serialize({ status: 1, data: result }) });
     } catch (error: any) {
-      log('Server error in socket TRPC handler', error);
+      if ((error + '').includes("reading '_def'")) {
+        log('TRPC handler does not exist', method, error);
+      } else {
+        log('Server error in socket TRPC handler', method, error);
+      }
 
       socket.emit('trpcResponse', {
         id,

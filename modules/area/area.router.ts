@@ -15,7 +15,7 @@ export const createRouter = () =>
     getArea: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query }))
+      .input(getQueryInput(Area))
       .query(({ input, ctx }) => (ctx.app.service.Area.getArea as any)(input, ctx)),
 
     getAreas: procedure
@@ -27,13 +27,15 @@ export const createRouter = () =>
     createArea: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ data: Area.omit({ id: true }) }))
+      .input(getQueryInput(Area))
+      .output(Area.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Area.createArea as any)(input, ctx)),
 
     updateArea: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.object({ query: Query, data: Area.partial() }))
+      .input(getQueryInput(Area))
+      .output(Area.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Area.updateArea as any)(input, ctx)),
 
     getAreaLandmark: procedure

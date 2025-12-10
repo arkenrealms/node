@@ -5,10 +5,11 @@ import { ARXError } from '../../util/rpc';
 export class Service {
   async getArea(input: RouterInput['getArea'], ctx: RouterContext): Promise<RouterOutput['getArea']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Area.Service.getArea', input.query);
+    console.log('Area.Service.getArea', input);
 
-    const filter = getFilter(input.query);
-    const area = await ctx.app.model.Area.findOne(filter).lean().exec();
+    const filter = getFilter(input);
+    // @ts-ignore
+    const area = await ctx.app.model.Area.findOne(filter).asJSON();
     if (!area) throw new Error('Area not found');
 
     return area as Area;
@@ -23,7 +24,8 @@ export class Service {
     const skip = input.skip ?? 0;
 
     const [items, total] = await Promise.all([
-      ctx.app.model.Area.find(filter).skip(skip).limit(limit).lean().exec(),
+      // @ts-ignore
+      ctx.app.model.Area.find(filter).skip(skip).limit(limit).asJSON(),
       ctx.app.model.Area.find(filter).countDocuments().exec(),
     ]);
 
@@ -87,9 +89,9 @@ export class Service {
 
   async updateArea(input: RouterInput['updateArea'], ctx: RouterContext): Promise<RouterOutput['updateArea']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Area.Service.updateArea', input.query, input.data);
+    console.log('Area.Service.updateArea', input);
 
-    const filter = getFilter(input.query);
+    const filter = getFilter(input);
     const updatedArea = await ctx.app.model.Area.findOneAndUpdate(filter, input.data, { new: true }).lean().exec();
     if (!updatedArea) throw new Error('Area update failed');
 
