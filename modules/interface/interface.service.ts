@@ -4,68 +4,140 @@ import type {
   RouterContext,
   RouterInput,
   RouterOutput,
+  Interface,
   InterfaceDocument,
   InterfaceGroupDocument,
   InterfaceComponentDocument,
 } from './interface.types';
+import { log, logError } from '../../util';
+import { ARXError } from '../../util/rpc';
 
 export class Service {
   constructor() {}
 
   // Interface Methods
-  async getInterface(input: RouterInput['getInterface'], ctx: RouterContext): Promise<RouterOutput['getInterface']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.getInterface', input);
-
+  async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.getInterfaces', input);
     const filter = getFilter(input);
-    const interfac = await ctx.app.model.Interface.findOne(filter).select('-meta').exec();
-    if (!interfac) throw new Error('Interface not found');
+    const limit = input.limit ?? 50;
+    const skip = input.skip ?? 0;
 
-    if (!interfac.version) interfac.version = 1;
-    if (!interfac.meta) interfac.meta = {};
+    const [items, total] = await Promise.all([
+      // If your Interface model has findJSON like Conversation:
+      ctx.app.model.Interface.findJSON(filter, null, { skip, limit }),
+      ctx.app.model.Interface.find(filter).countDocuments().exec(),
+    ]);
 
-    return interfac as InterfaceDocument;
+    return { items, total };
   }
 
-  async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
-    if (!input) throw new Error('Input should not be void');
-
-    const filter = getFilter(input);
-    console.log('Interface.Service.getInterfaces', input, filter);
-    const interfaces = await ctx.app.model.Interface.find(filter).select('-meta').exec();
-    const rolesOnUsers = ['Super User']; // await this.fetchRolesFromContext(ctx);
-
-    for (const interfac of interfaces) {
-      if (!interfac.version) interfac.version = 1;
-      if (!interfac.meta) interfac.meta = {};
-    }
-
-    return interfaces.filter((interfac) => {
-      const roles = [];
-      return this.hasPermission(roles, rolesOnUsers);
-    }) as InterfaceDocument[];
+  async getInterface(input: RouterInput['getInterface'], ctx: RouterContext): Promise<RouterOutput['getInterface']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.getInterface', input);
+    // If you have findOneJSON on Interface:
+    const iface = await ctx.app.model.Interface.findOneJSON(getFilter(input));
+    if (!iface) throw new Error('Interface not found');
+    return iface as Interface;
   }
 
   async createInterface(
     input: RouterInput['createInterface'],
     ctx: RouterContext
   ): Promise<RouterOutput['createInterface']> {
-    if (!input) throw new Error('Input should not be void');
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.createInterface', input);
 
-    const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).exec();
-    const version = existingInterface ? existingInterface.version + 1 : 1;
-
-    const newInterface = await ctx.app.model.Interface.create({
-      ...input.data,
-      status: input.data.status || 'Draft',
-      version,
-      createdDate: new Date(),
-    });
-
-    await ctx.app.service.Job.updateMetrics({}, ctx);
-
-    return newInterface as InterfaceDocument;
+    // Same pattern as createConversation: expect { data: {...} }
+    const iface = await ctx.app.model.Interface.create(input.data);
+    return iface as Interface;
   }
+
+  async updateInterface(
+    input: RouterInput['updateInterface'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateInterface']> {
+    if (!input) throw new ARXError('NO_INPUT');
+
+    const filters = getFilter(input);
+    if (!filters._id) throw new ARXError('BAD_REQUEST');
+
+    log('Core.Service.updateInterface', input);
+    const updatedInterface = await ctx.app.model.Interface.findByIdAndUpdate(filters._id, input.data, {
+      new: true,
+    })
+      .lean()
+      .exec();
+
+    if (!updatedInterface) throw new Error('Interface update failed');
+    return updatedInterface as Interface;
+  }
+
+  async deleteInterface(
+    input: RouterInput['deleteInterface'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['deleteInterface']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.deleteInterface', input);
+    const deleted = await ctx.app.model.Interface.findByIdAndDelete(input.where.id.equals).exec();
+    if (!deleted) throw new Error('Interface not found');
+    return { id: input.where.id.equals };
+  }
+
+  // // Interface Methods
+  // async getInterface(input: RouterInput['getInterface'], ctx: RouterContext): Promise<RouterOutput['getInterface']> {
+  //   if (!input) throw new Error('Input should not be void');
+  //   console.log('Interface.Service.getInterface', input);
+
+  //   const filter = getFilter(input);
+  //   const interfac = await ctx.app.model.Interface.findOne(filter).select('-meta').exec();
+  //   if (!interfac) throw new Error('Interface not found');
+
+  //   if (!interfac.version) interfac.version = 1;
+  //   if (!interfac.meta) interfac.meta = {};
+
+  //   return interfac as InterfaceDocument;
+  // }
+
+  // async getInterfaces(input: RouterInput['getInterfaces'], ctx: RouterContext): Promise<RouterOutput['getInterfaces']> {
+  //   if (!input) throw new Error('Input should not be void');
+
+  //   const filter = getFilter(input);
+  //   console.log('Interface.Service.getInterfaces', input, filter);
+  //   const interfaces = await ctx.app.model.Interface.find(filter).select('-meta').exec();
+  //   const rolesOnUsers = ['Super User']; // await this.fetchRolesFromContext(ctx);
+
+  //   for (const interfac of interfaces) {
+  //     if (!interfac.version) interfac.version = 1;
+  //     if (!interfac.meta) interfac.meta = {};
+  //   }
+
+  //   return interfaces.filter((interfac) => {
+  //     const roles = [];
+  //     return this.hasPermission(roles, rolesOnUsers);
+  //   }) as InterfaceDocument[];
+  // }
+
+  // async createInterface(
+  //   input: RouterInput['createInterface'],
+  //   ctx: RouterContext
+  // ): Promise<RouterOutput['createInterface']> {
+  //   if (!input) throw new Error('Input should not be void');
+
+  //   const existingInterface = await ctx.app.model.Interface.findOne({ key: input.data.key }).exec();
+  //   const version = existingInterface ? existingInterface.version + 1 : 1;
+
+  //   const newInterface = await ctx.app.model.Interface.create({
+  //     ...input.data,
+  //     status: input.data.status || 'Draft',
+  //     version,
+  //     createdDate: new Date(),
+  //   });
+
+  //   await ctx.app.service.Job.updateMetrics({}, ctx);
+
+  //   return newInterface as InterfaceDocument;
+  // }
 
   async createInterfaceDraft(
     input: RouterInput['createInterfaceDraft'],
@@ -89,58 +161,58 @@ export class Service {
     return newInterface as InterfaceDocument;
   }
 
-  async updateInterface(
-    input: RouterInput['updateInterface'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['updateInterface']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.updateInterface', input);
+  // async updateInterface(
+  //   input: RouterInput['updateInterface'],
+  //   ctx: RouterContext
+  // ): Promise<RouterOutput['updateInterface']> {
+  //   if (!input) throw new Error('Input should not be void');
+  //   console.log('Interface.Service.updateInterface', input);
 
-    const filter = getFilter(input);
-    let interfac: any = await ctx.app.model.Interface.findOne(filter).exec();
-    if (!interfac) throw new Error('Interface does not exist');
+  //   const filter = getFilter(input);
+  //   let interfac: any = await ctx.app.model.Interface.findOne(filter).exec();
+  //   if (!interfac) throw new Error('Interface does not exist');
 
-    if (interfac.status === 'Published' || input.data.groupId) {
-      await ctx.app.model.Interface.updateMany({ key: interfac.key, status: 'Draft' }, { status: 'Archived' }).exec();
-      const version =
-        (await ctx.app.model.Interface.find({ key: interfac.key }).sort({ version: -1 }).exec())[0].version + 1;
+  //   if (interfac.status === 'Published' || input.data.groupId) {
+  //     await ctx.app.model.Interface.updateMany({ key: interfac.key, status: 'Draft' }, { status: 'Archived' }).exec();
+  //     const version =
+  //       (await ctx.app.model.Interface.find({ key: interfac.key }).sort({ version: -1 }).exec())[0].version + 1;
 
-      interfac = (await ctx.app.model.Interface.create({
-        ...interfac,
-        ...input.data,
-        status: 'Draft',
-        version,
-        createdDate: new Date(),
-      })) as InterfaceDocument;
-    } else {
-      await ctx.app.model.Interface.updateOne(filter, input.data).exec();
-      interfac = await ctx.app.model.Interface.findOne(filter).exec();
-    }
+  //     interfac = (await ctx.app.model.Interface.create({
+  //       ...interfac,
+  //       ...input.data,
+  //       status: 'Draft',
+  //       version,
+  //       createdDate: new Date(),
+  //     })) as InterfaceDocument;
+  //   } else {
+  //     await ctx.app.model.Interface.updateOne(filter, input.data).exec();
+  //     interfac = await ctx.app.model.Interface.findOne(filter).exec();
+  //   }
 
-    await ctx.app.service.Job.updateMetrics({}, ctx);
+  //   await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return interfac as InterfaceDocument;
-  }
+  //   return interfac as InterfaceDocument;
+  // }
 
-  async deleteInterface(
-    input: RouterInput['deleteInterface'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['deleteInterface']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Interface.Service.deleteInterface', input);
+  // async deleteInterface(
+  //   input: RouterInput['deleteInterface'],
+  //   ctx: RouterContext
+  // ): Promise<RouterOutput['deleteInterface']> {
+  //   if (!input) throw new Error('Input should not be void');
+  //   console.log('Interface.Service.deleteInterface', input);
 
-    const filter = getFilter(input);
-    const interfac = await ctx.app.model.Interface.findOne(filter).exec();
-    if (!interfac) throw new Error('Interface does not exist');
+  //   const filter = getFilter(input);
+  //   const interfac = await ctx.app.model.Interface.findOne(filter).exec();
+  //   if (!interfac) throw new Error('Interface does not exist');
 
-    interfac.status = 'Archived';
-    interfac.updatedDate = new Date();
-    await ctx.app.model.Interface.updateOne(filter, interfac).exec();
+  //   interfac.status = 'Archived';
+  //   interfac.updatedDate = new Date();
+  //   await ctx.app.model.Interface.updateOne(filter, interfac).exec();
 
-    await ctx.app.service.Job.updateMetrics({}, ctx);
+  //   await ctx.app.service.Job.updateMetrics({}, ctx);
 
-    return interfac as InterfaceDocument;
-  }
+  //   return interfac as InterfaceDocument;
+  // }
 
   async getInterfaceGroup(
     input: RouterInput['getInterfaceGroup'],

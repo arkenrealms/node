@@ -10,6 +10,7 @@ export const Interface = mongo.createModel<Types.InterfaceDocument>('Interface',
     default: 'Active', // Default value set here
     enum: ['Paused', 'Pending', 'Active', 'Archived', 'Published', 'Draft'],
   },
+  nodes: { type: mongo.Schema.Types.Mixed },
   // commentsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'CommentsOnInterfaces' }],
   // revisionsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'RevisionsOnInterfaces' }],
 });

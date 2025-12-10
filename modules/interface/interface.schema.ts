@@ -7,6 +7,7 @@ export const Interface = Entity.merge(
     submissions: z.array(ObjectId).optional(),
     // commentsOnInterfaces: z.array(ObjectId).optional(),
     // revisionsOnInterfaces: z.array(ObjectId).optional(),
+    nodes: z.any(),
     version: z.number().optional(),
     status: z.enum(['Paused', 'Pending', 'Active', 'Archived', 'Published', 'Draft']).default('Active'),
   })

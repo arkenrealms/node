@@ -493,6 +493,7 @@ export const createRouter = () =>
       .input(getQueryInput(Conversation))
       .output(z.object({ items: z.array(Conversation), total: z.number() }))
       .query(({ input, ctx }) => (ctx.app.service.Core.getConversations as any)(input, ctx)),
+
     // ConversationMessage Procedures
     getConversationMessage: procedure
       .use(hasRole('guest', t))

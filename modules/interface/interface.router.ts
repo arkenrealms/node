@@ -12,6 +12,7 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    // Interface Procedures
     getInterface: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
@@ -19,33 +20,68 @@ export const createRouter = () =>
       .output(Interface)
       .query(({ input, ctx }) => (ctx.app.service.Interface.getInterface as any)(input, ctx)),
 
-    getInterfaces: procedure
-      .use(hasRole('guest', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Interface))
-      .output(z.array(Interface))
-      .query(({ input, ctx }) => (ctx.app.service.Interface.getInterfaces as any)(input, ctx)),
-
     createInterface: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Interface))
-      .output(Interface.pick({ id: true }))
+      .output(Interface.pick({ id: true, name: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Interface.createInterface as any)(input, ctx)),
 
     updateInterface: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Interface))
       .output(Interface.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Interface.updateInterface as any)(input, ctx)),
 
     deleteInterface: procedure
-      .use(hasRole('admin', t))
+      .use(hasRole('user', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Interface))
-      .output(Interface.pick({ id: true }))
+      // .output(Interface.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Interface.deleteInterface as any)(input, ctx)),
+
+    getInterfaces: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Interface))
+      .output(z.object({ items: z.array(Interface), total: z.number() }))
+      .query(({ input, ctx }) => (ctx.app.service.Interface.getInterfaces as any)(input, ctx)),
+
+    // getInterface: procedure
+    //   .use(hasRole('guest', t))
+    //   .use(customErrorFormatter(t))
+    //   .input(getQueryInput(Interface))
+    //   .output(Interface)
+    //   .query(({ input, ctx }) => (ctx.app.service.Interface.getInterface as any)(input, ctx)),
+
+    // getInterfaces: procedure
+    //   .use(hasRole('guest', t))
+    //   .use(customErrorFormatter(t))
+    //   .input(getQueryInput(Interface))
+    //   .output(z.array(Interface))
+    //   .query(({ input, ctx }) => (ctx.app.service.Interface.getInterfaces as any)(input, ctx)),
+
+    // createInterface: procedure
+    //   .use(hasRole('admin', t))
+    //   .use(customErrorFormatter(t))
+    //   .input(getQueryInput(Interface))
+    //   .output(Interface.pick({ id: true }))
+    //   .mutation(({ input, ctx }) => (ctx.app.service.Interface.createInterface as any)(input, ctx)),
+
+    // updateInterface: procedure
+    //   .use(hasRole('admin', t))
+    //   .use(customErrorFormatter(t))
+    //   .input(getQueryInput(Interface))
+    //   .output(Interface.pick({ id: true }))
+    //   .mutation(({ input, ctx }) => (ctx.app.service.Interface.updateInterface as any)(input, ctx)),
+
+    // deleteInterface: procedure
+    //   .use(hasRole('admin', t))
+    //   .use(customErrorFormatter(t))
+    //   .input(getQueryInput(Interface))
+    //   .output(Interface.pick({ id: true }))
+    //   .mutation(({ input, ctx }) => (ctx.app.service.Interface.deleteInterface as any)(input, ctx)),
 
     // InterfaceGroup Procedures
     getInterfaceGroup: procedure
