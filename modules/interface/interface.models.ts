@@ -1,3 +1,5 @@
+// arken/packages/node/modules/interface/interface.models.ts
+//
 import * as mongo from '../../util/mongo';
 import type * as Types from './interface.types';
 
@@ -5,14 +7,20 @@ export const Interface = mongo.createModel<Types.InterfaceDocument>('Interface',
   key: { type: String, required: true },
   submissions: [{ type: mongo.Schema.Types.ObjectId, ref: 'InterfaceSubmission' }],
   groupId: { type: mongo.Schema.Types.ObjectId, ref: 'InterfaceGroup', required: true },
+
   status: {
     type: String,
-    default: 'Active', // Default value set here
+    default: 'Active',
     enum: ['Paused', 'Pending', 'Active', 'Archived', 'Published', 'Draft'],
   },
-  nodes: { type: mongo.Schema.Types.Mixed },
-  // commentsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'CommentsOnInterfaces' }],
-  // revisionsOnInterfaces: [{ type: mongo.Schema.Types.ObjectId, ref: 'RevisionsOnInterfaces' }],
+
+  // ✅ NEW (typed-wrapper-safe): store as Mixed, validate via Zod on IO
+  inherits: { type: mongo.Schema.Types.Mixed, default: [] }, // string[]
+  variables: { type: mongo.Schema.Types.Mixed, default: {} }, // record
+  patches: { type: mongo.Schema.Types.Mixed, default: [] }, // patch[]
+
+  nodes: { type: mongo.Schema.Types.Mixed, default: [] },
+  version: { type: Number },
 });
 
 export const InterfaceGroup = mongo.createModel<Types.InterfaceGroupDocument>('InterfaceGroup', {});
