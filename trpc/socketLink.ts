@@ -67,7 +67,7 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
         const [routerName] = op.path.split('.');
 
         if (!routerName || !backendNames.has(routerName)) {
-          const err = new TRPCClientError<any>(`Unknown router: ${routerName}`);
+          const err = new TRPCClientError<any>(`Unknown router for ${op.path}`);
           notifyTRPCError(err);
           observer.error(err);
           observer.complete();

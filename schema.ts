@@ -1,4 +1,4 @@
-// node/schema.ts
+// arken/packages/node/schema.ts
 //
 import Mongoose, { Types } from 'mongoose';
 import { z as zod, ZodTypeAny, ZodLazy, ZodObject, ZodArray } from 'zod';

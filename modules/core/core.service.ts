@@ -82,6 +82,7 @@ import { log, logError } from '../../util';
 import { deepMerge } from '../../util/object';
 import { Model } from '../../util/mongo';
 import { isValidRequest, getSignedRequest } from '../../util/web3';
+
 export class Service {
   // async interact(input: RouterInput['interact'], ctx: RouterContext): Promise<RouterOutput['interact']> {
   // if (!input) throw new TRPCError({
@@ -642,7 +643,6 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['getConversations']> {
     if (!input) throw new ARXError('NO_INPUT');
-    if (input.limit !== 100) throw new ARXError('NO_INPUT');
     const filter = getFilter(input);
     const limit = input.limit ?? 50;
     const skip = input.skip ?? 0;

@@ -57,11 +57,14 @@ export class Service {
     return areaType as AreaType;
   }
 
-  async createArea(input: RouterInput['createArea'], ctx: RouterContext): Promise<RouterOutput['createArea']> {
+  async saveArea(input: RouterInput['saveArea'], ctx: RouterContext): Promise<RouterOutput['saveArea']> {
     if (!input) throw new Error('Input should not be void');
-    console.log('Area.Service.createArea', input.data);
+    console.log('Area.Service.saveArea', input);
 
-    const area = await ctx.app.model.Area.create(input.data);
+    const filter = getFilter(input);
+    const area = await ctx.app.model.Area.findOneAndUpdate(filter, input.data, { new: true }).lean().exec();
+    if (!area) throw new Error('Area update failed');
+
     return area as Area;
   }
 
@@ -85,17 +88,6 @@ export class Service {
 
     const areaType = await ctx.app.model.AreaType.create(input.data);
     return areaType as AreaType;
-  }
-
-  async updateArea(input: RouterInput['updateArea'], ctx: RouterContext): Promise<RouterOutput['updateArea']> {
-    if (!input) throw new Error('Input should not be void');
-    console.log('Area.Service.updateArea', input);
-
-    const filter = getFilter(input);
-    const updatedArea = await ctx.app.model.Area.findOneAndUpdate(filter, input.data, { new: true }).lean().exec();
-    if (!updatedArea) throw new Error('Area update failed');
-
-    return updatedArea as Area;
   }
 
   async updateAreaLandmark(

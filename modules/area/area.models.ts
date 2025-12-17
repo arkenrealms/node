@@ -3,6 +3,7 @@ import type * as Types from './area.types';
 
 export const Area = mongo.createModel<Types.AreaDocument>('Area', {
   type: { type: String, default: 'Zone' },
+  shortDescription: { type: String },
   // landmarks: [{ type: mongo.Schema.Types.ObjectId, ref: 'AreaLandmark' }],
 });
 

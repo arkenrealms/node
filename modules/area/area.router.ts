@@ -24,19 +24,12 @@ export const createRouter = () =>
       .input(getQueryInput(Area))
       .query(({ input, ctx }) => (ctx.app.service.Area.getAreas as any)(input, ctx)),
 
-    createArea: procedure
+    saveArea: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
       .input(getQueryInput(Area))
       .output(Area.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Area.createArea as any)(input, ctx)),
-
-    updateArea: procedure
-      .use(hasRole('admin', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Area))
-      .output(Area.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Area.updateArea as any)(input, ctx)),
+      .mutation(({ input, ctx }) => (ctx.app.service.Area.saveArea as any)(input, ctx)),
 
     getAreaLandmark: procedure
       .use(hasRole('guest', t))
