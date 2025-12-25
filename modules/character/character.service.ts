@@ -53,6 +53,21 @@ export class Service {
     return character as Character;
   }
 
+  async getCharacterData(
+    input: RouterInput['getCharacter'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getCharacter']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    console.log('Character.Service.getCharacterData', input);
+
+    const filter = getFilter(input);
+    // @ts-ignore
+    const character = await ctx.app.model.Character.findOne(filter).asJSON();
+    if (!character) throw new Error('Character not found');
+
+    return character.data;
+  }
+
   async getCharacter(input: RouterInput['getCharacter'], ctx: RouterContext): Promise<RouterOutput['getCharacter']> {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Character.Service.getCharacter', input);

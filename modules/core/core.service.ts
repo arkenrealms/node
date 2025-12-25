@@ -796,7 +796,7 @@ export class Service {
     ctx: RouterContext
   ): Promise<RouterOutput['updateDiscussion']> {
     if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.updateDiscussion', input.where.id.equals, input.data);
+    log('Core.Service.updateDiscussion', input);
     const updatedDiscussion = await ctx.app.model.Discussion.findByIdAndUpdate(input.where.id.equals, input.data, {
       new: true,
     })

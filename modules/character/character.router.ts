@@ -37,6 +37,12 @@ export const createRouter = () =>
       )
       .mutation(({ input, ctx }) => (ctx.app.service.Character.exchangeCharacterItem as any)(input, ctx)),
 
+    getCharacterData: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Character))
+      .query(({ input, ctx }) => (ctx.app.service.Character.getCharacterData as any)(input, ctx)),
+
     getCharacter: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))
