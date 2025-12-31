@@ -1,5 +1,3 @@
-// test/socketLink.spec.ts
-
 import {
   createSocketLink,
   attachTrpcResponseHandler,
@@ -79,7 +77,10 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
         next: () => reject(new Error('next should not be called')),
         error: (err) => {
           expect(err).toBeInstanceOf(TRPCClientError);
-          expect((err as AnyError).message).toContain('Unknown router: unknownRouter');
+
+          // Updated message
+          expect((err as AnyError).message).toContain('Unknown router for unknownRouter.core.getRealms');
+
           expect(notifyTRPCErrorMock).toHaveBeenCalled();
           resolve();
         },
@@ -261,8 +262,16 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
       obs.subscribe({
         next: () => reject(new Error('next should not be called')),
         error: (err) => {
-          expect(err).toEqual(new Error('server-broke'));
-          expect(notifyTRPCErrorMock).toHaveBeenCalledWith(new Error('server-broke'));
+          // Updated: reject() wraps into TRPCClientError (and tags reqId)
+          expect(err).toBeInstanceOf(TRPCClientError);
+          expect((err as AnyError).message).toContain('server-broke');
+
+          // notifyTRPCError now receives the wrapped error instance
+          expect(notifyTRPCErrorMock).toHaveBeenCalled();
+          const notified = notifyTRPCErrorMock.mock.calls[0][0];
+          expect(notified).toBeInstanceOf(TRPCClientError);
+          expect((notified as AnyError).message).toContain('server-broke');
+
           resolve();
         },
         complete: () => resolve(),
@@ -278,7 +287,8 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
     const cb = (seerClient as any).ioCallbacks[reqId];
     expect(cb).toBeDefined();
 
-    cb.reject(new Error('server-broke'));
+    // IMPORTANT: pass a string (Error stringifies to {})
+    cb.reject('server-broke');
 
     await donePromise;
   });

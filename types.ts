@@ -1,3 +1,5 @@
+// arken/packages/node/types.ts
+//
 import { createRouter } from './router';
 
 // Imports
@@ -91,7 +93,9 @@ export interface Application {
 export type RouterClient = {
   socket: any;
   roles: string[];
+  permissions: any;
   profile?: Profile.Types.Profile;
+  emit: any;
 };
 
 export type RouterContext = {
@@ -112,3 +116,65 @@ export type Position = {
 };
 
 export type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
+
+export type PatchOp =
+  | { op: 'set'; key: string; value: any }
+  | { op: 'unset'; key: string }
+  | { op: 'inc'; key: string; value: number }
+  | { op: 'push'; key: string; value: any }
+  | { op: 'merge'; key: string; value: Record<string, any> };
+
+export type EntityPatch = {
+  entityType: string; // allow any string
+  entityId: string;
+  baseVersion?: number;
+  ops: PatchOp[];
+};
+
+export type GameObjectDef = {
+  id: string;
+  type: string; // allow any string
+  name: string;
+  position: { x: number; y: number };
+  radius?: number; // interaction distance
+  tags?: string[];
+  meta?: Record<string, any>;
+};
+
+export type Requirement =
+  | { kind: 'exists'; key: string }
+  | { kind: 'touchedObject'; objectId: string; afterKey?: string; writeKey: string };
+
+// Generic effects (can be positive or negative)
+export type Effect =
+  | { kind: 'item.grant'; itemKey: string; quantity?: number }
+  | { kind: 'currency.grant'; key: string; amount: number } // negative amount allowed
+  | { kind: 'reputation.delta'; npcId: string; amount: number } // negative allowed
+  | { kind: 'state.patch'; patch: EntityPatch } // generic patch against any entityType
+  | { kind: 'ui.unlock'; uiKey: string } // optional, future
+  | { kind: 'emit'; eventType: string; payload?: any }; // optional, future
+
+export type QuestDef = {
+  id: string;
+  metaverseId: string;
+  name: string;
+
+  // Requirements can be checked shard-side (for anti-cheat) AND client-side (for UI state)
+  requirements: Requirement[];
+
+  // Effects are applied on completion/claim (seer-side)
+  effects: Effect[];
+
+  // keys shard will write (auditing + permissions)
+  writes?: string[];
+};
+
+type QuestCompleteOp = {
+  kind: 'quest.complete';
+  id: string;
+  ts: number;
+  questId: string;
+  metaverseId: string;
+  evidence?: Record<string, any>;
+  effects?: any[]; // can include effect refs for replay/debug
+};

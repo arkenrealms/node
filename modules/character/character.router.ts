@@ -26,6 +26,26 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    getCharacterInventory: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          characterId: z.string(),
+        })
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Character.getCharacterInventory as any)(input, ctx)),
+
+    setActiveCharacter: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          characterId: z.string(),
+        })
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Character.setActiveCharacter as any)(input, ctx)),
+
     exchangeCharacterItem: procedure
       .use(hasRole('user', t))
       .use(customErrorFormatter(t))
@@ -60,7 +80,7 @@ export const createRouter = () =>
     saveCharacters: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(getQueryInput(Character))
+      .input(z.array(getQueryInput(Character)))
       // .output(z.array(Character.pick({ id: true })))
       .mutation(({ input, ctx }) => (ctx.app.service.Character.saveCharacters as any)(input, ctx)),
 

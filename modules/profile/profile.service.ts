@@ -13,7 +13,35 @@ export class Service {
 
     ctx.client.profile.mode = input;
 
+    // @ts-ignore
     await ctx.client.profile.save();
+  }
+
+  async me(input: RouterInput['me'], ctx: RouterContext): Promise<RouterOutput['me']> {
+    return {
+      id: ctx.client.profile.id,
+      address: ctx.client.profile.address,
+      name: ctx.client.profile.name,
+      points: ctx.client.profile.points,
+      status: ctx.client.profile.status,
+      isBanned: ctx.client.profile.isBanned,
+      banExpireDate: ctx.client.profile.banExpireDate,
+      banReason: ctx.client.profile.banReason,
+      mode: ctx.client.profile.mode,
+      settings: ctx.client.profile.settings,
+      roles: ctx.client.roles,
+      permissions: ctx.client.permissions,
+      data: ctx.client.profile.data,
+      meta: {
+        rewards: ctx.client.profile.meta.rewards,
+        evolution: {
+          settings: {
+            zoom: ctx.client.profile.meta?.evolution?.settings?.zoom || 0.7,
+            opacity: ctx.client.profile.meta?.evolution?.settings?.opacity || 1,
+          },
+        },
+      },
+    };
   }
 
   async getProfile(input: RouterInput['getProfile'], ctx: RouterContext): Promise<RouterOutput['getProfile']> {

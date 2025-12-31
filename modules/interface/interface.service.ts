@@ -346,6 +346,7 @@ export class Service {
 
   // Helper Methods
   private async fetchRolesFromContext(ctx: RouterContext): Promise<string[]> {
+    // @ts-ignore
     return ctx.profile?.roles.filter((r) => r.status === 'Active').map((r) => r.role.name) || [];
   }
 

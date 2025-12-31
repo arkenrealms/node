@@ -191,7 +191,7 @@ export const Profile = mongo.createModel<Types.ProfileDocument>(
         name: 'characters',
         ref: 'Character',
         localField: '_id',
-        foreignField: 'profileId',
+        foreignField: 'ownerId',
       },
       {
         name: 'chain',

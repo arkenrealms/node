@@ -1,5 +1,3 @@
-// arken/packages/node/src/trpc/socketServer.ts
-
 import type { AnyRouter } from '@trpc/server';
 import { serialize, deserialize } from '../util/rpc';
 
@@ -52,6 +50,38 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
         result: serialize({ status: 0 }),
         error: error?.stack + '' || 'Unknown error occurred',
       });
+    }
+  };
+}
+
+// ======================
+// Optional wiring helper
+// ======================
+
+export interface AttachSocketTrpcListenerOptions {
+  socket: any;
+  ctx: any;
+  handleSocketTrpc: (socket: any, ctx: any, message: any) => Promise<void>;
+  eventName?: string; // default 'trpc'
+}
+
+/**
+ * Convenience helper so you don’t repeat socket.on('trpc', ...) everywhere.
+ */
+export function attachSocketTrpcListener(opts: AttachSocketTrpcListenerOptions) {
+  const { socket, ctx, handleSocketTrpc, eventName = 'trpc' } = opts;
+
+  const fn = async (message: any) => {
+    await handleSocketTrpc(socket, ctx, message);
+  };
+
+  if (typeof socket?.on === 'function') {
+    socket.on(eventName, fn);
+  }
+
+  return () => {
+    if (typeof socket?.off === 'function') {
+      socket.off(eventName, fn);
     }
   };
 }

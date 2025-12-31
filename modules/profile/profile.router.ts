@@ -19,6 +19,13 @@ export const createRouter = () =>
       .mutation(({ input, ctx }) => (ctx.app.service.Profile.setProfileMode as any)(input, ctx)),
 
     // Profile endpoints
+    me: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      // .output(Profile.partial())
+      .query(({ input, ctx }) => (ctx.app.service.Profile.me as any)(input, ctx)),
+
+    // Profile endpoints
     getProfile: procedure
       .use(hasRole('guest', t))
       .use(customErrorFormatter(t))

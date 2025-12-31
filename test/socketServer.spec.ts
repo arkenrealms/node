@@ -1,4 +1,4 @@
-// src/test/socketServer.spec.ts
+// arken/packages/node/test/socketServer.spec.ts
 
 import { initTRPC } from '@trpc/server';
 import { createSocketTrpcHandler } from '../trpc/socketServer';

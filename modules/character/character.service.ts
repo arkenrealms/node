@@ -1,3 +1,5 @@
+// arken/packages/node/modules/character/character.service.ts
+//
 import mongoose from 'mongoose';
 import keccak256 from 'keccak256';
 import type {
@@ -26,6 +28,26 @@ const TREE_DEPTH = 16;
 const TREE_SIZE = 1 << TREE_DEPTH;
 const LOCAL_SEER_ID = process.env.SEER_NODE_WALLET ?? 'seer-node-1';
 
+// -------------------------------
+// Inventory Sync Standard
+// -------------------------------
+export type InventorySyncOp =
+  | { op: 'add'; itemKey: string; qty?: number }
+  | { op: 'remove'; itemKey: string; qty?: number };
+
+export type SyncCharacterInventoryPayload =
+  | {
+      characterId: string;
+      mode: 'patch';
+      ops: InventorySyncOp[];
+      reason?: string;
+    }
+  | {
+      characterId: string;
+      mode: 'refresh';
+      reason?: string;
+    };
+
 // Deterministic mapping from (kind, recordId) -> Merkle leaf index
 function computeLeafIndex(kind: string, recordId: string): number {
   const h = keccak256(`${kind}:${recordId}`).toString('hex');
@@ -34,7 +56,172 @@ function computeLeafIndex(kind: string, recordId: string): number {
   return n % TREE_SIZE;
 }
 
+// -------------------------------
+// Helpers
+// -------------------------------
+async function resolveCharacterForRequest(ctx: RouterContext, input: any) {
+  const filter = getFilter(input);
+  const explicitId = filter?.characterId || filter?.id;
+
+  // Prefer explicit characterId if provided
+  if (explicitId) {
+    const character = await ctx.app.model.Character.findById(explicitId);
+    if (!character) throw new Error('Character not found');
+    return character;
+  }
+
+  // Otherwise, fall back to "active" character = profile.characters[0]
+  if (!ctx.client?.profile?.id) throw new Error('No profile');
+
+  const profile = await ctx.app.model.Profile.findById(ctx.client.profile.id).populate('characters').exec();
+  if (!profile) throw new Error('Profile not found');
+
+  const character = profile.characters?.[0];
+  if (!character) throw new Error('No character');
+
+  // populated doc may be a mongoose doc already; if not, refetch
+  const id = (character as any).id || (character as any)._id;
+  const doc = await ctx.app.model.Character.findById(id);
+  if (!doc) throw new Error('Character not found');
+
+  return doc;
+}
+
+function ensureInventoryShape(character: any) {
+  if (!character.inventory) character.inventory = [{ items: [] }];
+  if (!character.inventory[0]) character.inventory[0] = { items: [] };
+  if (!Array.isArray(character.inventory[0].items)) character.inventory[0].items = [];
+
+  for (const item of character.inventory[0].items) {
+    console.log('item', item.itemId, item.itemId.valueOf());
+    item.itemId = item.itemId.valueOf();
+  }
+}
+
+// -------------------------------
+// Service
+// -------------------------------
 export class Service {
+  /**
+   * Sets the "active" character for the current profile.
+   *
+   * Convention used across codebase:
+   * - profile.characters[0] is treated as active character
+   *
+   * Implementation:
+   * - verify character exists and belongs to the caller
+   * - reorder profile.characters so the selected id is first
+   */
+  /**
+   * Sets the active character for the current profile.
+   *
+   * Stores:
+   *   profile.data.activeCharacterId = <characterId>
+   *
+   * Does NOT reorder profile.characters.
+   */
+  async setActiveCharacter(input: { characterId: string }, ctx: RouterContext): Promise<{ characterId: string }> {
+    if (!ctx.client?.profile) throw new ARXError('UNAUTHORIZED');
+    if (!input?.characterId) throw new ARXError('NO_INPUT');
+
+    const profileId = ctx.client.profile.id;
+    const characterId = String(input.characterId);
+
+    // Ensure character exists
+    const character = await ctx.app.model.Character.findById(characterId).lean().exec();
+    if (!character) throw new Error('Character not found');
+
+    // Ensure ownership (saveCharacters sets ownerId = profile.id)
+    if (String((character as any).ownerId || '') !== String(profileId)) {
+      throw new ARXError('FORBIDDEN');
+    }
+
+    // Load profile and set pointer
+    const profile = await ctx.app.model.Profile.findById(profileId).exec();
+    if (!profile) throw new Error('Profile not found');
+
+    // ensure data shape
+    (profile as any).data =
+      (profile as any).data && typeof (profile as any).data === 'object' ? (profile as any).data : {};
+    (profile as any).data.activeCharacterId = characterId;
+
+    profile.markModified('data');
+    await profile.save();
+
+    ctx.client.profile.data = profile.data;
+
+    await ctx.client.emit.sync.mutate({
+      kind: 'invalidate',
+      targets: ['profile.me', 'trek.getState', 'character.inventory'],
+      reason: 'activeCharacterChanged',
+    });
+
+    return { characterId };
+  }
+
+  /**
+   * Inventory: returns canonical inventory snapshot.
+   *
+   * This is the "full refresh" primitive; client can call this any time it needs to converge.
+   *
+   * NOTE: Uses the same filter semantics as other character routes:
+   * - if input includes characterId/id, we use that
+   * - otherwise we default to the user's first character
+   */
+  async getCharacterInventory(
+    input: any, // intentionally loose so you can add RouterInput/Output wiring later
+    ctx: RouterContext
+  ): Promise<{ characterId: string; inventory: any }> {
+    if (!ctx.client?.profile) throw new ARXError('UNAUTHORIZED');
+
+    const character = await resolveCharacterForRequest(ctx, input);
+    ensureInventoryShape(character);
+
+    return { characterId: character.id.toString(), inventory: character.inventory };
+  }
+
+  /**
+   * Inventory: client convergence endpoint + "standard" payload.
+   *
+   * - mode=patch: client is telling us how it applied a local patch (add/remove)
+   * - mode=refresh: client requests canonical snapshot (recommended fallback)
+   *
+   * For now, this route simply returns the canonical snapshot so the client can converge.
+   * (Server-authoritative changes should still be persisted on the Character document by the
+   * gameplay systems, and then the UI can call this route or respond to emitted events.)
+   */
+  async syncCharacterInventory(
+    input: SyncCharacterInventoryPayload,
+    ctx: RouterContext
+  ): Promise<{ characterId: string; inventory: any }> {
+    if (!ctx.client?.profile) throw new ARXError('UNAUTHORIZED');
+    if (!input?.characterId) throw new ARXError('NO_INPUT');
+
+    const character = await ctx.app.model.Character.findById(input.characterId);
+    if (!character) throw new Error('Character not found');
+
+    ensureInventoryShape(character);
+
+    // Return canonical snapshot (client can always converge from this)
+    return { characterId: character.id.toString(), inventory: character.inventory };
+  }
+
+  /**
+   * Optional server -> client push helper you can call from other services.
+   *
+   * Usage:
+   *   await ctx.client.emit.syncCharacterInventory.mutate({ ...payload })
+   */
+  async emitInventorySync(ctx: RouterContext, payload: SyncCharacterInventoryPayload) {
+    // You asked for this exact style: ctx.client.emit.SOMETHING.mutate(DATA_HERE)
+    try {
+      await (ctx.client as any)?.emit?.syncCharacterInventory?.mutate?.(payload);
+    } catch (e) {
+      // never crash gameplay because a websocket push failed
+      console.warn('Character.Service.emitInventorySync failed', e);
+    }
+  }
+
   async exchangeCharacterItem(
     input: RouterInput['exchangeCharacterItem'],
     ctx: RouterContext
@@ -125,7 +312,7 @@ export class Service {
 
     for (const raw of input) {
       // Allow id or _id; do not mutate original
-      const { id, _id, ...rest } = raw as any;
+      const { id, _id, ...rest } = raw.data as any;
 
       const previousId: string | mongoose.Types.ObjectId | undefined =
         typeof id === 'string' || id instanceof mongoose.Types.ObjectId
@@ -138,6 +325,12 @@ export class Service {
       if (ctx.app?.model?.Character?.filters?.applicationId && !rest.applicationId) {
         rest.applicationId = ctx.app.model.Character.filters.applicationId;
       }
+
+      if (!ctx.client.profile.id) {
+        throw new Error('No profile');
+      }
+
+      rest.ownerId = ctx.client.profile.id;
 
       // Derive key from name if missing
       if (!rest.key && typeof rest.name === 'string') {
@@ -176,27 +369,31 @@ export class Service {
       // Merkle + zkSNARK for this Character
       // -----------------------------------------------------------------------
 
-      const leafIndex = computeLeafIndex('Character', saved.id.toString());
+      try {
+        const leafIndex = computeLeafIndex('Character', saved.id.toString());
 
-      // Poseidon-based Merkle update + zkSNARK proof using UpdateLeaf(16)
-      const merkleUpdate = await updateLeafWithProof(leafIndex, {
-        kind: 'Character',
-        id: saved.id.toString(),
-        status: saved.status,
-        key: saved.key,
-        applicationId: saved.applicationId,
-      });
+        // Poseidon-based Merkle update + zkSNARK proof using UpdateLeaf(16)
+        const merkleUpdate = await updateLeafWithProof(leafIndex, {
+          kind: 'Character',
+          id: saved.id.toString(),
+          status: saved.status,
+          key: saved.key,
+          applicationId: saved.applicationId,
+        });
 
-      // Build SeerPayload (one per character for now; you can batch later)
-      payloads.push({
-        fromSeer: LOCAL_SEER_ID,
-        applicationId: saved.applicationId,
-        events: [event],
-        eventsHash: hashEvents([event]),
-        merkleRoot: merkleUpdate.newRoot,
-        proof: merkleUpdate.proof,
-        publicSignals: merkleUpdate.publicSignals,
-      });
+        // Build SeerPayload (one per character for now; you can batch later)
+        payloads.push({
+          fromSeer: LOCAL_SEER_ID,
+          applicationId: saved.applicationId,
+          events: [event],
+          eventsHash: hashEvents([event]),
+          merkleRoot: merkleUpdate.newRoot,
+          proof: merkleUpdate.proof,
+          publicSignals: merkleUpdate.publicSignals,
+        });
+      } catch (e) {
+        console.log('Merkle error when creating character');
+      }
     }
 
     // -------------------------------------------------------------------------

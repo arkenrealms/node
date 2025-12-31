@@ -1,4 +1,4 @@
-// node/modules/core/core.service.ts
+// arken/packages/node/modules/core/core.service.ts
 //
 import md5 from 'js-md5';
 import type {
@@ -110,7 +110,9 @@ export class Service {
       ctx.client.profile.settings[key] = deepMerge(prev, incoming[key]);
     }
     // If settings is Mixed/Map, make sure Mongoose knows it changed:
+    // @ts-ignore
     ctx.client.profile.markModified('settings');
+    // @ts-ignore
     await ctx.client.profile.save(); // writes to DB and keeps this doc in sync
     return ctx.client.profile.settings as RouterOutput['updateSettings'];
   } // Core.Service.ts (or wherever this class lives)
@@ -162,6 +164,7 @@ export class Service {
     // 4) Return reply for streaming / UI
     return assistantReply;
   }
+
   // Account Methods
   async authorize(input: RouterInput['authorize'], ctx: RouterContext): Promise<RouterOutput['authorize']> {
     if (!input) throw new ARXError('NO_INPUT');
@@ -174,52 +177,47 @@ export class Service {
         data: input.data || 'evolution',
       },
     });
+
     if (!isValid) throw new Error('Invalid signature');
+
     ctx.client.profile = await ctx.app.model.Profile.findOne({
       address: input.address,
     });
+
     if (!ctx.client.profile) throw new Error('Profile not found: ' + input.address);
+
+    const roles = ['guest'];
+
     if (
       input.address.toLowerCase() === '0xDfA8f768d82D719DC68E12B199090bDc3691fFc7'.toLowerCase() || // realm
       input.address.toLowerCase() === '0x81F8C054667046171C0EAdC73063Da557a828d6f'.toLowerCase() || // seer
       input.address.toLowerCase() === '0x954246b18fee13712C48E5a7Da5b78D88e8891d5'.toLowerCase() // admin
     ) {
-      if (!ctx.client.roles) ctx.client.roles = [];
-      ctx.client.roles.push('mod');
-      ctx.client.roles.push('admin');
+      roles.push('mod');
+      roles.push('admin');
     }
-    ctx.client.roles.push('user');
+
+    roles.push('user');
+
+    ctx.client.roles = roles;
+
+    const permissions = {
+      'character.create': roles.includes('mod'),
+      'character.view': roles.includes('mod'),
+      'character.remove': roles.includes('mod'),
+      'character.update': roles.includes('mod'),
+      'rewards.distribute': roles.includes('admin'),
+      'character.data.write': roles.includes('mod'),
+      'character.inventory.write': roles.includes('mod'),
+      'profile.meta.write': roles.includes('mod'),
+      // optionally narrower scopes:
+      'character.data.write:evolution.quest.*': roles.includes('mod'),
+    };
+
+    ctx.client.permissions = permissions;
+
     return {
       token: input.token,
-      profile: {
-        id: ctx.client.profile.id,
-        address: ctx.client.profile.address,
-        name: ctx.client.profile.name,
-        points: ctx.client.profile.points,
-        status: ctx.client.profile.status,
-        isBanned: ctx.client.profile.isBanned,
-        banExpireDate: ctx.client.profile.banExpireDate,
-        banReason: ctx.client.profile.banReason,
-        mode: ctx.client.profile.mode,
-        settings: ctx.client.profile.settings,
-        roles: ctx.client.roles,
-        meta: {
-          rewards: ctx.client.profile.meta.rewards,
-          evolution: {
-            settings: {
-              zoom: ctx.client.profile.meta?.evolution?.settings?.zoom || 0.7,
-              opacity: ctx.client.profile.meta?.evolution?.settings?.opacity || 1,
-            },
-          },
-        },
-      },
-      permissions: {
-        'Create Characters': true,
-        'View Characters': true,
-        'Delete Characters': true,
-        'Update Characters': true,
-        'Distribute Rewards': false,
-      },
     };
   }
   async syncGetPayloadsSince(
@@ -805,6 +803,60 @@ export class Service {
     if (!updatedDiscussion) throw new Error('Discussion update failed');
     return updatedDiscussion as Discussion;
   }
+  // // Procedure Methods
+  // async runProcedure(input: RouterInput['runProcedure'], ctx: RouterContext): Promise<RouterOutput['runProcedure']> {
+  //   if (!input) throw new ARXError('NO_INPUT');
+  //   log('Core.Service.runProcedure', input);
+  //   // 1) Load procedure doc from Mongo by key (latest version or exact match)
+  //   const procDoc = await ctx.app.model.Procedure.findOne({ key: input.key }).lean().exec();
+  //   if (!procDoc) throw new ARXError('PROCEDURE_NOT_FOUND');
+
+  //   // 2) migrate v1 → v2 if needed
+  //   const proc = migrateProcedure(procDoc); // returns { run: ProcedureRunStep[] ... }
+
+  //   // 3) permission checks
+  //   // proc.run steps may declare permission; enforce in ctx
+  //   for (const step of proc.run) {
+  //     if (step.permission) {
+  //       await ctx.auth.require(step.permission);
+  //     }
+  //   }
+
+  //   // 4) execute: seer mode steps may themselves resolve to inline patches or connector calls
+  //   // But your new rule is: on seer, you decide what happens.
+  //   const character = await ctx.character();
+  //   const before = character.data || {};
+
+  //   const patchesApplied: any[] = [];
+
+  //   for (const step of proc.run) {
+  //     if (step.mode === 'inline') {
+  //       // evaluate patch formula in a sandboxed evaluator on server
+  //       const patchOps = evalPatch(step.patch, { character: { data: before }, args: input.args });
+  //       applyPatchesToCharacter(character, patchOps);
+  //       patchesApplied.push(...patchOps);
+  //       continue;
+  //     }
+
+  //     if (step.mode === 'seer') {
+  //       // This can either:
+  //       // - call a TRPC/internal service mutation
+  //       // - or interpret step.mutation as "quest.claimReward" etc
+  //       const result = await ctx.seer.executeMutation(step.mutation!, step.input ?? input.args);
+
+  //       // result could return patches or direct updated data
+  //       if (result?.patches) {
+  //         applyPatchesToCharacter(character, result.patches);
+  //         patchesApplied.push(...result.patches);
+  //       }
+  //     }
+  //   }
+
+  //   await character.save();
+
+  //   return { ok: true, patchesApplied, characterData: character.data };
+  // }
+
   // Energy Methods
   async getEnergy(input: RouterInput['getEnergy'], ctx: RouterContext): Promise<RouterOutput['getEnergy']> {
     if (!input) throw new ARXError('NO_INPUT');

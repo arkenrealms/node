@@ -15,3 +15,12 @@ export function chance(probability: number) {
 export function random(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// Method to format a number as a string with a sign
+export function format(num: number): string {
+  return num >= 0 ? '+' + num : '-' + num;
+}
+// Assume normalizeFloat is defined elsewhere in the class
+export function normalizeFloat(value: number, precision: number = 2): number {
+  return parseFloat(value.toFixed(precision));
+}

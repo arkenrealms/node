@@ -16,7 +16,9 @@ import * as web3 from './web3';
 import * as math from './math';
 import * as json from './json';
 import * as format from './format';
+import * as rpc from './rpc';
 // import * as browser from './browser';
+
 export * as decoder from './decoder';
 
 const path = require('path');
@@ -328,6 +330,7 @@ export * as math from './math';
 export * as db from './db';
 export * as time from './time';
 export * as config from './config';
+export * as rpc from './rpc';
 
 export default {
   objects,
@@ -341,6 +344,7 @@ export default {
   json,
   db,
   format,
+  rpc,
   // browser,
   config,
   time,

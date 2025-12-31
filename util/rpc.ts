@@ -4,6 +4,21 @@ import utf8 from 'utf8';
 import { TRPCError } from '@trpc/server';
 import { isValidRequest } from './web3';
 
+// Helper: detect BSON/Mongoose ObjectId-like values without importing mongoose/bson on the frontend
+const isObjectIdLike = (v: any): boolean => {
+  if (!v || typeof v !== 'object') return false;
+
+  // Native BSON ObjectId typically has _bsontype === 'ObjectId'
+  if (v._bsontype === 'ObjectId') return true;
+
+  // Mongoose ObjectId usually has toHexString()
+  if (typeof v.toHexString === 'function') return true;
+
+  // Fallback: many ObjectId implementations stringify to 24-hex
+  const s = typeof v.toString === 'function' ? v.toString() : '';
+  return typeof s === 'string' && /^[0-9a-fA-F]{24}$/.test(s);
+};
+
 export const customErrorFormatter = (t: any) =>
   t.middleware(async ({ ctx, next }) => {
     try {
@@ -66,6 +81,18 @@ export const serialize = <T>(object: T): string => {
       return value;
     }
 
+    // ✅ ObjectId -> string (Option A)
+    // Must come early so it doesn't fall through to buffer-ish shapes.
+    if (isObjectIdLike(value)) {
+      const hex =
+        typeof value.toHexString === 'function'
+          ? value.toHexString()
+          : typeof value.toString === 'function'
+          ? value.toString()
+          : String(value);
+      return { _type: 'ObjectId', data: hex };
+    }
+
     // Special scalar-ish types
     if (typeof value === 'bigint') {
       return { _type: 'BigInt', data: value.toString() };
@@ -126,25 +153,20 @@ export const serialize = <T>(object: T): string => {
 // Deserialize function
 export const deserialize = <T>(input: string | Serializable): T => {
   const processValue = (value: any): any => {
-    if (!value || typeof value !== 'object') return value;
+    if (!value) return value;
+    if (Array.isArray(value)) return value.map((v) => processValue(v));
+    if (typeof value !== 'object') return value;
 
     const type =
       value._type ||
       (!['Object', 'Array', 'Date'].includes(value.constructor.name) ? value.constructor.name : undefined);
 
-    if (value.byteLength) {
-      const decoder = new TextDecoder('utf-8');
-      return JSON.parse(decoder.decode(value));
-    } else if (value.constructor?.name === 'Object' && value.buffer) {
-      console.log('deserialized result', 55555, type);
-
-      return processValue(value.buffer);
-    } else if (type) {
+    if (type) {
       switch (type) {
         case 'ArrayBuffer':
           return Uint8Array.from(value.data).buffer;
         case 'Uint8Array':
-          console.log('deserialized result', 55555, type);
+          // console.log('deserialized result', 55555, type);
 
           return new Uint8Array(value.data);
         case 'Date':
@@ -157,16 +179,28 @@ export const deserialize = <T>(input: string | Serializable): T => {
           return BigInt(value.data);
         case 'RegExp':
           return new RegExp(value.data, value.flags);
-        default:
-          // Unknown _type, return the value as is
-          return value;
+        case 'ObjectId':
+          // ✅ Option A: keep as 24-hex string on the client
+          return value.data;
       }
-    } else if (Array.isArray(value)) {
-      return value.map(processValue);
+    }
+
+    if (value.byteLength) {
+      const decoder = new TextDecoder('utf-8');
+      return JSON.parse(decoder.decode(value));
+    } else if (value.constructor?.name === 'Object' && value.buffer) {
+      // console.log(
+      //   'deserialized result',
+      //   55555,
+      //   type,
+      //   value,
+      //   String.fromCharCode.apply(null, processValue(value.buffer))
+      // );
+
+      return processValue(value.buffer);
     } else {
       const obj: any = {};
       for (const [k, v] of Object.entries(value)) {
-        // console.log(55555, k, v);
         obj[k] = processValue(v);
       }
       return obj;
@@ -490,3 +524,14 @@ export class ARXError extends Error {
 //  * if they haven't completed the onboarding process
 //  */
 // export const verifiedProcedure = protectedProcedure.use(isOnboarded);
+
+export function op(client: any, op: any) {
+  client.ops ||= [];
+  client.ops.push(op);
+}
+
+// simple id helper (stable enough for dedupe)
+export function opId(prefix: string, client: any, roundId: string) {
+  // keep it deterministic-ish per action instance
+  return `${prefix}:${roundId}:${client.address}:${Date.now()}`;
+}
