@@ -1,5 +1,6 @@
+import { optional } from 'zod';
 import * as mongo from '../../util/mongo';
-import type * as Types from './market.types';
+import * as Types from './market.types';
 
 export const Market = mongo.createModel<Types.MarketDocument>('Market', {
   value: { type: String, required: true },
@@ -110,4 +111,15 @@ export const MarketStockSentiment = mongo.createModel<Types.MarketStockSentiment
     score: { type: Number, required: true },
   },
   confidence: { type: Number, required: true },
+});
+
+export const MarketListing = mongo.createModel<Types.MarketListingDocument>('MarketListing', {
+  sellerId: { type: mongo.Schema.Types.ObjectId, required: true, ref: 'Profile' },
+  quantity: { type: Number, required: true },
+  currency: { type: String, required: true },
+  exchange: { type: String, required: true },
+  marketId: { type: mongo.Schema.Types.ObjectId, required: true, ref: 'MarketStock' },
+  category: { type: String, required: true },
+  status: { type: String, required: true },
+  expiryDate: { type: Date, required: false },
 });
