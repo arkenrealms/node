@@ -60,31 +60,23 @@ function computeLeafIndex(kind: string, recordId: string): number {
 // Helpers
 // -------------------------------
 async function resolveCharacterForRequest(ctx: RouterContext, input: any) {
-  const filter = getFilter(input);
-  const explicitId = filter?.characterId || filter?.id;
-
+  // const filter = getFilter(input);
+  const explicitId = input?.characterId;
+  // console.log('explicitId', input, filter, explicitId);
   // Prefer explicit characterId if provided
-  if (explicitId) {
-    const character = await ctx.app.model.Character.findById(explicitId);
-    if (!character) throw new Error('Character not found');
-    return character;
-  }
+  // if (explicitId) {
+  const character = await ctx.app.model.Character.findById(explicitId);
+  if (!character) throw new Error('Character not found');
+  return character;
+  // }
 
-  // Otherwise, fall back to "active" character = profile.characters[0]
-  if (!ctx.client?.profile?.id) throw new Error('No profile');
+  // // Otherwise, fall back to "active" character = profile.characters[0]
+  // if (!ctx.client?.profile?.id) throw new Error('No profile');
+  // // @ts-ignore
+  // const character = await ctx.app.model.Character.findById(ctx.client.profile.characters?.[0].characterId);
+  // if (!character) throw new Error('No character');
 
-  const profile = await ctx.app.model.Profile.findById(ctx.client.profile.id).populate('characters').exec();
-  if (!profile) throw new Error('Profile not found');
-
-  const character = profile.characters?.[0];
-  if (!character) throw new Error('No character');
-
-  // populated doc may be a mongoose doc already; if not, refetch
-  const id = (character as any).id || (character as any)._id;
-  const doc = await ctx.app.model.Character.findById(id);
-  if (!doc) throw new Error('Character not found');
-
-  return doc;
+  // return character;
 }
 
 function ensureInventoryShape(character: any) {
