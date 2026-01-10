@@ -194,7 +194,11 @@ export const Account = createModel<Types.AccountDocument>(
   {
     username: { type: String },
     email: { type: String },
+    address: { type: String },
+    addressIndex: { type: Number },
     telegramUserId: { type: Number },
+    activeProfileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
+    sessionUserId: { type: String },
   },
   {
     indexes: [
@@ -291,6 +295,12 @@ export const Bounty = createModel<Types.BountyDocument>(
   {
     virtuals: [...addTagVirtuals('Bounty'), ...addApplicationVirtual()],
   }
+);
+
+export const Counter = createModel<Types.CounterDocument>(
+  'Counter',
+  { _id: { type: String, required: true }, seq: { type: Number, default: 0 } },
+  { versionKey: false, virtuals: [...addTagVirtuals('Counter'), ...addApplicationVirtual()] }
 );
 
 // Collection Model

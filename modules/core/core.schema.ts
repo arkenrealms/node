@@ -26,7 +26,11 @@ export const Account = Entity.merge(
   z.object({
     username: z.string().min(1),
     email: z.string().optional(),
+    address: z.string().optional(),
+    addressIndex: z.number().optional(),
     telegramUserId: z.number().optional(),
+    activeProfileId: ObjectId.optional(),
+    sessionUserId: z.string().optional(),
   })
 );
 
@@ -63,6 +67,9 @@ export const BiomeFeature = Entity.merge(z.object({}));
 
 // Bounty Schema
 export const Bounty = Entity.merge(z.object({}));
+
+// Counter Schema
+export const Counter = Entity.merge(z.object({ seq: z.number().default(0) }));
 
 // Collection Schema
 export const Collection = Entity.merge(z.object({}));

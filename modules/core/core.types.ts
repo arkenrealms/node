@@ -47,6 +47,9 @@ export type BiomeFeatureDocument = BiomeFeature & Document;
 export type Bounty = z.infer<typeof schema.Bounty>;
 export type BountyDocument = Bounty & Document;
 
+export type Counter = z.infer<typeof schema.Counter>;
+export type CounterDocument = Counter & Document;
+
 export type Collection = z.infer<typeof schema.Collection>;
 export type CollectionDocument = Collection & Document;
 
@@ -266,6 +269,7 @@ export type Mappings = {
   Biome: Model<BiomeDocument>;
   BiomeFeature: Model<BiomeFeatureDocument>;
   Bounty: Model<BountyDocument>;
+  Counter: Model<CounterDocument>;
   Collection: Model<CollectionDocument>;
   Comment: Model<CommentDocument>;
   Community: Model<CommunityDocument>;
