@@ -248,7 +248,7 @@ export async function mailClaimablePatchesBatch(params: MailClaimableBatchParams
                 ],
                 isLocked: true,
                 allowUserSend: false,
-                title: 'Mailbox',
+                name: 'System',
                 category: 'system',
                 importance: 0,
                 lastMessageDate: null,

@@ -31,7 +31,7 @@ export function applyPatchToObject(obj: any, patch: PatchOp[]) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Inventory normalization hooks (you already have equivalents)
+// Inventory normalization hooks
 // ─────────────────────────────────────────────────────────────
 
 async function ensureItemByKey(ctx: RouterContext, itemKey: string, name?: string) {
@@ -120,6 +120,79 @@ export async function normalizeInventoryPatch(ctx: RouterContext, patch: PatchOp
 }
 
 // ─────────────────────────────────────────────────────────────
+// Generic sync emission (NO wrappers)
+// ─────────────────────────────────────────────────────────────
+
+type InventorySyncOp =
+  | { op: 'add'; itemKey: string; quantity?: number }
+  | { op: 'remove'; itemKey: string; quantity?: number };
+
+function inventoryOpsFromPatchOps(patchOps: any[]): InventorySyncOp[] {
+  const ops: InventorySyncOp[] = [];
+  const list = Array.isArray(patchOps) ? patchOps : [];
+
+  for (const op of list) {
+    const key = String(op?.key || '');
+    const isInvItems =
+      key === 'inventory.0.items' ||
+      key.startsWith('inventory.0.items') ||
+      // allow future bags without rewriting
+      key.includes('.items');
+
+    if (!isInvItems) continue;
+
+    if (op?.op === 'push') {
+      const v = op?.value || {};
+      const itemKey = v?.itemKey ?? v?.itemId;
+      if (!itemKey) continue;
+      const qty = Number(v?.quantity ?? 1);
+      ops.push({ op: 'add', itemKey: String(itemKey), quantity: Number.isFinite(qty) ? qty : 1 });
+      continue;
+    }
+
+    if (op?.op === 'pull') {
+      const v = op?.value || {};
+      const itemKey = v?.itemKey ?? v?.itemId;
+      if (!itemKey) continue;
+      const qty = Number(v?.quantity ?? 1);
+      ops.push({ op: 'remove', itemKey: String(itemKey), quantity: Number.isFinite(qty) ? qty : 1 });
+      continue;
+    }
+  }
+
+  return ops;
+}
+
+function inventoryOpsFromEntityPatches(
+  patches: EntityPatch[] | undefined
+): Array<{ characterId: string; ops: InventorySyncOp[] }> {
+  const out: Array<{ characterId: string; ops: InventorySyncOp[] }> = [];
+  for (const ep of patches || []) {
+    if (ep?.entityType !== 'character.inventory') continue;
+    const characterId = String(ep?.entityId || '');
+    if (!characterId) continue;
+
+    const ops = inventoryOpsFromPatchOps((ep as any)?.ops || []);
+    if (ops.length) out.push({ characterId, ops });
+  }
+  return out;
+}
+
+async function emitSyncPatch(ctx: RouterContext, input: { target: string; patch: any; reason?: string }) {
+  try {
+    await (ctx.client as any)?.emit?.sync?.mutate?.({
+      kind: 'patch',
+      target: input.target,
+      patch: input.patch,
+      reason: input.reason,
+    });
+  } catch (e) {
+    // never crash gameplay because push failed
+    console.warn('[applyPatchesOrMail] emit.sync failed', e);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
 // Mail + Claim abstraction
 // ─────────────────────────────────────────────────────────────
 
@@ -136,14 +209,12 @@ export type MailEffect = {
 
 export type MailPatchMessagePayload = {
   kind: 'patch-grant';
-  source: string; // "trek.choice" | "evolution.round" etc
+  source: string;
   title?: string;
   body?: string;
 
-  // ✅ claimable patches applied ONLY WHEN CLAIMED
   patches: EntityPatch[];
 
-  // Optional UI hints (client can render tiles without decoding patches)
   ui?: {
     rewards?: Array<MailReward>;
     effects?: Array<MailEffect>;
@@ -162,7 +233,7 @@ export async function ensureMailConversation(params: {
   ctx: RouterContext;
   profileId: string;
   kind?: MailKind;
-  conversationKey: string; // REQUIRED
+  conversationKey: string;
   title?: string;
   category?: string;
   importance?: number;
@@ -180,7 +251,6 @@ export async function ensureMailConversation(params: {
     }
   })();
 
-  // ✅ first try find
   let convo =
     (await Conversation.findOne?.({
       kind,
@@ -191,7 +261,6 @@ export async function ensureMailConversation(params: {
 
   if (convo) return convo;
 
-  // ✅ upsert to avoid races
   const updated =
     (await Conversation.findOneAndUpdate?.(
       {
@@ -208,7 +277,7 @@ export async function ensureMailConversation(params: {
           isLocked: true,
           allowUserSend: false,
           participants: [{ profileId: profileObjId, role: 'user', unreadCount: 0, lastReadDate: new Date(0) }],
-          title: title ?? 'Mailbox',
+          name: title ?? 'System',
           category: category ?? 'system',
           importance: Number(importance ?? 0),
           lastMessageDate: null,
@@ -223,7 +292,6 @@ export async function ensureMailConversation(params: {
 
   if (updated) return updated;
 
-  // fallback read
   return await Conversation.findOne?.({ kind, conversationKey, profileId: profileObjId })?.exec?.();
 }
 
@@ -233,7 +301,7 @@ function splitClaimable(patches: EntityPatch[]) {
 
   for (const p of patches || []) {
     if (!p?.entityType || !Array.isArray(p.ops)) continue;
-    if (p.claimable) claimable.push(p);
+    if ((p as any).claimable) claimable.push(p);
     else immediate.push(p);
   }
 
@@ -242,24 +310,23 @@ function splitClaimable(patches: EntityPatch[]) {
 
 /**
  * ✅ Applies NON-claimable patches immediately.
- * ✅ Mails ALL claimable patches into ConversationMessage.claim flow.
- *
- * This is now your single “central write gateway” for Trek + Evolution.
+ * ✅ Mails ALL claimable patches.
+ * ✅ Emits generic sync.patch for any immediate inventory change.
  */
 export async function applyPatchesWithInventoryViaMail(params: {
   ctx: RouterContext;
-  profile: any; // mongoose doc
-  character?: any; // mongoose doc (optional if not needed)
+  profile: any;
+  character?: any;
   patches: EntityPatch[];
   mail: {
     profileId: string;
     kind?: MailKind;
-    conversationKey: string; // ✅ REQUIRED NOW
+    conversationKey: string;
     source: string;
     title?: string;
     body?: string;
-    category?: string; // optional, only used on create
-    importance?: number; // optional, only used on create
+    category?: string;
+    importance?: number;
     ui?: MailPatchMessagePayload['ui'];
     dedupeKey?: string;
   };
@@ -267,6 +334,9 @@ export async function applyPatchesWithInventoryViaMail(params: {
   const { ctx, profile, character, patches, mail } = params;
 
   const { claimable, immediate } = splitClaimable(patches);
+
+  // Track inventory changes applied immediately
+  const immediateInventorySync = inventoryOpsFromEntityPatches(immediate);
 
   // 1) Apply immediate patches now
   for (const patch of immediate) {
@@ -280,16 +350,37 @@ export async function applyPatchesWithInventoryViaMail(params: {
       applyPatchToObject(character.data, patch.ops);
       character.markModified?.('data');
     } else if (patch.entityType === 'character.inventory') {
-      // If you ever want “inventory immediate”, just set claimable=false on those patches.
       if (!character) continue;
       if (!Array.isArray(character.inventory)) character.inventory = [];
       if (!character.inventory[0]) character.inventory[0] = { items: [] };
+
       const normalized = await normalizeInventoryPatch(ctx, patch.ops);
       applyPatchToObject(character, normalized);
       character.markModified?.('inventory');
     } else {
       throw new Error(`applyPatchesWithInventoryViaMail: unsupported entityType=${patch.entityType}`);
     }
+  }
+
+  // persist immediate effects
+  await profile.save?.();
+  if (character && immediate.some((p) => p.entityType?.startsWith('character.'))) {
+    await character.save?.();
+  }
+
+  // ✅ emit sync for immediate inventory changes
+  for (const hit of immediateInventorySync) {
+    await emitSyncPatch(ctx, {
+      target: 'character.inventory',
+      patch: {
+        characterId: hit.characterId,
+        ops: hit.ops, // already reduced, generic
+        mode: 'patch',
+        source: mail.source,
+        reason: 'immediate',
+      },
+      reason: 'immediate',
+    });
   }
 
   // 2) If no claimable patches, done
@@ -301,7 +392,7 @@ export async function applyPatchesWithInventoryViaMail(params: {
     profileId: mail.profileId,
     kind: mail.kind ?? 'mail',
     conversationKey: mail.conversationKey,
-    title: mail.title ? 'Mailbox' : 'Mailbox', // keep your existing or pass something else
+    title: 'System',
     category: mail.category ?? 'system',
     importance: mail.importance ?? 0,
   });
@@ -311,7 +402,6 @@ export async function applyPatchesWithInventoryViaMail(params: {
 
   const dedupeKey = mail.dedupeKey ?? null;
 
-  // ✅ Dedupe: if message with dedupeKey already exists, don't create another
   if (dedupeKey) {
     const existing = await ConversationMessage.findOne?.({
       conversationId: convo._id,
@@ -338,7 +428,7 @@ export async function applyPatchesWithInventoryViaMail(params: {
   const msg = await ConversationMessage.create?.({
     conversationId: convo._id,
     role: 'system',
-    type: 'reward', // or 'system' depending on your UI; keep as-is for now
+    type: 'reward',
     content: mail.body ?? '',
     payload,
     claim: {
@@ -350,7 +440,6 @@ export async function applyPatchesWithInventoryViaMail(params: {
     },
   });
 
-  // Update convo listing fields (best-effort)
   try {
     const preview = (mail.title ? `${mail.title} — ` : '') + (mail.body ?? '');
     await Conversation.updateOne?.(
@@ -361,7 +450,7 @@ export async function applyPatchesWithInventoryViaMail(params: {
           lastMessagePreview: String(preview).slice(0, 140),
         },
         $inc: { messageCount: 1 },
-        $push: { messages: msg._id }, // back-compat
+        $push: { messages: msg._id },
       }
     )?.exec?.();
   } catch {
@@ -372,25 +461,19 @@ export async function applyPatchesWithInventoryViaMail(params: {
 }
 
 /**
- * ✅ Central claim handler (applies ANY claimable patch types you support).
- *
- * Atomic claim lock + patch application.
- * Supports:
- * - profile.meta
- * - character.data
- * - character.inventory (normalized)
+ * ✅ Central claim handler
+ * ✅ Emits generic sync.patch for any claimed inventory changes.
  */
 export async function claimMailMessage(params: {
   ctx: RouterContext;
-  profile: any; // mongoose doc (required for profile.meta claim patches)
-  character?: any; // mongoose doc (required if claim touches character.*)
+  profile: any;
+  character?: any;
   messageId: string;
 }): Promise<{ ok: true }> {
   const { ctx, profile, character, messageId } = params;
 
   const ConversationMessage = (ctx.app as any).model.ConversationMessage;
 
-  // Atomic claim lock
   const msg = await ConversationMessage.findOneAndUpdate?.(
     {
       _id: messageId,
@@ -415,6 +498,9 @@ export async function claimMailMessage(params: {
 
   const payload = msg.payload as MailPatchMessagePayload | undefined;
   if (!payload || payload.kind !== 'patch-grant' || !Array.isArray(payload.patches)) return { ok: true };
+
+  // collect inventory sync intents BEFORE normalization mutates anything
+  const claimedInventorySync = inventoryOpsFromEntityPatches(payload.patches);
 
   let touchedProfileMeta = false;
   let touchedCharacterData = false;
@@ -450,7 +536,6 @@ export async function claimMailMessage(params: {
       continue;
     }
 
-    // If you truly want "any string", add a registry here.
     throw new Error(`claimMailMessage: unsupported entityType=${patch.entityType}`);
   }
 
@@ -461,6 +546,22 @@ export async function claimMailMessage(params: {
   await profile.save?.();
   if (character && (touchedCharacterData || touchedCharacterInventory)) {
     await character.save?.();
+  }
+
+  // ✅ emit sync for claimed inventory changes
+  for (const hit of claimedInventorySync) {
+    await ctx.client.emit.sync.mutate({
+      kind: 'patch',
+      target: 'character.inventory',
+      patch: {
+        characterId: hit.characterId,
+        ops: hit.ops,
+        mode: 'patch',
+        source: payload.source || 'mail.claim',
+        reason: 'claim',
+      },
+      reason: 'claim',
+    });
   }
 
   return { ok: true };
