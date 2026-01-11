@@ -632,13 +632,101 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     log('Core.Service.getConversation', input);
 
-    // if (!ctx.client?.roles?.includes('admin')) {
-    input.where.profileId = { equals: ctx.client.profile.id };
-    // }
+    const AUTO_CREATE_KEYS = new Set(['system', 'battles', 'reports', 'guild']);
 
-    const conversation = await ctx.app.model.Conversation.findOneJSON(getFilter(input));
+    function titleCase(s: string) {
+      if (!s) return s;
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    function defaultsForKey(key: string) {
+      // Keep this minimal; anything not provided will fall back to schema defaults.
+      // Use fields you clearly already have on Conversation (from your logs).
+      if (key === 'system') {
+        return {
+          name: 'System',
+          category: 'system',
+          kind: 'mail',
+          isLocked: true,
+          allowUserSend: false,
+          importance: 0,
+        };
+      }
+
+      return {
+        name: titleCase(key), // Reports/Guild/Battles
+        category: key,
+        kind: 'mail',
+        isLocked: false,
+        allowUserSend: false,
+        importance: 0,
+      };
+    }
+
+    if (!ctx.client?.profile?.id) throw new Error('Unauthorized');
+
+    // Always scope to the caller
+    input.where = input.where || {};
+    input.where.profileId = { equals: ctx.client.profile.id };
+
+    const where = input.where || {};
+    const requestedKey =
+      typeof where?.key === 'string' ? where.key : typeof where?.key?.equals === 'string' ? where.key.equals : null;
+
+    // 1) Try to fetch existing
+    let conversation = await ctx.app.model.Conversation.findOneJSON(getFilter(input));
+    if (conversation) return conversation as any;
+
+    // 2) Auto-create only for the known mailbox keys
+    if (!requestedKey || !AUTO_CREATE_KEYS.has(requestedKey)) {
+      throw new Error('Conversation not found');
+    }
+
+    const profileId = String(ctx.client.profile.id);
+
+    // IMPORTANT:
+    // Use create/upsert in a way that's safe under races.
+    // If you have a unique index on (profileId, key, applicationId),
+    // a duplicate create could happen — so we "create, then refetch" and tolerate dup errors.
+    const createDoc: any = {
+      key: requestedKey,
+      profileId,
+      ...defaultsForKey(requestedKey),
+
+      // these fields exist in your logged response; seed them so UI behaves immediately
+      participants: [
+        {
+          profileId,
+          role: 'user',
+          lastReadAt: new Date(0),
+          unreadCount: 0,
+          isMuted: false,
+          isPinned: false,
+          isArchived: false,
+          isDeleted: false,
+        },
+      ],
+
+      messages: [],
+      messageCount: 0,
+      lastMessageDate: null,
+      lastMessagePreview: '',
+      meta: {},
+      data: {},
+      status: 'Active',
+    };
+
+    try {
+      await ctx.app.model.Conversation.create(createDoc as any);
+    } catch (err: any) {
+      // If a race created it first, just refetch.
+      // If you want to be stricter: check err.code === 11000 for dup key.
+      log('getConversation auto-create race/err', err?.message || err);
+    }
+
+    conversation = await ctx.app.model.Conversation.findOneJSON(getFilter(input));
     if (!conversation) throw new Error('Conversation not found');
-    return conversation as Conversation;
+    return conversation as any;
   }
   async createConversation(
     input: RouterInput['createConversation'],
