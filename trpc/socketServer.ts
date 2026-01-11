@@ -39,16 +39,21 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
 
       socket.emit('trpcResponse', { id, result: serialize({ status: 1, data: result }) });
     } catch (error: any) {
-      if ((error + '').includes("reading '_def'")) {
-        log('TRPC handler does not exist', method, error);
+      let errorMessage = error?.stack + '';
+
+      if (errorMessage.includes("reading '_def'")) {
+        errorMessage = 'TRPC handler does not exist: ' + errorMessage;
+        log(errorMessage, method, error);
       } else {
-        log('Server error in socket TRPC handler', method, error);
+        errorMessage = 'Server error in socket TRPC handler: ' + errorMessage;
+        log(errorMessage, method, error);
       }
 
       socket.emit('trpcResponse', {
         id,
         result: serialize({ status: 0 }),
-        error: error?.stack + '' || 'Unknown error occurred',
+        error: errorMessage || 'Unknown error occurred',
+        meta: { message },
       });
     }
   };

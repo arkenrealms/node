@@ -352,32 +352,173 @@ export const Company = createModel<Types.CompanyDocument>(
   }
 );
 
-// Conversation Model
+// =========================
+// Conversation (Thread)
+// =========================
+//
+// Key points:
+// - "mailboxKey" gives you a stable unique identity for system inbox threads.
+// - Participants field-level index removed; indexes centralized below.
+// - lastMessageDate naming normalized.
+// - Back-compat messages[] kept, but consider disabling pushes or capping.
+//
 export const Conversation = createModel<Types.ConversationDocument>(
   'Conversation',
   {
-    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile' },
+    // Back-compat: old "owner" thread (mailbox-style threads should set this)
+    profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', index: true },
+
+    // Mail/chat type
+    kind: {
+      type: String,
+      enum: ['mail', 'dm', 'group', 'support', 'system'],
+      default: 'mail',
+      index: true,
+    },
+
+    // Participants so the same model can do mail+discord-like threads
+    participants: [
+      {
+        profileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', required: true },
+
+        role: { type: String, enum: ['user', 'system', 'gm', 'npc'], default: 'user' },
+
+        lastReadAt: { type: Date, default: new Date(0) },
+        unreadCount: { type: Number, default: 0 },
+
+        isMuted: { type: Boolean, default: false },
+        isPinned: { type: Boolean, default: false },
+        isArchived: { type: Boolean, default: false },
+        isDeleted: { type: Boolean, default: false },
+      },
+    ],
+
     isLocked: { type: Boolean, default: true },
+    allowUserSend: { type: Boolean, default: false },
+
+    category: { type: String, default: 'system' },
+    importance: { type: Number, default: 0 },
+
+    // ✅ keep consistent with your service code (use lastMessageDate everywhere)
+    lastMessageDate: { type: Date, default: null, index: true },
+    lastMessagePreview: { type: String, default: '' },
+    messageCount: { type: Number, default: 0 },
+
+    // Back-compat only. Don’t rely on this for reads at scale.
     messages: [{ type: mongo.Schema.Types.ObjectId, ref: 'ConversationMessage' }],
   },
   {
-    // extend: 'CommonFields',
+    indexes: [
+      // Inbox list (participant mailbox / DMs / etc.)
+      { fields: { 'participants.profileId': 1, lastMessageDate: -1 } },
+
+      // Filtered by kind (mail tab, dm tab, etc.)
+      { fields: { kind: 1, 'participants.profileId': 1, lastMessageDate: -1 } },
+
+      // Back-compat owner mailbox queries
+      { fields: { profileId: 1, kind: 1, lastMessageDate: -1 } },
+      {
+        fields: { key: 1, profileId: 1 },
+        options: {
+          unique: true,
+          partialFilterExpression: { profileId: { $type: 'objectId' } },
+        },
+      },
+      {
+        fields: { kind: 1, profileId: 1 },
+        options: {
+          unique: true,
+          partialFilterExpression: { profileId: { $type: 'objectId' } },
+        },
+      },
+
+      {
+        fields: { applicationId: 1, kind: 1, profileId: 1, key: 1 },
+        options: {
+          unique: true,
+          partialFilterExpression: { key: { $type: 'string' } },
+        },
+      },
+    ],
     virtuals: [...addTagVirtuals('Conversation'), ...addApplicationVirtual()],
   }
 );
 
+// =========================
+// ConversationMessage (Message)
+// =========================
+//
+// Key points:
+// - Primary paging index is (conversationId, _id:-1).
+// - Claim fields use claimedDate consistently.
+// - Dedupe is per-conversation (compound) and unique when present.
+// - Claimable listing inside a conversation has a supporting index.
+//
 export const ConversationMessage = createModel<Types.ConversationMessageDocument>(
   'ConversationMessage',
   {
-    conversationId: { type: mongo.Schema.Types.ObjectId, ref: 'Conversation', required: true },
-    role: { type: String, enum: ['user', 'assistant'], required: true }, // 'user' for human, 'assistant' for AI
-    content: { type: String, required: true },
-    replyToId: { type: mongo.Schema.Types.ObjectId, ref: 'ConversationMessage' }, // For threaded replies
-    metadata: { type: mongo.Schema.Types.Mixed }, // Optional AI-specific data, e.g., tokens used, model version
+    conversationId: { type: mongo.Schema.Types.ObjectId, ref: 'Conversation', required: true, index: true },
+
+    role: { type: String, enum: ['user', 'assistant', 'system'], required: true },
+
+    type: {
+      type: String,
+      enum: ['text', 'notice', 'reward', 'action', 'system'],
+      default: 'text',
+      index: true,
+    },
+
+    isStarred: { type: Boolean, default: false, index: true },
+
+    content: { type: String, default: '' },
+
+    payload: { type: mongo.Schema.Types.Mixed },
+
+    replyToId: { type: mongo.Schema.Types.ObjectId, ref: 'ConversationMessage' },
+
+    claim: {
+      isClaimable: { type: Boolean, default: false, index: true },
+
+      // ✅ normalized field names (match your latest applyPatchesOrMail.ts)
+      claimedDate: { type: Date, default: null },
+      claimedByProfileId: { type: mongo.Schema.Types.ObjectId, ref: 'Profile', default: null },
+
+      dedupeKey: { type: String, default: null },
+
+      attachments: { type: [mongo.Schema.Types.Mixed], default: [] },
+
+      revokedDate: { type: Date, default: null },
+      revokeReason: { type: String, default: null },
+    },
   },
   {
-    // extend: 'CommonFields',
-    indexes: [{ conversationId: 1 }],
+    indexes: [
+      // ✅ Primary paging for “latest messages”
+      { fields: { conversationId: 1, _id: -1 } },
+
+      // Optional (only if you actually sort by createdDate elsewhere)
+      { fields: { conversationId: 1, createdDate: -1 } },
+
+      // Claim listing scans (admin / analytics)
+      { fields: { 'claim.isClaimable': 1, 'claim.claimedDate': 1 } },
+
+      // Claim listing inside a conversation (UI list “claimable first”)
+      { fields: { conversationId: 1, 'claim.isClaimable': 1, 'claim.claimedDate': 1, _id: -1 } },
+
+      // Fast dedupe lookup per conversation
+      { fields: { conversationId: 1, 'claim.dedupeKey': 1 } },
+
+      // ✅ Enforce dedupeKey uniqueness per conversation when present
+      {
+        fields: { conversationId: 1, 'claim.dedupeKey': 1 },
+        options: {
+          unique: true,
+          partialFilterExpression: { 'claim.dedupeKey': { $type: 'string' } },
+        },
+      },
+
+      { fields: { isStarred: 1, conversationId: 1, _id: -1 } },
+    ],
     virtuals: [...addTagVirtuals('ConversationMessage'), ...addApplicationVirtual()],
   }
 );

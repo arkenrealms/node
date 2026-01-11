@@ -129,6 +129,7 @@ export type EntityPatch = {
   entityId: string;
   baseVersion?: number;
   ops: PatchOp[];
+  claimable?: boolean;
 };
 
 export type GameObjectDef = {

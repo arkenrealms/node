@@ -82,8 +82,639 @@ import { log, logError } from '../../util';
 import { deepMerge } from '../../util/object';
 import { Model } from '../../util/mongo';
 import { isValidRequest, getSignedRequest } from '../../util/web3';
+import type { EntityPatch } from '../../types';
+import { claimMailMessage } from './mail/applyPatchesOrMail';
+import { mailClaimablePatchesBatch } from './mail/mailClaimablePatchesBatch'; // adjust path
 
 export class Service {
+  /**
+   * Claim a message's patch-grant payload via your central handler.
+   */
+  async claimConversationMessage(
+    input: RouterInput['claimConversationMessage'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['claimConversationMessage']> {
+    if (!ctx.client?.profile) throw new Error('Unauthorized');
+
+    const profileId = ctx.client.profile.id;
+    const messageId = String((input as any).messageId);
+    const characterId = (input as any)?.characterId ? String((input as any).characterId) : null;
+
+    const Conversation = ctx.app.model.Conversation;
+    const ConversationMessage = ctx.app.model.ConversationMessage;
+    const Profile = ctx.app.model.Profile;
+
+    // Read message first (for authz + to know conversationId)
+    const msg = await ctx.app.model.ConversationMessage.findById(messageId).lean().exec();
+    if (!msg) throw new Error('Message not found');
+
+    // Must belong to a conversation the user is in
+    const convo = await Conversation.findOne({
+      _id: msg.conversationId,
+      $or: [{ profileId }, { 'participants.profileId': profileId }],
+    })
+      .lean()
+      .exec();
+    if (!convo) throw new Error('Not authorized for this message');
+
+    // Load profile doc for applying profile.meta patches
+    const profile = await Profile.findById(profileId).populate('characters').exec();
+    if (!profile) throw new Error('Profile not found');
+
+    // Choose character if needed (claim payload might include character.* patches)
+    let character: any = null;
+    const chars = (profile as any).characters || [];
+    if (characterId) {
+      character = chars.find((c: any) => String(c._id) === characterId) ?? null;
+    } else {
+      character = chars?.[0] ?? null; // keep your current default assumption
+    }
+
+    // ✅ Central claim implementation from applyPatchesOrMail.ts
+    await claimMailMessage({
+      ctx,
+      profile,
+      character: character ?? undefined,
+      messageId,
+    });
+
+    return { ok: true, messageId } as any;
+  }
+
+  async distributeSantaChristmasTicket(
+    input: RouterInput['distributeSantaChristmasTicket'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['distributeSantaChristmasTicket']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    if (!ctx.client?.roles?.includes('admin')) throw new Error('Not authorized');
+
+    const year = 2025;
+    const dedupeKey = input?.dedupeKey || `broadcast:santa-christmas-ticket:${year}`;
+
+    // ✅ This matches your saveRound behavior:
+    // profile.meta.rewards.tokens['christmas' + year] += 1
+    const patches: EntityPatch[] = [
+      {
+        entityType: 'profile.meta',
+        entityId: 'broadcast', // not used for mail application, but keep consistent
+        // IMPORTANT: your applyPatchesWithInventoryViaMail expects this flag
+        // to decide “mail vs immediate”. Broadcast is mail-only.
+        claimable: true as any,
+        ops: [{ op: 'inc', key: `rewards.tokens.christmas${year}`, value: 1 }],
+      } as any,
+    ];
+
+    const result = await mailClaimablePatchesBatch({
+      ctx,
+      streamAllProfiles: true,
+      kind: 'mail',
+      conversationKey: 'system',
+      source: 'core.broadcastSantaChristmasTicket',
+      title: `Holiday Gift 🎁`,
+      body: `You received a Santa Christmas Ticket (${year}). Claim it to add it to your account.`,
+      dedupeKey,
+      claimablePatches: patches,
+      payloadUi: {
+        rewards: [{ type: 'token', id: `christmas${year}`, quantity: 1 }],
+      },
+      batchSize: input?.batchSize ?? 1000,
+    });
+
+    return {
+      ok: true,
+      year,
+      dedupeKey,
+      ...result,
+    } as any;
+  }
+
+  /**
+   * Starred messages for the logged-in user (across all conversations of a kind).
+   *
+   * Assumptions:
+   * - "starred" lives on ConversationMessage.metadata.starred (boolean)
+   *   (also supports metadata.isStarred as a fallback)
+   * - Viewer must be a participant (or legacy profileId owner) of the message's conversation.
+   */
+  async getConversationMessages(
+    input: { where: any; limit?: number; skip?: number; cursor?: string },
+    ctx: RouterContext
+  ) {
+    if (!input) throw new ARXError('NO_INPUT');
+    if (!ctx.client?.profile) throw new Error('Unauthorized');
+
+    const profileId = String(ctx.client.profile.id);
+
+    const baseFilter = getFilter(input); // derived from input.where
+    const limit = Math.min(200, Number(input.limit ?? 50));
+    const skip = Math.max(0, Number(input.skip ?? 0));
+    const cursor = input.cursor ? String(input.cursor) : null;
+
+    const Conversation = ctx.app.model.Conversation;
+    const ConversationMessage = ctx.app.model.ConversationMessage;
+
+    // Pull any conversationId constraint from the filter (if present)
+    // Depending on your getFilter(), this might be:
+    // - a string/ObjectId
+    // - { $in: [...] }
+    // - undefined
+    const requestedConversationId = (baseFilter as any)?.conversationId;
+
+    // If caller is asking for a specific conversation (most common UI path)
+    // then do a direct authz check and only return that conversation's messages.
+    if (requestedConversationId && typeof requestedConversationId !== 'object') {
+      const convo = await Conversation.findOne({
+        _id: requestedConversationId,
+        $or: [{ profileId }, { 'participants.profileId': profileId }],
+      })
+        .select({ _id: 1 })
+        .lean()
+        .exec();
+
+      if (!convo) throw new Error('Not authorized for this conversation');
+
+      const msgFilter: any = {
+        ...baseFilter,
+        conversationId: requestedConversationId, // keep exact constraint
+      };
+
+      if (cursor) msgFilter._id = { $lt: cursor };
+
+      const items = await ctx.app.model.ConversationMessage.findJSON(msgFilter, null, {
+        sort: { _id: -1 },
+        skip,
+        limit,
+      });
+
+      const total = await ctx.app.model.ConversationMessage.countDocumentsFiltered(msgFilter);
+
+      return {
+        items,
+        total,
+        nextCursor: items.length ? String(items[items.length - 1]._id) : null,
+      };
+    }
+
+    // Otherwise: “global” query across all conversations user can access
+    // (needed for starred tab: where: { isStarred: true })
+    const convos = await Conversation.find({
+      $or: [{ profileId }, { 'participants.profileId': profileId }],
+    })
+      .select({ _id: 1 })
+      .lean()
+      .exec();
+
+    const convoIds = convos.map((c: any) => c._id);
+    if (!convoIds.length) return { items: [], total: 0, nextCursor: null };
+
+    // Intersect baseFilter’s conversationId (if it’s an $in) with allowed convos.
+    // If baseFilter.conversationId is something else object-y, we keep it and also constrain with $in.
+    const msgFilter: any = {
+      ...baseFilter,
+      conversationId: { $in: convoIds },
+    };
+
+    // If baseFilter had conversationId: { $in: [...] }, intersect it with allowed convoIds
+    if (requestedConversationId && typeof requestedConversationId === 'object' && requestedConversationId.$in) {
+      const wanted = (requestedConversationId.$in || []).map((x: any) => String(x));
+      const allowed = convoIds.map((x: any) => String(x));
+      const intersection = wanted.filter((id: string) => allowed.includes(id));
+      msgFilter.conversationId = { $in: intersection };
+      if (!intersection.length) return { items: [], total: 0, nextCursor: null };
+    }
+
+    if (cursor) msgFilter._id = { $lt: cursor };
+
+    const items = await ctx.app.model.ConversationMessage.findJSON(msgFilter, null, {
+      sort: { _id: -1 },
+      skip,
+      limit,
+    });
+
+    const total = await ctx.app.model.ConversationMessage.countDocumentsFiltered(msgFilter);
+
+    return {
+      items,
+      total,
+      nextCursor: items.length ? String(items[items.length - 1].id) : null,
+    };
+  }
+
+  async setConversationMessageStar(
+    input: { messageId: string; isStarred: boolean },
+    ctx: RouterContext
+  ): Promise<{ ok: true; messageId: string; isStarred: boolean }> {
+    if (!ctx.client?.profile) throw new Error('Unauthorized');
+
+    const profileId = String(ctx.client.profile.id);
+    const messageId = String(input.messageId);
+    const isStarred = !!input.isStarred;
+
+    const Conversation = ctx.app.model.Conversation;
+    const ConversationMessage = ctx.app.model.ConversationMessage;
+
+    const msg = await ConversationMessage.findById(messageId).lean().exec();
+    if (!msg) throw new Error('Message not found');
+
+    const convo = await Conversation.findOne({
+      _id: msg.conversationId,
+      $or: [{ profileId }, { 'participants.profileId': profileId }],
+    })
+      .select({ _id: 1 })
+      .lean()
+      .exec();
+
+    if (!convo) throw new Error('Not authorized for this message');
+
+    await ConversationMessage.updateOne({ _id: messageId }, { $set: { isStarred } }).exec();
+
+    return { ok: true, messageId, isStarred };
+  }
+
+  async distributeSantaChristmasTicketToProfile(
+    input: { profileId: string; dedupeKey?: string },
+    ctx: RouterContext
+  ): Promise<any> {
+    if (!input?.profileId) throw new ARXError('NO_INPUT');
+    if (!ctx.client?.roles?.includes('admin')) throw new Error('Not authorized');
+
+    const year = 2025;
+    const dedupeKey = input?.dedupeKey || `broadcast:santa-christmas-ticket:${year}`;
+
+    const patches: EntityPatch[] = [
+      {
+        entityType: 'profile.meta',
+        entityId: 'broadcast',
+        claimable: true as any,
+        ops: [{ op: 'inc', key: `rewards.tokens.christmas${year}`, value: 1 }],
+      } as any,
+    ];
+
+    // single-target run: use batch helper with explicit profileIds
+    const result = await mailClaimablePatchesBatch({
+      ctx,
+      profileIds: [input.profileId],
+      kind: 'mail',
+      conversationKey: 'system',
+      source: 'core.broadcastSantaChristmasTicket',
+      title: `Holiday Gift 🎁`,
+      body: `You received a Santa Christmas Ticket (${year}). Claim it to add it to your account.`,
+      dedupeKey,
+      claimablePatches: patches,
+      payloadUi: {
+        rewards: [{ type: 'token', id: `christmas${year}`, quantity: 1 }],
+      },
+      batchSize: 1,
+    });
+
+    return {
+      ok: true,
+      year,
+      dedupeKey,
+      profileId: input.profileId,
+      ...result,
+    } as any;
+  }
+  async readAndClaimLatestMail(
+    input: { conversationId: string; limit?: number; characterId?: string } | undefined,
+    ctx: RouterContext
+  ): Promise<{ ok: true; conversationId: string; readCount: number; claimedCount: number }> {
+    if (!input?.conversationId) throw new ARXError('NO_INPUT');
+    if (!ctx.client?.profile) throw new Error('Unauthorized');
+
+    const profileId = String(ctx.client.profile.id);
+    const conversationId = String(input.conversationId);
+    const limit = Math.max(1, Math.min(200, Number(input.limit ?? 50)));
+    const characterId = input?.characterId ? String(input.characterId) : null;
+
+    const Conversation = ctx.app.model.Conversation;
+    const ConversationMessage = ctx.app.model.ConversationMessage;
+    const Profile = ctx.app.model.Profile;
+
+    const convo = await Conversation.findOne({
+      _id: conversationId,
+      $or: [{ profileId }, { 'participants.profileId': profileId }],
+    })
+      .lean()
+      .exec();
+
+    if (!convo) throw new Error('Not authorized');
+
+    // Load latest messages
+    const msgs = await ConversationMessage.find({
+      conversationId,
+      status: { $ne: 'Archived' },
+    })
+      .sort({ _id: -1 })
+      .limit(limit)
+      .lean()
+      .exec();
+
+    // Mark as read at conversation participant level
+    const now = new Date();
+    await Conversation.updateOne(
+      { _id: conversationId },
+      {
+        $set: {
+          'participants.$[p].lastReadDate': now,
+          'participants.$[p].unreadCount': 0,
+        },
+      },
+      {
+        arrayFilters: [
+          {
+            'p.profileId': (ctx.app as any).db?.mongoose?.Types?.ObjectId?.isValid?.(profileId)
+              ? (ctx.app as any).db.mongoose.Types.ObjectId(profileId)
+              : profileId,
+          },
+        ] as any,
+      }
+    )
+      .exec()
+      .catch(async () => {
+        // fallback if arrayFilters / ObjectId mismatch in your wrapper
+        await Conversation.updateOne(
+          { _id: conversationId, 'participants.profileId': profileId },
+          { $set: { 'participants.$.lastReadDate': now, 'participants.$.unreadCount': 0 } }
+        ).exec();
+      });
+
+    // Load profile+character once for all claims
+    const profile = await Profile.findById(profileId).populate('characters').exec();
+    if (!profile) throw new Error('Profile not found');
+
+    let character: any = null;
+    const chars = (profile as any).characters || [];
+    if (characterId) character = chars.find((c: any) => String(c._id) === characterId) ?? null;
+    else character = chars?.[0] ?? null;
+
+    let claimedCount = 0;
+
+    for (const m of msgs) {
+      const claimable = !!(m as any)?.claim?.isClaimable && !(m as any)?.claim?.claimedDate;
+      if (!claimable) continue;
+
+      try {
+        await claimMailMessage({
+          ctx,
+          profile,
+          character: character ?? undefined,
+          messageId: String((m as any)._id),
+        });
+        claimedCount += 1;
+      } catch {
+        // ignore already-claimed / races
+      }
+    }
+
+    return { ok: true, conversationId, readCount: msgs.length, claimedCount };
+  }
+  async archiveReadConversations(
+    input: { conversationId: string } | undefined,
+    ctx: RouterContext
+  ): Promise<{ ok: true; conversationId: string; archivedCount: number }> {
+    if (!input?.conversationId) throw new ARXError('NO_INPUT');
+    if (!ctx.client?.profile) throw new Error('Unauthorized');
+
+    const profileId = String(ctx.client.profile.id);
+    const conversationId = String(input.conversationId);
+
+    const Conversation = ctx.app.model.Conversation;
+    const ConversationMessage = ctx.app.model.ConversationMessage;
+
+    const convo = await Conversation.findOne({
+      _id: conversationId,
+      $or: [{ profileId }, { 'participants.profileId': profileId }],
+    })
+      .lean()
+      .exec();
+
+    if (!convo) throw new Error('Not authorized');
+
+    const participant = Array.isArray((convo as any).participants)
+      ? (convo as any).participants.find((p: any) => String(p.profileId) === profileId)
+      : null;
+
+    const lastReadDate = participant?.lastReadDate ? new Date(participant.lastReadDate) : new Date(0);
+
+    const res = await ConversationMessage.updateMany(
+      {
+        conversationId,
+        status: { $ne: 'Archived' },
+        isStarred: { $ne: true }, // optional: don't delete starred
+        createdDate: { $lte: lastReadDate }, // assumes you have createdDate timestamps
+      },
+      { $set: { status: 'Archived' } }
+    ).exec();
+
+    const archivedCount = Number((res as any)?.modifiedCount ?? (res as any)?.nModified ?? 0);
+
+    return { ok: true, conversationId, archivedCount };
+  }
+  async markConversationRead(
+    input:
+      | {
+          // explicit IDs (preferred from UI)
+          messageIds?: string[];
+          // optional scoping (handy for server-side selection)
+          conversationId?: string;
+          // optional convenience: if messageIds omitted, mark latest N in conversation
+          limit?: number;
+        }
+      | undefined,
+    ctx: RouterContext
+  ): Promise<{ ok: true; updatedCount: number; messageIds?: string[] }> {
+    if (!ctx.client?.profile) throw new Error('Unauthorized');
+
+    const profileId = String(ctx.client.profile.id);
+
+    const Conversation = ctx.app.model.Conversation;
+    const ConversationMessage = ctx.app.model.ConversationMessage;
+
+    const messageIds = Array.isArray((input as any)?.messageIds)
+      ? (input as any).messageIds.map((x: any) => String(x)).filter(Boolean)
+      : [];
+
+    const conversationId = (input as any)?.conversationId ? String((input as any).conversationId) : null;
+    const limit = Math.min(200, Number((input as any)?.limit ?? 50));
+
+    // Build candidate message IDs if caller didn't provide them
+    let targetIds: string[] = messageIds;
+
+    if (!targetIds.length) {
+      if (!conversationId) {
+        // nothing to do
+        return { ok: true, updatedCount: 0 };
+      }
+
+      // Ensure user has access to this conversation
+      const convo = await Conversation.findOne({
+        _id: conversationId,
+        $or: [{ profileId }, { 'participants.profileId': profileId }],
+      })
+        .lean()
+        .exec();
+      if (!convo) throw new Error('Not authorized for this conversation');
+
+      // Pull latest N messages in that conversation
+      const docs = await ConversationMessage.find({ conversationId })
+        .sort({ _id: -1 })
+        .limit(limit)
+        .select({ _id: 1 })
+        .lean()
+        .exec();
+
+      targetIds = docs.map((d: any) => String(d._id));
+      if (!targetIds.length) return { ok: true, updatedCount: 0 };
+    } else {
+      // Authz: ensure messages are in conversations the user can access
+      const msgs = await ConversationMessage.find({ _id: { $in: targetIds } })
+        .select({ _id: 1, conversationId: 1 })
+        .lean()
+        .exec();
+
+      if (!msgs.length) return { ok: true, updatedCount: 0 };
+
+      const convoIds = Array.from(new Set(msgs.map((m: any) => String(m.conversationId))));
+      const allowed = await Conversation.find({
+        _id: { $in: convoIds },
+        $or: [{ profileId }, { 'participants.profileId': profileId }],
+      })
+        .select({ _id: 1 })
+        .lean()
+        .exec();
+
+      const allowedSet = new Set(allowed.map((c: any) => String(c._id)));
+
+      // Only mark read for messages in allowed conversations
+      targetIds = msgs.filter((m: any) => allowedSet.has(String(m.conversationId))).map((m: any) => String(m._id));
+
+      if (!targetIds.length) throw new Error('Not authorized for these messages');
+    }
+
+    // Update: pick ONE canonical read representation.
+    // If you already use `status` elsewhere (and archive expects status='Archived'),
+    // then use status='Read' here.
+    const res = await ConversationMessage.updateMany(
+      { _id: { $in: targetIds } },
+      {
+        $set: {
+          status: 'Read',
+          // optional: keep a timestamp if you want
+          readDate: new Date(),
+        },
+      }
+    ).exec();
+
+    const updatedCount = Number((res as any)?.modifiedCount ?? (res as any)?.nModified ?? 0);
+
+    return { ok: true, updatedCount, messageIds: targetIds };
+  }
+  // Conversation Methods
+  async getConversations(
+    input: RouterInput['getConversations'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getConversations']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    const filter = getFilter(input);
+    const limit = input.limit ?? 50;
+    const skip = input.skip ?? 0;
+    const [items, total] = await Promise.all([
+      ctx.app.model.Conversation.findJSON(filter, null, { skip, limit }),
+      ctx.app.model.Conversation.find(filter).countDocuments().exec(),
+    ]);
+    return { items, total };
+  }
+  async getConversation(
+    input: RouterInput['getConversation'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getConversation']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.getConversation', input);
+
+    // if (!ctx.client?.roles?.includes('admin')) {
+    input.where.profileId = { equals: ctx.client.profile.id };
+    // }
+
+    const conversation = await ctx.app.model.Conversation.findOneJSON(getFilter(input));
+    if (!conversation) throw new Error('Conversation not found');
+    return conversation as Conversation;
+  }
+  async createConversation(
+    input: RouterInput['createConversation'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createConversation']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.createConversation', input);
+
+    const conversation = await ctx.app.model.Conversation.create(input.data);
+    return conversation as Conversation;
+  }
+  async updateConversation(
+    input: RouterInput['updateConversation'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateConversation']> {
+    if (!input) throw new ARXError('NO_INPUT');
+
+    const filters = getFilter(input);
+
+    if (!filters._id) throw new ARXError('BAD_REQUEST');
+
+    log('Core.Service.updateConversation', input);
+    const updatedConversation = await ctx.app.model.Conversation.findByIdAndUpdate(filters._id, input.data, {
+      new: true,
+    })
+      .lean()
+      .exec();
+    if (!updatedConversation) throw new Error('Conversation update failed');
+    return updatedConversation as Conversation;
+  }
+  // ConversationMessage Methods
+  async getConversationMessage(
+    input: RouterInput['getConversationMessage'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['getConversationMessage']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.getConversationMessage', input);
+    const conversationMessage = await ctx.app.model.ConversationMessage.findOneJSON(getFilter(input));
+    if (!conversationMessage) throw new Error('ConversationMessage not found');
+    return conversationMessage as ConversationMessage;
+  }
+  async createConversationMessage(
+    input: RouterInput['createConversationMessage'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['createConversationMessage']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.createConversationMessage', input);
+    const conversationMessage = await ctx.app.model.ConversationMessage.create(input.data);
+    return conversationMessage as ConversationMessage;
+  }
+  async updateConversationMessage(
+    input: RouterInput['updateConversationMessage'],
+    ctx: RouterContext
+  ): Promise<RouterOutput['updateConversationMessage']> {
+    if (!input) throw new ARXError('NO_INPUT');
+    log('Core.Service.updateConversationMessage', input);
+    const updatedConversationMessage = await ctx.app.model.ConversationMessage.findByIdAndUpdate(
+      input.where.id.equals,
+      input.data,
+      { new: true }
+    )
+      .lean()
+      .exec();
+    if (!updatedConversationMessage) throw new Error('ConversationMessage update failed');
+    return updatedConversationMessage as ConversationMessage;
+  }
+  // async deleteConversation(
+  //   input: RouterInput['deleteConversation'],
+  //   ctx: RouterContext
+  // ): Promise<RouterOutput['deleteConversation']> {
+  //   if (!input) throw new ARXError('NO_INPUT');
+  //   log('Core.Service.deleteConversation', input);
+  //   const deleted = await ctx.app.model.Conversation.findByIdAndDelete(input.where.id.equals).exec();
+  //   if (!deleted) throw new Error('Conversation not found');
+  //   return { id: input.where.id.equals };
+  // }
   // async interact(input: RouterInput['interact'], ctx: RouterContext): Promise<RouterOutput['interact']> {
   // if (!input) throw new TRPCError({
   // code: 'BAD_REQUEST',
@@ -228,7 +859,7 @@ export class Service {
     log('Core.Service.syncGetPayloadsSince', input);
     const sinceDate = new Date(input.since);
     const payloads = await ctx.app.model.SeerPayload.find({
-      createdAt: { $gt: sinceDate },
+      createdDate: { $gt: sinceDate },
     })
       .lean()
       .exec();
@@ -634,120 +1265,6 @@ export class Service {
       .exec();
     if (!updatedCompany) throw new Error('Company update failed');
     return updatedCompany as Company;
-  }
-  // Conversation Methods
-  async getConversations(
-    input: RouterInput['getConversations'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['getConversations']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    const filter = getFilter(input);
-    const limit = input.limit ?? 50;
-    const skip = input.skip ?? 0;
-    const [items, total] = await Promise.all([
-      ctx.app.model.Conversation.findJSON(filter, null, { skip, limit }),
-      ctx.app.model.Conversation.find(filter).countDocuments().exec(),
-    ]);
-    return { items, total };
-  }
-  async getConversation(
-    input: RouterInput['getConversation'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['getConversation']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.getConversation', input.where.id.equals);
-    const conversation = await ctx.app.model.Conversation.findOneJSON(getFilter(input));
-    if (!conversation) throw new Error('Conversation not found');
-    return conversation as Conversation;
-  }
-  async createConversation(
-    input: RouterInput['createConversation'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['createConversation']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.createConversation', input);
-
-    const conversation = await ctx.app.model.Conversation.create(input.data);
-    return conversation as Conversation;
-  }
-  async updateConversation(
-    input: RouterInput['updateConversation'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['updateConversation']> {
-    if (!input) throw new ARXError('NO_INPUT');
-
-    const filters = getFilter(input);
-
-    if (!filters._id) throw new ARXError('BAD_REQUEST');
-
-    log('Core.Service.updateConversation', input);
-    const updatedConversation = await ctx.app.model.Conversation.findByIdAndUpdate(filters._id, input.data, {
-      new: true,
-    })
-      .lean()
-      .exec();
-    if (!updatedConversation) throw new Error('Conversation update failed');
-    return updatedConversation as Conversation;
-  }
-  async deleteConversation(
-    input: RouterInput['deleteConversation'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['deleteConversation']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.deleteConversation', input);
-    const deleted = await ctx.app.model.Conversation.findByIdAndDelete(input.where.id.equals).exec();
-    if (!deleted) throw new Error('Conversation not found');
-    return { id: input.where.id.equals };
-  }
-  // ConversationMessage Methods
-  async getConversationMessage(
-    input: RouterInput['getConversationMessage'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['getConversationMessage']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.getConversationMessage', input);
-    const conversationMessage = await ctx.app.model.ConversationMessage.findOneJSON(getFilter(input));
-    if (!conversationMessage) throw new Error('ConversationMessage not found');
-    return conversationMessage as ConversationMessage;
-  }
-  async getConversationMessages(
-    input: RouterInput['getConversationMessages'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['getConversationMessages']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    const filter = getFilter(input);
-    const limit = input.limit ?? 50;
-    const skip = input.skip ?? 0;
-    const [items, total] = await Promise.all([
-      ctx.app.model.ConversationMessage.findJSON(filter, null, { skip, limit }),
-      ctx.app.model.ConversationMessage.find(filter).countDocuments().exec(),
-    ]);
-    return { items, total };
-  }
-  async createConversationMessage(
-    input: RouterInput['createConversationMessage'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['createConversationMessage']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.createConversationMessage', input);
-    const conversationMessage = await ctx.app.model.ConversationMessage.create(input.data);
-    return conversationMessage as ConversationMessage;
-  }
-  async updateConversationMessage(
-    input: RouterInput['updateConversationMessage'],
-    ctx: RouterContext
-  ): Promise<RouterOutput['updateConversationMessage']> {
-    if (!input) throw new ARXError('NO_INPUT');
-    log('Core.Service.updateConversationMessage', input);
-    const updatedConversationMessage = await ctx.app.model.ConversationMessage.findByIdAndUpdate(
-      input.where.id.equals,
-      input.data,
-      { new: true }
-    )
-      .lean()
-      .exec();
-    if (!updatedConversationMessage) throw new Error('ConversationMessage update failed');
-    return updatedConversationMessage as ConversationMessage;
   }
   // Data Methods
   async getData(input: RouterInput['getData'], ctx: RouterContext): Promise<RouterOutput['getData']> {

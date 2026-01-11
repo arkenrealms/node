@@ -105,9 +105,38 @@ export const Company = Entity.merge(
 // Conversation Schema
 export const Conversation = Entity.merge(
   z.object({
+    // back-compat
     profileId: ObjectId.optional(),
     messages: z.array(ObjectId).optional(),
+
+    kind: z.enum(['mail', 'dm', 'group', 'support', 'system']).default('mail'),
+
+    participants: z
+      .array(
+        z.object({
+          profileId: ObjectId,
+          role: z.enum(['user', 'system', 'gm', 'npc']).default('user'),
+          lastReadAt: z.coerce.date().default(new Date(0)),
+          unreadCount: z.number().int().min(0).default(0),
+          isMuted: z.boolean().default(false),
+          isPinned: z.boolean().default(false),
+          isArchived: z.boolean().default(false),
+          isDeleted: z.boolean().default(false),
+        })
+      )
+      .default([]),
+
     isLocked: z.boolean().default(true),
+    allowUserSend: z.boolean().default(false),
+
+    title: z.string().optional(),
+    category: z.string().default('system'),
+    importance: z.number().int().min(0).max(2).default(0),
+
+    // ✅ use lastMessageDate consistently everywhere
+    lastMessageDate: z.coerce.date().nullable().optional(),
+    lastMessagePreview: z.string().default(''),
+    messageCount: z.number().int().min(0).default(0),
   })
 );
 
@@ -115,10 +144,34 @@ export const Conversation = Entity.merge(
 export const ConversationMessage = Entity.merge(
   z.object({
     conversationId: ObjectId,
-    role: z.enum(['user', 'assistant']),
-    content: z.string(),
+
+    role: z.enum(['user', 'assistant', 'system']),
+
+    type: z.enum(['text', 'notice', 'reward', 'action', 'system']).default('text'),
+
+    content: z.string().default(''),
+
+    payload: z.any().optional(),
+
     replyToId: ObjectId.optional(),
-    metadata: z.record(z.any()).optional(),
+
+    isStarred: z.boolean().default(false),
+
+    claim: z
+      .object({
+        isClaimable: z.boolean().default(false),
+
+        // ✅ align with Mongo: claimedDate (not claimedAt)
+        claimedDate: z.coerce.date().nullable().optional(),
+        claimedByProfileId: ObjectId.nullable().optional(),
+
+        dedupeKey: z.string().nullable().optional(),
+        attachments: z.array(z.any()).default([]),
+
+        revokedDate: z.coerce.date().nullable().optional(),
+        revokeReason: z.string().nullable().optional(),
+      })
+      .default({ isClaimable: false, attachments: [] }),
   })
 );
 
@@ -790,8 +843,5 @@ export const SeerPayload = Entity.merge(
 
     // Groth16 public signals
     publicSignals: z.unknown(),
-
-    // Optional createdAt, mirrors the Mongo date field
-    createdAt: z.date().optional(),
   })
 );

@@ -258,29 +258,41 @@ export const getQueryOutput = <T extends zod.ZodTypeAny>(data: T) => {
   return z.object({ status: z.number(), data: data.optional(), error: z.string().optional() });
 };
 
-export const getQueryInput = <T extends zod.ZodRawShape>(
-  modelSchema: zod.ZodObject<T>,
-  options: { partialData?: boolean } = {}
-) => {
+export const getQueryInput = <S extends zod.ZodTypeAny>(schema: S, options: { partialData?: boolean } = {}) => {
   const { partialData = true } = options;
-  const whereSchema = createPrismaWhereSchema(modelSchema);
 
-  const querySchema = z
+  // Only object schemas get "where" support.
+  const isObjectSchema = schema instanceof zod.ZodObject;
+
+  const whereSchema = isObjectSchema
+    ? createPrismaWhereSchema(schema as any) // keep your existing recursive builder
+    : zod.never(); // not used; also prevents people from sending "where" for arrays
+
+  const dataSchema = isObjectSchema
+    ? partialData
+      ? (schema as any).partial().optional()
+      : (schema as any).optional()
+    : schema.optional(); // arrays: allow full array
+
+  const querySchema = zod
     .object({
-      data: partialData ? modelSchema.partial().optional() : modelSchema.optional(),
-      skip: z.number().default(0).optional(),
-      limit: z.number().default(10).optional(),
-      cursor: z.record(z.any()).optional(),
-      where: whereSchema.optional(),
-      orderBy: z.record(z.enum(['asc', 'desc'])).optional(),
-      include: z.record(z.boolean()).optional(),
-      select: z.record(z.boolean()).optional(),
+      data: dataSchema,
+
+      // keep your query envelope fields
+      skip: zod.number().default(0).optional(),
+      limit: zod.number().default(10).optional(),
+      cursor: zod.record(zod.any()).optional(),
+
+      // only valid for object schemas
+      where: isObjectSchema ? whereSchema.optional() : zod.undefined().optional(),
+
+      orderBy: zod.record(zod.enum(['asc', 'desc'])).optional(),
+      include: zod.record(zod.boolean()).optional(),
+      select: zod.record(zod.boolean()).optional(),
     })
     .partial();
 
-  // Merge querySchema and dataSchema, making all fields optional
   return zod.union([querySchema, zod.undefined()]);
-  // return querySchema.merge(dataSchema).partial();
 };
 
 export type inferQuery<T extends zod.ZodRawShape> = zod.infer<ReturnType<typeof createPrismaWhereSchema<T>>>;

@@ -32,8 +32,8 @@ const LOCAL_SEER_ID = process.env.SEER_NODE_WALLET ?? 'seer-node-1';
 // Inventory Sync Standard
 // -------------------------------
 export type InventorySyncOp =
-  | { op: 'add'; itemKey: string; qty?: number }
-  | { op: 'remove'; itemKey: string; qty?: number };
+  | { op: 'add'; itemKey: string; quantity?: number }
+  | { op: 'remove'; itemKey: string; quantity?: number };
 
 export type SyncCharacterInventoryPayload =
   | {

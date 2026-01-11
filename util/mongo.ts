@@ -16,6 +16,7 @@ import mongoose, {
   ProjectionType,
   Collection,
 } from 'mongoose';
+import type { AnyBulkWriteOperation } from 'mongoose';
 import crypto from 'crypto';
 
 import { VirtualType, HydratedDocument } from 'mongoose';
@@ -911,6 +912,40 @@ export class Model<T extends Document> {
     return !this.filterOmitModels.includes(name);
   }
 
+  //   // Cluster-aware find
+  // find(
+  //   filter: FilterQuery<T> = {},
+  //   projection?: ProjectionType<T> | null,
+  //   options?: mongoose.QueryOptions
+  // ): Query<T[], T> {
+  //   const finalFilter = this.applyDefaultFilters(filter);
+  //   const q = this.model.find(finalFilter, projection, options);
+  //   return this.wrapQueryWithCluster(q as any, false) as any;
+  // }
+
+  // // Cluster-aware findOne
+  // findOne(
+  //   filter: FilterQuery<T> = {},
+  //   projection?: ProjectionType<T> | null,
+  //   options?: QueryOptions
+  // ): Query<T | null, T> {
+  //   const finalFilter = this.applyDefaultFilters(filter);
+  //   const q = this.model.findOne(finalFilter, projection, options);
+  //   return this.wrapQueryWithCluster(q as any, true) as any;
+  // }
+
+  // // Cluster-aware findById (implemented as findOne({_id}))
+  // findById(
+  //   id: Types.ObjectId | string,
+  //   projection?: ProjectionType<T> | null,
+  //   options?: QueryOptions
+  // ): Query<T | null, T> {
+  //   const filter: any = { _id: id };
+  //   const finalFilter = this.applyDefaultFilters(filter);
+  //   const q = this.model.findOne(finalFilter, projection, options);
+  //   return this.wrapQueryWithCluster(q as any, true) as any;
+  // }
+
   // Wrap a query so that exec() does ontology resolution for find/findOne
   private wrapQueryWithCluster(q: Query<any, T>, isFindOne: boolean): Query<any, T> {
     if (!this.isClusterEnabled()) return q;
@@ -1541,6 +1576,96 @@ export class Model<T extends Document> {
   async countDocumentsFiltered(filter: FilterQuery<T> = {}): Promise<number> {
     const finalFilter = this.applyDefaultFilters(filter);
     return this.model.countDocuments(finalFilter).exec();
+  }
+  insertMany(docs: any[], options?: any): Promise<any[]> {
+    if (!Array.isArray(docs) || docs.length === 0) return Promise.resolve([]);
+
+    // auto-inject applicationId like create() does
+    if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
+      for (const d of docs) {
+        if (d.applicationId === undefined) d.applicationId = this.filters.applicationId;
+      }
+    }
+
+    return (this.model as any).insertMany(docs, options);
+  }
+  /**
+   * bulkWrite proxy:
+   * - Applies default filters (applicationId scoping + status != Archived) to each op.filter
+   * - Ensures applicationId is set on $setOnInsert for upserts (like create())
+   */
+  bulkWrite(
+    operations: any[], // you can type as AnyBulkWriteOperation<T>[] if you want
+    options: any = {}
+  ): Promise<any> {
+    const ops = (operations || []).map((op) => {
+      // updateOne / updateMany
+      if (op.updateOne?.filter) {
+        op.updateOne.filter = this.applyDefaultFilters(op.updateOne.filter);
+
+        // ensure $setOnInsert.applicationId for upserts
+        const upsert = !!op.updateOne.upsert;
+        if (upsert && this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
+          const u = op.updateOne.update || {};
+          op.updateOne.update = u;
+
+          // If using aggregation pipeline updates, skip (hard to inject safely)
+          if (!Array.isArray(u)) {
+            u.$setOnInsert = u.$setOnInsert || {};
+            if (u.$setOnInsert.applicationId === undefined) {
+              u.$setOnInsert.applicationId = this.filters.applicationId;
+            }
+          }
+        }
+
+        return op;
+      }
+
+      if (op.updateMany?.filter) {
+        op.updateMany.filter = this.applyDefaultFilters(op.updateMany.filter);
+        return op;
+      }
+
+      // deleteOne / deleteMany
+      if (op.deleteOne?.filter) {
+        op.deleteOne.filter = this.applyDefaultFilters(op.deleteOne.filter);
+        return op;
+      }
+      if (op.deleteMany?.filter) {
+        op.deleteMany.filter = this.applyDefaultFilters(op.deleteMany.filter);
+        return op;
+      }
+
+      // replaceOne (rare)
+      if (op.replaceOne?.filter) {
+        op.replaceOne.filter = this.applyDefaultFilters(op.replaceOne.filter);
+
+        const upsert = !!op.replaceOne.upsert;
+        if (upsert && this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
+          // replacement doc must include applicationId
+          if (op.replaceOne.replacement && op.replaceOne.replacement.applicationId === undefined) {
+            op.replaceOne.replacement.applicationId = this.filters.applicationId;
+          }
+        }
+
+        return op;
+      }
+
+      // insertOne
+      if (op.insertOne?.document) {
+        if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
+          if (op.insertOne.document.applicationId === undefined) {
+            op.insertOne.document.applicationId = this.filters.applicationId;
+          }
+        }
+        return op;
+      }
+
+      return op;
+    });
+
+    // Delegate to real mongoose model bulkWrite
+    return (this.model as any).bulkWrite(ops, options);
   }
 }
 

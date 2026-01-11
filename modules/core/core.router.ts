@@ -85,6 +85,161 @@ export const procedure = t.procedure;
 
 export const createRouter = () =>
   router({
+    // Conversation Procedures
+    getConversation: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Conversation))
+      .output(Conversation)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversation as any)(input, ctx)),
+
+    createConversation: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Conversation))
+      .output(Conversation.pick({ id: true, name: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversation as any)(input, ctx)),
+
+    updateConversation: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Conversation))
+      .output(Conversation.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversation as any)(input, ctx)),
+
+    // deleteConversation: procedure
+    //   .use(hasRole('user', t))
+    //   .use(customErrorFormatter(t))
+    //   .input(getQueryInput(Conversation))
+    //   // .output(Conversation.pick({ id: true }))
+    //   .mutation(({ input, ctx }) => (ctx.app.service.Core.deleteConversation as any)(input, ctx)),
+
+    getConversations: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(Conversation))
+      .output(z.object({ items: z.array(Conversation), total: z.number() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversations as any)(input, ctx)),
+
+    // ConversationMessage Procedures
+    getConversationMessage: procedure
+      .use(hasRole('guest', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      .output(ConversationMessage)
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversationMessage as any)(input, ctx)),
+
+    getConversationMessages: procedure
+      .use(hasRole('user', t)) // was 'guest', 'user' is usually what you want
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      .output(z.object({ items: z.array(ConversationMessage), total: z.number() }))
+      .query(({ input, ctx }) => (ctx.app.service.Core.getConversationMessages as any)(input, ctx)),
+
+    createConversationMessage: procedure
+      .use(hasRole('user', t)) // was 'admin'
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      // better: return the full message (or pick what you care about)
+      .output(ConversationMessage)
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversationMessage as any)(input, ctx)),
+
+    updateConversationMessage: procedure
+      .use(hasRole('admin', t))
+      .use(customErrorFormatter(t))
+      .input(getQueryInput(ConversationMessage))
+      .output(ConversationMessage.pick({ id: true }))
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversationMessage as any)(input, ctx)),
+
+    claimConversationMessage: procedure
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          messageId: z.string().min(6),
+          characterId: z.string().optional(),
+        })
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.claimConversationMessage as any)(input, ctx)),
+
+    setConversationMessageStar: procedure
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          messageId: z.string().min(6),
+          isStarred: z.boolean().optional(),
+        })
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.setConversationMessageStar as any)(input, ctx)),
+    // ------------------------------------
+    // Mark messages as read (status='Read') — id list OR convo+limit
+    // --------------------------------------------
+    markConversationRead: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z
+          .object({
+            messageIds: z.array(z.string().min(6)).optional(),
+            conversationId: z.string().min(6).optional(),
+            limit: z.number().int().min(1).max(200).optional(),
+          })
+          .optional()
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.markConversationRead as any)(input, ctx)),
+
+    // --------------------------------------------
+    // Archive all read mail in a conversation (status='Archived')
+    // --------------------------------------------
+    archiveReadConversations: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z
+          .object({
+            conversationId: z.string().min(6),
+          })
+          .optional()
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.archiveReadConversations as any)(input, ctx)),
+
+    // --------------------------------------------
+    // Server-side "Read & Claim All" (one call)
+    // --------------------------------------------
+    readAndClaimLatestMail: procedure
+      .use(hasRole('user', t))
+      .use(customErrorFormatter(t))
+      .input(
+        z
+          .object({
+            conversationId: z.string().min(6),
+            limit: z.number().int().min(1).max(200).optional(),
+            characterId: z.string().min(6).optional(),
+          })
+          .optional()
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.readAndClaimLatestMail as any)(input, ctx)),
+
+    distributeSantaChristmasTicketToProfile: procedure
+      .use(customErrorFormatter(t))
+      .input(
+        z.object({
+          profileId: z.string().min(6),
+          dedupeKey: z.string().optional(),
+        })
+      )
+      .mutation(({ input, ctx }) => (ctx.app.service.Core.distributeSantaChristmasTicketToProfile as any)(input, ctx)),
+
+    distributeSantaChristmasTicket: procedure
+      .input(
+        z
+          .object({
+            batchSize: z.number().int().min(100).max(5000).optional(),
+            dedupeKey: z.string().min(3).optional(),
+          })
+          .optional()
+      )
+      .query(({ input, ctx }) => (ctx.app.service.Core.distributeSantaChristmasTicket as any)(input, ctx)),
+
     syncGetPayloadsSince: procedure
       .input(
         z.object({
@@ -457,72 +612,6 @@ export const createRouter = () =>
       .input(getQueryInput(Company))
       .output(Company.pick({ id: true }))
       .mutation(({ input, ctx }) => (ctx.app.service.Core.updateCompany as any)(input, ctx)),
-
-    // Conversation Procedures
-    getConversation: procedure
-      .use(hasRole('guest', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Conversation))
-      .output(Conversation)
-      .query(({ input, ctx }) => (ctx.app.service.Core.getConversation as any)(input, ctx)),
-
-    createConversation: procedure
-      .use(hasRole('user', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Conversation))
-      .output(Conversation.pick({ id: true, name: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversation as any)(input, ctx)),
-
-    updateConversation: procedure
-      .use(hasRole('user', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Conversation))
-      .output(Conversation.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversation as any)(input, ctx)),
-
-    deleteConversation: procedure
-      .use(hasRole('user', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Conversation))
-      // .output(Conversation.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.deleteConversation as any)(input, ctx)),
-
-    getConversations: procedure
-      .use(hasRole('user', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(Conversation))
-      .output(z.object({ items: z.array(Conversation), total: z.number() }))
-      .query(({ input, ctx }) => (ctx.app.service.Core.getConversations as any)(input, ctx)),
-
-    // ConversationMessage Procedures
-    getConversationMessage: procedure
-      .use(hasRole('guest', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(ConversationMessage))
-      .output(ConversationMessage)
-      .query(({ input, ctx }) => (ctx.app.service.Core.getConversationMessage as any)(input, ctx)),
-
-    getConversationMessages: procedure
-      .use(hasRole('user', t)) // was 'guest', 'user' is usually what you want
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(ConversationMessage))
-      .output(z.object({ items: z.array(ConversationMessage), total: z.number() }))
-      .query(({ input, ctx }) => (ctx.app.service.Core.getConversationMessages as any)(input, ctx)),
-
-    createConversationMessage: procedure
-      .use(hasRole('user', t)) // was 'admin'
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(ConversationMessage))
-      // better: return the full message (or pick what you care about)
-      .output(ConversationMessage)
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.createConversationMessage as any)(input, ctx)),
-
-    updateConversationMessage: procedure
-      .use(hasRole('admin', t))
-      .use(customErrorFormatter(t))
-      .input(getQueryInput(ConversationMessage))
-      .output(ConversationMessage.pick({ id: true }))
-      .mutation(({ input, ctx }) => (ctx.app.service.Core.updateConversationMessage as any)(input, ctx)),
 
     // Data Procedures
     getData: procedure

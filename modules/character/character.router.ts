@@ -80,7 +80,7 @@ export const createRouter = () =>
     saveCharacters: procedure
       .use(hasRole('admin', t))
       .use(customErrorFormatter(t))
-      .input(z.array(getQueryInput(Character)))
+      .input(getQueryInput(z.array(Character), { partialData: false }))
       // .output(z.array(Character.pick({ id: true })))
       .mutation(({ input, ctx }) => (ctx.app.service.Character.saveCharacters as any)(input, ctx)),
 

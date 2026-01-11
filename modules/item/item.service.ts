@@ -39,7 +39,7 @@ export class Service {
     // Optional ordering so $first picks the right representative per token
     const sortStage = {
       $sort: {
-        updatedAt: -1, // or createdAt, or anything that establishes “latest”
+        updatedDate: -1, // or createdDate, or anything that establishes “latest”
         _id: -1, // tiebreaker for stable results
       },
     };
