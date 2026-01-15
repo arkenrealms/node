@@ -4,7 +4,7 @@ import RuneShards_2 from './contracts/RuneShards.json';
 import ArcaneBarracksV1_2 from './contracts/ArcaneBarracksV1.json';
 import ArcaneBarracksV2_2 from './contracts/ArcaneBarracksV2.json';
 import ArcaneBlacksmithV4_2 from './contracts/ArcaneBlacksmithV4.json';
-import ArcaneBlacksmith_2 from './contracts/ArcaneBlacksmith.json';
+import ArcaneBlacksmith_2 from './contracts/ArcaneBlacksmithV5.json';
 import ArcaneWorldstoneMinterV1_2 from './contracts/ArcaneWorldstoneMinterV1.json';
 import ArcaneItemStorageV1_2 from './contracts/ArcaneItemStorageV1.json';
 import ArkenChest_2 from './contracts/ArkenChest.json';

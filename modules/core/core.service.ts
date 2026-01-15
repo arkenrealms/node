@@ -110,6 +110,7 @@ export class Service {
 
     // Must belong to a conversation the user is in
     const convo = await Conversation.findOne({
+      // @ts-ignore
       _id: msg.conversationId,
       $or: [{ profileId }, { 'participants.profileId': profileId }],
     })
@@ -317,6 +318,7 @@ export class Service {
     if (!msg) throw new Error('Message not found');
 
     const convo = await Conversation.findOne({
+      // @ts-ignore
       _id: msg.conversationId,
       $or: [{ profileId }, { 'participants.profileId': profileId }],
     })
@@ -897,7 +899,7 @@ export class Service {
       },
     });
 
-    if (!isValid) throw new Error('Invalid signature');
+    if (!isValid) throw new Error(`Invalid signature: ${input.address} ${input.token}`);
 
     ctx.client.profile = await ctx.app.model.Profile.findOne({
       address: input.address,

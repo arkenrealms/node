@@ -14,4 +14,10 @@ export const Game = Entity.merge(
   })
 );
 
+export const GameRound = Entity.merge(
+  z.object({
+    gameId: ObjectId,
+  })
+);
+
 export const Era = Entity.merge(z.object({}));

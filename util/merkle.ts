@@ -279,7 +279,9 @@ export interface MerkleLeafLike {
  * Simple SHA-256 hex helper.
  */
 export function sha256Hex(data: string | Buffer): string {
-  return crypto.createHash('sha256').update(data).digest('hex');
+  const input = typeof data === 'string' ? data : new Uint8Array(data.buffer, data.byteOffset, data.byteLength);
+
+  return crypto.createHash('sha256').update(input).digest('hex');
 }
 
 /**

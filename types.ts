@@ -2,6 +2,8 @@
 //
 import { createRouter } from './router';
 
+export * as util from './util';
+
 // Imports
 import * as Area from './modules/area';
 import * as Asset from './modules/asset';

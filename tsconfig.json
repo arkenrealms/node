@@ -33,13 +33,22 @@
   },
   "include": [
     "./index.ts",
-    "config.ts",
+    "./config.ts",
     "./types.ts",
     "./styled.d.ts",
-    "components",
-    "hooks",
-    "util",
-    "util/types/mongo.d.ts"
+    "./schema.ts",
+    "./router.ts",
+    "contracts/**/*",
+    "legacy/**/*",
+    "modules/**/*",
+    "components/**/*",
+    "hooks/**/*",
+    "generated/**/*",
+    "util/**/*",
+    "util/types/mongo.d.ts",
+    "legacy/**/*.json",
+    "contracts/**/*.json",
+    "generated/**/*.json"
   ],
   "exclude": ["node_modules", "build"]
 }

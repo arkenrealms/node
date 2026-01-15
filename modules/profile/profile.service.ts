@@ -108,6 +108,7 @@ export class Service {
       .exec();
     if (!updatedProfile) throw new ARXError('INTERNAL_SERVER_ERROR');
 
+    // @ts-ignore
     return updatedProfile as Profile;
   }
 
@@ -133,6 +134,7 @@ export class Service {
     console.log('Profile.Service.updateProfileSettings', input, input.settings);
 
     const filter = getFilter(input);
+    // @ts-ignore
     const updatedProfile: Profile = await ctx.app.model.Profile.findOneAndUpdate(
       filter,
       { settings: deepMerge(ctx.client.profile.settings, input.settings) },

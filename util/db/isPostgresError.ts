@@ -1,9 +1,9 @@
-import * as _ from 'underscore'
+import _ from 'lodash';
 
-export default (error) => {
+export default (error: unknown): boolean => {
   if (!error) {
-    return false
+    return false;
   }
-  // Just check the existence of a bunch of attributes. There doesn't seem to be an easier way.
-  return _.all(['severity', 'code', 'detail', 'internalQuery', 'routine'], (attr) => _.has(error, attr))
-}
+
+  return _.every(['severity', 'code', 'detail', 'internalQuery', 'routine'], (attr) => _.has(error as object, attr));
+};

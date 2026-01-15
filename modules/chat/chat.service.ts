@@ -15,6 +15,7 @@ export class Service {
     const chatGroup = await ctx.app.model.ChatGroup.findOne(filter).lean().exec();
     if (!chatGroup) throw new Error('ChatGroup not found');
 
+    // @ts-ignore
     return chatGroup as ChatGroupDocument;
   }
 
@@ -26,6 +27,7 @@ export class Service {
     const chatGroups = await ctx.app.model.ChatGroup.find(filter).lean().exec();
     if (!chatGroups) throw new Error('ChatGroups not found');
 
+    // @ts-ignore
     return chatGroups as ChatGroupDocument[];
   }
 
@@ -38,6 +40,7 @@ export class Service {
 
     const newChatGroup = await ctx.app.model.ChatGroup.create(input.data);
 
+    // @ts-ignore
     return newChatGroup as ChatGroupDocument;
   }
 
@@ -56,6 +59,7 @@ export class Service {
     const updatedChatGroup = await ctx.app.model.ChatGroup.findOne(filter).lean().exec();
     if (!updatedChatGroup) throw new Error('ChatGroup update failed');
 
+    // @ts-ignore
     return updatedChatGroup as ChatGroupDocument;
   }
 
@@ -71,6 +75,7 @@ export class Service {
     const chatMessage = await ctx.app.model.ChatMessage.findOne(filter).lean().exec();
     if (!chatMessage) throw new Error('ChatMessage not found');
 
+    // @ts-ignore
     return chatMessage as ChatMessageDocument;
   }
 
@@ -85,6 +90,7 @@ export class Service {
     const chatMessages = await ctx.app.model.ChatMessage.find(filter).lean().exec();
     if (!chatMessages) throw new Error('ChatMessages not found');
 
+    // @ts-ignore
     return chatMessages as ChatMessageDocument[];
   }
 
@@ -97,6 +103,7 @@ export class Service {
 
     const newChatMessage = await ctx.app.model.ChatMessage.create(input.data);
 
+    // @ts-ignore
     return newChatMessage as ChatMessageDocument;
   }
 
@@ -115,6 +122,7 @@ export class Service {
     const updatedChatMessage = await ctx.app.model.ChatMessage.findOne(filter).lean().exec();
     if (!updatedChatMessage) throw new Error('ChatMessage update failed');
 
+    // @ts-ignore
     return updatedChatMessage as ChatMessageDocument;
   }
 }

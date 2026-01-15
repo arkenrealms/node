@@ -1,4 +1,4 @@
-import { io, ManagerOptions, SocketOptions } from 'socket.io-client';
+import { io, ManagerOptions, SocketOptions, type Socket } from 'socket.io-client';
 import { log } from '.';
 
 export function emitAll(io, ...args) {
@@ -19,7 +19,7 @@ interface CustomSocketOptions extends Partial<ManagerOptions & SocketOptions> {
   transports?: string[];
 }
 
-export function getClientSocket(endpoint) {
+export function getClientSocket(endpoint: string): Socket {
   log('Connecting to', endpoint);
   return io(endpoint, {
     transports: ['websocket'],

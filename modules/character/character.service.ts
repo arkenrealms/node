@@ -394,6 +394,7 @@ export class Service {
 
     if (events.length > 0) {
       const lastEvent = await ctx.app.model.SeerEvent.findOne().sort({ seq: -1 }).lean().exec();
+      // @ts-ignore
       const baseSeq = (lastEvent?.seq ?? 0) + 1;
 
       const docsToInsert = events.map((ev, idx) => ({

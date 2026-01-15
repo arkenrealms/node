@@ -711,6 +711,7 @@ export function createSchema<T>(
     virtuals: true, // Include virtual fields
     versionKey: false, // Remove the __v version field
     transform: (doc, ret) => {
+      // @ts-ignore
       ret.id = ret._id.toString(); // Assign _id to id
       delete ret._id; // Remove _id from the output
       return ret;
@@ -721,6 +722,7 @@ export function createSchema<T>(
     virtuals: true, // Include virtual fields
     versionKey: false, // Remove the __v version field
     transform: (doc, ret) => {
+      // @ts-ignore
       ret.id = ret._id.toString(); // Assign _id to id
       delete ret._id; // Remove _id from the output
       return ret;

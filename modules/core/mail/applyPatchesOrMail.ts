@@ -392,7 +392,7 @@ export async function applyPatchesWithInventoryViaMail(params: {
     profileId: mail.profileId,
     kind: mail.kind ?? 'mail',
     conversationKey: mail.conversationKey,
-    title: 'System',
+    title: mail.title ?? 'System',
     category: mail.category ?? 'system',
     importance: mail.importance ?? 0,
   });

@@ -299,6 +299,7 @@ export const Bounty = createModel<Types.BountyDocument>(
 
 export const Counter = createModel<Types.CounterDocument>(
   'Counter',
+  // @ts-ignore
   { _id: { type: String, required: true }, seq: { type: Number, default: 0 } },
   { versionKey: false, virtuals: [...addTagVirtuals('Counter'), ...addApplicationVirtual()] }
 );
