@@ -1,9 +1,128 @@
 {
   "name": "@arken/node",
-  "version": "1.5.2",
+  "version": "1.5.10",
   "description": "",
   "main": "build/index.js",
   "types": "build/types.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./trpc/socketLink": {
+      "types": "./build/trpc/socketLink.d.ts",
+      "default": "./build/trpc/socketLink.js"
+    },
+    "./trpc/socketServer": {
+      "types": "./build/trpc/socketServer.d.ts",
+      "default": "./build/trpc/socketServer.js"
+    },
+    "./mongo": {
+      "types": "./build/mongo.d.ts",
+      "default": "./build/mongo.js"
+    },
+    "./rpc": {
+      "types": "./build/rpc.d.ts",
+      "default": "./build/rpc.js"
+    },
+    "./schema": {
+      "types": "./build/schema.d.ts",
+      "default": "./build/schema.js"
+    },
+    "./util": {
+      "types": "./build/util.d.ts",
+      "default": "./build/util.js"
+    },
+    "./decoder": {
+      "types": "./build/decoder.d.ts",
+      "default": "./build/decoder.js"
+    },
+    "./db": {
+      "types": "./build/db.d.ts",
+      "default": "./build/db.js"
+    },
+    "./config": {
+      "types": "./build/config.d.ts",
+      "default": "./build/config.js"
+    },
+    "./guid": {
+      "types": "./build/guid.d.ts",
+      "default": "./build/guid.js"
+    },
+    "./objects": {
+      "types": "./build/objects.d.ts",
+      "default": "./build/objects.js"
+    },
+    "./api": {
+      "types": "./build/api.d.ts",
+      "default": "./build/api.js"
+    },
+    "./number": {
+      "types": "./build/number.d.ts",
+      "default": "./build/number.js"
+    },
+    "./string": {
+      "types": "./build/string.d.ts",
+      "default": "./build/string.js"
+    },
+    "./log": {
+      "types": "./build/log.d.ts",
+      "default": "./build/log.js"
+    },
+    "./math": {
+      "types": "./build/math.d.ts",
+      "default": "./build/math.js"
+    },
+    "./process": {
+      "types": "./build/process.d.ts",
+      "default": "./build/process.js"
+    },
+    "./web3": {
+      "types": "./build/web3.d.ts",
+      "default": "./build/web3.js"
+    },
+    "./json": {
+      "types": "./build/json.d.ts",
+      "default": "./build/json.js"
+    },
+    "./format": {
+      "types": "./build/format.d.ts",
+      "default": "./build/format.js"
+    },
+    "./merkle": {
+      "types": "./build/merkle.d.ts",
+      "default": "./build/merkle.js"
+    },
+    "./object": {
+      "types": "./build/object.d.ts",
+      "default": "./build/object.js"
+    },
+    "./zk": {
+      "types": "./build/zk.d.ts",
+      "default": "./build/zk.js"
+    },
+    "./time": {
+      "types": "./build/time/index.d.ts",
+      "default": "./build/time/index.js"
+    },
+    "./time/*": {
+      "types": "./build/time/*.d.ts",
+      "default": "./build/time/*.js"
+    },
+    "./legacy/contractInfo": {
+      "types": "./build/legacy/contractInfo.d.ts",
+      "default": "./build/legacy/contractInfo.js"
+    },
+    "./legacy/*": {
+      "default": "./build/legacy/*"
+    },
+    "./legacy/*/*": {
+      "default": "./build/legacy/*/*"
+    },
+    "./legacy/*/*/*": {
+      "default": "./build/legacy/*/*/*"
+    }
+  },
   "scripts": {
     "build": "npm-run-all dist",
     "clean": "del-cli ./build && make-dir ./build",
@@ -11,69 +130,50 @@
     "publish": "npm publish --access=public",
     "test": "jest --detectOpenHandles --forceExit --coverage --verbose --config jest.unit.config.js",
     "test:watch": "jest --watch --collect-coverage --config=jest.unit.config.js",
-    "tsc:1": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && NODE_ENV=production NODE_OPTIONS=--max-old-space-size=8192 tsc",
+    "tsc:1": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && NODE_ENV=production NODE_OPTIONS=--max-old-space-size=8192 tsc -p tsconfig.build.json",
     "zk:regen-updateLeaf": "ts-node scripts/zk-regen-updateLeaf.ts"
   },
   "dependencies": {
-    "@ethersproject/address": "^5",
-    "@ethersproject/constants": "^5",
-    "@ethersproject/contracts": "^5",
-    "@ethersproject/networks": "^5",
-    "@ethersproject/providers": "^5",
-    "@ethersproject/solidity": "^5",
     "@trpc/server": "11.0.0-rc.660",
     "@trpc/client": "11.0.0-rc.660",
-    "@truffle/hdwallet-provider": "^1",
-    "@typechain/ethers-v4": "^1",
     "axios": "^1",
-    "compromise": "^14",
-    "cross-fetch": "^4",
     "crypto-js": "^4",
     "dayjs": "^1",
-    "es6-promise": "^4",
-    "ethers": "^5",
-    "franc": "^6",
-    "fs-jetpack": "^4",
     "js-md5": "^0",
-    "knex": "^0",
-    "langdetect": "^0",
     "lodash": "^4",
     "lokijs": "^1",
     "moment": "^2",
     "mongoose": "^8",
-    "natural": "^7",
-    "node-fetch": "^3",
-    "objection": "^2",
     "openai": "^4",
     "pluralize": "^8",
     "puppeteer": "^22",
+    "compromise": "^14",
+    "langdetect": "^0",
     "shortid": "^2",
     "socket.io-client": "^4",
     "timestring": "^7",
     "utf8": "^3",
+    "keccak256": "~1.0.6",
     "uuid": "^9",
-    "web3": "^1",
     "zod": "^3",
     "rxjs": "^7",
+    "natural": "^7",
     "fast-safe-stringify": "^2",
     "@types/socket.io-client": "~3.0.0",
     "otplib": "~12.0.1",
     "mongoose-autopopulate": "~1.1.0",
-    "keccak256": "~1.0.6",
     "snarkjs": "~0.7.5",
     "circomlib": "~2.0.5",
     "circomlibjs": "~0.1.7"
   },
   "devDependencies": {
     "@types/common-tags": "^1",
-    "@types/ethereum-protocol": "^1",
     "@types/jest": "^29",
     "@types/lodash": "^4",
     "@types/mongoose": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/web3": "^1",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "del-cli": "^5",

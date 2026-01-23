@@ -1,5 +1,5 @@
 import type { AnyRouter } from '@trpc/server';
-import { serialize, deserialize } from '../util/rpc';
+import { serialize, deserialize } from '../rpc';
 
 export type CreateCallerFactory<TRouter extends AnyRouter = AnyRouter> = (router: TRouter) => (ctx: any) => any;
 

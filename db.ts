@@ -1,6 +1,6 @@
 import { ReplaySubject } from 'rxjs';
 import Loki from 'lokijs';
-import * as jetpack from 'fs-jetpack';
+// import * as jetpack from 'fs-jetpack';
 import mongoose, {
   ConnectOptions,
   Model as MongooseModel,
@@ -11,9 +11,84 @@ import mongoose, {
   Mongoose,
   Query,
 } from 'mongoose';
-import { Model } from './util/mongo';
+import { Model } from './mongo';
 import safeStringify from 'fast-safe-stringify';
 import fsPath from 'path';
+
+import { v4 as uuidv4 } from 'uuid';
+import _ from 'lodash';
+
+export function isPostgresError(error: unknown): boolean {
+  if (!error) {
+    return false;
+  }
+
+  return _.every(['severity', 'code', 'detail', 'internalQuery', 'routine'], (attr) => _.has(error as object, attr));
+}
+
+export function isUniqueConstraintViolation(error) {
+  return isPostgresError(error) && error.code === '23505';
+}
+
+export function generateLongId(): string {
+  return uuidv4().toUpperCase();
+}
+
+export function generateShortId() {
+  const timestamp = ((new Date().getTime() / 1000) | 0).toString(16);
+  return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, () => ((Math.random() * 16) | 0).toString(16)).toLowerCase();
+}
+
+export const uuidFormat = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+
+export function generateLongId2(): string {
+  return uuidFormat
+    .replace(/[xy]/g, (c) => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    })
+    .toUpperCase();
+}
+
+export function decodeRequest(data: any): any {
+  if (
+    data === undefined ||
+    data === null ||
+    typeof data === 'string' ||
+    typeof data === 'number' ||
+    typeof data === 'boolean'
+  )
+    return data;
+
+  if (Array.isArray(data)) {
+    return data.map(decodeRequest);
+  }
+
+  if (typeof data !== 'object') return data;
+
+  const res: any = {};
+
+  for (const key in data) {
+    if (key === 'set') {
+      return data[key];
+    } else if (['create', 'connectOrCreate', 'upsert'].includes(key)) {
+      return decodeRequest(data[key]);
+    } else {
+      res[key] = decodeRequest(data[key]);
+    }
+  }
+
+  return Object.keys(res).length === 0 ? null : res;
+}
+
+export function escapeStringRegexp(string: string): string {
+  if (typeof string !== 'string') {
+    throw new TypeError('Expected a string');
+  }
+
+  return string.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&').replace(/-/g, '\\x2d');
+}
 
 let app: any;
 let log: (...msgs: any[]) => void;
@@ -388,27 +463,27 @@ class Database {
   restoreData() {
     log('Restoring data', ['p1']);
 
-    const files = jetpack.find(fsPath.join(__dirname, 'data/db'), { matching: '**/*.json' });
+    // const files = jetpack.find(fsPath.join(__dirname, 'data/db'), { matching: '**/*.json' });
 
-    for (const file of files) {
-      log(`Found file: ${file}`);
+    // for (const file of files) {
+    //   log(`Found file: ${file}`);
 
-      try {
-        const data = jetpack.read(file, 'json');
-        const [name, key] = file.replace('data/db/', '').replace('.json', '').split('/');
+    //   try {
+    //     const data = jetpack.read(file, 'json');
+    //     const [name, key] = file.replace('data/db/', '').replace('.json', '').split('/');
 
-        this.initCollection(name, key, data as Record<string, any>);
-      } catch (e) {
-        if (e.toString().indexOf('JSON parsing failed') !== -1) {
-          log(`File corrupt, loading backup: ${file}`);
+    //     this.initCollection(name, key, data as Record<string, any>);
+    //   } catch (e) {
+    //     if (e.toString().indexOf('JSON parsing failed') !== -1) {
+    //       log(`File corrupt, loading backup: ${file}`);
 
-          const data = jetpack.read(`${file}.backup`, 'json');
-          const [name, key] = file.replace('data/db/', '').replace('.json', '').split('/');
+    //       const data = jetpack.read(`${file}.backup`, 'json');
+    //       const [name, key] = file.replace('data/db/', '').replace('.json', '').split('/');
 
-          this.initCollection(name, key, data as Record<string, any>);
-        }
-      }
-    }
+    //       this.initCollection(name, key, data as Record<string, any>);
+    //     }
+    //   }
+    // }
   }
 
   beautify(data: any) {

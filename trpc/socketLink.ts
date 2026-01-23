@@ -2,8 +2,8 @@
 //
 import { TRPCClientError, type TRPCLink, createTRPCProxyClient } from '@trpc/client';
 import { observable } from '@trpc/server/observable';
-import { serialize, deserialize } from '../util/rpc';
-import { generateShortId } from '../util/db';
+import { serialize, deserialize } from '../rpc';
+import { generateShortId } from '../db';
 
 // ======================
 // Types
