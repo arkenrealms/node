@@ -1,5 +1,6 @@
 import type { AnyRouter } from '@trpc/server';
 import { serialize, deserialize } from '../rpc';
+import { decodePayload } from '../binary';
 
 export type CreateCallerFactory<TRouter extends AnyRouter = AnyRouter> = (router: TRouter) => (ctx: any) => any;
 
@@ -21,7 +22,12 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
 }: SocketTrpcHandlerOptions<TRouter>) {
   const createCaller = createCallerFactory(router);
 
-  return async function handleSocketTrpc(socket: any, ctx: any, message: any) {
+  return async function handleSocketTrpc(socket: any, ctx: any, _message: any) {
+    console.log('message', _message);
+
+    const message = typeof _message === 'string' ? decodePayload(_message) : _message;
+    console.log('message', message);
+
     const { id, method, params } = message;
 
     try {

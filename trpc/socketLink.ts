@@ -1,9 +1,10 @@
-// arken/packages/node/trpc/socketLink.ts
+// arken/node/trpc/socketLink.ts
 //
 import { TRPCClientError, type TRPCLink, createTRPCProxyClient } from '@trpc/client';
 import { observable } from '@trpc/server/observable';
 import { serialize, deserialize } from '../rpc';
 import { generateShortId } from '../db';
+import { decodePayload } from '../binary';
 
 // ======================
 // Types
@@ -106,17 +107,21 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
 
           const { input } = op;
 
+          const method = op.path.replace(`${routerName}.`, '');
+
           // 2) Emit the request
           client.socket.emit('trpc', {
             id: uuid,
-            method: op.path.replace(`${routerName}.`, ''),
+            method,
             type: op.type,
             params: serialize(input),
           });
 
           // 3) Timeout handling
           const timeout = setTimeout(() => {
-            const err = new TRPCClientError<any>('Request timeout');
+            const err = new TRPCClientError<any>(
+              `Request timeout: ${uuid} ${method} ${op.type} ${JSON.stringify(input)}`
+            );
             if (client.ioCallbacks[uuid]) delete client.ioCallbacks[uuid];
             notifyTRPCError(err);
             observer.error(err);
@@ -210,9 +215,10 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
   const logInfo = (...args: any[]) => (logging ? console.info(...args) : undefined);
   const logWarn = (...args: any[]) => (logging ? console.warn(...args) : undefined);
 
-  const handlePayload = (eventName: string, payload: any) => {
+  const handlePayload = (eventName: string, _payload: any) => {
     try {
-      if (logging) logInfo(`[${backendName} Socket] Event:`, payload);
+      const payload = typeof _payload === 'string' ? decodePayload(_payload) : _payload;
+      if (logging) logInfo(`[${backendName} Socket] Event:`, eventName, payload);
 
       if (eventName === 'trpcResponse') {
         const id = payload?.[responseIdField];

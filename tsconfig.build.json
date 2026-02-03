@@ -9,7 +9,8 @@
     "removeComments": true,
     "sourceMap": true,
     "declaration": true,
-    "composite": true
+    "composite": true,
+    "importHelpers": false
   },
   "exclude": ["node_modules", "build", "**/*.test.ts", "**/*.spec.ts"]
 }

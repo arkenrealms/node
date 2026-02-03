@@ -71,7 +71,6 @@
     "./websocket.ts",
     "./zk.ts",
     "./zod.ts",
-    "./config.ts",
     "./api.ts",
     "./guid.ts",
     "./number.ts",
