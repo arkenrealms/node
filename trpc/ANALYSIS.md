@@ -12,4 +12,5 @@
 
 ## Protocol/Test focus
 - Prioritize transport, serialization, timeout, and error-handling paths where applicable.
+- Client wrappers now guard against repeated request-ID collisions before emitting.
 - Ensure tests cover new/changed protocol behavior and edge cases.

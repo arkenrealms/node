@@ -60,6 +60,15 @@ function asTrpcClientError(error: unknown, fallbackMessage: string): TRPCClientE
   }
 }
 
+function allocateRequestId(ioCallbacks: Record<string, any>, maxAttempts = 8): string {
+  for (let i = 0; i < maxAttempts; i += 1) {
+    const id = generateShortId();
+    if (!ioCallbacks[id]) return id;
+  }
+
+  throw new TRPCClientError<any>('Unable to allocate unique socket request id');
+}
+
 export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any> {
   const { backends, clients, notifyTRPCError, waitUntil, requestTimeoutMs = 15_000 } = options;
 
@@ -87,7 +96,17 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
           return;
         }
 
-        const uuid = generateShortId();
+        let uuid = '';
+        try {
+          uuid = allocateRequestId(client.ioCallbacks);
+        } catch (error) {
+          const err = asTrpcClientError(error, 'Unable to allocate socket request id');
+          notifyTRPCError(err);
+          observer.error(err);
+          observer.complete();
+          return;
+        }
+
         let isSettled = false;
 
         const settleError = (error: unknown, reqId = uuid) => {
@@ -270,7 +289,15 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
               return;
             }
 
-            const uuid = generateShortId();
+            let uuid = '';
+            try {
+              uuid = allocateRequestId(client.ioCallbacks);
+            } catch (error) {
+              observer.error(asTrpcClientError(error, `${logPrefix}: Unable to allocate request id`) as any);
+              observer.complete();
+              return;
+            }
+
             const request = { id: uuid, method: op.path, type: op.type, params: serialize(input) };
 
             client.ioCallbacks[uuid] = client.ioCallbacks[uuid] || {};

@@ -9,8 +9,13 @@ import {
 } from '../trpc/socketLink';
 import { observable } from '@trpc/server/observable';
 import { TRPCClientError } from '@trpc/client';
+import * as db from '../db';
 
 type AnyError = TRPCClientError<any>;
+
+afterEach(() => {
+  jest.restoreAllMocks();
+});
 
 describe('createSocketLink (Socket.IO tRPC link)', () => {
   let notifyTRPCErrorMock: jest.Mock;
@@ -27,6 +32,7 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
 
   afterEach(() => {
     jest.useRealTimers();
+    jest.restoreAllMocks();
   });
 
   function makeClient(): SocketClient & { emitMock: jest.Mock } {
@@ -199,6 +205,39 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
     sub.unsubscribe();
     expect(seerClient.ioCallbacks[payload.id]).toBeUndefined();
   });
+
+  it('fails fast when request id allocation repeatedly collides', async () => {
+    const seerClient = makeClient();
+    seerClient.ioCallbacks['collision-id'] = { timeout: null };
+
+    jest.spyOn(db, 'generateShortId').mockReturnValue('collision-id');
+
+    const link = createSocketLink({
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
+      notifyTRPCError: notifyTRPCErrorMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+    });
+
+    const obs = makeObservable(link, {
+      id: 1,
+      context: {},
+      path: 'seer.core.getRealms',
+      type: 'query',
+      input: {},
+    });
+
+    await new Promise<void>((resolve) => {
+      obs.subscribe({
+        error: (err) => {
+          expect((err as AnyError).message).toContain('Unable to allocate unique socket request id');
+          resolve();
+        },
+      });
+    });
+
+    expect(seerClient.emitMock).not.toHaveBeenCalled();
+  });
 });
 
 describe('attachTrpcResponseHandler', () => {
@@ -251,6 +290,31 @@ describe('attachTrpcResponseHandler', () => {
     detach?.();
     expect(socket.offAny).toHaveBeenCalledTimes(1);
   });
+
+  it('ignores malformed payload permutations without mutating callbacks', () => {
+    const socket = makeSocket();
+    const resolve = jest.fn();
+    const client: any = { socket, ioCallbacks: { abc: { timeout: null, resolve, reject: jest.fn() } } };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false });
+
+    socket.handlers['trpcResponse'](null);
+    socket.handlers['trpcResponse'](42);
+    socket.handlers['trpcResponse']('not-json');
+
+    expect(resolve).not.toHaveBeenCalled();
+    expect(client.ioCallbacks.abc).toBeDefined();
+  });
+
+  it('treats late responses as no-op once callback has been removed', () => {
+    const socket = makeSocket();
+    const client: any = { socket, ioCallbacks: {} };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false });
+
+    expect(() => socket.handlers['trpcResponse']({ id: 'late-1', result: '{}' })).not.toThrow();
+    expect(client.ioCallbacks['late-1']).toBeUndefined();
+  });
 });
 
 describe('createSocketProxyClient', () => {
@@ -284,5 +348,16 @@ describe('createSocketProxyClient', () => {
     jest.advanceTimersByTime(1001);
     await expect(promise).rejects.toThrow(/Request timeout/);
     jest.useRealTimers();
+  });
+
+  it('rejects proxy call when request id allocation repeatedly collides', async () => {
+    const client = makeClient();
+    client.ioCallbacks['collision-id'] = { timeout: null };
+    jest.spyOn(db, 'generateShortId').mockReturnValue('collision-id');
+
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
+    await expect(proxy.core.ping.query({ message: 'hi' })).rejects.toThrow(/Unable to allocate unique socket request id/);
+
+    expect(client.emitMock).not.toHaveBeenCalled();
   });
 });
