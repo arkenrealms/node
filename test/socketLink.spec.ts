@@ -438,6 +438,22 @@ describe('attachTrpcResponseHandler', () => {
     expect(client.ioCallbacks['late-1']).toBeUndefined();
   });
 
+  it('handles duplicate trpcResponse delivery idempotently for same callback id', () => {
+    const socket = makeSocket();
+    const resolve = jest.fn();
+    const reject = jest.fn();
+    const client: any = { socket, ioCallbacks: { 'req-dup': { timeout: null, resolve, reject } } };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false });
+
+    socket.handlers['trpcResponse']({ id: 'req-dup', result: '{}' });
+    socket.handlers['trpcResponse']({ id: 'req-dup', result: '{}' });
+
+    expect(resolve).toHaveBeenCalledTimes(1);
+    expect(reject).not.toHaveBeenCalled();
+    expect(client.ioCallbacks['req-dup']).toBeUndefined();
+  });
+
   it('keeps server-push path resilient when params cannot be deserialized', () => {
     const socket = makeSocket();
     const onServerPush = jest.fn();
@@ -511,6 +527,26 @@ describe('createSocketProxyClient', () => {
 
     jest.advanceTimersByTime(1001);
     await expect(promise).rejects.toThrow(/Request timeout/);
+    jest.useRealTimers();
+  });
+
+  it('ignores late proxy response after timeout settles request', async () => {
+    jest.useFakeTimers();
+    const client = makeClient();
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
+
+    const promise = proxy.core.ping.query({ message: 'hi' });
+    await Promise.resolve();
+
+    const [, payload] = client.emitMock.mock.calls[0];
+    const reqId = payload.id;
+    const callbackRef = client.ioCallbacks[reqId];
+
+    jest.advanceTimersByTime(1001);
+    await expect(promise).rejects.toThrow(/Request timeout/);
+    expect(client.ioCallbacks[reqId]).toBeUndefined();
+
+    expect(() => callbackRef.resolve({ result: JSON.stringify({ status: 1, data: { pong: 'late' } }) })).not.toThrow();
     jest.useRealTimers();
   });
 
