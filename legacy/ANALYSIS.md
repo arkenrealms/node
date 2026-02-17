@@ -1,16 +1,24 @@
 # arken/packages/node/legacy/ANALYSIS.md
 
-## Folder
-`arken/packages/node/legacy`
+## Folder purpose
+Legacy compatibility surface for historical Arken game/runtime data and contract-adjacent helpers.
 
-## Snapshot
-- Files: 7
-- Subfolders: 2
+## Child context summary
+- `legacy/data`: content/rule adapter layer over generated game catalogs and hardcoded legacy dictionaries.
+- `legacy/contracts`: contract artifacts/integration helpers (not yet deeply analyzed in this chunk).
 
-## Notable contents
-- files: contractData.ts, contractInfo.ts, farmInfo.ts, getAddressByOldUsername.ts, getOldUserMeta.ts, getOldUsername.ts, types.ts
-- dirs: contracts, data
+## Key top-level files
+- `contractData.ts`, `contractInfo.ts`, `farmInfo.ts`: contract and farm metadata helpers.
+- `getOld*` files: migration/lookup helpers for legacy usernames/user meta.
+- `types.ts`: legacy typing surface.
 
-## Protocol/Test focus
-- Prioritize transport, serialization, timeout, and error-handling paths where applicable.
-- Ensure tests cover new/changed protocol behavior and edge cases.
+## Architectural context
+Acts as a bridge for backward compatibility while the platform evolves toward an omniverse-grade architecture (multi-game, liveops-ready, policy-driven content).
+
+## Risks / gaps
+- Legacy responsibilities are broad and not sharply bounded by domain.
+- Potential coupling between game content, wallet policy, and contract metadata.
+
+## Follow-ups
+- Continue deepest-first analysis in `legacy/contracts`.
+- Define migration boundary: what remains legacy vs promoted into modern typed modules.

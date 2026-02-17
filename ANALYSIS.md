@@ -1,16 +1,27 @@
 # arken/packages/node/ANALYSIS.md
 
-## Folder
-`arken/packages/node`
+## Folder purpose
+Core Node SDK/runtime utility package for Arken protocol, data handling, and game-platform support services.
 
-## Snapshot
-- Files: 41
-- Subfolders: 12
+## Child context summary (current)
+- `trpc/`: socket transport wrappers for tRPC request/response lifecycle (actively hardened).
+- `test/`: protocol-focused tests for socket client/server wrappers.
+- `legacy/`: backward-compatibility layer for historical game/content/contract metadata.
+- `time/`: shared scheduling/time utilities used across runtime paths.
+- `data/`: bundled artifacts and ZK-related support assets.
 
-## Notable contents
-- files: .git, .gitignore, .prettierrc, LICENSE, README.md, api.ts, array.ts, binary.ts, browser.ts, codebase.ts, config.ts, db.ts, decoder.test.ts, decoder.ts, format.ts, guid.ts, index.ts, jest.unit.config.js, json.ts, log.ts ...
-- dirs: .erb, .rush, coverage, data, legacy, node_modules, scripts, test, time, trpc, types, web3
+## Omniverse architecture perspective
+This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (multi-game runtime + launcher/liveops integrations). Reliability priorities are:
+1. Transport correctness and resiliency (timeouts, retries, error envelopes).
+2. Deterministic content/economy data contracts.
+3. Operational observability and typed boundaries across subsystems.
 
-## Protocol/Test focus
-- Prioritize transport, serialization, timeout, and error-handling paths where applicable.
-- Ensure tests cover new/changed protocol behavior and edge cases.
+## Risks / gaps
+- Mixed legacy and modern patterns (typed + untyped maps).
+- Generated data and runtime assumptions need stronger schema/test guardrails.
+- Utility modules (time/task queue) need production-grade control surfaces.
+
+## Follow-ups
+- Continue bottom-up analysis for remaining leaf folders before refining parent summaries further.
+- Add protocol edge-case tests (id collisions, late responses, malformed payload permutations).
+- Expand folder README/ANALYSIS coverage with explicit cross-folder dependency notes.
