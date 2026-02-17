@@ -1,4 +1,4 @@
-# /arken/packages/node/test/NOTES.md
+# arken/packages/node/test/NOTES.md
 
 ## Test analysis notes (2026-02-17)
 

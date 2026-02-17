@@ -1,4 +1,4 @@
-# /Users/web/.openclaw/workspace-nel/arken/packages/node/trpc/README.md
+# arken/packages/node/trpc/README.md
 
 Socket-based tRPC transport helpers for `@arken/node`.
 

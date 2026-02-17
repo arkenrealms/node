@@ -1,4 +1,4 @@
-# /arken/packages/node/trpc/NOTES.md
+# arken/packages/node/trpc/NOTES.md
 
 ## Protocol analysis notes (2026-02-17)
 

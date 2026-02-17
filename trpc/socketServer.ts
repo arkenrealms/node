@@ -1,4 +1,4 @@
-// /arken/packages/node/trpc/socketServer.ts
+// arken/packages/node/trpc/socketServer.ts
 
 import type { AnyRouter } from '@trpc/server';
 import { serialize, deserialize } from '../rpc';

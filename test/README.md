@@ -1,4 +1,4 @@
-# /Users/web/.openclaw/workspace-nel/arken/packages/node/test/README.md
+# arken/packages/node/test/README.md
 
 Protocol-focused tests for `@arken/node` socket tRPC wrappers.
 

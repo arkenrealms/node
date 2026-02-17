@@ -1,4 +1,4 @@
-// /arken/packages/node/trpc/socketLink.ts
+// arken/packages/node/trpc/socketLink.ts
 import { TRPCClientError, type TRPCLink, createTRPCProxyClient } from '@trpc/client';
 import { observable } from '@trpc/server/observable';
 import { serialize, deserialize } from '../rpc';
