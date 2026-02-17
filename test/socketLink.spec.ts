@@ -548,6 +548,24 @@ describe('attachTrpcResponseHandler', () => {
     expect(client.ioCallbacks['req-dup']).toBeUndefined();
   });
 
+  it('rejects once when callback resolve throws on mixed error/result payloads and ignores late duplicate delivery', () => {
+    const socket = makeSocket();
+    const resolve = jest.fn(() => {
+      throw new Error('resolve-failed');
+    });
+    const reject = jest.fn();
+    const client: any = { socket, ioCallbacks: { 'req-mixed': { timeout: null, resolve, reject } } };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false });
+
+    socket.handlers['trpcResponse']({ id: 'req-mixed', error: { message: 'wire-error' }, result: '{}' });
+    expect(reject).toHaveBeenCalledTimes(1);
+
+    socket.handlers['trpcResponse']({ id: 'req-mixed', error: { message: 'late-duplicate' }, result: '{}' });
+    expect(reject).toHaveBeenCalledTimes(1);
+    expect(client.ioCallbacks['req-mixed']).toBeUndefined();
+  });
+
   it('keeps server-push path resilient when params cannot be deserialized', () => {
     const socket = makeSocket();
     const onServerPush = jest.fn();
