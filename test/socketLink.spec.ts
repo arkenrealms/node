@@ -540,6 +540,24 @@ describe('attachTrpcResponseHandler', () => {
     });
   });
 
+  it('does not treat __proto__ callback ids as active callbacks and still forwards server push', () => {
+    const socket = makeSocket();
+    const onServerPush = jest.fn();
+    const client: any = {
+      socket,
+      ioCallbacks: {},
+    };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, onServerPush });
+
+    expect(() => socket.handlers['trpcResponse']({ id: '__proto__', method: 'events.tick', params: '{}' })).not.toThrow();
+    expect(onServerPush).toHaveBeenCalledWith({
+      id: '__proto__',
+      method: 'events.tick',
+      params: {},
+    });
+  });
+
   it('treats late responses as no-op once callback has been removed', () => {
     const socket = makeSocket();
     const client: any = { socket, ioCallbacks: {} };
