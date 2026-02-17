@@ -199,6 +199,22 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
 
   const logInfo = (...args: any[]) => (logging ? console.info(...args) : undefined);
   const logWarn = (...args: any[]) => (logging ? console.warn(...args) : undefined);
+  const parseResponseId = (payload: any): string | undefined => {
+    const rawId = payload?.[responseIdField];
+    if (typeof rawId !== 'string') return undefined;
+    const id = rawId.trim();
+    return id.length > 0 ? id : undefined;
+  };
+
+  const safeDeserialize = (value: any, context: string) => {
+    if (!value) return undefined;
+    try {
+      return deserialize(value);
+    } catch {
+      logWarn(`[${backendName} Socket] Failed to deserialize ${context}`);
+      return undefined;
+    }
+  };
 
   const handlePayload = (eventName: string, rawPayload: any) => {
     try {
@@ -209,7 +225,7 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
       }
 
       if (eventName === 'trpcResponse') {
-        const id = payload?.[responseIdField];
+        const id = parseResponseId(payload);
         const cb = id ? client.ioCallbacks[id] : undefined;
 
         if (cb) {
@@ -226,7 +242,7 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
 
         if (onServerPush && payload?.method) {
           const { method, params } = payload;
-          onServerPush({ id: payload?.[responseIdField], method, params: params ? deserialize(params) : undefined });
+          onServerPush({ id: parseResponseId(payload) ?? '', method, params: safeDeserialize(params, `server push params for ${method}`) });
           return;
         }
 
@@ -236,7 +252,7 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
 
       if (onServerPush) {
         const { method, params } = payload ?? {};
-        onServerPush({ id: payload?.[responseIdField], method, params: params ? deserialize(params) : undefined });
+        onServerPush({ id: parseResponseId(payload) ?? '', method, params: safeDeserialize(params, `server push params for ${method}`) });
       }
     } catch (e) {
       if (logging) {
