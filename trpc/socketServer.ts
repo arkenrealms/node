@@ -1,3 +1,5 @@
+// /arken/packages/node/trpc/socketServer.ts
+
 import type { AnyRouter } from '@trpc/server';
 import { serialize, deserialize } from '../rpc';
 import { decodePayload } from '../binary';
@@ -10,11 +12,10 @@ export interface SocketTrpcHandlerOptions<TRouter extends AnyRouter = AnyRouter>
   log?: (...args: any[]) => void;
 }
 
-/**
- * Creates a handler that processes "trpc" messages on a Socket.IO socket:
- *  - message: { id, method, params }
- *  - calls router method and emits "trpcResponse" with { id, result, error? }
- */
+function resolveTarget(caller: any, method: string) {
+  return method.split('.').reduce<any>((acc, key) => (acc == null ? undefined : acc[key]), caller);
+}
+
 export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
   router,
   createCallerFactory,
@@ -22,38 +23,49 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
 }: SocketTrpcHandlerOptions<TRouter>) {
   const createCaller = createCallerFactory(router);
 
-  return async function handleSocketTrpc(socket: any, ctx: any, _message: any) {
-    console.log('message', _message);
+  return async function handleSocketTrpc(socket: any, ctx: any, rawMessage: any) {
+    const message = typeof rawMessage === 'string' ? decodePayload(rawMessage) : rawMessage;
 
-    const message = typeof _message === 'string' ? decodePayload(_message) : _message;
-    console.log('message', message);
+    if (!message || typeof message !== 'object') {
+      socket.emit('trpcResponse', {
+        id: undefined,
+        result: serialize({ status: 0 }),
+        error: 'Malformed socket tRPC payload',
+      });
+      return;
+    }
 
-    const { id, method, params } = message;
+    const { id, method, params } = message as { id?: string; method?: string; params?: any };
+
+    if (!method || typeof method !== 'string') {
+      socket.emit('trpcResponse', {
+        id,
+        result: serialize({ status: 0 }),
+        error: 'Missing or invalid tRPC method',
+        meta: { message },
+      });
+      return;
+    }
 
     try {
       const caller = createCaller(ctx);
+      const target = resolveTarget(caller, method);
 
-      log('Seer calling trpc route', method, params);
+      if (typeof target !== 'function') {
+        throw new Error(`TRPC handler does not exist for method: ${method}`);
+      }
 
-      // Support nested paths like "core.getRealms"
-      // @ts-ignore
-      const target = method.split('.').reduce<any>((acc, key) => acc[key], caller);
-
-      const result = params ? await target(deserialize(params)) : await target();
-
-      log('Seer sending trpc response', method, params, JSON.stringify(result));
+      const result = params != null ? await target(deserialize(params)) : await target();
+      log('Socket tRPC response', method);
 
       socket.emit('trpcResponse', { id, result: serialize({ status: 1, data: result }) });
     } catch (error: any) {
-      let errorMessage = error?.stack + '';
+      const stack = typeof error?.stack === 'string' ? error.stack : String(error);
+      const errorMessage = stack.includes("reading '_def'")
+        ? `TRPC handler does not exist: ${stack}`
+        : `Server error in socket TRPC handler: ${stack}`;
 
-      if (errorMessage.includes("reading '_def'")) {
-        errorMessage = 'TRPC handler does not exist: ' + errorMessage;
-        log(errorMessage, method, error);
-      } else {
-        errorMessage = 'Server error in socket TRPC handler: ' + errorMessage;
-        log(errorMessage, method, error);
-      }
+      log(errorMessage, method, error);
 
       socket.emit('trpcResponse', {
         id,
@@ -65,20 +77,13 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
   };
 }
 
-// ======================
-// Optional wiring helper
-// ======================
-
 export interface AttachSocketTrpcListenerOptions {
   socket: any;
   ctx: any;
   handleSocketTrpc: (socket: any, ctx: any, message: any) => Promise<void>;
-  eventName?: string; // default 'trpc'
+  eventName?: string;
 }
 
-/**
- * Convenience helper so you don’t repeat socket.on('trpc', ...) everywhere.
- */
 export function attachSocketTrpcListener(opts: AttachSocketTrpcListenerOptions) {
   const { socket, ctx, handleSocketTrpc, eventName = 'trpc' } = opts;
 
@@ -86,13 +91,9 @@ export function attachSocketTrpcListener(opts: AttachSocketTrpcListenerOptions) 
     await handleSocketTrpc(socket, ctx, message);
   };
 
-  if (typeof socket?.on === 'function') {
-    socket.on(eventName, fn);
-  }
+  if (typeof socket?.on === 'function') socket.on(eventName, fn);
 
   return () => {
-    if (typeof socket?.off === 'function') {
-      socket.off(eventName, fn);
-    }
+    if (typeof socket?.off === 'function') socket.off(eventName, fn);
   };
 }

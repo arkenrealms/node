@@ -1,14 +1,9 @@
-// arken/node/trpc/socketLink.ts
-//
+// /arken/packages/node/trpc/socketLink.ts
 import { TRPCClientError, type TRPCLink, createTRPCProxyClient } from '@trpc/client';
 import { observable } from '@trpc/server/observable';
 import { serialize, deserialize } from '../rpc';
 import { generateShortId } from '../db';
 import { decodePayload } from '../binary';
-
-// ======================
-// Types
-// ======================
 
 export type BackendConfig = {
   name: string;
@@ -42,19 +37,8 @@ export interface AttachTrpcResponseHandlerOptions {
   client: SocketClient;
   backendName: string;
   logging?: boolean;
-
-  /**
-   * If your server responds with { oid: <original-id> } instead of { id: <id> },
-   * set this to "oid". Default is "id".
-   */
   responseIdField?: 'id' | 'oid' | string;
-
-  /**
-   * If true, prefer socket.onAny(...) if available. (Useful where responses
-   * come in via onAny and not a dedicated event handler.)
-   */
   preferOnAny?: boolean;
-
   onServerPush?: (msg: { id: string; method: string; params: any }) => void;
 }
 
@@ -65,13 +49,17 @@ export interface CreateSocketProxyClientOptions<TRouter = any> {
   requestTimeoutMs?: number;
 }
 
-// ======================
-// createSocketLink
-// ======================
+function asTrpcClientError(error: unknown, fallbackMessage: string): TRPCClientError<any> {
+  if (error instanceof TRPCClientError) return error;
+  if (typeof error === 'string') return new TRPCClientError<any>(error);
 
-/**
- * Socket.IO-based TRPC link, similar to your React combinedLink, but extracted.
- */
+  try {
+    return new TRPCClientError<any>(JSON.stringify(error));
+  } catch {
+    return new TRPCClientError<any>(fallbackMessage);
+  }
+}
+
 export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any> {
   const { backends, clients, notifyTRPCError, waitUntil, requestTimeoutMs = 15_000 } = options;
 
@@ -92,24 +80,37 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
 
         const client = clients[routerName];
         const uuid = generateShortId();
+        let isSettled = false;
+
+        const settleError = (error: unknown, reqId = uuid) => {
+          if (isSettled) return;
+          isSettled = true;
+
+          const err = asTrpcClientError(error, 'Socket TRPC request failed');
+          (err as any).data = {
+            ...((err as any).data || {}),
+            reqId,
+          };
+
+          delete client.ioCallbacks[uuid];
+          notifyTRPCError(err);
+          observer.error(err);
+        };
 
         const run = async () => {
-          // 1) Wait for socket connection
           try {
             await waitUntil(() => !!client?.socket?.emit, 60_000);
           } catch {
-            const err = new TRPCClientError<any>('Socket connection timeout');
-            notifyTRPCError(err);
-            observer.error(err);
+            settleError(new TRPCClientError<any>('Socket connection timeout'));
             observer.complete();
             return;
           }
 
-          const { input } = op;
+          if (isSettled) return;
 
           const method = op.path.replace(`${routerName}.`, '');
+          const { input } = op;
 
-          // 2) Emit the request
           client.socket.emit('trpc', {
             id: uuid,
             method,
@@ -117,77 +118,42 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
             params: serialize(input),
           });
 
-          // 3) Timeout handling
           const timeout = setTimeout(() => {
-            const err = new TRPCClientError<any>(
-              `Request timeout: ${uuid} ${method} ${op.type} ${JSON.stringify(input)}`
-            );
-            if (client.ioCallbacks[uuid]) delete client.ioCallbacks[uuid];
-            notifyTRPCError(err);
-            observer.error(err);
+            settleError(new TRPCClientError<any>(`Request timeout: ${uuid} ${method} ${op.type}`));
           }, requestTimeoutMs);
 
-          // 4) Register callbacks for response
           client.ioCallbacks[uuid] = {
             timeout,
             resolve: (response: any) => {
+              if (isSettled) return;
               clearTimeout(timeout);
 
-              if (response.error) {
-                // Build a TRPCClientError from the raw error
-                const baseErr =
-                  response.error instanceof TRPCClientError
-                    ? response.error
-                    : new TRPCClientError<any>(
-                        typeof response.error === 'string' ? response.error : JSON.stringify(response.error)
-                      );
+              if (response?.error) {
+                settleError(response.error, response?.id ?? uuid);
+                return;
+              }
 
-                // Attach request id onto error data
-                const errAny = baseErr as any;
-                errAny.data = {
-                  ...(errAny.data || {}),
-                  reqId: response.id ?? uuid,
-                };
-
-                notifyTRPCError(baseErr);
-                observer.error(baseErr as any);
-              } else {
-                const result: any = deserialize(response.result);
-                console.log('zzzzzzz', response.result, result);
+              try {
+                const result: any = deserialize(response?.result);
+                isSettled = true;
+                delete client.ioCallbacks[uuid];
                 observer.next({ result } as any);
                 observer.complete();
+              } catch (deserializeError) {
+                settleError(deserializeError, response?.id ?? uuid);
               }
-
-              delete client.ioCallbacks[uuid];
             },
-
             reject: (error: any) => {
               clearTimeout(timeout);
-
-              let err: any = error;
-              if (!(error instanceof TRPCClientError)) {
-                err =
-                  typeof error === 'string'
-                    ? new TRPCClientError<any>(error)
-                    : new TRPCClientError<any>(JSON.stringify(error));
-              }
-
-              err.data = {
-                ...(err.data || {}),
-                reqId: uuid,
-              };
-
-              notifyTRPCError(err);
-              observer.error(err as any);
-              delete client.ioCallbacks[uuid];
+              settleError(error, uuid);
             },
           };
         };
 
-        run();
+        void run();
 
-        // teardown
         return () => {
+          isSettled = true;
           if (client.ioCallbacks[uuid]) {
             clearTimeout(client.ioCallbacks[uuid].timeout);
             delete client.ioCallbacks[uuid];
@@ -196,17 +162,6 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
       });
 }
 
-// ======================
-// attachTrpcResponseHandler
-// ======================
-
-/**
- * Attach a shared handler that resolves ioCallbacks for "trpcResponse".
- *
- * Supports either:
- *  - socket.on('trpcResponse', ...)
- *  - socket.onAny((eventName, payload) => ...)
- */
 export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions) {
   const { client, backendName, logging = true, onServerPush, responseIdField = 'id', preferOnAny = false } = opts;
 
@@ -215,47 +170,57 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
   const logInfo = (...args: any[]) => (logging ? console.info(...args) : undefined);
   const logWarn = (...args: any[]) => (logging ? console.warn(...args) : undefined);
 
-  const handlePayload = (eventName: string, _payload: any) => {
+  const handlePayload = (eventName: string, rawPayload: any) => {
     try {
-      const payload = typeof _payload === 'string' ? decodePayload(_payload) : _payload;
-      if (logging) logInfo(`[${backendName} Socket] Event:`, eventName, payload);
+      const payload = typeof rawPayload === 'string' ? decodePayload(rawPayload) : rawPayload;
+      if (!payload || typeof payload !== 'object') {
+        logWarn(`[${backendName} Socket] Ignoring malformed payload for ${eventName}`);
+        return;
+      }
 
       if (eventName === 'trpcResponse') {
         const id = payload?.[responseIdField];
-        const cb = client.ioCallbacks[id];
+        const cb = id ? client.ioCallbacks[id] : undefined;
+
         if (cb) {
-          if (logging) logInfo(`[${backendName} Socket] Callback exists for ID:`, id, payload);
           clearTimeout(cb.timeout);
           try {
-            // payload.result = payload.result ? deserialize(payload.result) : undefined;
-            // console.log('zzzzz', payload.result);
             cb.resolve(payload);
           } catch (e) {
-            if (logging) logInfo(`[${backendName} Socket] Callback error:`, e);
             cb.reject(e);
+          } finally {
+            delete client.ioCallbacks[id];
           }
-          delete client.ioCallbacks[id];
-        } else if (logging) {
-          logWarn(`[${backendName} Socket] No callback found for ID: ${id}`);
+          return;
         }
-      } else {
-        // Server push case (no id)
-        if (onServerPush) {
-          const { method, params } = payload ?? {};
-          onServerPush({ id: payload[responseIdField], method, params: params ? deserialize(params) : undefined });
+
+        if (onServerPush && payload?.method) {
+          const { method, params } = payload;
+          onServerPush({ id: payload?.[responseIdField], method, params: params ? deserialize(params) : undefined });
+          return;
         }
+
+        logWarn(`[${backendName} Socket] No callback found for response id: ${String(id)}`);
+        return;
+      }
+
+      if (onServerPush) {
+        const { method, params } = payload ?? {};
+        onServerPush({ id: payload?.[responseIdField], method, params: params ? deserialize(params) : undefined });
       }
     } catch (e) {
-      console.error(`[${backendName} Socket] Error in handler:`, e);
+      if (logging) {
+        logInfo(`[${backendName} Socket] Error in handler`, e);
+      }
     }
   };
 
-  // Prefer onAny if requested and available
   if (preferOnAny && typeof client.socket.onAny === 'function') {
     const anyHandler = (eventName: string, payload: any) => {
       if (eventName !== 'trpcResponse') return;
       handlePayload(eventName, payload);
     };
+
     client.socket.onAny(anyHandler);
     return () => {
       if (typeof client.socket.offAny === 'function') client.socket.offAny(anyHandler);
@@ -265,26 +230,19 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
   const onTrpcHandler = (res: any) => handlePayload('trpc', res);
   const onTrpcResponseHandler = (res: any) => handlePayload('trpcResponse', res);
 
-  client.socket.on('trpc', onTrpcHandler);
-  client.socket.on('trpcResponse', onTrpcResponseHandler);
+  if (typeof client.socket.on === 'function') {
+    client.socket.on('trpc', onTrpcHandler);
+    client.socket.on('trpcResponse', onTrpcResponseHandler);
+  }
 
   return () => {
-    client.socket.off('trpc', onTrpcHandler);
-    client.socket.off('trpcResponse', onTrpcResponseHandler);
+    if (typeof client.socket.off === 'function') {
+      client.socket.off('trpc', onTrpcHandler);
+      client.socket.off('trpcResponse', onTrpcResponseHandler);
+    }
   };
 }
 
-// ======================
-// createSocketProxyClient
-// ======================
-
-/**
- * Small helper to build a tRPC proxy over a single SocketClient, reusing the same
- * callback / timeout / serialization pattern. Useful for "peer" connections.
- *
- * We return `any` here to dodge the super strict `InferrableClientTypes` generics
- * from @trpc/client; you can cast at the call site if you want stronger typing.
- */
 export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyClientOptions<TRouter>): any {
   const { client, logPrefix = 'SocketProxy', roles = [], requestTimeoutMs = 15_000 } = opts;
 
@@ -294,26 +252,21 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
         ({ op }) =>
           observable((observer) => {
             const { input } = op;
-
-            // Attach client + roles to context if someone uses it
             (op as any).context = (op as any).context ?? {};
             (op as any).context.client = client;
             (op as any).context.client.roles = roles;
 
             if (!client?.socket?.emit) {
-              observer.error(
-                new TRPCClientError<any>(`${logPrefix}: Emit Direct failed, no client or bad socket`) as any
-              );
+              observer.error(new TRPCClientError<any>(`${logPrefix}: Emit Direct failed, no client or bad socket`) as any);
               observer.complete();
               return;
             }
 
             const uuid = generateShortId();
-
             const request = { id: uuid, method: op.path, type: op.type, params: serialize(input) };
+
             client.ioCallbacks[uuid] = client.ioCallbacks[uuid] || {};
             client.ioCallbacks[uuid].request = request;
-
             client.socket.emit('trpc', request);
 
             const timeout = setTimeout(() => {
@@ -327,40 +280,33 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
               resolve: (pack: any) => {
                 clearTimeout(timeout);
 
-                if (pack.error) {
-                  const baseErr =
-                    pack.error instanceof TRPCClientError
-                      ? (pack.error as any)
-                      : (new TRPCClientError<any>(
-                          typeof pack.error === 'string' ? pack.error : JSON.stringify(pack.error)
-                        ) as any);
-
-                  (baseErr as any).data = {
-                    ...((baseErr as any).data || {}),
+                if (pack?.error) {
+                  const baseErr = asTrpcClientError(pack.error, `${logPrefix}: Request failed`) as any;
+                  baseErr.data = {
+                    ...(baseErr.data || {}),
                     reqId: pack.id ?? uuid,
                   };
 
                   observer.error(baseErr);
+                  delete client.ioCallbacks[uuid];
+                  return;
+                }
+
+                const result: any = deserialize(pack?.result);
+                if (result?.status !== 1) {
+                  const statusErr = new TRPCClientError<any>(`${logPrefix}: status error ${JSON.stringify(result)}`) as any;
+                  statusErr.data = {
+                    ...(statusErr.data || {}),
+                    reqId: pack?.id ?? uuid,
+                  };
+                  observer.error(statusErr);
                 } else {
-                  console.log('zzzzzz', pack.result, deserialize(pack.result));
-                  const result: any = deserialize(pack.result);
-                  if (result?.status !== 1) {
-                    const statusErr = new TRPCClientError<any>(
-                      `${logPrefix}: status error ${JSON.stringify(result)}`
-                    ) as any;
-                    statusErr.data = {
-                      ...(statusErr.data || {}),
-                      reqId: pack.id ?? uuid,
-                    };
-                    observer.error(statusErr);
-                  } else {
-                    observer.next({
-                      result: {
-                        data: result.data ?? result,
-                      },
-                    } as any);
-                    observer.complete();
-                  }
+                  observer.next({
+                    result: {
+                      data: result?.data ?? result,
+                    },
+                  } as any);
+                  observer.complete();
                 }
 
                 delete client.ioCallbacks[uuid];
@@ -368,14 +314,7 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
               reject: (error: any) => {
                 clearTimeout(timeout);
 
-                let err: any = error;
-                if (!(error instanceof TRPCClientError)) {
-                  err =
-                    typeof error === 'string'
-                      ? new TRPCClientError<any>(error)
-                      : new TRPCClientError<any>(JSON.stringify(error));
-                }
-
+                const err: any = asTrpcClientError(error, `${logPrefix}: Request failed`);
                 err.data = {
                   ...(err.data || {}),
                   reqId: uuid,
@@ -392,51 +331,19 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
   return proxy;
 }
 
-// ======================
-// bindSocketClientEmit (server-side convenience)
-// ======================
-
 export interface BindSocketClientEmitOptions<TRouter = any> {
-  /**
-   * Your per-socket client object (must have ioCallbacks + socket)
-   */
   client: SocketClient;
-
-  /**
-   * The actual Socket.IO socket instance for this connection.
-   */
   socket: any;
-
-  /**
-   * Just for logs
-   */
   backendName?: string;
-
   logPrefix?: string;
   roles?: string[];
   requestTimeoutMs?: number;
   logging?: boolean;
-
-  /**
-   * If you need legacy correlation fields (e.g. oid), set this.
-   */
   responseIdField?: 'id' | 'oid' | string;
-
-  /**
-   * If true, use socket.onAny for trpcResponse instead of socket.on('trpcResponse').
-   */
   preferOnAny?: boolean;
-
   onServerPush?: (msg: { method: string; params: any }) => void;
 }
 
-/**
- * One-liner to:
- *  - attach the shared trpcResponse handler
- *  - build client.emit proxy using createSocketProxyClient
- *
- * Intended for SERVER-SIDE sockets (io.on('connection', socket => ...)).
- */
 export function bindSocketClientEmit<TRouter = any>(opts: BindSocketClientEmitOptions<TRouter>) {
   const {
     client,
@@ -454,7 +361,6 @@ export function bindSocketClientEmit<TRouter = any>(opts: BindSocketClientEmitOp
   client.ioCallbacks = client.ioCallbacks || {};
   client.socket = socket;
 
-  // Attach shared resolver for trpcResponse
   attachTrpcResponseHandler({
     client,
     backendName,
@@ -464,13 +370,10 @@ export function bindSocketClientEmit<TRouter = any>(opts: BindSocketClientEmitOp
     onServerPush,
   });
 
-  // Create proxy for emitting "trpc" to the remote side
-  const emit = createSocketProxyClient<TRouter>({
+  return createSocketProxyClient<TRouter>({
     client,
     logPrefix,
     roles,
     requestTimeoutMs,
   });
-
-  return emit;
 }

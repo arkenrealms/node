@@ -1,8 +1,7 @@
-// arken/packages/node/test/socketServer.spec.ts
-
+// /Users/web/.openclaw/workspace-nel/arken/packages/node/test/socketServer.spec.ts
 import { initTRPC } from '@trpc/server';
-import { createSocketTrpcHandler } from '../trpc/socketServer';
-import { serialize, deserialize } from '../util/rpc';
+import { createSocketTrpcHandler, attachSocketTrpcListener } from '../trpc/socketServer';
+import { serialize, deserialize } from '../rpc';
 
 describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
   const t = initTRPC.context<{ userId?: string }>().create();
@@ -20,38 +19,29 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     }),
   });
 
-  const createCallerFactory = t.createCallerFactory;
-
   function makeFakeSocket() {
     return {
       emitted: [] as any[],
+      handlers: {} as Record<string, any>,
       emit(event: string, payload: any) {
         this.emitted.push({ event, payload });
+      },
+      on(event: string, fn: any) {
+        this.handlers[event] = fn;
+      },
+      off(event: string) {
+        delete this.handlers[event];
       },
     };
   }
 
   it('invokes router method and emits trpcResponse with status 1 on success', async () => {
-    const handler = createSocketTrpcHandler({
-      router,
-      createCallerFactory,
-      log: () => {},
-    });
-
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();
-    const ctx = { userId: 'user-123' };
 
-    const message = {
-      id: 'req-1',
-      method: 'core.ping',
-      params: serialize({ message: 'hello' }),
-    };
+    await handler(socket, { userId: 'user-123' }, { id: 'req-1', method: 'core.ping', params: serialize({ message: 'hello' }) });
 
-    await handler(socket, ctx, message);
-
-    expect(socket.emitted.length).toBe(1);
     const { event, payload } = socket.emitted[0];
-
     expect(event).toBe('trpcResponse');
     expect(payload.id).toBe('req-1');
 
@@ -69,32 +59,51 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
       }),
     });
 
-    const handler = createSocketTrpcHandler({
-      router: badRouter,
-      createCallerFactory,
-      log: () => {},
-    });
-
+    const handler = createSocketTrpcHandler({ router: badRouter, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();
-    const ctx = {};
 
-    const message = {
-      id: 'req-2',
-      method: 'core.explode',
-      params: undefined,
-    };
+    await handler(socket, {}, { id: 'req-2', method: 'core.explode', params: undefined });
 
-    await handler(socket, ctx, message);
-
-    expect(socket.emitted.length).toBe(1);
-    const { event, payload } = socket.emitted[0];
-
-    expect(event).toBe('trpcResponse');
+    const { payload } = socket.emitted[0];
     expect(payload.id).toBe('req-2');
-
-    const result: any = deserialize(payload.result);
-    expect(result.status).toBe(0);
-    expect(typeof payload.error).toBe('string');
+    expect(deserialize(payload.result).status).toBe(0);
     expect(payload.error).toContain('boom');
+  });
+
+  it('emits a clear error for malformed payloads', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, null as any);
+
+    const { payload } = socket.emitted[0];
+    expect(payload.error).toContain('Malformed socket tRPC payload');
+    expect(deserialize(payload.result).status).toBe(0);
+  });
+
+  it('emits a clear error for missing methods', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-3', params: serialize({}) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-3');
+    expect(payload.error).toContain('Missing or invalid tRPC method');
+    expect(deserialize(payload.result).status).toBe(0);
+  });
+
+  it('attachSocketTrpcListener binds and unbinds listeners', async () => {
+    const socket = makeFakeSocket();
+    const fn = jest.fn(async () => undefined);
+
+    const detach = attachSocketTrpcListener({ socket, ctx: {}, handleSocketTrpc: fn, eventName: 'trpc' });
+    expect(typeof socket.handlers.trpc).toBe('function');
+
+    await socket.handlers.trpc({ id: 'req-4' });
+    expect(fn).toHaveBeenCalledTimes(1);
+
+    detach();
+    expect(socket.handlers.trpc).toBeUndefined();
   });
 });

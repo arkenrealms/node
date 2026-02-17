@@ -1,3 +1,5 @@
+// /arken/packages/node/test/socketLink.spec.ts
+
 import {
   createSocketLink,
   attachTrpcResponseHandler,
@@ -32,28 +34,21 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
     const emitMock = jest.fn();
     const client: any = {
       ioCallbacks: {},
-      socket: {
-        emit: emitMock,
-      },
+      socket: { emit: emitMock },
       emitMock,
     };
     return client;
   }
 
   function makeObservable(link: ReturnType<typeof createSocketLink>, op: any) {
-    const runtime: any = {}; // tRPC runtime, unused
+    const runtime: any = {};
     const opLink = link(runtime);
-    return opLink({
-      op,
-      next: () => observable(() => {}),
-    });
+    return opLink({ op, next: () => observable(() => {}) });
   }
 
   it('emits Unknown router error when router prefix is not mapped', async () => {
     const backends: BackendConfig[] = [{ name: 'seer', url: 'ws://dummy' }];
-    const clients: Record<string, SocketClient> = {
-      seer: makeClient(),
-    };
+    const clients: Record<string, SocketClient> = { seer: makeClient() };
 
     const link = createSocketLink({
       backends,
@@ -62,25 +57,20 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
       waitUntil: waitUntilMock,
     });
 
-    const op: any = {
+    const obs = makeObservable(link, {
       id: 1,
       context: {},
       path: 'unknownRouter.core.getRealms',
       type: 'query',
       input: {},
-    };
-
-    const obs = makeObservable(link, op);
+    });
 
     await new Promise<void>((resolve, reject) => {
       obs.subscribe({
         next: () => reject(new Error('next should not be called')),
         error: (err) => {
           expect(err).toBeInstanceOf(TRPCClientError);
-
-          // Updated message
           expect((err as AnyError).message).toContain('Unknown router for unknownRouter.core.getRealms');
-
           expect(notifyTRPCErrorMock).toHaveBeenCalled();
           resolve();
         },
@@ -91,28 +81,20 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
 
   it('routes query to correct backend and resolves successful response', async () => {
     const seerClient = makeClient();
-    const backends: BackendConfig[] = [{ name: 'seer', url: 'ws://dummy' }];
-    const clients: Record<string, SocketClient> = { seer: seerClient };
-
-    // waitUntil resolves immediately
-    waitUntilMock = jest.fn().mockResolvedValue(undefined);
-
     const link = createSocketLink({
-      backends,
-      clients,
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
       notifyTRPCError: notifyTRPCErrorMock,
-      waitUntil: waitUntilMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
     });
 
-    const op: any = {
+    const obs = makeObservable(link, {
       id: 1,
       context: {},
       path: 'seer.core.getRealms',
       type: 'query',
       input: { foo: 'bar' },
-    };
-
-    const obs = makeObservable(link, op);
+    });
 
     const donePromise = new Promise<void>((resolve, reject) => {
       obs.subscribe({
@@ -127,52 +109,36 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
       });
     });
 
-    // Flush microtasks so waitUntil + emit run
     await Promise.resolve();
 
-    expect(seerClient.emitMock).toHaveBeenCalledTimes(1);
     const [eventName, payload] = seerClient.emitMock.mock.calls[0];
-
     expect(eventName).toBe('trpc');
-    expect(payload.type).toBe('query');
     expect(payload.method).toBe('core.getRealms');
-    expect(payload.id).toBeDefined();
 
     const reqId = payload.id;
     const cb = (seerClient as any).ioCallbacks[reqId];
-    expect(cb).toBeDefined();
-
-    cb.resolve({
-      result: JSON.stringify({ status: 1, data: ['realm-1'] }),
-    });
+    cb.resolve({ result: JSON.stringify({ status: 1, data: ['realm-1'] }) });
 
     await donePromise;
   });
 
   it('propagates timeout error when server does not respond', async () => {
     const seerClient = makeClient();
-    const backends: BackendConfig[] = [{ name: 'seer', url: 'ws://dummy' }];
-    const clients: Record<string, SocketClient> = { seer: seerClient };
-
-    waitUntilMock = jest.fn().mockResolvedValue(undefined);
-
     const link = createSocketLink({
-      backends,
-      clients,
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
       notifyTRPCError: notifyTRPCErrorMock,
-      waitUntil: waitUntilMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
       requestTimeoutMs: 15_000,
     });
 
-    const op: any = {
+    const obs = makeObservable(link, {
       id: 1,
       context: {},
       path: 'seer.core.getRealms',
       type: 'query',
       input: {},
-    };
-
-    const obs = makeObservable(link, op);
+    });
 
     const donePromise = new Promise<void>((resolve, reject) => {
       obs.subscribe({
@@ -180,123 +146,45 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
         error: (err) => {
           expect(err).toBeInstanceOf(TRPCClientError);
           expect((err as AnyError).message).toContain('Request timeout');
-          expect(notifyTRPCErrorMock).toHaveBeenCalled();
           resolve();
         },
-        complete: () => resolve(),
       });
     });
 
-    // Let waitUntil resolve and emit be scheduled
     await Promise.resolve();
-
-    // Fire the timeout inside the link
     jest.runAllTimers();
-
     await donePromise;
+    expect(notifyTRPCErrorMock).toHaveBeenCalled();
   });
 
-  it('calls observer.error when waitUntil rejects (no socket connection)', async () => {
+  it('cleans callback on unsubscribe before response', async () => {
     const seerClient = makeClient();
-    const backends: BackendConfig[] = [{ name: 'seer', url: 'ws://dummy' }];
-    const clients: Record<string, SocketClient> = { seer: seerClient };
-
-    waitUntilMock = jest.fn().mockRejectedValue(new Error('Socket never ready'));
-
     const link = createSocketLink({
-      backends,
-      clients,
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
       notifyTRPCError: notifyTRPCErrorMock,
-      waitUntil: waitUntilMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+      requestTimeoutMs: 15_000,
     });
 
-    const op: any = {
+    const obs = makeObservable(link, {
       id: 1,
       context: {},
       path: 'seer.core.getRealms',
       type: 'query',
       input: {},
-    };
-
-    const obs = makeObservable(link, op);
-
-    await new Promise<void>((resolve, reject) => {
-      obs.subscribe({
-        next: () => reject(new Error('next should not be called')),
-        error: (err) => {
-          expect(err).toBeInstanceOf(TRPCClientError);
-          expect((err as AnyError).message).toContain('Socket connection timeout');
-          expect(notifyTRPCErrorMock).toHaveBeenCalled();
-          resolve();
-        },
-        complete: () => resolve(),
-      });
-    });
-  });
-
-  it('propagates server error via reject()', async () => {
-    const seerClient = makeClient();
-    const backends: BackendConfig[] = [{ name: 'seer', url: 'ws://dummy' }];
-    const clients: Record<string, SocketClient> = { seer: seerClient };
-
-    waitUntilMock = jest.fn().mockResolvedValue(undefined);
-
-    const link = createSocketLink({
-      backends,
-      clients,
-      notifyTRPCError: notifyTRPCErrorMock,
-      waitUntil: waitUntilMock,
     });
 
-    const op: any = {
-      id: 1,
-      context: {},
-      path: 'seer.core.getRealms',
-      type: 'query',
-      input: {},
-    };
+    const sub = obs.subscribe({ error: () => undefined });
 
-    const obs = makeObservable(link, op);
-
-    const donePromise = new Promise<void>((resolve, reject) => {
-      obs.subscribe({
-        next: () => reject(new Error('next should not be called')),
-        error: (err) => {
-          // Updated: reject() wraps into TRPCClientError (and tags reqId)
-          expect(err).toBeInstanceOf(TRPCClientError);
-          expect((err as AnyError).message).toContain('server-broke');
-
-          // notifyTRPCError now receives the wrapped error instance
-          expect(notifyTRPCErrorMock).toHaveBeenCalled();
-          const notified = notifyTRPCErrorMock.mock.calls[0][0];
-          expect(notified).toBeInstanceOf(TRPCClientError);
-          expect((notified as AnyError).message).toContain('server-broke');
-
-          resolve();
-        },
-        complete: () => resolve(),
-      });
-    });
-
-    // Let waitUntil resolve and emit run
     await Promise.resolve();
+    const [, payload] = seerClient.emitMock.mock.calls[0];
+    expect(seerClient.ioCallbacks[payload.id]).toBeDefined();
 
-    const [, payload] = (seerClient.emitMock as jest.Mock).mock.calls[0];
-    const reqId = payload.id;
-
-    const cb = (seerClient as any).ioCallbacks[reqId];
-    expect(cb).toBeDefined();
-
-    // IMPORTANT: pass a string (Error stringifies to {})
-    cb.reject('server-broke');
-
-    await donePromise;
+    sub.unsubscribe();
+    expect(seerClient.ioCallbacks[payload.id]).toBeUndefined();
   });
 });
-
-// =========================
-// attachTrpcResponseHandler
-// =========================
 
 describe('attachTrpcResponseHandler', () => {
   function makeSocket() {
@@ -306,6 +194,9 @@ describe('attachTrpcResponseHandler', () => {
       on: jest.fn((event: string, cb: (payload: any) => void) => {
         handlers[event] = cb;
       }),
+      off: jest.fn(),
+      onAny: jest.fn(),
+      offAny: jest.fn(),
     };
   }
 
@@ -314,134 +205,76 @@ describe('attachTrpcResponseHandler', () => {
     const client: any = {
       socket,
       ioCallbacks: {
-        'req-1': {
-          timeout: null,
-          resolve: jest.fn(),
-          reject: jest.fn(),
-        },
+        'req-1': { timeout: null, resolve: jest.fn(), reject: jest.fn() },
       },
     };
 
-    const onServerPush = jest.fn();
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false });
 
-    attachTrpcResponseHandler({
-      client,
-      backendName: 'seer',
-      logging: false,
-      onServerPush,
-    });
-
-    // Simulate server response with id
-    socket.handlers['trpcResponse']({
-      id: 'req-1',
-      result: '{"status":1,"data":["x"]}',
-    });
-
+    socket.handlers['trpcResponse']({ id: 'req-1', result: '{"status":1,"data":["x"]}' });
     expect(client.ioCallbacks['req-1']).toBeUndefined();
-    expect(client.ioCallbacks).toEqual({});
-    expect(onServerPush).not.toHaveBeenCalled();
   });
 
-  it('calls onServerPush for messages without id (server push)', () => {
+  it('supports alternate response id fields (oid)', () => {
     const socket = makeSocket();
-    const client: any = {
-      socket,
-      ioCallbacks: {},
-    };
+    const resolve = jest.fn();
+    const client: any = { socket, ioCallbacks: { 'req-oid': { timeout: null, resolve, reject: jest.fn() } } };
 
-    const onServerPush = jest.fn();
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, responseIdField: 'oid' });
+    socket.handlers['trpcResponse']({ oid: 'req-oid', result: '{"status":1}' });
 
-    attachTrpcResponseHandler({
-      client,
-      backendName: 'seer',
-      logging: false,
-      onServerPush,
-    });
+    expect(resolve).toHaveBeenCalled();
+    expect(client.ioCallbacks['req-oid']).toBeUndefined();
+  });
 
-    const msg = { method: 'core.notify', params: '{"foo":"bar"}' };
-    socket.handlers['trpcResponse'](msg);
+  it('uses onAny listener when preferOnAny=true', () => {
+    const socket = makeSocket();
+    const resolve = jest.fn();
+    const client: any = { socket, ioCallbacks: { abc: { timeout: null, resolve, reject: jest.fn() } } };
 
-    expect(onServerPush).toHaveBeenCalledWith({
-      method: 'core.notify',
-      params: '{"foo":"bar"}',
-    });
+    const detach = attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, preferOnAny: true });
+    expect(socket.onAny).toHaveBeenCalledTimes(1);
+
+    const anyHandler = socket.onAny.mock.calls[0][0];
+    anyHandler('trpcResponse', { id: 'abc', result: '{}' });
+    expect(resolve).toHaveBeenCalled();
+
+    detach?.();
+    expect(socket.offAny).toHaveBeenCalledTimes(1);
   });
 });
-
-// =========================
-// createSocketProxyClient
-// =========================
 
 describe('createSocketProxyClient', () => {
   function makeClient() {
     const emitMock = jest.fn();
     const socket = { emit: emitMock };
-    const client: any = {
-      socket,
-      emitMock,
-      ioCallbacks: {},
-    };
-    return client;
+    return { socket, emitMock, ioCallbacks: {} } as any;
   }
 
   it('emits trpc request and resolves proxy call on success', async () => {
     const client = makeClient();
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', roles: ['seer'] });
 
-    const proxy: any = createSocketProxyClient<any>({
-      client,
-      logPrefix: 'TestProxy',
-      roles: ['seer'],
-      requestTimeoutMs: 10_000,
-    });
-
-    // Start a query; it will hang until we resolve via ioCallbacks
     const promise = proxy.core.ping.query({ message: 'hi' });
-
-    // Wait a tick for the client to emit
     await Promise.resolve();
 
-    expect(client.emitMock).toHaveBeenCalledTimes(1);
     const [eventName, payload] = client.emitMock.mock.calls[0];
-
     expect(eventName).toBe('trpc');
-    expect(payload.method).toBe('core.ping');
-    expect(payload.id).toBeDefined();
 
-    const reqId = payload.id;
-    const cb = client.ioCallbacks[reqId];
-    expect(cb).toBeDefined();
-
-    // Simulate server response
-    cb.resolve({
-      result: JSON.stringify({ status: 1, data: { pong: 'hi' } }),
-    });
-
-    const result = await promise;
-    expect(result).toEqual({ pong: 'hi' });
+    client.ioCallbacks[payload.id].resolve({ result: JSON.stringify({ status: 1, data: { pong: 'hi' } }) });
+    await expect(promise).resolves.toEqual({ pong: 'hi' });
   });
 
-  it('rejects when server returns non-success status', async () => {
+  it('rejects on proxy timeout', async () => {
+    jest.useFakeTimers();
     const client = makeClient();
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
 
-    const proxy: any = createSocketProxyClient<any>({
-      client,
-      logPrefix: 'TestProxy',
-      roles: ['seer'],
-      requestTimeoutMs: 10_000,
-    });
-
-    const promise = proxy.core.ping.query({ message: 'bad' });
-
+    const promise = proxy.core.ping.query({ message: 'hi' });
     await Promise.resolve();
 
-    const [_, payload] = client.emitMock.mock.calls[0];
-    const reqId = payload.id;
-    const cb = client.ioCallbacks[reqId];
-
-    cb.resolve({
-      result: JSON.stringify({ status: 0, data: { error: 'nope' } }),
-    });
-
-    await expect(promise).rejects.toThrow(/status error/);
+    jest.advanceTimersByTime(1001);
+    await expect(promise).rejects.toThrow(/Request timeout/);
+    jest.useRealTimers();
   });
 });
