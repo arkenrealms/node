@@ -116,6 +116,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(deserialize(payload.result).status).toBe(0);
   });
 
+  it('emits a clear error for blank-string methods', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-blank-method', method: '   ', params: serialize({}) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-blank-method');
+    expect(payload.error).toContain('Missing or invalid tRPC method');
+    expect(deserialize(payload.result).status).toBe(0);
+  });
+
   it('emits status 0 when params payload cannot be deserialized', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();

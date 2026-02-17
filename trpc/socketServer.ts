@@ -37,7 +37,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
 
     const { id, method, params } = message as { id?: string; method?: string; params?: any };
 
-    if (!method || typeof method !== 'string') {
+    if (!method || typeof method !== 'string' || !method.trim()) {
       socket.emit('trpcResponse', {
         id,
         result: serialize({ status: 0 }),
