@@ -274,6 +274,37 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
     await donePromise;
     expect(seerClient.ioCallbacks[reqId]).toBeUndefined();
   });
+
+  it('handles immediate synchronous responses emitted in the same tick', async () => {
+    const seerClient = makeClient();
+    seerClient.emitMock.mockImplementation((eventName: string, payload: any) => {
+      if (eventName !== 'trpc') return;
+      seerClient.ioCallbacks[payload.id]?.resolve({ result: JSON.stringify({ status: 1, data: ['realm-sync'] }) });
+    });
+
+    const link = createSocketLink({
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
+      notifyTRPCError: notifyTRPCErrorMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+    });
+
+    const obs = makeObservable(link, {
+      id: 1,
+      context: {},
+      path: 'seer.core.getRealms',
+      type: 'query',
+      input: {},
+    });
+
+    await new Promise<void>((resolve, reject) => {
+      obs.subscribe({
+        next: (val: any) => expect(val.result).toEqual({ status: 1, data: ['realm-sync'] }),
+        error: reject,
+        complete: resolve,
+      });
+    });
+  });
 });
 
 describe('attachTrpcResponseHandler', () => {
@@ -412,5 +443,16 @@ describe('createSocketProxyClient', () => {
 
     await expect(promise).rejects.toBeInstanceOf(TRPCClientError);
     expect(client.ioCallbacks[reqId]).toBeUndefined();
+  });
+
+  it('handles immediate synchronous proxy responses emitted in the same tick', async () => {
+    const client = makeClient();
+    client.emitMock.mockImplementation((eventName: string, payload: any) => {
+      if (eventName !== 'trpc') return;
+      client.ioCallbacks[payload.id]?.resolve({ result: JSON.stringify({ status: 1, data: { pong: 'sync' } }) });
+    });
+
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
+    await expect(proxy.core.ping.query({ message: 'hi' })).resolves.toEqual({ pong: 'sync' });
   });
 });

@@ -138,22 +138,13 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
           const method = op.path.replace(`${routerName}.`, '');
           const { input } = op;
 
-          client.socket.emit('trpc', {
-            id: uuid,
-            method,
-            type: op.type,
-            params: serialize(input),
-          });
-
-          const timeout = setTimeout(() => {
-            settleError(new TRPCClientError<any>(`Request timeout: ${uuid} ${method} ${op.type}`));
-          }, requestTimeoutMs);
+          let timeout: ReturnType<typeof setTimeout> | undefined;
 
           client.ioCallbacks[uuid] = {
             timeout,
             resolve: (response: any) => {
               if (isSettled) return;
-              clearTimeout(timeout);
+              if (timeout) clearTimeout(timeout);
 
               if (response?.error) {
                 settleError(response.error, response?.id ?? uuid);
@@ -171,10 +162,22 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
               }
             },
             reject: (error: any) => {
-              clearTimeout(timeout);
+              if (timeout) clearTimeout(timeout);
               settleError(error, uuid);
             },
           };
+
+          timeout = setTimeout(() => {
+            settleError(new TRPCClientError<any>(`Request timeout: ${uuid} ${method} ${op.type}`));
+          }, requestTimeoutMs);
+          client.ioCallbacks[uuid].timeout = timeout;
+
+          client.socket.emit('trpc', {
+            id: uuid,
+            method,
+            type: op.type,
+            params: serialize(input),
+          });
         };
 
         void run();
@@ -299,21 +302,16 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
             }
 
             const request = { id: uuid, method: op.path, type: op.type, params: serialize(input) };
-
-            client.ioCallbacks[uuid] = client.ioCallbacks[uuid] || {};
-            client.ioCallbacks[uuid].request = request;
-            client.socket.emit('trpc', request);
-
-            const timeout = setTimeout(() => {
-              delete client.ioCallbacks[uuid];
-              observer.error(new TRPCClientError<any>(`${logPrefix}: Request timeout`) as any);
-            }, requestTimeoutMs);
+            let timeout: ReturnType<typeof setTimeout> | undefined;
+            let isSettled = false;
 
             client.ioCallbacks[uuid] = {
-              ...(client.ioCallbacks[uuid] || {}),
+              request,
               timeout,
               resolve: (pack: any) => {
-                clearTimeout(timeout);
+                if (isSettled) return;
+                isSettled = true;
+                if (timeout) clearTimeout(timeout);
 
                 if (pack?.error) {
                   const baseErr = asTrpcClientError(pack.error, `${logPrefix}: Request failed`) as any;
@@ -356,7 +354,9 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
                 }
               },
               reject: (error: any) => {
-                clearTimeout(timeout);
+                if (isSettled) return;
+                isSettled = true;
+                if (timeout) clearTimeout(timeout);
 
                 const err: any = asTrpcClientError(error, `${logPrefix}: Request failed`);
                 err.data = {
@@ -369,9 +369,18 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
               },
             };
 
+            timeout = setTimeout(() => {
+              if (isSettled) return;
+              isSettled = true;
+              delete client.ioCallbacks[uuid];
+              observer.error(new TRPCClientError<any>(`${logPrefix}: Request timeout`) as any);
+            }, requestTimeoutMs);
+            client.ioCallbacks[uuid].timeout = timeout;
+            client.socket.emit('trpc', request);
+
             return () => {
               if (client.ioCallbacks[uuid]) {
-                clearTimeout(timeout);
+                if (timeout) clearTimeout(timeout);
                 delete client.ioCallbacks[uuid];
               }
             };

@@ -12,5 +12,5 @@
 
 ## Protocol/Test focus
 - Prioritize transport, serialization, timeout, and error-handling paths where applicable.
-- Expanded edge coverage for ID-collision prevention, late responses, malformed payload permutations, and deserialize-failure behavior with reqId metadata checks.
+- Expanded edge coverage for ID-collision prevention, late responses, malformed payload permutations, deserialize-failure behavior with reqId metadata checks, and immediate same-tick response races.
 - Ensure tests cover new/changed protocol behavior and edge cases.
