@@ -9,6 +9,8 @@
 ## Key files
 - `temp/shrinkwrap-deps.json`
   - Large dependency integrity map spanning runtime, test, and toolchain packages.
+- `temp/{README.md,ANALYSIS.md}`
+  - Generated-artifact ownership notes and lock-integrity guardrails for maintainers.
 
 ## Risks
 - Stale temp metadata can create nondeterministic local dependency state.
