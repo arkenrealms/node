@@ -13,7 +13,11 @@ export interface SocketTrpcHandlerOptions<TRouter extends AnyRouter = AnyRouter>
 }
 
 function resolveTarget(caller: any, method: string) {
-  return method.split('.').reduce<any>((acc, key) => (acc == null ? undefined : acc[key]), caller);
+  return method.split('.').reduce<any>((acc, key) => {
+    if (acc == null) return undefined;
+    if (key === '__proto__' || key === 'prototype' || key === 'constructor') return undefined;
+    return acc[key];
+  }, caller);
 }
 
 export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({

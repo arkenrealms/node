@@ -18,6 +18,7 @@
 - Response-id parsing now rejects non-string/blank IDs to avoid accidental callback correlation on malformed envelopes.
 - Server handler now treats blank-string request methods as invalid at envelope validation time (same class as missing/non-string methods), reducing ambiguous downstream dispatch failures.
 - Server handler now trims valid method strings before target resolution, making surrounding-whitespace envelopes tolerant while preserving invalid blank-method rejection.
+- Method target resolution now blocks `__proto__`/`prototype`/`constructor` path segments to avoid prototype-chain handler invocation while preserving valid caller traversal semantics.
 - Callback lookup now requires own-property matches in `ioCallbacks`, preventing inherited prototype keys (e.g. `toString`) from being treated as active callbacks.
 - Proxy timeout rejections now attach `reqId` metadata for parity with other transport error paths and easier distributed tracing.
 - Server-push payload decode is now fail-soft (warn + undefined params) so malformed params do not crash handler flow.
