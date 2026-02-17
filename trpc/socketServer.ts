@@ -12,10 +12,19 @@ export interface SocketTrpcHandlerOptions<TRouter extends AnyRouter = AnyRouter>
   log?: (...args: any[]) => void;
 }
 
+function isBlockedMethodPathSegment(segment: string) {
+  return segment === '__proto__' || segment === 'prototype' || segment === 'constructor';
+}
+
 function resolveTarget(caller: any, method: string) {
-  return method.split('.').reduce<any>((acc, key) => {
+  const segments = method.split('.');
+
+  if (segments.some((segment) => !segment || isBlockedMethodPathSegment(segment))) {
+    return undefined;
+  }
+
+  return segments.reduce<any>((acc, key) => {
     if (acc == null) return undefined;
-    if (key === '__proto__' || key === 'prototype' || key === 'constructor') return undefined;
     return acc[key];
   }, caller);
 }

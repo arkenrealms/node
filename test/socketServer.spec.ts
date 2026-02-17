@@ -165,6 +165,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(payload.error).toContain('TRPC handler does not exist for method: __proto__.toString');
   });
 
+  it('rejects methods with empty path segments', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-empty-segment', method: 'core..ping', params: serialize({ message: 'x' }) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-empty-segment');
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('TRPC handler does not exist for method: core..ping');
+  });
+
   it('attachSocketTrpcListener binds and unbinds listeners', async () => {
     const socket = makeFakeSocket();
     const fn = jest.fn(async () => undefined);
