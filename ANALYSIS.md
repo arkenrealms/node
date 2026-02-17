@@ -5,7 +5,7 @@ Core Node SDK/runtime utility package for Arken protocol, data handling, and gam
 
 ## Child context summary (current)
 - `trpc/`: socket transport wrappers for tRPC request/response lifecycle (actively hardened).
-- `test/`: protocol-focused tests for socket client/server wrappers.
+- `test/`: protocol-focused tests for socket client/server wrappers (including listener-API safety checks for sockets missing `on`/`off`).
 - `legacy/`: backward-compatibility layer for historical game/content/contract metadata.
 - `time/`: shared scheduling/time utilities used across runtime paths.
 - `data/`: bundled artifacts and ZK-related support assets.

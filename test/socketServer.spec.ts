@@ -106,4 +106,17 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     detach();
     expect(socket.handlers.trpc).toBeUndefined();
   });
+
+  it('attachSocketTrpcListener is safe with sockets missing on/off hooks', () => {
+    const fn = jest.fn(async () => undefined);
+    const socketWithoutListeners = {
+      emit() {
+        return undefined;
+      },
+    };
+
+    const detach = attachSocketTrpcListener({ socket: socketWithoutListeners, ctx: {}, handleSocketTrpc: fn });
+    expect(() => detach()).not.toThrow();
+    expect(fn).toHaveBeenCalledTimes(0);
+  });
 });
