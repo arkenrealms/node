@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/data/items.type.ts
+
 export enum ItemsBonusType {
   FIRE = 'fire',
   SWIMMING = 'swimming',

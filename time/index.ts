@@ -1,3 +1,5 @@
+// arken/packages/node/time/index.ts
+
 import _date from './date';
 import _now from './now';
 import _fancyTimeFormat from './fancyTimeFormat';
