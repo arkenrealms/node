@@ -79,6 +79,14 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
         }
 
         const client = clients[routerName];
+        if (!client?.socket?.emit) {
+          const err = new TRPCClientError<any>(`Socket client unavailable for router ${routerName}`);
+          notifyTRPCError(err);
+          observer.error(err);
+          observer.complete();
+          return;
+        }
+
         const uuid = generateShortId();
         let isSettled = false;
 
@@ -323,6 +331,13 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
                 observer.error(err as any);
                 delete client.ioCallbacks[uuid];
               },
+            };
+
+            return () => {
+              if (client.ioCallbacks[uuid]) {
+                clearTimeout(timeout);
+                delete client.ioCallbacks[uuid];
+              }
             };
           }),
     ],
