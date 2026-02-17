@@ -17,6 +17,7 @@ Core Node SDK/runtime utility package for Arken protocol, data handling, and gam
 - `coverage/`: generated LCOV/Clover/JSON coverage artifacts; useful diagnostics but should remain generated-only to avoid noisy/manual drift (now documented with local `coverage/{README.md,ANALYSIS.md}`).
 - `websocket.ts`: lightweight socket helper exposing `emitAll`/`emitDirect` and `getClientSocket`; currently uses untyped emitter params and no explicit reconnect/backoff policy controls at this utility boundary.
 - `api.ts`: query-to-Mongo filter adapter (`getFilter`) and HTTP POST helper (`fetch`) used for dynamic filtering and remote query dispatch.
+- `util.ts`: currently re-exports from `'.'`, creating a circular/umbrella alias surface that can obscure intended subpath ownership.
 - root build/test config (`package.json`, `tsconfig*.json`, `jest.unit.config.js`): defines compile/test pipeline, export surface, and strictness defaults for the whole package.
 
 ## Omniverse architecture perspective
@@ -31,6 +32,7 @@ This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (
 - Utility modules (time/task queue) need production-grade control surfaces.
 - `api.ts` filter translation relies on loose `any` query shapes and dynamic regex construction, creating contract-drift and query-performance risk without targeted tests.
 - Root TS/Jest config remains intentionally permissive (`strict: false`, `noImplicitAny: false`, broad coverage collection), which can hide contract drift and inflate test-runtime cost.
+- `util.ts` wildcard re-export from package root can blur module boundaries and increase accidental circular import/export behavior during build refactors.
 
 ## Follow-ups
 - Continue bottom-up analysis for remaining leaf folders before refining parent summaries further.
@@ -38,3 +40,4 @@ This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (
 - Expand folder README/ANALYSIS coverage with explicit cross-folder dependency notes.
 - Add focused tests for `api.ts` `getFilter` semantics (`OR`/`AND` nesting, id/_id mapping, empty-contains no-op, and regex escaping).
 - Add build/test config guard checks (export-map path validity and duplicate include-path cleanup) to reduce packaging drift.
+- Clarify `util.ts` ownership intent (keep alias intentionally or replace with explicit utility exports) and add a smoke test for subpath import behavior.
