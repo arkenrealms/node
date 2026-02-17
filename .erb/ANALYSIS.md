@@ -7,7 +7,9 @@
 - Electron React Boilerplate scaffolding asset directory.
 
 ## Key files
+- `README.md`
 - `img/logo.png`
+- `img/{README.md,ANALYSIS.md}`
 
 ## Risks
 - Asset/template drift may affect local scaffolded UI consistency.
