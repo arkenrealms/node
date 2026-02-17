@@ -81,6 +81,17 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(deserialize(payload.result).status).toBe(0);
   });
 
+  it('emits a clear error when binary payload decoding fails', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, 'not-binary-json');
+
+    const { payload } = socket.emitted[0];
+    expect(payload.error).toContain('Malformed socket tRPC payload');
+    expect(deserialize(payload.result).status).toBe(0);
+  });
+
   it('emits a clear error for missing methods', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();
