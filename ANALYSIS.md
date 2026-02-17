@@ -14,7 +14,7 @@ Core Node SDK/runtime utility package for Arken protocol, data handling, and gam
 - `types/`: ambient declaration augmentations (`mongoose` query `asJSON`) with compile-time drift risk tied to upstream generic signatures.
 - `.rush/`: Rush cache metadata (`temp/shrinkwrap-deps.json`) that affects dependency determinism and lock reconciliation; temp leaf now includes concise `README.md` + `ANALYSIS.md` guardrails.
 - `.erb/`: documentation/scaffolding branding assets (currently `img/logo.png`) with low runtime risk but potential UX drift if assets are changed ad hoc.
-- `coverage/`: generated LCOV + HTML artifacts; useful diagnostics but should remain generated-only to avoid noisy/manual drift.
+- `coverage/`: generated LCOV/Clover/JSON coverage artifacts; useful diagnostics but should remain generated-only to avoid noisy/manual drift (now documented with local `coverage/{README.md,ANALYSIS.md}`).
 - `websocket.ts`: lightweight socket helper exposing `emitAll`/`emitDirect` and `getClientSocket`; currently uses untyped emitter params and no explicit reconnect/backoff policy controls at this utility boundary.
 - `api.ts`: query-to-Mongo filter adapter (`getFilter`) and HTTP POST helper (`fetch`) used for dynamic filtering and remote query dispatch.
 - root build/test config (`package.json`, `tsconfig*.json`, `jest.unit.config.js`): defines compile/test pipeline, export surface, and strictness defaults for the whole package.
