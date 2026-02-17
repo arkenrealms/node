@@ -16,6 +16,7 @@ Core Node SDK/runtime utility package for Arken protocol, data handling, and gam
 - `.erb/`: documentation/scaffolding branding assets (currently `img/logo.png`) with low runtime risk but potential UX drift if assets are changed ad hoc.
 - `websocket.ts`: lightweight socket helper exposing `emitAll`/`emitDirect` and `getClientSocket`; currently uses untyped emitter params and no explicit reconnect/backoff policy controls at this utility boundary.
 - `api.ts`: query-to-Mongo filter adapter (`getFilter`) and HTTP POST helper (`fetch`) used for dynamic filtering and remote query dispatch.
+- root build/test config (`package.json`, `tsconfig*.json`, `jest.unit.config.js`): defines compile/test pipeline, export surface, and strictness defaults for the whole package.
 
 ## Omniverse architecture perspective
 This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (multi-game runtime + launcher/liveops integrations). Reliability priorities are:
@@ -28,9 +29,11 @@ This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (
 - Generated data and runtime assumptions need stronger schema/test guardrails.
 - Utility modules (time/task queue) need production-grade control surfaces.
 - `api.ts` filter translation relies on loose `any` query shapes and dynamic regex construction, creating contract-drift and query-performance risk without targeted tests.
+- Root TS/Jest config remains intentionally permissive (`strict: false`, `noImplicitAny: false`, broad coverage collection), which can hide contract drift and inflate test-runtime cost.
 
 ## Follow-ups
 - Continue bottom-up analysis for remaining leaf folders before refining parent summaries further.
 - Add protocol edge-case tests (id collisions, late responses, malformed payload permutations).
 - Expand folder README/ANALYSIS coverage with explicit cross-folder dependency notes.
 - Add focused tests for `api.ts` `getFilter` semantics (`OR`/`AND` nesting, id/_id mapping, empty-contains no-op, and regex escaping).
+- Add build/test config guard checks (export-map path validity and duplicate include-path cleanup) to reduce packaging drift.
