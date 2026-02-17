@@ -397,7 +397,13 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
               if (isSettled) return;
               isSettled = true;
               delete client.ioCallbacks[uuid];
-              observer.error(new TRPCClientError<any>(`${logPrefix}: Request timeout`) as any);
+
+              const timeoutErr = new TRPCClientError<any>(`${logPrefix}: Request timeout`) as any;
+              timeoutErr.data = {
+                ...(timeoutErr.data || {}),
+                reqId: uuid,
+              };
+              observer.error(timeoutErr as any);
             }, requestTimeoutMs);
             client.ioCallbacks[uuid].timeout = timeout;
             client.socket.emit('trpc', request);

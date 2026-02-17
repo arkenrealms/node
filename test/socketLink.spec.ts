@@ -662,7 +662,7 @@ describe('createSocketProxyClient', () => {
     await expect(promise).resolves.toEqual({ pong: 'hi' });
   });
 
-  it('rejects on proxy timeout', async () => {
+  it('rejects on proxy timeout and preserves reqId metadata', async () => {
     jest.useFakeTimers();
     const client = makeClient();
     const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
@@ -670,8 +670,14 @@ describe('createSocketProxyClient', () => {
     const promise = proxy.core.ping.query({ message: 'hi' });
     await Promise.resolve();
 
+    const [, payload] = client.emitMock.mock.calls[0];
+
     jest.advanceTimersByTime(1001);
-    await expect(promise).rejects.toThrow(/Request timeout/);
+
+    await expect(promise).rejects.toMatchObject({
+      message: expect.stringMatching(/Request timeout/),
+      data: expect.objectContaining({ reqId: payload.id }),
+    });
     jest.useRealTimers();
   });
 
