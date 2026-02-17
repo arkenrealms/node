@@ -305,6 +305,57 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
       });
     });
   });
+
+  it('settles observer only once for resolve-then-error callback permutations', async () => {
+    const seerClient = makeClient();
+    const link = createSocketLink({
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
+      notifyTRPCError: notifyTRPCErrorMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+    });
+
+    const obs = makeObservable(link, {
+      id: 1,
+      context: {},
+      path: 'seer.core.getRealms',
+      type: 'query',
+      input: {},
+    });
+
+    const next = jest.fn();
+    const error = jest.fn();
+    const complete = jest.fn();
+
+    const donePromise = new Promise<void>((resolve) => {
+      obs.subscribe({
+        next: (val) => next(val),
+        error: (err) => {
+          error(err);
+          resolve();
+        },
+        complete: () => {
+          complete();
+          resolve();
+        },
+      });
+    });
+
+    await Promise.resolve();
+    const [, payload] = seerClient.emitMock.mock.calls[0];
+    const callbackRef = seerClient.ioCallbacks[payload.id];
+
+    callbackRef.resolve({ result: JSON.stringify({ status: 1, data: ['first-win'] }) });
+    expect(() => callbackRef.resolve({ error: { message: 'late-error' } })).not.toThrow();
+    expect(() => callbackRef.reject(new Error('late-reject'))).not.toThrow();
+
+    await donePromise;
+
+    expect(next).toHaveBeenCalledTimes(1);
+    expect(next).toHaveBeenCalledWith({ result: { status: 1, data: ['first-win'] } });
+    expect(complete).toHaveBeenCalledTimes(1);
+    expect(error).not.toHaveBeenCalled();
+  });
 });
 
 describe('attachTrpcResponseHandler', () => {
@@ -587,5 +638,22 @@ describe('createSocketProxyClient', () => {
 
     const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
     await expect(proxy.core.ping.query({ message: 'hi' })).resolves.toEqual({ pong: 'sync' });
+  });
+
+  it('settles proxy request only once for error-then-resolve callback permutations', async () => {
+    const client = makeClient();
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
+
+    const promise = proxy.core.ping.query({ message: 'hi' });
+    await Promise.resolve();
+
+    const [, payload] = client.emitMock.mock.calls[0];
+    const callbackRef = client.ioCallbacks[payload.id];
+
+    callbackRef.resolve({ error: { message: 'first-error' } });
+    expect(() => callbackRef.resolve({ result: JSON.stringify({ status: 1, data: { pong: 'late' } }) })).not.toThrow();
+    expect(() => callbackRef.reject(new Error('late-reject'))).not.toThrow();
+
+    await expect(promise).rejects.toBeInstanceOf(TRPCClientError);
   });
 });
