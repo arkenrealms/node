@@ -92,6 +92,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(deserialize(payload.result).status).toBe(0);
   });
 
+  it('emits a clear error when payload method is non-string', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-bad-method', method: 123 as any, params: serialize({}) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-bad-method');
+    expect(payload.error).toContain('Missing or invalid tRPC method');
+    expect(deserialize(payload.result).status).toBe(0);
+  });
+
   it('emits a clear error for missing methods', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();
