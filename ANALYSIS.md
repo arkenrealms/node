@@ -11,6 +11,7 @@ Core Node SDK/runtime utility package for Arken protocol, data handling, and gam
 - `data/`: bundled artifacts and ZK-related support assets.
 - `web3/`: legacy JSON-RPC provider helper with browser-cache assumptions and hardcoded endpoint selection.
 - `scripts/`: artifact-regeneration utilities (currently ZK `updateLeaf` Groth16 setup flow).
+- `types/`: ambient declaration augmentations (`mongoose` query `asJSON`) with compile-time drift risk tied to upstream generic signatures.
 
 ## Omniverse architecture perspective
 This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (multi-game runtime + launcher/liveops integrations). Reliability priorities are:

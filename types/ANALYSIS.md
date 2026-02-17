@@ -1,15 +1,21 @@
 # arken/packages/node/types/ANALYSIS.md
 
-## Folder
-`arken/packages/node/types`
+## Folder purpose in project context
+Declaration-only compatibility layer for ambient typings used by `@arken/node` runtime code.
 
-## Snapshot
-- Files: 1
-- Subfolders: 0
+## Notable files and responsibilities
+- `mongo.d.ts`
+  - Augments `mongoose` `Query` and `QueryWithHelpers` with `asJSON(): Promise<any>`.
+  - Mirrors Mongoose 8 generic signatures to keep augmentation compile-compatible.
 
-## Notable contents
-- files: mongo.d.ts
+## Protocol / test relevance
+- Indirect protocol relevance: query serialization helpers affect API payload shaping and data-contract expectations.
+- No runtime tests execute this file directly; coverage depends on TypeScript compile/typecheck in consuming modules.
 
-## Protocol/Test focus
-- Prioritize transport, serialization, timeout, and error-handling paths where applicable.
-- Ensure tests cover new/changed protocol behavior and edge cases.
+## Risks / gaps
+- Uses broad `any` return type for `asJSON`, reducing end-to-end type guarantees.
+- Augmentation may silently drift if upstream mongoose generic signatures change.
+
+## Follow-ups
+- [ ] Narrow `asJSON` return typing where concrete serialized document shapes are known.
+- [ ] Add/ensure CI typecheck gate catches future mongoose signature drift.
