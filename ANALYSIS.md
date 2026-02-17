@@ -13,6 +13,7 @@ Core Node SDK/runtime utility package for Arken protocol, data handling, and gam
 - `scripts/`: artifact-regeneration utilities (currently ZK `updateLeaf` Groth16 setup flow).
 - `types/`: ambient declaration augmentations (`mongoose` query `asJSON`) with compile-time drift risk tied to upstream generic signatures.
 - `.rush/`: Rush cache metadata (`temp/shrinkwrap-deps.json`) that affects dependency determinism and lock reconciliation.
+- `websocket.ts`: lightweight socket helper exposing `emitAll`/`emitDirect` and `getClientSocket`; currently uses untyped emitter params and no explicit reconnect/backoff policy controls at this utility boundary.
 
 ## Omniverse architecture perspective
 This package is a foundational SDK layer for a Steam/Battle.net-like ecosystem (multi-game runtime + launcher/liveops integrations). Reliability priorities are:
