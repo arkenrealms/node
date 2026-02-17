@@ -607,6 +607,21 @@ describe('attachTrpcResponseHandler', () => {
 
     expect(onServerPush).not.toHaveBeenCalled();
   });
+
+  it('keeps trpcResponse server-push fallback resilient when params cannot be deserialized', () => {
+    const socket = makeSocket();
+    const onServerPush = jest.fn();
+    const client: any = { socket, ioCallbacks: {} };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, onServerPush });
+
+    expect(() => socket.handlers['trpcResponse']({ id: 'missing-3', method: 'events.tick', params: '{not-json' })).not.toThrow();
+    expect(onServerPush).toHaveBeenCalledWith({
+      id: 'missing-3',
+      method: 'events.tick',
+      params: undefined,
+    });
+  });
 });
 
 describe('createSocketProxyClient', () => {
