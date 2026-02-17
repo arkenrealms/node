@@ -351,11 +351,46 @@ describe('attachTrpcResponseHandler', () => {
     const detach = attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, preferOnAny: true });
     const anyHandler = socket.onAny.mock.calls[0][0];
 
+    anyHandler('trpc', { id: 'abc', result: '{}' });
+    expect(resolve).not.toHaveBeenCalled();
+
     anyHandler('trpcResponse', { id: 'abc', result: '{}' });
     expect(resolve).toHaveBeenCalled();
 
     detach?.();
     expect(socket.offAny).toHaveBeenCalledTimes(1);
+  });
+
+  it('falls back to on/off listeners when preferOnAny=true but onAny is unavailable', () => {
+    const socket = makeSocket();
+    delete (socket as any).onAny;
+    const resolve = jest.fn();
+    const client: any = { socket, ioCallbacks: { abc: { timeout: null, resolve, reject: jest.fn() } } };
+
+    const detach = attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, preferOnAny: true });
+    expect(socket.on).toHaveBeenCalledWith('trpc', expect.any(Function));
+    expect(socket.on).toHaveBeenCalledWith('trpcResponse', expect.any(Function));
+
+    socket.handlers['trpcResponse']({ id: 'abc', result: '{}' });
+    expect(resolve).toHaveBeenCalled();
+
+    detach?.();
+    expect(socket.off).toHaveBeenCalledWith('trpc', expect.any(Function));
+    expect(socket.off).toHaveBeenCalledWith('trpcResponse', expect.any(Function));
+  });
+
+  it('detaches cleanly when preferOnAny=true and offAny is unavailable', () => {
+    const socket = makeSocket();
+    delete (socket as any).offAny;
+    const resolve = jest.fn();
+    const client: any = { socket, ioCallbacks: { abc: { timeout: null, resolve, reject: jest.fn() } } };
+
+    const detach = attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, preferOnAny: true });
+    const anyHandler = socket.onAny.mock.calls[0][0];
+    anyHandler('trpcResponse', { id: 'abc', result: '{}' });
+    expect(resolve).toHaveBeenCalled();
+
+    expect(() => detach?.()).not.toThrow();
   });
 
   it('ignores malformed payload permutations without mutating callbacks', () => {
@@ -416,6 +451,33 @@ describe('attachTrpcResponseHandler', () => {
       method: 'events.tick',
       params: undefined,
     });
+  });
+
+  it('ignores malformed server-push method permutations', () => {
+    const socket = makeSocket();
+    const onServerPush = jest.fn();
+    const client: any = { socket, ioCallbacks: {} };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, onServerPush });
+
+    socket.handlers['trpc']({ method: 0, params: '{}' });
+    socket.handlers['trpc']({ method: '', params: '{}' });
+    socket.handlers['trpc']({ method: '   ', params: '{}' });
+
+    expect(onServerPush).not.toHaveBeenCalled();
+  });
+
+  it('ignores malformed trpcResponse push-method permutations when no callback exists', () => {
+    const socket = makeSocket();
+    const onServerPush = jest.fn();
+    const client: any = { socket, ioCallbacks: {} };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, onServerPush });
+
+    socket.handlers['trpcResponse']({ id: 'missing-1', method: 7, params: '{}' });
+    socket.handlers['trpcResponse']({ id: 'missing-2', method: '', params: '{}' });
+
+    expect(onServerPush).not.toHaveBeenCalled();
   });
 });
 

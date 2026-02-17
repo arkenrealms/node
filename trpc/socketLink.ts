@@ -240,8 +240,9 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
           return;
         }
 
-        if (onServerPush && payload?.method) {
-          const { method, params } = payload;
+        const method = typeof payload?.method === 'string' ? payload.method.trim() : '';
+        if (onServerPush && method) {
+          const { params } = payload;
           onServerPush({ id: parseResponseId(payload) ?? '', method, params: safeDeserialize(params, `server push params for ${method}`) });
           return;
         }
@@ -251,7 +252,10 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
       }
 
       if (onServerPush) {
-        const { method, params } = payload ?? {};
+        const method = typeof payload?.method === 'string' ? payload.method.trim() : '';
+        if (!method) return;
+
+        const { params } = payload ?? {};
         onServerPush({ id: parseResponseId(payload) ?? '', method, params: safeDeserialize(params, `server push params for ${method}`) });
       }
     } catch (e) {
