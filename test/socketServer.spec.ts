@@ -1,4 +1,4 @@
-// /Users/web/.openclaw/workspace-nel/arken/packages/node/test/socketServer.spec.ts
+// arken/packages/node/test/socketServer.spec.ts
 import { initTRPC } from '@trpc/server';
 import { createSocketTrpcHandler, attachSocketTrpcListener } from '../trpc/socketServer';
 import { serialize, deserialize } from '../rpc';

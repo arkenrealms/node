@@ -1,4 +1,4 @@
-// /Users/web/.openclaw/workspace-nel/arken/packages/node/test/socketLink.spec.ts
+// arken/packages/node/test/socketLink.spec.ts
 import {
   createSocketLink,
   attachTrpcResponseHandler,
