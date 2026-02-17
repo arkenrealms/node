@@ -342,7 +342,7 @@ describe('attachTrpcResponseHandler', () => {
     expect(onServerPush).not.toHaveBeenCalled();
   });
 
-  it('calls onServerPush for messages without id (server push)', () => {
+  it('calls onServerPush for messages on the "trpc" event (server push)', () => {
     const socket = makeSocket();
     const client: any = {
       socket,
@@ -358,12 +358,15 @@ describe('attachTrpcResponseHandler', () => {
       onServerPush,
     });
 
-    const msg = { method: 'core.notify', params: '{"foo":"bar"}' };
-    socket.handlers['trpcResponse'](msg);
+    // Server pushes arrive via the 'trpc' event handler, which maps to a
+    // non-'trpcResponse' eventName internally, hitting the else/onServerPush branch.
+    const msg = { method: 'core.notify', params: JSON.stringify({ foo: 'bar' }) };
+    socket.handlers['trpc'](msg);
 
     expect(onServerPush).toHaveBeenCalledWith({
+      id: undefined,
       method: 'core.notify',
-      params: '{"foo":"bar"}',
+      params: { foo: 'bar' },  // deserialize is called on params
     });
   });
 });

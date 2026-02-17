@@ -153,7 +153,6 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
                 observer.error(baseErr as any);
               } else {
                 const result: any = deserialize(response.result);
-                console.log('zzzzzzz', response.result, result);
                 observer.next({ result } as any);
                 observer.complete();
               }
@@ -342,7 +341,6 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
 
                   observer.error(baseErr);
                 } else {
-                  console.log('zzzzzz', pack.result, deserialize(pack.result));
                   const result: any = deserialize(pack.result);
                   if (result?.status !== 1) {
                     const statusErr = new TRPCClientError<any>(

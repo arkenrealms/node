@@ -23,10 +23,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
   const createCaller = createCallerFactory(router);
 
   return async function handleSocketTrpc(socket: any, ctx: any, _message: any) {
-    console.log('message', _message);
-
     const message = typeof _message === 'string' ? decodePayload(_message) : _message;
-    console.log('message', message);
 
     const { id, method, params } = message;
 

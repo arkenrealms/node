@@ -2,7 +2,7 @@
 
 import { initTRPC } from '@trpc/server';
 import { createSocketTrpcHandler } from '../trpc/socketServer';
-import { serialize, deserialize } from '../util/rpc';
+import { serialize, deserialize } from '../rpc';
 
 describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
   const t = initTRPC.context<{ userId?: string }>().create();
