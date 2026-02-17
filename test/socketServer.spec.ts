@@ -93,6 +93,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(deserialize(payload.result).status).toBe(0);
   });
 
+  it('emits status 0 when params payload cannot be deserialized', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-bad-params', method: 'core.ping', params: '{not-json' });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-bad-params');
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('Server error in socket TRPC handler');
+  });
+
   it('attachSocketTrpcListener binds and unbinds listeners', async () => {
     const socket = makeFakeSocket();
     const fn = jest.fn(async () => undefined);
