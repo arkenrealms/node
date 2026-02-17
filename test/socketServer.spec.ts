@@ -128,6 +128,19 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(deserialize(payload.result).status).toBe(0);
   });
 
+  it('accepts valid methods with surrounding whitespace', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, { userId: 'trim-user' }, { id: 'req-trim-method', method: '  core.ping  ', params: serialize({ message: 'trim' }) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-trim-method');
+    const result: any = deserialize(payload.result);
+    expect(result.status).toBe(1);
+    expect(result.data).toEqual({ pong: 'trim', from: 'trim-user' });
+  });
+
   it('emits status 0 when params payload cannot be deserialized', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();

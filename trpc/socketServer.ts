@@ -47,16 +47,18 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
       return;
     }
 
+    const normalizedMethod = method.trim();
+
     try {
       const caller = createCaller(ctx);
-      const target = resolveTarget(caller, method);
+      const target = resolveTarget(caller, normalizedMethod);
 
       if (typeof target !== 'function') {
-        throw new Error(`TRPC handler does not exist for method: ${method}`);
+        throw new Error(`TRPC handler does not exist for method: ${normalizedMethod}`);
       }
 
       const result = params != null ? await target(deserialize(params)) : await target();
-      log('Socket tRPC response', method);
+      log('Socket tRPC response', normalizedMethod);
 
       socket.emit('trpcResponse', { id, result: serialize({ status: 1, data: result }) });
     } catch (error: any) {
@@ -65,7 +67,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
         ? `TRPC handler does not exist: ${stack}`
         : `Server error in socket TRPC handler: ${stack}`;
 
-      log(errorMessage, method, error);
+      log(errorMessage, normalizedMethod, error);
 
       socket.emit('trpcResponse', {
         id,
