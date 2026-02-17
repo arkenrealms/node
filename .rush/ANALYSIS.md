@@ -8,9 +8,11 @@
 
 ## Key files
 - `temp/shrinkwrap-deps.json`
+  - Large dependency integrity map spanning runtime, test, and toolchain packages.
 
 ## Risks
 - Stale temp metadata can create nondeterministic local dependency state.
+- Manual edits to `shrinkwrap-deps.json` can desynchronize lock reconciliation and mask supply-chain drift.
 
 ## Next test/protocol checks
 - Reinstall/regenerate via Rush and verify lock consistency.
