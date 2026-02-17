@@ -60,10 +60,14 @@ function asTrpcClientError(error: unknown, fallbackMessage: string): TRPCClientE
   }
 }
 
+function hasOwnCallback(ioCallbacks: Record<string, any>, id: string): boolean {
+  return Object.prototype.hasOwnProperty.call(ioCallbacks, id);
+}
+
 function allocateRequestId(ioCallbacks: Record<string, any>, maxAttempts = 8): string {
   for (let i = 0; i < maxAttempts; i += 1) {
     const id = generateShortId();
-    if (!ioCallbacks[id]) return id;
+    if (!hasOwnCallback(ioCallbacks, id)) return id;
   }
 
   throw new TRPCClientError<any>('Unable to allocate unique socket request id');
@@ -226,7 +230,7 @@ export function attachTrpcResponseHandler(opts: AttachTrpcResponseHandlerOptions
 
       if (eventName === 'trpcResponse') {
         const id = parseResponseId(payload);
-        const cb = id ? client.ioCallbacks[id] : undefined;
+        const cb = id && hasOwnCallback(client.ioCallbacks, id) ? client.ioCallbacks[id] : undefined;
 
         if (cb) {
           clearTimeout(cb.timeout);

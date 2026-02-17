@@ -522,6 +522,24 @@ describe('attachTrpcResponseHandler', () => {
     expect(client.ioCallbacks.abc).toBeDefined();
   });
 
+  it('does not treat inherited ioCallbacks prototype keys as active callbacks', () => {
+    const socket = makeSocket();
+    const onServerPush = jest.fn();
+    const client: any = {
+      socket,
+      ioCallbacks: {},
+    };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, onServerPush });
+
+    expect(() => socket.handlers['trpcResponse']({ id: 'toString', method: 'events.tick', params: '{}' })).not.toThrow();
+    expect(onServerPush).toHaveBeenCalledWith({
+      id: 'toString',
+      method: 'events.tick',
+      params: {},
+    });
+  });
+
   it('treats late responses as no-op once callback has been removed', () => {
     const socket = makeSocket();
     const client: any = { socket, ioCallbacks: {} };

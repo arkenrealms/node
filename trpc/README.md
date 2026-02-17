@@ -3,7 +3,7 @@
 Socket-based tRPC transport helpers for `@arken/node`.
 
 ## Files
-- `socketLink.ts`: client link + proxy, callback correlation, request ID collision avoidance, same-tick response safety (register callback before emit), timeout/error handling, strict response-id parsing, safe malformed-response/server-push decode handling, method-shape validation for server-push events, optional `onAny` response handling with graceful fallback/teardown guards.
+- `socketLink.ts`: client link + proxy, callback correlation, request ID collision avoidance, same-tick response safety (register callback before emit), timeout/error handling, strict response-id parsing, own-property callback matching (prototype-key safety), safe malformed-response/server-push decode handling, method-shape validation for server-push events, optional `onAny` response handling with graceful fallback/teardown guards.
 - `socketServer.ts`: server-side request handler for `trpc` events and standardized `trpcResponse` envelopes.
 - `NOTES.md`: maintainer notes and protocol hardening backlog.
 
