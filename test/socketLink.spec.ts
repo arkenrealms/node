@@ -373,6 +373,26 @@ describe('attachTrpcResponseHandler', () => {
     expect(client.ioCallbacks.abc).toBeDefined();
   });
 
+  it('ignores non-string or empty response ids and keeps callbacks intact', () => {
+    const socket = makeSocket();
+    const resolve = jest.fn();
+    const client: any = {
+      socket,
+      ioCallbacks: {
+        abc: { timeout: null, resolve, reject: jest.fn() },
+      },
+    };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false });
+
+    socket.handlers['trpcResponse']({ id: 0, result: '{}' });
+    socket.handlers['trpcResponse']({ id: '', result: '{}' });
+    socket.handlers['trpcResponse']({ id: '   ', result: '{}' });
+
+    expect(resolve).not.toHaveBeenCalled();
+    expect(client.ioCallbacks.abc).toBeDefined();
+  });
+
   it('treats late responses as no-op once callback has been removed', () => {
     const socket = makeSocket();
     const client: any = { socket, ioCallbacks: {} };
@@ -381,6 +401,21 @@ describe('attachTrpcResponseHandler', () => {
 
     expect(() => socket.handlers['trpcResponse']({ id: 'late-1', result: '{}' })).not.toThrow();
     expect(client.ioCallbacks['late-1']).toBeUndefined();
+  });
+
+  it('keeps server-push path resilient when params cannot be deserialized', () => {
+    const socket = makeSocket();
+    const onServerPush = jest.fn();
+    const client: any = { socket, ioCallbacks: {} };
+
+    attachTrpcResponseHandler({ client, backendName: 'seer', logging: false, onServerPush });
+
+    expect(() => socket.handlers['trpc']({ method: 'events.tick', params: '{not-json' })).not.toThrow();
+    expect(onServerPush).toHaveBeenCalledWith({
+      id: '',
+      method: 'events.tick',
+      params: undefined,
+    });
   });
 });
 

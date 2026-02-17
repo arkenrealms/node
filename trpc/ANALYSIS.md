@@ -15,4 +15,6 @@
 - Client wrappers now guard against repeated request-ID collisions before emitting.
 - Proxy/client resolve paths now treat malformed response payloads as structured tRPC errors while preserving `reqId` metadata and callback cleanup.
 - Callback registration now occurs before socket emit so immediate same-tick responses are not dropped under low-latency/in-process transport behavior.
+- Response-id parsing now rejects non-string/blank IDs to avoid accidental callback correlation on malformed envelopes.
+- Server-push payload decode is now fail-soft (warn + undefined params) so malformed params do not crash handler flow.
 - Ensure tests cover new/changed protocol behavior and edge cases.
