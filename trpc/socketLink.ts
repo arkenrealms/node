@@ -327,24 +327,33 @@ export function createSocketProxyClient<TRouter = any>(opts: CreateSocketProxyCl
                   return;
                 }
 
-                const result: any = deserialize(pack?.result);
-                if (result?.status !== 1) {
-                  const statusErr = new TRPCClientError<any>(`${logPrefix}: status error ${JSON.stringify(result)}`) as any;
-                  statusErr.data = {
-                    ...(statusErr.data || {}),
+                try {
+                  const result: any = deserialize(pack?.result);
+                  if (result?.status !== 1) {
+                    const statusErr = new TRPCClientError<any>(`${logPrefix}: status error ${JSON.stringify(result)}`) as any;
+                    statusErr.data = {
+                      ...(statusErr.data || {}),
+                      reqId: pack?.id ?? uuid,
+                    };
+                    observer.error(statusErr);
+                  } else {
+                    observer.next({
+                      result: {
+                        data: result?.data ?? result,
+                      },
+                    } as any);
+                    observer.complete();
+                  }
+                } catch (error) {
+                  const deserializeErr = asTrpcClientError(error, `${logPrefix}: invalid response payload`) as any;
+                  deserializeErr.data = {
+                    ...(deserializeErr.data || {}),
                     reqId: pack?.id ?? uuid,
                   };
-                  observer.error(statusErr);
-                } else {
-                  observer.next({
-                    result: {
-                      data: result?.data ?? result,
-                    },
-                  } as any);
-                  observer.complete();
+                  observer.error(deserializeErr);
+                } finally {
+                  delete client.ioCallbacks[uuid];
                 }
-
-                delete client.ioCallbacks[uuid];
               },
               reject: (error: any) => {
                 clearTimeout(timeout);

@@ -238,6 +238,42 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
 
     expect(seerClient.emitMock).not.toHaveBeenCalled();
   });
+
+  it('propagates deserialize failures and includes reqId metadata', async () => {
+    const seerClient = makeClient();
+    const link = createSocketLink({
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
+      notifyTRPCError: notifyTRPCErrorMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+    });
+
+    const obs = makeObservable(link, {
+      id: 1,
+      context: {},
+      path: 'seer.core.getRealms',
+      type: 'query',
+      input: {},
+    });
+
+    const donePromise = new Promise<void>((resolve) => {
+      obs.subscribe({
+        error: (err) => {
+          expect((err as AnyError).message.length).toBeGreaterThan(0);
+          expect((err as any).data?.reqId).toBe('wire-id-1');
+          resolve();
+        },
+      });
+    });
+
+    await Promise.resolve();
+    const [, payload] = seerClient.emitMock.mock.calls[0];
+    const reqId = payload.id;
+    (seerClient as any).ioCallbacks[reqId].resolve({ id: 'wire-id-1', result: '{not-json' });
+
+    await donePromise;
+    expect(seerClient.ioCallbacks[reqId]).toBeUndefined();
+  });
 });
 
 describe('attachTrpcResponseHandler', () => {
@@ -359,5 +395,22 @@ describe('createSocketProxyClient', () => {
     await expect(proxy.core.ping.query({ message: 'hi' })).rejects.toThrow(/Unable to allocate unique socket request id/);
 
     expect(client.emitMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects malformed proxy result and cleans callback state', async () => {
+    const client = makeClient();
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
+
+    const promise = proxy.core.ping.query({ message: 'hi' });
+    await Promise.resolve();
+
+    const [, payload] = client.emitMock.mock.calls[0];
+    const reqId = payload.id;
+    expect(client.ioCallbacks[reqId]).toBeDefined();
+
+    client.ioCallbacks[reqId].resolve({ id: 'wire-bad-1', result: '{not-json' });
+
+    await expect(promise).rejects.toBeInstanceOf(TRPCClientError);
+    expect(client.ioCallbacks[reqId]).toBeUndefined();
   });
 });

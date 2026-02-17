@@ -13,4 +13,5 @@
 ## Protocol/Test focus
 - Prioritize transport, serialization, timeout, and error-handling paths where applicable.
 - Client wrappers now guard against repeated request-ID collisions before emitting.
+- Proxy/client resolve paths now treat malformed response payloads as structured tRPC errors while preserving `reqId` metadata and callback cleanup.
 - Ensure tests cover new/changed protocol behavior and edge cases.
