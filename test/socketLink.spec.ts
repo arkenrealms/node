@@ -206,6 +206,49 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
     expect(seerClient.ioCallbacks[payload.id]).toBeUndefined();
   });
 
+  it('treats unsubscribe-before-timeout late resolve/reject as no-op and keeps callback map clean', async () => {
+    const seerClient = makeClient();
+    const link = createSocketLink({
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
+      notifyTRPCError: notifyTRPCErrorMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+      requestTimeoutMs: 15_000,
+    });
+
+    const obs = makeObservable(link, {
+      id: 1,
+      context: {},
+      path: 'seer.core.getRealms',
+      type: 'query',
+      input: {},
+    });
+
+    const next = jest.fn();
+    const error = jest.fn();
+    const complete = jest.fn();
+
+    const sub = obs.subscribe({ next, error, complete });
+    await Promise.resolve();
+
+    const [, payload] = seerClient.emitMock.mock.calls[0];
+    const reqId = payload.id;
+    const callbackRef = seerClient.ioCallbacks[reqId];
+
+    sub.unsubscribe();
+    expect(seerClient.ioCallbacks[reqId]).toBeUndefined();
+
+    expect(() => callbackRef.resolve({ result: JSON.stringify({ status: 1, data: ['late'] }) })).not.toThrow();
+    expect(() => callbackRef.reject(new Error('late-reject'))).not.toThrow();
+
+    jest.runOnlyPendingTimers();
+    expect(seerClient.ioCallbacks[reqId]).toBeUndefined();
+    expect(next).not.toHaveBeenCalled();
+    expect(error).not.toHaveBeenCalled();
+    expect(complete).not.toHaveBeenCalled();
+    expect(notifyTRPCErrorMock).not.toHaveBeenCalled();
+  });
+
   it('fails fast when request id allocation repeatedly collides', async () => {
     const seerClient = makeClient();
     seerClient.ioCallbacks['collision-id'] = { timeout: null };
@@ -598,6 +641,35 @@ describe('createSocketProxyClient', () => {
     expect(client.ioCallbacks[reqId]).toBeUndefined();
 
     expect(() => callbackRef.resolve({ result: JSON.stringify({ status: 1, data: { pong: 'late' } }) })).not.toThrow();
+    jest.useRealTimers();
+  });
+
+  it('treats proxy teardown-before-timeout late resolve/reject as no-op and preserves callback-map invariants', async () => {
+    jest.useFakeTimers();
+    const client = makeClient();
+    const proxy: any = createSocketProxyClient<any>({ client, logPrefix: 'TestProxy', requestTimeoutMs: 1000 });
+
+    const promise = proxy.core.ping.query({ message: 'hi' });
+    await Promise.resolve();
+
+    const [, payload] = client.emitMock.mock.calls[0];
+    const reqId = payload.id;
+    const callbackRef = client.ioCallbacks[reqId];
+
+    delete client.ioCallbacks[reqId];
+    expect(client.ioCallbacks[reqId]).toBeUndefined();
+
+    expect(() => callbackRef.resolve({ result: JSON.stringify({ status: 1, data: { pong: 'late' } }) })).not.toThrow();
+    expect(() => callbackRef.reject(new Error('late-reject'))).not.toThrow();
+
+    jest.advanceTimersByTime(1001);
+    expect(client.ioCallbacks[reqId]).toBeUndefined();
+
+    await expect(Promise.race([
+      promise.then(() => 'settled').catch(() => 'settled'),
+      Promise.resolve('pending'),
+    ])).resolves.toBe('pending');
+
     jest.useRealTimers();
   });
 
