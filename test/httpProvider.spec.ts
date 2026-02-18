@@ -47,13 +47,15 @@ describe('web3/httpProvider', () => {
       })),
     };
 
-    (global as any).fetch = jest.fn(async (_url: string, init: any) =>
-      new MockResponse(JSON.stringify({ result: init?.body ? JSON.parse(init.body).id : null }), {
+    (global as any).fetch = jest.fn(async (_url: string, init: any) => {
+      const requestId = init?.body ? JSON.parse(init.body).id : null;
+
+      return new MockResponse(JSON.stringify({ jsonrpc: '2.0', id: requestId, result: requestId }), {
         ok: true,
         status: 200,
         statusText: 'OK',
-      })
-    );
+      });
+    });
   });
 
   afterAll(() => {
@@ -364,6 +366,48 @@ describe('web3/httpProvider', () => {
     await expect(provider.request({ method: 'eth_chainId', params: [], id: 1304 })).rejects.toMatchObject({
       code: -32000,
       message: 'Invalid JSON-RPC response envelope',
+    });
+  });
+
+  test('rejects JSON-RPC responses that omit response id', async () => {
+    class MissingIdResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', result: '0x1' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new MissingIdResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1307 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Mismatched JSON-RPC response id',
+    });
+  });
+
+  test('rejects JSON-RPC responses whose id does not match the request id', async () => {
+    class MismatchedIdResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: 9999, result: '0x1' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new MismatchedIdResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1308 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Mismatched JSON-RPC response id',
     });
   });
 
