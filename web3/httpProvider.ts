@@ -203,13 +203,6 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC response body', -32000, null);
     }
 
-    const fullBody = JSON.stringify(responseBody);
-
-    if (cache && cacheKey && typeof Response !== 'undefined') {
-      const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
-      await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
-    }
-
     const isObjectEnvelope = typeof responseBody === 'object' && responseBody !== null;
     if (!isObjectEnvelope) {
       throw new RequestError('Invalid JSON-RPC response envelope', -32000, null);
@@ -234,6 +227,13 @@ export default class Provider {
     }
 
     if ('result' in responseBody) {
+      const fullBody = JSON.stringify(responseBody);
+
+      if (cache && cacheKey && typeof Response !== 'undefined') {
+        const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+        await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+      }
+
       return responseBody.result;
     }
 

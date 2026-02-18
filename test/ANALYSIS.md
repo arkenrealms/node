@@ -31,3 +31,4 @@
 - Added malformed-`error`-envelope regression coverage for `httpProvider` so non-object `error` payloads fail closed as invalid JSON-RPC envelopes.
 - Added JSON-RPC `error` field-normalization regression coverage for `httpProvider` so missing/invalid `message` or `code` values resolve to deterministic defaults.
 - Added response-body read-failure regression coverage for `httpProvider` so stream/read exceptions surface deterministic `RequestError` metadata.
+- Added cache/write-path regression coverage to ensure JSON-RPC `error` envelopes are not persisted in cache, preventing stale transient failures.

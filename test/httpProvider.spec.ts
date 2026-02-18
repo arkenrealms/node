@@ -382,4 +382,36 @@ describe('web3/httpProvider', () => {
       data: null,
     });
   });
+
+  test('does not cache JSON-RPC error envelopes', async () => {
+    class ErrorEnvelopeResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1401,
+          error: { message: 'temporary backend failure', code: -32098, data: { retryable: true } },
+        });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new ErrorEnvelopeResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1401 })).rejects.toMatchObject({
+      code: -32098,
+      message: 'temporary backend failure',
+    });
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1401 })).rejects.toMatchObject({
+      code: -32098,
+      message: 'temporary backend failure',
+    });
+
+    expect((global as any).fetch).toHaveBeenCalledTimes(2);
+  });
 });
