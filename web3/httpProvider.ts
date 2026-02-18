@@ -128,8 +128,6 @@ export default class Provider {
   }
 
   private async requestWithRetries(request: any, forbiddenRetries: number): Promise<any> {
-    var _a, _b, _c;
-
     request.jsonrpc = '2.0';
     if (typeof request.id === 'undefined' || request.id === null) {
       request.id = 56;
@@ -218,11 +216,21 @@ export default class Provider {
     }
 
     if ('error' in responseBody) {
-      throw new RequestError(
-        (_a = responseBody.error) === null || _a === void 0 ? void 0 : _a.message,
-        (_b = responseBody.error) === null || _b === void 0 ? void 0 : _b.code,
-        (_c = responseBody.error) === null || _c === void 0 ? void 0 : _c.data
-      );
+      const errorEnvelope = responseBody.error;
+      const isObjectErrorEnvelope = typeof errorEnvelope === 'object' && errorEnvelope !== null;
+      if (!isObjectErrorEnvelope) {
+        throw new RequestError('Invalid JSON-RPC response envelope', -32000, null);
+      }
+
+      const rawMessage = responseBody.error.message;
+      const message = typeof rawMessage === 'string' && rawMessage.trim().length > 0 ? rawMessage : 'RPC request failed';
+
+      const code =
+        typeof responseBody.error.code === 'number' && Number.isFinite(responseBody.error.code)
+          ? responseBody.error.code
+          : -32000;
+
+      throw new RequestError(message, code, responseBody.error.data ?? null);
     }
 
     if ('result' in responseBody) {

@@ -339,4 +339,47 @@ describe('web3/httpProvider', () => {
       message: 'Invalid JSON-RPC response envelope',
     });
   });
+
+  test('normalizes malformed JSON-RPC error envelope to a stable invalid-envelope failure', async () => {
+    class MalformedErrorEnvelopeResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: 1305, error: 'boom' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new MalformedErrorEnvelopeResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1305 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid JSON-RPC response envelope',
+    });
+  });
+
+  test('uses stable defaults when JSON-RPC error fields are missing or invalid', async () => {
+    class PartialErrorEnvelopeResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: 1306, error: { message: '   ', code: 'oops', data: null } });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new PartialErrorEnvelopeResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1306 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'RPC request failed',
+      data: null,
+    });
+  });
 });
