@@ -196,12 +196,19 @@ export default class Provider {
       }
     }
 
-    let responseBody: any = await response.text();
-
+    let responseBodyText = '';
     try {
-      responseBody = JSON.parse(responseBody);
-    } catch (e) {
-      responseBody = {};
+      responseBodyText = await response.text();
+    } catch (error: any) {
+      const message = error && typeof error.message === 'string' ? error.message : 'Failed to read RPC response body';
+      throw new RequestError(message, -32000, null);
+    }
+
+    let responseBody: any;
+    try {
+      responseBody = JSON.parse(responseBodyText);
+    } catch (_error) {
+      throw new RequestError('Invalid JSON-RPC response body', -32000, null);
     }
 
     const fullBody = JSON.stringify(responseBody);

@@ -20,6 +20,8 @@
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).
 - Timeout path now triggers `AbortController.abort()` (when available) before rejecting, limiting lingering in-flight network activity after timeout.
 - Non-timeout fetch/network exceptions are now wrapped to `RequestError` (`code: -32000`) so consumers can rely on a consistent failure shape.
+- Response body read failures are now normalized to `RequestError` (`code: -32000`) instead of surfacing raw stream-level exceptions.
+- Invalid/non-JSON response bodies now fail closed as `RequestError('Invalid JSON-RPC response body')`, preventing silent `undefined` result acceptance.
 - `BROWSER_CACHE_TTL` remains defined but not currently enforced in request flow.
 
 ## Protocol/Test relevance

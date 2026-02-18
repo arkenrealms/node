@@ -25,3 +25,5 @@
 - Added request-envelope immutability regression coverage for `httpProvider` so normalization does not mutate caller-owned payload objects.
 - Added malformed-constructor-URL fallback regression coverage for `httpProvider` so startup does not crash on invalid endpoint input.
 - Added `send`/`sendAsync` fallback-ID regression coverage so callback responses stay aligned with normalized request IDs.
+- Added invalid/non-JSON response-body regression coverage for `httpProvider` so malformed upstream payloads fail closed with stable `RequestError` metadata.
+- Added response-body read-failure regression coverage for `httpProvider` so stream/read exceptions surface deterministic `RequestError` metadata.

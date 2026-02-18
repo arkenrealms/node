@@ -227,4 +227,46 @@ describe('web3/httpProvider', () => {
       });
     });
   });
+
+  test('rejects invalid JSON-RPC response body with stable RequestError metadata', async () => {
+    class InvalidJsonResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return 'not-json';
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new InvalidJsonResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1301 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid JSON-RPC response body',
+    });
+  });
+
+  test('wraps response body read failures in RequestError metadata', async () => {
+    class BrokenResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        throw new Error('stream interrupted');
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new BrokenResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1302 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'stream interrupted',
+    });
+  });
 });

@@ -11,6 +11,8 @@ Legacy-compatible Web3 transport helpers.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
   - Timeout handling now aborts in-flight fetches via `AbortController` when available, reducing dangling network work after deadline expiry.
   - Non-timeout fetch/network failures are now normalized into `RequestError` (`code: -32000`) for stable caller-side error handling.
+  - Response body read failures are now normalized into `RequestError` metadata (`code: -32000`) instead of leaking raw stream exceptions.
+  - Invalid/non-JSON RPC response bodies now fail closed with `RequestError('Invalid JSON-RPC response body')` instead of returning implicit `undefined` results.
   - 403 fallback retries now fail closed when no alternate provider exists, preventing unbounded recursive retry loops.
   - Caller request envelopes are cloned before normalization so `jsonrpc`/fallback-id assignment does not mutate upstream objects.
   - `send`/`sendAsync` now normalize missing request IDs to the same fallback (`56`) used by `request`, preventing callback responses with `id: undefined`.
