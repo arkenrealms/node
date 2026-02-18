@@ -10,6 +10,7 @@ Legacy-compatible Web3 transport helpers.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
   - 403 fallback retries now fail closed when no alternate provider exists, preventing unbounded recursive retry loops.
   - Caller request envelopes are cloned before normalization so `jsonrpc`/fallback-id assignment does not mutate upstream objects.
+  - `send`/`sendAsync` now normalize missing request IDs to the same fallback (`56`) used by `request`, preventing callback responses with `id: undefined`.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.

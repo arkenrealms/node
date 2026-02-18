@@ -146,4 +146,36 @@ describe('web3/httpProvider', () => {
     });
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
+
+  test('send uses fallback id when request id is missing', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await new Promise<void>((resolve, reject) => {
+      provider.send({ method: 'eth_chainId', params: [] }, (error, response) => {
+        try {
+          expect(error).toBeNull();
+          expect(response).toMatchObject({ jsonrpc: '2.0', id: 56, result: 56 });
+          resolve();
+        } catch (assertionError) {
+          reject(assertionError);
+        }
+      });
+    });
+  });
+
+  test('sendAsync uses fallback id when request id is missing', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await new Promise<void>((resolve, reject) => {
+      provider.sendAsync({ method: 'eth_chainId', params: [] }, (error, response) => {
+        try {
+          expect(error).toBeNull();
+          expect(response).toMatchObject({ jsonrpc: '2.0', id: 56, result: 56 });
+          resolve();
+        } catch (assertionError) {
+          reject(assertionError);
+        }
+      });
+    });
+  });
 });

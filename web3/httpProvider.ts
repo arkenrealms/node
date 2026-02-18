@@ -54,14 +54,24 @@ export default class Provider {
     this.isMetaMask = false;
 
     this.send = (request, callback) => {
-      this.request(request)
-        .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+      const requestEnvelope = { ...(request || {}) };
+      if (typeof requestEnvelope.id === 'undefined' || requestEnvelope.id === null) {
+        requestEnvelope.id = 56;
+      }
+
+      this.request(requestEnvelope)
+        .then((result) => callback(null, { jsonrpc: '2.0', id: requestEnvelope.id, result }))
         .catch((error) => callback(error, null));
     };
 
     this.sendAsync = (request, callback) => {
-      this.request(request)
-        .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+      const requestEnvelope = { ...(request || {}) };
+      if (typeof requestEnvelope.id === 'undefined' || requestEnvelope.id === null) {
+        requestEnvelope.id = 56;
+      }
+
+      this.request(requestEnvelope)
+        .then((result) => callback(null, { jsonrpc: '2.0', id: requestEnvelope.id, result }))
         .catch((error) => callback(error, null));
     };
   }
