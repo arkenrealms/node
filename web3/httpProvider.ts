@@ -212,14 +212,23 @@ export default class Provider {
       await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
     }
 
+    const isObjectEnvelope = typeof responseBody === 'object' && responseBody !== null;
+    if (!isObjectEnvelope) {
+      throw new RequestError('Invalid JSON-RPC response envelope', -32000, null);
+    }
+
     if ('error' in responseBody) {
       throw new RequestError(
         (_a = responseBody.error) === null || _a === void 0 ? void 0 : _a.message,
         (_b = responseBody.error) === null || _b === void 0 ? void 0 : _b.code,
         (_c = responseBody.error) === null || _c === void 0 ? void 0 : _c.data
       );
-    } else {
+    }
+
+    if ('result' in responseBody) {
       return responseBody.result;
     }
+
+    throw new RequestError('Invalid JSON-RPC response envelope', -32000, null);
   }
 }

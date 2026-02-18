@@ -297,4 +297,46 @@ describe('web3/httpProvider', () => {
       message: 'stream interrupted',
     });
   });
+
+  test('rejects JSON-RPC bodies that are valid JSON but not object envelopes', async () => {
+    class PrimitiveBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return '42';
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new PrimitiveBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1303 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid JSON-RPC response envelope',
+    });
+  });
+
+  test('rejects JSON-RPC object envelopes missing both result and error', async () => {
+    class MissingResultAndErrorResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: 1304 });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new MissingResultAndErrorResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1304 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid JSON-RPC response envelope',
+    });
+  });
 });
