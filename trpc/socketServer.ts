@@ -30,6 +30,11 @@ function resolveTarget(caller: any, method: string) {
 
   return segments.reduce<any>((acc, key) => {
     if (acc == null) return undefined;
+
+    if (!Object.prototype.hasOwnProperty.call(acc, key)) {
+      if (key in Object.prototype || key in Function.prototype) return undefined;
+    }
+
     return acc[key];
   }, caller);
 }
