@@ -26,3 +26,4 @@
 - Server-push payload decode is now fail-soft (warn + undefined params) so malformed params do not crash handler flow.
 - Server-push dispatch now validates `method` shape (non-empty string) for both `trpc` and unmatched `trpcResponse` payloads to avoid forwarding malformed events.
 - Ensure tests cover new/changed protocol behavior and edge cases.
+- Request-ID normalization now also drops reserved prototype-path tokens (`__proto__`, `prototype`, `constructor`) so emitted envelopes do not mirror ambiguous meta-keys.

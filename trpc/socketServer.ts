@@ -63,6 +63,8 @@ function normalizeRequestId(id: unknown): string | undefined {
   const normalizedId = id.trim();
   if (!normalizedId) return undefined;
 
+  if (isBlockedMethodPathSegment(normalizedId)) return undefined;
+
   return normalizedId;
 }
 

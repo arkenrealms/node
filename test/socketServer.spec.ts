@@ -166,6 +166,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(deserialize(payload.result).status).toBe(0);
   });
 
+  it('drops reserved prototype-path ids from error responses', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: '__proto__', method: 'core..ping', params: serialize({ message: 'x' }) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBeUndefined();
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('TRPC handler does not exist for method: core..ping');
+  });
+
   it('drops blank-string ids from error responses', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();
