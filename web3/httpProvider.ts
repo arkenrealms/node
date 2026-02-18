@@ -1,13 +1,18 @@
-import { sha256 } from 'crypto-js';
+// arken/packages/node/web3/httpProvider.ts
+
+import { SHA256 } from 'crypto-js';
 // or
 // import { ethers } from 'ethers';
 // const sha256 = ethers.utils.sha256;
 
-const PROVIDERS = JSON.stringify(['https://bsc-dataseed1.ninicoin.io']);
+const DEFAULT_PROVIDERS = ['https://bsc-dataseed1.ninicoin.io'];
+const PROVIDERS = JSON.stringify(DEFAULT_PROVIDERS);
 
 let EDGE_CACHE_TTL = 60;
 let BROWSER_CACHE_TTL = 0;
 let PROVIDER_TIMEOUT = 5000;
+
+const TIMEOUT_ERROR_CODE = -32000;
 
 class RequestError extends Error {
   code: number;
@@ -36,7 +41,12 @@ export default class Provider {
 
     const providers = JSON.parse(PROVIDERS);
 
-    const parsedUrl = new URL(providers[Math.floor(Math.random() * providers.length)]);
+    const resolvedProviderUrl =
+      typeof url === 'string' && url.trim().length > 0
+        ? url
+        : providers[Math.floor(Math.random() * providers.length)];
+
+    const parsedUrl = new URL(resolvedProviderUrl);
     this.url = parsedUrl;
     this.host = parsedUrl.host;
     this.path = parsedUrl.pathname;
@@ -56,31 +66,64 @@ export default class Provider {
     };
   }
 
+  private async fetchWithTimeout(url: string, init: any): Promise<any> {
+    let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+
+    try {
+      const timeoutPromise = new Promise((_, reject) => {
+        timeoutHandle = setTimeout(() => {
+          reject(new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null));
+        }, PROVIDER_TIMEOUT);
+      });
+
+      return await Promise.race([fetch(url, init), timeoutPromise]);
+    } finally {
+      if (timeoutHandle) {
+        clearTimeout(timeoutHandle);
+      }
+    }
+  }
+
   async request(request: any): Promise<any> {
+    return this.requestWithRetries(request, 0);
+  }
+
+  private async requestWithRetries(request: any, forbiddenRetries: number): Promise<any> {
     var _a, _b, _c;
 
     request.jsonrpc = '2.0';
-    request.id = 56;
+    if (typeof request.id === 'undefined' || request.id === null) {
+      request.id = 56;
+    }
 
     const headers = {
       'Content-Type': 'application/json',
     };
 
-    const cache = await caches.open('my-cache-name');
+    const canUseRuntimeCache =
+      typeof caches !== 'undefined' &&
+      typeof (caches as any).open === 'function' &&
+      typeof Request !== 'undefined' &&
+      typeof Response !== 'undefined';
+
+    const cache = canUseRuntimeCache ? await caches.open('my-cache-name') : null;
     const url = this.url.toString();
     const body = JSON.stringify(request);
-    const hash = await sha256(body);
+    const hash = SHA256(body).toString();
     const cacheUrl = new URL(url);
     cacheUrl.pathname = '/posts' + cacheUrl.pathname + hash;
 
-    const cacheKey = new Request(cacheUrl.toString(), {
-      headers,
-      method: 'GET',
-    });
+    const cacheKey =
+      cache && canUseRuntimeCache
+        ? new Request(cacheUrl.toString(), {
+            headers,
+            method: 'GET',
+          })
+        : null;
 
-    let response = await cache.match(cacheKey);
+    let response = cache && cacheKey ? await cache.match(cacheKey) : null;
     if (!response) {
-      response = await fetch(url, {
+      response = await this.fetchWithTimeout(url, {
         method: 'POST',
         headers,
         body: JSON.stringify(request),
@@ -88,17 +131,26 @@ export default class Provider {
 
       if (!response.ok) {
         if (response.status === 403) {
-          const fullBody = JSON.stringify({});
+          if (cache && cacheKey && typeof Response !== 'undefined') {
+            const fullBody = JSON.stringify({});
+            const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+            await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+          }
 
-          const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
-          await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+          const availableProviders: string[] = JSON.parse(PROVIDERS);
+          const currentProvider = this.url.toString();
+          const alternateProviders = availableProviders.filter((provider) => provider !== currentProvider);
 
-          const newUrl = new URL(JSON.parse(PROVIDERS)[Math.floor(Math.random() * JSON.parse(PROVIDERS).length)]);
+          if (alternateProviders.length === 0 || forbiddenRetries >= availableProviders.length - 1) {
+            throw new RequestError(`${response.status}: ${response.statusText}`, -32000, null);
+          }
+
+          const newUrl = new URL(alternateProviders[Math.floor(Math.random() * alternateProviders.length)]);
           this.url = newUrl;
           this.host = newUrl.host;
           this.path = newUrl.pathname;
 
-          return await this.request(request);
+          return await this.requestWithRetries(request, forbiddenRetries + 1);
         } else {
           throw new RequestError(`${response.status}: ${response.statusText}`, -32000, null);
         }
@@ -115,8 +167,10 @@ export default class Provider {
 
     const fullBody = JSON.stringify(responseBody);
 
-    const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
-    await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+    if (cache && cacheKey && typeof Response !== 'undefined') {
+      const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+      await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+    }
 
     if ('error' in responseBody) {
       throw new RequestError(

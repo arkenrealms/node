@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/data/achievements.ts
+
 // process.env.REACT_APP_PUBLIC_URL = "https://arken.gg/"
 
 export const achievementData = [

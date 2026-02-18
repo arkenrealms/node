@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/contractData.ts
+
 import RXSMarketplace_2 from './contracts/RXSMarketplace.json';
 import ArcaneTraderV1_2 from './contracts/ArcaneTraderV1.json';
 import RuneShards_2 from './contracts/RuneShards.json';

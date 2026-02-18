@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/data/restrictList.ts
+
 export const tradeRestrictedTokenIds = [
   "10010000310021003100049871",
   "1001000031001100210005900",

@@ -1,3 +1,5 @@
+// arken/packages/node/time/fancyTimeFormat.ts
+
 export default function fancyTimeFormat(duration) {
   // Hours, minutes and seconds
   var hrs = ~~(duration / 3600)
