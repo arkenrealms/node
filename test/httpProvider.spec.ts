@@ -524,6 +524,27 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('rejects JSON-RPC responses whose id only matches after string coercion', async () => {
+    class NumericStringIdResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: '77', result: '0x1' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new NumericStringIdResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 77 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Mismatched JSON-RPC response id',
+    });
+  });
+
   test('normalizes malformed JSON-RPC error envelope to a stable invalid-envelope failure', async () => {
     class MalformedErrorEnvelopeResponse {
       ok = true;

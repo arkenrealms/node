@@ -19,6 +19,7 @@ Legacy-compatible Web3 transport helpers.
   - Outbound request envelopes now fail fast when `method` is missing/blank (`RequestError('Invalid JSON-RPC request method', code: -32600)`) and normalize method names via trim before dispatch.
   - Outbound request envelopes now also validate JSON-RPC `id` shape; non-spec IDs (e.g., booleans/objects) fail fast with `RequestError('Invalid JSON-RPC request id', code: -32600)` before network dispatch.
   - JSON-RPC responses must include a spec-valid `id` (string/number/null) that matches the request id; missing/mismatched/non-spec ids now fail closed with `RequestError('Mismatched JSON-RPC response id')`.
+  - Response/request IDs now require strict type-and-value parity (no string coercion), so `77` and `'77'` are treated as mismatched IDs.
   - JSON-RPC responses must explicitly declare `jsonrpc: '2.0'`; missing/legacy version envelopes now fail closed with `RequestError('Invalid JSON-RPC version')`.
   - JSON-RPC `error` envelopes are now validated and normalized: non-object `error` payloads fail as invalid envelopes, and missing/invalid `message`/`code` fields (including non-integer numeric codes) default to stable `RequestError('RPC request failed', code: -32000)` metadata.
   - Cache writes are now restricted to successful JSON-RPC `result` envelopes, preventing transient upstream error envelopes from being cached and replayed as stale failures.

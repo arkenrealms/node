@@ -143,6 +143,18 @@ export default class Provider {
     return id === null || typeof id === 'string' || (typeof id === 'number' && Number.isFinite(id));
   }
 
+  private idsMatch(requestId: any, responseId: any): boolean {
+    if (!this.isValidJsonRpcId(requestId) || !this.isValidJsonRpcId(responseId)) {
+      return false;
+    }
+
+    if (requestId === null || responseId === null) {
+      return requestId === responseId;
+    }
+
+    return typeof requestId === typeof responseId && requestId === responseId;
+  }
+
   async request(request: any): Promise<any> {
     const requestEnvelope = { ...(request || {}) };
 
@@ -252,12 +264,7 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC version', -32000, null);
     }
 
-    if (
-      !('id' in responseBody) ||
-      !this.isValidJsonRpcId(responseBody.id) ||
-      !this.isValidJsonRpcId(request.id) ||
-      String(responseBody.id) !== String(request.id)
-    ) {
+    if (!('id' in responseBody) || !this.idsMatch(request.id, responseBody.id)) {
       throw new RequestError('Mismatched JSON-RPC response id', -32000, null);
     }
 
