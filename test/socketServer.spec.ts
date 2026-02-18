@@ -201,6 +201,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(payload.error).toContain('TRPC handler does not exist for method: core.constructor.name');
   });
 
+  it('rejects prototype-chain traversal in nested method paths', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-nested-proto-method', method: 'core.__proto__.ping', params: serialize({}) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-nested-proto-method');
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('TRPC handler does not exist for method: core.__proto__.ping');
+  });
+
   it('attachSocketTrpcListener binds and unbinds listeners', async () => {
     const socket = makeFakeSocket();
     const fn = jest.fn(async () => undefined);
