@@ -115,4 +115,26 @@ describe('web3/httpProvider', () => {
       jest.useRealTimers();
     }
   }, 10000);
+
+  test('does not recurse indefinitely on 403 when no alternate providers are configured', async () => {
+    class ForbiddenResponse {
+      ok = false;
+      status = 403;
+      statusText = 'Forbidden';
+
+      async text() {
+        return JSON.stringify({});
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new ForbiddenResponse());
+
+    const provider = new Provider('https://bsc-dataseed1.ninicoin.io');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1010 })).rejects.toMatchObject({
+      code: -32000,
+      message: '403: Forbidden',
+    });
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
 });

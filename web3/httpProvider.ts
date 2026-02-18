@@ -85,6 +85,10 @@ export default class Provider {
   }
 
   async request(request: any): Promise<any> {
+    return this.requestWithRetries(request, 0);
+  }
+
+  private async requestWithRetries(request: any, forbiddenRetries: number): Promise<any> {
     var _a, _b, _c;
 
     request.jsonrpc = '2.0';
@@ -133,12 +137,20 @@ export default class Provider {
             await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
           }
 
-          const newUrl = new URL(JSON.parse(PROVIDERS)[Math.floor(Math.random() * JSON.parse(PROVIDERS).length)]);
+          const availableProviders: string[] = JSON.parse(PROVIDERS);
+          const currentProvider = this.url.toString();
+          const alternateProviders = availableProviders.filter((provider) => provider !== currentProvider);
+
+          if (alternateProviders.length === 0 || forbiddenRetries >= availableProviders.length - 1) {
+            throw new RequestError(`${response.status}: ${response.statusText}`, -32000, null);
+          }
+
+          const newUrl = new URL(alternateProviders[Math.floor(Math.random() * alternateProviders.length)]);
           this.url = newUrl;
           this.host = newUrl.host;
           this.path = newUrl.pathname;
 
-          return await this.request(request);
+          return await this.requestWithRetries(request, forbiddenRetries + 1);
         } else {
           throw new RequestError(`${response.status}: ${response.statusText}`, -32000, null);
         }
