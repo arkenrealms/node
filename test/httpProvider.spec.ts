@@ -535,6 +535,28 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('normalizes non-integer JSON-RPC error codes to stable defaults', async () => {
+    class NonIntegerCodeErrorEnvelopeResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: 1309, error: { message: 'backend wobble', code: 12.34, data: { hint: 'retry' } } });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new NonIntegerCodeErrorEnvelopeResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1309 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'backend wobble',
+      data: { hint: 'retry' },
+    });
+  });
+
   test('does not cache JSON-RPC error envelopes', async () => {
     class ErrorEnvelopeResponse {
       ok = true;

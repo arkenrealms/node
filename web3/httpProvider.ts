@@ -259,7 +259,7 @@ export default class Provider {
       const message = typeof rawMessage === 'string' && rawMessage.trim().length > 0 ? rawMessage : 'RPC request failed';
 
       const code =
-        typeof responseBody.error.code === 'number' && Number.isFinite(responseBody.error.code)
+        typeof responseBody.error.code === 'number' && Number.isFinite(responseBody.error.code) && Number.isInteger(responseBody.error.code)
           ? responseBody.error.code
           : -32000;
 

@@ -34,6 +34,6 @@
 - Added response-id validation regressions for `httpProvider` so missing/mismatched JSON-RPC response IDs fail closed with deterministic `RequestError` metadata.
 - Added JSON-RPC protocol-version validation regressions for `httpProvider` so missing/legacy `jsonrpc` values fail closed with deterministic `RequestError` metadata.
 - Added malformed-`error`-envelope regression coverage for `httpProvider` so non-object `error` payloads fail closed as invalid JSON-RPC envelopes.
-- Added JSON-RPC `error` field-normalization regression coverage for `httpProvider` so missing/invalid `message` or `code` values resolve to deterministic defaults.
+- Added JSON-RPC `error` field-normalization regression coverage for `httpProvider` so missing/invalid `message` or `code` values (including non-integer numeric codes) resolve to deterministic defaults.
 - Added response-body read-failure regression coverage for `httpProvider` so stream/read exceptions surface deterministic `RequestError` metadata.
 - Added cache/write-path regression coverage to ensure JSON-RPC `error` envelopes are not persisted in cache, preventing stale transient failures.
