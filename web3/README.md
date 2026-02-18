@@ -16,6 +16,7 @@ Legacy-compatible Web3 transport helpers.
   - Invalid/non-JSON RPC response bodies now fail closed with `RequestError('Invalid JSON-RPC response body')` instead of returning implicit `undefined` results.
   - JSON-RPC payloads that parse but are not object envelopes (or omit both `result` and `error`) now fail closed with `RequestError('Invalid JSON-RPC response envelope')`.
   - JSON-RPC responses must include an `id` that matches the request id; missing/mismatched ids now fail closed with `RequestError('Mismatched JSON-RPC response id')`.
+  - JSON-RPC responses must explicitly declare `jsonrpc: '2.0'`; missing/legacy version envelopes now fail closed with `RequestError('Invalid JSON-RPC version')`.
   - JSON-RPC `error` envelopes are now validated and normalized: non-object `error` payloads fail as invalid envelopes, and missing/invalid `message`/`code` fields default to stable `RequestError('RPC request failed', code: -32000)` metadata.
   - Cache writes are now restricted to successful JSON-RPC `result` envelopes, preventing transient upstream error envelopes from being cached and replayed as stale failures.
   - 403 fallback retries now fail closed when no alternate provider exists, preventing unbounded recursive retry loops.

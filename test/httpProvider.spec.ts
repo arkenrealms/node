@@ -390,6 +390,48 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('rejects JSON-RPC responses that omit jsonrpc version', async () => {
+    class MissingJsonRpcVersionResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ id: 13071, result: '0x1' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new MissingJsonRpcVersionResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 13071 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid JSON-RPC version',
+    });
+  });
+
+  test('rejects JSON-RPC responses with non-2.0 version', async () => {
+    class InvalidJsonRpcVersionResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '1.0', id: 13072, result: '0x1' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new InvalidJsonRpcVersionResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 13072 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid JSON-RPC version',
+    });
+  });
+
   test('rejects JSON-RPC responses whose id does not match the request id', async () => {
     class MismatchedIdResponse {
       ok = true;

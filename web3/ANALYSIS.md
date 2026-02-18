@@ -25,6 +25,7 @@
 - Invalid/non-JSON response bodies now fail closed as `RequestError('Invalid JSON-RPC response body')`, preventing silent `undefined` result acceptance.
 - Parsed JSON-RPC payloads now require a valid object envelope with either `result` or `error`; primitive payloads and missing-field envelopes fail closed as `RequestError('Invalid JSON-RPC response envelope')`.
 - JSON-RPC response IDs are now validated against the originating request ID; missing/mismatched response IDs fail closed as `RequestError('Mismatched JSON-RPC response id')` to prevent cross-request response acceptance.
+- JSON-RPC response envelopes now require protocol version `jsonrpc: '2.0'`; missing/legacy versions fail closed as `RequestError('Invalid JSON-RPC version')` so non-compliant upstream payloads are not silently accepted.
 - JSON-RPC `error` envelopes are now validated/normalized: non-object `error` payloads fail as invalid envelopes, and malformed/missing `message` or `code` fields now fall back to stable defaults (`message: 'RPC request failed'`, `code: -32000`).
 - Cache persistence now occurs only for successful `result` envelopes, which avoids pinning transient JSON-RPC errors into cache and improves retry/recovery behavior.
 - `BROWSER_CACHE_TTL` remains defined but not currently enforced in request flow.

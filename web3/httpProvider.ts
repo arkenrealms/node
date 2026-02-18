@@ -214,6 +214,10 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC response envelope', -32000, null);
     }
 
+    if (responseBody.jsonrpc !== '2.0') {
+      throw new RequestError('Invalid JSON-RPC version', -32000, null);
+    }
+
     if (!('id' in responseBody) || String(responseBody.id) !== String(request.id)) {
       throw new RequestError('Mismatched JSON-RPC response id', -32000, null);
     }
