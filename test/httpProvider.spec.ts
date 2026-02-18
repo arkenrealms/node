@@ -84,4 +84,16 @@ describe('web3/httpProvider', () => {
 
     expect(result).toBe(56);
   });
+
+  test('falls back to network-only flow when Cache API globals are unavailable', async () => {
+    (global as any).caches = undefined;
+    (global as any).Request = undefined;
+    (global as any).Response = undefined;
+
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: 901 });
+
+    expect(result).toBe(901);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
 });

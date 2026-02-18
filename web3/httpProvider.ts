@@ -76,19 +76,28 @@ export default class Provider {
       'Content-Type': 'application/json',
     };
 
-    const cache = await caches.open('my-cache-name');
+    const canUseRuntimeCache =
+      typeof caches !== 'undefined' &&
+      typeof (caches as any).open === 'function' &&
+      typeof Request !== 'undefined' &&
+      typeof Response !== 'undefined';
+
+    const cache = canUseRuntimeCache ? await caches.open('my-cache-name') : null;
     const url = this.url.toString();
     const body = JSON.stringify(request);
     const hash = SHA256(body).toString();
     const cacheUrl = new URL(url);
     cacheUrl.pathname = '/posts' + cacheUrl.pathname + hash;
 
-    const cacheKey = new Request(cacheUrl.toString(), {
-      headers,
-      method: 'GET',
-    });
+    const cacheKey =
+      cache && canUseRuntimeCache
+        ? new Request(cacheUrl.toString(), {
+            headers,
+            method: 'GET',
+          })
+        : null;
 
-    let response = await cache.match(cacheKey);
+    let response = cache && cacheKey ? await cache.match(cacheKey) : null;
     if (!response) {
       response = await fetch(url, {
         method: 'POST',
@@ -98,10 +107,11 @@ export default class Provider {
 
       if (!response.ok) {
         if (response.status === 403) {
-          const fullBody = JSON.stringify({});
-
-          const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
-          await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+          if (cache && cacheKey && typeof Response !== 'undefined') {
+            const fullBody = JSON.stringify({});
+            const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+            await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+          }
 
           const newUrl = new URL(JSON.parse(PROVIDERS)[Math.floor(Math.random() * JSON.parse(PROVIDERS).length)]);
           this.url = newUrl;
@@ -125,8 +135,10 @@ export default class Provider {
 
     const fullBody = JSON.stringify(responseBody);
 
-    const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
-    await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+    if (cache && cacheKey && typeof Response !== 'undefined') {
+      const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+      await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
+    }
 
     if ('error' in responseBody) {
       throw new RequestError(

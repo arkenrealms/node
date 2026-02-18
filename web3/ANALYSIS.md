@@ -13,7 +13,7 @@
 - Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
 - Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
-- Runtime assumes browser-like cache globals (`caches`, `Request`, `Response`) despite package often being used in server contexts.
+- Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
 - Several tunables (`BROWSER_CACHE_TTL`, `PROVIDER_TIMEOUT`) are currently not enforced in request flow.
 
 ## Protocol/Test relevance
@@ -22,10 +22,10 @@
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.
-- Cache key/path strategy and forced id values may mask backend issues or create debugging ambiguity.
-- No local folder tests currently validate these assumptions.
+- Cache key/path strategy and fallback id defaults may mask backend issues or create debugging ambiguity.
+- 403 failover path still depends on cache-enabled runtime for cache-write side effects.
 
 ## Follow-ups
-- Add focused tests around request-id behavior, 403 failover path, and non-browser runtime compatibility.
+- Expand tests for 403 failover recursion behavior under both cache-enabled and cache-disabled runtimes.
 - Consider parameterizing provider list and honoring constructor URL/env configuration.
 - Clarify whether this helper is browser-only or should be server-safe; document/enforce accordingly.
