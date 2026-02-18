@@ -107,6 +107,35 @@ describe('createSocketLink (Socket.IO tRPC link)', () => {
     });
   });
 
+  it('fails fast when backend path omits method segment', async () => {
+    const seerClient = makeClient();
+    const link = createSocketLink({
+      backends: [{ name: 'seer', url: 'ws://dummy' }],
+      clients: { seer: seerClient },
+      notifyTRPCError: notifyTRPCErrorMock,
+      waitUntil: jest.fn().mockResolvedValue(undefined),
+    });
+
+    const obs = makeObservable(link, {
+      id: 1,
+      context: {},
+      path: 'seer',
+      type: 'query',
+      input: {},
+    });
+
+    await new Promise<void>((resolve) => {
+      obs.subscribe({
+        error: (err) => {
+          expect((err as AnyError).message).toContain('Invalid method path for seer');
+          resolve();
+        },
+      });
+    });
+
+    expect(seerClient.emitMock).not.toHaveBeenCalled();
+  });
+
   it('routes query to correct backend and resolves successful response', async () => {
     const seerClient = makeClient();
     const link = createSocketLink({

@@ -111,6 +111,15 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
           return;
         }
 
+        const method = op.path.startsWith(`${routerName}.`) ? op.path.slice(routerName.length + 1).trim() : '';
+        if (!method) {
+          const err = new TRPCClientError<any>(`Invalid method path for ${op.path}`);
+          notifyTRPCError(err);
+          observer.error(err);
+          observer.complete();
+          return;
+        }
+
         let isSettled = false;
 
         const settleError = (error: unknown, reqId = uuid) => {
@@ -139,7 +148,6 @@ export function createSocketLink(options: CreateSocketLinkOptions): TRPCLink<any
 
           if (isSettled) return;
 
-          const method = op.path.replace(`${routerName}.`, '');
           const { input } = op;
 
           let timeout: ReturnType<typeof setTimeout> | undefined;
