@@ -8,7 +8,7 @@
 - Subfolders: 0
 
 ## Notable contents
-- files: NOTES.md, README.md, socketLink.spec.ts, socketServer.spec.ts
+- files: NOTES.md, README.md, socketLink.spec.ts, socketServer.spec.ts, httpProvider.spec.ts
 
 ## Protocol/Test focus
 - Prioritize transport, serialization, timeout, and error-handling paths where applicable.

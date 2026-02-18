@@ -10,8 +10,9 @@
 - `httpProvider.ts`
 
 ## Key findings
-- `Provider` ignores constructor `url` argument and instead picks from hardcoded `PROVIDERS` list (`bsc-dataseed1.ninicoin.io`).
-- Request shaping is non-standard for general JSON-RPC clients (`request.id` forced to `56`), which may complicate correlation/observability.
+- Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
+- Constructor now honors explicit `url` input, reducing hidden endpoint drift.
+- Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
 - Runtime assumes browser-like cache globals (`caches`, `Request`, `Response`) despite package often being used in server contexts.
 - Several tunables (`BROWSER_CACHE_TTL`, `PROVIDER_TIMEOUT`) are currently not enforced in request flow.
 

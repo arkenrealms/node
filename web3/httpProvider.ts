@@ -1,11 +1,12 @@
 // arken/packages/node/web3/httpProvider.ts
 
-import { sha256 } from 'crypto-js';
+import { SHA256 } from 'crypto-js';
 // or
 // import { ethers } from 'ethers';
 // const sha256 = ethers.utils.sha256;
 
-const PROVIDERS = JSON.stringify(['https://bsc-dataseed1.ninicoin.io']);
+const DEFAULT_PROVIDERS = ['https://bsc-dataseed1.ninicoin.io'];
+const PROVIDERS = JSON.stringify(DEFAULT_PROVIDERS);
 
 let EDGE_CACHE_TTL = 60;
 let BROWSER_CACHE_TTL = 0;
@@ -38,7 +39,12 @@ export default class Provider {
 
     const providers = JSON.parse(PROVIDERS);
 
-    const parsedUrl = new URL(providers[Math.floor(Math.random() * providers.length)]);
+    const resolvedProviderUrl =
+      typeof url === 'string' && url.trim().length > 0
+        ? url
+        : providers[Math.floor(Math.random() * providers.length)];
+
+    const parsedUrl = new URL(resolvedProviderUrl);
     this.url = parsedUrl;
     this.host = parsedUrl.host;
     this.path = parsedUrl.pathname;
@@ -62,7 +68,9 @@ export default class Provider {
     var _a, _b, _c;
 
     request.jsonrpc = '2.0';
-    request.id = 56;
+    if (typeof request.id === 'undefined' || request.id === null) {
+      request.id = 56;
+    }
 
     const headers = {
       'Content-Type': 'application/json',
@@ -71,7 +79,7 @@ export default class Provider {
     const cache = await caches.open('my-cache-name');
     const url = this.url.toString();
     const body = JSON.stringify(request);
-    const hash = await sha256(body);
+    const hash = SHA256(body).toString();
     const cacheUrl = new URL(url);
     cacheUrl.pathname = '/posts' + cacheUrl.pathname + hash;
 
