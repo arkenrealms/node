@@ -57,6 +57,15 @@ function resolveTarget(caller: any, method: string) {
   }, caller);
 }
 
+function normalizeRequestId(id: unknown): string | undefined {
+  if (typeof id !== 'string') return undefined;
+
+  const normalizedId = id.trim();
+  if (!normalizedId) return undefined;
+
+  return normalizedId;
+}
+
 export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
   router,
   createCallerFactory,
@@ -76,11 +85,12 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
       return;
     }
 
-    const { id, method, params } = message as { id?: string; method?: string; params?: any };
+    const { id, method, params } = message as { id?: unknown; method?: string; params?: any };
+    const responseId = normalizeRequestId(id);
 
     if (!method || typeof method !== 'string' || !method.trim()) {
       socket.emit('trpcResponse', {
-        id,
+        id: responseId,
         result: serialize({ status: 0 }),
         error: 'Missing or invalid tRPC method',
         meta: { message },
@@ -101,7 +111,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
       const result = params != null ? await target(deserialize(params)) : await target();
       log('Socket tRPC response', normalizedMethod);
 
-      socket.emit('trpcResponse', { id, result: serialize({ status: 1, data: result }) });
+      socket.emit('trpcResponse', { id: responseId, result: serialize({ status: 1, data: result }) });
     } catch (error: any) {
       const stack = typeof error?.stack === 'string' ? error.stack : String(error);
       const errorMessage = stack.includes("reading '_def'")
@@ -111,7 +121,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
       log(errorMessage, normalizedMethod, error);
 
       socket.emit('trpcResponse', {
-        id,
+        id: responseId,
         result: serialize({ status: 0 }),
         error: errorMessage || 'Unknown error occurred',
         meta: { message },

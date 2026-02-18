@@ -141,6 +141,43 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(result.data).toEqual({ pong: 'trim', from: 'trim-user' });
   });
 
+  it('normalizes whitespace-padded ids before success response emit', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, { userId: 'trim-user' }, { id: '  req-trim-id  ', method: 'core.ping', params: serialize({ message: 'trim-id' }) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-trim-id');
+    const result: any = deserialize(payload.result);
+    expect(result.status).toBe(1);
+    expect(result.data).toEqual({ pong: 'trim-id', from: 'trim-user' });
+  });
+
+  it('drops non-string ids from malformed-method error responses', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: { bad: true }, method: 123 as any, params: serialize({}) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBeUndefined();
+    expect(payload.error).toContain('Missing or invalid tRPC method');
+    expect(deserialize(payload.result).status).toBe(0);
+  });
+
+  it('drops blank-string ids from error responses', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: '   ', method: 'core..ping', params: serialize({ message: 'x' }) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBeUndefined();
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('TRPC handler does not exist for method: core..ping');
+  });
+
   it('emits status 0 when params payload cannot be deserialized', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();

@@ -18,6 +18,7 @@
 - Response-id parsing now rejects non-string/blank IDs to avoid accidental callback correlation on malformed envelopes.
 - Server handler now treats blank-string request methods as invalid at envelope validation time (same class as missing/non-string methods), reducing ambiguous downstream dispatch failures.
 - Server handler now trims valid method strings before target resolution, making surrounding-whitespace envelopes tolerant while preserving invalid blank-method rejection.
+- Response IDs are now normalized before emit (trim valid IDs; non-string/blank IDs become `undefined`) to avoid propagating malformed callback identifiers.
 - Method target resolution now blocks `__proto__`/`prototype`/`constructor` path segments, empty path segments (e.g. `core..ping`), and whitespace-padded path segments (e.g. `core. ping`) to avoid unsafe or ambiguous traversal while preserving valid caller semantics.
 - Method resolution now rejects inherited built-in prototype methods across common JS prototype families (Object/Function/Array/String/Number/Boolean/Date/RegExp/Map/Set/WeakMap/WeakSet/Promise), preventing callable traversal such as `core.toString` or `core.list.map`.
 - Callback lookup now requires own-property matches in `ioCallbacks`, preventing inherited prototype keys (e.g. `toString`) from being treated as active callbacks.
