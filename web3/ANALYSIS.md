@@ -22,6 +22,7 @@
 - Timeout path now triggers `AbortController.abort()` (when available) before rejecting, limiting lingering in-flight network activity after timeout.
 - Added timeout-state normalization so abort-driven fetch rejections raised after cancellation still surface as deterministic timeout `RequestError` metadata.
 - Non-timeout fetch/network exceptions are now wrapped to `RequestError` (`code: -32000`) so consumers can rely on a consistent failure shape.
+- Transport responses are now shape-validated (`ok/status/statusText/text`) before consumption so malformed fetch/cache payloads fail closed with deterministic `RequestError('Invalid RPC HTTP response')` metadata.
 - Response body read failures are now normalized to `RequestError` (`code: -32000`) instead of surfacing raw stream-level exceptions.
 - Invalid/non-JSON response bodies now fail closed as `RequestError('Invalid JSON-RPC response body')`, preventing silent `undefined` result acceptance.
 - Parsed JSON-RPC payloads now require a valid object envelope with either `result` or `error`; primitive payloads and missing-field envelopes fail closed as `RequestError('Invalid JSON-RPC response envelope')`.

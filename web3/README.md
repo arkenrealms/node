@@ -12,6 +12,7 @@ Legacy-compatible Web3 transport helpers.
   - Timeout handling now aborts in-flight fetches via `AbortController` when available, reducing dangling network work after deadline expiry.
   - Abort-triggered fetch rejections that occur because of timeout cancellation are now normalized back to the same deterministic timeout `RequestError` shape.
   - Non-timeout fetch/network failures are now normalized into `RequestError` (`code: -32000`) for stable caller-side error handling.
+  - Malformed transport responses (non-Response-like objects returned by fetch/cache) now fail closed with `RequestError('Invalid RPC HTTP response')` instead of leaking type errors.
   - Response body read failures are now normalized into `RequestError` metadata (`code: -32000`) instead of leaking raw stream exceptions.
   - Invalid/non-JSON RPC response bodies now fail closed with `RequestError('Invalid JSON-RPC response body')` instead of returning implicit `undefined` results.
   - JSON-RPC payloads that parse but are not object envelopes (or omit both `result` and `error`) now fail closed with `RequestError('Invalid JSON-RPC response envelope')`.

@@ -25,6 +25,7 @@
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
 - Added repeated-403 cache regression coverage so synthetic empty 403 payloads are not cached into silent `undefined` results on follow-up calls.
 - Added fetch/network throw-path regression coverage for `httpProvider` so request failures surface stable `RequestError` metadata (`code: -32000`).
+- Added malformed transport-response regression coverage for `httpProvider` so non-Response-like fetch/cache payloads fail closed with deterministic `RequestError('Invalid RPC HTTP response')` metadata.
 - Added request-envelope immutability regression coverage for `httpProvider` so normalization does not mutate caller-owned payload objects.
 - Added malformed-constructor-URL fallback regression coverage for `httpProvider` so startup does not crash on invalid endpoint input.
 - Added `send`/`sendAsync` fallback-ID regression coverage so callback responses stay aligned with normalized request IDs.

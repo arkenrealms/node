@@ -128,6 +128,17 @@ export default class Provider {
     }
   }
 
+  private isHttpResponseLike(response: any): response is { ok: boolean; status: number; statusText: string; text: () => Promise<string> } {
+    return (
+      typeof response === 'object' &&
+      response !== null &&
+      typeof response.ok === 'boolean' &&
+      typeof response.status === 'number' &&
+      typeof response.statusText === 'string' &&
+      typeof response.text === 'function'
+    );
+  }
+
   async request(request: any): Promise<any> {
     const requestEnvelope = { ...(request || {}) };
 
@@ -179,6 +190,10 @@ export default class Provider {
         body: JSON.stringify(request),
       });
 
+      if (!this.isHttpResponseLike(response)) {
+        throw new RequestError('Invalid RPC HTTP response', -32000, null);
+      }
+
       if (!response.ok) {
         if (response.status === 403) {
           const availableProviders: string[] = JSON.parse(PROVIDERS);
@@ -199,6 +214,10 @@ export default class Provider {
           throw new RequestError(`${response.status}: ${response.statusText}`, -32000, null);
         }
       }
+    }
+
+    if (!this.isHttpResponseLike(response)) {
+      throw new RequestError('Invalid RPC HTTP response', -32000, null);
     }
 
     let responseBodyText = '';
