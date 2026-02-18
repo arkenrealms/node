@@ -183,6 +183,19 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
+  test('wraps fetch network failures in RequestError for stable error shape', async () => {
+    (global as any).fetch = jest.fn(async () => {
+      throw new Error('socket hang up');
+    });
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1011 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'socket hang up',
+    });
+  });
+
   test('send uses fallback id when request id is missing', async () => {
     const provider = new Provider('https://rpc.example.org');
 

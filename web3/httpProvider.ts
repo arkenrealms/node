@@ -108,6 +108,13 @@ export default class Provider {
       });
 
       return await Promise.race([fetch(url, fetchInit), timeoutPromise]);
+    } catch (error: any) {
+      if (error instanceof RequestError) {
+        throw error;
+      }
+
+      const message = error && typeof error.message === 'string' ? error.message : 'RPC request failed';
+      throw new RequestError(message, -32000, null);
     } finally {
       if (timeoutHandle) {
         clearTimeout(timeoutHandle);
