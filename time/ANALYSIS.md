@@ -19,7 +19,7 @@ Time consistency is foundational for seasonal events, queue orchestration, match
 
 ## Risks / gaps
 - Mixed UTC/local conventions (`now.ts` UTC vs `date.ts` local format).
-- `createTaskQueue` lacks cancellation, backpressure limits, and observability hooks.
+- `createTaskQueue` still lacks cancellation, backpressure limits, and observability hooks (tail-handoff enqueue stall fixed with test coverage in this run).
 - `debounce` uses broad `any` types; potential context surprises.
 
 ## Follow-ups

@@ -55,6 +55,12 @@ export const createTaskQueue = () => {
     }
 
     isProcessing = false;
+
+    // If a task was enqueued during the tail handoff window,
+    // immediately restart processing so no task is stranded.
+    if (queue.length > 0) {
+      processQueue();
+    }
   };
 
   const enqueue = (func: () => Promise<any>, delay: number = 1000) => {
