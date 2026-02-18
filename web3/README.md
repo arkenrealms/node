@@ -10,6 +10,7 @@ Legacy-compatible Web3 transport helpers.
   - Cache API usage is now runtime-guarded; provider falls back to network-only request flow when `caches`/`Request`/`Response` globals are unavailable.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
   - Timeout handling now aborts in-flight fetches via `AbortController` when available, reducing dangling network work after deadline expiry.
+  - Abort-triggered fetch rejections that occur because of timeout cancellation are now normalized back to the same deterministic timeout `RequestError` shape.
   - Non-timeout fetch/network failures are now normalized into `RequestError` (`code: -32000`) for stable caller-side error handling.
   - Response body read failures are now normalized into `RequestError` metadata (`code: -32000`) instead of leaking raw stream exceptions.
   - Invalid/non-JSON RPC response bodies now fail closed with `RequestError('Invalid JSON-RPC response body')` instead of returning implicit `undefined` results.

@@ -93,6 +93,7 @@ export default class Provider {
 
   private async fetchWithTimeout(url: string, init: any): Promise<any> {
     let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+    let didTimeout = false;
     const canAbort = typeof AbortController !== 'undefined';
     const controller = canAbort ? new AbortController() : null;
     const fetchInit = controller ? { ...(init || {}), signal: controller.signal } : init;
@@ -100,6 +101,7 @@ export default class Provider {
     try {
       const timeoutPromise = new Promise((_, reject) => {
         timeoutHandle = setTimeout(() => {
+          didTimeout = true;
           if (controller) {
             controller.abort();
           }
@@ -111,6 +113,10 @@ export default class Provider {
     } catch (error: any) {
       if (error instanceof RequestError) {
         throw error;
+      }
+
+      if (didTimeout) {
+        throw new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null);
       }
 
       const message = error && typeof error.message === 'string' ? error.message : 'RPC request failed';

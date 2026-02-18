@@ -19,6 +19,7 @@
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).
 - Timeout path now triggers `AbortController.abort()` (when available) before rejecting, limiting lingering in-flight network activity after timeout.
+- Added timeout-state normalization so abort-driven fetch rejections raised after cancellation still surface as deterministic timeout `RequestError` metadata.
 - Non-timeout fetch/network exceptions are now wrapped to `RequestError` (`code: -32000`) so consumers can rely on a consistent failure shape.
 - Response body read failures are now normalized to `RequestError` (`code: -32000`) instead of surfacing raw stream-level exceptions.
 - Invalid/non-JSON response bodies now fail closed as `RequestError('Invalid JSON-RPC response body')`, preventing silent `undefined` result acceptance.
