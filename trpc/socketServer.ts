@@ -19,7 +19,12 @@ function isBlockedMethodPathSegment(segment: string) {
 function resolveTarget(caller: any, method: string) {
   const segments = method.split('.');
 
-  if (segments.some((segment) => !segment || isBlockedMethodPathSegment(segment))) {
+  if (
+    segments.some((segment) => {
+      const normalizedSegment = segment.trim();
+      return !normalizedSegment || normalizedSegment !== segment || isBlockedMethodPathSegment(normalizedSegment);
+    })
+  ) {
     return undefined;
   }
 

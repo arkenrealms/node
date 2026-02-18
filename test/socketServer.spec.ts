@@ -189,6 +189,18 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(payload.error).toContain('TRPC handler does not exist for method: core..ping');
   });
 
+  it('rejects methods with whitespace-padded path segments', async () => {
+    const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-spaced-segment', method: 'core. ping', params: serialize({ message: 'x' }) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-spaced-segment');
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('TRPC handler does not exist for method: core. ping');
+  });
+
   it('rejects constructor-path traversal attempts', async () => {
     const handler = createSocketTrpcHandler({ router, createCallerFactory: t.createCallerFactory, log: () => {} });
     const socket = makeFakeSocket();
