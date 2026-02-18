@@ -12,6 +12,8 @@ let EDGE_CACHE_TTL = 60;
 let BROWSER_CACHE_TTL = 0;
 let PROVIDER_TIMEOUT = 5000;
 
+const TIMEOUT_ERROR_CODE = -32000;
+
 class RequestError extends Error {
   code: number;
   data: any;
@@ -64,6 +66,24 @@ export default class Provider {
     };
   }
 
+  private async fetchWithTimeout(url: string, init: any): Promise<any> {
+    let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+
+    try {
+      const timeoutPromise = new Promise((_, reject) => {
+        timeoutHandle = setTimeout(() => {
+          reject(new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null));
+        }, PROVIDER_TIMEOUT);
+      });
+
+      return await Promise.race([fetch(url, init), timeoutPromise]);
+    } finally {
+      if (timeoutHandle) {
+        clearTimeout(timeoutHandle);
+      }
+    }
+  }
+
   async request(request: any): Promise<any> {
     var _a, _b, _c;
 
@@ -99,7 +119,7 @@ export default class Provider {
 
     let response = cache && cacheKey ? await cache.match(cacheKey) : null;
     if (!response) {
-      response = await fetch(url, {
+      response = await this.fetchWithTimeout(url, {
         method: 'POST',
         headers,
         body: JSON.stringify(request),

@@ -96,4 +96,23 @@ describe('web3/httpProvider', () => {
     expect(result).toBe(901);
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
+
+  test('rejects when fetch exceeds provider timeout window', async () => {
+    jest.useFakeTimers();
+    try {
+      (global as any).fetch = jest.fn(() => new Promise(() => {}));
+
+      const provider = new Provider('https://rpc.example.org');
+      const pending = provider.request({ method: 'eth_chainId', params: [], id: 999 });
+      const assertion = expect(pending).rejects.toMatchObject({
+        code: -32000,
+        message: 'Request timeout after 5000ms',
+      });
+
+      await jest.advanceTimersByTimeAsync(5001);
+      await assertion;
+    } finally {
+      jest.useRealTimers();
+    }
+  }, 10000);
 });

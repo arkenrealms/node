@@ -7,6 +7,7 @@ Legacy-compatible Web3 transport helpers.
   - Constructor now honors explicit URL input before falling back to default provider pool.
   - Request IDs are preserved when callers provide one; fallback ID `56` is only used when missing.
   - Cache API usage is now runtime-guarded; provider falls back to network-only request flow when `caches`/`Request`/`Response` globals are unavailable.
+  - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.
