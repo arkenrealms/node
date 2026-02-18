@@ -130,6 +130,13 @@ export default class Provider {
 
   async request(request: any): Promise<any> {
     const requestEnvelope = { ...(request || {}) };
+
+    const method = requestEnvelope.method;
+    if (typeof method !== 'string' || method.trim().length === 0) {
+      throw new RequestError('Invalid JSON-RPC request method', -32600, null);
+    }
+
+    requestEnvelope.method = method.trim();
     return this.requestWithRetries(requestEnvelope, 0);
   }
 

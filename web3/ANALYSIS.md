@@ -14,6 +14,7 @@
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
 - Invalid constructor URL input now falls back to the first valid configured provider URL, preventing startup-time crashes from malformed endpoint strings.
 - Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
+- Outbound request validation now fails fast when `method` is missing/blank (`code: -32600`) and trims method strings before dispatch so whitespace-only drift does not leak to RPC providers.
 - `send`/`sendAsync` callback responses now use normalized request IDs, so missing caller IDs no longer leak through as `undefined`.
 - Request normalization now runs on a shallow cloned envelope, avoiding side-effect mutation of caller-owned request objects.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.

@@ -115,6 +115,34 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
+  test('rejects request envelopes with missing method before network dispatch', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ params: [], id: 902 })).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request method',
+    });
+
+    expect((global as any).fetch).toHaveBeenCalledTimes(0);
+  });
+
+  test('trims request method before network dispatch', async () => {
+    (global as any).fetch = jest.fn(async (_url: string, init: any) => {
+      const payload = JSON.parse(init.body);
+
+      return new (global as any).Response(
+        JSON.stringify({ jsonrpc: '2.0', id: payload.id, result: payload.method }),
+        { ok: true, status: 200, statusText: 'OK' }
+      );
+    });
+
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: '  eth_chainId  ', params: [], id: 903 });
+
+    expect(result).toBe('eth_chainId');
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
+
   test('rejects when fetch exceeds provider timeout window', async () => {
     jest.useFakeTimers();
     try {
