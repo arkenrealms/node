@@ -9,6 +9,7 @@ Legacy-compatible Web3 transport helpers.
   - Cache API usage is now runtime-guarded; provider falls back to network-only request flow when `caches`/`Request`/`Response` globals are unavailable.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
   - 403 fallback retries now fail closed when no alternate provider exists, preventing unbounded recursive retry loops.
+  - Caller request envelopes are cloned before normalization so `jsonrpc`/fallback-id assignment does not mutate upstream objects.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.

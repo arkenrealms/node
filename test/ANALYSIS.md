@@ -20,3 +20,4 @@
 - Added `httpProvider` regression coverage for cacheless runtimes to confirm request flow remains functional when Cache API globals are absent.
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
+- Added request-envelope immutability regression coverage for `httpProvider` so normalization does not mutate caller-owned payload objects.

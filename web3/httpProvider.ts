@@ -85,7 +85,8 @@ export default class Provider {
   }
 
   async request(request: any): Promise<any> {
-    return this.requestWithRetries(request, 0);
+    const requestEnvelope = { ...(request || {}) };
+    return this.requestWithRetries(requestEnvelope, 0);
   }
 
   private async requestWithRetries(request: any, forbiddenRetries: number): Promise<any> {

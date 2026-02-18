@@ -78,6 +78,15 @@ describe('web3/httpProvider', () => {
     expect(result).toBe(777);
   });
 
+  test('does not mutate the caller request object', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const request = { method: 'eth_chainId', params: [] };
+
+    await provider.request(request);
+
+    expect(request).toEqual({ method: 'eth_chainId', params: [] });
+  });
+
   test('uses fallback request id when id is missing', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [] });
