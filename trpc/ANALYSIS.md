@@ -20,7 +20,7 @@
 - Server handler now trims valid method strings before target resolution, making surrounding-whitespace envelopes tolerant while preserving invalid blank-method rejection.
 - Response IDs are now normalized before emit (trim valid IDs; non-string/blank IDs become `undefined`) to avoid propagating malformed callback identifiers.
 - Method target resolution now blocks `__proto__`/`prototype`/`constructor` path segments, empty path segments (e.g. `core..ping`), and whitespace-padded path segments (e.g. `core. ping`) to avoid unsafe or ambiguous traversal while preserving valid caller semantics.
-- Method resolution rejects inherited built-in prototype methods across common prototype families and typed arrays, preventing callable traversal such as `core.toString`, `core.list.map`, and `core.bytes.map`.
+- Method resolution rejects inherited built-in prototype methods across common prototype families and expanded typed-array prototypes, preventing callable traversal such as `core.toString`, `core.list.map`, `core.bytes.map`, and `core.floats.map`.
 - Callback lookup now requires own-property matches in `ioCallbacks`, preventing inherited prototype keys (e.g. `toString`) from being treated as active callbacks.
 - Proxy timeout rejections now attach `reqId` metadata for parity with other transport error paths and easier distributed tracing.
 - Server-push payload decode is now fail-soft (warn + undefined params) so malformed params do not crash handler flow.

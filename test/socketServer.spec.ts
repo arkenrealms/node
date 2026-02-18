@@ -352,6 +352,27 @@ describe('createSocketTrpcHandler (Socket.IO tRPC server helper)', () => {
     expect(payload.error).toContain('TRPC handler does not exist for method: core.bytes.map');
   });
 
+  it('rejects inherited float32array prototype method paths', async () => {
+    const inheritedRouter = {} as any;
+    const handler = createSocketTrpcHandler({
+      router: inheritedRouter,
+      createCallerFactory: () => () => ({
+        core: {
+          floats: new Float32Array([1, 2, 3]),
+        },
+      }),
+      log: () => {},
+    });
+    const socket = makeFakeSocket();
+
+    await handler(socket, {}, { id: 'req-inherited-float32array-method', method: 'core.floats.map', params: serialize({}) });
+
+    const { payload } = socket.emitted[0];
+    expect(payload.id).toBe('req-inherited-float32array-method');
+    expect(deserialize(payload.result).status).toBe(0);
+    expect(payload.error).toContain('TRPC handler does not exist for method: core.floats.map');
+  });
+
   it('attachSocketTrpcListener binds and unbinds listeners', async () => {
     const socket = makeFakeSocket();
     const fn = jest.fn(async () => undefined);

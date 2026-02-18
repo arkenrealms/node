@@ -32,7 +32,13 @@ const BLOCKED_BUILTIN_PROTOTYPES = [
   WeakSet.prototype,
   Promise.prototype,
   Uint8Array.prototype,
+  Int8Array.prototype,
+  Uint16Array.prototype,
+  Int16Array.prototype,
+  Uint32Array.prototype,
   Int32Array.prototype,
+  Float32Array.prototype,
+  Float64Array.prototype,
 ].filter(Boolean);
 
 function isBlockedBuiltinPrototypeProperty(key: string) {
