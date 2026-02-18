@@ -132,6 +132,35 @@ describe('web3/httpProvider', () => {
     }
   }, 10000);
 
+  test('aborts in-flight fetch on timeout when AbortController is available', async () => {
+    jest.useFakeTimers();
+    try {
+      const abortSpy = jest.fn();
+
+      (global as any).fetch = jest.fn((_url: string, init: any) => {
+        const signal = init?.signal;
+        if (signal && typeof signal.addEventListener === 'function') {
+          signal.addEventListener('abort', abortSpy);
+        }
+
+        return new Promise(() => {});
+      });
+
+      const provider = new Provider('https://rpc.example.org');
+      const pending = provider.request({ method: 'eth_chainId', params: [], id: 1001 });
+      const assertion = expect(pending).rejects.toMatchObject({
+        code: -32000,
+        message: 'Request timeout after 5000ms',
+      });
+
+      await jest.advanceTimersByTimeAsync(5001);
+      await assertion;
+      expect(abortSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      jest.useRealTimers();
+    }
+  }, 10000);
+
   test('does not recurse indefinitely on 403 when no alternate providers are configured', async () => {
     class ForbiddenResponse {
       ok = false;

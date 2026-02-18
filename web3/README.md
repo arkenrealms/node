@@ -9,6 +9,7 @@ Legacy-compatible Web3 transport helpers.
   - Request IDs are preserved when callers provide one; fallback ID `56` is only used when missing.
   - Cache API usage is now runtime-guarded; provider falls back to network-only request flow when `caches`/`Request`/`Response` globals are unavailable.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
+  - Timeout handling now aborts in-flight fetches via `AbortController` when available, reducing dangling network work after deadline expiry.
   - 403 fallback retries now fail closed when no alternate provider exists, preventing unbounded recursive retry loops.
   - Caller request envelopes are cloned before normalization so `jsonrpc`/fallback-id assignment does not mutate upstream objects.
   - `send`/`sendAsync` now normalize missing request IDs to the same fallback (`56`) used by `request`, preventing callback responses with `id: undefined`.

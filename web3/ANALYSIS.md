@@ -18,6 +18,7 @@
 - Request normalization now runs on a shallow cloned envelope, avoiding side-effect mutation of caller-owned request objects.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).
+- Timeout path now triggers `AbortController.abort()` (when available) before rejecting, limiting lingering in-flight network activity after timeout.
 - `BROWSER_CACHE_TTL` remains defined but not currently enforced in request flow.
 
 ## Protocol/Test relevance

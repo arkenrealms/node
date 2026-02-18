@@ -19,6 +19,7 @@
 - Added link-side regression for backend-only op paths (`seer` without `method`) to ensure `createSocketLink` fails fast and avoids malformed socket emits.
 - Added `httpProvider` regression coverage for cacheless runtimes to confirm request flow remains functional when Cache API globals are absent.
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
+- Added abort-on-timeout regression coverage for `httpProvider` so in-flight fetches are cancelled via `AbortController` when timeout is reached.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
 - Added request-envelope immutability regression coverage for `httpProvider` so normalization does not mutate caller-owned payload objects.
 - Added malformed-constructor-URL fallback regression coverage for `httpProvider` so startup does not crash on invalid endpoint input.
