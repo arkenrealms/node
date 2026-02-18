@@ -31,7 +31,8 @@
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.
 - Cache key/path strategy and fallback id defaults may mask backend issues or create debugging ambiguity.
-- 403 failover path now avoids infinite recursion when no alternate providers are configured, but still depends on static provider-list configuration.
+- 403 failover path now avoids infinite recursion when no alternate providers are configured and no longer writes synthetic empty cache entries that could mask repeated failures as silent `undefined` results.
+- Fallback behavior still depends on static provider-list configuration.
 
 ## Follow-ups
 - Expand tests for 403 failover recursion behavior under both cache-enabled and cache-disabled runtimes.

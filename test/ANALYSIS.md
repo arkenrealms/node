@@ -21,6 +21,7 @@
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
 - Added abort-on-timeout regression coverage for `httpProvider` so in-flight fetches are cancelled via `AbortController` when timeout is reached.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
+- Added repeated-403 cache regression coverage so synthetic empty 403 payloads are not cached into silent `undefined` results on follow-up calls.
 - Added fetch/network throw-path regression coverage for `httpProvider` so request failures surface stable `RequestError` metadata (`code: -32000`).
 - Added request-envelope immutability regression coverage for `httpProvider` so normalization does not mutate caller-owned payload objects.
 - Added malformed-constructor-URL fallback regression coverage for `httpProvider` so startup does not crash on invalid endpoint input.

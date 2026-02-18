@@ -170,12 +170,6 @@ export default class Provider {
 
       if (!response.ok) {
         if (response.status === 403) {
-          if (cache && cacheKey && typeof Response !== 'undefined') {
-            const fullBody = JSON.stringify({});
-            const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
-            await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
-          }
-
           const availableProviders: string[] = JSON.parse(PROVIDERS);
           const currentProvider = this.url.toString();
           const alternateProviders = availableProviders.filter((provider) => provider !== currentProvider);

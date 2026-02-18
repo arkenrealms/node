@@ -183,6 +183,34 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
+  test('does not cache synthetic empty body after 403 failure', async () => {
+    class ForbiddenResponse {
+      ok = false;
+      status = 403;
+      statusText = 'Forbidden';
+
+      async text() {
+        return JSON.stringify({});
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new ForbiddenResponse());
+
+    const provider = new Provider('https://bsc-dataseed1.ninicoin.io');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1012 })).rejects.toMatchObject({
+      code: -32000,
+      message: '403: Forbidden',
+    });
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1012 })).rejects.toMatchObject({
+      code: -32000,
+      message: '403: Forbidden',
+    });
+
+    expect((global as any).fetch).toHaveBeenCalledTimes(2);
+  });
+
   test('wraps fetch network failures in RequestError for stable error shape', async () => {
     (global as any).fetch = jest.fn(async () => {
       throw new Error('socket hang up');
