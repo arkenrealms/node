@@ -126,6 +126,17 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(0);
   });
 
+  test('rejects request envelopes with invalid JSON-RPC id before network dispatch', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: true })).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request id',
+    });
+
+    expect((global as any).fetch).toHaveBeenCalledTimes(0);
+  });
+
   test('trims request method before network dispatch', async () => {
     (global as any).fetch = jest.fn(async (_url: string, init: any) => {
       const payload = JSON.parse(init.body);
@@ -487,6 +498,27 @@ describe('web3/httpProvider', () => {
     const provider = new Provider('https://rpc.example.org');
 
     await expect(provider.request({ method: 'eth_chainId', params: [], id: 1308 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Mismatched JSON-RPC response id',
+    });
+  });
+
+  test('rejects JSON-RPC responses with non-spec id types even if stringified values match', async () => {
+    class BooleanIdResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({ jsonrpc: '2.0', id: true, result: '0x1' });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new BooleanIdResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 'true' })).rejects.toMatchObject({
       code: -32000,
       message: 'Mismatched JSON-RPC response id',
     });

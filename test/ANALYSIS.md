@@ -20,6 +20,7 @@
 - Added `httpProvider` regression coverage for cacheless runtimes to confirm request flow remains functional when Cache API globals are absent.
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
 - Added outbound request-method validation coverage so missing/blank `method` values fail fast with `-32600` and whitespace-padded method strings are trimmed before transport dispatch.
+- Added outbound request-id validation coverage so non-spec ID types (e.g., booleans) fail fast with `-32600` before transport dispatch.
 - Added abort-on-timeout regression coverage for `httpProvider` so in-flight fetches are cancelled via `AbortController` when timeout is reached.
 - Added abort-rejection normalization coverage for `httpProvider` so abort-side fetch errors after timeout cancellation remain deterministic timeout `RequestError` failures.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
@@ -31,7 +32,7 @@
 - Added `send`/`sendAsync` fallback-ID regression coverage so callback responses stay aligned with normalized request IDs.
 - Added invalid/non-JSON response-body regression coverage for `httpProvider` so malformed upstream payloads fail closed with stable `RequestError` metadata.
 - Added parsed-envelope validation regressions for `httpProvider` so primitive JSON payloads and object envelopes missing both `result` and `error` fail closed with deterministic `RequestError` metadata.
-- Added response-id validation regressions for `httpProvider` so missing/mismatched JSON-RPC response IDs fail closed with deterministic `RequestError` metadata.
+- Added response-id validation regressions for `httpProvider` so missing/mismatched or non-spec-typed JSON-RPC response IDs fail closed with deterministic `RequestError` metadata.
 - Added JSON-RPC protocol-version validation regressions for `httpProvider` so missing/legacy `jsonrpc` values fail closed with deterministic `RequestError` metadata.
 - Added malformed-`error`-envelope regression coverage for `httpProvider` so non-object `error` payloads fail closed as invalid JSON-RPC envelopes.
 - Added JSON-RPC `error` field-normalization regression coverage for `httpProvider` so missing/invalid `message` or `code` values (including non-integer numeric codes) resolve to deterministic defaults.

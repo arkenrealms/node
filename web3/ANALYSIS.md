@@ -15,6 +15,7 @@
 - Invalid constructor URL input now falls back to the first valid configured provider URL, preventing startup-time crashes from malformed endpoint strings.
 - Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
 - Outbound request validation now fails fast when `method` is missing/blank (`code: -32600`) and trims method strings before dispatch so whitespace-only drift does not leak to RPC providers.
+- Outbound request validation now enforces JSON-RPC `id` shape (string/number/null); non-spec IDs fail fast (`code: -32600`) before transport dispatch.
 - `send`/`sendAsync` callback responses now use normalized request IDs, so missing caller IDs no longer leak through as `undefined`.
 - Request normalization now runs on a shallow cloned envelope, avoiding side-effect mutation of caller-owned request objects.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
@@ -26,7 +27,7 @@
 - Response body read failures are now normalized to `RequestError` (`code: -32000`) instead of surfacing raw stream-level exceptions.
 - Invalid/non-JSON response bodies now fail closed as `RequestError('Invalid JSON-RPC response body')`, preventing silent `undefined` result acceptance.
 - Parsed JSON-RPC payloads now require a valid object envelope with either `result` or `error`; primitive payloads and missing-field envelopes fail closed as `RequestError('Invalid JSON-RPC response envelope')`.
-- JSON-RPC response IDs are now validated against the originating request ID; missing/mismatched response IDs fail closed as `RequestError('Mismatched JSON-RPC response id')` to prevent cross-request response acceptance.
+- JSON-RPC response IDs are now validated against the originating request ID; missing/mismatched or non-spec-typed response IDs fail closed as `RequestError('Mismatched JSON-RPC response id')` to prevent cross-request response acceptance.
 - JSON-RPC response envelopes now require protocol version `jsonrpc: '2.0'`; missing/legacy versions fail closed as `RequestError('Invalid JSON-RPC version')` so non-compliant upstream payloads are not silently accepted.
 - JSON-RPC `error` envelopes are now validated/normalized: non-object `error` payloads fail as invalid envelopes, and malformed/missing `message` or `code` fields (including non-integer numeric `code` values) now fall back to stable defaults (`message: 'RPC request failed'`, `code: -32000`).
 - Cache persistence now occurs only for successful `result` envelopes, which avoids pinning transient JSON-RPC errors into cache and improves retry/recovery behavior.

@@ -139,12 +139,20 @@ export default class Provider {
     );
   }
 
+  private isValidJsonRpcId(id: any): boolean {
+    return id === null || typeof id === 'string' || (typeof id === 'number' && Number.isFinite(id));
+  }
+
   async request(request: any): Promise<any> {
     const requestEnvelope = { ...(request || {}) };
 
     const method = requestEnvelope.method;
     if (typeof method !== 'string' || method.trim().length === 0) {
       throw new RequestError('Invalid JSON-RPC request method', -32600, null);
+    }
+
+    if (typeof requestEnvelope.id !== 'undefined' && requestEnvelope.id !== null && !this.isValidJsonRpcId(requestEnvelope.id)) {
+      throw new RequestError('Invalid JSON-RPC request id', -32600, null);
     }
 
     requestEnvelope.method = method.trim();
@@ -244,7 +252,12 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC version', -32000, null);
     }
 
-    if (!('id' in responseBody) || String(responseBody.id) !== String(request.id)) {
+    if (
+      !('id' in responseBody) ||
+      !this.isValidJsonRpcId(responseBody.id) ||
+      !this.isValidJsonRpcId(request.id) ||
+      String(responseBody.id) !== String(request.id)
+    ) {
       throw new RequestError('Mismatched JSON-RPC response id', -32000, null);
     }
 
