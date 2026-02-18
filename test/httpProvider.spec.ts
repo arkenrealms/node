@@ -71,6 +71,13 @@ describe('web3/httpProvider', () => {
     expect(provider.url.toString()).toBe('https://rpc.example.org/custom/path');
   });
 
+  test('falls back to default provider when constructor url is invalid', () => {
+    const provider = new Provider('not a valid url');
+
+    expect(provider.host).toBe('bsc-dataseed1.ninicoin.io');
+    expect(provider.url.toString()).toBe('https://bsc-dataseed1.ninicoin.io/');
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });

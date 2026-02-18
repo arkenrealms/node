@@ -41,12 +41,11 @@ export default class Provider {
 
     const providers = JSON.parse(PROVIDERS);
 
-    const resolvedProviderUrl =
-      typeof url === 'string' && url.trim().length > 0
-        ? url
-        : providers[Math.floor(Math.random() * providers.length)];
+    const requestedProviderUrl = typeof url === 'string' && url.trim().length > 0 ? url.trim() : null;
 
-    const parsedUrl = new URL(resolvedProviderUrl);
+    const resolvedProviderUrl = requestedProviderUrl || providers[Math.floor(Math.random() * providers.length)];
+
+    const parsedUrl = this.parseProviderUrl(resolvedProviderUrl, providers);
     this.url = parsedUrl;
     this.host = parsedUrl.host;
     this.path = parsedUrl.pathname;
@@ -74,6 +73,22 @@ export default class Provider {
         .then((result) => callback(null, { jsonrpc: '2.0', id: requestEnvelope.id, result }))
         .catch((error) => callback(error, null));
     };
+  }
+
+  private parseProviderUrl(candidate: string, providers: string[]): URL {
+    try {
+      return new URL(candidate);
+    } catch (_error) {
+      for (const provider of providers) {
+        try {
+          return new URL(provider);
+        } catch (_providerError) {
+          continue;
+        }
+      }
+
+      throw new RequestError('No valid provider URL configured', -32000, null);
+    }
   }
 
   private async fetchWithTimeout(url: string, init: any): Promise<any> {

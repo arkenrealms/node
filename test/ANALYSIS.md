@@ -21,4 +21,5 @@
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
 - Added request-envelope immutability regression coverage for `httpProvider` so normalization does not mutate caller-owned payload objects.
+- Added malformed-constructor-URL fallback regression coverage for `httpProvider` so startup does not crash on invalid endpoint input.
 - Added `send`/`sendAsync` fallback-ID regression coverage so callback responses stay aligned with normalized request IDs.

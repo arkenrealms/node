@@ -12,6 +12,7 @@
 ## Key findings
 - Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
+- Invalid constructor URL input now falls back to the first valid configured provider URL, preventing startup-time crashes from malformed endpoint strings.
 - Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
 - `send`/`sendAsync` callback responses now use normalized request IDs, so missing caller IDs no longer leak through as `undefined`.
 - Request normalization now runs on a shallow cloned envelope, avoiding side-effect mutation of caller-owned request objects.
