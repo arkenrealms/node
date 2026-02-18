@@ -16,6 +16,24 @@ function isBlockedMethodPathSegment(segment: string) {
   return segment === '__proto__' || segment === 'prototype' || segment === 'constructor';
 }
 
+function isBlockedBuiltinPrototypeProperty(key: string) {
+  return [
+    Object.prototype,
+    Function.prototype,
+    Array.prototype,
+    String.prototype,
+    Number.prototype,
+    Boolean.prototype,
+    Date.prototype,
+    RegExp.prototype,
+    Map.prototype,
+    Set.prototype,
+    WeakMap.prototype,
+    WeakSet.prototype,
+    Promise.prototype,
+  ].some((proto) => key in proto);
+}
+
 function resolveTarget(caller: any, method: string) {
   const segments = method.split('.');
 
@@ -31,8 +49,8 @@ function resolveTarget(caller: any, method: string) {
   return segments.reduce<any>((acc, key) => {
     if (acc == null) return undefined;
 
-    if (!Object.prototype.hasOwnProperty.call(acc, key)) {
-      if (key in Object.prototype || key in Function.prototype) return undefined;
+    if (!Object.prototype.hasOwnProperty.call(acc, key) && isBlockedBuiltinPrototypeProperty(key)) {
+      return undefined;
     }
 
     return acc[key];

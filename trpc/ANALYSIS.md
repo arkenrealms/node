@@ -19,7 +19,7 @@
 - Server handler now treats blank-string request methods as invalid at envelope validation time (same class as missing/non-string methods), reducing ambiguous downstream dispatch failures.
 - Server handler now trims valid method strings before target resolution, making surrounding-whitespace envelopes tolerant while preserving invalid blank-method rejection.
 - Method target resolution now blocks `__proto__`/`prototype`/`constructor` path segments, empty path segments (e.g. `core..ping`), and whitespace-padded path segments (e.g. `core. ping`) to avoid unsafe or ambiguous traversal while preserving valid caller semantics.
-- Method resolution now rejects inherited built-in prototype methods during traversal (e.g., `core.toString`), while preserving valid callable traversal behavior for non-builtin caller surfaces.
+- Method resolution now rejects inherited built-in prototype methods across common JS prototype families (Object/Function/Array/String/Number/Boolean/Date/RegExp/Map/Set/WeakMap/WeakSet/Promise), preventing callable traversal such as `core.toString` or `core.list.map`.
 - Callback lookup now requires own-property matches in `ioCallbacks`, preventing inherited prototype keys (e.g. `toString`) from being treated as active callbacks.
 - Proxy timeout rejections now attach `reqId` metadata for parity with other transport error paths and easier distributed tracing.
 - Server-push payload decode is now fail-soft (warn + undefined params) so malformed params do not crash handler flow.
