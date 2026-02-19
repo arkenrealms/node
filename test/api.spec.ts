@@ -94,4 +94,16 @@ describe('api/getFilter', () => {
       $and: [{ createdAt }, { _id: objectId }],
     });
   });
+
+  test('preserves plain-object equality filters when no operator keys are present', () => {
+    expect(
+      getFilter({
+        where: {
+          metadata: { rarity: 'legendary', flags: ['quest'] },
+        },
+      })
+    ).toEqual({
+      metadata: { rarity: 'legendary', flags: ['quest'] },
+    });
+  });
 });

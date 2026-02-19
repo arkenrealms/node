@@ -49,7 +49,7 @@ export function getFilter(query: any): Record<string, any> {
       return { [normalizedField]: { $in: cond.in } };
     }
 
-    return undefined;
+    return { [normalizedField]: cond };
   };
 
   const parseWhereNode = (node: any): Record<string, any> | undefined => {
