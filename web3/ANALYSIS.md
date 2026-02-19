@@ -20,7 +20,7 @@
 
 ## Protocol/Test relevance
 - Transport/cache behavior and request-id handling impact RPC correctness and debugging.
-- Missing deterministic timeout/cancellation paths increase production reliability risk.
+- Timeout behavior now includes active abort signaling for in-flight fetch requests when runtime supports `AbortController`, reducing dangling network work under outage/hang scenarios.
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.

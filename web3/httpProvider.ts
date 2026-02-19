@@ -68,15 +68,27 @@ export default class Provider {
 
   private async fetchWithTimeout(url: string, init: any): Promise<any> {
     let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+    const canAbort = typeof AbortController !== 'undefined';
+    const controller = canAbort ? new AbortController() : null;
+    const requestInit =
+      controller && !init?.signal
+        ? {
+            ...init,
+            signal: controller.signal,
+          }
+        : init;
 
     try {
       const timeoutPromise = new Promise((_, reject) => {
         timeoutHandle = setTimeout(() => {
+          if (controller) {
+            controller.abort();
+          }
           reject(new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null));
         }, PROVIDER_TIMEOUT);
       });
 
-      return await Promise.race([fetch(url, init), timeoutPromise]);
+      return await Promise.race([fetch(url, requestInit), timeoutPromise]);
     } finally {
       if (timeoutHandle) {
         clearTimeout(timeoutHandle);
