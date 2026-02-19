@@ -1,3 +1,5 @@
+// arken/packages/node/data/zk/updateLeaf_js/generate_witness.js
+
 const wc  = require("./witness_calculator.js");
 const { readFileSync, writeFile } = require("fs");
 

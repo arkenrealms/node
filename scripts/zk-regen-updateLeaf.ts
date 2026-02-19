@@ -1,3 +1,5 @@
+// arken/packages/node/scripts/zk-regen-updateLeaf.ts
+
 #!/usr/bin/env ts-node
 
 /**

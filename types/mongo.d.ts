@@ -1,3 +1,5 @@
+// arken/packages/node/types/mongo.d.ts
+
 import 'mongoose';
 import type { Query as MongooseQuery, QueryWithHelpers as MongooseQueryWithHelpers } from 'mongoose';
 

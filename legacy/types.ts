@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/types.ts
+
 export enum GameEnum {
   Game1 = 1,
   Game2 = 2,

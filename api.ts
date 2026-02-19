@@ -1,3 +1,5 @@
+// arken/packages/node/api.ts
+
 import Mongoose from 'mongoose';
 import axios from 'axios';
 
@@ -10,93 +12,86 @@ function escapeRegExp(s: string) {
 }
 
 export function getFilter(query: any): Record<string, any> {
-  const filter: Record<string, any> = {};
   const where = query?.where;
-  if (!where || typeof where !== 'object') return filter;
+  if (!where || typeof where !== 'object') return {};
 
   // Helper to turn a single field condition into a Mongo filter fragment
   const buildField = (field: string, cond: any) => {
-    if (cond == null || typeof cond !== 'object') return undefined;
+    if (cond == null) return undefined;
 
-    // equals
-    if ('equals' in cond) {
-      if (field === 'id' || field === '_id') return { _id: cond.equals };
-      return { [field]: cond.equals };
+    const normalizedField = field === 'id' || field === '_id' ? '_id' : field;
+
+    if (typeof cond !== 'object') {
+      return { [normalizedField]: cond };
     }
 
-    // contains (case-insensitive regex). Skip if empty string.
+    const isPlainObject =
+      Object.prototype.toString.call(cond) === '[object Object]' &&
+      (Object.getPrototypeOf(cond) === Object.prototype || Object.getPrototypeOf(cond) === null);
+
+    if (!isPlainObject) {
+      return { [normalizedField]: cond };
+    }
+
+    if ('equals' in cond) {
+      return { [normalizedField]: cond.equals };
+    }
+
     if ('contains' in cond) {
       const term = cond.contains ?? '';
-      if (typeof term === 'string' && term.length === 0) return undefined; // no-op for ""
+      if (typeof term === 'string' && term.length === 0) return undefined;
       return {
-        [field]:
-          // For typical text-ish fields use regex, else fallback to raw contains (rare)
-          { $regex: escapeRegExp(String(term)), $options: 'i' },
+        [normalizedField]: { $regex: escapeRegExp(String(term)), $options: 'i' },
       };
     }
 
-    // in
     if ('in' in cond && Array.isArray(cond.in)) {
-      return { [field]: { $in: cond.in } };
+      return { [normalizedField]: { $in: cond.in } };
     }
 
     return undefined;
   };
 
-  // Collect $and and $or fragments
-  const andClauses: any[] = [];
-  const orClauses: any[] = [];
+  const parseWhereNode = (node: any): Record<string, any> | undefined => {
+    if (!node || typeof node !== 'object') return undefined;
 
-  // 1) Top-level simple fields (e.g., where.key.contains, where.email.equals, etc.)
-  Object.keys(where).forEach((k) => {
-    if (k === 'OR' || k === 'AND') return;
-    const frag = buildField(k, where[k]);
-    if (frag) andClauses.push(frag);
-  });
+    const andClauses: any[] = [];
+    const orClauses: any[] = [];
 
-  // 2) OR array
-  if (Array.isArray(where.OR)) {
-    const ors: any[] = [];
-    for (const obj of where.OR) {
-      if (!obj || typeof obj !== 'object') continue;
-      const localAnd: any[] = [];
-      for (const key of Object.keys(obj)) {
-        const frag = buildField(key, obj[key]);
-        if (frag) localAnd.push(frag);
-      }
-      if (localAnd.length === 1) ors.push(localAnd[0]);
-      else if (localAnd.length > 1) ors.push({ $and: localAnd });
+    for (const key of Object.keys(node)) {
+      if (key === 'OR' || key === 'AND') continue;
+      const frag = buildField(key, node[key]);
+      if (frag) andClauses.push(frag);
     }
-    if (ors.length) orClauses.push(...ors);
-  }
 
-  // 3) AND array
-  if (Array.isArray(where.AND)) {
-    for (const obj of where.AND) {
-      if (!obj || typeof obj !== 'object') continue;
-      const localAnd: any[] = [];
-      for (const key of Object.keys(obj)) {
-        const frag = buildField(key, obj[key]);
-        if (frag) localAnd.push(frag);
+    if (Array.isArray(node.OR)) {
+      for (const child of node.OR) {
+        const parsed = parseWhereNode(child);
+        if (parsed) orClauses.push(parsed);
       }
-      if (localAnd.length === 1) andClauses.push(localAnd[0]);
-      else if (localAnd.length > 1) andClauses.push({ $and: localAnd });
     }
-  }
 
-  // Assemble final filter
-  if (andClauses.length && orClauses.length) {
-    return { $and: [...andClauses, { $or: orClauses }] };
-  }
-  if (andClauses.length) {
-    return andClauses.length === 1 ? andClauses[0] : { $and: andClauses };
-  }
-  if (orClauses.length) {
-    return { $or: orClauses };
-  }
+    if (Array.isArray(node.AND)) {
+      for (const child of node.AND) {
+        const parsed = parseWhereNode(child);
+        if (parsed) andClauses.push(parsed);
+      }
+    }
 
-  console.log('Converted query to filter', query, filter);
-  return filter;
+    if (andClauses.length && orClauses.length) {
+      return { $and: [...andClauses, { $or: orClauses }] };
+    }
+    if (andClauses.length) {
+      return andClauses.length === 1 ? andClauses[0] : { $and: andClauses };
+    }
+    if (orClauses.length) {
+      return { $or: orClauses };
+    }
+
+    return undefined;
+  };
+
+  return parseWhereNode(where) ?? {};
 }
 export async function fetch(url: string, query: FetchQuery): Promise<any> {
   const res = await axios.post(url, query, {
