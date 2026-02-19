@@ -103,6 +103,10 @@ export default class Provider {
   private async requestWithRetries(request: any, forbiddenRetries: number): Promise<any> {
     var _a, _b, _c;
 
+    if (!request || typeof request !== 'object' || Array.isArray(request)) {
+      throw new RequestError('Invalid JSON-RPC request payload', -32600, null);
+    }
+
     request.jsonrpc = '2.0';
     if (typeof request.id === 'undefined' || request.id === null) {
       request.id = 56;

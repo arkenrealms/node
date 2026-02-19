@@ -71,6 +71,25 @@ describe('web3/httpProvider', () => {
     expect(provider.url.toString()).toBe('https://rpc.example.org/custom/path');
   });
 
+  test('rejects non-object JSON-RPC request payloads', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request(null)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request payload',
+    });
+
+    await expect(provider.request('eth_chainId' as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request payload',
+    });
+
+    await expect(provider.request([] as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request payload',
+    });
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });

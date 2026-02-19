@@ -11,6 +11,7 @@ Legacy-compatible Web3 transport helpers.
   - Timeout now actively aborts in-flight fetch requests (when `AbortController` is available) to reduce dangling connection/resource usage.
   - 403 fallback retries now fail closed when no alternate provider exists, preventing unbounded recursive retry loops.
   - Malformed cache hits are now ignored and retried against live network fetch, preventing stale/invalid cache entries from causing hard request failure.
+  - Invalid non-object JSON-RPC request payloads are rejected early with `-32600` (`Invalid JSON-RPC request payload`) instead of throwing ambiguous runtime type errors.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.
