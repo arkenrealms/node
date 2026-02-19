@@ -18,10 +18,11 @@ export function getFilter(query: any): Record<string, any> {
   const buildField = (field: string, cond: any) => {
     if (cond == null || typeof cond !== 'object') return undefined;
 
+    const normalizedField = field === 'id' || field === '_id' ? '_id' : field;
+
     // equals
     if ('equals' in cond) {
-      if (field === 'id' || field === '_id') return { _id: cond.equals };
-      return { [field]: cond.equals };
+      return { [normalizedField]: cond.equals };
     }
 
     // contains (case-insensitive regex). Skip if empty string.
@@ -29,7 +30,7 @@ export function getFilter(query: any): Record<string, any> {
       const term = cond.contains ?? '';
       if (typeof term === 'string' && term.length === 0) return undefined; // no-op for ""
       return {
-        [field]:
+        [normalizedField]:
           // For typical text-ish fields use regex, else fallback to raw contains (rare)
           { $regex: escapeRegExp(String(term)), $options: 'i' },
       };
@@ -37,7 +38,7 @@ export function getFilter(query: any): Record<string, any> {
 
     // in
     if ('in' in cond && Array.isArray(cond.in)) {
-      return { [field]: { $in: cond.in } };
+      return { [normalizedField]: { $in: cond.in } };
     }
 
     return undefined;
