@@ -29,4 +29,27 @@ describe('api/getFilter', () => {
       $or: [{ email: { $regex: 'abc', $options: 'i' } }],
     });
   });
+
+  test('supports nested OR nodes inside AND clauses', () => {
+    expect(
+      getFilter({
+        where: {
+          AND: [
+            { status: { equals: 'active' } },
+            { OR: [{ email: { contains: 'foo' } }, { username: { contains: 'bar' } }] },
+          ],
+        },
+      })
+    ).toEqual({
+      $and: [
+        { status: 'active' },
+        {
+          $or: [
+            { email: { $regex: 'foo', $options: 'i' } },
+            { username: { $regex: 'bar', $options: 'i' } },
+          ],
+        },
+      ],
+    });
+  });
 });

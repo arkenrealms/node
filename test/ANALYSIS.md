@@ -24,4 +24,4 @@
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
 - Added malformed-envelope regression coverage for `httpProvider` to ensure non-object/array request payloads are rejected with deterministic JSON-RPC `-32600` invalid-request errors.
 - Added caller-object immutability regression coverage for `httpProvider` to ensure JSON-RPC defaults are applied on a cloned request envelope (no caller-side `id`/`jsonrpc` mutation).
-- Added `api/getFilter` regression coverage to ensure `id` criteria normalize to `_id` across `equals`/`in`/`contains` operators and empty `contains` clauses remain no-op within logical groups.
+- Added `api/getFilter` regression coverage to ensure `id` criteria normalize to `_id` across `equals`/`in`/`contains` operators, empty `contains` clauses remain no-op within logical groups, and nested logical groups (e.g., `AND` containing `OR`) are preserved in generated Mongo filters.
