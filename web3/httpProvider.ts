@@ -55,13 +55,25 @@ export default class Provider {
 
     this.send = (request, callback) => {
       this.request(request)
-        .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+        .then((result) =>
+          callback(null, {
+            jsonrpc: '2.0',
+            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            result,
+          })
+        )
         .catch((error) => callback(error, null));
     };
 
     this.sendAsync = (request, callback) => {
       this.request(request)
-        .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+        .then((result) =>
+          callback(null, {
+            jsonrpc: '2.0',
+            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            result,
+          })
+        )
         .catch((error) => callback(error, null));
     };
   }
@@ -107,10 +119,11 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC request payload', -32600, null);
     }
 
-    request.jsonrpc = '2.0';
-    if (typeof request.id === 'undefined' || request.id === null) {
-      request.id = 56;
-    }
+    const requestWithDefaults = {
+      ...request,
+      jsonrpc: '2.0',
+      id: typeof request.id === 'undefined' || request.id === null ? 56 : request.id,
+    };
 
     const headers = {
       'Content-Type': 'application/json',
@@ -124,7 +137,7 @@ export default class Provider {
 
     const cache = canUseRuntimeCache ? await caches.open('my-cache-name') : null;
     const url = this.url.toString();
-    const body = JSON.stringify(request);
+    const body = JSON.stringify(requestWithDefaults);
     const hash = SHA256(body).toString();
     const cacheUrl = new URL(url);
     cacheUrl.pathname = '/posts' + cacheUrl.pathname + hash;
@@ -154,7 +167,7 @@ export default class Provider {
       response = await this.fetchWithTimeout(url, {
         method: 'POST',
         headers,
-        body: JSON.stringify(request),
+        body: JSON.stringify(requestWithDefaults),
       });
 
       if (!response.ok) {

@@ -23,3 +23,4 @@
 - Added malformed-cache regression coverage for `httpProvider` to ensure invalid cache hits are discarded and request flow refetches from network.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
 - Added malformed-envelope regression coverage for `httpProvider` to ensure non-object/array request payloads are rejected with deterministic JSON-RPC `-32600` invalid-request errors.
+- Added caller-object immutability regression coverage for `httpProvider` to ensure JSON-RPC defaults are applied on a cloned request envelope (no caller-side `id`/`jsonrpc` mutation).

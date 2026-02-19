@@ -104,6 +104,17 @@ describe('web3/httpProvider', () => {
     expect(result).toBe(56);
   });
 
+  test('does not mutate caller request object when filling defaults', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const request = { method: 'eth_chainId', params: [] as any[] };
+
+    await provider.request(request);
+
+    expect(request).toEqual({ method: 'eth_chainId', params: [] });
+    expect(Object.prototype.hasOwnProperty.call(request, 'jsonrpc')).toBe(false);
+    expect(Object.prototype.hasOwnProperty.call(request, 'id')).toBe(false);
+  });
+
   test('falls back to network-only flow when Cache API globals are unavailable', async () => {
     (global as any).caches = undefined;
     (global as any).Request = undefined;
