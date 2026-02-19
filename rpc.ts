@@ -207,7 +207,8 @@ export const deserialize = <T>(input: string | Serializable): T => {
     }
   };
 
-  const parsedInput = typeof input === 'string' ? JSON.parse(input) : input;
+  const parsedInput =
+    typeof input === 'string' && (input.startsWith('{') || input.startsWith('[')) ? JSON.parse(input) : input;
   return processValue(parsedInput) as T;
 };
 

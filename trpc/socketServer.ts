@@ -48,7 +48,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
       let errorMessage = error?.stack + '';
 
       if (errorMessage.includes("reading '_def'")) {
-        errorMessage = 'TRPC handler does not exist: ' + errorMessage;
+        errorMessage = `TRPC handler does not exist: ${method} (${errorMessage})`;
         log(errorMessage, method, error);
       } else {
         errorMessage = 'Server error in socket TRPC handler: ' + errorMessage;

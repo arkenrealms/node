@@ -43,11 +43,7 @@ export interface AttachTrpcResponseHandlerOptions {
   backendName: string;
   logging?: boolean;
 
-  /**
-   * If your server responds with { oid: <original-id> } instead of { id: <id> },
-   * set this to "oid". Default is "id".
-   */
-  responseIdField?: 'id' | 'oid' | string;
+  responseIdField?: 'id' | string;
 
   /**
    * If true, prefer socket.onAny(...) if available. (Useful where responses
