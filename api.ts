@@ -1,3 +1,5 @@
+// arken/packages/node/api.ts
+
 import Mongoose from 'mongoose';
 import axios from 'axios';
 
@@ -15,9 +17,13 @@ export function getFilter(query: any): Record<string, any> {
 
   // Helper to turn a single field condition into a Mongo filter fragment
   const buildField = (field: string, cond: any) => {
-    if (cond == null || typeof cond !== 'object') return undefined;
+    if (cond == null) return undefined;
 
     const normalizedField = field === 'id' || field === '_id' ? '_id' : field;
+
+    if (typeof cond !== 'object') {
+      return { [normalizedField]: cond };
+    }
 
     if ('equals' in cond) {
       return { [normalizedField]: cond.equals };

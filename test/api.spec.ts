@@ -52,4 +52,29 @@ describe('api/getFilter', () => {
       ],
     });
   });
+
+  test('supports scalar shorthand values as equality checks', () => {
+    expect(
+      getFilter({
+        where: {
+          id: 'abc123',
+          status: 'active',
+        },
+      })
+    ).toEqual({
+      $and: [{ _id: 'abc123' }, { status: 'active' }],
+    });
+  });
+
+  test('supports scalar shorthand values inside nested clauses', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: [{ id: 'foo' }, { name: 'bar' }],
+        },
+      })
+    ).toEqual({
+      $or: [{ _id: 'foo' }, { name: 'bar' }],
+    });
+  });
 });
