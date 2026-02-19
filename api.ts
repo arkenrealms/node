@@ -25,6 +25,14 @@ export function getFilter(query: any): Record<string, any> {
       return { [normalizedField]: cond };
     }
 
+    const isPlainObject =
+      Object.prototype.toString.call(cond) === '[object Object]' &&
+      (Object.getPrototypeOf(cond) === Object.prototype || Object.getPrototypeOf(cond) === null);
+
+    if (!isPlainObject) {
+      return { [normalizedField]: cond };
+    }
+
     if ('equals' in cond) {
       return { [normalizedField]: cond.equals };
     }

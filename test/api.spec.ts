@@ -1,5 +1,6 @@
 // arken/packages/node/test/api.spec.ts
 
+import Mongoose from 'mongoose';
 import { getFilter } from '../api';
 
 describe('api/getFilter', () => {
@@ -75,6 +76,22 @@ describe('api/getFilter', () => {
       })
     ).toEqual({
       $or: [{ _id: 'foo' }, { name: 'bar' }],
+    });
+  });
+
+  test('keeps non-plain objects (Date/ObjectId values) as equality conditions', () => {
+    const createdAt = new Date('2026-02-18T12:34:56.000Z');
+    const objectId = new Mongoose.Types.ObjectId('507f1f77bcf86cd799439011');
+
+    expect(
+      getFilter({
+        where: {
+          createdAt,
+          id: objectId,
+        },
+      })
+    ).toEqual({
+      $and: [{ createdAt }, { _id: objectId }],
     });
   });
 });
