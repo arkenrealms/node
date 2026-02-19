@@ -14,6 +14,7 @@
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
 - Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
+- Cache hits are now shape-validated before use; malformed cache entries are discarded and refetched from network.
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).
 - `BROWSER_CACHE_TTL` remains defined but not currently enforced in request flow.
 

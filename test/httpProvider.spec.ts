@@ -97,6 +97,21 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
+  test('ignores malformed cached responses and refetches from network', async () => {
+    (global as any).caches = {
+      open: jest.fn(async () => ({
+        match: jest.fn(async () => ({ ok: true, status: 200 })),
+        put: jest.fn(async () => undefined),
+      })),
+    };
+
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: 9011 });
+
+    expect(result).toBe(9011);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
+
   test('rejects when fetch exceeds provider timeout window', async () => {
     jest.useFakeTimers();
     try {

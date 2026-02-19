@@ -122,6 +122,18 @@ export default class Provider {
         : null;
 
     let response = cache && cacheKey ? await cache.match(cacheKey) : null;
+
+    if (
+      response &&
+      (typeof response !== 'object' ||
+        typeof (response as any).ok !== 'boolean' ||
+        typeof (response as any).status !== 'number' ||
+        typeof (response as any).statusText !== 'string' ||
+        typeof (response as any).text !== 'function')
+    ) {
+      response = null;
+    }
+
     if (!response) {
       response = await this.fetchWithTimeout(url, {
         method: 'POST',
