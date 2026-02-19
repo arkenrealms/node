@@ -14,12 +14,15 @@
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
 - Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
+- Cache hits are now shape-validated before use; malformed cache entries are discarded and refetched from network.
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).
 - `BROWSER_CACHE_TTL` remains defined but not currently enforced in request flow.
 
 ## Protocol/Test relevance
 - Transport/cache behavior and request-id handling impact RPC correctness and debugging.
-- Missing deterministic timeout/cancellation paths increase production reliability risk.
+- Timeout behavior now includes active abort signaling for in-flight fetch requests when runtime supports `AbortController`, reducing dangling network work under outage/hang scenarios.
+- Request payloads now validate JSON-RPC envelope shape (`object` and non-array) before mutation, returning deterministic `-32600` invalid-request errors for malformed caller input.
+- Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.

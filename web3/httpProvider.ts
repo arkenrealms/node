@@ -55,28 +55,52 @@ export default class Provider {
 
     this.send = (request, callback) => {
       this.request(request)
-        .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+        .then((result) =>
+          callback(null, {
+            jsonrpc: '2.0',
+            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            result,
+          })
+        )
         .catch((error) => callback(error, null));
     };
 
     this.sendAsync = (request, callback) => {
       this.request(request)
-        .then((result) => callback(null, { jsonrpc: '2.0', id: request.id, result }))
+        .then((result) =>
+          callback(null, {
+            jsonrpc: '2.0',
+            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            result,
+          })
+        )
         .catch((error) => callback(error, null));
     };
   }
 
   private async fetchWithTimeout(url: string, init: any): Promise<any> {
     let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
+    const canAbort = typeof AbortController !== 'undefined';
+    const controller = canAbort ? new AbortController() : null;
+    const requestInit =
+      controller && !init?.signal
+        ? {
+            ...init,
+            signal: controller.signal,
+          }
+        : init;
 
     try {
       const timeoutPromise = new Promise((_, reject) => {
         timeoutHandle = setTimeout(() => {
+          if (controller) {
+            controller.abort();
+          }
           reject(new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null));
         }, PROVIDER_TIMEOUT);
       });
 
-      return await Promise.race([fetch(url, init), timeoutPromise]);
+      return await Promise.race([fetch(url, requestInit), timeoutPromise]);
     } finally {
       if (timeoutHandle) {
         clearTimeout(timeoutHandle);
@@ -91,10 +115,15 @@ export default class Provider {
   private async requestWithRetries(request: any, forbiddenRetries: number): Promise<any> {
     var _a, _b, _c;
 
-    request.jsonrpc = '2.0';
-    if (typeof request.id === 'undefined' || request.id === null) {
-      request.id = 56;
+    if (!request || typeof request !== 'object' || Array.isArray(request)) {
+      throw new RequestError('Invalid JSON-RPC request payload', -32600, null);
     }
+
+    const requestWithDefaults = {
+      ...request,
+      jsonrpc: '2.0',
+      id: typeof request.id === 'undefined' || request.id === null ? 56 : request.id,
+    };
 
     const headers = {
       'Content-Type': 'application/json',
@@ -108,7 +137,7 @@ export default class Provider {
 
     const cache = canUseRuntimeCache ? await caches.open('my-cache-name') : null;
     const url = this.url.toString();
-    const body = JSON.stringify(request);
+    const body = JSON.stringify(requestWithDefaults);
     const hash = SHA256(body).toString();
     const cacheUrl = new URL(url);
     cacheUrl.pathname = '/posts' + cacheUrl.pathname + hash;
@@ -122,11 +151,23 @@ export default class Provider {
         : null;
 
     let response = cache && cacheKey ? await cache.match(cacheKey) : null;
+
+    if (
+      response &&
+      (typeof response !== 'object' ||
+        typeof (response as any).ok !== 'boolean' ||
+        typeof (response as any).status !== 'number' ||
+        typeof (response as any).statusText !== 'string' ||
+        typeof (response as any).text !== 'function')
+    ) {
+      response = null;
+    }
+
     if (!response) {
       response = await this.fetchWithTimeout(url, {
         method: 'POST',
         headers,
-        body: JSON.stringify(request),
+        body: JSON.stringify(requestWithDefaults),
       });
 
       if (!response.ok) {

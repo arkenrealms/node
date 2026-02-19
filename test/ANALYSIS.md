@@ -8,7 +8,7 @@
 - Subfolders: 0
 
 ## Notable contents
-- files: NOTES.md, README.md, socketLink.spec.ts, socketServer.spec.ts, httpProvider.spec.ts
+- files: NOTES.md, README.md, socketLink.spec.ts, socketServer.spec.ts, httpProvider.spec.ts, api.spec.ts
 
 ## Protocol/Test focus
 - Prioritize transport, serialization, timeout, and error-handling paths where applicable.
@@ -19,4 +19,9 @@
 - Added link-side regression for backend-only op paths (`seer` without `method`) to ensure `createSocketLink` fails fast and avoids malformed socket emits.
 - Added `httpProvider` regression coverage for cacheless runtimes to confirm request flow remains functional when Cache API globals are absent.
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
+- Added timeout-abort regression coverage for `httpProvider` to ensure timeout paths actively signal abort to the in-flight fetch request when `AbortController` is available.
+- Added malformed-cache regression coverage for `httpProvider` to ensure invalid cache hits are discarded and request flow refetches from network.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
+- Added malformed-envelope regression coverage for `httpProvider` to ensure non-object/array request payloads are rejected with deterministic JSON-RPC `-32600` invalid-request errors.
+- Added caller-object immutability regression coverage for `httpProvider` to ensure JSON-RPC defaults are applied on a cloned request envelope (no caller-side `id`/`jsonrpc` mutation).
+- Added `api/getFilter` regression coverage to ensure `id` criteria normalize to `_id` across `equals`/`in`/`contains` operators, scalar shorthand conditions (e.g., `{ id: 'abc' }`) are treated as equality checks in both root and nested logical nodes, empty `contains` clauses remain no-op within logical groups, and nested logical groups (e.g., `AND` containing `OR`) are preserved in generated Mongo filters.

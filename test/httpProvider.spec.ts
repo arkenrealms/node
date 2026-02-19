@@ -71,6 +71,25 @@ describe('web3/httpProvider', () => {
     expect(provider.url.toString()).toBe('https://rpc.example.org/custom/path');
   });
 
+  test('rejects non-object JSON-RPC request payloads', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request(null)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request payload',
+    });
+
+    await expect(provider.request('eth_chainId' as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request payload',
+    });
+
+    await expect(provider.request([] as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC request payload',
+    });
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });
@@ -85,6 +104,17 @@ describe('web3/httpProvider', () => {
     expect(result).toBe(56);
   });
 
+  test('does not mutate caller request object when filling defaults', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const request = { method: 'eth_chainId', params: [] as any[] };
+
+    await provider.request(request);
+
+    expect(request).toEqual({ method: 'eth_chainId', params: [] });
+    expect(Object.prototype.hasOwnProperty.call(request, 'jsonrpc')).toBe(false);
+    expect(Object.prototype.hasOwnProperty.call(request, 'id')).toBe(false);
+  });
+
   test('falls back to network-only flow when Cache API globals are unavailable', async () => {
     (global as any).caches = undefined;
     (global as any).Request = undefined;
@@ -94,6 +124,21 @@ describe('web3/httpProvider', () => {
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 901 });
 
     expect(result).toBe(901);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
+
+  test('ignores malformed cached responses and refetches from network', async () => {
+    (global as any).caches = {
+      open: jest.fn(async () => ({
+        match: jest.fn(async () => ({ ok: true, status: 200 })),
+        put: jest.fn(async () => undefined),
+      })),
+    };
+
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: 9011 });
+
+    expect(result).toBe(9011);
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
@@ -111,6 +156,36 @@ describe('web3/httpProvider', () => {
 
       await jest.advanceTimersByTimeAsync(5001);
       await assertion;
+    } finally {
+      jest.useRealTimers();
+    }
+  }, 10000);
+
+  test('aborts in-flight fetch request when timeout elapses', async () => {
+    jest.useFakeTimers();
+    try {
+      let wasAborted = false;
+
+      (global as any).fetch = jest.fn((_url: string, init: any) => {
+        if (init?.signal && typeof init.signal.addEventListener === 'function') {
+          init.signal.addEventListener('abort', () => {
+            wasAborted = true;
+          });
+        }
+
+        return new Promise(() => {});
+      });
+
+      const provider = new Provider('https://rpc.example.org');
+      const pending = provider.request({ method: 'eth_chainId', params: [], id: 1001 });
+      const assertion = expect(pending).rejects.toMatchObject({
+        code: -32000,
+        message: 'Request timeout after 5000ms',
+      });
+
+      await jest.advanceTimersByTimeAsync(5001);
+      await assertion;
+      expect(wasAborted).toBe(true);
     } finally {
       jest.useRealTimers();
     }
