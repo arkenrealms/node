@@ -22,6 +22,7 @@
 - Transport/cache behavior and request-id handling impact RPC correctness and debugging.
 - Timeout behavior now includes active abort signaling for in-flight fetch requests when runtime supports `AbortController`, reducing dangling network work under outage/hang scenarios.
 - Request payloads now validate JSON-RPC envelope shape (`object` and non-array) before mutation, returning deterministic `-32600` invalid-request errors for malformed caller input.
+- Request payloads now also validate the JSON-RPC `method` field (`non-empty string`) before network submission, preventing malformed RPC calls from leaking to providers.
 - Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
 
 ## Risks / gaps

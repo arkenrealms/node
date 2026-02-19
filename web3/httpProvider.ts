@@ -119,6 +119,11 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC request payload', -32600, null);
     }
 
+    const method = (request as any).method;
+    if (typeof method !== 'string' || method.trim().length === 0) {
+      throw new RequestError('Invalid JSON-RPC method', -32600, null);
+    }
+
     const requestWithDefaults = {
       ...request,
       jsonrpc: '2.0',

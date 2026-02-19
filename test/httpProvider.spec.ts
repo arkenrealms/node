@@ -90,6 +90,30 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('rejects request payloads with missing/invalid method names', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ params: [] } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: '' } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: '   ' } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: 42 } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });
