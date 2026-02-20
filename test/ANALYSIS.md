@@ -20,6 +20,7 @@
 - Added `httpProvider` regression coverage for cacheless runtimes to confirm request flow remains functional when Cache API globals are absent.
 - Added deterministic timeout regression coverage for `httpProvider` to ensure hung fetch calls reject with explicit timeout error metadata instead of hanging indefinitely.
 - Added timeout-abort regression coverage for `httpProvider` to ensure timeout paths actively signal abort to the in-flight fetch request when `AbortController` is available.
+- Added abort-error normalization regression coverage for `httpProvider` to ensure runtime `AbortError` rejections are surfaced as deterministic timeout `RequestError` envelopes.
 - Added malformed-cache regression coverage for `httpProvider` to ensure invalid cache hits are discarded and request flow refetches from network.
 - Added 403 single-provider regression coverage for `httpProvider` to ensure failover logic does not recurse indefinitely when no alternate providers are available.
 - Added malformed-envelope regression coverage for `httpProvider` to ensure non-object/array request payloads are rejected with deterministic JSON-RPC `-32600` invalid-request errors.

@@ -90,6 +90,30 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('rejects request payloads with missing/invalid method names', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ params: [] } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: '' } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: '   ' } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: 42 } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });
@@ -102,6 +126,42 @@ describe('web3/httpProvider', () => {
     const result = await provider.request({ method: 'eth_chainId', params: [] });
 
     expect(result).toBe(56);
+  });
+
+  test('preserves explicit null request id instead of replacing it', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: null });
+
+    expect(result).toBeNull();
+  });
+
+  test('send/sendAsync preserve explicit null id in callback envelope', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    const sendResponse = await new Promise<any>((resolve, reject) => {
+      provider.send({ method: 'eth_chainId', params: [], id: null }, (error: any, response: any) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(response);
+      });
+    });
+
+    const sendAsyncResponse = await new Promise<any>((resolve, reject) => {
+      provider.sendAsync({ method: 'eth_chainId', params: [], id: null }, (error: any, response: any) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(response);
+      });
+    });
+
+    expect(sendResponse.id).toBeNull();
+    expect(sendAsyncResponse.id).toBeNull();
   });
 
   test('does not mutate caller request object when filling defaults', async () => {
@@ -186,6 +246,36 @@ describe('web3/httpProvider', () => {
       await jest.advanceTimersByTimeAsync(5001);
       await assertion;
       expect(wasAborted).toBe(true);
+    } finally {
+      jest.useRealTimers();
+    }
+  }, 10000);
+
+  test('maps AbortError rejections after timeout into RequestError timeout shape', async () => {
+    jest.useFakeTimers();
+    try {
+      (global as any).fetch = jest.fn(
+        (_url: string, init: any) =>
+          new Promise((_resolve: any, reject: any) => {
+            if (init?.signal && typeof init.signal.addEventListener === 'function') {
+              init.signal.addEventListener('abort', () => {
+                const abortError = new Error('The operation was aborted');
+                (abortError as any).name = 'AbortError';
+                reject(abortError);
+              });
+            }
+          })
+      );
+
+      const provider = new Provider('https://rpc.example.org');
+      const pending = provider.request({ method: 'eth_chainId', params: [], id: 1002 });
+      const assertion = expect(pending).rejects.toMatchObject({
+        code: -32000,
+        message: 'Request timeout after 5000ms',
+      });
+
+      await jest.advanceTimersByTimeAsync(5001);
+      await assertion;
     } finally {
       jest.useRealTimers();
     }

@@ -12,7 +12,7 @@
 ## Key findings
 - Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
-- Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
+- Request shaping now preserves caller-supplied `request.id` (including explicit `null`); fallback `56` is only applied when the `id` field is absent.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
 - Cache hits are now shape-validated before use; malformed cache entries are discarded and refetched from network.
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).
@@ -21,7 +21,9 @@
 ## Protocol/Test relevance
 - Transport/cache behavior and request-id handling impact RPC correctness and debugging.
 - Timeout behavior now includes active abort signaling for in-flight fetch requests when runtime supports `AbortController`, reducing dangling network work under outage/hang scenarios.
+- Abort-triggered fetch failures (`AbortError`) are now mapped back to the same timeout `RequestError` shape, avoiding runtime-specific error-envelope drift.
 - Request payloads now validate JSON-RPC envelope shape (`object` and non-array) before mutation, returning deterministic `-32600` invalid-request errors for malformed caller input.
+- Request payloads now also validate the JSON-RPC `method` field (`non-empty string`) before network submission, preventing malformed RPC calls from leaking to providers.
 - Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
 
 ## Risks / gaps

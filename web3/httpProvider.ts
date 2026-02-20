@@ -58,7 +58,12 @@ export default class Provider {
         .then((result) =>
           callback(null, {
             jsonrpc: '2.0',
-            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            id:
+              request && typeof request === 'object' && !Array.isArray(request)
+                ? Object.prototype.hasOwnProperty.call(request, 'id')
+                  ? request.id
+                  : 56
+                : undefined,
             result,
           })
         )
@@ -70,7 +75,12 @@ export default class Provider {
         .then((result) =>
           callback(null, {
             jsonrpc: '2.0',
-            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            id:
+              request && typeof request === 'object' && !Array.isArray(request)
+                ? Object.prototype.hasOwnProperty.call(request, 'id')
+                  ? request.id
+                  : 56
+                : undefined,
             result,
           })
         )
@@ -101,6 +111,12 @@ export default class Provider {
       });
 
       return await Promise.race([fetch(url, requestInit), timeoutPromise]);
+    } catch (error: any) {
+      if (controller?.signal?.aborted || error?.name === 'AbortError') {
+        throw new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null);
+      }
+
+      throw error;
     } finally {
       if (timeoutHandle) {
         clearTimeout(timeoutHandle);
@@ -119,10 +135,15 @@ export default class Provider {
       throw new RequestError('Invalid JSON-RPC request payload', -32600, null);
     }
 
+    const method = (request as any).method;
+    if (typeof method !== 'string' || method.trim().length === 0) {
+      throw new RequestError('Invalid JSON-RPC method', -32600, null);
+    }
+
     const requestWithDefaults = {
       ...request,
       jsonrpc: '2.0',
-      id: typeof request.id === 'undefined' || request.id === null ? 56 : request.id,
+      id: Object.prototype.hasOwnProperty.call(request, 'id') ? request.id : 56,
     };
 
     const headers = {
