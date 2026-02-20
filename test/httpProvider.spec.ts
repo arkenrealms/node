@@ -302,4 +302,27 @@ describe('web3/httpProvider', () => {
     });
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
+
+  test('normalizes non-object JSON responses without throwing TypeError', async () => {
+    class NullBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return 'null';
+      }
+    }
+
+    (global as any).caches = {
+      open: jest.fn(async () => ({
+        match: jest.fn(async () => null),
+        put: jest.fn(async () => undefined),
+      })),
+    };
+    (global as any).fetch = jest.fn(async () => new NullBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1011 })).resolves.toBeUndefined();
+  });
 });
