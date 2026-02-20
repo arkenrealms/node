@@ -93,8 +93,19 @@ export function getFilter(query: any): Record<string, any> {
 
   return parseWhereNode(where) ?? {};
 }
+const DEFAULT_FETCH_TIMEOUT_MS = 10000;
+
 export async function fetch(url: string, query: FetchQuery): Promise<any> {
+  if (typeof url !== 'string' || url.trim().length === 0) {
+    throw new Error('Invalid fetch URL');
+  }
+
+  if (!query || typeof query !== 'object' || Array.isArray(query)) {
+    throw new Error('Invalid fetch query payload');
+  }
+
   const res = await axios.post(url, query, {
+    timeout: DEFAULT_FETCH_TIMEOUT_MS,
     headers: {
       accept: '*/*',
       'accept-language': 'en-US,en;q=0.9',
