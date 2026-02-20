@@ -101,6 +101,12 @@ export default class Provider {
       });
 
       return await Promise.race([fetch(url, requestInit), timeoutPromise]);
+    } catch (error: any) {
+      if (controller?.signal?.aborted || error?.name === 'AbortError') {
+        throw new RequestError(`Request timeout after ${PROVIDER_TIMEOUT}ms`, TIMEOUT_ERROR_CODE, null);
+      }
+
+      throw error;
     } finally {
       if (timeoutHandle) {
         clearTimeout(timeoutHandle);

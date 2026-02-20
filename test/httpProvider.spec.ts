@@ -215,6 +215,36 @@ describe('web3/httpProvider', () => {
     }
   }, 10000);
 
+  test('maps AbortError rejections after timeout into RequestError timeout shape', async () => {
+    jest.useFakeTimers();
+    try {
+      (global as any).fetch = jest.fn(
+        (_url: string, init: any) =>
+          new Promise((_resolve: any, reject: any) => {
+            if (init?.signal && typeof init.signal.addEventListener === 'function') {
+              init.signal.addEventListener('abort', () => {
+                const abortError = new Error('The operation was aborted');
+                (abortError as any).name = 'AbortError';
+                reject(abortError);
+              });
+            }
+          })
+      );
+
+      const provider = new Provider('https://rpc.example.org');
+      const pending = provider.request({ method: 'eth_chainId', params: [], id: 1002 });
+      const assertion = expect(pending).rejects.toMatchObject({
+        code: -32000,
+        message: 'Request timeout after 5000ms',
+      });
+
+      await jest.advanceTimersByTimeAsync(5001);
+      await assertion;
+    } finally {
+      jest.useRealTimers();
+    }
+  }, 10000);
+
   test('does not recurse indefinitely on 403 when no alternate providers are configured', async () => {
     class ForbiddenResponse {
       ok = false;
