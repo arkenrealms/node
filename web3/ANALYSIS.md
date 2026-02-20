@@ -12,7 +12,7 @@
 ## Key findings
 - Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
-- Request shaping now preserves caller-supplied `request.id`; fallback `56` is only applied when the ID is missing.
+- Request shaping now preserves caller-supplied `request.id` (including explicit `null`); fallback `56` is only applied when the `id` field is absent.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
 - Cache hits are now shape-validated before use; malformed cache entries are discarded and refetched from network.
 - `PROVIDER_TIMEOUT` is now enforced through a timeout race guard around network fetch calls (default 5000ms).

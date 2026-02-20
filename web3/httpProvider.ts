@@ -58,7 +58,12 @@ export default class Provider {
         .then((result) =>
           callback(null, {
             jsonrpc: '2.0',
-            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            id:
+              request && typeof request === 'object' && !Array.isArray(request)
+                ? Object.prototype.hasOwnProperty.call(request, 'id')
+                  ? request.id
+                  : 56
+                : undefined,
             result,
           })
         )
@@ -70,7 +75,12 @@ export default class Provider {
         .then((result) =>
           callback(null, {
             jsonrpc: '2.0',
-            id: request && typeof request === 'object' && !Array.isArray(request) ? (request.id ?? 56) : undefined,
+            id:
+              request && typeof request === 'object' && !Array.isArray(request)
+                ? Object.prototype.hasOwnProperty.call(request, 'id')
+                  ? request.id
+                  : 56
+                : undefined,
             result,
           })
         )
@@ -133,7 +143,7 @@ export default class Provider {
     const requestWithDefaults = {
       ...request,
       jsonrpc: '2.0',
-      id: typeof request.id === 'undefined' || request.id === null ? 56 : request.id,
+      id: Object.prototype.hasOwnProperty.call(request, 'id') ? request.id : 56,
     };
 
     const headers = {

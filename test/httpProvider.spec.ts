@@ -128,6 +128,42 @@ describe('web3/httpProvider', () => {
     expect(result).toBe(56);
   });
 
+  test('preserves explicit null request id instead of replacing it', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: null });
+
+    expect(result).toBeNull();
+  });
+
+  test('send/sendAsync preserve explicit null id in callback envelope', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    const sendResponse = await new Promise<any>((resolve, reject) => {
+      provider.send({ method: 'eth_chainId', params: [], id: null }, (error: any, response: any) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(response);
+      });
+    });
+
+    const sendAsyncResponse = await new Promise<any>((resolve, reject) => {
+      provider.sendAsync({ method: 'eth_chainId', params: [], id: null }, (error: any, response: any) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(response);
+      });
+    });
+
+    expect(sendResponse.id).toBeNull();
+    expect(sendAsyncResponse.id).toBeNull();
+  });
+
   test('does not mutate caller request object when filling defaults', async () => {
     const provider = new Provider('https://rpc.example.org');
     const request = { method: 'eth_chainId', params: [] as any[] };
