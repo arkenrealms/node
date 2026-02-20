@@ -157,8 +157,9 @@ export default class Provider {
       typeof (caches as any).open === 'function' &&
       typeof Request !== 'undefined' &&
       typeof Response !== 'undefined';
+    const allowBrowserCache = canUseRuntimeCache && BROWSER_CACHE_TTL > 0;
 
-    const cache = canUseRuntimeCache ? await caches.open('my-cache-name') : null;
+    const cache = allowBrowserCache ? await caches.open('my-cache-name') : null;
     const url = this.url.toString();
     const body = JSON.stringify(requestWithDefaults);
     const hash = SHA256(body).toString();
@@ -197,7 +198,7 @@ export default class Provider {
         if (response.status === 403) {
           if (cache && cacheKey && typeof Response !== 'undefined') {
             const fullBody = JSON.stringify({});
-            const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+            const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
             await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
           }
 
@@ -234,7 +235,7 @@ export default class Provider {
     const fullBody = JSON.stringify(responseEnvelope);
 
     if (cache && cacheKey && typeof Response !== 'undefined') {
-      const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+      const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
       await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
     }
 

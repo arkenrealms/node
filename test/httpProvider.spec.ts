@@ -187,6 +187,15 @@ describe('web3/httpProvider', () => {
     expect(Object.prototype.hasOwnProperty.call(request, 'id')).toBe(false);
   });
 
+  test('skips browser cache writes when browser cache ttl is disabled', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: 900 });
+
+    expect(result).toBe(900);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+    expect((global as any).caches.open).not.toHaveBeenCalled();
+  });
+
   test('falls back to network-only flow when Cache API globals are unavailable', async () => {
     (global as any).caches = undefined;
     (global as any).Request = undefined;
