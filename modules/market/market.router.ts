@@ -15,7 +15,7 @@ export const procedure = t.procedure;
 const MarketListingsInput = z.object({
   category: z.string().optional(),
   status: z.string().optional(),
-  exchange: z.string().optional(),
+  exchangeId: z.string().optional(),
   sellerId: z.string().optional(),
 });
 

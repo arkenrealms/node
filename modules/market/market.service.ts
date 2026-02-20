@@ -171,7 +171,7 @@ export class Service {
     if (!input) throw new ARXError('NO_INPUT');
     console.log('Market.Service.deleteMarketListing', input);
 
-    const deletedListing = await ctx.app.model.MarketListing.findByIdAndDelete(input.where.id.quals).lean().exec();
+    const deletedListing = await ctx.app.model.MarketListing.findOneAndDelete(getFilter(input)).lean().exec();
     if (!deletedListing) throw new Error('MarketListing deletion failed');
 
     return deletedListing as MarketListing;
@@ -181,7 +181,7 @@ export class Service {
     input: {
       category?: string;
       status?: string;
-      exchange?: string;
+      exchangeId?: string;
       sellerId?: string;
     },
     ctx: RouterContext
@@ -191,7 +191,7 @@ export class Service {
     const query: Record<string, any> = {};
     if (input.category) query.category = input.category;
     if (input.status) query.status = input.status;
-    if (input.exchange) query.exchange = input.exchange;
+    if (input.exchangeId) query.exchangeId = input.exchangeId;
     if (input.sellerId) query.sellerId = input.sellerId;
 
     const listings = await ctx.app.model.MarketListing.find(query).lean().exec();
