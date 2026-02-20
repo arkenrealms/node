@@ -136,12 +136,14 @@ export default class Provider {
     }
 
     const method = (request as any).method;
-    if (typeof method !== 'string' || method.trim().length === 0) {
+    const normalizedMethod = typeof method === 'string' ? method.trim() : method;
+    if (typeof normalizedMethod !== 'string' || normalizedMethod.length === 0) {
       throw new RequestError('Invalid JSON-RPC method', -32600, null);
     }
 
     const requestWithDefaults = {
       ...request,
+      method: normalizedMethod,
       jsonrpc: '2.0',
       id: Object.prototype.hasOwnProperty.call(request, 'id') ? request.id : 56,
     };
@@ -227,21 +229,23 @@ export default class Provider {
       responseBody = {};
     }
 
-    const fullBody = JSON.stringify(responseBody);
+    const responseEnvelope =
+      responseBody && typeof responseBody === 'object' && !Array.isArray(responseBody) ? responseBody : {};
+    const fullBody = JSON.stringify(responseEnvelope);
 
     if (cache && cacheKey && typeof Response !== 'undefined') {
       const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
       await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
     }
 
-    if ('error' in responseBody) {
+    if ('error' in responseEnvelope) {
       throw new RequestError(
-        (_a = responseBody.error) === null || _a === void 0 ? void 0 : _a.message,
-        (_b = responseBody.error) === null || _b === void 0 ? void 0 : _b.code,
-        (_c = responseBody.error) === null || _c === void 0 ? void 0 : _c.data
+        (_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message,
+        (_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.code,
+        (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data
       );
     } else {
-      return responseBody.result;
+      return responseEnvelope.result;
     }
   }
 }

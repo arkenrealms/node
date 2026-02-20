@@ -24,7 +24,9 @@
 - Abort-triggered fetch failures (`AbortError`) are now mapped back to the same timeout `RequestError` shape, avoiding runtime-specific error-envelope drift.
 - Request payloads now validate JSON-RPC envelope shape (`object` and non-array) before mutation, returning deterministic `-32600` invalid-request errors for malformed caller input.
 - Request payloads now also validate the JSON-RPC `method` field (`non-empty string`) before network submission, preventing malformed RPC calls from leaking to providers.
+- Method names are now normalized with `trim()` before submission so callers with padded method strings still produce canonical RPC method keys.
 - Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
+- Parsed response bodies are now envelope-normalized (`object` only) so primitive JSON payloads (for example `null`) do not trigger `'in'` operator runtime faults during error/result checks.
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.
