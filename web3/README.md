@@ -7,6 +7,7 @@ Legacy-compatible Web3 transport helpers.
   - Constructor now honors explicit URL input before falling back to default provider pool.
   - Request IDs are preserved when callers provide one (including explicit `null`); fallback ID `56` is only used when the `id` field is absent.
   - Cache API usage is now runtime-guarded; provider falls back to network-only request flow when `caches`/`Request`/`Response` globals are unavailable.
+  - Browser cache writes/reads are now also gated by `BROWSER_CACHE_TTL > 0`; with the default `0`, requests avoid writing stale entries to runtime cache.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
   - Timeout now actively aborts in-flight fetch requests (when `AbortController` is available) to reduce dangling connection/resource usage.
   - Abort-driven fetch rejections (`AbortError`) are normalized into the same timeout `RequestError` envelope for deterministic caller handling.
