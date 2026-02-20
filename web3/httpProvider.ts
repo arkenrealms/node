@@ -240,11 +240,16 @@ export default class Provider {
     }
 
     if ('error' in responseEnvelope) {
-      throw new RequestError(
-        (_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message,
-        (_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.code,
-        (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data
-      );
+      const errorMessage =
+        typeof ((_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message) === 'string' && ((_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.message).trim().length > 0
+          ? responseEnvelope.error.message
+          : 'JSON-RPC request failed';
+      const errorCode =
+        typeof responseEnvelope.error?.code === 'number' && Number.isFinite(responseEnvelope.error.code)
+          ? responseEnvelope.error.code
+          : -32000;
+
+      throw new RequestError(errorMessage, errorCode, (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data);
     } else {
       return responseEnvelope.result;
     }

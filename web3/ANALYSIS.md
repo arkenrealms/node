@@ -28,6 +28,7 @@
 - Method names are now normalized with `trim()` before submission so callers with padded method strings still produce canonical RPC method keys.
 - Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
 - Parsed response bodies are now envelope-normalized (`object` only) so primitive JSON payloads (for example `null`) do not trigger `'in'` operator runtime faults during error/result checks.
+- RPC error envelopes now normalize malformed payload metadata (blank/non-string `message`, non-numeric `code`) into deterministic `RequestError` defaults so upstream handlers do not receive undefined/stringly-typed error codes.
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.

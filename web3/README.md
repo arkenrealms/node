@@ -18,6 +18,7 @@ Legacy-compatible Web3 transport helpers.
   - Whitespace-padded JSON-RPC method names are now normalized (`trim`) before network submission, preventing avoidable upstream method mismatch errors.
   - Provider request normalization no longer mutates caller-owned request objects while still applying deterministic JSON-RPC defaults (`jsonrpc`, fallback `id=56`).
   - Parsed non-object JSON response payloads (e.g. `null`) are normalized to an empty envelope, preventing `TypeError` during error/result field checks.
+  - Malformed RPC error envelopes now normalize to deterministic `RequestError` metadata (`message` fallback + numeric `code` fallback), avoiding undefined/string code leaks to callers.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.

@@ -346,4 +346,32 @@ describe('web3/httpProvider', () => {
     const provider = new Provider('https://rpc.example.org');
     await expect(provider.request({ method: 'eth_chainId', params: [], id: 1011 })).resolves.toBeUndefined();
   });
+
+  test('normalizes malformed rpc error envelope to deterministic RequestError shape', async () => {
+    class InvalidErrorEnvelopeResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({
+          error: {
+            code: 'oops',
+            message: '   ',
+            data: { provider: 'mock' },
+          },
+        });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new InvalidErrorEnvelopeResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1012 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'JSON-RPC request failed',
+      data: { provider: 'mock' },
+    });
+  });
 });
