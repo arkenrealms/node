@@ -240,7 +240,12 @@ export default class Provider {
       }
     }
 
-    let responseBody: any = await response.text();
+    let responseBody: any;
+    try {
+      responseBody = await response.text();
+    } catch (error) {
+      throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
+    }
 
     try {
       responseBody = JSON.parse(responseBody);

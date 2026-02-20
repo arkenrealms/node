@@ -31,6 +31,7 @@
 - RPC error envelopes now normalize malformed payload metadata (blank/non-string `message`, non-numeric `code`) into deterministic `RequestError` defaults so upstream handlers do not receive undefined/stringly-typed error codes.
 - Network fetch results now validate a minimal Fetch-like response shape before status parsing (`ok/status/statusText/text`), preventing runtime crashes when custom fetch polyfills return malformed response objects.
 - Non-RequestError fetch rejections are now normalized into deterministic provider `RequestError` envelopes (`-32000`) so caller behavior is stable even when runtimes throw primitives/non-standard errors.
+- Response body stream-read failures (`response.text()` throws/rejects) are now normalized to `Invalid provider response` so transport callers receive a deterministic provider-error envelope instead of runtime-specific stream exceptions.
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.

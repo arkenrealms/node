@@ -386,6 +386,28 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('normalizes response body read failures into deterministic RequestError shape', async () => {
+    class FailingBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        throw new Error('stream read failed');
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new FailingBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1016 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+      data: null,
+    });
+  });
+
   test('normalizes non-Error fetch rejections into deterministic RequestError shape', async () => {
     (global as any).fetch = jest.fn(async () => Promise.reject('network-down'));
 

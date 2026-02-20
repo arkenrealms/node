@@ -21,6 +21,7 @@ Legacy-compatible Web3 transport helpers.
   - Malformed RPC error envelopes now normalize to deterministic `RequestError` metadata (`message` fallback + numeric `code` fallback), avoiding undefined/string code leaks to callers.
   - Malformed network response objects that do not expose a valid Fetch-like shape (`ok/status/statusText/text`) are now rejected early with a deterministic `Invalid provider response` error instead of crashing on missing methods.
   - Raw fetch rejections are normalized into deterministic `RequestError` envelopes (`code: -32000`), preserving Error messages when available and falling back to `Provider request failed` for non-Error throws.
+  - Response body read failures (`response.text()` stream/read errors) are normalized to `Invalid provider response` to avoid leaking runtime-specific stream exceptions to higher-level callers.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.
