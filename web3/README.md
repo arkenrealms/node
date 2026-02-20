@@ -20,6 +20,7 @@ Legacy-compatible Web3 transport helpers.
   - Parsed non-object JSON response payloads (e.g. `null`) are normalized to an empty envelope, preventing `TypeError` during error/result field checks.
   - Malformed RPC error envelopes now normalize to deterministic `RequestError` metadata (`message` fallback + numeric `code` fallback), avoiding undefined/string code leaks to callers.
   - Malformed network response objects that do not expose a valid Fetch-like shape (`ok/status/statusText/text`) are now rejected early with a deterministic `Invalid provider response` error instead of crashing on missing methods.
+  - Raw fetch rejections are normalized into deterministic `RequestError` envelopes (`code: -32000`), preserving Error messages when available and falling back to `Provider request failed` for non-Error throws.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.

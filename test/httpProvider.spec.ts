@@ -385,4 +385,28 @@ describe('web3/httpProvider', () => {
       message: 'Invalid provider response',
     });
   });
+
+  test('normalizes non-Error fetch rejections into deterministic RequestError shape', async () => {
+    (global as any).fetch = jest.fn(async () => Promise.reject('network-down'));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1014 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Provider request failed',
+      data: null,
+    });
+  });
+
+  test('preserves message from Error-like fetch rejections while normalizing envelope', async () => {
+    (global as any).fetch = jest.fn(async () => Promise.reject(new Error('socket hang up')));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1015 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'socket hang up',
+      data: null,
+    });
+  });
 });

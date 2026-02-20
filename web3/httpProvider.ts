@@ -193,11 +193,20 @@ export default class Provider {
     }
 
     if (!response) {
-      response = await this.fetchWithTimeout(url, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(requestWithDefaults),
-      });
+      try {
+        response = await this.fetchWithTimeout(url, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(requestWithDefaults),
+        });
+      } catch (error: any) {
+        if (error instanceof RequestError) {
+          throw error;
+        }
+
+        const message = typeof error?.message === 'string' && error.message.trim().length > 0 ? error.message : 'Provider request failed';
+        throw new RequestError(message, INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
+      }
 
       if (!this.isValidHttpResponseShape(response)) {
         throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
