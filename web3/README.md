@@ -14,6 +14,7 @@ Legacy-compatible Web3 transport helpers.
   - Malformed cache hits are now ignored and retried against live network fetch, preventing stale/invalid cache entries from causing hard request failure.
   - Invalid non-object JSON-RPC request payloads are rejected early with `-32600` (`Invalid JSON-RPC request payload`) instead of throwing ambiguous runtime type errors.
   - Invalid or missing JSON-RPC method names are rejected early with deterministic `-32600` (`Invalid JSON-RPC method`) to avoid emitting malformed upstream calls.
+  - Whitespace-padded JSON-RPC method names are now normalized (`trim`) before network submission, preventing avoidable upstream method mismatch errors.
   - Provider request normalization no longer mutates caller-owned request objects while still applying deterministic JSON-RPC defaults (`jsonrpc`, fallback `id=56`).
   - Parsed non-object JSON response payloads (e.g. `null`) are normalized to an empty envelope, preventing `TypeError` during error/result field checks.
 

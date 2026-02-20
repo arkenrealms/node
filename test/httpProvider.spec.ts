@@ -114,6 +114,18 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('normalizes whitespace-padded method names before network submission', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await provider.request({ method: '  eth_chainId  ', params: [], id: 812 });
+
+    const fetchMock = (global as any).fetch as jest.Mock;
+    const [, init] = fetchMock.mock.calls[0];
+    const requestBody = JSON.parse(init.body);
+
+    expect(requestBody.method).toBe('eth_chainId');
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });

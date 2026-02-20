@@ -136,12 +136,14 @@ export default class Provider {
     }
 
     const method = (request as any).method;
-    if (typeof method !== 'string' || method.trim().length === 0) {
+    const normalizedMethod = typeof method === 'string' ? method.trim() : method;
+    if (typeof normalizedMethod !== 'string' || normalizedMethod.length === 0) {
       throw new RequestError('Invalid JSON-RPC method', -32600, null);
     }
 
     const requestWithDefaults = {
       ...request,
+      method: normalizedMethod,
       jsonrpc: '2.0',
       id: Object.prototype.hasOwnProperty.call(request, 'id') ? request.id : 56,
     };
