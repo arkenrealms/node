@@ -13,6 +13,7 @@ let BROWSER_CACHE_TTL = 0;
 let PROVIDER_TIMEOUT = 5000;
 
 const TIMEOUT_ERROR_CODE = -32000;
+const INVALID_PROVIDER_RESPONSE_ERROR_CODE = -32000;
 
 class RequestError extends Error {
   code: number;
@@ -33,6 +34,17 @@ export default class Provider {
   isMetaMask: boolean;
   send: (request: any, callback: (error: any, response: any) => void) => void;
   sendAsync: (request: any, callback: (error: any, response: any) => void) => void;
+
+  private isValidHttpResponseShape(response: any): boolean {
+    return !!(
+      response &&
+      typeof response === 'object' &&
+      typeof response.ok === 'boolean' &&
+      typeof response.status === 'number' &&
+      typeof response.statusText === 'string' &&
+      typeof response.text === 'function'
+    );
+  }
 
   constructor(url: string) {
     EDGE_CACHE_TTL = EDGE_CACHE_TTL || 60;
@@ -176,14 +188,7 @@ export default class Provider {
 
     let response = cache && cacheKey ? await cache.match(cacheKey) : null;
 
-    if (
-      response &&
-      (typeof response !== 'object' ||
-        typeof (response as any).ok !== 'boolean' ||
-        typeof (response as any).status !== 'number' ||
-        typeof (response as any).statusText !== 'string' ||
-        typeof (response as any).text !== 'function')
-    ) {
+    if (response && !this.isValidHttpResponseShape(response)) {
       response = null;
     }
 
@@ -193,6 +198,10 @@ export default class Provider {
         headers,
         body: JSON.stringify(requestWithDefaults),
       });
+
+      if (!this.isValidHttpResponseShape(response)) {
+        throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
+      }
 
       if (!response.ok) {
         if (response.status === 403) {

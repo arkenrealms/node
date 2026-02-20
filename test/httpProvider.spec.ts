@@ -374,4 +374,15 @@ describe('web3/httpProvider', () => {
       data: { provider: 'mock' },
     });
   });
+
+  test('rejects malformed network response envelopes before status handling', async () => {
+    (global as any).fetch = jest.fn(async () => ({ ok: true, status: 200, statusText: 'OK' }));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1013 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+    });
+  });
 });
