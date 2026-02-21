@@ -54,10 +54,9 @@ export default class Provider {
 
     const providers = JSON.parse(PROVIDERS);
 
+    const normalizedInputUrl = typeof url === 'string' ? url.trim() : '';
     const resolvedProviderUrl =
-      typeof url === 'string' && url.trim().length > 0
-        ? url
-        : providers[Math.floor(Math.random() * providers.length)];
+      normalizedInputUrl.length > 0 ? normalizedInputUrl : providers[Math.floor(Math.random() * providers.length)];
 
     let parsedUrl: URL;
     try {

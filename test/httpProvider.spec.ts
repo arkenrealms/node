@@ -71,6 +71,14 @@ describe('web3/httpProvider', () => {
     expect(provider.url.toString()).toBe('https://rpc.example.org/custom/path');
   });
 
+  test('trims constructor url input before parsing', () => {
+    const provider = new Provider('   https://rpc.example.org/trimmed/path   ');
+
+    expect(provider.host).toBe('rpc.example.org');
+    expect(provider.path).toBe('/trimmed/path');
+    expect(provider.url.toString()).toBe('https://rpc.example.org/trimmed/path');
+  });
+
   test('throws deterministic RequestError shape when constructor url is invalid', () => {
     try {
       new Provider('http://:invalid-url');

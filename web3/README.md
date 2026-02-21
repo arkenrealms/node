@@ -4,7 +4,7 @@ Legacy-compatible Web3 transport helpers.
 
 ## Files
 - `httpProvider.ts`: custom JSON-RPC provider wrapper with fetch + Cache API usage.
-  - Constructor now honors explicit URL input before falling back to default provider pool.
+  - Constructor now honors explicit URL input (after whitespace trim) before falling back to default provider pool.
   - Invalid constructor URLs are now normalized into deterministic `RequestError` metadata (`code: -32602`, `message: Invalid provider URL`) instead of leaking raw `URL` parser exceptions.
   - Constructor URL validation now explicitly rejects non-http(s) protocols (for example `ws:`), preventing invalid transport schemes from reaching HTTP fetch paths.
   - Request IDs are preserved when callers provide one (including explicit `null`); fallback ID `56` is only used when the `id` field is absent.

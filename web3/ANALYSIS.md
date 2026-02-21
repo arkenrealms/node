@@ -11,7 +11,7 @@
 
 ## Key findings
 - Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
-- Constructor now honors explicit `url` input, reducing hidden endpoint drift.
+- Constructor now honors explicit `url` input (with surrounding-whitespace trim), reducing hidden endpoint drift and avoiding false-negative URL parsing errors from padded env/config values.
 - Constructor URL parsing now normalizes malformed endpoint inputs into deterministic request metadata (`RequestError` `-32602`) rather than surfacing runtime-specific `URL` parser exceptions.
 - Constructor URL validation now also enforces http(s)-only protocols (rejects `ws:`/other schemes), which is warranted because downstream transport uses Fetch HTTP semantics and non-http schemes would fail later with less actionable errors.
 - Request shaping now preserves caller-supplied `request.id` (including explicit `null`); fallback `56` is only applied when the `id` field is absent.
