@@ -386,6 +386,17 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('rejects responses with non-finite status values as malformed provider envelopes', async () => {
+    (global as any).fetch = jest.fn(async () => ({ ok: false, status: Number.NaN, statusText: 'Invalid', text: async () => '{}' }));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1017 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+    });
+  });
+
   test('normalizes response body read failures into deterministic RequestError shape', async () => {
     class FailingBodyResponse {
       ok = true;

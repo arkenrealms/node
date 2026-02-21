@@ -41,6 +41,7 @@ export default class Provider {
       typeof response === 'object' &&
       typeof response.ok === 'boolean' &&
       typeof response.status === 'number' &&
+      Number.isFinite(response.status) &&
       typeof response.statusText === 'string' &&
       typeof response.text === 'function'
     );

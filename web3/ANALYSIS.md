@@ -29,7 +29,7 @@
 - Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
 - Parsed response bodies are now envelope-normalized (`object` only) so primitive JSON payloads (for example `null`) do not trigger `'in'` operator runtime faults during error/result checks.
 - RPC error envelopes now normalize malformed payload metadata (blank/non-string `message`, non-numeric `code`) into deterministic `RequestError` defaults so upstream handlers do not receive undefined/stringly-typed error codes.
-- Network fetch results now validate a minimal Fetch-like response shape before status parsing (`ok/status/statusText/text`), preventing runtime crashes when custom fetch polyfills return malformed response objects.
+- Network fetch results now validate a minimal Fetch-like response shape before status parsing (`ok/status/statusText/text`) and require `status` to be finite, preventing runtime crashes or malformed `NaN` status propagation when custom fetch polyfills return invalid response objects.
 - Non-RequestError fetch rejections are now normalized into deterministic provider `RequestError` envelopes (`-32000`) so caller behavior is stable even when runtimes throw primitives/non-standard errors.
 - Response body stream-read failures (`response.text()` throws/rejects) are now normalized to `Invalid provider response` so transport callers receive a deterministic provider-error envelope instead of runtime-specific stream exceptions.
 
