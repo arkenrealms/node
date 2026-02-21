@@ -54,6 +54,19 @@ describe('api/getFilter', () => {
     });
   });
 
+  test('ignores undefined equals fragments to avoid malformed filters', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: [{ id: { equals: undefined } }, { status: { equals: 'active' } }],
+          AND: [{ owner: { equals: undefined } }],
+        },
+      })
+    ).toEqual({
+      $or: [{ status: 'active' }],
+    });
+  });
+
   test('supports nested OR nodes inside AND clauses', () => {
     expect(
       getFilter({

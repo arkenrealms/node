@@ -34,6 +34,7 @@ export function getFilter(query: any): Record<string, any> {
     }
 
     if ('equals' in cond) {
+      if (cond.equals === undefined) return undefined;
       return { [normalizedField]: cond.equals };
     }
 
