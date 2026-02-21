@@ -396,6 +396,28 @@ describe('web3/httpProvider', () => {
     await expect(provider.request({ method: 'eth_chainId', params: [], id: 1011 })).resolves.toBeUndefined();
   });
 
+  test('rejects invalid JSON response bodies with deterministic provider error', async () => {
+    class InvalidJsonBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return 'not-json';
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new InvalidJsonBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1018 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+      data: null,
+    });
+  });
+
   test('normalizes malformed rpc error envelope to deterministic RequestError shape', async () => {
     class InvalidErrorEnvelopeResponse {
       ok = true;

@@ -275,8 +275,8 @@ export default class Provider {
 
     try {
       responseBody = JSON.parse(responseBody);
-    } catch (e) {
-      responseBody = {};
+    } catch {
+      throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
     }
 
     const responseEnvelope =

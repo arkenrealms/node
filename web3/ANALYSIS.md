@@ -30,6 +30,7 @@
 - Method names are now normalized with `trim()` before submission so callers with padded method strings still produce canonical RPC method keys.
 - Request-default injection now uses a cloned envelope, preventing side-effect mutation of caller-provided JSON-RPC request objects.
 - Parsed response bodies are now envelope-normalized (`object` only) so primitive JSON payloads (for example `null`) do not trigger `'in'` operator runtime faults during error/result checks.
+- Invalid JSON response bodies are now treated as deterministic provider failures (`Invalid provider response`) because silently coercing parse failures to `{}` masked upstream transport corruption and could leak undefined-success semantics to callers.
 - RPC error envelopes now normalize malformed payload metadata (blank/non-string `message`, non-numeric `code`) into deterministic `RequestError` defaults so upstream handlers do not receive undefined/stringly-typed error codes.
 - Network fetch results now validate a minimal Fetch-like response shape before status parsing (`ok/status/statusText/text`) and require `status` to be finite, preventing runtime crashes or malformed `NaN` status propagation when custom fetch polyfills return invalid response objects.
 - Non-RequestError fetch rejections are now normalized into deterministic provider `RequestError` envelopes (`-32000`) so caller behavior is stable even when runtimes throw primitives/non-standard errors.
