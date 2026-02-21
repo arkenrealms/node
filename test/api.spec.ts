@@ -135,6 +135,17 @@ describe('api/fetch', () => {
     expect(mockedAxiosPost).not.toHaveBeenCalled();
   });
 
+  test('trims URL input before network call', async () => {
+    mockedAxiosPost.mockResolvedValue({ data: { ok: true } });
+
+    await expect(apiFetch('  https://example.com/graphql  ', { where: { id: '1' } })).resolves.toEqual({ ok: true });
+    expect(mockedAxiosPost).toHaveBeenCalledWith(
+      'https://example.com/graphql',
+      { where: { id: '1' } },
+      expect.objectContaining({ timeout: 10000 })
+    );
+  });
+
   test('applies deterministic timeout and returns response data', async () => {
     mockedAxiosPost.mockResolvedValue({ data: { ok: true } });
 

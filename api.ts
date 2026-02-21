@@ -104,7 +104,9 @@ export async function fetch(url: string, query: FetchQuery): Promise<any> {
     throw new Error('Invalid fetch query payload');
   }
 
-  const res = await axios.post(url, query, {
+  const normalizedUrl = url.trim();
+
+  const res = await axios.post(normalizedUrl, query, {
     timeout: DEFAULT_FETCH_TIMEOUT_MS,
     headers: {
       accept: '*/*',
