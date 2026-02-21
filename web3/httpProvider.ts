@@ -110,6 +110,26 @@ export default class Provider {
     };
   }
 
+  private async safeCachePut(cache: any, cacheKey: any, body: string, response: any): Promise<void> {
+    if (!cache || !cacheKey || typeof Response === 'undefined') {
+      return;
+    }
+
+    try {
+      const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
+      await cache.put(
+        cacheKey,
+        new Response(body, {
+          status: response?.status,
+          statusText: response?.statusText,
+          headers: cacheHeaders,
+        })
+      );
+    } catch {
+      // Best-effort cache write: request flow should not fail when runtime cache put is unavailable.
+    }
+  }
+
   private async fetchWithTimeout(url: string, init: any): Promise<any> {
     let timeoutHandle: ReturnType<typeof setTimeout> | undefined;
     const canAbort = typeof AbortController !== 'undefined';
@@ -224,11 +244,7 @@ export default class Provider {
 
       if (!response.ok) {
         if (response.status === 403) {
-          if (cache && cacheKey && typeof Response !== 'undefined') {
-            const fullBody = JSON.stringify({});
-            const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
-            await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
-          }
+          await this.safeCachePut(cache, cacheKey, JSON.stringify({}), response);
 
           const availableProviders: string[] = JSON.parse(PROVIDERS);
           const currentProvider = this.url.toString();
@@ -267,10 +283,7 @@ export default class Provider {
       responseBody && typeof responseBody === 'object' && !Array.isArray(responseBody) ? responseBody : {};
     const fullBody = JSON.stringify(responseEnvelope);
 
-    if (cache && cacheKey && typeof Response !== 'undefined') {
-      const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
-      await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
-    }
+    await this.safeCachePut(cache, cacheKey, fullBody, response);
 
     if ('error' in responseEnvelope) {
       const errorMessage =

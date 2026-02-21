@@ -257,6 +257,21 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
+  test('treats cache write failures as best-effort and still resolves provider response', async () => {
+    (global as any).caches = {
+      open: jest.fn(async () => ({
+        match: jest.fn(async () => null),
+        put: jest.fn(async () => {
+          throw new Error('cache write unavailable');
+        }),
+      })),
+    };
+
+    const provider = new Provider('https://rpc.example.org');
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 9012 })).resolves.toBe(9012);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
+
   test('rejects when fetch exceeds provider timeout window', async () => {
     jest.useFakeTimers();
     try {

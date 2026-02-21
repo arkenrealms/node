@@ -34,6 +34,7 @@
 - Network fetch results now validate a minimal Fetch-like response shape before status parsing (`ok/status/statusText/text`) and require `status` to be finite, preventing runtime crashes or malformed `NaN` status propagation when custom fetch polyfills return invalid response objects.
 - Non-RequestError fetch rejections are now normalized into deterministic provider `RequestError` envelopes (`-32000`) so caller behavior is stable even when runtimes throw primitives/non-standard errors.
 - Response body stream-read failures (`response.text()` throws/rejects) are now normalized to `Invalid provider response` so transport callers receive a deterministic provider-error envelope instead of runtime-specific stream exceptions.
+- Cache writes are now explicitly best-effort (wrapped/suppressed) because some worker/browser runtimes expose read-capable cache handles with failing `put` behavior; this avoids surfacing cache persistence failures as transport request failures.
 
 ## Risks / gaps
 - Hardcoded provider endpoint and random re-selection logic reduce explicit environment control.
