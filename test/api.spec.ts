@@ -41,6 +41,19 @@ describe('api/getFilter', () => {
     });
   });
 
+  test('ignores empty in fragments in OR/AND clauses', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: [{ id: { in: [] } }, { id: { in: ['abc'] } }],
+          AND: [{ status: { in: [] } }],
+        },
+      })
+    ).toEqual({
+      $or: [{ _id: { $in: ['abc'] } }],
+    });
+  });
+
   test('supports nested OR nodes inside AND clauses', () => {
     expect(
       getFilter({

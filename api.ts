@@ -46,6 +46,7 @@ export function getFilter(query: any): Record<string, any> {
     }
 
     if ('in' in cond && Array.isArray(cond.in)) {
+      if (cond.in.length === 0) return undefined;
       return { [normalizedField]: { $in: cond.in } };
     }
 
