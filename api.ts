@@ -52,6 +52,12 @@ export function getFilter(query: any): Record<string, any> {
     return { [normalizedField]: cond };
   };
 
+  const getLogicalChildren = (value: any): any[] => {
+    if (Array.isArray(value)) return value;
+    if (value && typeof value === 'object') return [value];
+    return [];
+  };
+
   const parseWhereNode = (node: any): Record<string, any> | undefined => {
     if (!node || typeof node !== 'object') return undefined;
 
@@ -64,18 +70,14 @@ export function getFilter(query: any): Record<string, any> {
       if (frag) andClauses.push(frag);
     }
 
-    if (Array.isArray(node.OR)) {
-      for (const child of node.OR) {
-        const parsed = parseWhereNode(child);
-        if (parsed) orClauses.push(parsed);
-      }
+    for (const child of getLogicalChildren(node.OR)) {
+      const parsed = parseWhereNode(child);
+      if (parsed) orClauses.push(parsed);
     }
 
-    if (Array.isArray(node.AND)) {
-      for (const child of node.AND) {
-        const parsed = parseWhereNode(child);
-        if (parsed) andClauses.push(parsed);
-      }
+    for (const child of getLogicalChildren(node.AND)) {
+      const parsed = parseWhereNode(child);
+      if (parsed) andClauses.push(parsed);
     }
 
     if (andClauses.length && orClauses.length) {

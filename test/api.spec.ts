@@ -64,6 +64,19 @@ describe('api/getFilter', () => {
     });
   });
 
+  test('accepts object shorthand for OR/AND logical nodes', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: { id: { equals: 'abc123' } },
+          AND: { status: { equals: 'active' } },
+        },
+      })
+    ).toEqual({
+      $and: [{ status: 'active' }, { $or: [{ _id: 'abc123' }] }],
+    });
+  });
+
   test('supports scalar shorthand values as equality checks', () => {
     expect(
       getFilter({
