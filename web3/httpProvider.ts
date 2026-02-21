@@ -13,6 +13,7 @@ let BROWSER_CACHE_TTL = 0;
 let PROVIDER_TIMEOUT = 5000;
 
 const TIMEOUT_ERROR_CODE = -32000;
+const INVALID_PROVIDER_RESPONSE_ERROR_CODE = -32000;
 
 class RequestError extends Error {
   code: number;
@@ -33,6 +34,18 @@ export default class Provider {
   isMetaMask: boolean;
   send: (request: any, callback: (error: any, response: any) => void) => void;
   sendAsync: (request: any, callback: (error: any, response: any) => void) => void;
+
+  private isValidHttpResponseShape(response: any): boolean {
+    return !!(
+      response &&
+      typeof response === 'object' &&
+      typeof response.ok === 'boolean' &&
+      typeof response.status === 'number' &&
+      Number.isFinite(response.status) &&
+      typeof response.statusText === 'string' &&
+      typeof response.text === 'function'
+    );
+  }
 
   constructor(url: string) {
     EDGE_CACHE_TTL = EDGE_CACHE_TTL || 60;
@@ -157,8 +170,9 @@ export default class Provider {
       typeof (caches as any).open === 'function' &&
       typeof Request !== 'undefined' &&
       typeof Response !== 'undefined';
+    const allowBrowserCache = canUseRuntimeCache && BROWSER_CACHE_TTL > 0;
 
-    const cache = canUseRuntimeCache ? await caches.open('my-cache-name') : null;
+    const cache = allowBrowserCache ? await caches.open('my-cache-name') : null;
     const url = this.url.toString();
     const body = JSON.stringify(requestWithDefaults);
     const hash = SHA256(body).toString();
@@ -175,29 +189,35 @@ export default class Provider {
 
     let response = cache && cacheKey ? await cache.match(cacheKey) : null;
 
-    if (
-      response &&
-      (typeof response !== 'object' ||
-        typeof (response as any).ok !== 'boolean' ||
-        typeof (response as any).status !== 'number' ||
-        typeof (response as any).statusText !== 'string' ||
-        typeof (response as any).text !== 'function')
-    ) {
+    if (response && !this.isValidHttpResponseShape(response)) {
       response = null;
     }
 
     if (!response) {
-      response = await this.fetchWithTimeout(url, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(requestWithDefaults),
-      });
+      try {
+        response = await this.fetchWithTimeout(url, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(requestWithDefaults),
+        });
+      } catch (error: any) {
+        if (error instanceof RequestError) {
+          throw error;
+        }
+
+        const message = typeof error?.message === 'string' && error.message.trim().length > 0 ? error.message : 'Provider request failed';
+        throw new RequestError(message, INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
+      }
+
+      if (!this.isValidHttpResponseShape(response)) {
+        throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
+      }
 
       if (!response.ok) {
         if (response.status === 403) {
           if (cache && cacheKey && typeof Response !== 'undefined') {
             const fullBody = JSON.stringify({});
-            const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+            const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
             await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
           }
 
@@ -221,7 +241,12 @@ export default class Provider {
       }
     }
 
-    let responseBody: any = await response.text();
+    let responseBody: any;
+    try {
+      responseBody = await response.text();
+    } catch (error) {
+      throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
+    }
 
     try {
       responseBody = JSON.parse(responseBody);
@@ -234,16 +259,21 @@ export default class Provider {
     const fullBody = JSON.stringify(responseEnvelope);
 
     if (cache && cacheKey && typeof Response !== 'undefined') {
-      const cacheHeaders = { 'Cache-Control': `public, max-age=${EDGE_CACHE_TTL}` };
+      const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
       await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
     }
 
     if ('error' in responseEnvelope) {
-      throw new RequestError(
-        (_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message,
-        (_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.code,
-        (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data
-      );
+      const errorMessage =
+        typeof ((_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message) === 'string' && ((_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.message).trim().length > 0
+          ? responseEnvelope.error.message
+          : 'JSON-RPC request failed';
+      const errorCode =
+        typeof responseEnvelope.error?.code === 'number' && Number.isFinite(responseEnvelope.error.code)
+          ? responseEnvelope.error.code
+          : -32000;
+
+      throw new RequestError(errorMessage, errorCode, (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data);
     } else {
       return responseEnvelope.result;
     }

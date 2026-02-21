@@ -7,6 +7,7 @@ Legacy-compatible Web3 transport helpers.
   - Constructor now honors explicit URL input before falling back to default provider pool.
   - Request IDs are preserved when callers provide one (including explicit `null`); fallback ID `56` is only used when the `id` field is absent.
   - Cache API usage is now runtime-guarded; provider falls back to network-only request flow when `caches`/`Request`/`Response` globals are unavailable.
+  - Browser cache writes/reads are now also gated by `BROWSER_CACHE_TTL > 0`; with the default `0`, requests avoid writing stale entries to runtime cache.
   - Network POSTs are now wrapped with a deterministic timeout gate (`PROVIDER_TIMEOUT` default 5000ms) to avoid indefinite hangs.
   - Timeout now actively aborts in-flight fetch requests (when `AbortController` is available) to reduce dangling connection/resource usage.
   - Abort-driven fetch rejections (`AbortError`) are normalized into the same timeout `RequestError` envelope for deterministic caller handling.
@@ -17,6 +18,10 @@ Legacy-compatible Web3 transport helpers.
   - Whitespace-padded JSON-RPC method names are now normalized (`trim`) before network submission, preventing avoidable upstream method mismatch errors.
   - Provider request normalization no longer mutates caller-owned request objects while still applying deterministic JSON-RPC defaults (`jsonrpc`, fallback `id=56`).
   - Parsed non-object JSON response payloads (e.g. `null`) are normalized to an empty envelope, preventing `TypeError` during error/result field checks.
+  - Malformed RPC error envelopes now normalize to deterministic `RequestError` metadata (`message` fallback + numeric `code` fallback), avoiding undefined/string code leaks to callers.
+  - Malformed network response objects that do not expose a valid Fetch-like shape (`ok/status/statusText/text`) or provide non-finite `status` values are now rejected early with a deterministic `Invalid provider response` error instead of propagating invalid status metadata.
+  - Raw fetch rejections are normalized into deterministic `RequestError` envelopes (`code: -32000`), preserving Error messages when available and falling back to `Provider request failed` for non-Error throws.
+  - Response body read failures (`response.text()` stream/read errors) are normalized to `Invalid provider response` to avoid leaking runtime-specific stream exceptions to higher-level callers.
 
 ## Notes
 - This folder currently exposes one monolithic provider implementation.

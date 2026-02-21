@@ -1,7 +1,17 @@
 // arken/packages/node/test/api.spec.ts
 
 import Mongoose from 'mongoose';
-import { getFilter } from '../api';
+import axios from 'axios';
+import { fetch as apiFetch, getFilter } from '../api';
+
+jest.mock('axios', () => ({
+  __esModule: true,
+  default: {
+    post: jest.fn(),
+  },
+}));
+
+const mockedAxiosPost = axios.post as jest.Mock;
 
 describe('api/getFilter', () => {
   test('maps id equals/in/contains operators to _id consistently', () => {
@@ -31,6 +41,19 @@ describe('api/getFilter', () => {
     });
   });
 
+  test('ignores empty in fragments in OR/AND clauses', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: [{ id: { in: [] } }, { id: { in: ['abc'] } }],
+          AND: [{ status: { in: [] } }],
+        },
+      })
+    ).toEqual({
+      $or: [{ _id: { $in: ['abc'] } }],
+    });
+  });
+
   test('supports nested OR nodes inside AND clauses', () => {
     expect(
       getFilter({
@@ -51,6 +74,19 @@ describe('api/getFilter', () => {
           ],
         },
       ],
+    });
+  });
+
+  test('accepts object shorthand for OR/AND logical nodes', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: { id: { equals: 'abc123' } },
+          AND: { status: { equals: 'active' } },
+        },
+      })
+    ).toEqual({
+      $and: [{ status: 'active' }, { $or: [{ _id: 'abc123' }] }],
     });
   });
 
@@ -105,5 +141,45 @@ describe('api/getFilter', () => {
     ).toEqual({
       metadata: { rarity: 'legendary', flags: ['quest'] },
     });
+  });
+});
+
+describe('api/fetch', () => {
+  beforeEach(() => {
+    mockedAxiosPost.mockReset();
+  });
+
+  test('rejects invalid URL values before network call', async () => {
+    await expect(apiFetch('   ', { where: {} })).rejects.toThrow('Invalid fetch URL');
+    expect(mockedAxiosPost).not.toHaveBeenCalled();
+  });
+
+  test('rejects non-object query payload before network call', async () => {
+    await expect(apiFetch('https://example.com/graphql', [] as unknown as Record<string, unknown>)).rejects.toThrow(
+      'Invalid fetch query payload'
+    );
+    expect(mockedAxiosPost).not.toHaveBeenCalled();
+  });
+
+  test('trims URL input before network call', async () => {
+    mockedAxiosPost.mockResolvedValue({ data: { ok: true } });
+
+    await expect(apiFetch('  https://example.com/graphql  ', { where: { id: '1' } })).resolves.toEqual({ ok: true });
+    expect(mockedAxiosPost).toHaveBeenCalledWith(
+      'https://example.com/graphql',
+      { where: { id: '1' } },
+      expect.objectContaining({ timeout: 10000 })
+    );
+  });
+
+  test('applies deterministic timeout and returns response data', async () => {
+    mockedAxiosPost.mockResolvedValue({ data: { ok: true } });
+
+    await expect(apiFetch('https://example.com/graphql', { where: { id: '1' } })).resolves.toEqual({ ok: true });
+    expect(mockedAxiosPost).toHaveBeenCalledWith(
+      'https://example.com/graphql',
+      { where: { id: '1' } },
+      expect.objectContaining({ timeout: 10000 })
+    );
   });
 });
