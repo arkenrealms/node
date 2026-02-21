@@ -164,6 +164,8 @@ describe('api/fetch', () => {
 
   test('rejects invalid URL values before network call', async () => {
     await expect(apiFetch('   ', { where: {} })).rejects.toThrow('Invalid fetch URL');
+    await expect(apiFetch('example.com/graphql', { where: {} })).rejects.toThrow('Invalid fetch URL');
+    await expect(apiFetch('javascript:alert(1)', { where: {} })).rejects.toThrow('Invalid fetch URL');
     expect(mockedAxiosPost).not.toHaveBeenCalled();
   });
 

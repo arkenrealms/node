@@ -109,6 +109,17 @@ export async function fetch(url: string, query: FetchQuery): Promise<any> {
   }
 
   const normalizedUrl = url.trim();
+  let parsedUrl: URL;
+
+  try {
+    parsedUrl = new URL(normalizedUrl);
+  } catch {
+    throw new Error('Invalid fetch URL');
+  }
+
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+    throw new Error('Invalid fetch URL');
+  }
 
   const res = await axios.post(normalizedUrl, query, {
     timeout: DEFAULT_FETCH_TIMEOUT_MS,
