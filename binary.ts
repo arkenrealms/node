@@ -41,7 +41,10 @@ export function decodePayload(msg) {
 
     return json;
   } catch (err) {
-    // ...
-    console.log(err, msg);
+    const raw = typeof msg === 'string' ? msg : String(msg ?? '');
+    const preview = raw.length > 40 ? `${raw.slice(0, 40)}...` : raw;
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.warn(`decodePayload failed: ${errorMessage}; payloadPreview=${preview}`);
+    return undefined;
   }
 }
