@@ -71,6 +71,19 @@ describe('web3/httpProvider', () => {
     expect(provider.url.toString()).toBe('https://rpc.example.org/custom/path');
   });
 
+  test('throws deterministic RequestError shape when constructor url is invalid', () => {
+    try {
+      new Provider('http://:invalid-url');
+      throw new Error('expected constructor to throw');
+    } catch (error: any) {
+      expect(error).toMatchObject({
+        code: -32602,
+        message: 'Invalid provider URL',
+        data: null,
+      });
+    }
+  });
+
   test('rejects non-object JSON-RPC request payloads', async () => {
     const provider = new Provider('https://rpc.example.org');
 

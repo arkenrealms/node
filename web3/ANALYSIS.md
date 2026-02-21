@@ -12,6 +12,7 @@
 ## Key findings
 - Provider fallback pool remains hardcoded to default list (`bsc-dataseed1.ninicoin.io`) when constructor URL is not supplied.
 - Constructor now honors explicit `url` input, reducing hidden endpoint drift.
+- Constructor URL parsing now normalizes malformed endpoint inputs into deterministic request metadata (`RequestError` `-32602`) rather than surfacing runtime-specific `URL` parser exceptions.
 - Request shaping now preserves caller-supplied `request.id` (including explicit `null`); fallback `56` is only applied when the `id` field is absent.
 - Cache API usage is now runtime-guarded: request flow falls back to network-only mode when `caches`/`Request`/`Response` globals are unavailable.
 - Browser cache usage is now additionally gated by `BROWSER_CACHE_TTL > 0`; this aligns behavior with current default (`0`) so runtime cache is not populated unless explicitly enabled.

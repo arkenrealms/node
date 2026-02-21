@@ -59,7 +59,13 @@ export default class Provider {
         ? url
         : providers[Math.floor(Math.random() * providers.length)];
 
-    const parsedUrl = new URL(resolvedProviderUrl);
+    let parsedUrl: URL;
+    try {
+      parsedUrl = new URL(resolvedProviderUrl);
+    } catch {
+      throw new RequestError('Invalid provider URL', -32602, null);
+    }
+
     this.url = parsedUrl;
     this.host = parsedUrl.host;
     this.path = parsedUrl.pathname;
