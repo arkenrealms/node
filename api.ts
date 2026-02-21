@@ -13,7 +13,7 @@ function escapeRegExp(s: string) {
 
 export function getFilter(query: any): Record<string, any> {
   const where = query?.where;
-  if (!where || typeof where !== 'object') return {};
+  if (!where || typeof where !== 'object' || Array.isArray(where)) return {};
 
   // Helper to turn a single field condition into a Mongo filter fragment
   const buildField = (field: string, cond: any) => {

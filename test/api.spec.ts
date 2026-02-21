@@ -155,6 +155,14 @@ describe('api/getFilter', () => {
       metadata: { rarity: 'legendary', flags: ['quest'] },
     });
   });
+
+  test('returns empty filter when where is an array', () => {
+    expect(
+      getFilter({
+        where: [{ id: { equals: 'abc123' } }],
+      })
+    ).toEqual({});
+  });
 });
 
 describe('api/fetch', () => {
