@@ -84,6 +84,19 @@ describe('web3/httpProvider', () => {
     }
   });
 
+  test('rejects constructor urls with non-http protocols', () => {
+    try {
+      new Provider('ws://rpc.example.org/socket');
+      throw new Error('expected constructor to throw');
+    } catch (error: any) {
+      expect(error).toMatchObject({
+        code: -32602,
+        message: 'Invalid provider URL',
+        data: null,
+      });
+    }
+  });
+
   test('rejects non-object JSON-RPC request payloads', async () => {
     const provider = new Provider('https://rpc.example.org');
 

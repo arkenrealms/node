@@ -66,6 +66,10 @@ export default class Provider {
       throw new RequestError('Invalid provider URL', -32602, null);
     }
 
+    if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+      throw new RequestError('Invalid provider URL', -32602, null);
+    }
+
     this.url = parsedUrl;
     this.host = parsedUrl.host;
     this.path = parsedUrl.pathname;
