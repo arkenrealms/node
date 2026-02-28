@@ -122,30 +122,22 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
       // @ts-ignore
       const target = resolveTarget(caller, normalizedMethod);
 
-      const result = params ? await target(deserialize(params)) : await target();
-
-      log('Seer sending trpc response', method, params, JSON.stringify(result));
-
-      socket.emit('trpcResponse', { id, result: serialize({ status: 1, data: result }) });
-    } catch (error: any) {
-      let errorMessage = error?.stack + '';
-
-      if (errorMessage.includes("reading '_def'")) {
-        errorMessage = `TRPC handler does not exist: ${method} (${errorMessage})`;
-        log(errorMessage, method, error);
-      } else {
-        errorMessage = 'Server error in socket TRPC handler: ' + errorMessage;
-        log(errorMessage, method, error);
+      if (typeof target !== 'function') {
+        throw new Error(`TRPC handler does not exist: ${normalizedMethod}`);
       }
 
       const result = params != null ? await target(deserialize(params)) : await target();
-      log('Socket tRPC response', normalizedMethod);
+
+      log('Seer sending trpc response', method, params, JSON.stringify(result));
 
       socket.emit('trpcResponse', { id: responseId, result: serialize({ status: 1, data: result }) });
     } catch (error: any) {
       const stack = typeof error?.stack === 'string' ? error.stack : String(error);
-      const errorMessage = stack.includes("reading '_def'")
-        ? `TRPC handler does not exist: ${stack}`
+      const explicitMissingHandlerMessage = `TRPC handler does not exist for method: ${normalizedMethod}`;
+      const isMissingHandler =
+        stack.includes("reading '_def'") || stack.includes('TRPC handler does not exist');
+      const errorMessage = isMissingHandler
+        ? explicitMissingHandlerMessage
         : `Server error in socket TRPC handler: ${stack}`;
 
       log(errorMessage, normalizedMethod, error);

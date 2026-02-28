@@ -90,6 +90,42 @@ describe('web3/httpProvider', () => {
     });
   });
 
+  test('rejects request payloads with missing/invalid method names', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ params: [] } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: '' } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: '   ' } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+
+    await expect(provider.request({ method: 42 } as any)).rejects.toMatchObject({
+      code: -32600,
+      message: 'Invalid JSON-RPC method',
+    });
+  });
+
+  test('normalizes whitespace-padded method names before network submission', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    await provider.request({ method: '  eth_chainId  ', params: [], id: 812 });
+
+    const fetchMock = (global as any).fetch as jest.Mock;
+    const [, init] = fetchMock.mock.calls[0];
+    const requestBody = JSON.parse(init.body);
+
+    expect(requestBody.method).toBe('eth_chainId');
+  });
+
   test('preserves explicit request id instead of overwriting it', async () => {
     const provider = new Provider('https://rpc.example.org');
     const result = await provider.request({ method: 'eth_chainId', params: [], id: 777 });
@@ -104,6 +140,42 @@ describe('web3/httpProvider', () => {
     expect(result).toBe(56);
   });
 
+  test('preserves explicit null request id instead of replacing it', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: null });
+
+    expect(result).toBeNull();
+  });
+
+  test('send/sendAsync preserve explicit null id in callback envelope', async () => {
+    const provider = new Provider('https://rpc.example.org');
+
+    const sendResponse = await new Promise<any>((resolve, reject) => {
+      provider.send({ method: 'eth_chainId', params: [], id: null }, (error: any, response: any) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(response);
+      });
+    });
+
+    const sendAsyncResponse = await new Promise<any>((resolve, reject) => {
+      provider.sendAsync({ method: 'eth_chainId', params: [], id: null }, (error: any, response: any) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(response);
+      });
+    });
+
+    expect(sendResponse.id).toBeNull();
+    expect(sendAsyncResponse.id).toBeNull();
+  });
+
   test('does not mutate caller request object when filling defaults', async () => {
     const provider = new Provider('https://rpc.example.org');
     const request = { method: 'eth_chainId', params: [] as any[] };
@@ -113,6 +185,15 @@ describe('web3/httpProvider', () => {
     expect(request).toEqual({ method: 'eth_chainId', params: [] });
     expect(Object.prototype.hasOwnProperty.call(request, 'jsonrpc')).toBe(false);
     expect(Object.prototype.hasOwnProperty.call(request, 'id')).toBe(false);
+  });
+
+  test('skips browser cache writes when browser cache ttl is disabled', async () => {
+    const provider = new Provider('https://rpc.example.org');
+    const result = await provider.request({ method: 'eth_chainId', params: [], id: 900 });
+
+    expect(result).toBe(900);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+    expect((global as any).caches.open).not.toHaveBeenCalled();
   });
 
   test('falls back to network-only flow when Cache API globals are unavailable', async () => {
@@ -191,6 +272,36 @@ describe('web3/httpProvider', () => {
     }
   }, 10000);
 
+  test('maps AbortError rejections after timeout into RequestError timeout shape', async () => {
+    jest.useFakeTimers();
+    try {
+      (global as any).fetch = jest.fn(
+        (_url: string, init: any) =>
+          new Promise((_resolve: any, reject: any) => {
+            if (init?.signal && typeof init.signal.addEventListener === 'function') {
+              init.signal.addEventListener('abort', () => {
+                const abortError = new Error('The operation was aborted');
+                (abortError as any).name = 'AbortError';
+                reject(abortError);
+              });
+            }
+          })
+      );
+
+      const provider = new Provider('https://rpc.example.org');
+      const pending = provider.request({ method: 'eth_chainId', params: [], id: 1002 });
+      const assertion = expect(pending).rejects.toMatchObject({
+        code: -32000,
+        message: 'Request timeout after 5000ms',
+      });
+
+      await jest.advanceTimersByTimeAsync(5001);
+      await assertion;
+    } finally {
+      jest.useRealTimers();
+    }
+  }, 10000);
+
   test('does not recurse indefinitely on 403 when no alternate providers are configured', async () => {
     class ForbiddenResponse {
       ok = false;
@@ -211,5 +322,124 @@ describe('web3/httpProvider', () => {
       message: '403: Forbidden',
     });
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
+
+  test('normalizes non-object JSON responses without throwing TypeError', async () => {
+    class NullBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return 'null';
+      }
+    }
+
+    (global as any).caches = {
+      open: jest.fn(async () => ({
+        match: jest.fn(async () => null),
+        put: jest.fn(async () => undefined),
+      })),
+    };
+    (global as any).fetch = jest.fn(async () => new NullBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1011 })).resolves.toBeUndefined();
+  });
+
+  test('normalizes malformed rpc error envelope to deterministic RequestError shape', async () => {
+    class InvalidErrorEnvelopeResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return JSON.stringify({
+          error: {
+            code: 'oops',
+            message: '   ',
+            data: { provider: 'mock' },
+          },
+        });
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new InvalidErrorEnvelopeResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1012 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'JSON-RPC request failed',
+      data: { provider: 'mock' },
+    });
+  });
+
+  test('rejects malformed network response envelopes before status handling', async () => {
+    (global as any).fetch = jest.fn(async () => ({ ok: true, status: 200, statusText: 'OK' }));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1013 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+    });
+  });
+
+  test('rejects responses with non-finite status values as malformed provider envelopes', async () => {
+    (global as any).fetch = jest.fn(async () => ({ ok: false, status: Number.NaN, statusText: 'Invalid', text: async () => '{}' }));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1017 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+    });
+  });
+
+  test('normalizes response body read failures into deterministic RequestError shape', async () => {
+    class FailingBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        throw new Error('stream read failed');
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new FailingBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1016 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+      data: null,
+    });
+  });
+
+  test('normalizes non-Error fetch rejections into deterministic RequestError shape', async () => {
+    (global as any).fetch = jest.fn(async () => Promise.reject('network-down'));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1014 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Provider request failed',
+      data: null,
+    });
+  });
+
+  test('preserves message from Error-like fetch rejections while normalizing envelope', async () => {
+    (global as any).fetch = jest.fn(async () => Promise.reject(new Error('socket hang up')));
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1015 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'socket hang up',
+      data: null,
+    });
   });
 });

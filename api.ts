@@ -46,10 +46,17 @@ export function getFilter(query: any): Record<string, any> {
     }
 
     if ('in' in cond && Array.isArray(cond.in)) {
+      if (cond.in.length === 0) return undefined;
       return { [normalizedField]: { $in: cond.in } };
     }
 
     return { [normalizedField]: cond };
+  };
+
+  const getLogicalChildren = (value: any): any[] => {
+    if (Array.isArray(value)) return value;
+    if (value && typeof value === 'object') return [value];
+    return [];
   };
 
   const parseWhereNode = (node: any): Record<string, any> | undefined => {
@@ -64,18 +71,14 @@ export function getFilter(query: any): Record<string, any> {
       if (frag) andClauses.push(frag);
     }
 
-    if (Array.isArray(node.OR)) {
-      for (const child of node.OR) {
-        const parsed = parseWhereNode(child);
-        if (parsed) orClauses.push(parsed);
-      }
+    for (const child of getLogicalChildren(node.OR)) {
+      const parsed = parseWhereNode(child);
+      if (parsed) orClauses.push(parsed);
     }
 
-    if (Array.isArray(node.AND)) {
-      for (const child of node.AND) {
-        const parsed = parseWhereNode(child);
-        if (parsed) andClauses.push(parsed);
-      }
+    for (const child of getLogicalChildren(node.AND)) {
+      const parsed = parseWhereNode(child);
+      if (parsed) andClauses.push(parsed);
     }
 
     if (andClauses.length && orClauses.length) {
@@ -93,8 +96,21 @@ export function getFilter(query: any): Record<string, any> {
 
   return parseWhereNode(where) ?? {};
 }
+const DEFAULT_FETCH_TIMEOUT_MS = 10000;
+
 export async function fetch(url: string, query: FetchQuery): Promise<any> {
-  const res = await axios.post(url, query, {
+  if (typeof url !== 'string' || url.trim().length === 0) {
+    throw new Error('Invalid fetch URL');
+  }
+
+  if (!query || typeof query !== 'object' || Array.isArray(query)) {
+    throw new Error('Invalid fetch query payload');
+  }
+
+  const normalizedUrl = url.trim();
+
+  const res = await axios.post(normalizedUrl, query, {
+    timeout: DEFAULT_FETCH_TIMEOUT_MS,
     headers: {
       accept: '*/*',
       'accept-language': 'en-US,en;q=0.9',

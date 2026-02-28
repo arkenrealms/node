@@ -28,3 +28,4 @@
 - Ensure tests cover new/changed protocol behavior and edge cases.
 - Request-ID normalization now also drops reserved prototype-path tokens (`__proto__`, `prototype`, `constructor`) so emitted envelopes do not mirror ambiguous meta-keys.
 - Link-level method derivation now fails fast when a routed path omits the method segment (e.g., `seer`), avoiding malformed `trpc` emits with backend-name-only methods.
+- `socketServer` control flow was repaired after a duplicated `catch` block drift: handler now compiles cleanly, validates callable target presence before invocation, and emits deterministic missing-handler messages (`TRPC handler does not exist for method: ...`) expected by protocol tests.
