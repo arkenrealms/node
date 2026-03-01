@@ -55,9 +55,7 @@ export default class Provider {
     const providers = JSON.parse(PROVIDERS);
 
     const resolvedProviderUrl =
-      typeof url === 'string' && url.trim().length > 0
-        ? url
-        : providers[Math.floor(Math.random() * providers.length)];
+      typeof url === 'string' && url.trim().length > 0 ? url : providers[Math.floor(Math.random() * providers.length)];
 
     const parsedUrl = new URL(resolvedProviderUrl);
     this.url = parsedUrl;
@@ -205,7 +203,10 @@ export default class Provider {
           throw error;
         }
 
-        const message = typeof error?.message === 'string' && error.message.trim().length > 0 ? error.message : 'Provider request failed';
+        const message =
+          typeof error?.message === 'string' && error.message.trim().length > 0
+            ? error.message
+            : 'Provider request failed';
         throw new RequestError(message, INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
       }
 
@@ -265,7 +266,8 @@ export default class Provider {
 
     if ('error' in responseEnvelope) {
       const errorMessage =
-        typeof ((_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message) === 'string' && ((_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.message).trim().length > 0
+        typeof ((_a = responseEnvelope.error) === null || _a === void 0 ? void 0 : _a.message) === 'string' &&
+        ((_b = responseEnvelope.error) === null || _b === void 0 ? void 0 : _b.message).trim().length > 0
           ? responseEnvelope.error.message
           : 'JSON-RPC request failed';
       const errorCode =
@@ -273,7 +275,11 @@ export default class Provider {
           ? responseEnvelope.error.code
           : -32000;
 
-      throw new RequestError(errorMessage, errorCode, (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data);
+      throw new RequestError(
+        errorMessage,
+        errorCode,
+        (_c = responseEnvelope.error) === null || _c === void 0 ? void 0 : _c.data
+      );
     } else {
       return responseEnvelope.result;
     }

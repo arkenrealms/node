@@ -134,8 +134,7 @@ export function createSocketTrpcHandler<TRouter extends AnyRouter = AnyRouter>({
     } catch (error: any) {
       const stack = typeof error?.stack === 'string' ? error.stack : String(error);
       const explicitMissingHandlerMessage = `TRPC handler does not exist for method: ${normalizedMethod}`;
-      const isMissingHandler =
-        stack.includes("reading '_def'") || stack.includes('TRPC handler does not exist');
+      const isMissingHandler = stack.includes("reading '_def'") || stack.includes('TRPC handler does not exist');
       const errorMessage = isMissingHandler
         ? explicitMissingHandlerMessage
         : `Server error in socket TRPC handler: ${stack}`;
