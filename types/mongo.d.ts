@@ -1,5 +1,3 @@
-// arken/packages/node/types/mongo.d.ts
-
 import 'mongoose';
 import type { Query as MongooseQuery, QueryWithHelpers as MongooseQueryWithHelpers } from 'mongoose';
 
@@ -16,7 +14,7 @@ declare module 'mongoose' {
     THelpers = {},
     RawDocType = DocType,
     QueryOp = any,
-    DocTypeFromQuery = DocType
+    DocTypeFromQuery = DocType,
   > {
     asJSON(): Promise<any>;
   }

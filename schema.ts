@@ -300,14 +300,14 @@ export type inferQuery<T extends zod.ZodRawShape> = zod.infer<ReturnType<typeof 
 export type GetInferenceHelpers<
   TType extends 'input' | 'output',
   TRoot extends AnyTRPCClientTypes,
-  TRecord extends TRPCRouterRecord
+  TRecord extends TRPCRouterRecord,
 > = {
   [TKey in keyof TRecord]: TRecord[TKey] extends infer $Value
     ? $Value extends TRPCRouterRecord
       ? GetInferenceHelpers<TType, TRoot, $Value>
       : $Value extends AnyProcedure
-      ? inferProcedureOutput<$Value> // inferTransformedProcedureOutput<TRoot, $Value>
-      : never
+        ? inferProcedureOutput<$Value> // inferTransformedProcedureOutput<TRoot, $Value>
+        : never
     : never;
 };
 

@@ -63,6 +63,7 @@
     "./rpc.ts",
     "./schema.ts",
     "./seer.ts",
+    "./binary.ts",
     "./string.ts",
     "./text.ts",
     "./types.ts",

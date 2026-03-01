@@ -21,6 +21,7 @@ import { log, logError } from './log';
 // export const Web3 = _Web3;
 
 export const getRandomProvider = (HDWalletProvider, secret) => {
+  if (!process.env.PROVIDER_URI) console.error('env PROVIDER.URI not set');
   return new HDWalletProvider(
     secret.mnemonic,
     process.env.PROVIDER_URI //networks[Math.floor(Math.random() * networks.length)]
