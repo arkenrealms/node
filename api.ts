@@ -1,0 +1,140 @@
+// arken/packages/node/api.ts
+
+import Mongoose from 'mongoose';
+import axios from 'axios';
+
+interface FetchQuery {
+  [key: string]: any;
+}
+// Safely escape user text for a regex
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+export function getFilter(query: any): Record<string, any> {
+  const where = query?.where;
+  if (!where || typeof where !== 'object' || Array.isArray(where)) return {};
+
+  // Helper to turn a single field condition into a Mongo filter fragment
+  const buildField = (field: string, cond: any) => {
+    if (cond == null) return undefined;
+
+    const normalizedField = field === 'id' || field === '_id' ? '_id' : field;
+
+    if (typeof cond !== 'object') {
+      return { [normalizedField]: cond };
+    }
+
+    const isPlainObject =
+      Object.prototype.toString.call(cond) === '[object Object]' &&
+      (Object.getPrototypeOf(cond) === Object.prototype || Object.getPrototypeOf(cond) === null);
+
+    if (!isPlainObject) {
+      return { [normalizedField]: cond };
+    }
+
+    if ('equals' in cond) {
+      if (cond.equals === undefined) return undefined;
+      return { [normalizedField]: cond.equals };
+    }
+
+    if ('contains' in cond) {
+      const term = cond.contains ?? '';
+      if (typeof term === 'string' && term.length === 0) return undefined;
+      return {
+        [normalizedField]: { $regex: escapeRegExp(String(term)), $options: 'i' },
+      };
+    }
+
+    if ('in' in cond && Array.isArray(cond.in)) {
+      if (cond.in.length === 0) return undefined;
+      return { [normalizedField]: { $in: cond.in } };
+    }
+
+    return { [normalizedField]: cond };
+  };
+
+  const getLogicalChildren = (value: any): any[] => {
+    if (Array.isArray(value)) return value;
+    if (value && typeof value === 'object') return [value];
+    return [];
+  };
+
+  const parseWhereNode = (node: any): Record<string, any> | undefined => {
+    if (!node || typeof node !== 'object') return undefined;
+
+    const andClauses: any[] = [];
+    const orClauses: any[] = [];
+
+    for (const key of Object.keys(node)) {
+      if (key === 'OR' || key === 'AND') continue;
+      const frag = buildField(key, node[key]);
+      if (frag) andClauses.push(frag);
+    }
+
+    for (const child of getLogicalChildren(node.OR)) {
+      const parsed = parseWhereNode(child);
+      if (parsed) orClauses.push(parsed);
+    }
+
+    for (const child of getLogicalChildren(node.AND)) {
+      const parsed = parseWhereNode(child);
+      if (parsed) andClauses.push(parsed);
+    }
+
+    if (andClauses.length && orClauses.length) {
+      return { $and: [...andClauses, { $or: orClauses }] };
+    }
+    if (andClauses.length) {
+      return andClauses.length === 1 ? andClauses[0] : { $and: andClauses };
+    }
+    if (orClauses.length) {
+      return { $or: orClauses };
+    }
+
+    return undefined;
+  };
+
+  return parseWhereNode(where) ?? {};
+}
+const DEFAULT_FETCH_TIMEOUT_MS = 10000;
+
+export async function fetch(url: string, query: FetchQuery): Promise<any> {
+  if (typeof url !== 'string' || url.trim().length === 0) {
+    throw new Error('Invalid fetch URL');
+  }
+
+  if (!query || typeof query !== 'object' || Array.isArray(query)) {
+    throw new Error('Invalid fetch query payload');
+  }
+
+  const normalizedUrl = url.trim();
+  let parsedUrl: URL;
+
+  try {
+    parsedUrl = new URL(normalizedUrl);
+  } catch {
+    throw new Error('Invalid fetch URL');
+  }
+
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+    throw new Error('Invalid fetch URL');
+  }
+
+  const res = await axios.post(normalizedUrl, query, {
+    timeout: DEFAULT_FETCH_TIMEOUT_MS,
+    headers: {
+      accept: '*/*',
+      'accept-language': 'en-US,en;q=0.9',
+      'content-type': 'application/json',
+      'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"macOS"',
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'same-site',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+    },
+  });
+  return res.data;
+}

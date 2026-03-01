@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/contractInfo.ts
+
 export const MAINNET = 56;
 export const TESTNET = 97;
 
@@ -454,12 +456,24 @@ export default {
     [MAINNET]: '0xEC8e4F50A5EDc7aD5e567E747F2c8056F1A0723b',
     [TESTNET]: '0xD3108E16aA0316DA66970a844f3eD804f75f1353',
   },
+  chest: {
+    [MAINNET]: '0xad5faa6e1a8991C67DB1C3f7212729Cf6ba5118c',
+    [TESTNET]: '0xD3108E16aA0316DA66970a844f3eD804f75f1353',
+  },
   cube: {
     [MAINNET]: '0x623703ABa694eC31Fc53CbC83A840e6cB4F97488',
     [TESTNET]: '',
   },
   dead: {
     [MAINNET]: '0x000000000000000000000000000000000000dead',
+    [TESTNET]: '',
+  },
+  doge: {
+    [MAINNET]: '0xbA2aE424d960c26247Dd6c32edC70B295c744C43',
+    [TESTNET]: '',
+  },
+  pepe: {
+    [MAINNET]: '0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00',
     [TESTNET]: '',
   },
 };

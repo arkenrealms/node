@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/data/index.ts
+
 import areas2 from './generated/areas.json'
 import eras2 from './generated/eras.json'
 import acts2 from './generated/acts.json'

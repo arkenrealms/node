@@ -1,4 +1,6 @@
-import { removeTimezoneOffset } from '../../util/time';
+// arken/packages/node/legacy/data/items.ts
+
+import { removeTimezoneOffset } from '../../time';
 import ItemAttributes from './generated/itemAttributes.json';
 import generatedItems from './generated/items.json';
 import { ItemCategoriesType, ItemsMainCategoriesType } from './items.type';

@@ -1,3 +1,5 @@
+// arken/packages/node/legacy/farmInfo.ts
+
 import contracts from './contractInfo';
 
 export const CURRENT_FARM_SYMBOL = 'OHM';

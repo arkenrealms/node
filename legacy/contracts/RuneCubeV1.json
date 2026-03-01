@@ -535,8 +535,8 @@
           "type": "address"
         },
         {
-          "internalType": "contract IRuneBlacksmith",
-          "name": "runeBlacksmith_",
+          "internalType": "contract IArkenBlacksmith",
+          "name": "arkenBlacksmith_",
           "type": "address"
         },
         {
@@ -754,12 +754,12 @@
     {
       "inputs": [
         {
-          "internalType": "contract IRuneBlacksmith",
-          "name": "_runeBlacksmith",
+          "internalType": "contract IArkenBlacksmith",
+          "name": "_arkenBlacksmith",
           "type": "address"
         }
       ],
-      "name": "setRuneBlacksmith",
+      "name": "setArkenBlacksmith",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
