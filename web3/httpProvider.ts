@@ -54,10 +54,21 @@ export default class Provider {
 
     const providers = JSON.parse(PROVIDERS);
 
+    const normalizedInputUrl = typeof url === 'string' ? url.trim() : '';
     const resolvedProviderUrl =
-      typeof url === 'string' && url.trim().length > 0 ? url : providers[Math.floor(Math.random() * providers.length)];
+      normalizedInputUrl.length > 0 ? normalizedInputUrl : providers[Math.floor(Math.random() * providers.length)];
 
-    const parsedUrl = new URL(resolvedProviderUrl);
+    let parsedUrl: URL;
+    try {
+      parsedUrl = new URL(resolvedProviderUrl);
+    } catch {
+      throw new RequestError('Invalid provider URL', -32602, null);
+    }
+
+    if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+      throw new RequestError('Invalid provider URL', -32602, null);
+    }
+
     this.url = parsedUrl;
     this.host = parsedUrl.host;
     this.path = parsedUrl.pathname;
@@ -97,6 +108,26 @@ export default class Provider {
         )
         .catch((error) => callback(error, null));
     };
+  }
+
+  private async safeCachePut(cache: any, cacheKey: any, body: string, response: any): Promise<void> {
+    if (!cache || !cacheKey || typeof Response === 'undefined') {
+      return;
+    }
+
+    try {
+      const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
+      await cache.put(
+        cacheKey,
+        new Response(body, {
+          status: response?.status,
+          statusText: response?.statusText,
+          headers: cacheHeaders,
+        })
+      );
+    } catch {
+      // Best-effort cache write: request flow should not fail when runtime cache put is unavailable.
+    }
   }
 
   private async fetchWithTimeout(url: string, init: any): Promise<any> {
@@ -216,11 +247,7 @@ export default class Provider {
 
       if (!response.ok) {
         if (response.status === 403) {
-          if (cache && cacheKey && typeof Response !== 'undefined') {
-            const fullBody = JSON.stringify({});
-            const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
-            await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
-          }
+          await this.safeCachePut(cache, cacheKey, JSON.stringify({}), response);
 
           const availableProviders: string[] = JSON.parse(PROVIDERS);
           const currentProvider = this.url.toString();
@@ -251,18 +278,15 @@ export default class Provider {
 
     try {
       responseBody = JSON.parse(responseBody);
-    } catch (e) {
-      responseBody = {};
+    } catch {
+      throw new RequestError('Invalid provider response', INVALID_PROVIDER_RESPONSE_ERROR_CODE, null);
     }
 
     const responseEnvelope =
       responseBody && typeof responseBody === 'object' && !Array.isArray(responseBody) ? responseBody : {};
     const fullBody = JSON.stringify(responseEnvelope);
 
-    if (cache && cacheKey && typeof Response !== 'undefined') {
-      const cacheHeaders = { 'Cache-Control': `public, max-age=${BROWSER_CACHE_TTL}` };
-      await cache.put(cacheKey, new Response(fullBody, { ...response, headers: cacheHeaders }));
-    }
+    await this.safeCachePut(cache, cacheKey, fullBody, response);
 
     if ('error' in responseEnvelope) {
       const errorMessage =

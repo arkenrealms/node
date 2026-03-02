@@ -54,6 +54,19 @@ describe('api/getFilter', () => {
     });
   });
 
+  test('ignores undefined equals fragments to avoid malformed filters', () => {
+    expect(
+      getFilter({
+        where: {
+          OR: [{ id: { equals: undefined } }, { status: { equals: 'active' } }],
+          AND: [{ owner: { equals: undefined } }],
+        },
+      })
+    ).toEqual({
+      $or: [{ status: 'active' }],
+    });
+  });
+
   test('supports nested OR nodes inside AND clauses', () => {
     expect(
       getFilter({
@@ -142,6 +155,14 @@ describe('api/getFilter', () => {
       metadata: { rarity: 'legendary', flags: ['quest'] },
     });
   });
+
+  test('returns empty filter when where is an array', () => {
+    expect(
+      getFilter({
+        where: [{ id: { equals: 'abc123' } }],
+      })
+    ).toEqual({});
+  });
 });
 
 describe('api/fetch', () => {
@@ -151,6 +172,8 @@ describe('api/fetch', () => {
 
   test('rejects invalid URL values before network call', async () => {
     await expect(apiFetch('   ', { where: {} })).rejects.toThrow('Invalid fetch URL');
+    await expect(apiFetch('example.com/graphql', { where: {} })).rejects.toThrow('Invalid fetch URL');
+    await expect(apiFetch('javascript:alert(1)', { where: {} })).rejects.toThrow('Invalid fetch URL');
     expect(mockedAxiosPost).not.toHaveBeenCalled();
   });
 

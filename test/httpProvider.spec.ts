@@ -71,6 +71,40 @@ describe('web3/httpProvider', () => {
     expect(provider.url.toString()).toBe('https://rpc.example.org/custom/path');
   });
 
+  test('trims constructor url input before parsing', () => {
+    const provider = new Provider('   https://rpc.example.org/trimmed/path   ');
+
+    expect(provider.host).toBe('rpc.example.org');
+    expect(provider.path).toBe('/trimmed/path');
+    expect(provider.url.toString()).toBe('https://rpc.example.org/trimmed/path');
+  });
+
+  test('throws deterministic RequestError shape when constructor url is invalid', () => {
+    try {
+      new Provider('http://:invalid-url');
+      throw new Error('expected constructor to throw');
+    } catch (error: any) {
+      expect(error).toMatchObject({
+        code: -32602,
+        message: 'Invalid provider URL',
+        data: null,
+      });
+    }
+  });
+
+  test('rejects constructor urls with non-http protocols', () => {
+    try {
+      new Provider('ws://rpc.example.org/socket');
+      throw new Error('expected constructor to throw');
+    } catch (error: any) {
+      expect(error).toMatchObject({
+        code: -32602,
+        message: 'Invalid provider URL',
+        data: null,
+      });
+    }
+  });
+
   test('rejects non-object JSON-RPC request payloads', async () => {
     const provider = new Provider('https://rpc.example.org');
 
@@ -223,6 +257,21 @@ describe('web3/httpProvider', () => {
     expect((global as any).fetch).toHaveBeenCalledTimes(1);
   });
 
+  test('treats cache write failures as best-effort and still resolves provider response', async () => {
+    (global as any).caches = {
+      open: jest.fn(async () => ({
+        match: jest.fn(async () => null),
+        put: jest.fn(async () => {
+          throw new Error('cache write unavailable');
+        }),
+      })),
+    };
+
+    const provider = new Provider('https://rpc.example.org');
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 9012 })).resolves.toBe(9012);
+    expect((global as any).fetch).toHaveBeenCalledTimes(1);
+  });
+
   test('rejects when fetch exceeds provider timeout window', async () => {
     jest.useFakeTimers();
     try {
@@ -345,6 +394,28 @@ describe('web3/httpProvider', () => {
 
     const provider = new Provider('https://rpc.example.org');
     await expect(provider.request({ method: 'eth_chainId', params: [], id: 1011 })).resolves.toBeUndefined();
+  });
+
+  test('rejects invalid JSON response bodies with deterministic provider error', async () => {
+    class InvalidJsonBodyResponse {
+      ok = true;
+      status = 200;
+      statusText = 'OK';
+
+      async text() {
+        return 'not-json';
+      }
+    }
+
+    (global as any).fetch = jest.fn(async () => new InvalidJsonBodyResponse());
+
+    const provider = new Provider('https://rpc.example.org');
+
+    await expect(provider.request({ method: 'eth_chainId', params: [], id: 1018 })).rejects.toMatchObject({
+      code: -32000,
+      message: 'Invalid provider response',
+      data: null,
+    });
   });
 
   test('normalizes malformed rpc error envelope to deterministic RequestError shape', async () => {

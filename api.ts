@@ -13,7 +13,7 @@ function escapeRegExp(s: string) {
 
 export function getFilter(query: any): Record<string, any> {
   const where = query?.where;
-  if (!where || typeof where !== 'object') return {};
+  if (!where || typeof where !== 'object' || Array.isArray(where)) return {};
 
   // Helper to turn a single field condition into a Mongo filter fragment
   const buildField = (field: string, cond: any) => {
@@ -34,6 +34,7 @@ export function getFilter(query: any): Record<string, any> {
     }
 
     if ('equals' in cond) {
+      if (cond.equals === undefined) return undefined;
       return { [normalizedField]: cond.equals };
     }
 
@@ -108,6 +109,17 @@ export async function fetch(url: string, query: FetchQuery): Promise<any> {
   }
 
   const normalizedUrl = url.trim();
+  let parsedUrl: URL;
+
+  try {
+    parsedUrl = new URL(normalizedUrl);
+  } catch {
+    throw new Error('Invalid fetch URL');
+  }
+
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+    throw new Error('Invalid fetch URL');
+  }
 
   const res = await axios.post(normalizedUrl, query, {
     timeout: DEFAULT_FETCH_TIMEOUT_MS,
