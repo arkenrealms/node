@@ -880,7 +880,7 @@ export class Model<T extends Document> {
     this.schema = model.schema;
 
     this.cacheConfig = {
-      enabled: config.cache?.enabled ?? false,
+      enabled: config.cache?.enabled ?? true,
       ttlMs: config.cache?.ttlMs ?? 60_000, // default 60s
     };
   }
@@ -912,6 +912,103 @@ export class Model<T extends Document> {
   private setCache(key: string, doc: T): void {
     if (!this.cacheConfig.enabled) return;
     this.cache.set(key, { doc, fetchedAt: Date.now() });
+  }
+
+  private deleteCache(key: string): void {
+    if (!this.cacheConfig.enabled) return;
+    this.cache.delete(key);
+  }
+
+  private resolveScopedApplicationId(filter?: any): any {
+    return (
+      filter?.applicationId ??
+      (this.filterOmitModels.includes(this.model.modelName) ? undefined : this.filters.applicationId)
+    );
+  }
+
+  private extractDirectIdFromFilter(filter?: any): Types.ObjectId | string | null {
+    if (!filter || typeof filter !== 'object') return null;
+    const id = (filter as any)._id;
+    if (!id) return null;
+    if (isObjectId(id) || typeof id === 'string') return id as Types.ObjectId | string;
+    return null;
+  }
+
+  private setByPath(target: any, path: string, value: any): void {
+    const parts = path.split('.').filter(Boolean);
+    if (!parts.length) return;
+
+    let cursor = target;
+    for (let i = 0; i < parts.length - 1; i += 1) {
+      const key = parts[i];
+      if (!cursor[key] || typeof cursor[key] !== 'object') {
+        cursor[key] = {};
+      }
+      cursor = cursor[key];
+    }
+
+    cursor[parts[parts.length - 1]] = value;
+  }
+
+  private unsetByPath(target: any, path: string): void {
+    const parts = path.split('.').filter(Boolean);
+    if (!parts.length) return;
+
+    let cursor = target;
+    for (let i = 0; i < parts.length - 1; i += 1) {
+      const key = parts[i];
+      if (!cursor[key] || typeof cursor[key] !== 'object') {
+        return;
+      }
+      cursor = cursor[key];
+    }
+
+    delete cursor[parts[parts.length - 1]];
+  }
+
+  private applyUpdateToCachedDoc(cachedDoc: any, update: UpdateQuery<T> | UpdateWithAggregationPipeline | any): void {
+    if (!cachedDoc || !update || Array.isArray(update)) return;
+
+    const updateObj = update as Record<string, any>;
+    const hasOperator = Object.keys(updateObj).some((k) => k.startsWith('$'));
+
+    if (!hasOperator) {
+      for (const [k, v] of Object.entries(updateObj)) {
+        if (k === '_id') continue;
+        this.setByPath(cachedDoc, k, v);
+      }
+      return;
+    }
+
+    if (updateObj.$set && typeof updateObj.$set === 'object') {
+      for (const [k, v] of Object.entries(updateObj.$set)) {
+        this.setByPath(cachedDoc, k, v);
+      }
+    }
+
+    if (updateObj.$unset && typeof updateObj.$unset === 'object') {
+      for (const k of Object.keys(updateObj.$unset)) {
+        this.unsetByPath(cachedDoc, k);
+      }
+    }
+
+    if (updateObj.$inc && typeof updateObj.$inc === 'object') {
+      for (const [k, v] of Object.entries(updateObj.$inc)) {
+        const parts = k.split('.').filter(Boolean);
+        let cursor = cachedDoc;
+        for (let i = 0; i < parts.length - 1; i += 1) {
+          const part = parts[i];
+          if (!cursor[part] || typeof cursor[part] !== 'object') {
+            cursor[part] = {};
+          }
+          cursor = cursor[part];
+        }
+        const leaf = parts[parts.length - 1];
+        const curr = Number(cursor[leaf] ?? 0);
+        const delta = Number(v ?? 0);
+        cursor[leaf] = curr + delta;
+      }
+    }
   }
 
   private isClusterEnabled(): boolean {
@@ -977,6 +1074,16 @@ export class Model<T extends Document> {
         Object.prototype.hasOwnProperty.call(filter, '_id') &&
         !Object.prototype.hasOwnProperty.call(filter, 'tags');
 
+      const mongooseOptions = this?._mongooseOptions || {};
+      const queryOptions = this?.options || {};
+      const hasPopulate = !!mongooseOptions.populate && Object.keys(mongooseOptions.populate).length > 0;
+      const hasLean = !!mongooseOptions.lean;
+      const hasProjection = !!this?._fields;
+      const hasSort = queryOptions.sort !== undefined;
+      const hasSkip = queryOptions.skip !== undefined;
+      const hasLimit = queryOptions.limit !== undefined;
+      const canUseDirectCachePath = !hasPopulate && !hasLean && !hasProjection && !hasSort && !hasSkip && !hasLimit;
+
       if (hasIdOnly) {
         const appId =
           filter.applicationId ??
@@ -985,7 +1092,7 @@ export class Model<T extends Document> {
         const idCond = filter._id;
 
         // Attempt cache lookup
-        if (wrapper.cacheConfig.enabled && idCond) {
+        if (wrapper.cacheConfig.enabled && canUseDirectCachePath && idCond) {
           if (op === 'findOne') {
             if (!idCond.$in && !idCond.$nin && typeof idCond !== 'object') {
               const key = wrapper.buildCacheKey(idCond, appId);
@@ -1119,10 +1226,11 @@ export class Model<T extends Document> {
 
           const newFilter: any = { _id: best.currentId };
           if (applicationId) newFilter.applicationId = applicationId;
+          if (filter.status !== undefined) newFilter.status = filter.status;
           this._conditions = newFilter;
 
-          // Try cache with resolved _id
-          if (wrapper.cacheConfig.enabled) {
+          // Try cache with resolved _id when query has no chain modifiers
+          if (wrapper.cacheConfig.enabled && canUseDirectCachePath) {
             const key = wrapper.buildCacheKey(best.currentId, applicationId);
             const cached = wrapper.getFromCache(key);
             if (cached) return cached;
@@ -1151,10 +1259,11 @@ export class Model<T extends Document> {
 
           const newFilter: any = { _id: { $in: ids } };
           if (applicationId) newFilter.applicationId = applicationId;
+          if (filter.status !== undefined) newFilter.status = filter.status;
           this._conditions = newFilter;
 
-          // Optional: serve from cache if we have all ids cached
-          if (wrapper.cacheConfig.enabled) {
+          // Optional: serve from cache if we have all ids cached and no query modifiers
+          if (wrapper.cacheConfig.enabled && canUseDirectCachePath) {
             const results: T[] = [];
             let allHit = true;
 
@@ -1249,16 +1358,15 @@ export class Model<T extends Document> {
     return f;
   }
 
-  // Cluster-aware find: returns Query, ontology resolution happens in exec()
-  // Override the find method to include filters
+  // Cluster-aware find: returns Query, ontology/in-memory-first resolution happens in exec()
   find(
     filter: FilterQuery<T> = {},
     projection?: ProjectionType<T> | null,
     options?: mongoose.QueryOptions
   ): Query<T[], T> {
     const finalFilter = this.applyDefaultFilters(filter);
-    console.log('find', finalFilter);
-    return this.model.find(finalFilter, projection, options);
+    const q = this.model.find(finalFilter, projection, options);
+    return this.wrapQueryWithCluster(q as any, false) as any;
   }
 
   // Override the findOne method to include filters
@@ -1268,8 +1376,8 @@ export class Model<T extends Document> {
     options?: QueryOptions
   ): Query<T | null, T> {
     const finalFilter = this.applyDefaultFilters(filter);
-    console.log('findOne', finalFilter);
-    return this.model.findOne(finalFilter, projection, options);
+    const q = this.model.findOne(finalFilter, projection, options);
+    return this.wrapQueryWithCluster(q as any, true) as any;
   }
 
   // Override the findById method so it also ignores Archived by default
@@ -1280,7 +1388,8 @@ export class Model<T extends Document> {
   ): Query<T | null, T> {
     const filter: any = { _id: id };
     const finalFilter = this.applyDefaultFilters(filter);
-    return this.model.findOne(finalFilter, projection, options);
+    const q = this.model.findOne(finalFilter, projection, options);
+    return this.wrapQueryWithCluster(q as any, true) as any;
   }
 
   // Raw find (no cluster) if you ever need it
@@ -1307,7 +1416,35 @@ export class Model<T extends Document> {
       filter.applicationId = this.filters.applicationId;
     }
 
-    return this.model.findOneAndUpdate(filter, update, options);
+    const q = this.model.findOneAndUpdate(filter, update, options);
+    if (!this.cacheConfig.enabled) return q;
+
+    const rawExec = q.exec;
+    const wrapper = this;
+
+    q.exec = async function execWithInMemoryWrite(this: any, ...args: any[]) {
+      const runtimeFilter = this.getFilter ? this.getFilter() : this._conditions || filter;
+      const directId = wrapper.extractDirectIdFromFilter(runtimeFilter);
+      const appId = wrapper.resolveScopedApplicationId(runtimeFilter);
+
+      if (directId) {
+        const key = wrapper.buildCacheKey(directId, appId);
+        const cached = wrapper.getFromCache(key);
+        if (cached) {
+          wrapper.applyUpdateToCachedDoc(cached as any, update as any);
+          wrapper.setCache(key, cached as any);
+        }
+      }
+
+      const res = await rawExec.apply(this, args);
+      if (res && (res as any)._id) {
+        const key = wrapper.buildCacheKey((res as any)._id, appId);
+        wrapper.setCache(key, res as any);
+      }
+      return res;
+    };
+
+    return q;
   }
 
   // Override the findOneAndDelete method to include filters (raw)
@@ -1414,11 +1551,36 @@ export class Model<T extends Document> {
     if (this.filters.applicationId && !this.filterOmitModels.includes(this.model.modelName)) {
       // @ts-ignore
       filter.applicationId = this.filters.applicationId;
-      // @ts-ignore
-      update.applicationId = this.filters.applicationId;
+      if (!Array.isArray(update) && update && typeof update === 'object') {
+        // @ts-ignore
+        update.applicationId = this.filters.applicationId;
+      }
     }
 
-    return this.model.updateOne(filter, update, options);
+    const q = this.model.updateOne(filter, update, options);
+    if (!this.cacheConfig.enabled) return q;
+
+    const rawExec = q.exec;
+    const wrapper = this;
+
+    q.exec = async function execWithInMemoryWrite(this: any, ...args: any[]) {
+      const runtimeFilter = this.getFilter ? this.getFilter() : this._conditions || filter;
+      const directId = wrapper.extractDirectIdFromFilter(runtimeFilter);
+      const appId = wrapper.resolveScopedApplicationId(runtimeFilter);
+
+      if (directId) {
+        const key = wrapper.buildCacheKey(directId, appId);
+        const cached = wrapper.getFromCache(key);
+        if (cached) {
+          wrapper.applyUpdateToCachedDoc(cached as any, update as any);
+          wrapper.setCache(key, cached as any);
+        }
+      }
+
+      return rawExec.apply(this, args);
+    };
+
+    return q;
   }
 
   // Override the updateMany method to include filters (raw)
@@ -1607,6 +1769,29 @@ export class Model<T extends Document> {
     options: any = {}
   ): Promise<any> {
     const ops = (operations || []).map((op) => {
+      const appId = this.resolveScopedApplicationId(op?.updateOne?.filter || op?.deleteOne?.filter || op?.replaceOne?.filter);
+      const applyCachedUpdateOne = (filter: any, updateDoc: any) => {
+        const directId = this.extractDirectIdFromFilter(filter);
+        if (!directId) return;
+        const key = this.buildCacheKey(directId, appId);
+        const cached = this.getFromCache(key);
+        if (!cached) return;
+        this.applyUpdateToCachedDoc(cached as any, updateDoc as any);
+        this.setCache(key, cached as any);
+      };
+
+      const applyCachedDeleteOne = (filter: any) => {
+        const directId = this.extractDirectIdFromFilter(filter);
+        if (!directId) return;
+        const key = this.buildCacheKey(directId, appId);
+        this.deleteCache(key);
+      };
+
+      const applyCachedInsertOne = (document: any) => {
+        if (!document || !document._id) return;
+        const key = this.buildCacheKey(document._id, document.applicationId ?? appId);
+        this.setCache(key, document as any);
+      };
       // updateOne / updateMany
       if (op.updateOne?.filter) {
         op.updateOne.filter = this.applyDefaultFilters(op.updateOne.filter);
@@ -1626,6 +1811,7 @@ export class Model<T extends Document> {
           }
         }
 
+        applyCachedUpdateOne(op.updateOne.filter, op.updateOne.update);
         return op;
       }
 
@@ -1637,6 +1823,7 @@ export class Model<T extends Document> {
       // deleteOne / deleteMany
       if (op.deleteOne?.filter) {
         op.deleteOne.filter = this.applyDefaultFilters(op.deleteOne.filter);
+        applyCachedDeleteOne(op.deleteOne.filter);
         return op;
       }
       if (op.deleteMany?.filter) {
@@ -1656,6 +1843,7 @@ export class Model<T extends Document> {
           }
         }
 
+        applyCachedUpdateOne(op.replaceOne.filter, op.replaceOne.replacement);
         return op;
       }
 
@@ -1666,6 +1854,7 @@ export class Model<T extends Document> {
             op.insertOne.document.applicationId = this.filters.applicationId;
           }
         }
+        applyCachedInsertOne(op.insertOne.document);
         return op;
       }
 

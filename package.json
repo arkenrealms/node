@@ -9,7 +9,8 @@
     "publish": "npm publish --access=public",
     "test": "jest --detectOpenHandles --forceExit --coverage --verbose --config jest.unit.config.js",
     "test:watch": "jest --watch --collect-coverage --config=jest.unit.config.js",
-    "tsc:1": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && NODE_ENV=production NODE_OPTIONS=--max-old-space-size=8192 tsc -p tsconfig.build.json",
+    "tsc:1": "rm -rf ./build && mkdir ./build && mkdir ./build/contracts && mkdir ./build/data && mkdir ./build/data/generated && cp package.json ./build && NODE_ENV=production NODE_OPTIONS=--max-old-space-size=8192 node --max-old-space-size=8192 ../common/temp/node_modules/typescript/lib/tsc.js -p tsconfig.build.json",
+    "dev": "NODE_ENV=development node --max-old-space-size=8192 ../common/temp/node_modules/typescript/lib/tsc.js -p tsconfig.build.json --watch --preserveWatchOutput",
     "zk:regen-updateLeaf": "ts-node scripts/zk-regen-updateLeaf.ts"
   },
   "dependencies": {

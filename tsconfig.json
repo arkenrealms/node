@@ -68,6 +68,7 @@
     "./text.ts",
     "./types.ts",
     "./util.ts",
+    "util/**/*",
     "./web3.ts",
     "./websocket.ts",
     "./zk.ts",
