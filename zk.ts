@@ -16,6 +16,23 @@ type UpdateLeafInput = {
 // 🔧 adjust this to match your circom constant (e.g. 16, 32, etc.)
 const TREE_DEPTH = 16;
 
+const resolveZkAsset = (...segments: string[]): string => {
+  const candidates = [
+    path.resolve(__dirname, '../data/zk', ...segments),
+    path.resolve(__dirname, './data/zk', ...segments),
+    path.resolve(process.cwd(), 'data/zk', ...segments),
+    path.resolve(process.cwd(), 'node/data/zk', ...segments),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  throw new Error(`Unable to resolve zk asset: ${path.join('data/zk', ...segments)}`);
+};
+
 /**
  * Normalize a string into a decimal field element string for circom/snarkjs.
  * - If it looks like hex, interpret it as 0x... and convert to decimal.
@@ -81,14 +98,14 @@ export async function generateProof({
 
   const { proof, publicSignals } = await groth16.fullProve(
     input,
-    path.resolve(__dirname, '../data/zk/updateLeaf_js/updateLeaf.wasm'),
-    path.resolve(__dirname, '../data/zk/updateLeaf.zkey')
+    resolveZkAsset('updateLeaf_js', 'updateLeaf.wasm'),
+    resolveZkAsset('updateLeaf.zkey')
   );
 
   return { proof, publicSignals };
 }
 
 export async function verifyProof(proof: any, publicSignals: string[]) {
-  const vkey = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/zk/verification_key.json'), 'utf8'));
+  const vkey = JSON.parse(fs.readFileSync(resolveZkAsset('verification_key.json'), 'utf8'));
   return groth16.verify(vkey, publicSignals, proof);
 }

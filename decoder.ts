@@ -1,5 +1,3 @@
-import loki from 'lokijs';
-import IncrementalIndexedDBAdapter from 'lokijs/src/incremental-indexeddb-adapter';
 import {
   Games,
   ItemAttributesById,
@@ -14,83 +12,11 @@ import { average, randInt } from './math';
 
 const useLocalStorage = false;
 const useIndexedDb = false;
-const useLoki = true;
 
 let tokenCache = {};
 
-// Detect test / Jest
-const isTestEnv = process.env.NODE_ENV === 'test' || (typeof process !== 'undefined' && !!process.env.JEST_WORKER_ID);
-
-// Loki options
-const lokiOptions: any = {
-  adapter:
-    typeof window !== 'undefined'
-      ? new IncrementalIndexedDBAdapter()
-      : new (require('lokijs/src/loki-fs-structured-adapter'))(),
-};
-
-// 🔑 Disable autosave (and thus the interval) in tests
-if (!isTestEnv) {
-  lokiOptions.autoload = true;
-  lokiOptions.autoloadCallback = databaseInitialize;
-  lokiOptions.autosave = true;
-  lokiOptions.autosaveInterval = 4000;
-}
-
-const dbCon = new loki('arken.db', lokiOptions);
-
-const db = {
-  config: undefined,
-  items: undefined,
-};
-
-function databaseInitialize() {
-  db.config = dbCon.getCollection('config');
-  db.items = dbCon.getCollection('items');
-  if (dbCon.getCollection('items')) {
-    dbCon.getCollection('items').chain().remove();
-  }
-
-  const cacheBreaker = 1665261167 * 1000;
-  const updatedAt = db.items?.data?.[0]?.meta?.created;
-  if (!updatedAt || updatedAt < cacheBreaker) {
-    if (dbCon.getCollection('items')) {
-      dbCon.getCollection('items').chain().remove();
-    }
-  }
-
-  if (db.config === null) {
-    db.config = dbCon.addCollection('config', {
-      // clone: true,
-      unique: 'key',
-    });
-
-    db.config.insert({
-      key: 'updatedAt',
-      value: cacheBreaker,
-    });
-  }
-
-  db.config.find({
-    key: 'updatedAt',
-  }).value = cacheBreaker;
-
-  if (db.items === null) {
-    // Add a collection to the database
-    db.items = dbCon.addCollection('items', {
-      // clone: true,
-      unique: 'tokenId',
-    });
-  }
-}
-
 export function clearDatabase() {
-  if (dbCon.getCollection('config')) {
-    dbCon.getCollection('config').chain().remove();
-  }
-  if (dbCon.getCollection('items')) {
-    dbCon.getCollection('items').chain().remove();
-  }
+  tokenCache = {};
 }
 
 export function getTokenCache() {
@@ -191,17 +117,6 @@ export function getItemTokenCache(tokenId: string) {
     // console.log(9999, tokenCache[tokenId])
     if (tokenCache[tokenId]) return tokenCache[tokenId];
 
-    if (useLoki) {
-      const result = db.items?.findOne({ tokenId: tokenId });
-
-      if (result) {
-        // console.log('Token found in cache', result)
-        return result;
-      } else {
-        // console.log('Token NOT found in cache', tokenId)
-      }
-    }
-
     if (useLocalStorage && window.localStorage) {
       const tokenCacheText = window.localStorage.getItem(`zzz_tokenCache_${tokenId}`);
 
@@ -229,29 +144,6 @@ export function getItemTokenCache(tokenId: string) {
 export function setItemTokenCache(item: any) {
   try {
     tokenCache[item.tokenId] = item;
-
-    if (useLoki) {
-      // Find and update an existing document
-      const result = db.items?.findOne({ tokenId: item.tokenId });
-
-      if (result) {
-        for (const key of Object.keys(item)) {
-          result[key] = item[key];
-        }
-
-        // console.log('Updating item', item)
-        db.items?.update(result);
-      } else {
-        try {
-          // console.log('Inserting item', item)
-          db.items?.insert(item);
-        } catch (e) {
-          db.items?.update(item);
-        }
-      }
-
-      // db.saveDatabase()
-    }
 
     if (useLocalStorage && window.localStorage) {
       const ttl = 3 * 24 * 60 * 60 * 1000;

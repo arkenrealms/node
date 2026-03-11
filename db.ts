@@ -4,12 +4,10 @@
 // Runtime behavior is preserved; types are intentionally loosened at Mongoose/Query boundaries.
 
 import { ReplaySubject } from 'rxjs';
-import Loki from 'lokijs';
 // import * as jetpack from 'fs-jetpack';
 import mongoose, { ConnectOptions, Schema, Document, Types, Connection } from 'mongoose';
 import { Model } from './mongo';
 import safeStringify from 'fast-safe-stringify';
-import fsPath from 'path';
 
 import { v4 as uuidv4 } from 'uuid';
 import _ from 'lodash';
@@ -101,8 +99,34 @@ const createNestedProxy = <T extends Record<string, any>>(obj: T): T =>
     },
   });
 
+type MemoryCollectionRecord = Record<string, any>;
+
+type MemoryCollection = {
+  data: MemoryCollectionRecord[];
+  ensureAllIndexes: (_force?: boolean) => void;
+  ensureId: () => void;
+  insert: (item: MemoryCollectionRecord) => MemoryCollectionRecord;
+  length: number;
+};
+
+function createMemoryCollection(): MemoryCollection {
+  const data: MemoryCollectionRecord[] = [];
+
+  return {
+    data,
+    ensureAllIndexes() {},
+    ensureId() {},
+    insert(item: MemoryCollectionRecord) {
+      data.push(item);
+      return item;
+    },
+    get length() {
+      return data.length;
+    },
+  };
+}
+
 class Database {
-  public loki: Loki | null = null;
   public mongoose!: Connection;
 
   public collections: Record<string, any>[] = [];
@@ -125,14 +149,7 @@ class Database {
   schema: Record<string, Schema> = {};
 
   async initLoki() {
-    this.loki = new Loki(null as any, {
-      autoload: false,
-      autosave: false,
-    });
-
     this.restoreData();
-
-    setInterval(this.saveData.bind(this), 30 * 1000);
   }
 
   async initMongoose() {
@@ -179,7 +196,7 @@ class Database {
     const colGroup = (this.collections as any)[name];
 
     if (!colGroup[key]) {
-      colGroup[key] = this.loki!.addCollection(`${name}.${key}`);
+      colGroup[key] = createMemoryCollection();
     }
 
     if (key === 'config') {

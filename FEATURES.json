@@ -1,0 +1,582 @@
+{
+  "_meta": {
+    "version": 3,
+    "lastRefreshed": "2026-03-11",
+    "purpose": "Authoritative feature discovery index for node repo dev/cron work. Check here before claiming a feature exists.",
+    "primaryIdentity": "stable feature id",
+    "requiredPerUpdate": [
+      "status",
+      "description",
+      "verificationSignals",
+      "files",
+      "githubIssues"
+    ],
+    "allowedStatuses": [
+      "implemented",
+      "documented",
+      "in_progress",
+      "planned",
+      "deprecated"
+    ],
+    "allowedFeatureLinkTypes": [
+      "depends_on",
+      "supports",
+      "related_to",
+      "subfeature_of",
+      "validates",
+      "audits",
+      "documents",
+      "runbook_for"
+    ],
+    "featureLinkDirectionPolicy": "forward_only"
+  },
+  "_matching": {
+    "matchFields": [
+      "canonicalName",
+      "aliases",
+      "description",
+      "verificationSignals",
+      "files",
+      "githubIssues",
+      "featureLinks.ref"
+    ],
+    "matchOrder": [
+      "id",
+      "canonicalName",
+      "aliases",
+      "lexical_similarity",
+      "embedding_candidates_plus_evidence"
+    ],
+    "embeddingPolicy": {
+      "purpose": "candidate retrieval only",
+      "neverUseEmbeddingAsIdentity": true,
+      "autoMatchRequires": [
+        "strong top candidate similarity",
+        "at least one evidence overlap in files or githubIssues",
+        "no obvious scope contradiction"
+      ]
+    }
+  },
+  "features": {
+    "arken/node/feature#1": {
+      "canonicalName": "recursive entity and query schema contracts",
+      "aliases": [
+        "prisma-style query schema",
+        "zod query envelope"
+      ],
+      "category": "schema",
+      "status": "implemented",
+      "description": "Defines shared zod contracts for ObjectId-bearing entities, common status fields, recursive Prisma-style where clauses, and standardized status/data query envelopes.",
+      "featureLinks": [
+        {
+          "type": "supports",
+          "ref": "arken/node/feature#2"
+        },
+        {
+          "type": "supports",
+          "ref": "arken/node/feature#7"
+        }
+      ],
+      "verificationSignals": [
+        "ObjectId schema accepts valid 24-character ObjectId strings and Mongoose Types.ObjectId instances",
+        "createPrismaWhereSchema converts raw field shorthand into equals-style operator objects",
+        "recursive AND/OR/NOT where clauses are generated up to the configured depth",
+        "getQueryInput only enables where support for object schemas and partials object data by default",
+        "getQueryOutput emits a shared { status, data, error } result envelope"
+      ],
+      "files": [
+        "schema.ts",
+        "README.md"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#2": {
+      "canonicalName": "mongo filter translation and validated HTTP fetch helper",
+      "aliases": [
+        "getFilter adapter",
+        "validated axios fetch"
+      ],
+      "category": "api",
+      "status": "implemented",
+      "description": "Translates Prisma-like where input into Mongo filter fragments and wraps outbound POST fetches with URL/query validation, normalized URL trimming, and deterministic timeouts.",
+      "featureLinks": [
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#1"
+        }
+      ],
+      "verificationSignals": [
+        "id and _id conditions normalize to _id across equals, contains, and in operators",
+        "scalar shorthand values work at both root and nested logical nodes",
+        "empty contains, empty in, and equals=undefined fragments are dropped as no-op filters",
+        "nested AND/OR composition is preserved in the generated Mongo filter",
+        "fetch rejects blank, malformed, and non-http(s) URLs before network dispatch",
+        "fetch rejects non-object query payloads and applies a deterministic 10000ms axios timeout"
+      ],
+      "files": [
+        "api.ts",
+        "test/api.spec.ts",
+        "test/README.md"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#3": {
+      "canonicalName": "typed RPC serialization and compatibility util surface",
+      "aliases": [
+        "serialize/deserialize helpers",
+        "@arken/node/util compatibility exports"
+      ],
+      "category": "serialization",
+      "status": "implemented",
+      "description": "Provides cross-runtime serialize/deserialize helpers for ObjectId-like values and other special JS types, safe binary payload decoding, and explicit util subpath bridges that avoid circular package-root re-exports.",
+      "featureLinks": [
+        {
+          "type": "supports",
+          "ref": "arken/node/feature#4"
+        },
+        {
+          "type": "supports",
+          "ref": "arken/node/feature#5"
+        }
+      ],
+      "verificationSignals": [
+        "serialize tags ObjectId, BigInt, Date, RegExp, ArrayBuffer, Uint8Array, Set, and Map values with _type metadata",
+        "deserialize rehydrates supported special values and decodes byteLength-backed payloads into JSON",
+        "decodePayload returns undefined on malformed binary strings and logs only a truncated payload preview",
+        "@arken/node/util exposes getFilter, serialize, and deserialize through dedicated bridge files instead of a circular root re-export"
+      ],
+      "files": [
+        "rpc.ts",
+        "binary.ts",
+        "util.ts",
+        "util/api.ts",
+        "util/rpc.ts",
+        "util/README.md",
+        "util/ANALYSIS.md",
+        "test/binary.spec.ts",
+        "test/util.spec.ts"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#4": {
+      "canonicalName": "socket tRPC client link, proxy, and server-push handling",
+      "aliases": [
+        "socketLink transport",
+        "socket proxy client"
+      ],
+      "category": "transport",
+      "status": "implemented",
+      "description": "Routes tRPC operations to named Socket.IO backends, allocates collision-resistant request IDs, registers callbacks before emit for same-tick responses, enforces request timeouts, and supports server-push handling with malformed-payload resilience.",
+      "featureLinks": [
+        {
+          "type": "depends_on",
+          "ref": "arken/node/feature#3"
+        },
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#5"
+        }
+      ],
+      "verificationSignals": [
+        "unknown router prefixes and missing backend clients fail fast with TRPCClientError",
+        "backend-only paths without a method segment are rejected before any socket emit",
+        "request IDs are allocated with collision checks against active ioCallbacks",
+        "request timeout errors include reqId metadata and clean up callback state",
+        "attachTrpcResponseHandler can prefer onAny, ignores malformed payloads, and only resolves own-property callback IDs",
+        "server-push payloads tolerate deserialize failures without crashing the handler"
+      ],
+      "files": [
+        "trpc/socketLink.ts",
+        "trpc/README.md",
+        "trpc/ANALYSIS.md",
+        "test/socketLink.spec.ts",
+        "test/README.md"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#5": {
+      "canonicalName": "socket tRPC server dispatch hardening",
+      "aliases": [
+        "socketServer transport",
+        "socket tRPC handler"
+      ],
+      "category": "transport",
+      "status": "implemented",
+      "description": "Executes socket-delivered tRPC calls against nested router methods, normalizes request IDs and method strings, emits deterministic status envelopes, and blocks prototype or inherited-path traversal.",
+      "featureLinks": [
+        {
+          "type": "depends_on",
+          "ref": "arken/node/feature#3"
+        },
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#4"
+        }
+      ],
+      "verificationSignals": [
+        "malformed payloads emit a status-0 trpcResponse with a deterministic malformed-payload error",
+        "non-string or blank methods emit an explicit missing-or-invalid method error",
+        "whitespace-trimmed valid methods dispatch successfully",
+        "__proto__, prototype, constructor, empty-segment, and inherited built-in prototype method paths are rejected as missing handlers",
+        "response IDs are trimmed when valid and dropped when blank, non-string, or reserved",
+        "attachSocketTrpcListener safely no-ops when the socket does not expose on/off hooks"
+      ],
+      "files": [
+        "trpc/socketServer.ts",
+        "trpc/README.md",
+        "trpc/ANALYSIS.md",
+        "test/socketServer.spec.ts",
+        "test/README.md"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#6": {
+      "canonicalName": "hardened web3 JSON-RPC HTTP provider",
+      "aliases": [
+        "httpProvider",
+        "legacy web3 provider"
+      ],
+      "category": "web3",
+      "status": "implemented",
+      "description": "Implements a fetch-based JSON-RPC provider with constructor URL validation, caller-request immutability, runtime cache guards, timeout plus abort behavior, bounded 403 failover, and deterministic RequestError normalization.",
+      "featureLinks": [
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#13"
+        }
+      ],
+      "verificationSignals": [
+        "constructor trims URLs and rejects malformed or non-http(s) endpoints with -32602 Invalid provider URL errors",
+        "request rejects non-object payloads and missing or blank methods with -32600 invalid-request errors",
+        "request-default injection preserves caller-owned request objects instead of mutating them",
+        "hung fetches are aborted when AbortController is available and normalize back to timeout-shaped RequestError metadata",
+        "malformed cache hits, malformed response envelopes, response text read failures, and fetch rejections normalize into deterministic provider errors",
+        "403 responses fail closed when no alternate provider exists instead of recursing indefinitely"
+      ],
+      "files": [
+        "web3/httpProvider.ts",
+        "web3/README.md",
+        "web3/ANALYSIS.md",
+        "test/httpProvider.spec.ts",
+        "test/README.md"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#7": {
+      "canonicalName": "database bootstrap and normalized model wrapper",
+      "aliases": [
+        "mongoose model wrapper",
+        "asJSON id normalization"
+      ],
+      "category": "persistence",
+      "status": "implemented",
+      "description": "Provides Mongo bootstrap helpers, in-memory collection scaffolding, schema/model factories, _id-to-id JSON normalization, asJSON query helpers, and application-scoped direct-id caching for model reads and updates.",
+      "featureLinks": [
+        {
+          "type": "depends_on",
+          "ref": "arken/node/feature#1"
+        },
+        {
+          "type": "supports",
+          "ref": "arken/node/feature#8"
+        },
+        {
+          "type": "supports",
+          "ref": "arken/node/feature#9"
+        }
+      ],
+      "verificationSignals": [
+        "initMongoose connects using MONGO_ENDPOINT and closes the connection on SIGINT",
+        "addIdTransformHelpers applies toJSON, toObject, and query.asJSON normalization that converts root and nested ObjectIds into string ids",
+        "applyJsonToDoc rehydrates string ids back into ObjectIds for schema-defined fields",
+        "direct _id findOne and find queries can use the TTL cache when populate, lean, projection, sort, skip, and limit modifiers are absent",
+        "updateOne, findOneAndUpdate, and bulkWrite paths update or clear cached documents when a direct id is known"
+      ],
+      "files": [
+        "db.ts",
+        "mongo.ts",
+        "types/mongo.d.ts",
+        "types/README.md",
+        "types/ANALYSIS.md"
+      ],
+      "env": [
+        "MONGO_ENDPOINT"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#8": {
+      "canonicalName": "ontology cluster resolution for model lookups",
+      "aliases": [
+        "Cluster model resolution",
+        "pk/tag cluster lookup"
+      ],
+      "category": "persistence",
+      "status": "implemented",
+      "description": "Maintains per-entity Cluster records keyed by kind, application, primary key, aliases, and weighted tags so query wrappers can resolve documents by pk fields or tag similarity instead of only raw _id filters.",
+      "featureLinks": [
+        {
+          "type": "depends_on",
+          "ref": "arken/node/feature#7"
+        }
+      ],
+      "verificationSignals": [
+        "upsertClusterForEntity merges keys, weighted tags, pk entries, and currentRevision/currentId into the Cluster record",
+        "resolveClustersForFilter builds pk elemMatch conditions and weighted tag scores, then sorts by score or updatedDate",
+        "low-confidence tag matches warn and fall back to raw queries instead of forcing an uncertain cluster choice",
+        "close-score tag matches emit ambiguity warnings with candidate cluster ids",
+        "raw-query fallbacks backfill Cluster records for future lookups"
+      ],
+      "files": [
+        "mongo.ts"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#9": {
+      "canonicalName": "pluggable zk proof gate for model writes",
+      "aliases": [
+        "createWithProof/updateWithProof",
+        "model zk verifier hook"
+      ],
+      "category": "zk",
+      "status": "implemented",
+      "description": "Lets callers register a global zk verifier and route create/update model operations through createWithProof and updateOneWithProof, passing write context into the verifier before persistence.",
+      "featureLinks": [
+        {
+          "type": "depends_on",
+          "ref": "arken/node/feature#7"
+        },
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#10"
+        }
+      ],
+      "verificationSignals": [
+        "setZkVerifier installs a process-wide verifier callback",
+        "createWithProof forwards kind, operation=create, and the pending document payload into the verifier context",
+        "updateOneWithProof forwards kind, operation=update, filter, and update into the verifier context",
+        "when no verifier is registered, proof-gated helpers fall back to normal write behavior instead of hard failing"
+      ],
+      "files": [
+        "mongo.ts"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#10": {
+      "canonicalName": "updateLeaf zk proof asset pipeline",
+      "aliases": [
+        "updateLeaf Groth16 proof generation",
+        "zk asset resolver"
+      ],
+      "category": "zk",
+      "status": "implemented",
+      "description": "Generates and verifies Groth16 proofs for the UpdateLeaf(16) circuit, normalizes field inputs, resolves proving assets across repo/build/runtime paths, and ships a regeneration script plus committed circuit artifacts.",
+      "verificationSignals": [
+        "generateProof rejects sibling arrays deeper than the configured tree depth and pads shorter paths to depth 16",
+        "hex and decimal leaf/root values are normalized into decimal field strings before snarkjs fullProve",
+        "asset resolution checks repo-local and process.cwd-relative data/zk paths before failing",
+        "verifyProof loads verification_key.json and validates Groth16 public signals",
+        "zk-regen-updateLeaf rebuilds the circom, wasm, zkey, and verification-key outputs for data/zk/circuits/updateLeaf.circom"
+      ],
+      "files": [
+        "zk.ts",
+        "scripts/zk-regen-updateLeaf.ts",
+        "scripts/README.md",
+        "scripts/ANALYSIS.md",
+        "data/zk/circuits/updateLeaf.circom",
+        "data/zk/updateLeaf.zkey",
+        "data/zk/verification_key.json",
+        "data/zk/updateLeaf_js/updateLeaf.wasm",
+        "README.md"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#11": {
+      "canonicalName": "sparse round-state transition proof chains and branch witnesses",
+      "aliases": [
+        "round state proof chain",
+        "branch witness import"
+      ],
+      "category": "zk",
+      "status": "implemented",
+      "lastUpdated": "2026-03-11",
+      "description": "Builds deterministic Poseidon/keccak sparse-tree proofs for entity state transitions, including single-step proofs, multi-entity chained root transitions, branch witness generation, import-witness verification, and anchored-branch continuation rules.",
+      "featureLinks": [
+        {
+          "type": "depends_on",
+          "ref": "arken/node/feature#10"
+        }
+      ],
+      "verificationSignals": [
+        "proveSingleEntityRoundTransition returns null when before and after state payloads serialize identically",
+        "proveRoundStateTransitions chains newRoot to oldRoot across multiple proofs and returns baseStateRoot, postStateRoot, and nextBranch metadata",
+        "untracked anchored-branch inserts require either an empty pre-state or an explicit branch witness",
+        "createRoundStateImportWitness plus verifyRoundStateImportWitness prove that an imported entity leaf matches the claimed branch root",
+        "generated proofs in test/roundStateProof.spec.ts verify successfully through verifyProof(...)"
+      ],
+      "files": [
+        "roundStateProof.ts",
+        "test/roundStateProof.spec.ts",
+        "zk.ts"
+      ],
+      "githubIssues": [],
+      "notes": [
+        "This feature is present in the current worktree and is not re-exported from index.ts yet."
+      ]
+    },
+    "arken/node/feature#12": {
+      "canonicalName": "time helpers and serial task queue",
+      "aliases": [
+        "createTaskQueue",
+        "time utility layer"
+      ],
+      "category": "time",
+      "status": "implemented",
+      "description": "Provides shared UTC/local time utilities, debouncing, duration formatting, timestamp conversion, and a serial async task queue that preserves enqueue order, survives task failures, and restarts on tail-handoff races.",
+      "verificationSignals": [
+        "queued tasks execute in FIFO order",
+        "the queue continues processing after a task throws",
+        "a task enqueued during the tail handoff window is still processed without being stranded",
+        "the exported surface includes sleep, timestamp, convert, removeTimezoneOffset, debounce, and timestampToTime"
+      ],
+      "files": [
+        "time/index.ts",
+        "time/README.md",
+        "time/ANALYSIS.md",
+        "test/createTaskQueue.spec.ts"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#13": {
+      "canonicalName": "web3 signing, contract, and block-iteration helpers",
+      "aliases": [
+        "web3 helper surface",
+        "signature-backed request helpers"
+      ],
+      "category": "web3",
+      "status": "implemented",
+      "description": "Exposes request-signing and verification helpers, provider selection, block-range iteration, address and contract utilities, AES encrypt/decrypt helpers, and bytes32 conversion functions for higher-level web3 flows.",
+      "featureLinks": [
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#6"
+        },
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#14"
+        }
+      ],
+      "verificationSignals": [
+        "isValidRequest recovers the signer and compares it to the claimed address",
+        "getSignedRequest returns address, hash, and data using web3 eth accounts sign",
+        "iterateBlocks paginates log scans in 5000-block windows and can persist progress through updateConfig",
+        "getContract rejects zero or invalid addresses before constructing an ethers Contract",
+        "toBytes32 rejects strings longer than 32 bytes"
+      ],
+      "files": [
+        "web3.ts",
+        "README.md"
+      ],
+      "env": [
+        "PROVIDER_URI",
+        "REACT_APP_CHAIN_ID"
+      ],
+      "githubIssues": []
+    },
+    "arken/node/feature#14": {
+      "canonicalName": "legacy Arken data, contract, and item decode compatibility",
+      "aliases": [
+        "legacy compatibility surface",
+        "item token decoder"
+      ],
+      "category": "legacy",
+      "status": "implemented",
+      "description": "Preserves historical Arken contract metadata, farm and gameplay catalogs, and token decoding helpers so newer services can still read legacy runtime identifiers and content bundles.",
+      "featureLinks": [
+        {
+          "type": "related_to",
+          "ref": "arken/node/feature#13"
+        }
+      ],
+      "verificationSignals": [
+        "legacy/README.md documents the folder as the backward-compatibility bridge for historical runtime behavior",
+        "decoder.ts reads generated item catalogs and exposes token-cache helpers plus decodeItem and normalizeItem paths",
+        "legacy/contracts stores archived contract artifacts for compatibility lookups",
+        "legacy/data/generated bundles historical gameplay and economy catalogs"
+      ],
+      "files": [
+        "legacy/README.md",
+        "legacy/contractInfo.ts",
+        "legacy/farmInfo.ts",
+        "legacy/data/generated/README.md",
+        "decoder.ts",
+        "decoder.test.ts",
+        "legacy/contracts/ArcaneCharacters.json"
+      ],
+      "env": [
+        "REACT_APP_PUBLIC_URL"
+      ],
+      "githubIssues": [],
+      "notes": [
+        "decoder.test.ts currently has only placeholder active coverage, so decoder behavior is supported by code and legacy data assets more than by focused tests."
+      ]
+    },
+    "arken/node/feature#15": {
+      "canonicalName": "puppeteer browser bootstrap and page orchestration helpers",
+      "aliases": [
+        "browser automation helper",
+        "newPage/findPage utilities"
+      ],
+      "category": "browser",
+      "status": "implemented",
+      "lastUpdated": "2026-03-11",
+      "description": "Provides a shared Puppeteer helper surface for headless browser launch, page bootstrap, bounded navigation settling, auto-scroll, and target-tab discovery; this surface is actively consumed by multiple cerebro-hub agents.",
+      "verificationSignals": [
+        "open launches Puppeteer headless with no-sandbox, dev-shm, web-security, notifications, and zygote guards",
+        "newPage sets deterministic headers and viewport, supports optional evaluateOnNewDocument injection, and can force window.stop() after a bounded settle delay",
+        "findPage initializes matching tabs once with a desktop user agent, request interception, and asset blocking for stylesheet, font, and image requests",
+        "browser.ts is imported by live cerebro-hub agents including Enel, Erina, Kirito, Tai, and Yumeko"
+      ],
+      "files": [
+        "browser.ts",
+        "tsconfig.json",
+        "../cerebro/hub/src/agents/enel/index.ts",
+        "../cerebro/hub/src/agents/erina/index.ts",
+        "../cerebro/hub/src/agents/kirito/index.ts",
+        "../cerebro/hub/src/agents/tai/index.ts",
+        "../cerebro/hub/src/agents/yumeko/index.ts"
+      ],
+      "githubIssues": [],
+      "notes": [
+        "This feature is code-backed and actively consumed cross-repo, but it does not currently have focused unit coverage in arken/node."
+      ]
+    },
+    "arken/node/feature#16": {
+      "canonicalName": "hybrid local-plus-OpenAI text analysis helpers",
+      "aliases": [
+        "text NLP helper surface",
+        "language and entity analysis"
+      ],
+      "category": "nlp",
+      "status": "implemented",
+      "lastUpdated": "2026-03-11",
+      "description": "Provides text-language detection, keyword extraction, summarization, entity recognition, message-complexity scoring, and an optional OpenAI-backed analysis fallback that returns tags, summary, and entities when enabled for higher-complexity inputs.",
+      "verificationSignals": [
+        "isEnglish uses langdetect.detectOne and only returns true for the detected en language code",
+        "extractKeywords derives the top TF-IDF terms from the message via natural.WordTokenizer and natural.TfIdf",
+        "recognizeEntities merges unique people, place, and organization entities discovered by compromise",
+        "analyzeText only invokes analyzeTextWithGPT when enableApiFallback is true and the computed complexity score exceeds 7",
+        "analyzeTextWithGPT falls back to local keyword, summary, and entity analysis when the OpenAI request fails",
+        "the helper surface is consumed by cerebro-hub's Binzy agent for message-language and analysis flows"
+      ],
+      "files": [
+        "text.ts",
+        "package.json",
+        "../cerebro/hub/src/agents/binzy/index.ts"
+      ],
+      "githubIssues": [],
+      "notes": [
+        "This feature is code-backed and cross-repo-consumed, but it does not currently have focused unit coverage in arken/node."
+      ]
+    }
+  }
+}

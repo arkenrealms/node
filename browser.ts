@@ -28,13 +28,35 @@ export async function autoScroll(page) {
 export async function newPage(
   browser: any,
   url: string,
-  { log, inject, consoleHandler } = { log: console.log, inject: null, consoleHandler: null }
+  {
+    log,
+    inject,
+    consoleHandler,
+    stopAfterMs,
+  }: {
+    log?: (...args: any[]) => void;
+    inject?: any;
+    consoleHandler?: ((message: any) => void) | null;
+    stopAfterMs?: number | null;
+  } = {
+    log: console.log,
+    inject: null,
+    consoleHandler: null,
+    stopAfterMs: 5000,
+  }
 ) {
-  log(['newPage > 1 > `' + url + '`'], ['p1']);
+  const resolvedLog = log || console.log;
+  const resolvedStopAfterMs =
+    typeof stopAfterMs === 'number' && Number.isFinite(stopAfterMs) && stopAfterMs >= 0
+      ? stopAfterMs
+      : stopAfterMs === null
+        ? null
+        : 5000;
+  resolvedLog(['newPage > 1 > `' + url + '`'], ['p1']);
 
   const pages = await browser.pages();
 
-  log(['newPage > 2 > `' + url + '`'], ['p1']);
+  resolvedLog(['newPage > 2 > `' + url + '`'], ['p1']);
 
   const page = pages[0];
   await page.setExtraHTTPHeaders({
@@ -58,33 +80,35 @@ export async function newPage(
     await page.evaluateOnNewDocument(inject);
   }
 
-  log(['newPage > 3 > `' + url + '`'], ['p1']);
+  resolvedLog(['newPage > 3 > `' + url + '`'], ['p1']);
 
   await page.setViewport({
     width: 1920,
     height: 1080,
   });
 
-  log(['newPage > 4 > `' + url + '`'], ['p1']);
+  resolvedLog(['newPage > 4 > `' + url + '`'], ['p1']);
 
   await page.goto(url, {
     timeout: 60 * 1000,
     waitUntil: 'domcontentloaded', // networkidle0
   } as any);
 
-  log(['newPage > 5 > `' + url + '`'], ['p1']);
+  resolvedLog(['newPage > 5 > `' + url + '`'], ['p1']);
 
   if (consoleHandler) {
     page.on('console', consoleHandler);
   }
 
-  await sleep(5000);
+  if (resolvedStopAfterMs !== null) {
+    await sleep(resolvedStopAfterMs);
 
-  log(['newPage > 6 > `' + url + '`'], ['p1']);
+    resolvedLog(['newPage > 6 > `' + url + '`'], ['p1']);
 
-  await page.evaluate(() => window.stop());
+    await page.evaluate(() => window.stop());
 
-  log(['newPage > 7 > `' + url + '`'], ['p1']);
+    resolvedLog(['newPage > 7 > `' + url + '`'], ['p1']);
+  }
 
   return page;
 }
